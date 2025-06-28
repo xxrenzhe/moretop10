@@ -1,71 +1,58 @@
-import { Card, CardContent } from '@/components/ui/card'
-import { Headphones, Home, Baby, Heart, Car, Dog } from 'lucide-react'
-import { productCategories as categoriesData } from '@/lib/data'
-import Link from "next/link"
+import Link from 'next/link';
+import { productCategories as categoriesData } from '@/lib/data';
 
-const iconMap = {
-  'Headphones': Headphones,
-  'Home': Home,
-  'Baby': Baby,
-  'Heart': Heart,
-  'Car': Car,
-  'Dog': Dog
-}
-
-const productCategories = categoriesData.map(category => ({
-  ...category,
-  icon: iconMap[category.icon as keyof typeof iconMap] || Home
-}))
+const categories = categoriesData.slice(0, 7); // Use first 7 for the layout
 
 export default function AllProducts() {
+  const mainCategory = categories[0];
+  const otherCategories = categories.slice(1);
+
   return (
-    <section className="py-16 bg-white">
+    <section className="py-16 bg-cv-gray">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between mb-12">
-          <h2 className="text-2xl font-bold text-gray-900">All Products</h2>
-          <Link href="/categories" className="text-orange-600 hover:text-orange-700 font-medium">
-            + SEE ALL
+          <h2 className="text-3xl font-bold text-gray-900">All Products</h2>
+          <Link href="/categories" className="text-sm font-bold text-gray-900 hover:text-cv-gold-500 flex items-center">
+            <span className="w-2 h-2 bg-cv-gold-500 rounded-full mr-2"></span>
+            SEE ALL
           </Link>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {productCategories.map((category) => (
-            <Card key={category.id} className="group hover:shadow-lg transition-shadow cursor-pointer overflow-hidden">
-              <Link href={category.href}>
-                <div className="aspect-[4/3] relative overflow-hidden">
-                  <img
-                    src={category.image}
-                    alt={category.title}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                  />
+          {/* Main large category */}
+          {mainCategory && (
+            <a href={mainCategory.href} className="lg:col-span-2 relative group bg-white overflow-hidden rounded-3xl shadow-sm hover:shadow-md transition-all flex flex-col">
+              <div className="relative h-64 overflow-hidden">
+                <img src={mainCategory.image} alt={mainCategory.title} className="absolute inset-0 w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" />
+                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+                 <div className="absolute bottom-0 left-0 p-8">
+                  <h3 className="text-3xl font-bold text-white">{mainCategory.title}</h3>
+                  <p className="text-lg text-white/90">{mainCategory.subtitle}</p>
                 </div>
-                <CardContent className="p-6">
-                  <div className="flex items-center gap-3 mb-3">
-                    <div className="w-8 h-8 bg-orange-100 rounded-lg flex items-center justify-center">
-                      <category.icon className="w-4 h-4 text-orange-600" />
-                    </div>
-                    <h3 className="text-lg font-bold text-gray-900 group-hover:text-orange-600 transition-colors">
-                      {category.title}
-                    </h3>
-                  </div>
-                  <div className="space-y-2">
-                    <div className="flex items-center justify-between">
-                      <p className="text-sm text-gray-600 font-medium">
-                        {category.subtitle}
-                      </p>
-                    </div>
-                    {category.items?.map((item, itemIndex) => (
-                      <p key={`${category.id}-${item}`} className="text-sm text-gray-600">
-                        • {item}
-                      </p>
+              </div>
+            </a>
+          )}
+
+          {/* Other smaller categories */}
+          {otherCategories.map((category) => (
+            <a key={category.id} href={category.href} className="relative group bg-white overflow-hidden rounded-3xl shadow-sm hover:shadow-md transition-all flex flex-col">
+              <div className="relative h-48 overflow-hidden">
+                <img src={category.image} alt={category.title} className="absolute inset-0 w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" />
+              </div>
+              <div className="p-6 flex-1 flex flex-col">
+                <h3 className="text-xl font-bold text-gray-800">{category.title}</h3>
+                {category.items && (
+                  <div className="mt-2 text-gray-600 space-y-1">
+                    {category.items.slice(0, 2).map((item, index) => (
+                      <p key={index} className="text-sm">• {item}</p>
                     ))}
                   </div>
-                </CardContent>
-              </Link>
-            </Card>
+                )}
+              </div>
+            </a>
           ))}
         </div>
       </div>
     </section>
-  )
+  );
 }
