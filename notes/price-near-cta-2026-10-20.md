@@ -1,58 +1,52 @@
-# Comparison cards — price next to Check price
+# Comparison cards — price next to Check price, above the divider
 
 Date: 2026-10-20. Do not wrangler deploy from this PR. Parent ships after 「部署上线」.
 
-## Answer (user screenshot, eufy E25)
+## Answer
 
-Yes. `$629.99` + `Checked 2026-10-17` is a purchase-decision cue and belongs next to the yellow Check price CTA. The purple score (8.8 / stars / Very good) stays top-right.
+Yes. `$629.99` + `Checked 2026-10-17` is a purchase-decision cue and belongs next to the yellow Check price CTA. The purple score stays top-right.
 
-## Before
+Desktop follow-up: price must sit **above** the footer `border-top`, not in `.pc-footer`. Putting it under the divider stacked it on the CTA and stretched the card.
 
-Live `/robot-vacuums/comparison/` (and the overlap-fix fixture) nested price inside the score column:
-
-```
-.pc-right > .pc-score-block
-  .pc-score-row     → 8.8 + stars + Very good
-  .pc-price-decision → $629.99 / Checked YYYY-MM-DD
-.pc-footer
-  Read review (left) | Check price (right)
-```
-
-A CSS-only tuck (`align-self:start` / `justify-content:flex-start` on `.pc-right`) parked price under the score and left a large empty gap above the footer CTA. Price and Check price were not adjacent.
-
-`site/scripts/build.py` is **not in this clone** (static fixture + CSS only). Live bake still emits the old nesting; this PR is the HTML contract bake should copy.
-
-## After
+## DOM (fixture contract; no `build.py` in this clone)
 
 ```
-.pc-right > .pc-score-block > .pc-score-row     → score stays top-right
-.pc-footer
-  .pc-secondary-link                            → Read review, left
-  .pc-footer-buy
-    .pc-price-decision                          → $n / Checked YYYY-MM-DD
-    .product-cta.btn-cta-yellow                 → Check price
+.pc-main
+  .pc-left
+  .pc-mid
+  .pc-right
+    .pc-score-block > .pc-score-row     → 8.8 / stars / Very good (top-right)
+  .pc-price-decision                    → $n + Checked YYYY-MM-DD (above divider)
+  .pc-footer
+    .pc-secondary-link                  → Read review
+    .product-cta.btn-cta-yellow         → Check price
 ```
 
-Desktop: score top-right in `.pc-right`. Footer is full-width; Read review left-aligned to the CTA baseline; price stacked immediately above the 147px yellow button on the right.
+Do **not** nest `.pc-price-decision` in `.pc-score-block` or `.pc-footer`.
 
-Mobile: same footer cluster (price above CTA, right); score still its own row; no overlap with the title.
+## CSS (desktop ≥768, SoT in `pages-comparison.css`)
 
-Unchanged: affiliate hrefs (fixture uses `#`), price strings, Checked day-only `YYYY-MM-DD`, brand yellow CTA, purple score.
+```
+grid-template-areas:
+  "pc-left pc-mid pc-right"
+  "pc-left pc-mid pc-price"
+  "pc-foot pc-foot pc-foot";
+grid-template-rows: minmax(0,1fr) auto auto;
+```
+
+- `.pc-price-decision { grid-area: pc-price; justify-self: end; }` — right-aligned onto the 147px CTA, **above** the line.
+- `.pc-footer { border-top; align-items: center; }` — one short row: Read review | Check price.
+
+Mobile: flex column; price `align-self: flex-end` so it stays on the CTA side; footer still one row.
+
+Unchanged: affiliate hrefs (fixture `#`), price strings, Checked day-only `YYYY-MM-DD`, yellow CTA, purple score.
 
 ## Verify
 
 ```bash
 node tests/pc-card-layout-assert.mjs
-# or: npm run test:pc-card-layout
-```
-
-Local chrome (this clone has no `/robot-vacuums/` Next route; Live comparison is `/robot-vacuums/comparison/`):
-
-```bash
 python3 -m http.server 4173 --directory site
-# open http://127.0.0.1:4173/fixtures/comparison-card.html
-# desktop ~1280px: card #2 eufy E25 — price sits on the CTA, score stays top-right
-# mobile ~375px: same adjacency, no title/score overlap
+# http://127.0.0.1:4173/fixtures/comparison-card.html  (1280 desktop / 375 mobile)
 ```
 
-On Live after bake: `/robot-vacuums/comparison/` card #2 (eufy E25, `$629.99`, `Checked 2026-10-17`).
+Live after bake: `/robot-vacuums/comparison/` card #2 (eufy E25).
