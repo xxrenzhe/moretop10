@@ -1,0 +1,153 @@
+/**
+ * MoreTop10 Design Tokens — Visual System 2026-10-18
+ * Brand: purple arcs mark + Outfit geometric sans.
+ * Accent #773ED0 maps top10 coral #FF4A64 → our purple (intentional).
+ * Not affiliated with Top10.com / Natural Intelligence.
+ *
+ * SoT hierarchy:
+ *   1. affiliate-site-system/instances/moretop10.site.yaml → brand.primary / cta / link / footer_dark / cta_label
+ *   2. This file → full design system (ramps, type, space). Base purple/yellow/blue MUST match YAML.
+ *   3. build.py <style id="brand-from-yaml"> overlays YAML onto --mt-purple / --mt-cta-yellow / --mt-link / --mt-footer-dark at bake.
+ * Live path: site/assets/css/tokens.css. Mirror: brand/tokens.css (cp after edit).
+ */
+:root {
+  --mt-brand-name: "MoreTop10";
+
+  /* ——— Brand purple scale ——— */
+  --mt-purple: #773ED0;
+  --mt-purple-hover: #6529c0;
+  --mt-purple-pressed: #5420a3;
+  --mt-purple-deep: #3d1878;
+  --mt-purple-mid: #9b6fe0;
+  --mt-purple-soft: #f3edfc;
+  --mt-purple-tint: #eee9f7;
+  --mt-purple-glow: rgba(119, 62, 208, 0.14);
+
+  /* ——— Semantic roles (use these in components) ——— */
+  --mt-accent: var(--mt-purple);
+  --mt-accent-hover: var(--mt-purple-hover);
+  --mt-accent-pressed: var(--mt-purple-pressed);
+  --mt-accent-soft: var(--mt-purple-soft);
+  --mt-cta: var(--mt-purple);
+  --mt-cta-hover: var(--mt-purple-hover);
+  --mt-cta-text: #ffffff;
+  --mt-score: var(--mt-purple);          /* editor scores — never ink black */
+  --mt-price-link: var(--mt-link);       /* text Check price → — distinct from score purple */
+  --mt-price-link-hover: var(--mt-link-hover);
+  --mt-ribbon: var(--mt-purple);
+  --mt-focus-ring: rgba(119, 62, 208, 0.45);
+
+  /* ——— Action yellow (Check price buttons / stars) ——— */
+  --mt-cta-yellow: #FFB401;
+  --mt-cta-yellow-hover: #ffc52e;
+  --mt-cta-yellow-text: #000000;
+  --mt-star: #FFB401;
+  --mt-warning: #FFB401;
+
+  /* ——— Status / chrome ——— */
+  --mt-popular: #0E8806;
+  --mt-popular-tab: #106197;
+  --mt-ribbon-addon: #09553D;
+  --mt-success: #0E8806;
+  --mt-danger: #B53547;
+  --mt-link: #106197;
+  --mt-info: #106197;
+  --mt-link-hover: #147DC2;
+
+  /* ——— Ink & surfaces ——— */
+  --mt-ink: #0E0E0E;
+  --mt-ink-body: #1C1C1C;
+  --mt-ink-muted: #4C4C4C;
+  --mt-ink-subtle: #7A7A7A;
+  --mt-surface: #ffffff;
+  --mt-surface-alt: #f9f9f9;
+  --mt-surface-warm: #fafafa;
+  --mt-surface-brand: var(--mt-purple-soft);
+  --mt-border: #e6e6e6;
+  --mt-border-strong: #d5d5d5;
+  --mt-border-brand: rgba(119, 62, 208, 0.28);
+
+  /* ——— Rank ——— */
+  --mt-rank-1: var(--mt-purple);
+  --mt-rank-2: #e8a317;
+  --mt-rank-3: #7A7A7A;
+
+  /* ——— Dark surfaces ——— */
+  --mt-dark: #12141a;
+  --mt-dark-elevated: #1a1d27;
+  --mt-footer-dark: #23004E; /* YAML brand.footer_dark — site footer bg */
+  --mt-brand: var(--mt-purple); /* alias used by some page CSS */
+  --mt-on-dark: #ffffff;
+  --mt-on-dark-muted: #a8aebc;
+  --mt-on-dark-accent: #c4a6f5; /* wordmark Top10 on dark */
+
+  /* ——— Type ——— */
+  --mt-font-sans: "Outfit", Arial, Helvetica, sans-serif;
+  --mt-font-display: var(--mt-font-sans);
+  --mt-text-xs: 0.75rem;
+  --mt-text-sm: 0.875rem;
+  --mt-text-base: 1rem;
+  --mt-text-lg: 1.125rem;
+  --mt-text-xl: 1.25rem;
+  --mt-text-2xl: 1.5rem;
+  --mt-text-3xl: 2rem;
+  --mt-text-4xl: 2.5rem;
+  --mt-text-hero: 4rem;
+  --mt-text-score: 2.25rem;
+  --mt-leading-tight: 1.2;
+  --mt-leading-snug: 1.4;
+  --mt-leading-normal: 1.5;
+  --mt-leading-relaxed: 1.65;
+  --mt-tracking-body: -0.1px;
+  --mt-tracking-score: -0.7px;
+  --mt-weight-regular: 400;
+  --mt-weight-medium: 500;
+  --mt-weight-semibold: 600;
+  --mt-weight-bold: 700;
+  --mt-weight-extrabold: 800;
+
+  /* ——— Hierarchy type scale (decision vs support) ———
+     Floor raised 2026-10-18: support ≥16px readable; quiet ≥14px;
+     decision triad still heavier via weight/score size/color. */
+  --mt-text-card-title: 1.125rem;       /* product name — L1 (18px) */
+  --mt-text-card-title-lg: 1.25rem;     /* desktop product name (20px) */
+  --mt-text-price: 1.125rem;            /* price near score (18px) */
+  --mt-text-price-lg: 1.25rem;          /* desktop price (20px) */
+  --mt-text-score-sm: 1.75rem;
+  --mt-text-score-lg: 2.5rem;
+  --mt-text-support: 1rem;              /* tagline / pros — L3 (16px floor) */
+  --mt-text-quiet: 0.875rem;            /* secondary links — L4 (14px min) */
+  --mt-text-eyebrow: 0.75rem;           /* meta / table thead only (12px) */
+
+  /* ——— Space / radius / shadow ——— */
+  --mt-space-1: 0.25rem;
+  --mt-space-2: 0.5rem;
+  --mt-space-3: 0.75rem;
+  --mt-space-4: 1rem;
+  --mt-space-5: 1.25rem;
+  --mt-space-6: 1.5rem;
+  --mt-space-8: 2rem;
+  --mt-space-10: 2.5rem;
+  --mt-space-12: 3rem;
+  --mt-space-16: 4rem;
+  --mt-radius-sm: 4px;
+  --mt-radius-md: 8px;
+  --mt-radius-lg: 12px;
+  --mt-radius-xl: 16px;
+  --mt-radius-pill: 999px;
+  --mt-shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.06);
+  --mt-shadow-md: 0 4px 8px rgba(0, 0, 0, 0.1);
+  --mt-shadow-lg: 0 8px 16px rgba(0, 0, 0, 0.1);
+  --mt-shadow-card: 0 4px 12px rgba(0, 0, 0, 0.08);
+  --mt-shadow-card-hover: 0 8px 24px var(--mt-purple-glow);
+  --mt-shadow-brand: 0 4px 14px var(--mt-purple-glow);
+
+  --mt-container: 1120px;
+  --mt-container-wide: 1200px;
+  --mt-gutter: 1.25rem;
+  --mt-ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --mt-duration: 180ms;
+  --mt-btn-height: 48px;
+  --mt-btn-height-sm: 36px;
+  --mt-header-h: 56px;
+}

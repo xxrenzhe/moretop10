@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Comparison product-card layout fixture</title>
+  <link rel="stylesheet" href="../assets/css/tokens.css"/>
+  <style id="brand-from-yaml">:root{--mt-purple:#773ED0;--mt-accent:var(--mt-purple);--mt-cta:var(--mt-purple);--mt-score:var(--mt-purple);--mt-ribbon:var(--mt-purple);--mt-brand:var(--mt-purple);--mt-cta-yellow:#FFB401;--mt-star:#FFB401;--mt-link:#106197;--mt-info:#106197;--mt-popular-tab:#106197;--mt-footer-dark:#23004E;}</style>
+  <link rel="stylesheet" href="../assets/css/site.css"/>
+  <link rel="stylesheet" href="../assets/css/pages-comparison.css"/>
+  <style>
+    body{margin:0;background:#f6f6f7;padding:24px 16px 48px;}
+    .fixture-note{font:14px/1.4 system-ui,sans-serif;color:#444;margin:0 0 16px;}
+  </style>
+</head>
+<body class="comparison-page">
+  <p class="fixture-note">CASABREWS Ultra header must not overlap (title / 8.8 / stars / price). Desktop: image | title+pros | score+price, footer full-width.</p>
+  <main class="container cmp-layout">
+    <div class="cmp-main">
+      <div class="product-stack">
+        <div class="product-card-wrap is-popular">
+          <div class="pc-popular-tab">Our Most Popular</div>
+          <article class="product-card" data-position="1">
+            <div class="pc-rank-only"><span class="pc-pos">1</span></div>
+            <div class="pc-main">
+              <div class="pc-left">
+                <img class="pc-logo pc-packshot" alt="CASABREWS Ultra Espresso Machine" width="200" height="180" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='180'%3E%3Crect fill='%23f3edfc' width='200' height='180'/%3E%3Ctext x='100' y='96' text-anchor='middle' font-size='14' fill='%23773ED0'%3Epackshot%3C/text%3E%3C/svg%3E"/>
+              </div>
+              <div class="pc-mid">
+                <div class="pc-name" title="CASABREWS Ultra Espresso Machine, Barista Espresso Maker with Steam Wand">CASABREWS Ultra Espresso Machine, Barista Espresso</div>
+                <div class="pc-reviews-row"><a class="pc-reviews-link" href="#">885 reviews</a></div>
+                <p class="pc-tagline">Ultra earns a higher-feature pick when the household wants an LCD and four brew-temperature steps.</p>
+                <ul class="pc-pros" aria-label="Pros">
+                  <li><span class="pc-check" aria-hidden="true"></span><span>Brew Cafe-Quality Espresso at Home</span></li>
+                  <li><span class="pc-check" aria-hidden="true"></span><span>Adjust the brewing temperature</span></li>
+                  <li><span class="pc-check" aria-hidden="true"></span><span>Featuring a 20-bar Italian pump</span></li>
+                </ul>
+              </div>
+              <div class="pc-right">
+                <div class="pc-score-block">
+                  <div class="pc-score-row">
+                    <div class="avg-score">8.8</div>
+                    <div class="stars-and-label">
+                      <span class="stars" aria-label="4.4 out of 5">★★★★☆</span>
+                      <span class="top-label">Very good</span>
+                    </div>
+                  </div>
+                  <div class="pc-price-decision"><span class="pc-price-value">$209.99</span><span class="pc-price-checked">Checked 2026-10-17</span></div>
+                </div>
+              </div>
+              <div class="pc-footer">
+                <a class="pc-secondary-link" href="#">Read review</a>
+                <a class="btn btn-cta-yellow product-cta" href="#"><span>Check price</span></a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </div>
+  </main>
+</body>
+</html>
