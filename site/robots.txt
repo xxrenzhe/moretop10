@@ -1,0 +1,54 @@
+# MoreTop10 robots.txt
+# Prefer apex https://moretop10.com (www should 301 in Worker).
+# GEO: allow search + answer-engine crawlers (incl. training bots for citations).
+# Keep affiliate hop paths out of the index for ALL groups (named bots do not inherit * Disallow).
+# SSG HTML is crawler-friendly (no JS required).
+#
+# Preview / non-apex hosts are noindex via Worker headers (indexable host: moretop10.com only; www → 301 apex).
+# Do not list non-apex hosts in Sitemap.
+
+# --- Named search / AI bots: Allow content, Disallow hop + audit paths ---
+User-agent: OAI-SearchBot
+User-agent: OAI-AdsBot
+User-agent: GPTBot
+User-agent: ChatGPT-User
+User-agent: Claude-SearchBot
+User-agent: Claude-User
+User-agent: ClaudeBot
+User-agent: anthropic-ai
+User-agent: PerplexityBot
+User-agent: Perplexity-User
+User-agent: Google-Extended
+User-agent: Applebot-Extended
+User-agent: Googlebot
+User-agent: Googlebot-Image
+User-agent: Bingbot
+User-agent: Amazonbot
+Allow: /
+Disallow: /visit
+Disallow: /visit*
+Disallow: /v?
+Disallow: /v?*
+Disallow: /pingback
+Disallow: /pingback*
+Disallow: /audit
+Disallow: /audit*
+
+# Training / answer bots above are ALLOWED on purpose (affiliate comparison wants AI citations).
+# Cloudflare AI Crawl Control can still block bots at the edge even when robots.txt Allows —
+# check CF dashboard → AI Crawl Control after deploy (static robots cannot override CF).
+
+User-agent: *
+Allow: /
+Disallow: /visit
+Disallow: /visit*
+Disallow: /v?
+Disallow: /v?*
+Disallow: /pingback
+Disallow: /pingback*
+Disallow: /audit
+Disallow: /audit*
+
+Content-Signal: search=yes, ai-input=yes, ai-train=no
+
+Sitemap: https://moretop10.com/sitemap.xml
