@@ -6,6 +6,7 @@ Content-Signal, match noindex.
 
 P1: sitewide robots preview, How-to-Cite strips, #geo-{ASIN} on comparison +
 reviews (hubs and articles). Hubs already had cite + pick anchors.
+Light G-ENGAGE: HTML Answer-first class (not JSON-LD-only) on money pages.
 
 Honest rules:
   - Product / Offer / ASIN / price come from Live HTML (comparison cards + hub picks).
@@ -574,9 +575,14 @@ def asin_for_review(
     return m.group(1) if m else None
 
 
+def has_html_class(html_text: str, class_name: str) -> bool:
+    """True when class_name is on an HTML class= attribute (JSON-LD cssSelector does not count)."""
+    return bool(re.search(rf'\bclass="[^"]*\b{re.escape(class_name)}\b', html_text))
+
+
 def mark_answer_first(html_text: str, kind: str) -> str:
     if kind == "landing":
-        if 'class="geo-answer-first"' in html_text:
+        if has_html_class(html_text, "geo-answer-first"):
             return html_text
         html_text = re.sub(
             r'(<article class="landing-article">\s*)<p>',
@@ -585,7 +591,9 @@ def mark_answer_first(html_text: str, kind: str) -> str:
             count=1,
         )
     elif kind == "comparison":
-        if 'class="cmp-answer-first' in html_text and "geo-answer-first" not in html_text:
+        if has_html_class(html_text, "cmp-answer-first") and not has_html_class(
+            html_text, "geo-answer-first"
+        ):
             html_text = html_text.replace(
                 'class="cmp-answer-first',
                 'class="cmp-answer-first geo-answer-first',

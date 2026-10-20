@@ -13,6 +13,8 @@ This repo clone does not ship the full inventory generator. `build.py`:
   8. robot-vacuums-match/: cluster link + noindex; drop from sitemap
   9. P1: sitewide robots max-image-preview; How to Cite + #geo-ASIN on
      comparison cards, reviews hubs, and individual review articles
+ 10. Light G-ENGAGE (sample hub+comparison): Answer-first lead + Check-price
+     with price near CTA. Structural only — not bounce %.
 
 Product cards, ASINs, and affiliate URLs are copied from Live snapshots — never
 invented here. Do not wrangler-deploy from this script.
@@ -390,6 +392,13 @@ def verify(cfg: dict) -> None:
         errors.append("air-fryers comparison cite strip is still inside the product stack")
     if ROBOTS_INDEX not in fry_cmp:
         errors.append("air-fryers comparison missing robots max-image-preview")
+
+    tests_dir = str(ROOT / "tests")
+    if tests_dir not in sys.path:
+        sys.path.insert(0, tests_dir)
+    from g_engage_assert import sample_errors  # noqa: E402
+
+    errors.extend(sample_errors(SITE))
 
     sample_review = SITE / "air-fryers" / "reviews" / "cosori-twinfry-9-qt-double-air" / "index.html"
     if not sample_review.exists():

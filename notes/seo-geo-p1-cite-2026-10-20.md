@@ -47,6 +47,21 @@ P0 已在 **类目 Hub** 写入 cite + `#geo-{ASIN}`（`landing-pick`）。缺�
 
 ---
 
+## G-ENGAGE（轻量 bake 断言，非 bounce %）
+
+结构门槛，不是流量指标。只抽 **air-fryers Hub + comparison** 样本：
+
+1. **Answer-first lead**：Hub 第一段 `.geo-answer-first`；comparison 可见 HTML class `.cmp-answer-first.geo-answer-first`（不能只写在 JSON-LD `cssSelector` 里）。等价：首段有意义散文 / 表。
+2. **主 CTA + 价格靠近 CTA**（沿用现有 layout）：
+   - Hub：首个 `landing-pick-cta-bar` 有 **Check price**；`$` 快照在 Answer-first lead。
+   - Comparison：第一张卡 `.pc-price-decision`（`$n` + Checked `YYYY-MM-DD`）在 `.pc-footer` **之上**，footer = Read review | **Check price**。
+
+`mark_answer_first` 以前用 `"geo-answer-first" not in html`，Speakable JSON-LD 已含 `.geo-answer-first` 时 comparison 不会给 HTML 打 class。现改为 `has_html_class()`。
+
+断言：`python3 tests/g_engage_assert.py`（bake `verify()` 与 `npm run test:seo-geo` 都会跑）。
+
+---
+
 ## 本地验收（已跑）
 
 ```bash
@@ -54,6 +69,7 @@ python3 site/scripts/build.py
 python3 tests/seo_geo_p0_assert.py
 python3 tests/seo_geo_p1_unit.py
 python3 tests/seo_geo_p1_assert.py
+python3 tests/g_engage_assert.py
 node tests/pc-card-layout-assert.mjs
 
 python3 -m http.server 8765 --directory site

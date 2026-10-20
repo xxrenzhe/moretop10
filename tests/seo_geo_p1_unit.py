@@ -11,10 +11,12 @@ sys.path.insert(0, str(ROOT / "site" / "scripts"))
 
 from seo_geo import (  # noqa: E402
     ROBOTS_INDEX,
+    has_html_class,
     inject_cite_strip,
     inject_geo_anchors,
     inject_rev_hub_geo,
     inject_review_geo,
+    mark_answer_first,
     set_robots_meta,
 )
 
@@ -83,6 +85,19 @@ def main() -> None:
     robots = set_robots_meta('<head><meta name="robots" content="index,follow"/></head>', ROBOTS_INDEX)
     if ROBOTS_INDEX not in robots:
         errors.append("robots meta not upgraded to max-image-preview")
+
+    # JSON-LD Speakable cssSelector ".geo-answer-first" must not skip the HTML class.
+    cmp_html = (
+        '<script type="application/ld+json">'
+        '{"speakable":{"cssSelector":[".cmp-answer-first",".geo-answer-first"]}}'
+        "</script>"
+        '<section class="cmp-answer-first prose-block"><p>Quick answer with $129.00.</p></section>'
+    )
+    out = mark_answer_first(cmp_html, "comparison")
+    if not has_html_class(out, "geo-answer-first"):
+        errors.append("comparison mark_answer_first skipped HTML class because JSON-LD mentioned it")
+    if 'class="cmp-answer-first geo-answer-first' not in out:
+        errors.append("comparison Answer-first class not merged onto cmp-answer-first")
 
     if errors:
         raise SystemExit("seo_geo_p1_unit failed:\n- " + "\n- ".join(errors))
