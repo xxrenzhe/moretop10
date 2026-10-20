@@ -124,8 +124,11 @@ def inject_nav_css(page: str) -> str:
 _COMPARE_MOBILE_RE = re.compile(r"<details[^>]*>\s*<summary>Compare</summary>.*?</details>", re.S)
 _REVIEWS_MOBILE_RE = re.compile(r"<details[^>]*>\s*<summary>Reviews</summary>.*?</details>", re.S)
 _EXPLORE_COL_RE = re.compile(
-    r'<div class="footer-col(?: footer-col-cats)?">\s*<h2>(?:Explore|Categories)</h2>\s*<ul>.*?</ul>\s*</div>',
+    r'<div class="footer-col(?: footer-col-cats| footer-col-categories)?">\s*<h2>(?:Explore|Categories)</h2>\s*<ul>.*?</ul>\s*</div>',
     re.S,
+)
+_COMPARE_CTA_RE = re.compile(
+    r'<a class="nav-link nav-cta-soft" href="[^"]*">Compare picks <span aria-hidden="true">→</span></a>',
 )
 
 
@@ -144,6 +147,26 @@ def _replace_nav_item_mega(page: str, trigger: str, new_mega: str) -> str:
     if close_nav < 0:
         return page
     return page[:mega_at] + new_mega + rest[close_nav:]
+
+
+def rewrite_compare_cta(page: str, prefix: str, slug: str | None, kind: str) -> str:
+    """Header/mobile Compare picks CTA. Comparison pages never self-link."""
+    if kind == "home":
+        return page
+    if kind == "comparison" and slug:
+        href = overview_href(prefix, slug)
+        label = "Category overview"
+    elif slug:
+        href = comparison_href(prefix, slug)
+        label = "Compare picks"
+    else:
+        href = comparison_href(prefix, "robot-vacuums")
+        label = "Compare picks"
+    replacement = (
+        f'<a class="nav-link nav-cta-soft" href="{href}">{label} '
+        f'<span aria-hidden="true">→</span></a>'
+    )
+    return _COMPARE_CTA_RE.sub(replacement, page)
 
 
 def rewrite_non_home_nav(page: str, cats: list[dict[str, Any]], prefix: str) -> str:

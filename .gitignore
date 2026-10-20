@@ -57,5 +57,9 @@ logs
 # MoreTop10 bake cache (Live HTML snapshots)
 site/.cache/
 
+# Python bake bytecode
+**/__pycache__/
+*.py[cod]
+
 # Same IDE specific files
 .same/

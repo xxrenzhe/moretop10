@@ -760,3 +760,11 @@ body,.site-main,.product-card,.explore-mini-card,.top3-card{}
 .home-experts::after{content:"Swipe for more experts →";display:block;margin:.15rem 0 0;font-size:12px;color:var(--mt-ink-muted,#5b5270)}
 }
 /* /WAVE1-MOBILE-ACCEPT-2026-10-19 */
+
+/* SEO/GEO P0 2026-10-20 — local bake chrome (no deploy) */
+.geo-answer-first{margin:0 0 1rem}
+.geo-anchor{display:block;height:0;width:0;overflow:hidden}
+.geo-cite-strip{margin:1.5rem 0 0;padding:0.85rem 1rem;background:#f7f5fb;border:1px solid #e8e2f3;border-radius:10px;font-size:0.95rem;line-height:1.5;color:var(--mt-ink-muted,#5b6573)}
+.authors-hub .authors-grid{display:flex;flex-wrap:wrap;gap:1rem;margin:1.25rem 0 2rem}
+.authors-hub .author-hub-card{text-decoration:none}
+.authors-hub .breadcrumb{margin:1rem 0 0.75rem;font-size:0.9rem}
