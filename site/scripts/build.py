@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""MoreTop10 site bake — chrome + SEO/GEO P0 (local only).
+"""MoreTop10 site bake — chrome + SEO/GEO (local only).
 
 This repo clone does not ship the full inventory generator. `build.py`:
 
@@ -11,6 +11,10 @@ This repo clone does not ship the full inventory generator. `build.py`:
   6. /authors/ hub 200 + sitemap entry
   7. llms.txt + /.well-known/llms.txt (Top-pick #geo-ASIN when ASIN is known)
   8. robot-vacuums-match/: cluster link + noindex; drop from sitemap
+  9. P1: sitewide robots max-image-preview; How to Cite + #geo-ASIN on
+     comparison cards, reviews hubs, and individual review articles
+ 10. Light G-ENGAGE (sample hub+comparison): Answer-first lead + Check-price
+     with price near CTA. Structural only — not bounce %.
 
 Product cards, ASINs, and affiliate URLs are copied from Live snapshots — never
 invented here. Do not wrangler-deploy from this script.
@@ -46,6 +50,7 @@ from chrome import (  # noqa: E402
 )
 from seo_geo import (  # noqa: E402
     LIVE,
+    ROBOTS_INDEX,
     apply_hub_page,
     build_llms_txt,
     extract_authors_from_home,
@@ -55,6 +60,7 @@ from seo_geo import (  # noqa: E402
     patch_robots,
     patch_sitemap,
     render_authors_hub,
+    review_article_specs,
 )
 from site_config import (  # noqa: E402
     ALL_CATS,
@@ -63,7 +69,7 @@ from site_config import (  # noqa: E402
     load_site_config,
 )
 
-UA = "MoreTop10Bake/1.0 (+seo-geo-p0)"
+UA = "MoreTop10Bake/1.0 (+seo-geo-p1)"
 AUTHOR_SLUGS = [
     "alex-rivera",
     "jordan-lee",
@@ -116,6 +122,10 @@ def page_specs(cfg: dict) -> list[dict]:
     return specs
 
 
+class LiveNotFound(RuntimeError):
+    """Live snapshot 404 — skip this page rather than invent HTML."""
+
+
 def fetch(url: str, dest: Path, *, force: bool = False) -> str:
     dest.parent.mkdir(parents=True, exist_ok=True)
     if not force and dest.exists() and dest.stat().st_size > 500:
@@ -130,6 +140,9 @@ def fetch(url: str, dest: Path, *, force: bool = False) -> str:
             return text
         except Exception as exc:  # noqa: BLE001 — bake must retry flaky Live snapshots
             last_err = exc
+            code = getattr(exc, "code", None)
+            if code == 404:
+                raise LiveNotFound(f"404 {url}") from exc
             if attempt < 3:
                 import time
 
@@ -147,21 +160,30 @@ def prefetch(specs: list[dict]) -> None:
     jobs = [(s["live"], CACHE / s["out"].replace("/", "__")) for s in specs] + extras
 
     def one(url: str, dest: Path) -> str:
-        fetch(url, dest)
+        try:
+            fetch(url, dest)
+        except LiveNotFound:
+            return f"404:{dest.name}"
         return dest.name
 
-    with ThreadPoolExecutor(max_workers=8) as pool:
+    with ThreadPoolExecutor(max_workers=12) as pool:
         futs = [pool.submit(one, url, dest) for url, dest in jobs]
         for fut in as_completed(futs):
             fut.result()
 
 
-def bake_page(spec: dict, cfg: dict, cmp_html_by_slug: dict[str, str]) -> Path:
+def bake_page(spec: dict, cfg: dict, cmp_html_by_slug: dict[str, str]) -> Path | None:
     cats = cfg["ALL_CATS"]
     out_rel = spec["out"]
     prefix = rel_prefix(out_rel)
     cache_name = out_rel.replace("/", "__")
-    html = fetch(spec["live"], CACHE / cache_name)
+    try:
+        html = fetch(spec["live"], CACHE / cache_name)
+    except LiveNotFound:
+        if spec.get("kind") == "review":
+            print(f"  skip 404 {spec['live']}")
+            return None
+        raise
     kind = spec["kind"]
     slug = spec.get("slug")
     cat = cfg["CATS_BY_SLUG"].get(slug) if slug else None
@@ -178,8 +200,19 @@ def bake_page(spec: dict, cfg: dict, cmp_html_by_slug: dict[str, str]) -> Path:
     if kind in {"comparison", "reviews"}:
         html = ensure_hub_reciprocity(html, kind)
 
-    cmp_html = cmp_html_by_slug.get(slug or "") if kind == "landing" else None
-    html = apply_hub_page(html, kind=kind, cat=cat, cmp_html=cmp_html, prefix=prefix)
+    cmp_html = (
+        cmp_html_by_slug.get(slug or "")
+        if kind in {"landing", "reviews", "review"}
+        else None
+    )
+    html = apply_hub_page(
+        html,
+        kind=kind,
+        cat=cat,
+        cmp_html=cmp_html,
+        prefix=prefix,
+        review_slug=spec.get("review_slug"),
+    )
 
     dest = SITE / out_rel
     dest.parent.mkdir(parents=True, exist_ok=True)
@@ -335,6 +368,53 @@ def verify(cfg: dict) -> None:
         errors.append("air-fryers hub missing Speakable geo-answer-first")
     if "geo-cite-strip" not in fry:
         errors.append("air-fryers hub missing cite strip")
+    if "How to cite:" not in fry:
+        errors.append("air-fryers hub cite strip missing How to cite label")
+    if ROBOTS_INDEX not in fry:
+        errors.append("air-fryers hub missing robots max-image-preview")
+    if ROBOTS_INDEX not in home:
+        errors.append("home missing robots max-image-preview")
+    if ROBOTS_INDEX not in about:
+        errors.append("about missing robots max-image-preview")
+    if ROBOTS_INDEX not in rev:
+        errors.append("kids-bikes reviews hub missing robots max-image-preview")
+    if "geo-cite-strip" not in rev:
+        errors.append("kids-bikes reviews hub missing cite strip")
+
+    fry_cmp = (SITE / "air-fryers" / "comparison" / "index.html").read_text(encoding="utf-8")
+    if 'id="geo-' not in fry_cmp:
+        errors.append("air-fryers comparison missing #geo-ASIN on product cards")
+    cite_at = fry_cmp.find('class="geo-cite-strip"')
+    last_card = fry_cmp.rfind('class="product-card"')
+    if cite_at == -1:
+        errors.append("air-fryers comparison missing cite strip")
+    elif last_card != -1 and cite_at < last_card:
+        errors.append("air-fryers comparison cite strip is still inside the product stack")
+    if ROBOTS_INDEX not in fry_cmp:
+        errors.append("air-fryers comparison missing robots max-image-preview")
+
+    tests_dir = str(ROOT / "tests")
+    if tests_dir not in sys.path:
+        sys.path.insert(0, tests_dir)
+    from g_engage_assert import sample_errors  # noqa: E402
+
+    errors.extend(sample_errors(SITE))
+
+    sample_review = SITE / "air-fryers" / "reviews" / "cosori-twinfry-9-qt-double-air" / "index.html"
+    if not sample_review.exists():
+        errors.append("missing sample review article air-fryers/reviews/cosori-twinfry-9-qt-double-air/")
+    else:
+        rev_html = sample_review.read_text(encoding="utf-8")
+        if ROBOTS_INDEX not in rev_html:
+            errors.append("review article missing robots max-image-preview")
+        if "geo-cite-strip" not in rev_html:
+            errors.append("review article missing cite strip")
+        if 'id="geo-' not in rev_html:
+            errors.append("review article missing #geo-ASIN")
+        if re.search(r"completeness gate|publishable|inventory-blocked|PartnerBoost", rev_html, re.I):
+            errors.append("review article still contains visitor jargon")
+        if "AggregateRating" in rev_html:
+            errors.append("review article leaked AggregateRating")
 
     faq_chunk = fry[fry.lower().find("faq") :] if "faq" in fry.lower() else fry
     for term in ("publishable", "inventory-blocked", "completeness gate", "PartnerBoost"):
@@ -396,10 +476,16 @@ def verify(cfg: dict) -> None:
 def main() -> None:
     cfg = load_site_config()
     specs = page_specs(cfg)
+    CACHE.mkdir(parents=True, exist_ok=True)
+    sitemap_raw = fetch(f"{LIVE}/sitemap.xml", CACHE / "sitemap.xml")
+    review_specs = review_article_specs(
+        sitemap_raw, {c["slug"] for c in cfg["ALL_CATS"]}
+    )
+    specs.extend(review_specs)
     print(
         f"bake {len(cfg['ALL_CATS'])} cats "
         f"(MVP={len(cfg['MVP_CATS'])} NON_MVP={len(cfg['NON_MVP_CATS'])}) "
-        f"pages={len(specs)}"
+        f"pages={len(specs)} review_articles={len(review_specs)}"
     )
     print("  prefetch live snapshots…")
     prefetch(specs)
@@ -409,9 +495,16 @@ def main() -> None:
         if spec["kind"] == "comparison":
             cmp_html_by_slug[spec["slug"]] = fetch(spec["live"], CACHE / spec["out"].replace("/", "__"))
 
+    wrote = 0
+    skipped = 0
     for spec in specs:
         dest = bake_page(spec, cfg, cmp_html_by_slug)
+        if dest is None:
+            skipped += 1
+            continue
+        wrote += 1
         print(f"  wrote {dest.relative_to(ROOT)}")
+    print(f"  baked {wrote} pages (skipped {skipped} missing live snapshots)")
 
     home_html = (SITE / "index.html").read_text(encoding="utf-8")
     authors = extract_authors_from_home(home_html)
