@@ -1,0 +1,32 @@
+# MoreTop10 instance overlay — category catalog for nav / footer / home tiles.
+# Product cards and ASINs are not defined here (Live bake remains SoT for inventory).
+brand: moretop10
+base_url: https://moretop10.com
+home_visible_tiles: 8
+
+# MVP = original published comparison set. NON_MVP / tier:extended are newer
+# money URLs that must stay visible in the home grid (not behind Show more).
+categories:
+  mvp:
+    - {slug: robot-vacuums, name: Robot Vacuums & Mops, short_name: Robot Vacuums, tier: core}
+    - {slug: espresso-machines, name: Espresso Machines, short_name: Espresso Machines, tier: core}
+    - {slug: wet-dry-vacuums, name: Wet Dry Vacuums, short_name: Wet Dry Vacuums, tier: core}
+    - {slug: cordless-vacuums, name: Cordless Vacuums, short_name: Cordless Vacuums, tier: core}
+    - {slug: air-fryers, name: Air Fryers, short_name: Air Fryers, tier: core}
+    - {slug: air-purifiers, name: Air Purifiers, short_name: Air Purifiers, tier: core}
+    - {slug: security-cameras, name: Security Cameras, short_name: Security Cameras, tier: core}
+    - {slug: video-doorbells, name: Video Doorbells, short_name: Video Doorbells, tier: core}
+    - {slug: noise-cancelling-headphones, name: Noise-Cancelling Headphones, short_name: Headphones, tier: core}
+    - {slug: standing-desks, name: Standing Desks, short_name: Standing Desks, tier: core}
+    - {slug: projectors, name: Projectors, short_name: Projectors, tier: core}
+    - {slug: massage-guns, name: Massage Guns, short_name: Massage Guns, tier: core}
+    - {slug: humidifiers, name: Humidifiers, short_name: Humidifiers, tier: core}
+    - {slug: dehumidifiers, name: Dehumidifiers, short_name: Dehumidifiers, tier: core}
+    - {slug: tower-fans, name: Tower Fans, short_name: Tower Fans, tier: core}
+    - {slug: computer-speakers, name: Computer Speakers, short_name: Computer Speakers, tier: core}
+    - {slug: bluetooth-speakers, name: Bluetooth Speakers, short_name: Bluetooth Speakers, tier: core}
+    - {slug: hair-dryers, name: Hair Dryers, short_name: Hair Dryers, tier: core}
+    - {slug: litter-boxes, name: Self-Cleaning Litter Boxes, short_name: Litter Boxes, tier: core}
+    - {slug: dash-cams, name: Dash Cams, short_name: Dash Cams, tier: core}
+  non_mvp:
+    - {slug: kids-bikes, name: Kids Bikes, short_name: Kids Bikes, tier: extended, published: "2026-10-20"}
