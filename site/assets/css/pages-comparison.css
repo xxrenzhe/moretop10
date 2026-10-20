@@ -232,12 +232,12 @@ img.pc-packshot,.pc-logo.pc-packshot{aspect-ratio:10/9}
   }
   .pc-left{grid-area:pc-left;width:200px;min-width:0;align-self:stretch}
   .pc-mid{grid-area:pc-mid;min-width:0}
-  .pc-right{grid-area:pc-right;width:auto;min-width:0;min-height:0;align-items:flex-end;justify-content:flex-start}
+  .pc-right{grid-area:pc-right;width:auto;min-width:0;min-height:0;align-items:flex-end;justify-content:flex-start;align-self:start}
   .pc-footer{
     grid-area:pc-foot;
     display:grid;
     grid-template-columns:minmax(0,1fr) auto;
-    align-items:center;
+    align-items:end;
     gap:0.5rem 0.75rem;
     width:100%;
     max-width:none;
@@ -245,6 +245,74 @@ img.pc-packshot,.pc-logo.pc-packshot{aspect-ratio:10/9}
     padding-top:0.55rem;
     border-top:1px solid rgba(0,0,0,0.07);
   }
-  .pc-footer .pc-secondary-link{order:0;justify-self:start;text-align:left;width:auto}
+  .pc-footer .pc-secondary-link{order:0;justify-self:start;align-self:end;text-align:left;width:auto}
+  .pc-footer-buy{justify-self:end}
   .pc-footer .product-cta{order:0;justify-self:end}
+}
+
+/* Price is a purchase-decision cue: sit it with Check price, not under the
+   score. HTML contract (fixture; bake should emit the same):
+   .pc-right > .pc-score-block > .pc-score-row   (score stays top-right)
+   .pc-footer > .pc-secondary-link               (Read review, left)
+   .pc-footer > .pc-footer-buy > .pc-price-decision + .product-cta
+   Do not put .pc-price-decision inside .pc-score-block. */
+.pc-footer{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) auto;
+  align-items:end;
+  gap:0.5rem 0.65rem;
+  width:100%;
+}
+.pc-footer-buy{
+  display:flex;
+  flex-direction:column;
+  align-items:flex-end;
+  justify-content:flex-end;
+  gap:0.28rem;
+  min-width:147px;
+  justify-self:end;
+}
+.pc-footer .pc-price-decision{
+  display:flex;
+  flex-direction:column;
+  align-items:flex-end;
+  justify-content:flex-end;
+  flex-wrap:nowrap;
+  gap:0;
+  margin:0;
+  width:auto;
+}
+.pc-footer .pc-price-checked{
+  display:block;
+  width:auto;
+  text-align:right;
+  margin-top:0.08rem;
+}
+.pc-footer .pc-secondary-link{
+  justify-self:start;
+  align-self:end;
+  text-align:left;
+  width:auto;
+}
+.pc-right{
+  justify-content:flex-start;
+  align-self:start;
+}
+@media (max-width:767px){
+  .pc-footer{
+    display:grid;
+    grid-template-columns:minmax(0,1fr) auto;
+    align-items:end;
+    gap:0.5rem 0.65rem;
+    width:100%;
+    margin-top:0.35rem;
+  }
+  .pc-footer-buy{justify-self:end;min-width:0}
+  .pc-right{
+    align-self:stretch;
+    width:100%;
+    align-items:flex-end;
+    justify-content:flex-start;
+  }
+  .pc-score-block{width:auto;margin-inline-start:auto}
 }

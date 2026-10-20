@@ -15,6 +15,10 @@
  *     AFTER any unscoped display:flex, so flex cannot win on desktop
  *  3. Concatenated cascade at 1024px: display:grid, 3-col + footer row
  *  4. Concatenated cascade at 375px: display:flex; flex-direction:column
+ *  5. Fixture HTML: score stays in .pc-right; price + Check price live in
+ *     .pc-footer-buy (not under .pc-score-block). Read review stays left.
+ *  6. CSS: .pc-footer-buy is a column stacked on the CTA; .pc-right does
+ *     not use space-between to float price mid-card.
  */
 import { readFileSync, readdirSync } from "node:fs";
 import { dirname, join } from "node:path";
@@ -253,8 +257,117 @@ for (const sheet of pageSheets) {
   );
 }
 
+const buyDesk = desktop[".pc-footer-buy"] || {};
+const buyMob = mobile[".pc-footer-buy"] || {};
+assert(
+  buyDesk.display === "flex",
+  `desktop .pc-footer-buy display must be flex, got "${buyDesk.display || ""}"`,
+);
+assert(
+  buyDesk["flex-direction"] === "column",
+  `desktop .pc-footer-buy must stack price above the CTA, got "${buyDesk["flex-direction"] || ""}"`,
+);
+assert(
+  /flex-end|end/.test(buyDesk["align-items"] || ""),
+  `desktop .pc-footer-buy must right-align onto the CTA, got "${buyDesk["align-items"] || ""}"`,
+);
+assert(
+  buyMob.display === "flex" && buyMob["flex-direction"] === "column",
+  `mobile .pc-footer-buy must remain a column near the CTA, got display="${buyMob.display || ""}" dir="${buyMob["flex-direction"] || ""}"`,
+);
+
+const rightDesk = desktop[".pc-right"] || {};
+assert(
+  !/space-between/.test(rightDesk["justify-content"] || ""),
+  `desktop .pc-right must not space-between (price left the score column). got "${rightDesk["justify-content"] || ""}"`,
+);
+assert(
+  /flex-start|start/.test(rightDesk["justify-content"] || "flex-start"),
+  `desktop .pc-right must keep the score at the top, got "${rightDesk["justify-content"] || ""}"`,
+);
+const rightMob = mobile[".pc-right"] || {};
+assert(
+  /flex-end|end/.test(rightMob["align-items"] || ""),
+  `mobile .pc-right must keep the score on the right, got align-items="${rightMob["align-items"] || ""}"`,
+);
+const scoreMob = mobile[".pc-score-block"] || {};
+assert(
+  scoreMob.width === "auto",
+  `mobile .pc-score-block must shrink (not full-bleed) so it can sit top-right, got width="${scoreMob.width || ""}"`,
+);
+
+const footerDesk = desktop[".pc-footer"] || {};
+assert(
+  /end/.test(footerDesk["align-items"] || ""),
+  `desktop .pc-footer must align Read review to the CTA baseline, got "${footerDesk["align-items"] || ""}"`,
+);
+
+const footerPrice = desktop[".pc-footer .pc-price-decision"] || {};
+assert(
+  footerPrice.display === "flex" && footerPrice["flex-direction"] === "column",
+  `footer price block must stack value + Checked date, got ${JSON.stringify(footerPrice)}`,
+);
+assert(
+  footerPrice.margin === "0" || footerPrice["margin-top"] === "0",
+  `footer price must sit tight on the CTA (no mid-card margin). got margin="${footerPrice.margin || ""}" margin-top="${footerPrice["margin-top"] || ""}"`,
+);
+
+const fixturePath = join(root, "site/fixtures/comparison-card.html");
+const fixture = readFileSync(fixturePath, "utf8");
+const cards = [...fixture.matchAll(/<article\s+class="product-card"[\s\S]*?<\/article>/g)].map(
+  (m) => m[0],
+);
+assert(cards.length >= 1, "fixture must contain at least one .product-card");
+
+for (const [i, card] of cards.entries()) {
+  const scorePos = card.indexOf('class="pc-score-block"');
+  const rightPos = card.indexOf('class="pc-right"');
+  const footerPos = card.indexOf('class="pc-footer"');
+  const buyPos = card.indexOf('class="pc-footer-buy"');
+  const pricePos = card.indexOf('class="pc-price-decision"');
+  const ctaPos = card.search(/class="[^"]*product-cta/);
+  const reviewPos = card.indexOf('class="pc-secondary-link"');
+  assert(rightPos >= 0 && scorePos > rightPos, `card ${i}: score block lives in .pc-right`);
+  assert(footerPos > scorePos, `card ${i}: footer follows the score column`);
+  assert(buyPos > footerPos, `card ${i}: .pc-footer-buy lives in the footer`);
+  assert(
+    pricePos > buyPos,
+    `card ${i}: .pc-price-decision must sit in .pc-footer-buy, not under the score`,
+  );
+  assert(
+    pricePos < ctaPos,
+    `card ${i}: price must stack above the Check price CTA (got price@${pricePos} cta@${ctaPos})`,
+  );
+  assert(
+    reviewPos > footerPos && reviewPos < buyPos,
+    `card ${i}: Read review stays left in the footer, before the buy cluster`,
+  );
+  const scoreChunk = card.slice(scorePos, footerPos);
+  assert(
+    !scoreChunk.includes("pc-price-decision") && !scoreChunk.includes("pc-price-value"),
+    `card ${i}: price must not remain inside .pc-score-block`,
+  );
+  assert(
+    /Checked \d{4}-\d{2}-\d{2}/.test(card),
+    `card ${i}: Checked date must stay day-only YYYY-MM-DD`,
+  );
+  assert(/Check price/.test(card), `card ${i}: Check price CTA copy unchanged`);
+  assert(/Read review/.test(card), `card ${i}: Read review stays in the footer`);
+}
+
+assert(
+  /eufy E25 Robot Vacuum and Mop Combo, 20,000 Pa/.test(fixture),
+  "fixture should include the robot-vacuums eufy E25 card used to verify /robot-vacuums/",
+);
+assert(
+  !/pboost\.me/.test(fixture),
+  "fixture must not rewrite or copy live affiliate hop URLs",
+);
+
 console.log("pc-card-layout-assert: ok");
 console.log("  site.css .pc-main display:grid: none");
 console.log("  pages-comparison.css desktop SoT: grid", normalizeAreas(pageDesktopGrid.areas));
 console.log("  concatenated desktop .pc-main display:", pc.display);
 console.log("  concatenated mobile .pc-main display:", pcMob.display, pcMob["flex-direction"]);
+console.log("  footer buy cluster:", buyDesk.display, buyDesk["flex-direction"], buyDesk["align-items"]);
+console.log("  fixture cards:", cards.length, "(price in .pc-footer-buy, score in .pc-right)");
