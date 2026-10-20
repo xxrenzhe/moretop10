@@ -54,5 +54,8 @@ next-env.d.ts
 logs
 *.log
 
+# MoreTop10 bake cache (Live HTML snapshots)
+site/.cache/
+
 # Same IDE specific files
 .same/
