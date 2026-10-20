@@ -9,7 +9,7 @@
     "lint": "bunx biome lint --write && bunx tsc --noEmit",
     "format": "bunx biome format --write",
     "test:pc-card-layout": "node tests/pc-card-layout-assert.mjs",
-    "test:seo-geo": "python3 tests/seo_geo_p0_assert.py",
+    "test:seo-geo": "python3 tests/seo_geo_p0_assert.py && python3 tests/seo_geo_p1_unit.py && python3 tests/seo_geo_p1_assert.py",
     "bake": "python3 site/scripts/build.py"
   },
   "dependencies": {

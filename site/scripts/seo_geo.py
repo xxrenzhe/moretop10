@@ -1,5 +1,11 @@
 #!/usr/bin/env python3
-"""MoreTop10 SEO/GEO P0 transforms (local bake only).
+"""MoreTop10 SEO/GEO transforms (local bake only).
+
+P0 (already on main): hub CollectionPage/ItemList, /authors/ hub, dual llms.txt,
+Content-Signal, match noindex.
+
+P1: sitewide robots preview, How-to-Cite strips, #geo-{ASIN} on comparison +
+reviews (hubs and articles). Hubs already had cite + pick anchors.
 
 Honest rules:
   - Product / Offer / ASIN / price come from Live HTML (comparison cards + hub picks).
@@ -20,6 +26,9 @@ from urllib.parse import urljoin
 
 LIVE = "https://moretop10.com"
 ORG_LOGO = f"{LIVE}/icon-512.png"
+ROBOTS_INDEX = "index,follow,max-image-preview:large"
+ROBOTS_NOINDEX = "noindex,follow"
+ASIN_RE = re.compile(r"\b(B0[0-9A-Z]{8,10})\b")
 
 JARGON_PATTERNS: list[tuple[re.Pattern[str], str]] = [
     (re.compile(r"Draft card from PartnerBoost L1\s*[—–-]\s*Mac L2 required before publish\.?", re.I),
@@ -107,6 +116,10 @@ def page_kind(out_rel: str) -> str:
         return "comparison"
     if p.endswith("/reviews/index.html"):
         return "reviews"
+    if "/reviews/" in p and p.endswith("/index.html"):
+        return "review"
+    if "/search/" in p:
+        return "search"
     if p.count("/") == 1 and p.endswith("/index.html"):
         return "landing"
     return "page"
@@ -460,17 +473,18 @@ def breadcrumb_node(items: list[tuple[str, str]]) -> dict[str, Any]:
 def inject_geo_anchors(html_text: str, products: list[dict[str, Any]]) -> str:
     for prod in products:
         asin = prod.get("asin")
-        pick_id = prod.get("pick_id")
-        if not asin or not pick_id:
+        if not asin:
             continue
-        # Keep #pick-N for jump TOC; add a dedicated #geo-ASIN child.
-        html_text = re.sub(
-            rf'(<section class="landing-pick" id="{re.escape(pick_id)}">)(?!\s*<span class="geo-anchor")',
-            rf'\1<span class="geo-anchor" id="geo-{_esc(asin)}" tabindex="-1"></span>',
-            html_text,
-            count=1,
-        )
-        # Comparison cards.
+        pick_id = prod.get("pick_id")
+        if pick_id:
+            # Keep #pick-N for jump TOC; add a dedicated #geo-ASIN child.
+            html_text = re.sub(
+                rf'(<section class="landing-pick" id="{re.escape(pick_id)}">)(?!\s*<span class="geo-anchor")',
+                rf'\1<span class="geo-anchor" id="geo-{_esc(asin)}" tabindex="-1"></span>',
+                html_text,
+                count=1,
+            )
+        # Comparison cards (opening tag is often split across two lines).
         html_text = re.sub(
             rf'(<article class="product-card"[^>]*data-asin="{re.escape(asin)}"[^>]*)(>)',
             lambda m, a=asin: (
@@ -480,8 +494,84 @@ def inject_geo_anchors(html_text: str, products: list[dict[str, Any]]) -> str:
             ),
             html_text,
             count=1,
+            flags=re.S,
         )
     return html_text
+
+
+def inject_rev_hub_geo(html_text: str, products: list[dict[str, Any]]) -> str:
+    """Stamp #geo-{ASIN} on reviews-hub cards when the Live card maps to a known ASIN."""
+    by_slug = {p.get("review_slug"): p for p in products if p.get("review_slug") and p.get("asin")}
+    by_asin = {p["asin"]: p for p in products if p.get("asin")}
+
+    def stamp(card: str) -> str:
+        if re.search(r'\sid="geo-[^"]+"', card):
+            return card
+        asin = None
+        hrefs = re.findall(r'href="([^"]+)"', card)
+        for href in hrefs:
+            slug = slug_from_href(href)
+            if slug and slug in by_slug:
+                asin = by_slug[slug]["asin"]
+                break
+        if not asin:
+            for img in re.findall(r'src="([^"]+)"', card):
+                m = ASIN_RE.search(img)
+                if m and m.group(1) in by_asin:
+                    asin = m.group(1)
+                    break
+        if not asin:
+            return card
+        return re.sub(
+            r'(<article class="rev-hub-card")',
+            rf'\1 id="geo-{_esc(asin)}"',
+            card,
+            count=1,
+        )
+
+    return re.sub(
+        r'<article class="rev-hub-card">.*?</article>',
+        lambda m: stamp(m.group(0)),
+        html_text,
+        flags=re.S,
+    )
+
+
+def inject_review_geo(html_text: str, asin: str | None) -> str:
+    if not asin or f'id="geo-{asin}"' in html_text:
+        return html_text
+    span = f'<span class="geo-anchor" id="geo-{_esc(asin)}" tabindex="-1"></span>'
+    if '<main class="product-review-page">' in html_text:
+        return html_text.replace(
+            '<main class="product-review-page">',
+            f'<main class="product-review-page">{span}',
+            1,
+        )
+    if "<main" in html_text:
+        return re.sub(r"(<main[^>]*>)", rf"\1{span}", html_text, count=1)
+    return html_text
+
+
+def asin_for_review(
+    html_text: str,
+    review_slug: str | None,
+    products: list[dict[str, Any]],
+) -> str | None:
+    if review_slug:
+        for p in products:
+            if p.get("review_slug") == review_slug and p.get("asin"):
+                return p["asin"]
+    # First product packshot on the review (not sidebar alternatives).
+    hero = re.search(
+        r'class="review-hero-img"[^>]*src="([^"]+)"|src="([^"]+)"[^>]*class="review-hero-img"',
+        html_text,
+    )
+    if hero:
+        m = ASIN_RE.search(hero.group(1) or hero.group(2) or "")
+        if m:
+            return m.group(1)
+    m = ASIN_RE.search(html_text)
+    return m.group(1) if m else None
 
 
 def mark_answer_first(html_text: str, kind: str) -> str:
@@ -505,20 +595,33 @@ def mark_answer_first(html_text: str, kind: str) -> str:
 
 
 def inject_cite_strip(html_text: str, title: str, canonical: str, checked: str) -> str:
-    if "geo-cite-strip" in html_text:
-        return html_text
+    """Visible How to Cite strip. Relocate if a prior bake parked it inside the first card."""
+    html_text = re.sub(
+        r'\s*<aside class="geo-cite-strip"[^>]*>.*?</aside>',
+        "",
+        html_text,
+        flags=re.S,
+    )
     cite = (
-        f'<aside class="geo-cite-strip">'
-        f"Cite this shortlist: MoreTop10 Editorial Team, "
+        f'<aside class="geo-cite-strip" id="how-to-cite">'
+        f"<strong>How to cite:</strong> MoreTop10 Editorial Team, "
         f"“{_esc(title)},” "
         f'<a href="{_esc(canonical)}">{_esc(canonical)}</a> '
         f"(last checked {_esc(checked)}).</aside>"
     )
-    if "</article>" in html_text:
-        return html_text.replace("</article>", cite + "\n      </article>", 1)
+    if 'class="landing-article"' in html_text:
+        return re.sub(
+            r'(<article class="landing-article">)(.*?)(</article>)',
+            lambda m: m.group(1) + m.group(2) + cite + "\n      " + m.group(3),
+            html_text,
+            count=1,
+            flags=re.S,
+        )
+    if "</main>" in html_text:
+        return html_text.replace("</main>", cite + "\n</main>", 1)
     if "<footer" in html_text:
         return html_text.replace("<footer", cite + "\n<footer", 1)
-    return html_text
+    return html_text + cite
 
 
 def last_checked(html_text: str) -> str:
@@ -645,7 +748,7 @@ def cluster_match_link(html_text: str, cat_slug: str) -> str:
 
 def apply_match_page(html_text: str) -> str:
     """Demo quiz: keep in the robot-vacuums cluster, noindex, canonical to hub, drop from sitemap."""
-    html_text = set_robots_meta(html_text, "noindex,follow")
+    html_text = set_robots_meta(html_text, ROBOTS_NOINDEX)
     html_text = set_canonical(html_text, f"{LIVE}/robot-vacuums/")
     html_text = rewrite_visible_jargon(html_text)
     if 'id="match-cluster-links"' not in html_text:
@@ -720,7 +823,7 @@ def apply_landing_schema(
             "Organization",
         },
     )
-    html_text = set_robots_meta(html_text, "index,follow,max-image-preview:large")
+    html_text = set_robots_meta(html_text, ROBOTS_INDEX)
     html_text = inject_geo_anchors(html_text, products)
     html_text = mark_answer_first(html_text, "landing")
     html_text = inject_cite_strip(html_text, title, canonical, checked)
@@ -799,9 +902,41 @@ def apply_comparison_schema(
             "Organization",
         },
     )
-    html_text = set_robots_meta(html_text, "index,follow,max-image-preview:large")
+    html_text = set_robots_meta(html_text, ROBOTS_INDEX)
     html_text = inject_geo_anchors(html_text, products)
     html_text = mark_answer_first(html_text, "comparison")
+    html_text = inject_cite_strip(html_text, title, canonical, checked)
+    return html_text
+
+
+def apply_reviews_hub(
+    html_text: str,
+    cat: dict[str, Any],
+    products: list[dict[str, Any]],
+) -> str:
+    slug = cat["slug"]
+    canonical = f"{LIVE}/{slug}/reviews/"
+    checked = last_checked(html_text)
+    title = h1_text(html_text) or f"{cat['name']} Reviews | MoreTop10"
+    html_text = set_robots_meta(html_text, ROBOTS_INDEX)
+    html_text = inject_rev_hub_geo(html_text, products)
+    html_text = inject_cite_strip(html_text, title, canonical, checked)
+    return html_text
+
+
+def apply_review_article(
+    html_text: str,
+    cat: dict[str, Any],
+    review_slug: str,
+    products: list[dict[str, Any]],
+) -> str:
+    slug = cat["slug"]
+    canonical = f"{LIVE}/{slug}/reviews/{review_slug}/"
+    checked = last_checked(html_text)
+    title = h1_text(html_text) or page_title_text(html_text)
+    asin = asin_for_review(html_text, review_slug, products)
+    html_text = set_robots_meta(html_text, ROBOTS_INDEX)
+    html_text = inject_review_geo(html_text, asin)
     html_text = inject_cite_strip(html_text, title, canonical, checked)
     return html_text
 
@@ -818,11 +953,16 @@ def apply_hub_page(
     cat: dict[str, Any] | None,
     cmp_html: str | None,
     prefix: str,
+    review_slug: str | None = None,
 ) -> str:
     html_text = rewrite_visible_jargon(html_text)
     products: list[dict[str, Any]] = []
     if cat:
-        cmp_products = extract_comparison_products(cmp_html or html_text, cat["slug"]) if (cmp_html or kind == "comparison") else []
+        cmp_products = (
+            extract_comparison_products(cmp_html or html_text, cat["slug"])
+            if (cmp_html or kind in {"comparison", "reviews", "review"})
+            else []
+        )
         if kind == "landing":
             picks = extract_landing_picks(html_text)
             products = merge_hub_products(picks, cmp_products)
@@ -830,14 +970,25 @@ def apply_hub_page(
         elif kind == "comparison":
             products = cmp_products or extract_comparison_products(html_text, cat["slug"])
             html_text = apply_comparison_schema(html_text, cat, products)
+        elif kind == "reviews":
+            products = cmp_products
+            html_text = apply_reviews_hub(html_text, cat, products)
+        elif kind == "review":
+            products = cmp_products
+            html_text = apply_review_article(
+                html_text, cat, review_slug or "", products
+            )
     if kind == "match":
         html_text = apply_match_page(html_text)
     if kind == "author":
         html_text = rewrite_author_breadcrumb(html_text)
-        html_text = set_robots_meta(html_text, "index,follow,max-image-preview:large")
+    if kind == "search":
+        html_text = set_robots_meta(html_text, ROBOTS_NOINDEX)
     if kind == "home":
         html_text = rewrite_home_robot_tile(html_text)
         html_text = rewrite_visible_jargon(html_text)
+    if kind not in {"match", "search"}:
+        html_text = set_robots_meta(html_text, ROBOTS_INDEX)
     html_text = rewrite_footer_editors(html_text, prefix)
     assert_no_aggregate_rating(html_text)
     return html_text
@@ -899,7 +1050,7 @@ def render_authors_hub(
         count=1,
     )
     html_text = set_canonical(html_text, canonical)
-    html_text = set_robots_meta(html_text, "index,follow,max-image-preview:large")
+    html_text = set_robots_meta(html_text, ROBOTS_INDEX)
     html_text = re.sub(
         r'<meta property="og:title" content="[^"]*"',
         '<meta property="og:title" content="Authors | MoreTop10"',
@@ -1051,6 +1202,37 @@ def build_llms_txt(
     text = text.replace("aff_pb_autoads", "")
     text = re.sub(r" +", " ", text)
     return text
+
+
+def review_article_specs(sitemap: str, cat_slugs: set[str]) -> list[dict[str, str]]:
+    """Individual /{cat}/reviews/{slug}/ URLs from sitemap (not the reviews hub)."""
+    specs: list[dict[str, str]] = []
+    seen: set[str] = set()
+    for loc in re.findall(r"<loc>(.*?)</loc>", sitemap):
+        m = re.match(
+            r"https://moretop10\.com/([^/]+)/reviews/([^/]+)/?$",
+            loc.strip(),
+        )
+        if not m:
+            continue
+        cat, slug = m.group(1), m.group(2)
+        if cat not in cat_slugs:
+            continue
+        key = f"{cat}/{slug}"
+        if key in seen:
+            continue
+        seen.add(key)
+        live = loc if loc.endswith("/") else loc + "/"
+        specs.append(
+            {
+                "live": live,
+                "out": f"{cat}/reviews/{slug}/index.html",
+                "kind": "review",
+                "slug": cat,
+                "review_slug": slug,
+            }
+        )
+    return specs
 
 
 def patch_robots(live_robots: str) -> str:
