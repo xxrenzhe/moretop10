@@ -103,7 +103,22 @@ def load_site_config(path: Path | str | None = None) -> dict[str, Any]:
     parsed["ALL_CATS"] = all_cats
     parsed["CATS_BY_SLUG"] = {c["slug"]: c for c in all_cats if c.get("slug")}
     parsed["home_visible_tiles"] = int(parsed.get("home_visible_tiles") or 8)
+    parsed["EDITORIAL_CLUSTERS"] = list(EDITORIAL_CLUSTERS)
     return parsed
+
+
+# Editorial content clusters — NOT density-10 ALL_CATS product categories.
+# /tv/ is a G-IL guide hub (footer + home tile). Do not add `tv` to mvp/non_mvp.
+EDITORIAL_CLUSTERS = [
+    {
+        "slug": "tv",
+        "name": "Smart TV ads",
+        "short_name": "Smart TV ads",
+        "kind": "guide",
+        "home_label": "Smart TV ads",
+        "home_cta": "Read the guide",
+    },
+]
 
 
 # Module-level SoT used by build.py (refreshed on import / explicit load).

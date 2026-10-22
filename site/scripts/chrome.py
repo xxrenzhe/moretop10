@@ -95,12 +95,20 @@ def render_reviews_mobile(cats: list[dict[str, Any]], prefix: str) -> str:
     return f"<details><summary>Reviews</summary>{links}</details>"
 
 
-def render_footer_cats(cats: list[dict[str, Any]], prefix: str) -> str:
+def render_footer_cats(
+    cats: list[dict[str, Any]],
+    prefix: str,
+    editorial: list[dict[str, Any]] | None = None,
+) -> str:
     home = f"{prefix}index.html" if prefix else "index.html"
     items = [f'<li><a href="{home}">Home</a></li>']
     for cat in cats:
         slug = cat["slug"]
         label = _esc(cat.get("short_name") or cat["name"])
+        items.append(f'<li><a href="{overview_href(prefix, slug)}">{label}</a></li>')
+    for cluster in editorial or []:
+        slug = cluster["slug"]
+        label = _esc(cluster.get("short_name") or cluster["name"])
         items.append(f'<li><a href="{overview_href(prefix, slug)}">{label}</a></li>')
     items.append(f'<li><a href="{prefix}blog/">Blog</a></li>')
     items.append(f'<li><a href="{prefix}sitemap/">Sitemap</a></li>')
@@ -182,10 +190,49 @@ def rewrite_non_home_nav(page: str, cats: list[dict[str, Any]], prefix: str) -> 
 
 
 def rewrite_footer(page: str, cats: list[dict[str, Any]], prefix: str) -> str:
-    col = render_footer_cats(cats, prefix)
+    from site_config import EDITORIAL_CLUSTERS
+
+    col = render_footer_cats(cats, prefix, editorial=EDITORIAL_CLUSTERS)
     if _EXPLORE_COL_RE.search(page):
         return _EXPLORE_COL_RE.sub(col, page, count=1)
     return page
+
+
+TV_HOME_TILE = (
+    '<a class="home-tile home-tile--compact home-tile--narrow" data-home-tile '
+    'data-editorial-cluster="tv" href="tv/">'
+    '<div class="home-tile-icon" aria-hidden="true">'
+    '<svg class="cat-icon" viewBox="0 0 48 48" width="52" height="52" aria-hidden="true" '
+    'fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" '
+    'stroke-linejoin="round">'
+    '<rect x="8" y="12" width="32" height="20" rx="2"/>'
+    '<path d="M16 38h16"/>'
+    '<path d="M24 32v6"/>'
+    '<path d="M14 18h8"/>'
+    "</svg></div>"
+    '<strong class="home-tile-title">Smart TV ads</strong></a>'
+)
+
+
+def ensure_tv_home_tile(page: str) -> str:
+    """Pin an editorial /tv/ tile in the visible home grid. Not an ALL_CATS slug."""
+    if 'data-editorial-cluster="tv"' in page:
+        return page
+    m = re.search(
+        r'(<div class="home-tile-grid"[^>]*>)(.*?)(</div>\s*<button type="button" class="home-show-more")',
+        page,
+        re.S,
+    )
+    if not m:
+        return page
+    tiles = split_home_tiles(m.group(2))
+    if not tiles:
+        return page
+    # Insert after the first tile (usually kids-bikes pin) so it stays visible.
+    insert_at = 1 if len(tiles) > 1 else 0
+    tiles.insert(insert_at, TV_HOME_TILE)
+    rebuilt = m.group(1) + "\n        " + "".join(tiles) + "\n      " + m.group(3)
+    return page[: m.start()] + rebuilt + page[m.end() :]
 
 
 def _consume_element(src: str, start: int) -> tuple[str, int]:
