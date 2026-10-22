@@ -10,16 +10,20 @@ desktop copy|photo grid.
 
 from __future__ import annotations
 
+import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 SITE = ROOT / "site"
 LANDING_CSS = SITE / "assets" / "css" / "pages-landing.css"
-SAMPLE_PAGES = (
-    "security-cameras/index.html",
-    "robot-vacuums/index.html",
-    "air-fryers/index.html",
-    "security-cameras/reviews/eufy-security-solocam-s220-solar-security/index.html",
+SCRIPTS = SITE / "scripts"
+if str(SCRIPTS) not in sys.path:
+    sys.path.insert(0, str(SCRIPTS))
+
+from site_config import ALL_CATS  # noqa: E402
+
+REVIEW_SAMPLE = (
+    "security-cameras/reviews/eufy-security-solocam-s220-solar-security/index.html"
 )
 
 # SoT bake copy is 22296 bytes. A stub / empty file must fail.
@@ -54,27 +58,35 @@ def collect_errors(site: Path = SITE) -> list[str]:
 
     leftover = "Confirm mop pads, bags, and dock footprint"
     keep_rv = {"robot-vacuums"}
-    for hub in site.iterdir():
-        if not hub.is_dir():
-            continue
-        landing = hub / "index.html"
+    hubs_ok = 0
+    for cat in ALL_CATS:
+        slug = cat["slug"]
+        landing = site / slug / "index.html"
         if not landing.is_file():
+            errors.append(f"missing landing {slug}/index.html")
             continue
         html = landing.read_text(encoding="utf-8")
-        if leftover not in html:
-            continue
-        if hub.name not in keep_rv:
+        if "pages-landing.css" not in html:
+            errors.append(f"{slug}/ does not link pages-landing.css")
+        if 'class="landing-hero"' not in html:
+            errors.append(f"{slug}/ missing .landing-hero")
+        bars = html.count("landing-pick-cta-bar")
+        shots = html.count("landing-pick-logo landing-packshot")
+        if bars < 1:
+            errors.append(f"{slug}/ missing .landing-pick-cta-bar")
+        elif shots < bars:
             errors.append(
-                f"{hub.name}/ landing still has RV mop-pads leftover cons"
+                f"{slug}/ CTA bars={bars} but packshots={shots} (every bar needs a compact logo)"
             )
+        if leftover in html and slug not in keep_rv:
+            errors.append(f"{slug}/ landing still has RV mop-pads leftover cons")
+        hubs_ok += 1
 
-    for rel in SAMPLE_PAGES:
-        path = site / rel
-        if not path.is_file():
-            errors.append(f"missing sample page {rel}")
-            continue
-        if "pages-landing.css" not in path.read_text(encoding="utf-8"):
-            errors.append(f"{rel} does not link pages-landing.css")
+    review = site / REVIEW_SAMPLE
+    if not review.is_file():
+        errors.append(f"missing sample page {REVIEW_SAMPLE}")
+    elif "pages-landing.css" not in review.read_text(encoding="utf-8"):
+        errors.append(f"{REVIEW_SAMPLE} does not link pages-landing.css")
 
     linked = 0
     for path in site.rglob("*.html"):
@@ -84,6 +96,8 @@ def collect_errors(site: Path = SITE) -> list[str]:
         errors.append(
             f"only {linked} HTML pages link pages-landing.css (expected ~261)"
         )
+    if hubs_ok < len(ALL_CATS):
+        errors.append(f"only {hubs_ok}/{len(ALL_CATS)} ALL_CATS landings checked")
     return errors
 
 
@@ -97,7 +111,7 @@ def main() -> int:
     css_path = LANDING_CSS
     print(
         f"landing_css_assert OK bytes={css_path.stat().st_size} "
-        f"hero=grid+1.15fr/0.85fr cta-bar=36px"
+        f"hero=grid+1.15fr/0.85fr cta-bar=36px hubs={len(ALL_CATS)}"
     )
     return 0
 
