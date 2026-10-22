@@ -42,6 +42,7 @@ if str(SCRIPTS) not in sys.path:
 from chrome import (  # noqa: E402
     ensure_hub_reciprocity,
     strip_cmp_hero_steps,
+    strip_rv_mop_pads_leftover,
     ensure_tv_home_tile,
     expected_wwnn_codes,
     home_tile_width_codes,
@@ -211,6 +212,7 @@ def bake_page(spec: dict, cfg: dict, cmp_html_by_slug: dict[str, str]) -> Path |
         html = ensure_hub_reciprocity(html, kind)
     if kind == "comparison":
         html = strip_cmp_hero_steps(html)
+    html = strip_rv_mop_pads_leftover(html, slug, kind)
 
     cmp_html = (
         cmp_html_by_slug.get(slug or "")
@@ -461,9 +463,11 @@ def verify(cfg: dict) -> None:
         sys.path.insert(0, tests_dir)
     from footer_cats_columns_assert import sample_errors as footer_cats_errors  # noqa: E402
     from g_engage_assert import sample_errors  # noqa: E402
+    from landing_css_assert import collect_errors as landing_css_errors  # noqa: E402
 
     errors.extend(footer_cats_errors(SITE))
     errors.extend(sample_errors(SITE))
+    errors.extend(landing_css_errors(SITE))
 
     sample_review = SITE / "air-fryers" / "reviews" / "cosori-twinfry-9-qt-double-air" / "index.html"
     if not sample_review.exists():

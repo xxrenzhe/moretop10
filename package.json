@@ -10,6 +10,7 @@
     "format": "bunx biome format --write",
     "test:pc-card-layout": "node tests/pc-card-layout-assert.mjs",
     "test:homepage-assets": "python3 tests/home_tiles_wwnn_unit.py && python3 tests/homepage_assets_assert.py",
+    "test:landing-css": "python3 tests/landing_css_assert.py",
     "test:footer-cats": "python3 tests/footer_cats_columns_assert.py",
     "test:seo-geo": "python3 tests/seo_geo_p0_assert.py && python3 tests/seo_geo_p1_unit.py && python3 tests/seo_geo_p1_assert.py && python3 tests/g_engage_assert.py && python3 tests/author_feed_covers_unit.py && python3 tests/author_feed_covers_assert.py",
     "test:tv-cluster": "python3 tests/affiliate_uid_assert.py && python3 tests/tv_models_parse_unit.py && python3 tests/tv_cluster_assert.py",
