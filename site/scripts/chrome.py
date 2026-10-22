@@ -1,4 +1,4 @@
-"""Header mega, mobile nav, footer, home-tile WWNN pack, hub reciprocity."""
+"""Header mega, mobile nav, disclosure chrome, footer, home-tile WWNN pack, hub reciprocity."""
 
 from __future__ import annotations
 
@@ -160,6 +160,96 @@ def _replace_nav_item_mega(page: str, trigger: str, new_mega: str) -> str:
     if close_nav < 0:
         return page
     return page[:mega_at] + new_mega + rest[close_nav:]
+
+
+# Affiliate disclosure chrome — one source for every baked page.
+# Rank order is retailer stars mapped to score, not commission size.
+TOP_STRIP_COPY = (
+    "We may earn a commission when you buy via our links—at no extra cost to you."
+)
+TOP_STRIP_PANEL = (
+    "MoreTop10 is an affiliate comparison site. When you click Check price and buy, "
+    "we may earn a commission at no extra cost to you. We are not the seller."
+)
+MOBILE_DISCLOSURE = (
+    "Advertising Disclosure: we may earn a commission when you buy via Check price links."
+)
+MISLEADING_STRIP = (
+    "We earn commissions from brands listed on this site, which influences how listings are presented."
+)
+
+
+def render_top_affiliate_bar() -> str:
+    """Top strip + expandable panel. Existing site.css / site.js already style this."""
+    return (
+        '<div class="top-affiliate-bar" data-top-bar>\n'
+        '  <div class="container top-affiliate-inner">\n'
+        f"    <p>{TOP_STRIP_COPY}\n"
+        '      <button type="button" class="ad-disclosure-btn top-bar-disc-btn" '
+        "data-top-disc-btn>Advertising Disclosure</button>\n"
+        "    </p>\n"
+        '    <div class="top-affiliate-panel" data-top-disc-panel hidden>\n'
+        f"      <p>{TOP_STRIP_PANEL}</p>\n"
+        "    </div>\n"
+        "  </div>\n"
+        "</div>\n\n"
+    )
+
+
+def _remove_nav_disclosure(page: str) -> str:
+    """Drop the desktop primary-nav Advertising Disclosure control."""
+    marker = 'class="ad-disclosure header-disclosure"'
+    while True:
+        at = page.find(marker)
+        if at < 0:
+            return page
+        div_at = page.rfind("<div", 0, at)
+        if div_at < 0:
+            return page
+        _block, end = _consume_element(page, div_at)
+        left = page[:div_at].rstrip()
+        right = page[end:].lstrip()
+        page = left + "\n      " + right
+
+
+def _rewrite_top_strip_copy(page: str) -> str:
+    if 'class="top-affiliate-bar"' not in page:
+        return page
+
+    def repl(m: re.Match[str]) -> str:
+        return f"{m.group(1)}{TOP_STRIP_COPY}"
+
+    page = re.sub(
+        r'(<div class="top-affiliate-bar"[^>]*>\s*<div class="container top-affiliate-inner">\s*<p>)\s*.*?(?=\s*<button type="button" class="ad-disclosure-btn top-bar-disc-btn")',
+        repl,
+        page,
+        count=1,
+        flags=re.S,
+    )
+    if MISLEADING_STRIP in page:
+        page = page.replace(MISLEADING_STRIP, TOP_STRIP_COPY)
+    return page
+
+
+def _ensure_top_affiliate_bar(page: str) -> str:
+    if 'class="top-affiliate-bar"' in page:
+        return page
+    if 'class="site-header' not in page:
+        return page
+    return re.sub(
+        r'(<header class="site-header)',
+        render_top_affiliate_bar() + r"\1",
+        page,
+        count=1,
+    )
+
+
+def rewrite_disclosure(page: str) -> str:
+    """Remove nav Disclosure; keep top strip + panel + mobile with honest copy."""
+    page = _remove_nav_disclosure(page)
+    page = _ensure_top_affiliate_bar(page)
+    page = _rewrite_top_strip_copy(page)
+    return page
 
 
 def rewrite_compare_cta(page: str, prefix: str, slug: str | None, kind: str) -> str:

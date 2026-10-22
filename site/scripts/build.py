@@ -46,6 +46,9 @@ if str(SCRIPTS) not in sys.path:
     sys.path.insert(0, str(SCRIPTS))
 
 from chrome import (  # noqa: E402
+    MISLEADING_STRIP,
+    TOP_STRIP_COPY,
+    TOP_STRIP_PANEL,
     ensure_hub_reciprocity,
     strip_cmp_hero_steps,
     strip_rv_mop_pads_leftover,
@@ -56,6 +59,7 @@ from chrome import (  # noqa: E402
     rel_prefix,
     reorder_home_tiles,
     rewrite_compare_cta,
+    rewrite_disclosure,
     rewrite_footer,
     rewrite_non_home_nav,
     tile_is_tv,
@@ -177,6 +181,27 @@ def rewrite_best_widget(page_html: str) -> str:
         return PROMO_IMG_RE.sub("", match.group(0))
 
     return SIDEBAR_PROMO_RE.sub(_promo, html)
+
+
+SKIP_DISCLOSURE_DIRS = {".cache", "fixtures", "data", "assets"}
+
+
+def rebake_disclosure_pages(site: Path | None = None) -> list[Path]:
+    """Rewrite existing baked HTML disclosure chrome — no Live refetch."""
+    site = site or SITE
+    wrote: list[Path] = []
+    for path in sorted(site.rglob("*.html")):
+        rel_parts = set(path.relative_to(site).parts)
+        if rel_parts & SKIP_DISCLOSURE_DIRS:
+            continue
+        text = path.read_text(encoding="utf-8")
+        if "site-header" not in text and "top-affiliate-bar" not in text:
+            continue
+        new = rewrite_disclosure(text)
+        if new != text:
+            path.write_text(new, encoding="utf-8")
+            wrote.append(path)
+    return wrote
 
 
 def rebake_best_widget_pages(site: Path | None = None) -> list[Path]:
@@ -312,6 +337,7 @@ def bake_page(spec: dict, cfg: dict, cmp_html_by_slug: dict[str, str]) -> Path |
     html = rewrite_non_home_nav(html, cats, prefix)
     html = rewrite_footer(html, cats, prefix)
     html = rewrite_compare_cta(html, prefix, slug, kind)
+    html = rewrite_disclosure(html)
 
     if kind == "home":
         html = reorder_home_tiles(html, cfg["CATS_BY_SLUG"], cfg["home_visible_tiles"])
@@ -476,6 +502,13 @@ def verify(cfg: dict) -> None:
         if "mega-overview" in home.split("<main", 1)[0]:
             errors.append("home header must not grow a category mega")
 
+    errors.extend(_disclosure_errors(home, "home"))
+    errors.extend(_disclosure_errors(about, "about"))
+    errors.extend(_disclosure_errors(cmp, "kids comparison"))
+    errors.extend(_disclosure_errors(fry, "air-fryers hub"))
+    if MISLEADING_STRIP in home or MISLEADING_STRIP in about or MISLEADING_STRIP in cmp:
+        errors.append("misleading commission-rank copy still present")
+
     head = about.split("<main", 1)[0]
     if "kids-bikes/" not in head or "kids-bikes/comparison/" not in head:
         errors.append("about mega missing kids-bikes landing and/or comparison")
@@ -574,6 +607,7 @@ def verify(cfg: dict) -> None:
     if tests_dir not in sys.path:
         sys.path.insert(0, tests_dir)
     from best_widget_assert import sample_errors as best_widget_errors  # noqa: E402
+    from disclosure_chrome_assert import collect_errors as disclosure_errors  # noqa: E402
     from footer_cats_columns_assert import sample_errors as footer_cats_errors  # noqa: E402
     from g_engage_assert import sample_errors  # noqa: E402
     from landing_css_assert import collect_errors as landing_css_errors  # noqa: E402
@@ -582,6 +616,7 @@ def verify(cfg: dict) -> None:
     errors.extend(sample_errors(SITE))
     errors.extend(landing_css_errors(SITE))
     errors.extend(best_widget_errors(SITE))
+    errors.extend(disclosure_errors())
 
     sample_review = SITE / "air-fryers" / "reviews" / "cosori-twinfry-9-qt-double-air" / "index.html"
     if not sample_review.exists():
@@ -761,8 +796,37 @@ def main() -> None:
     from bake_tv import main as bake_tv_main  # noqa: E402
 
     bake_tv_main()
+    disc = rebake_disclosure_pages(SITE)
+    print(f"  disclosure chrome {len(disc)} pages")
+    verify(cfg)
+
+
+def _disclosure_errors(html: str, label: str) -> list[str]:
+    errors: list[str] = []
+    if "header-disclosure" in html:
+        errors.append(f"{label} still has desktop nav Advertising Disclosure")
+    if 'class="top-affiliate-bar"' not in html:
+        errors.append(f"{label} missing top affiliate strip")
+    if TOP_STRIP_COPY not in html:
+        errors.append(f"{label} missing honest top-strip copy")
+    if TOP_STRIP_PANEL not in html:
+        errors.append(f"{label} missing Check price panel copy")
+    if "mobile-disclosure" not in html:
+        errors.append(f"{label} missing mobile disclosure")
+    if MISLEADING_STRIP in html:
+        errors.append(f"{label} still says commission influences listings")
+    return errors
+
+
+def disclosure_only() -> None:
+    wrote = rebake_disclosure_pages(SITE)
+    print(f"disclosure chrome rewrote {len(wrote)} pages")
+    cfg = load_site_config()
     verify(cfg)
 
 
 if __name__ == "__main__":
-    main()
+    if "--disclosure-only" in sys.argv:
+        disclosure_only()
+    else:
+        main()
