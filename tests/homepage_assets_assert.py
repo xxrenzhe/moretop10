@@ -22,6 +22,7 @@ from site_config import HOME_VISIBLE_TILES  # noqa: E402
 
 REQUIRED_FILES = [
     "assets/css/pages-home.css",
+    "assets/css/pages-landing.css",
     "assets/js/site.js",
     "assets/img/symbol-color.svg",
     "assets/img/brands/retail/amazon.svg",

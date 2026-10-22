@@ -458,9 +458,11 @@ def verify(cfg: dict) -> None:
         sys.path.insert(0, tests_dir)
     from footer_cats_columns_assert import sample_errors as footer_cats_errors  # noqa: E402
     from g_engage_assert import sample_errors  # noqa: E402
+    from landing_css_assert import collect_errors as landing_css_errors  # noqa: E402
 
     errors.extend(footer_cats_errors(SITE))
     errors.extend(sample_errors(SITE))
+    errors.extend(landing_css_errors(SITE))
 
     sample_review = SITE / "air-fryers" / "reviews" / "cosori-twinfry-9-qt-double-air" / "index.html"
     if not sample_review.exists():
