@@ -3,6 +3,7 @@
 
 from __future__ import annotations
 
+import re
 import sys
 from pathlib import Path
 
@@ -19,6 +20,7 @@ from chrome import (  # noqa: E402
     reorder_home_tiles,
     split_home_tiles,
     tile_is_tv,
+    tile_width_code,
 )
 from site_config import CATS_BY_SLUG, HOME_VISIBLE_TILES  # noqa: E402
 
@@ -39,6 +41,36 @@ def _grid(*tiles: str) -> str:
         + "".join(tiles)
         + '</div>\n      <button type="button" class="home-show-more"></button>'
     )
+
+
+_COL_FIX_RE = re.compile(
+    r"home-tile--col-[34]|grid-column\s*:\s*[34]|data-home-col=\"[34]\""
+)
+
+
+def _unfixed_narrow_on_wide_track(tiles: list[str]) -> list[int]:
+    """Narrow tiles whose auto slot is a W track (index%4 in {0,1}) need a col fix."""
+    bad: list[int] = []
+    for i, tile in enumerate(tiles):
+        if tile_width_code(tile) != "N":
+            continue
+        if i % 4 in (0, 1) and not _COL_FIX_RE.search(tile[:320]):
+            bad.append(i)
+    return bad
+
+
+def _wwnn_rows(rows: int, start: int = 0) -> list[str]:
+    tiles: list[str] = []
+    for i in range(start, start + rows):
+        tiles.extend(
+            [
+                _tile("W", f"Wide {i}a", f"wide-{i}a/"),
+                _tile("W", f"Wide {i}b", f"wide-{i}b/"),
+                _tile("N", f"Narrow {i}a", f"narrow-{i}a/"),
+                _tile("N", f"Narrow {i}b", f"narrow-{i}b/"),
+            ]
+        )
+    return tiles
 
 
 def main() -> int:
@@ -108,6 +140,43 @@ def main() -> int:
         errors.append("TV tile missing from first row after reorder+ensure")
     if "is-more" not in tiles[-1][:160]:
         errors.append("overflow tile should receive is-more")
+
+    # Leftover WN after complete WWNN rows (live: Hair Dryers + Dash Cams).
+    # Auto-placement would put N on track 1 (a 2.15fr W column) → giant square.
+    leftover_src = _wwnn_rows(5) + [
+        _tile("W", "Hair Dryers", "hair-dryers/"),
+        _tile("N", "Dash Cams", "dash-cams/"),
+    ]
+    leftover_packed = arrange_tiles_wwnn(leftover_src, cats)
+    leftover_codes = "".join(home_tile_width_codes(leftover_packed))
+    if leftover_codes != "WWNN" * 5 + "WN":
+        errors.append(f"leftover WN pack expected WWNN×5+WN got {leftover_codes}")
+    if "Dash Cams" not in leftover_packed[-1]:
+        errors.append("leftover narrow should remain last (Dash Cams)")
+    if "Hair Dryers" not in leftover_packed[-2]:
+        errors.append("leftover wide should remain Hair Dryers")
+    unfixed = _unfixed_narrow_on_wide_track(leftover_packed)
+    if unfixed:
+        errors.append(
+            "leftover WN: narrow must not sit on track index%4 in {0,1} "
+            f"without an explicit column fix (unfixed indexes {unfixed})"
+        )
+    leftover_n = leftover_packed[-1]
+    if leftover_codes.endswith("WN") and not _COL_FIX_RE.search(leftover_n[:320]):
+        errors.append("leftover Dash Cams narrow missing explicit N-track column")
+    if "home-tile--col-3" not in leftover_n[:320] and 'grid-column:3' not in leftover_n[:320].replace(" ", ""):
+        errors.append("leftover narrow should pin to column 3 (first N track)")
+
+    leftover_page = reorder_home_tiles(_grid(*leftover_src), cats, HOME_VISIBLE_TILES)
+    leftover_match = HOME_TILE_GRID_RE.search(leftover_page)
+    leftover_tiles = split_home_tiles(leftover_match.group(2) if leftover_match else "")
+    if _unfixed_narrow_on_wide_track(leftover_tiles):
+        errors.append("reorder_home_tiles leftover WN left a narrow on a W track")
+    if leftover_tiles[:8] and "".join(home_tile_width_codes(leftover_tiles, 8)) != "WWNNWWNN":
+        errors.append(
+            "first-8 after leftover pack should stay WWNN: "
+            + "".join(home_tile_width_codes(leftover_tiles, 8))
+        )
 
     if errors:
         print("home_tiles_wwnn_unit FAILED")

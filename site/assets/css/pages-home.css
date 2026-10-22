@@ -267,6 +267,8 @@ button.explore-cat-link{font:inherit;cursor:pointer;width:100%;text-align:left;a
 .home-tile-icon,.home-tile-icon .cat-icon,.home-tile-icon svg.cat-icon{width:48px;height:48px}
 .home-tile-brand{gap:0.35rem;padding:0.1rem 0.55rem 0.1rem 0.25rem}
 .home-tile--wide .home-tile-links{gap:0.4rem;padding:0.1rem 0.25rem 0.1rem 0.65rem}
+.home-tile--col-3{grid-column:3}
+.home-tile--col-4{grid-column:4}
 }
 @media (min-width:640px) and (max-width:959px){
 .home-tile-icon,.home-tile-icon .cat-icon,.home-tile-icon svg.cat-icon{width:48px;height:48px}

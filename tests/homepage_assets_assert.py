@@ -17,6 +17,7 @@ from chrome import (  # noqa: E402
     home_tile_width_codes,
     split_home_tiles,
     tile_is_tv,
+    tile_width_code,
 )
 from site_config import HOME_VISIBLE_TILES  # noqa: E402
 
@@ -120,6 +121,8 @@ def main() -> int:
         errors.append("pages-home.css missing home-tile-grid / explore-footer layout")
     if "2.15fr 2.15fr 1fr 1fr" not in css:
         errors.append("pages-home.css missing WWNN grid-template-columns contract")
+    if ".home-tile--col-3{grid-column:3}" not in css.replace(" ", ""):
+        errors.append("pages-home.css missing leftover narrow column-3 pin")
 
     gm = re.search(
         r'<div class="home-tile-grid"[^>]*>(.*?)</div>\s*<button type="button" class="home-show-more"',
@@ -144,6 +147,21 @@ def main() -> int:
             )
         if any("is-more" in t[:200] for t in tiles[:HOME_VISIBLE_TILES]):
             errors.append("first visible home tiles still have is-more")
+        leftover_n_on_w = [
+            i
+            for i, t in enumerate(tiles)
+            if tile_width_code(t) == "N"
+            and i % 4 in (0, 1)
+            and not re.search(
+                r"home-tile--col-[34]|grid-column\s*:\s*[34]",
+                t[:320],
+            )
+        ]
+        if leftover_n_on_w:
+            errors.append(
+                "leftover narrow on W track without column fix: "
+                + ",".join(str(i) for i in leftover_n_on_w)
+            )
 
     js = (SITE / "assets/js/site.js").read_text()
     if "data-home-show-more" not in js or "is-expanded" not in js:

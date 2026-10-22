@@ -247,6 +247,55 @@ def expected_wwnn_codes(n: int) -> list[str]:
     return [HOME_TILE_TRACKS[i % 4] for i in range(n)]
 
 
+_HOME_TILE_COL_CLASS_RE = re.compile(r"\s*home-tile--col-[34]")
+
+
+def set_tile_grid_column(tile: str, col: int | None) -> str:
+    """Pin a leftover tile to a 1-indexed WWNN column, or strip a prior pin."""
+
+    def repl(m: re.Match[str]) -> str:
+        classes = _HOME_TILE_COL_CLASS_RE.sub("", m.group(1))
+        parts = [p for p in classes.split() if p]
+        if col in (3, 4):
+            parts.append(f"home-tile--col-{col}")
+        return f'class="{" ".join(parts)}"'
+
+    return re.sub(r'class="(home-tile[^"]*)"', repl, tile, count=1)
+
+
+def place_leftover_narrows(tiles: list[str]) -> list[str]:
+    """After complete WWNN rows, pin leftover N onto a narrow track.
+
+    Desktop grid is 2.15fr 2.15fr 1fr 1fr. Auto-placement after a row that
+    ends at index%4==3 starts on WW, so leftover WN would drop N onto track 1
+    (a wide column). Pin that N to column 3 (first N track). Extra leftover
+    Ns take column 4. Complete WWNN rows are left alone.
+    """
+    if not tiles:
+        return tiles
+    complete = (len(tiles) // 4) * 4
+    out = [set_tile_grid_column(t, None) for t in tiles[:complete]]
+    leftover = tiles[complete:]
+    if not leftover:
+        return out
+    auto = 0
+    used_n: set[int] = set()
+    for tile in leftover:
+        tile = set_tile_grid_column(tile, None)
+        if tile_is_wide(tile):
+            auto += 1
+            out.append(tile)
+            continue
+        if auto in (0, 1):
+            target = 2 if 2 not in used_n else 3
+            used_n.add(target)
+            out.append(set_tile_grid_column(tile, target + 1))
+            continue
+        out.append(tile)
+        auto += 1
+    return out
+
+
 def arrange_tiles_wwnn(
     tiles: list[str],
     cats_by_slug: dict[str, dict[str, Any]] | None = None,
@@ -254,7 +303,8 @@ def arrange_tiles_wwnn(
     """Stable-partition tiles into CSS-track order: W W N N repeating.
 
     Extended / kids-bikes stay first among wides. Editorial TV stays first
-    among narrows so it lands in a row-1 Narrow slot (index 2).
+    among narrows so it lands in a row-1 Narrow slot (index 2). Leftover WN
+    after complete rows pins N to column 3 so it does not fill a W track.
     """
     slugs = set(cats_by_slug or ())
     wide: list[tuple[tuple[int, int], str]] = []
@@ -282,7 +332,7 @@ def arrange_tiles_wwnn(
             if ni < len(narrows):
                 out.append(narrows[ni])
                 ni += 1
-    return out
+    return place_leftover_narrows(out)
 
 
 def apply_home_tile_visibility(tiles: list[str], visible: int) -> list[str]:
