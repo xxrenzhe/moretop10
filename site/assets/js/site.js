@@ -1,140 +1,291 @@
-/* MoreTop10 site chrome — disclosure, burger, home Show more, explore tabs. */
 (function () {
-  "use strict";
-
-  function onReady(fn) {
-    if (document.readyState === "loading") {
-      document.addEventListener("DOMContentLoaded", fn);
-    } else {
-      fn();
-    }
-  }
-
-  function toggleHidden(el, forceHide) {
-    if (!el) return;
-    var hide = forceHide === undefined ? !el.hasAttribute("hidden") : forceHide;
-    if (hide) el.setAttribute("hidden", "");
-    else el.removeAttribute("hidden");
-  }
-
-  function initDisclosures() {
-    document.querySelectorAll("[data-top-disc-btn]").forEach(function (btn) {
-      var bar = btn.closest("[data-top-bar]");
-      var panel = bar ? bar.querySelector("[data-top-disc-panel]") : null;
-      btn.addEventListener("click", function (e) {
-        e.stopPropagation();
-        toggleHidden(panel);
-      });
-    });
-    document.querySelectorAll("[data-disclosure-btn]").forEach(function (btn) {
-      var wrap = btn.closest("[data-disclosure]");
-      var panel = wrap ? wrap.querySelector("[data-disclosure-panel]") : null;
-      btn.addEventListener("click", function (e) {
-        e.stopPropagation();
-        toggleHidden(panel);
-      });
-    });
-    document.addEventListener("click", function () {
-      document.querySelectorAll("[data-top-disc-panel], [data-disclosure-panel]").forEach(function (p) {
-        p.setAttribute("hidden", "");
-      });
-    });
-  }
-
-  function initBurger() {
-    var burger = document.querySelector("[data-burger]");
-    var nav = document.querySelector("[data-mobile-nav]");
-    if (!burger || !nav) return;
+  var burger = document.querySelector("[data-burger]");
+  var mobile = document.querySelector("[data-mobile-nav]");
+  if (burger && mobile) {
     burger.addEventListener("click", function () {
-      var open = nav.classList.toggle("open");
+      var open = mobile.classList.toggle("open");
       burger.setAttribute("aria-expanded", open ? "true" : "false");
     });
   }
 
-  function initHomeShowMore() {
-    var grid = document.querySelector("[data-home-tile-grid]");
-    var btn = document.querySelector("[data-home-show-more]");
-    if (!grid || !btn) return;
-    btn.addEventListener("click", function () {
-      grid.classList.add("is-expanded");
-      btn.setAttribute("aria-expanded", "true");
-      btn.hidden = true;
-    });
-  }
-
-  function comparisonFromCards(cards) {
-    if (!cards) return "";
-    var review = cards.querySelector(".explore-read");
-    if (!review) return "";
-    var href = review.getAttribute("href") || "";
-    var parts = href.split("/").filter(Boolean);
-    if (!parts.length) return "";
-    return parts[0] + "/comparison/";
-  }
-
-  function activateExplore(root, tabIndex, catIndex) {
-    root.querySelectorAll("[data-explore-tab]").forEach(function (tab) {
-      var on = tab.getAttribute("data-explore-tab") === String(tabIndex);
-      tab.classList.toggle("is-active", on);
-      tab.setAttribute("aria-selected", on ? "true" : "false");
-    });
-    root.querySelectorAll("[data-explore-panel]").forEach(function (panel) {
-      var on = panel.getAttribute("data-explore-panel") === String(tabIndex);
-      panel.classList.toggle("is-active", on);
-      if (!on) return;
-      var cats = panel.querySelectorAll("[data-explore-cat]");
-      var chosen = catIndex;
-      if (![].some.call(cats, function (c) { return c.getAttribute("data-explore-cat") === String(chosen); })) {
-        chosen = cats[0] ? cats[0].getAttribute("data-explore-cat") : "0";
-      }
-      cats.forEach(function (cat) {
-        var sel = cat.getAttribute("data-explore-cat") === String(chosen);
-        cat.classList.toggle("is-selected", sel);
-        cat.setAttribute("aria-pressed", sel ? "true" : "false");
+  /* Advertising disclosure toggle */
+  var disc = document.querySelector("[data-disclosure]");
+  if (disc) {
+    var btn = disc.querySelector("[data-disclosure-btn]");
+    var panel = disc.querySelector("[data-disclosure-panel]");
+    if (btn && panel) {
+      btn.addEventListener("click", function (e) {
+        e.stopPropagation();
+        var hide = !panel.hasAttribute("hidden");
+        if (hide) panel.setAttribute("hidden", "");
+        else panel.removeAttribute("hidden");
       });
-      var activeCards = null;
-      panel.querySelectorAll("[data-explore-cards]").forEach(function (cards) {
-        var sel = cards.getAttribute("data-explore-cards") === String(chosen);
-        cards.classList.toggle("is-active", sel);
-        if (sel) activeCards = cards;
+      document.addEventListener("click", function () {
+        panel.setAttribute("hidden", "");
       });
-      var more = root.querySelector(".explore-show-more");
-      if (more && activeCards) {
-        var next = comparisonFromCards(activeCards);
-        if (next) more.setAttribute("href", next);
-      }
-    });
+      panel.addEventListener("click", function (e) {
+        e.stopPropagation();
+      });
+    }
   }
 
-  function initExplore() {
-    var root = document.querySelector("[data-home-explore]");
-    if (!root) return;
-    root.querySelectorAll("[data-explore-tab]").forEach(function (tab) {
+  /* Sticky CTA bar — follow the product card nearest viewport center */
+  var bar = document.querySelector("[data-sticky-cta]");
+  var cards = Array.prototype.slice.call(
+    document.querySelectorAll('.product-card[data-sticky="product-card"]')
+  );
+  if (bar && cards.length) {
+    var imgEl = bar.querySelector("[data-sticky-img]");
+    var nameEl = bar.querySelector("[data-sticky-name]");
+    var linkEl = bar.querySelector("[data-sticky-link]");
+    var current = null;
+
+    function activate(card) {
+      if (!card || card === current) return;
+      current = card;
+      var name = card.getAttribute("data-product-name") || "";
+      var cta = card.getAttribute("data-cta") || "#";
+      var src = card.getAttribute("data-img") || "";
+      if (nameEl) nameEl.textContent = name;
+      if (linkEl) linkEl.setAttribute("href", cta);
+      if (imgEl) {
+        if (src) {
+          imgEl.src = src;
+          imgEl.removeAttribute("hidden");
+        } else {
+          imgEl.removeAttribute("src");
+          imgEl.setAttribute("hidden", "");
+        }
+      }
+      bar.removeAttribute("hidden");
+      bar.classList.add("is-visible");
+      document.body.classList.add("has-sticky-cta");
+    }
+
+    function pick() {
+      var mid = window.innerHeight * 0.42;
+      var best = null;
+      var bestDist = Infinity;
+      for (var i = 0; i < cards.length; i++) {
+        var r = cards[i].getBoundingClientRect();
+        if (r.bottom < 80 || r.top > window.innerHeight - 40) continue;
+        var c = (r.top + r.bottom) / 2;
+        var d = Math.abs(c - mid);
+        if (d < bestDist) {
+          bestDist = d;
+          best = cards[i];
+        }
+      }
+      if (best) activate(best);
+      else {
+        bar.classList.remove("is-visible");
+        document.body.classList.remove("has-sticky-cta");
+        /* keep hidden attr off once shown so transition works; use class only */
+        if (!current) bar.setAttribute("hidden", "");
+      }
+    }
+
+    var ticking = false;
+    window.addEventListener(
+      "scroll",
+      function () {
+        if (ticking) return;
+        ticking = true;
+        requestAnimationFrame(function () {
+          pick();
+          ticking = false;
+        });
+      },
+      { passive: true }
+    );
+    window.addEventListener("resize", pick, { passive: true });
+    pick();
+  }
+
+
+  /* Top affiliate bar disclosure */
+  var topBar = document.querySelector("[data-top-bar]");
+  if (topBar) {
+    var tBtn = topBar.querySelector("[data-top-disc-btn]");
+    var tPanel = topBar.querySelector("[data-top-disc-panel]");
+    if (tBtn && tPanel) {
+      tBtn.addEventListener("click", function (e) {
+        e.stopPropagation();
+        if (tPanel.hasAttribute("hidden")) tPanel.removeAttribute("hidden");
+        else tPanel.setAttribute("hidden", "");
+      });
+      document.addEventListener("click", function () {
+        tPanel.setAttribute("hidden", "");
+      });
+      tPanel.addEventListener("click", function (e) {
+        e.stopPropagation();
+      });
+    }
+  }
+
+  /* Home Explore-by-category tabs + in-panel subcategory switchers */
+  var explore = document.querySelector("[data-home-explore]");
+  if (explore) {
+    var tabs = explore.querySelectorAll("[data-explore-tab]");
+    var panels = explore.querySelectorAll("[data-explore-panel]");
+    tabs.forEach(function (tab) {
       tab.addEventListener("click", function () {
-        activateExplore(root, tab.getAttribute("data-explore-tab"), "0");
-      });
-    });
-    root.querySelectorAll("[data-explore-panel]").forEach(function (panel) {
-      panel.querySelectorAll("[data-explore-cat]").forEach(function (cat) {
-        cat.addEventListener("click", function () {
-          activateExplore(root, panel.getAttribute("data-explore-panel"), cat.getAttribute("data-explore-cat"));
+        var id = tab.getAttribute("data-explore-tab");
+        tabs.forEach(function (t) {
+          var on = t.getAttribute("data-explore-tab") === id;
+          t.classList.toggle("is-active", on);
+          t.setAttribute("aria-selected", on ? "true" : "false");
+        });
+        panels.forEach(function (panel) {
+          var on = panel.getAttribute("data-explore-panel") === id;
+          panel.classList.toggle("is-active", on);
+          if (on) panel.removeAttribute("hidden");
+          else panel.setAttribute("hidden", "");
         });
       });
     });
-    var current = root.querySelector(".explore-tab.is-active") || root.querySelector("[data-explore-tab]");
-    var panel = root.querySelector(".explore-panel.is-active") || root.querySelector("[data-explore-panel]");
-    var cat = panel ? panel.querySelector(".explore-cat-link.is-selected") || panel.querySelector("[data-explore-cat]") : null;
-    activateExplore(
-      root,
-      current ? current.getAttribute("data-explore-tab") : "0",
-      cat ? cat.getAttribute("data-explore-cat") : "0"
-    );
+    panels.forEach(function (panel) {
+      var catBtns = panel.querySelectorAll("[data-explore-cat]");
+      var cardSets = panel.querySelectorAll("[data-explore-cards]");
+      catBtns.forEach(function (btn) {
+        btn.addEventListener("click", function () {
+          var cid = btn.getAttribute("data-explore-cat");
+          catBtns.forEach(function (b) {
+            var on = b.getAttribute("data-explore-cat") === cid;
+            b.classList.toggle("is-selected", on);
+            b.setAttribute("aria-pressed", on ? "true" : "false");
+          });
+          cardSets.forEach(function (set) {
+            var on = set.getAttribute("data-explore-cards") === cid;
+            if (on) set.removeAttribute("hidden");
+            else set.setAttribute("hidden", "");
+          });
+        });
+      });
+    });
   }
 
-  onReady(function () {
-    initDisclosures();
-    initBurger();
-    initHomeShowMore();
-    initExplore();
-  });
+  /* Home Show more tiles */
+  var showMore = document.querySelector("[data-home-show-more]");
+  var tileGrid = document.querySelector("[data-home-tile-grid]");
+  if (showMore && tileGrid) {
+    showMore.addEventListener("click", function () {
+      var open = tileGrid.classList.toggle("is-expanded");
+      showMore.setAttribute("aria-expanded", open ? "true" : "false");
+      showMore.childNodes[0].textContent = open ? "Show less " : "Show more ";
+    });
+  }
+
+  /* Match demo — choice card selection */
+  var matchForm = document.querySelector("[data-match-form]");
+  if (matchForm) {
+    var cards = matchForm.querySelectorAll(".match-choice-card");
+    cards.forEach(function (card) {
+      card.addEventListener("click", function () {
+        cards.forEach(function (c) { c.classList.remove("is-selected"); });
+        card.classList.add("is-selected");
+      });
+    });
+    matchForm.addEventListener("submit", function (e) {
+      e.preventDefault();
+      var sel = matchForm.querySelector(".match-choice-card.is-selected");
+      var href = matchForm.querySelector(".match-actions .btn-ghost");
+      if (href && href.getAttribute("href")) window.location.href = href.getAttribute("href");
+    });
+  }
+
+
+
+  /* Partner lead capture — POST /api/leads (D1; no outbound email) */
+  var partnerForm = document.querySelector("[data-partner-form]");
+  if (partnerForm) {
+    var statusEl = partnerForm.querySelector("[data-partner-status]");
+    var submitBtn = partnerForm.querySelector(".partner-submit");
+    function setStatus(msg, kind) {
+      if (!statusEl) return;
+      statusEl.hidden = !msg;
+      statusEl.textContent = msg || "";
+      statusEl.classList.remove("is-ok", "is-err");
+      if (kind) statusEl.classList.add(kind === "ok" ? "is-ok" : "is-err");
+    }
+    partnerForm.addEventListener("submit", function (e) {
+      e.preventDefault();
+      setStatus("", "");
+      var emailInput = partnerForm.querySelector('input[name="email"]');
+      var honeyInput = partnerForm.querySelector('input[name="website"]');
+      var email = emailInput ? String(emailInput.value || "").trim() : "";
+      if (!email || email.indexOf("@") < 1) {
+        setStatus("Please enter a valid work email.", "err");
+        if (emailInput) emailInput.focus();
+        return;
+      }
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.setAttribute("aria-busy", "true");
+      }
+      var payload = {
+        email: email,
+        source: "partner-with-us",
+        website: honeyInput ? String(honeyInput.value || "") : ""
+      };
+      fetch("/api/leads", {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        credentials: "same-origin",
+        body: JSON.stringify(payload)
+      })
+        .then(function (res) {
+          return res.json().then(function (data) {
+            return { ok: res.ok, status: res.status, data: data || {} };
+          }).catch(function () {
+            return { ok: res.ok, status: res.status, data: {} };
+          });
+        })
+        .then(function (result) {
+          if (result.ok && result.data && result.data.ok) {
+            setStatus("Thanks — we saved your email.", "ok");
+            partnerForm.reset();
+            return;
+          }
+          if (result.status === 429) {
+            setStatus("Too many tries. Please wait a minute and try again.", "err");
+            return;
+          }
+          if (result.data && result.data.error === "invalid_email") {
+            setStatus("Please enter a valid work email.", "err");
+            return;
+          }
+          setStatus("Something went wrong. Please try again.", "err");
+        })
+        .catch(function () {
+          setStatus("Network error. Please try again.", "err");
+        })
+        .finally(function () {
+          if (submitBtn) {
+            submitBtn.disabled = false;
+            submitBtn.removeAttribute("aria-busy");
+          }
+        });
+    });
+  }
+
+  /* Author page Show more posts */
+  var authorMore = document.querySelector("[data-author-show-more]");
+  var authorPosts = document.querySelector("[data-author-posts]");
+  if (authorMore && authorPosts) {
+    authorMore.addEventListener("click", function () {
+      var open = authorMore.getAttribute("aria-expanded") === "true";
+      open = !open;
+      authorMore.setAttribute("aria-expanded", open ? "true" : "false");
+      authorPosts.querySelectorAll("[data-author-post][hidden]").forEach(function () {});
+      authorPosts.querySelectorAll("[data-author-post]").forEach(function (row, i) {
+        if (i < 7) return;
+        if (open) row.removeAttribute("hidden");
+        else row.setAttribute("hidden", "");
+      });
+      var label = authorMore.querySelector("span");
+      if (label) label.textContent = open ? "Show less" : "Show more";
+    });
+  }
+
 })();
