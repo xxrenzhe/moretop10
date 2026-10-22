@@ -412,24 +412,46 @@ def reorder_home_tiles(
     return _rebuild_home_grid(page, m, tiles)
 
 
-HUB_BLOCK = (
-    '<p class="landing-related-cluster hub-reciprocity">'
-    "<strong>Related:</strong> "
-    '<a href="../">Category overview</a>'
-    " · "
-    '<a href="../">Full guide</a>'
-    " · "
-    '<a href="{compare}">Comparison chart</a>'
-    "</p>"
+_HUB_CLUSTER_RE = re.compile(
+    r'<p class="landing-related-cluster hub-reciprocity">.*?</p>',
+    re.S,
 )
+
+
+def render_hub_block(kind: str) -> str:
+    """Related strip. Omit the current page so links are not self / duplicate."""
+    parts = ['<a href="../">Category overview</a>']
+    if kind == "comparison":
+        parts.append('<a href="../reviews/">Full guide</a>')
+    else:
+        parts.append('<a href="../comparison/">Comparison chart</a>')
+    return (
+        '<p class="landing-related-cluster hub-reciprocity">'
+        "<strong>Related:</strong> "
+        + " · ".join(parts)
+        + "</p>"
+    )
+
+
+_HERO_STEPS_RE = re.compile(r"\s*<ol class=\"cmp-hero-steps\">.*?</ol>", re.S)
+
+
+def strip_cmp_hero_steps(page: str) -> str:
+    """Drop the decorative Compare / Shortlist / Check price icon row.
+
+    Per-card Check price CTAs (``.product-cta`` / ``.top3-cta``) stay.
+    Live snapshots still ship the ``<ol>``; strip on every comparison bake.
+    """
+    return _HERO_STEPS_RE.sub("", page)
 
 
 def ensure_hub_reciprocity(page: str, kind: str) -> str:
     """Inbound path from comparison/ and reviews/ hubs back to /{slug}/."""
-    compare = "../comparison/" if kind == "reviews" else "./"
-    block = HUB_BLOCK.format(compare=compare)
+    block = render_hub_block(kind)
 
-    if 'class="landing-related-cluster hub-reciprocity"' not in page:
+    if _HUB_CLUSTER_RE.search(page):
+        page = _HUB_CLUSTER_RE.sub(block, page, count=1)
+    elif 'class="landing-related-cluster hub-reciprocity"' not in page:
         if kind == "reviews":
             page = re.sub(
                 r'(<header class="page-head">.*?</header>)',

@@ -41,6 +41,7 @@ if str(SCRIPTS) not in sys.path:
 
 from chrome import (  # noqa: E402
     ensure_hub_reciprocity,
+    strip_cmp_hero_steps,
     ensure_tv_home_tile,
     expected_wwnn_codes,
     home_tile_width_codes,
@@ -206,6 +207,8 @@ def bake_page(spec: dict, cfg: dict, cmp_html_by_slug: dict[str, str]) -> Path |
 
     if kind in {"comparison", "reviews"}:
         html = ensure_hub_reciprocity(html, kind)
+    if kind == "comparison":
+        html = strip_cmp_hero_steps(html)
 
     cmp_html = (
         cmp_html_by_slug.get(slug or "")
@@ -374,10 +377,28 @@ def verify(cfg: dict) -> None:
             errors.append("comparison missing landing href")
     if "Category overview" not in cmp and "Full guide" not in cmp:
         errors.append("comparison missing Category overview / Full guide copy")
+    cmp_related = re.search(
+        r'<p class="landing-related-cluster hub-reciprocity">.*?</p>', cmp, re.S
+    )
+    if cmp_related:
+        related = cmp_related.group(0)
+        if 'href="./"' in related or 'href="../comparison/"' in related:
+            errors.append("comparison Related cluster self-links to the chart")
+        if 'href="../reviews/"' not in related:
+            errors.append("comparison Related missing Full guide → reviews hub")
+    if 'class="cmp-hero-steps"' in cmp:
+        errors.append("comparison hero still has decorative cmp-hero-steps")
     if 'href="../"' not in rev and "kids-bikes/" not in rev:
         errors.append("reviews hub missing landing href")
     if "Category overview" not in rev and "Full guide" not in rev:
         errors.append("reviews hub missing landing href copy")
+    rev_related = re.search(
+        r'<p class="landing-related-cluster hub-reciprocity">.*?</p>', rev, re.S
+    )
+    if rev_related:
+        related = rev_related.group(0)
+        if 'href="../reviews/"' in related or 'href="./"' in related:
+            errors.append("reviews Related cluster self-links to the reviews hub")
 
     # Compare CTA: comparison must not self-link to comparison.
     cmp_head = cmp.split("<main", 1)[0]
