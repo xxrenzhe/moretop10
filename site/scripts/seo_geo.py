@@ -28,6 +28,7 @@ from pathlib import Path
 from typing import Any
 from urllib.parse import urljoin
 
+from landing_faq import scrub_faqs  # noqa: E402
 from watchouts import scrub_watchouts  # noqa: E402
 
 LIVE = "https://moretop10.com"
@@ -1398,6 +1399,8 @@ def apply_hub_page(
     products: list[dict[str, Any]] = []
     if cat:
         html_text = scrub_watchouts(html_text, cat.get("slug"))
+        if kind in {"landing", "comparison"}:
+            html_text = scrub_faqs(html_text, cat.get("slug"), kind=kind)
         cmp_products = (
             extract_comparison_products(cmp_html or html_text, cat["slug"])
             if (cmp_html or kind in {"comparison", "reviews", "review"})
