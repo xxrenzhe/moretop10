@@ -4,11 +4,21 @@
 from __future__ import annotations
 
 import re
+import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 SITE = ROOT / "site"
 HOME = SITE / "index.html"
+sys.path.insert(0, str(ROOT / "site" / "scripts"))
+
+from chrome import (  # noqa: E402
+    expected_wwnn_codes,
+    home_tile_width_codes,
+    split_home_tiles,
+    tile_is_tv,
+)
+from site_config import HOME_VISIBLE_TILES  # noqa: E402
 
 REQUIRED_FILES = [
     "assets/css/pages-home.css",
@@ -108,6 +118,32 @@ def main() -> int:
         errors.append("pages-home.css must not touch .pc-main")
     if ".home-tile-grid" not in css or ".explore-footer" not in css:
         errors.append("pages-home.css missing home-tile-grid / explore-footer layout")
+    if "2.15fr 2.15fr 1fr 1fr" not in css:
+        errors.append("pages-home.css missing WWNN grid-template-columns contract")
+
+    gm = re.search(
+        r'<div class="home-tile-grid"[^>]*>(.*?)</div>\s*<button type="button" class="home-show-more"',
+        html,
+        re.S,
+    )
+    if not gm:
+        errors.append("home tile grid missing")
+    else:
+        tiles = split_home_tiles(gm.group(1))
+        n_check = min(max(8, (len(tiles) // 4) * 4), len(tiles))
+        got = home_tile_width_codes(tiles, n_check)
+        want = expected_wwnn_codes(n_check)
+        if got != want:
+            errors.append(f"home tiles WWNN expected {''.join(want)} got {''.join(got)}")
+        tv_idxs = [i for i, t in enumerate(tiles) if tile_is_tv(t)]
+        if not tv_idxs:
+            errors.append("home missing editorial /tv/ tile in grid")
+        elif tv_idxs[0] not in (2, 3):
+            errors.append(
+                f"tv tile at slot {tv_idxs[0]} (need row-1 narrow slot 2 or 3)"
+            )
+        if any("is-more" in t[:200] for t in tiles[:HOME_VISIBLE_TILES]):
+            errors.append("first visible home tiles still have is-more")
 
     js = (SITE / "assets/js/site.js").read_text()
     if "data-home-show-more" not in js or "is-expanded" not in js:
