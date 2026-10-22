@@ -34,8 +34,17 @@ SITE = ROOT / "site"
 SHORTLIST = SITE / "data" / "shortlist-tv.json"
 MODELS_SNAPSHOT = SITE / "data" / "tv-supported-models.json"
 UPDATED = "2026-10-22"
+L1_UPDATED = "2026-10-23"
 LIVE = "https://moretop10.com"
 CTA_LABEL = "Check price"
+VIDEO_FILE = "cleanyourtv-demo-hfcorriez.mp4"
+POSTER_FILE = "cleanyourtv-demo-hfcorriez-poster.jpg"
+VIDEO_REL = f"assets/video/{VIDEO_FILE}"
+POSTER_REL = f"assets/video/{POSTER_FILE}"
+VIDEO_CREDIT_URL = "https://x.com/hfcorriez/status/2112732522937553003"
+VIDEO_CREATOR_URL = "https://x.com/hfcorriez"
+VIDEO_PROJECT_URL = "https://github.com/Gathin23/cleanyourtv"
+VIDEO_UPLOAD_DATE = "2026-10-21"
 
 # Forbidden branded paths — bake must never write these.
 FORBIDDEN_PATHS = (
@@ -193,7 +202,54 @@ def empty_products_html(*, slot: str, label: str, note: str) -> str:
     )
 
 
-def page_ld(title: str, url: str, description: str, crumbs: list[tuple[str, str]], products: list[dict] | None = None) -> str:
+def community_demo_html(prefix: str) -> str:
+    poster = f"{prefix}{POSTER_REL}"
+    src = f"{prefix}{VIDEO_REL}"
+    return (
+        '<section class="tv-demo" aria-labelledby="tv-demo-heading">'
+        '<h2 id="tv-demo-heading">See a finished home screen (community demo)</h2>'
+        '<figure class="tv-demo-figure">'
+        f'<video controls playsinline preload="metadata" poster="{_esc(poster)}">'
+        f'<source src="{_esc(src)}" type="video/mp4"/>'
+        "</video>"
+        "<figcaption>"
+        "Third-party community screen recording by "
+        f'<a href="{VIDEO_CREATOR_URL}">@hfcorriez</a> on X '
+        f'(<a href="{VIDEO_CREDIT_URL}">original post</a>). '
+        "MoreTop10 did not make this video and is not affiliated with the unofficial "
+        f'<a href="{VIDEO_PROJECT_URL}">CleanYourTV</a> project. '
+        "App-inside ads (Netflix, YouTube) are unchanged."
+        "</figcaption>"
+        "</figure>"
+        "</section>"
+    )
+
+
+def video_object_ld() -> dict:
+    return {
+        "@context": "https://schema.org",
+        "@type": "VideoObject",
+        "name": "Community demo: finished smart TV home screen",
+        "description": (
+            "Third-party screen recording by @hfcorriez showing a finished Android TV / "
+            "Google TV home screen after the unofficial CleanYourTV launcher. "
+            "App-inside ads (Netflix, YouTube) are unchanged. MoreTop10 did not make this video."
+        ),
+        "thumbnailUrl": f"{LIVE}/{POSTER_REL}",
+        "contentUrl": f"{LIVE}/{VIDEO_REL}",
+        "uploadDate": VIDEO_UPLOAD_DATE,
+    }
+
+
+def page_ld(
+    title: str,
+    url: str,
+    description: str,
+    crumbs: list[tuple[str, str]],
+    products: list[dict] | None = None,
+    date_modified: str | None = None,
+    extra: list[dict] | None = None,
+) -> str:
     breadcrumb = {
         "@context": "https://schema.org",
         "@type": "BreadcrumbList",
@@ -208,11 +264,13 @@ def page_ld(title: str, url: str, description: str, crumbs: list[tuple[str, str]
         "name": title,
         "url": url,
         "description": description,
-        "dateModified": UPDATED,
+        "dateModified": date_modified or UPDATED,
         "isPartOf": {"@type": "WebSite", "name": "MoreTop10", "url": f"{LIVE}/"},
         "speakable": {"@type": "SpeakableSpecification", "cssSelector": [".geo-answer-first"]},
     }
     blobs = [webpage, breadcrumb]
+    if extra:
+        blobs.extend(extra)
     if products:
         webpage["mainEntity"] = {
             "@type": "ItemList",
@@ -255,6 +313,8 @@ def wrap_page(
     body: str,
     crumbs: list[tuple[str, str]],
     products: list[dict] | None = None,
+    date_modified: str | None = None,
+    extra_ld: list[dict] | None = None,
 ) -> str:
     prefix = rel_prefix(out_rel)
     chrome_src = (SITE / "about-us" / "index.html").read_text(encoding="utf-8")
@@ -335,7 +395,15 @@ def wrap_page(
                 f'href="{prefix}assets/css/site.css"/>\n<link rel="stylesheet" href="{prefix}assets/css/pages-tv.css"/>',
                 1,
             )
-    head += page_ld(title, canonical, description, crumbs, products)
+    head += page_ld(
+        title,
+        canonical,
+        description,
+        crumbs,
+        products,
+        date_modified=date_modified,
+        extra=extra_ld,
+    )
 
     page = head + "</head>\n" + pre_main + body + post_main
     if not page.lstrip().lower().startswith("<!doctype"):
@@ -404,12 +472,13 @@ def remove_ads_body(prefix: str, current: str) -> str:
     <nav class="breadcrumb"><a href="{prefix}index.html">Home</a> <span class="sep">/</span> <a href="{prefix}tv/">Smart TV ads</a> <span class="sep">/</span> <span>Turn off ads</span></nav>
     <header class="page-head">
       <h1>How to remove smart TV ads (software first)</h1>
-      <p class="page-lede tv-lede">Last updated {UPDATED}. Install, confirm the model, then troubleshoot. Buy another TV only after this path fails.</p>
+      <p class="page-lede tv-lede">Last updated {L1_UPDATED}. Install, confirm the model, then troubleshoot. Buy another TV only after this path fails.</p>
     </header>
     {cluster_nav_html(current, prefix)}
     {DISCLOSURE}
     <div class="legal-body">
-      <p class="geo-answer-first">As of {UPDATED}, the honest order is: (1) confirm the set is Android TV or Google TV with USB debugging, (2) sideload a community launcher from the unofficial CleanYourTV project, (3) check the <a href="{prefix}tv/supported-android-tv-models/">supported models table</a>, (4) if ADB fails or the platform is Samsung / LG / Apple, open <a href="{prefix}tv/smart-tv-ad-alternatives/">when software will not install</a>. Do not skip to a new TV to “escape ads” if the current set still has a software path.</p>
+      <p class="geo-answer-first">As of {L1_UPDATED}, the honest order is: (1) confirm the set is Android TV or Google TV with USB debugging, (2) sideload a community launcher from the unofficial CleanYourTV project, (3) check the <a href="{prefix}tv/supported-android-tv-models/">supported models table</a>, (4) if ADB fails or the platform is Samsung / LG / Apple, open <a href="{prefix}tv/smart-tv-ad-alternatives/">when software will not install</a>. Do not skip to a new TV to “escape ads” if the current set still has a software path.</p>
+      {community_demo_html(prefix)}
       <h2>1. Install — software first</h2>
       <ol class="tv-tree">
         <li>Enable Developer options and USB debugging on the TV (Android / Google TV only).</li>
@@ -1112,6 +1181,8 @@ PAGES = [
         ],
         "body": remove_ads_body,
         "products": False,
+        "date_modified": L1_UPDATED,
+        "extra_ld": True,
     },
     {
         "out": "tv/supported-android-tv-models/index.html",
@@ -1276,6 +1347,8 @@ def bake_pages(shortlist: dict) -> list[Path]:
             body=body,
             crumbs=spec["crumbs"],
             products=products if spec["products"] else None,
+            date_modified=spec.get("date_modified"),
+            extra_ld=[video_object_ld()] if spec.get("extra_ld") else None,
         )
         dest = SITE / spec["out"]
         assert_no_forbidden(dest)
@@ -1409,6 +1482,20 @@ def verify_tv(shortlist: dict) -> None:
             errors.append(f"{spec['out']} leaked uid= on a CTA")
         if "PartnerBoost" in html_out or "YeahPromos" in html_out or "fromsll" in html_out:
             errors.append(f"{spec['out']} visitor jargon")
+
+    l1 = (SITE / "tv/remove-smart-tv-ads/index.html").read_text(encoding="utf-8")
+    if "<video" not in l1:
+        errors.append("L1 missing <video embed")
+    if VIDEO_REL not in l1:
+        errors.append(f"L1 missing vendored mp4 path {VIDEO_REL}")
+    if VIDEO_CREDIT_URL not in l1:
+        errors.append("L1 missing X credit URL")
+    if '"@type": "VideoObject"' not in l1 and '"@type":"VideoObject"' not in l1:
+        errors.append("L1 missing VideoObject JSON-LD")
+    if not (SITE / VIDEO_REL).is_file():
+        errors.append(f"missing vendored video {VIDEO_REL}")
+    if not (SITE / POSTER_REL).is_file():
+        errors.append(f"missing vendored poster {POSTER_REL}")
 
     alt = (SITE / "tv/smart-tv-ad-alternatives/index.html").read_text(encoding="utf-8")
     alt_hrefs = html.unescape(alt)
