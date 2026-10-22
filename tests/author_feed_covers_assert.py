@@ -15,7 +15,6 @@ from seo_geo import (  # noqa: E402
     author_href_to_site_rel,
     canonical_cover_url,
     iter_author_posts,
-    resolve_page_cover,
 )
 
 
@@ -45,22 +44,12 @@ def main() -> None:
                 errors.append(f"marcus-webb missing {group} posts")
                 continue
             thumbs = {thumb for _href, thumb in rows}
-            if len(thumbs) == 1 and any("cmp-hero-" in t for t in thumbs):
+            hrefs = [href for href, _thumb in rows]
+            if any("cmp-hero-" in t for t in thumbs):
+                errors.append(f"marcus-webb {group} still uses category cmp-hero")
+            if len(thumbs) != len(hrefs):
                 errors.append(
-                    f"marcus-webb {group} posts still share category lifestyle {next(iter(thumbs))}"
-                )
-            covers = []
-            for href, thumb in rows:
-                site_rel = author_href_to_site_rel(href)
-                cover = resolve_page_cover(
-                    (SITE / site_rel).read_text(encoding="utf-8"), site_rel
-                )
-                covers.append(canonical_cover_url(cover, site_rel))
-                if thumb != canonical_cover_url(cover, site_rel):
-                    errors.append(f"marcus-webb {href} thumb != cover SoT")
-            if len(set(covers)) > 1 and len(set(thumbs)) == 1:
-                errors.append(
-                    f"marcus-webb {group} pages have distinct covers but shared thumb"
+                    f"marcus-webb {group} thumbs not unique: {len(thumbs)} covers for {len(hrefs)} posts"
                 )
 
     if errors:

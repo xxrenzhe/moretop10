@@ -10,6 +10,7 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "site" / "scripts"))
 
 from seo_geo import (  # noqa: E402
+    allocate_unique_covers,
     apply_hub_page,
     author_href_to_site_rel,
     canonical_cover_url,
@@ -140,6 +141,68 @@ def main() -> None:
     )
     if "B0BZ55JZ4S.jpg" not in applied or "B0FF426P7D.jpg" not in applied:
         errors.append("apply_hub_page author kind did not rewrite thumbs")
+
+    (tmp / "security-cameras" / "reviews" / "eufy-s220").mkdir(parents=True, exist_ok=True)
+    shared_og = "https://moretop10.com/assets/img/products/B0BZ55JZ4S.jpg"
+    (tmp / "security-cameras" / "index.html").write_text(
+        _page(
+            shared_og,
+            '<img src="../assets/img/products/B0BZ55JZ4S.jpg"/>'
+            '<img src="../assets/img/products/B0ALT1HUB9.jpg"/>',
+        ),
+        encoding="utf-8",
+    )
+    (tmp / "security-cameras" / "reviews" / "eufy-s220" / "index.html").write_text(
+        _page(
+            shared_og,
+            '<img class="review-hero-img" src="../../../assets/img/products/B0BZ55JZ4S.jpg"/>',
+        ),
+        encoding="utf-8",
+    )
+    assigned, missing = allocate_unique_covers(
+        tmp,
+        [
+            "security-cameras/index.html",
+            "security-cameras/reviews/eufy-s220/index.html",
+        ],
+    )
+    if missing:
+        errors.append(f"unique alloc missing: {missing}")
+    if assigned.get("security-cameras/reviews/eufy-s220/index.html") != (
+        "/assets/img/products/B0BZ55JZ4S.jpg"
+    ):
+        errors.append("review should keep product og")
+    if assigned.get("security-cameras/index.html") != "/assets/img/products/B0ALT1HUB9.jpg":
+        errors.append(
+            f"hub should take unused packshot, got {assigned.get('security-cameras/index.html')}"
+        )
+    if len(set(assigned.values())) != 2:
+        errors.append("shared og must still yield unique thumbs")
+
+    collide_feed = (
+        '<div class="author-posts" data-author-posts>'
+        '<article class="author-post-row feed-row" data-author-post>'
+        '<div class="author-post-copy"><h3 class="feed-title">'
+        '<a href="../../security-cameras/">Hub</a></h3></div>'
+        '<a class="author-post-thumb-link" href="../../security-cameras/">'
+        '<img class="author-post-thumb feed-thumb" '
+        'src="../../assets/img/lifestyle/cmp-hero-security-cameras.jpg" alt=""/>'
+        "</a></article>"
+        '<article class="author-post-row feed-row" data-author-post>'
+        '<div class="author-post-copy"><h3 class="feed-title">'
+        '<a href="../../security-cameras/reviews/eufy-s220/">S220</a></h3></div>'
+        '<a class="author-post-thumb-link" href="../../security-cameras/reviews/eufy-s220/">'
+        '<img class="author-post-thumb feed-thumb" '
+        'src="../../assets/img/lifestyle/cmp-hero-security-cameras.jpg" alt=""/>'
+        "</a></article></div>"
+    )
+    out = rewrite_author_feed_thumbs(
+        collide_feed, site_root=tmp, prefix="../../", covers=assigned
+    )
+    if out.count("B0BZ55JZ4S.jpg") != 1 or out.count("B0ALT1HUB9.jpg") != 1:
+        errors.append("rewrite did not apply unique allocated covers")
+    if "cmp-hero-security-cameras.jpg" in out:
+        errors.append("unique rewrite left category lifestyle")
 
     if errors:
         raise SystemExit("author_feed_covers_unit failed:\n- " + "\n- ".join(errors))

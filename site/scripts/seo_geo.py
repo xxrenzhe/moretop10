@@ -713,12 +713,17 @@ def rewrite_author_breadcrumb(html_text: str) -> str:
     return html_text
 
 
-# Author feed thumbs: per-page cover SoT (never invent art).
-# 1. og:image / twitter:image when it is a product packshot (site products/ or Amazon CDN)
-# 2. In-page review-hero / first product packshot already referenced by that page
-# 3. og:image / twitter:image when it is any non-icon image (lifestyle included)
+# Author feed thumbs: per-article cover SoT (never invent art).
+# Candidates per target page, then unique allocation across all author posts
+# (same logical article may repeat on two profiles; distinct articles may not
+# share a thumb URL).
+# 1. og:image / twitter:image when it is a product packshot
+# 2. In-page review-hero + every product packshot already on that page
+# 3. og:image / twitter:image when it is any non-icon image
 # 4. Existing page hero (cmp-hero-bg / lifestyle-photo) as last-resort fallback
 # Site icon (icon-512) is never a post thumb.
+# Individual reviews claim their product og first; hubs/comparison/reviews-hub
+# take the next unused candidate from their own page.
 
 _AUTHOR_POST_RE = re.compile(
     r'<article class="author-post-row[^"]*"[^>]*>.*?</article>',
@@ -864,24 +869,104 @@ def extract_page_hero_src(html_text: str) -> str:
     return ""
 
 
-def resolve_page_cover(html_text: str, page_rel: str = "") -> str:
-    """Return the page's cover SoT (canonical /assets/... or Amazon CDN URL)."""
-    og = canonical_cover_url(extract_meta_image(html_text), page_rel)
-    hero = canonical_cover_url(extract_review_hero_src(html_text), page_rel)
-    pack = canonical_cover_url(extract_first_packshot_src(html_text), page_rel)
-    lifestyle = canonical_cover_url(extract_page_hero_src(html_text), page_rel)
+def _packshot_quality(url: str) -> int:
+    """Prefer local product JPGs and large Amazon frames over UL thumbs."""
+    u = url.lower()
+    if "/assets/img/products/" in u:
+        return 0
+    if "_sl1500" in u or "_ac_sl" in u:
+        return 1
+    if "_ul" in u:
+        return 3
+    return 2
 
-    if og and not is_site_icon_cover(og) and is_product_cover(og):
-        return og
-    if hero and is_product_cover(hero):
-        return hero
-    if pack:
-        return pack
-    if og and not is_site_icon_cover(og):
-        return og
-    if lifestyle:
-        return lifestyle
-    return ""
+
+def page_cover_candidates(html_text: str, page_rel: str = "") -> list[str]:
+    """Ordered unique covers already referenced by this page (no new art)."""
+    preferred: list[str] = []
+    packs: list[str] = []
+    fallback: list[str] = []
+
+    def add(dest: list[str], src: str, *, product_only: bool = False) -> None:
+        url = canonical_cover_url(src, page_rel)
+        if not url or is_site_icon_cover(url) or url in preferred or url in packs or url in fallback:
+            return
+        if product_only and not is_product_cover(url):
+            return
+        dest.append(url)
+
+    og = extract_meta_image(html_text)
+    add(preferred, og, product_only=True)
+    add(preferred, extract_review_hero_src(html_text), product_only=True)
+    for m in _PACKSHOT_SRC_RE.finditer(html_text):
+        add(packs, m.group(1), product_only=True)
+    packs.sort(key=_packshot_quality)
+    add(fallback, og)
+    add(fallback, extract_page_hero_src(html_text))
+    return preferred + packs + fallback
+
+
+def resolve_page_cover(html_text: str, page_rel: str = "") -> str:
+    """Preferred cover for a page (first candidate). Allocation may pick a later one."""
+    cands = page_cover_candidates(html_text, page_rel)
+    return cands[0] if cands else ""
+
+
+def article_alloc_rank(site_rel: str) -> tuple[int, str]:
+    """Reviews keep their product og; hubs take leftover packshots."""
+    parts = [p for p in site_rel.replace("\\", "/").strip("/").split("/") if p]
+    if len(parts) >= 4 and parts[1] == "reviews":
+        return (0, site_rel)
+    if len(parts) >= 2 and parts[-2] == "comparison":
+        return (1, site_rel)
+    if len(parts) == 2 and parts[1] == "index.html":
+        return (2, site_rel)
+    if len(parts) >= 3 and parts[1] == "reviews" and parts[2] == "index.html":
+        return (3, site_rel)
+    return (4, site_rel)
+
+
+def allocate_unique_covers(
+    site_root: Path, site_rels: list[str]
+) -> tuple[dict[str, str], list[str]]:
+    """One unique cover URL per distinct article. Missing = no unused candidate."""
+    assigned: dict[str, str] = {}
+    missing: list[str] = []
+    used: set[str] = set()
+    for rel in sorted(set(site_rels), key=article_alloc_rank):
+        if not rel:
+            continue
+        path = site_root / rel
+        if not path.is_file():
+            missing.append(rel)
+            continue
+        pick = ""
+        for cand in page_cover_candidates(path.read_text(encoding="utf-8"), rel):
+            if cand not in used:
+                pick = cand
+                break
+        if not pick:
+            missing.append(rel)
+            continue
+        assigned[rel] = pick
+        used.add(pick)
+    return assigned, missing
+
+
+def collect_author_article_rels(site_root: Path) -> list[str]:
+    rels: list[str] = []
+    authors_dir = site_root / "authors"
+    if not authors_dir.is_dir():
+        return rels
+    for path in sorted(authors_dir.glob("*/index.html")):
+        html_text = path.read_text(encoding="utf-8")
+        if "data-author-posts" not in html_text:
+            continue
+        for post in iter_author_posts(html_text):
+            rel = author_href_to_site_rel(post["href"])
+            if rel:
+                rels.append(rel)
+    return rels
 
 
 def cover_to_thumb_src(cover: str, prefix: str) -> str:
@@ -947,8 +1032,16 @@ def rewrite_author_feed_thumbs(
     *,
     site_root: Path,
     prefix: str,
+    covers: dict[str, str] | None = None,
 ) -> str:
-    """Point each author-post thumb at that post's resolved page cover."""
+    """Point each author-post thumb at that post's allocated unique cover."""
+    if covers is None:
+        rels = [
+            author_href_to_site_rel(p["href"])
+            for p in iter_author_posts(html_text)
+            if p.get("href")
+        ]
+        covers, _missing = allocate_unique_covers(site_root, rels)
 
     def repl(m: re.Match[str]) -> str:
         block = m.group(0)
@@ -960,10 +1053,11 @@ def rewrite_author_feed_thumbs(
         site_rel = author_href_to_site_rel(href_m.group(1))
         if not site_rel:
             return block
-        target = site_root / site_rel
-        if not target.is_file():
-            return block
-        cover = resolve_page_cover(target.read_text(encoding="utf-8"), site_rel)
+        cover = covers.get(site_rel, "")
+        if not cover:
+            target = site_root / site_rel
+            if target.is_file():
+                cover = resolve_page_cover(target.read_text(encoding="utf-8"), site_rel)
         thumb = cover_to_thumb_src(cover, prefix)
         if not thumb:
             return block
@@ -977,6 +1071,9 @@ def rebake_author_feed_thumbs(site_root: Path) -> int:
     authors_dir = site_root / "authors"
     if not authors_dir.is_dir():
         return 0
+    covers, _missing = allocate_unique_covers(
+        site_root, collect_author_article_rels(site_root)
+    )
     wrote = 0
     for path in sorted(authors_dir.glob("*/index.html")):
         html_text = path.read_text(encoding="utf-8")
@@ -984,7 +1081,10 @@ def rebake_author_feed_thumbs(site_root: Path) -> int:
             continue
         rel = str(path.relative_to(site_root)).replace("\\", "/")
         new = rewrite_author_feed_thumbs(
-            html_text, site_root=site_root, prefix=_prefix_from_out(rel)
+            html_text,
+            site_root=site_root,
+            prefix=_prefix_from_out(rel),
+            covers=covers,
         )
         if new != html_text:
             path.write_text(new, encoding="utf-8")
@@ -993,58 +1093,48 @@ def rebake_author_feed_thumbs(site_root: Path) -> int:
 
 
 def author_feed_cover_errors(site_root: Path) -> list[str]:
-    """Assert each author-post thumb equals that post's resolved cover SoT."""
+    """Assert distinct author-feed articles never share a thumb URL."""
     errors: list[str] = []
     authors_dir = site_root / "authors"
     if not authors_dir.is_dir():
         return ["missing authors/"]
+    covers, missing = allocate_unique_covers(
+        site_root, collect_author_article_rels(site_root)
+    )
+    for rel in missing:
+        errors.append(f"no unique unused cover for {rel}")
+    by_thumb: dict[str, set[str]] = {}
     for path in sorted(authors_dir.glob("*/index.html")):
         html_text = path.read_text(encoding="utf-8")
         if "data-author-posts" not in html_text:
             continue
-        rel = str(path.relative_to(site_root)).replace("\\", "/")
+        page_rel = str(path.relative_to(site_root)).replace("\\", "/")
         slug = path.parent.name
-        seen_href: dict[str, str] = {}
         for post in iter_author_posts(html_text):
             href = post["href"]
-            thumb = post["thumb"]
             if not href:
                 errors.append(f"{slug}: author post missing href")
                 continue
             site_rel = author_href_to_site_rel(href)
-            target = site_root / site_rel
-            if not target.is_file():
-                errors.append(f"{slug}: missing target {site_rel} for {href}")
+            if not site_rel:
+                errors.append(f"{slug}: bad href {href}")
                 continue
-            cover = resolve_page_cover(target.read_text(encoding="utf-8"), site_rel)
-            if not cover:
-                errors.append(f"{slug}: no cover SoT for {site_rel}")
+            if site_rel not in covers:
                 continue
-            want = canonical_cover_url(cover_to_thumb_src(cover, _prefix_from_out(rel)), rel)
-            got = canonical_cover_url(thumb, rel)
+            want = covers[site_rel]
+            got = canonical_cover_url(post["thumb"], page_rel)
             if got != want:
-                errors.append(f"{slug}: thumb {got or '(empty)'} != cover {want} for {href}")
-            key = canonical_cover_url(href, rel)
-            if key in seen_href:
-                continue
-            seen_href[key] = got
-        by_thumb: dict[str, list[str]] = {}
-        for href, thumb in seen_href.items():
-            by_thumb.setdefault(thumb, []).append(href)
-        for thumb, hrefs in by_thumb.items():
-            if len(hrefs) < 2:
-                continue
-            covers = []
-            for href in hrefs:
-                site_rel = author_href_to_site_rel(href)
-                cover = resolve_page_cover(
-                    (site_root / site_rel).read_text(encoding="utf-8"), site_rel
-                )
-                covers.append(canonical_cover_url(cover, site_rel))
-            if len(set(covers)) > 1:
                 errors.append(
-                    f"{slug}: distinct covers share thumb {thumb}: {', '.join(hrefs)}"
+                    f"{slug}: thumb {got or '(empty)'} != allocated {want} for {href}"
                 )
+            if "cmp-hero-" in got:
+                errors.append(f"{slug}: {href} still uses category cmp-hero {got}")
+            by_thumb.setdefault(got, set()).add(site_rel)
+    for thumb, arts in sorted(by_thumb.items()):
+        if len(arts) > 1:
+            errors.append(
+                f"distinct articles share thumb {thumb}: {', '.join(sorted(arts))}"
+            )
     return errors
 
 
