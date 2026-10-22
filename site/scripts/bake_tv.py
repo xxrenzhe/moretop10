@@ -183,20 +183,39 @@ def cluster_nav_html(current: str, prefix: str) -> str:
     return f'<ul class="tv-cluster-nav" aria-label="Smart TV ads guides">{"".join(items)}</ul>'
 
 
-def related_html(prefix: str) -> str:
+# Shared "In this guide" peers. Keep brand siblings + projectors; never Lab.
+# Omit the current slug — same self-link rule as comparison Related (#20).
+RELATED_LINKS = [
+    ("/tv/", "Smart TV ads hub"),
+    ("/tv/remove-smart-tv-ads/", "Turn off ads"),
+    ("/tv/supported-android-tv-models/", "Supported models"),
+    ("/tv/smart-tv-ad-alternatives/", "When software will not install"),
+    ("/tv/best-launcher-for-android-tv/", "Launchers"),
+    ("/tv/adb-debloat-not-working/", "ADB troubleshooting"),
+    ("/tv/best-non-smart-tv/", "Non-smart TVs"),
+    ("/tv/best-tv-for-privacy/", "Privacy TVs"),
+    ("/tv/samsung-smart-tv-ads/", "Samsung"),
+    ("/tv/lg-smart-tv-ads/", "LG"),
+    ("/tv/fire-tv-ads/", "Fire TV"),
+    ("/tv/google-tv-ads/", "Google TV"),
+    ("/projectors/", "Projectors shortlist"),
+]
+
+
+def related_html(prefix: str, current: str = "") -> str:
+    cur = current.rstrip("/")
+    parts = []
+    for path, label in RELATED_LINKS:
+        if path.rstrip("/") == cur:
+            continue
+        href = prefix + path.lstrip("/")
+        if not href.endswith("/"):
+            href += "/"
+        parts.append(f'<a href="{_esc(href)}">{_esc(label)}</a>')
     return (
         '<p class="landing-related-cluster tv-related"><strong>In this guide:</strong> '
-        f'<a href="{prefix}tv/">Smart TV ads hub</a> · '
-        f'<a href="{prefix}tv/remove-smart-tv-ads/">Turn off ads</a> · '
-        f'<a href="{prefix}tv/supported-android-tv-models/">Supported models</a> · '
-        f'<a href="{prefix}tv/smart-tv-ad-alternatives/">When software will not install</a> · '
-        f'<a href="{prefix}tv/best-non-smart-tv/">Non-smart TVs</a> · '
-        f'<a href="{prefix}tv/best-tv-for-privacy/">Privacy TVs</a> · '
-        f'<a href="{prefix}tv/samsung-smart-tv-ads/">Samsung</a> · '
-        f'<a href="{prefix}tv/lg-smart-tv-ads/">LG</a> · '
-        f'<a href="{prefix}tv/fire-tv-ads/">Fire TV</a> · '
-        f'<a href="{prefix}tv/google-tv-ads/">Google TV</a> · '
-        f'<a href="{prefix}projectors/">Projectors shortlist</a></p>'
+        + " · ".join(parts)
+        + "</p>"
     )
 
 
@@ -478,7 +497,7 @@ def hub_body(prefix: str, current: str) -> str:
         <li>We will not put a projector, soundbar, HDMI hub, or mount in the hero “buy a TV” list.</li>
         <li>We will not invent a product or a checkout link to fill a slot.</li>
       </ul>
-      {related_html(prefix)}
+      {related_html(prefix, current)}
     </div>
   </div>
 </main>"""
@@ -519,7 +538,7 @@ def remove_ads_body(prefix: str, current: str) -> str:
         <li>You want a <a href="{prefix}tv/best-non-smart-tv/">non-smart set</a> or a <a href="{prefix}tv/best-tv-for-privacy/">privacy-first replacement</a> rather than another smart OS — those pages stay content-only until a real track exists.</li>
       </ul>
       <p>That alternatives page recommends <strong>whole TVs</strong> when a retailer link exists. HDMI switches, mounts, soundbars, and projectors are secondary or excluded from the hero list.</p>
-      {related_html(prefix)}
+      {related_html(prefix, current)}
     </div>
   </div>
 </main>"""
@@ -595,7 +614,7 @@ def models_body(prefix: str, current: str) -> str:
       <p>Projectors and streamers appear only when the unofficial examples folder has a tested list for them. Absence from this bake is “unknown,” not “impossible.”</p>
       <h2>Not on the list</h2>
       <p class="tv-models-cta">This snapshot is not exhaustive. See the upstream <code>examples/</code> folder for builds added after {as_of}. If the unofficial list does not mention your build, start with <a href="{prefix}tv/adb-debloat-not-working/">ADB troubleshooting</a>. If the platform has no debugging surface — or you want hardware after software fails — use <a href="{prefix}tv/smart-tv-ad-alternatives/">when software will not install</a> (not on the list → alternatives). Software-first install order lives on <a href="{prefix}tv/remove-smart-tv-ads/">turn off smart-TV ads</a>.</p>
-      {related_html(prefix)}
+      {related_html(prefix, current)}
     </div>
   </div>
 </main>"""
@@ -664,7 +683,7 @@ def alternatives_body(prefix: str, current: str, shortlist: dict) -> str:
 
       <h2>Secondary only — not the hero list</h2>
       <p>HDMI switches, wall mounts, soundbars, and projectors are not whole-TV replacements. If you want a projection setup, use the existing <a href="{prefix}projectors/">projectors shortlist</a> and do not treat an ultra-short-throw as a Google TV panel. We will not put those ASINs in the hero row.</p>
-      {related_html(prefix)}
+      {related_html(prefix, current)}
     </div>
   </div>
 </main>"""
@@ -735,7 +754,7 @@ def launcher_body(prefix: str, current: str) -> str:
 
       <h2>No product list</h2>
       <p>This page has no affiliate-tracked launchers, boxes, or sticks. We will not invent a Check price button for an APK. Hardware you can actually link today lives on the alternatives page when a track exists — Google TV whole TVs only. We will not recommend a Fire Stick as a “launcher.”</p>
-      {related_html(prefix)}
+      {related_html(prefix, current)}
     </div>
   </div>
 </main>"""
@@ -803,7 +822,7 @@ def adb_body(prefix: str, current: str) -> str:
 
       <h2>No product list</h2>
       <p>This page has no Check price button, no ASIN, and no “buy this cable” slot. If you are shopping after software is closed, use the alternatives page for Google TV whole TVs that have a real track — not a Fire Stick, not an invented HDMI hub.</p>
-      {related_html(prefix)}
+      {related_html(prefix, current)}
     </div>
   </div>
 </main>"""
@@ -865,7 +884,7 @@ def non_smart_body(prefix: str, current: str) -> str:
         <li><a href="{prefix}tv/best-tv-for-privacy/">Best TV for privacy</a> — if the frustration is data collection, not just the home row.</li>
         <li><a href="{prefix}tv/">Smart TV ads hub</a> — platform map and starting points.</li>
       </ul>
-      {related_html(prefix)}
+      {related_html(prefix, current)}
     </div>
   </div>
 </main>"""
@@ -934,7 +953,7 @@ def privacy_body(prefix: str, current: str) -> str:
         <li><a href="{prefix}tv/best-non-smart-tv/">Best non-smart TV</a> — when a dumb panel is the honest hardware answer.</li>
         <li><a href="{prefix}tv/">Smart TV ads hub</a> — start here if you are not sure which page you need.</li>
       </ul>
-      {related_html(prefix)}
+      {related_html(prefix, current)}
     </div>
   </div>
 </main>"""
@@ -990,7 +1009,7 @@ def samsung_ads_body(prefix: str, current: str) -> str:
         <li><a href="{prefix}tv/smart-tv-ad-alternatives/">When software will not install</a> — Google TV whole TVs we can actually link.</li>
         <li><a href="{prefix}tv/lg-smart-tv-ads/">LG webOS ads</a> — the same “no ADB” honesty on the other locked platform.</li>
       </ul>
-      {related_html(prefix)}
+      {related_html(prefix, current)}
     </div>
   </div>
 </main>"""
@@ -1045,7 +1064,7 @@ def lg_ads_body(prefix: str, current: str) -> str:
         <li><a href="{prefix}tv/smart-tv-ad-alternatives/">When software will not install</a> — Google TV whole TVs we can actually link.</li>
         <li><a href="{prefix}tv/samsung-smart-tv-ads/">Samsung Tizen ads</a> — the matching locked-platform guide.</li>
       </ul>
-      {related_html(prefix)}
+      {related_html(prefix, current)}
     </div>
   </div>
 </main>"""
@@ -1108,7 +1127,7 @@ def fire_ads_body(prefix: str, current: str, shortlist: dict) -> str:
         <li><a href="{prefix}tv/smart-tv-ad-alternatives/">When software will not install</a> — Google TV hero list plus the full honest Fire table.</li>
         <li><a href="{prefix}tv/supported-android-tv-models/">Supported models</a> — do not confuse a Fire panel with a Google TV build.</li>
       </ul>
-      {related_html(prefix)}
+      {related_html(prefix, current)}
     </div>
   </div>
 </main>"""
@@ -1171,7 +1190,7 @@ def google_ads_body(prefix: str, current: str, shortlist: dict) -> str:
         <li><a href="{prefix}tv/best-launcher-for-android-tv/">Launchers</a> and <a href="{prefix}tv/adb-debloat-not-working/">ADB troubleshooting</a>.</li>
         <li><a href="{prefix}tv/smart-tv-ad-alternatives/">When software will not install</a> — full Google TV list if you are replacing the set.</li>
       </ul>
-      {related_html(prefix)}
+      {related_html(prefix, current)}
     </div>
   </div>
 </main>"""

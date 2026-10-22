@@ -13,6 +13,7 @@ ROOT = Path(__file__).resolve().parents[1]
 SITE = ROOT / "site"
 sys.path.insert(0, str(ROOT / "site" / "scripts"))
 
+from bake_tv import PAGES, RELATED_LINKS  # noqa: E402
 from site_config import ALL_CATS, EDITORIAL_CLUSTERS  # noqa: E402
 
 REQUIRED = [
@@ -228,6 +229,70 @@ FORBIDDEN = [
     "tv/cleanyourtv/fire/index.html",
     "tv/cleanyourtv/google/index.html",
 ]
+
+
+RELATED_REQUIRED_PATHS = (
+    "/tv/",
+    "/tv/remove-smart-tv-ads/",
+    "/tv/supported-android-tv-models/",
+    "/tv/smart-tv-ad-alternatives/",
+    "/tv/adb-debloat-not-working/",
+    "/tv/best-launcher-for-android-tv/",
+    "/tv/best-non-smart-tv/",
+    "/tv/best-tv-for-privacy/",
+    "/tv/samsung-smart-tv-ads/",
+    "/tv/lg-smart-tv-ads/",
+    "/tv/fire-tv-ads/",
+    "/tv/google-tv-ads/",
+)
+
+
+def href_to_site_path(href: str) -> str:
+    cleaned = href.split("#", 1)[0].split("?", 1)[0]
+    while cleaned.startswith("../"):
+        cleaned = cleaned[3:]
+    if not cleaned.startswith("/"):
+        cleaned = "/" + cleaned
+    if not cleaned.endswith("/"):
+        cleaned += "/"
+    return cleaned
+
+
+def related_cluster_html(html: str) -> str:
+    match = re.search(r'<p class="landing-related-cluster tv-related">.*?</p>', html, re.S)
+    return match.group(0) if match else ""
+
+
+def assert_tv_related_cluster(errors: list[str]) -> None:
+    """Shared Related must list locked peers and never self-link the current path."""
+    related_paths = {path for path, _label in RELATED_LINKS}
+    for needed in RELATED_REQUIRED_PATHS:
+        if needed not in related_paths:
+            errors.append(f"RELATED_LINKS missing locked route {needed}")
+    if "/tv/cleanyourtv" in "".join(related_paths).lower():
+        errors.append("RELATED_LINKS revived a cleanyourtv path")
+
+    for spec in PAGES:
+        rel = spec["out"]
+        current = spec["path"]
+        html = (SITE / rel).read_text(encoding="utf-8")
+        cluster = related_cluster_html(html)
+        if not cluster:
+            errors.append(f"{rel} missing landing-related-cluster tv-related")
+            continue
+        if "shortlistlab" in cluster.lower():
+            errors.append(f"{rel} Related leaked a Lab link")
+        hrefs = [href_to_site_path(href) for href in re.findall(r'href="([^"]+)"', cluster)]
+        current_norm = current if current.endswith("/") else current + "/"
+        if current_norm in hrefs or any(
+            href.rstrip("/") == current.rstrip("/") for href in hrefs
+        ):
+            errors.append(f"{rel} Related self-links {current}")
+        for path in RELATED_REQUIRED_PATHS:
+            if path.rstrip("/") == current.rstrip("/"):
+                continue
+            if path not in hrefs:
+                errors.append(f"{rel} Related missing {path}")
 
 
 def page_asins(html: str) -> set[str]:
@@ -587,6 +652,8 @@ def main() -> None:
         errors.append("llms.txt missing P4 /tv/fire-tv-ads/")
     if "https://moretop10.com/tv/google-tv-ads/" not in llms:
         errors.append("llms.txt missing P4 /tv/google-tv-ads/")
+
+    assert_tv_related_cluster(errors)
 
     if errors:
         raise SystemExit("tv_cluster_assert failed:\n- " + "\n- ".join(errors))
