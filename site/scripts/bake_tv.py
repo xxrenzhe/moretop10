@@ -69,7 +69,16 @@ def load_shortlist() -> dict:
     return json.loads(SHORTLIST.read_text(encoding="utf-8"))
 
 
+def is_oos(item: dict) -> bool:
+    if item.get("oos"):
+        return True
+    stock = f"{item.get('in_stock') or ''} {item.get('availability') or ''}".upper()
+    return "OOS" in stock or "UNAVAILABLE" in stock or "OUT_OF_STOCK" in stock
+
+
 def cta_anchor(item: dict) -> str:
+    if is_oos(item):
+        return ""
     href = prepare_affiliate_link(item.get("affiliate_link"), item.get("affiliate_network"))
     if not href:
         return ""
@@ -93,13 +102,18 @@ def product_card(item: dict, *, heading: str = "h3") -> str:
     )
     cta = cta_anchor(item)
     os_label = "Google TV" if item.get("kind") == "google_tv" else "Fire TV"
+    if is_oos(item):
+        slot = '<span class="tv-empty">Currently unavailable</span>'
+    else:
+        slot = cta or '<span class="tv-empty">No retailer link yet</span>'
     return (
         f'<article class="tv-product" id="geo-{_esc(item["asin"])}" data-asin="{_esc(item["asin"])}" '
-        f'data-affiliate-network="{_esc(item.get("affiliate_network") or "")}">'
+        f'data-affiliate-network="{_esc(item.get("affiliate_network") or "")}"'
+        f'{" data-oos=\"true\"" if is_oos(item) else ""}>'
         f"{img_html}"
         f"<div><{heading}>{_esc(name)}</{heading}>"
         f'<p class="tv-meta">{_esc(os_label)} · whole TV</p>{price_html}</div>'
-        f"{cta or '<span class=\"tv-empty\">No retailer link yet</span>'}"
+        f"{slot}"
         "</article>"
     )
 
@@ -107,13 +121,16 @@ def product_card(item: dict, *, heading: str = "h3") -> str:
 def compact_row(item: dict) -> str:
     name = item.get("short_title") or item.get("title") or item["asin"]
     price = f"${item['price']}" if item.get("price") else "—"
-    cta = cta_anchor(item)
+    if is_oos(item):
+        slot = '<span class="tv-empty">Currently unavailable</span>'
+    else:
+        slot = cta_anchor(item) or "—"
     return (
-        f'<tr id="geo-{_esc(item["asin"])}">'
+        f'<tr id="geo-{_esc(item["asin"])}"{" data-oos=\"true\"" if is_oos(item) else ""}>'
         f"<td>{_esc(name)}</td>"
         f"<td>{_esc(item.get('kind') or '').replace('_', ' ')}</td>"
         f"<td>{_esc(price)}</td>"
-        f"<td>{cta or '—'}</td>"
+        f"<td>{slot}</td>"
         "</tr>"
     )
 
@@ -751,10 +768,28 @@ def verify_tv(shortlist: dict) -> None:
     alt_hrefs = html.unescape(alt)
     for item in shortlist.get("hero_google_tv") or []:
         href = item.get("affiliate_link") or ""
+        if is_oos(item):
+            if href and href in alt_hrefs:
+                errors.append(f"OOS hero {item.get('asin')} still has Check price")
+            continue
         if href and href not in alt_hrefs:
             errors.append(f"hero missing track for {item.get('asin')}")
         if "uid=" in href:
             errors.append(f"shortlist hero {item.get('asin')} has uid")
+    for item in shortlist.get("honest_fire_tv") or []:
+        if not is_oos(item):
+            continue
+        href = item.get("affiliate_link") or ""
+        row = re.search(
+            rf'<tr[^>]*id="geo-{re.escape(item["asin"])}"[\s\S]*?</tr>',
+            alt,
+        )
+        if not row:
+            errors.append(f"OOS {item.get('asin')} missing from honest table")
+        elif "Check price" in row.group(0) or "yeahpromos.com" in row.group(0):
+            errors.append(f"OOS {item.get('asin')} still has a CTA")
+        if href and href in alt_hrefs:
+            errors.append(f"OOS {item.get('asin')} track still rendered")
     if "B0DGHZ1C8V" in alt or "B0FHGNWZXT" in alt:
         errors.append("do_not_hero projector ASIN appeared on L2")
     if "Fire Stick" in alt and "never" not in alt.lower():

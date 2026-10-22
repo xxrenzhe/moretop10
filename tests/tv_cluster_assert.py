@@ -46,6 +46,9 @@ def main() -> None:
         errors.append(f"hero_google_tv expected 9, got {len(hero)}")
     if len(fire) != 20:
         errors.append(f"honest_fire_tv expected 20, got {len(fire)}")
+    oos_asins = {item.get("asin") for item in hero + fire if item.get("oos")}
+    if "B0GV4Q9XSF" not in oos_asins:
+        errors.append("B0GV4Q9XSF should be marked oos in shortlist")
     for item in hero + fire:
         link = item.get("affiliate_link") or ""
         if item.get("affiliate_network") != "yp":
@@ -79,10 +82,25 @@ def main() -> None:
     alt = (SITE / "tv/smart-tv-ad-alternatives/index.html").read_text(encoding="utf-8")
     alt_hrefs = unescape(alt)
     for item in hero:
+        if item.get("oos"):
+            if item["affiliate_link"] in alt_hrefs:
+                errors.append(f"OOS hero {item['asin']} still has Check price")
+            continue
         if item["affiliate_link"] not in alt_hrefs:
             errors.append(f"L2 missing hero track {item['asin']}")
         if item["asin"] not in alt:
             errors.append(f"L2 missing hero ASIN {item['asin']}")
+    oos_row = re.search(r'<tr[^>]*id="geo-B0GV4Q9XSF"[\s\S]*?</tr>', alt)
+    if not oos_row:
+        errors.append("honest table missing OOS B0GV4Q9XSF")
+    elif "Check price" in oos_row.group(0) or "yeahpromos.com" in oos_row.group(0):
+        errors.append("OOS B0GV4Q9XSF still has a Check price CTA")
+    elif "Currently unavailable" not in oos_row.group(0):
+        errors.append("OOS B0GV4Q9XSF missing unavailable label")
+    if "$1299.99" not in alt:
+        errors.append("L2 price $1299.99 (B0GHZXKT1T) not baked")
+    if "$2497.99" not in alt:
+        errors.append("L2 price $2497.99 (B0GR9C4H3H) not baked")
     for asin in DO_NOT_HERO:
         if asin in alt:
             errors.append(f"L2 includes do_not_hero {asin}")
