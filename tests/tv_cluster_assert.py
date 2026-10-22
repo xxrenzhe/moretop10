@@ -237,6 +237,11 @@ def page_asins(html: str) -> set[str]:
 def page_tracks(html: str) -> set[str]:
     return set(re.findall(r"https://yeahpromos\.com/[^\"'\s]+", unescape(html)))
 DO_NOT_HERO = {"B0DGHZ1C8V", "B0FHGNWZXT", "B0FMK1B4LW", "B0HGXYM1WD"}
+HUB_OG_ASIN = "B0F1DRNWP7"
+HUB_OG_IMAGE = "https://m.media-amazon.com/images/I/81IgwvJG9GL._AC_SL1500_.jpg"
+SHARE_IMAGE_RE = re.compile(
+    r'<meta (?:property|name)="(?:og:image|twitter:image)" content="([^"]*)"'
+)
 
 
 def main() -> None:
@@ -249,6 +254,11 @@ def main() -> None:
     sl = json.loads((SITE / "data" / "shortlist-tv.json").read_text(encoding="utf-8"))
     hero = sl.get("hero_google_tv") or []
     fire = sl.get("honest_fire_tv") or []
+    hero_og = next((item for item in hero if item.get("asin") == HUB_OG_ASIN), None)
+    if not hero_og:
+        errors.append(f"shortlist missing hub og ASIN {HUB_OG_ASIN}")
+    elif (hero_og.get("image") or "") != HUB_OG_IMAGE:
+        errors.append(f"hub og image does not match shortlist {HUB_OG_ASIN}")
     if len(hero) != 9:
         errors.append(f"hero_google_tv expected 9, got {len(hero)}")
     if len(fire) != 20:
@@ -281,6 +291,14 @@ def main() -> None:
             errors.append(f"{rel} contains uid=")
         if "PartnerBoost" in html or "YeahPromos" in html:
             errors.append(f"{rel} visitor jargon")
+        share_imgs = SHARE_IMAGE_RE.findall(html)
+        if not share_imgs:
+            errors.append(f"{rel} missing og:image / twitter:image")
+        for url in share_imgs:
+            if "icon-512.png" in url:
+                errors.append(f"{rel} share image still uses icon-512.png")
+            elif url != HUB_OG_IMAGE:
+                errors.append(f"{rel} share image {url} != hub hero")
 
     for rel in FORBIDDEN:
         if (SITE / rel).exists():
