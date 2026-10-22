@@ -15,8 +15,8 @@ NAV_CSS = """
 .mega-cat a.mega-compare-sm{color:var(--mt-ink-muted, #5b6573);white-space:nowrap}
 .mobile-nav .mega-cat{display:grid;grid-template-columns:1fr auto;gap:0 0.75rem;padding:0.15rem 0}
 .hub-reciprocity{margin:0.75rem 0 1.25rem;font-size:0.95rem}
-.footer-col-cats ul{columns:1}
-@media (min-width:720px){.footer-grid{grid-template-columns:1.4fr 1fr 1.1fr 0.9fr 0.8fr}}
+.footer-col-cats ul,.footer-col-categories ul{columns:1}
+@media (min-width:720px){.footer-col-cats ul,.footer-col-categories ul{columns:3}.footer-grid{grid-template-columns:1.4fr 1fr 1.1fr 0.9fr 0.8fr}}
 </style>
 """
 
@@ -121,12 +121,17 @@ def render_footer_cats(
     )
 
 
+_NAV_STYLE_RE = re.compile(r'<style id="landing-hub-nav">.*?</style>\n?', re.S)
+
+
 def inject_nav_css(page: str) -> str:
+    """Upsert the hub chrome stylesheet so rebakes pick up NAV_CSS edits."""
+    block = NAV_CSS.strip() + "\n"
     if 'id="landing-hub-nav"' in page:
-        return page
+        return _NAV_STYLE_RE.sub(block, page, count=1)
     if "</head>" in page:
-        return page.replace("</head>", NAV_CSS + "</head>", 1)
-    return NAV_CSS + page
+        return page.replace("</head>", block + "</head>", 1)
+    return block + page
 
 
 _COMPARE_MOBILE_RE = re.compile(r"<details[^>]*>\s*<summary>Compare</summary>.*?</details>", re.S)
