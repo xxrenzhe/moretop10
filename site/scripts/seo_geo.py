@@ -1265,6 +1265,8 @@ EDITORIAL_SITEMAP_PATHS = (
     "/tv/smart-tv-ad-alternatives/",
     "/tv/best-launcher-for-android-tv/",
     "/tv/adb-debloat-not-working/",
+    "/tv/best-non-smart-tv/",
+    "/tv/best-tv-for-privacy/",
 )
 
 

@@ -49,6 +49,8 @@ CLUSTER_NAV = [
     ("/tv/smart-tv-ad-alternatives/", "When software will not install"),
     ("/tv/best-launcher-for-android-tv/", "Launchers"),
     ("/tv/adb-debloat-not-working/", "ADB troubleshooting"),
+    ("/tv/best-non-smart-tv/", "Non-smart TVs"),
+    ("/tv/best-tv-for-privacy/", "Privacy TVs"),
 ]
 
 DISCLOSURE = (
@@ -153,7 +155,18 @@ def related_html(prefix: str) -> str:
         f'<a href="{prefix}tv/remove-smart-tv-ads/">Turn off ads</a> · '
         f'<a href="{prefix}tv/supported-android-tv-models/">Supported models</a> · '
         f'<a href="{prefix}tv/smart-tv-ad-alternatives/">When software will not install</a> · '
+        f'<a href="{prefix}tv/best-non-smart-tv/">Non-smart TVs</a> · '
+        f'<a href="{prefix}tv/best-tv-for-privacy/">Privacy TVs</a> · '
         f'<a href="{prefix}projectors/">Projectors shortlist</a></p>'
+    )
+
+
+def empty_products_html(*, slot: str, label: str, note: str) -> str:
+    """Honest empty monetization zone — never invent a Check price CTA."""
+    return (
+        f'<div class="tv-empty" data-slot="{_esc(slot)}" data-tv-empty-products>'
+        f"<strong>{_esc(label)}</strong> — {_esc(note)}"
+        "</div>"
     )
 
 
@@ -341,8 +354,10 @@ def hub_body(prefix: str, current: str) -> str:
         <li><a href="{prefix}tv/remove-smart-tv-ads/"><strong>Turn off smart-TV ads</strong></a> — install order, then models, then troubleshooting.</li>
         <li><a href="{prefix}tv/supported-android-tv-models/"><strong>Supported Android / Google TV models</strong></a> — a living table. Counts follow upstream examples, not a frozen “54 / 23.”</li>
         <li><a href="{prefix}tv/smart-tv-ad-alternatives/"><strong>When software will not install</strong></a> — decision tree. Primary recommendations are whole TVs with Google TV. Fire TV panels sit in a separate honest section. Apple TV, onn streamers, and non-smart sets stay empty until we have a real retailer link.</li>
-        <li><a href="{prefix}tv/best-launcher-for-android-tv/"><strong>Launchers</strong></a> — ranking notes, no product checkout.</li>
-        <li><a href="{prefix}tv/adb-debloat-not-working/"><strong>ADB not working</strong></a> — common failures before you replace the set.</li>
+        <li><a href="{prefix}tv/best-launcher-for-android-tv/"><strong>Launchers</strong></a> — how we validate community vs stock launchers on ad-heavy Android / Google TV. No checkout.</li>
+        <li><a href="{prefix}tv/adb-debloat-not-working/"><strong>ADB not working</strong></a> — long-tail troubleshooting when USB debugging, debloat, or a launcher will not stick.</li>
+        <li><a href="{prefix}tv/best-non-smart-tv/"><strong>Non-smart TVs</strong></a> — when a dumb panel is the honest answer after ads or privacy frustration. No checkout list yet.</li>
+        <li><a href="{prefix}tv/best-tv-for-privacy/"><strong>TVs for privacy</strong></a> — buying guidance. Product zone stays empty until a real track exists.</li>
       </ul>
       <h2>What we will not do</h2>
       <ul>
@@ -386,6 +401,7 @@ def remove_ads_body(prefix: str, current: str) -> str:
         <li>Developer options are locked, grayed out, or wiped on every reboot.</li>
         <li>You already followed the unofficial install notes and the launcher will not stay default.</li>
         <li>You are shopping for a <em>replacement</em> set and want Google TV called out honestly versus Fire TV.</li>
+        <li>You want a <a href="{prefix}tv/best-non-smart-tv/">non-smart set</a> or a <a href="{prefix}tv/best-tv-for-privacy/">privacy-first replacement</a> rather than another smart OS — those pages stay content-only until a real track exists.</li>
       </ul>
       <p>That alternatives page recommends <strong>whole TVs</strong> when a retailer link exists. HDMI switches, mounts, soundbars, and projectors are secondary or excluded from the hero list.</p>
       {related_html(prefix)}
@@ -467,7 +483,7 @@ def alternatives_body(prefix: str, current: str, shortlist: dict) -> str:
         <li><strong>Android TV / Google TV, ADB broken</strong> — read <a href="{prefix}tv/adb-debloat-not-working/">ADB not working</a>. If it stays broken, a Google TV replacement is a last resort, not a first click.</li>
         <li><strong>Samsung Tizen or LG webOS</strong> — there is no unofficial sideload path. A Google TV whole set is the honest hardware alternative we can link today.</li>
         <li><strong>Fire TV panel you already own</strong> — try Fire software first. Do not buy a second Fire TV to escape ads. The Fire list below is for people who already want that OS, with the limitation stated.</li>
-        <li><strong>Want a box or a non-smart panel</strong> — Apple TV, onn, and privacy / non-smart sets are listed as empty slots until a real track exists.</li>
+        <li><strong>Want a box or a non-smart panel</strong> — Apple TV, onn, and privacy / non-smart sets are listed as empty slots until a real track exists. Read <a href="{prefix}tv/best-non-smart-tv/">when a non-smart TV is the honest answer</a> and <a href="{prefix}tv/best-tv-for-privacy/">privacy-oriented TV buying</a> before you shop.</li>
       </ol>
 
       <h2>Primary recommendations — Google TV whole TVs</h2>
@@ -488,7 +504,7 @@ def alternatives_body(prefix: str, current: str, shortlist: dict) -> str:
       </div>
 
       <h2>Boxes, streamers, and non-smart TVs</h2>
-      <p>These decision-tree slots stay visible and empty. A missing button is better than a made-up link.</p>
+      <p>These decision-tree slots stay visible and empty. A missing button is better than a made-up link. Content-only follow-ups: <a href="{prefix}tv/best-non-smart-tv/">non-smart TVs</a> and <a href="{prefix}tv/best-tv-for-privacy/">TVs for privacy</a>.</p>
       {''.join(empty_html)}
 
       <h2>Secondary only — not the hero list</h2>
@@ -505,19 +521,65 @@ def launcher_body(prefix: str, current: str) -> str:
     <nav class="breadcrumb"><a href="{prefix}index.html">Home</a> <span class="sep">/</span> <a href="{prefix}tv/">Smart TV ads</a> <span class="sep">/</span> <span>Launchers</span></nav>
     <header class="page-head">
       <h1>Best launcher for Android TV (no checkout list)</h1>
-      <p class="page-lede tv-lede">Last updated {UPDATED}. A ranking note, not a product shortlist. There are no affiliate SKUs on this page.</p>
+      <p class="page-lede tv-lede">Last updated {UPDATED}. A validation guide for ad-heavy or decluttered Android TV / Google TV setups. There are no affiliate SKUs on this page.</p>
     </header>
     {cluster_nav_html(current, prefix)}
     {DISCLOSURE}
     <div class="legal-body">
-      <p class="geo-answer-first">As of {UPDATED}, the unofficial CleanYourTV launcher is the project this cluster documents for Android TV / Google TV ad rows. We are not selling a launcher. There is no Check price button here. Compare it against stock Google TV, Projectivy, and vendor overlays on fit — then return to <a href="{prefix}tv/remove-smart-tv-ads/">the install guide</a>.</p>
-      <h2>How we would rank (when we publish scores)</h2>
-      <ol>
-        <li>Does it stay default after reboot?</li>
-        <li>Does it hide boot and home-row promos without breaking HDMI-CEC or inputs?</li>
-        <li>Is the install path documented for your build?</li>
+      <p class="geo-answer-first">As of {UPDATED}, the unofficial CleanYourTV launcher is the project this cluster documents for Android TV / Google TV ad rows — third-party open-source, non-official, and not hosted here. We are not selling a launcher. There is no Check price button and no ASIN. Rank on fit: does it stay default, hide boot and home-row promos, and keep HDMI-CEC? Then follow <a href="{prefix}tv/remove-smart-tv-ads/">the install guide</a>. If ADB fails, use <a href="{prefix}tv/adb-debloat-not-working/">ADB troubleshooting</a> before you shop. A Fire Stick is not a launcher and we will not recommend one.</p>
+
+      <h2>What a launcher can and cannot do</h2>
+      <p>A replacement home app can hide boot splashes, promoted rows, and some “because you watched” shelves on Android TV / Google TV. It cannot remove ads inside Netflix or YouTube. It cannot add ADB to Samsung Tizen, LG webOS, or Apple tvOS. It cannot make a Fire TV into Google TV. If the frustration is “this OS phones home,” that is a <a href="{prefix}tv/best-tv-for-privacy/">privacy</a> or <a href="{prefix}tv/best-non-smart-tv/">non-smart</a> decision, not a new APK.</p>
+      <ul>
+        <li><strong>Can:</strong> become the default Home, skip some boot promos, and give you a quieter row of inputs and apps you chose.</li>
+        <li><strong>Cannot:</strong> unsubscribe you from an ad-tier streaming plan, disable every vendor telemetry toggle, or survive a firmware that locks Developer options.</li>
+      </ul>
+
+      <h2>How we rank (validation, not scores)</h2>
+      <p>We do not publish star scores or a Top 10 of launchers. A number would pretend we lab-tested every build. These checks are the rank, in order:</p>
+      <ol class="tv-tree">
+        <li>Does it stay default after a reboot and after a power-cycle from the wall? If Home snaps back to the stock row, the install is not done.</li>
+        <li>Does it hide boot and home-row promos without breaking HDMI-CEC, live inputs, or the power-off picture?</li>
+        <li>Is the install path documented for your build on the unofficial project’s README — not a year-old screenshot?</li>
+        <li>Can you reach Settings and inputs without a second remote app?</li>
+        <li>Does a vendor overlay (Hisense, TCL, Sony skins) fight it on every boot?</li>
       </ol>
-      <p>Vendor “kids” or “hotel” modes are not substitutes. Paid APK stores are out of scope.</p>
+
+      <h2>Community vs stock vs overlays</h2>
+      <div class="tv-table-wrap">
+        <table class="tv-table">
+          <thead><tr><th>Option</th><th>When it fits</th><th>Honest limit</th></tr></thead>
+          <tbody>
+            <tr><td>Unofficial CleanYourTV launcher</td><td>Android TV / Google TV with USB debugging, ad-heavy home row.</td><td>Third-party open-source. Support follows that repo, not us. Confirm the model first.</td></tr>
+            <tr><td>Stock Google TV</td><td>You still want recommendations and voice search more than a quiet home.</td><td>Launcher ads are the product. Settings help a little; they do not replace Home.</td></tr>
+            <tr><td>Projectivy / other community homes</td><td>You already know that APK and your build is documented there.</td><td>Same ADB rules. We are not ranking a paid store or a random GitHub zip.</td></tr>
+            <tr><td>Vendor overlay (kids / hotel / “simple”)</td><td>A temporary lock for guests. Not an ad-removal path.</td><td>Not a substitute. Often still shows promos, and it is not sideload.</td></tr>
+            <tr><td>Fire TV home</td><td>Only if you already own that panel and are staying on Fire software.</td><td>Different stack. Do not buy a Fire Stick to “get a better launcher.”</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>Paid APK stores, “modded” Play Store clones, and random file-host zips are out of scope. If the unofficial examples folder does not mention your build, treat support as unknown — see <a href="{prefix}tv/supported-android-tv-models/">supported models</a>.</p>
+
+      <h2>After you install — validate</h2>
+      <ol class="tv-tree">
+        <li>Reboot twice. Confirm Home is still the community launcher, not a one-shot override.</li>
+        <li>Cold-boot from the wall. Some overlays only lose the fight until the next mains cycle.</li>
+        <li>Open HDMI-1 and CEC volume. If those broke, the quieter row is not a win.</li>
+        <li>Check boot ads and the first three home rows. App-inside ads will still be there.</li>
+        <li>If Home resets, Developer options vanished, or ADB cannot see the TV, stop here and open <a href="{prefix}tv/adb-debloat-not-working/">ADB not working</a>.</li>
+      </ol>
+
+      <h2>When to leave this page</h2>
+      <ul>
+        <li>You have not installed anything yet — start on <a href="{prefix}tv/remove-smart-tv-ads/">how to remove smart TV ads</a>.</li>
+        <li>ADB cannot connect, debugging wipes, or the launcher will not stay default — <a href="{prefix}tv/adb-debloat-not-working/">troubleshooting</a>.</li>
+        <li>The set is Tizen, webOS, or tvOS, or you are replacing the panel — <a href="{prefix}tv/smart-tv-ad-alternatives/">when software will not install</a>.</li>
+        <li>You want the OS gone, or you want fewer accounts and no ACR — <a href="{prefix}tv/best-non-smart-tv/">non-smart TVs</a> or <a href="{prefix}tv/best-tv-for-privacy/">TVs for privacy</a>.</li>
+        <li>You are not sure which page you need — <a href="{prefix}tv/">the hub</a>.</li>
+      </ul>
+
+      <h2>No product list</h2>
+      <p>This page has no affiliate-tracked launchers, boxes, or sticks. We will not invent a Check price button for an APK. Hardware you can actually link today lives on the alternatives page when a track exists — Google TV whole TVs only. We will not recommend a Fire Stick as a “launcher.”</p>
       {related_html(prefix)}
     </div>
   </div>
@@ -530,21 +592,193 @@ def adb_body(prefix: str, current: str) -> str:
     <nav class="breadcrumb"><a href="{prefix}index.html">Home</a> <span class="sep">/</span> <a href="{prefix}tv/">Smart TV ads</a> <span class="sep">/</span> <span>ADB troubleshooting</span></nav>
     <header class="page-head">
       <h1>ADB debloat not working</h1>
-      <p class="page-lede tv-lede">Last updated {UPDATED}. Common failures before you replace the television.</p>
+      <p class="page-lede tv-lede">Last updated {UPDATED}. Long-tail troubleshooting when USB debugging, debloat, or a community launcher will not stick — before you replace the television.</p>
     </header>
     {cluster_nav_html(current, prefix)}
     {DISCLOSURE}
     <div class="legal-body">
-      <p class="geo-answer-first">As of {UPDATED}, most “ADB not working” cases on Android TV / Google TV are a debugging toggle, a network mismatch, or a vendor overlay that resets Developer options — not proof that you need a new TV. Walk the list below, then open <a href="{prefix}tv/smart-tv-ad-alternatives/">when software will not install</a> only if the platform has no ADB surface (Samsung, LG, Apple) or the unofficial install still fails after a clean retry.</p>
-      <h2>Check these first</h2>
+      <p class="geo-answer-first">As of {UPDATED}, most “ADB not working” cases on Android TV / Google TV are a debugging toggle, a network mismatch, or a vendor overlay that resets Developer options — not proof that you need a new TV. Walk this list, then return to <a href="{prefix}tv/remove-smart-tv-ads/">the install guide</a> or <a href="{prefix}tv/best-launcher-for-android-tv/">launcher validation</a>. Open <a href="{prefix}tv/smart-tv-ad-alternatives/">when software will not install</a> only if the platform has no ADB surface (Samsung, LG, Apple) or the unofficial CleanYourTV install (third-party open-source; we do not host it) still fails after a clean retry. We will not recommend a Fire Stick as a workaround.</p>
+
+      <h2>Confirm the platform first</h2>
+      <p>If the set is Samsung Tizen, LG webOS, or Apple tvOS, stop. There is no supported ADB sideload path. This page will not invent one. Use the <a href="{prefix}tv/">hub</a> platform table, then the alternatives decision tree. Fire TV you already own can try Fire software first; buying a second Fire panel — or a Fire Stick — is not a debug step.</p>
+      <p>If the sticker says Android TV or Google TV, confirm the build on <a href="{prefix}tv/supported-android-tv-models/">supported models</a>. Absence from that scaffold is “unknown,” not “impossible.”</p>
+
+      <h2>Network and ADB over IP</h2>
       <ul>
-        <li>TV and computer on the same subnet. Guest Wi-Fi and client isolation break ADB over network.</li>
-        <li>USB debugging still on after a reboot. Some builds wipe Developer options.</li>
-        <li>The TV’s IP changed after a DHCP lease. Re-authorize the computer.</li>
-        <li>A second launcher already holds the default home role.</li>
+        <li>TV and computer on the same subnet. Guest Wi-Fi, client isolation, and “AP isolation” drop ADB over network even when both devices have internet.</li>
+        <li>VPN on the computer, a different VLAN, or a mesh node that NATs twice will look like “device offline.”</li>
+        <li>The TV’s IP changed after a DHCP lease. Re-read the IP from the TV’s network screen and re-authorize. Do not reuse yesterday’s <code>adb connect</code> line from memory.</li>
+        <li>Some builds only accept ADB over USB. If wireless never shows a prompt, try a cable the TV’s USB port will actually enumerate — many front-panel ports are charge-only.</li>
       </ul>
-      <h2>When to stop</h2>
-      <p>If the set is Tizen, webOS, or tvOS, this page does not apply — go to the alternatives decision tree. If you are shopping for a replacement, prefer a <strong>Google TV whole TV</strong> over a Fire panel sold as an ad workaround.</p>
+
+      <h2>Developer options that wipe</h2>
+      <ul>
+        <li>USB debugging still on after a reboot. Some Hisense / TCL / Sony overlays wipe Developer options on every mains cycle.</li>
+        <li>The “USB debugging (security settings)” or “disable adb authorization timeout” toggle exists on some builds and is off by default.</li>
+        <li>A “retail / demo / hotel” mode is on. That is not Developer options. Turn it off before you blame ADB.</li>
+        <li>You enabled debugging, then ran a system update. Treat that as a new authorization.</li>
+      </ul>
+
+      <h2>Authorization and the home role</h2>
+      <ul>
+        <li>The RSA prompt appeared on the TV and you missed it. Look at the panel, not the computer terminal.</li>
+        <li>A second computer already authorized and the TV’s max-device list is full. Revoke USB debugging authorizations and start over.</li>
+        <li>A second launcher already holds the default Home role. The unofficial APK installs, then stock Home wins on reboot. Clear defaults, set Home again, then validate as on the <a href="{prefix}tv/best-launcher-for-android-tv/">launcher page</a>.</li>
+        <li><code>adb</code> sees the device as <code>unauthorized</code> or <code>offline</code>. That is authorization or transport, not “this TV cannot be debloated.”</li>
+      </ul>
+
+      <h2>Install succeeded, ads remain</h2>
+      <p>If ADB is connected and the APK installed, leftover ads are usually one of these:</p>
+      <ul>
+        <li>You hid a row but the stock launcher is still default Home. Reboot test from the wall.</li>
+        <li>Boot splash is a vendor animation, not the launcher. Some of those are not removable without breaking CEC.</li>
+        <li>The ads are inside Netflix or YouTube. A new launcher will not touch them. A new TV will not either.</li>
+        <li>Firmware restored the overlay overnight. That is a platform fight — troubleshoot once more, then decide whether software is closed.</li>
+      </ul>
+      <p>We do not mirror unofficial shell commands here. The project’s README is the source of truth. If a forum post disagrees with that README, keep the README.</p>
+
+      <h2>Honest next steps</h2>
+      <ol class="tv-tree">
+        <li><strong>Still Android / Google TV, still retrying</strong> — go back to <a href="{prefix}tv/remove-smart-tv-ads/">install order</a>. Do not skip to a checkout.</li>
+        <li><strong>Platform has no ADB</strong> — <a href="{prefix}tv/smart-tv-ad-alternatives/">when software will not install</a>. Hero picks there are Google TV whole TVs we can actually link. Empty slots stay empty.</li>
+        <li><strong>You want the OS gone</strong> — <a href="{prefix}tv/best-non-smart-tv/">when a non-smart TV is the honest answer</a>. No affiliate-tracked dumb sets yet.</li>
+        <li><strong>The goal is accounts / ACR / viewing data</strong> — <a href="{prefix}tv/best-tv-for-privacy/">privacy-oriented buying</a>, still zero SKUs.</li>
+        <li><strong>Someone suggested a Fire Stick</strong> — no. A stick is not a debug tool and not a privacy upgrade.</li>
+      </ol>
+
+      <h2>No product list</h2>
+      <p>This page has no Check price button, no ASIN, and no “buy this cable” slot. If you are shopping after software is closed, use the alternatives page for Google TV whole TVs that have a real track — not a Fire Stick, not an invented HDMI hub.</p>
+      {related_html(prefix)}
+    </div>
+  </div>
+</main>"""
+
+
+def non_smart_body(prefix: str, current: str) -> str:
+    empty = empty_products_html(
+        slot="non_smart_tv",
+        label="Non-smart / dumb TVs",
+        note="No affiliate-tracked non-smart sets in our feed yet. We will not invent a Check price button.",
+    )
+    return f"""<main class="legal-page tv-page">
+  <div class="container legal-layout">
+    <nav class="breadcrumb"><a href="{prefix}index.html">Home</a> <span class="sep">/</span> <a href="{prefix}tv/">Smart TV ads</a> <span class="sep">/</span> <span>Non-smart TVs</span></nav>
+    <header class="page-head">
+      <h1>Best non-smart TV (when a dumb set is the honest answer)</h1>
+      <p class="page-lede tv-lede">Last updated {UPDATED}. Content-first. A non-smart panel is a last-resort hardware choice, not a padded shortlist.</p>
+    </header>
+    {cluster_nav_html(current, prefix)}
+    {DISCLOSURE}
+    <div class="legal-body">
+      <p class="geo-answer-first">As of {UPDATED}, a non-smart / “dumb” TV is the honest answer when you want fewer ads at the OS level and you do not want another smart platform. It is not the first step if your current Android TV or Google TV still has a software path — start on <a href="{prefix}tv/remove-smart-tv-ads/">how to remove smart TV ads</a>. If the platform has no ADB (Samsung Tizen, LG webOS, Apple tvOS) or the unofficial install failed, use <a href="{prefix}tv/smart-tv-ad-alternatives/">when software will not install</a> first. This page has no affiliate-tracked non-smart sets yet; we will not invent a Check price button or an ASIN.</p>
+
+      <h2>When a non-smart TV is the honest answer</h2>
+      <ul>
+        <li>The set you already own is Tizen, webOS, or tvOS — there is no supported ADB / sideload path, and you refuse to buy another smart OS just to change the home screen.</li>
+        <li>Your privacy goal is “no account, no automatic content recognition, no viewing graph,” not “a quieter launcher.” See <a href="{prefix}tv/best-tv-for-privacy/">TVs for privacy</a> if the goal is data, not ads.</li>
+        <li>You already tried the unofficial CleanYourTV project (third-party open-source; we are not affiliated and do not host it) and the launcher will not stay default.</li>
+        <li>You already have an HDMI source you trust — a computer, a Blu-ray player, or a streamer you already own. A new Fire Stick is not that source; we will not recommend a Fire Stick.</li>
+      </ul>
+
+      <h2>When it is not</h2>
+      <ul>
+        <li>The TV is Android TV or Google TV and USB debugging still works. Stay on the software path. Replacing a working panel to “escape ads” is the wrong order.</li>
+        <li>You still want built-in apps, voice search, and software updates as a feature. A dumb panel will not give you that. A Google TV whole set on the alternatives page is the hardware we can actually link today.</li>
+        <li>Someone is selling a Fire TV or Fire Stick as an “ad-free” upgrade. Fire hardware is a different ad stack, not an escape hatch.</li>
+      </ul>
+
+      <h2>What you give up</h2>
+      <p>A non-smart TV is a display with HDMI. You lose the app store, the voice remote’s cloud features, and any “the TV just works” streaming story. You keep picture settings and inputs. If that trade is not acceptable, do not buy one to make a point — go back to <a href="{prefix}tv/">the hub</a> and pick software or a Google TV replacement.</p>
+      <p>Hotel, commercial, and “hospitality” panels are a different product class (often locked menus, different tuners). We will not treat them as a living-room shortlist, and we will not invent a retailer link for them.</p>
+
+      <h2>What to look for (no SKUs)</h2>
+      <ol class="tv-tree">
+        <li>Confirm it is actually non-smart — no mandatory account, no app store, no ACR toggle because there is no ACR.</li>
+        <li>Enough HDMI inputs for the sources you already own. We will not put an HDMI hub or a mount in a “buy a TV” list.</li>
+        <li>No camera or microphone you cannot physically disable. A remote with a mic is a streamer problem, not a panel problem, if the panel has no radio of its own.</li>
+        <li>Size and brightness for the room. A dumb 43-inch set in a bright living room is still a bad TV.</li>
+      </ol>
+
+      <h2>Product zone</h2>
+      <p>Affiliate inventory for non-smart sets is still 0 track. Empty is honest.</p>
+      {empty}
+
+      <h2>Where to go next</h2>
+      <ul>
+        <li><a href="{prefix}tv/remove-smart-tv-ads/">Turn off ads on the set you have</a> — software first.</li>
+        <li><a href="{prefix}tv/smart-tv-ad-alternatives/">When software will not install</a> — Google TV whole TVs we can actually link; Apple / onn / non-smart slots stay empty.</li>
+        <li><a href="{prefix}tv/best-tv-for-privacy/">Best TV for privacy</a> — if the frustration is data collection, not just the home row.</li>
+        <li><a href="{prefix}tv/">Smart TV ads hub</a> — platform map and starting points.</li>
+      </ul>
+      {related_html(prefix)}
+    </div>
+  </div>
+</main>"""
+
+
+def privacy_body(prefix: str, current: str) -> str:
+    empty = empty_products_html(
+        slot="privacy_tv",
+        label="Privacy-oriented TVs",
+        note="No affiliate-tracked privacy TVs in our feed yet. We will not invent a Check price button.",
+    )
+    return f"""<main class="legal-page tv-page">
+  <div class="container legal-layout">
+    <nav class="breadcrumb"><a href="{prefix}index.html">Home</a> <span class="sep">/</span> <a href="{prefix}tv/">Smart TV ads</a> <span class="sep">/</span> <span>Privacy TVs</span></nav>
+    <header class="page-head">
+      <h1>Best TV for privacy (buying guidance, not a padded shortlist)</h1>
+      <p class="page-lede tv-lede">Last updated {UPDATED}. Content-first. Privacy is a settings and platform choice before it is a checkout.</p>
+    </header>
+    {cluster_nav_html(current, prefix)}
+    {DISCLOSURE}
+    <div class="legal-body">
+      <p class="geo-answer-first">As of {UPDATED}, the privacy-first order is: (1) try software on the Android TV or Google TV you already own — see <a href="{prefix}tv/remove-smart-tv-ads/">how to remove smart TV ads</a>, (2) turn off automatic content recognition and viewing-data settings on the current set, (3) only then shop for a different TV. A <a href="{prefix}tv/best-non-smart-tv/">non-smart panel</a> is the strongest OS-level answer if you accept HDMI-only. If the platform has no ADB, use <a href="{prefix}tv/smart-tv-ad-alternatives/">when software will not install</a>. We have no affiliate-tracked privacy TVs in this bake. A Fire Stick is not a privacy upgrade; we will not recommend one.</p>
+
+      <h2>What “privacy” means on a TV</h2>
+      <ul>
+        <li><strong>Automatic content recognition (ACR)</strong> — the set samples what is on screen and reports it. Settings can reduce this; they rarely make a smart OS mute.</li>
+        <li><strong>Home-screen ads and viewing graphs</strong> — launcher promos, “because you watched,” and interest profiles. Software can help on Android / Google TV; Samsung and LG generally cannot sideload a replacement launcher.</li>
+        <li><strong>Account required to use the set</strong> — Google, Amazon, Samsung, LG, or Apple. A non-smart panel skips this. A streamer you already own does not.</li>
+        <li><strong>Camera or microphone</strong> — bezel cams and voice remotes. Prefer hardware you can unplug or a panel that never shipped them.</li>
+        <li><strong>Ads inside Netflix or YouTube</strong> — those are app subscriptions, not TV-OS ads. A new television will not remove them.</li>
+      </ul>
+
+      <h2>Software first</h2>
+      <p>If the TV is Android TV or Google TV, stay on <a href="{prefix}tv/">the hub</a> path: install order, then <a href="{prefix}tv/supported-android-tv-models/">supported models</a>, then <a href="{prefix}tv/adb-debloat-not-working/">ADB troubleshooting</a>. The unofficial CleanYourTV project is third-party open-source and non-official — MoreTop10 is not affiliated and does not host the software. Also use the stock settings: ACR off, interest-based ads off, viewing / usage data off, and any “improve recommendations” toggle off. That is not a guarantee. It is the honest first hour.</p>
+
+      <h2>When a different TV makes sense</h2>
+      <ol class="tv-tree">
+        <li><strong>No ADB platform</strong> — Tizen, webOS, or tvOS. Software will not give you a community launcher. Replacing the set is a platform decision, not a sideload failure.</li>
+        <li><strong>Privacy goals software cannot meet</strong> — you do not want an account on the panel, or ACR is baked into a vendor stack you cannot leave.</li>
+        <li><strong>Fewer ads at the OS level</strong> — you want the home screen gone, not a quieter row. That is the <a href="{prefix}tv/best-non-smart-tv/">non-smart</a> case, or a Google TV whole TV after the software path is closed.</li>
+      </ol>
+
+      <h2>Platform notes (no SKUs)</h2>
+      <div class="tv-table-wrap">
+        <table class="tv-table">
+          <thead><tr><th>Platform</th><th>Privacy posture (plain language)</th><th>What we can link</th></tr></thead>
+          <tbody>
+            <tr><td>Non-smart / dumb panel</td><td>No TV OS account, no ACR on the panel. You still choose whatever you plug into HDMI.</td><td>Empty — no track in this bake.</td></tr>
+            <tr><td>Android TV / Google TV</td><td>Software path exists. Still a Google account if you use the stock apps.</td><td>Whole-TV links live on the alternatives page when a track exists.</td></tr>
+            <tr><td>Fire TV</td><td>Amazon account plus its own ad stack. Not a privacy upgrade. We will not recommend a Fire Stick.</td><td>Honest Fire table on alternatives only — not a “buy this to hide” list.</td></tr>
+            <tr><td>Samsung Tizen / LG webOS</td><td>Settings only. No supported ADB sideload.</td><td>No privacy SKU. Decision tree if you are replacing the set.</td></tr>
+            <tr><td>Apple TV / tvOS</td><td>No ADB path. Different account, not “no account.”</td><td>Empty slot — no retailer link yet.</td></tr>
+            <tr><td>onn / other streamers</td><td>A box is not a panel. Privacy follows the box’s OS.</td><td>Empty slot — we will not invent a hop.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2>Product zone</h2>
+      <p>Affiliate inventory for Apple / Streamer / onn / non-smart / privacy-oriented sets is still 0 track. Empty is honest.</p>
+      {empty}
+
+      <h2>Where to go next</h2>
+      <ul>
+        <li><a href="{prefix}tv/remove-smart-tv-ads/">Turn off ads</a> — if the set still has a software path.</li>
+        <li><a href="{prefix}tv/smart-tv-ad-alternatives/">When software will not install</a> — Google TV whole TVs we can link; empty slots for the rest.</li>
+        <li><a href="{prefix}tv/best-non-smart-tv/">Best non-smart TV</a> — when a dumb panel is the honest hardware answer.</li>
+        <li><a href="{prefix}tv/">Smart TV ads hub</a> — start here if you are not sure which page you need.</li>
+      </ul>
       {related_html(prefix)}
     </div>
   </div>
@@ -604,7 +838,7 @@ PAGES = [
         "out": "tv/best-launcher-for-android-tv/index.html",
         "path": "/tv/best-launcher-for-android-tv/",
         "title": "Best launcher for Android TV | MoreTop10",
-        "description": "Launcher ranking notes for Android TV. No affiliate product list on this page.",
+        "description": "Practical ranking of Android TV and Google TV launchers for ad-heavy home screens. No affiliate product list.",
         "crumbs": [
             ("Home", f"{LIVE}/"),
             ("Smart TV ads", f"{LIVE}/tv/"),
@@ -617,13 +851,39 @@ PAGES = [
         "out": "tv/adb-debloat-not-working/index.html",
         "path": "/tv/adb-debloat-not-working/",
         "title": "ADB debloat not working | MoreTop10",
-        "description": "Troubleshooting when USB debugging or a community launcher will not stick. Replace the set only after this list.",
+        "description": "Long-tail troubleshooting when ADB, debloat, or a community launcher will not stick. Honest next steps before you replace the TV.",
         "crumbs": [
             ("Home", f"{LIVE}/"),
             ("Smart TV ads", f"{LIVE}/tv/"),
             ("ADB troubleshooting", f"{LIVE}/tv/adb-debloat-not-working/"),
         ],
         "body": adb_body,
+        "products": False,
+    },
+    {
+        "out": "tv/best-non-smart-tv/index.html",
+        "path": "/tv/best-non-smart-tv/",
+        "title": "Best non-smart TV | MoreTop10",
+        "description": "When a non-smart or dumb TV is the honest answer after ads or privacy frustration. Content-first. No invented checkout links.",
+        "crumbs": [
+            ("Home", f"{LIVE}/"),
+            ("Smart TV ads", f"{LIVE}/tv/"),
+            ("Non-smart TVs", f"{LIVE}/tv/best-non-smart-tv/"),
+        ],
+        "body": non_smart_body,
+        "products": False,
+    },
+    {
+        "out": "tv/best-tv-for-privacy/index.html",
+        "path": "/tv/best-tv-for-privacy/",
+        "title": "Best TV for privacy | MoreTop10",
+        "description": "Privacy-oriented TV buying guidance. Software first, then platform choice. No affiliate SKUs until a real track exists.",
+        "crumbs": [
+            ("Home", f"{LIVE}/"),
+            ("Smart TV ads", f"{LIVE}/tv/"),
+            ("Privacy TVs", f"{LIVE}/tv/best-tv-for-privacy/"),
+        ],
+        "body": privacy_body,
         "products": False,
     },
 ]
@@ -717,26 +977,52 @@ def patch_sitemap() -> None:
     print("  patched site/sitemap.xml")
 
 
+def _llms_child_lines() -> list[str]:
+    labels = {path: label for path, label in CLUSTER_NAV}
+    lines: list[str] = []
+    for spec in PAGES:
+        path = spec["path"]
+        if path == "/tv/":
+            continue
+        label = labels.get(path) or spec["title"].split("|")[0].strip()
+        lines.append(f"  - {label}: {LIVE}{path}")
+    return lines
+
+
 def patch_llms() -> None:
+    child_lines = _llms_child_lines()
+    header = (
+        "## Editorial guides\n"
+        "- [Smart TV ads](https://moretop10.com/tv/): Can you turn off ads, "
+        "then what to do when the software path fails. Not a Top 10 product category — "
+        "we do not pad this cluster to ten SKUs."
+    )
     for rel in ("llms.txt", ".well-known/llms.txt"):
         path = SITE / rel
         if not path.exists():
             continue
         text = path.read_text(encoding="utf-8")
-        if "/tv/" in text:
-            continue
-        block = (
-            "\n## Editorial guides\n"
-            "- [Smart TV ads](https://moretop10.com/tv/): Can you turn off ads, "
-            "then what to do when the software path fails. Not a Top 10 product category — "
-            "we do not pad this cluster to ten SKUs.\n"
-            "  - Remove ads: https://moretop10.com/tv/remove-smart-tv-ads/\n"
-            "  - Supported models: https://moretop10.com/tv/supported-android-tv-models/\n"
-            "  - Alternatives (Google TV whole TVs): https://moretop10.com/tv/smart-tv-ad-alternatives/\n"
-        )
-        text = text.rstrip() + "\n" + block
-        path.write_text(text, encoding="utf-8")
-        print(f"  patched site/{rel}")
+        changed = False
+        if "## Editorial guides" not in text:
+            text = text.rstrip() + "\n\n" + header + "\n" + "\n".join(child_lines) + "\n"
+            changed = True
+        else:
+            for line in child_lines:
+                url = line.rsplit(" ", 1)[-1]
+                if url not in text:
+                    # Append the missing child after the last editorial /tv/ line.
+                    match = None
+                    for m in re.finditer(r"^  - .+: https://moretop10\.com/tv/.+$", text, re.M):
+                        match = m
+                    if match:
+                        insert_at = match.end()
+                        text = text[:insert_at] + "\n" + line + text[insert_at:]
+                    else:
+                        text = text.rstrip() + "\n" + line + "\n"
+                    changed = True
+        if changed:
+            path.write_text(text, encoding="utf-8")
+            print(f"  patched site/{rel}")
 
 
 def verify_tv(shortlist: dict) -> None:
@@ -807,6 +1093,54 @@ def verify_tv(shortlist: dict) -> None:
         errors.append("sitemap missing /tv/")
     if f"{LIVE}/tv/smart-tv-ad-alternatives/" not in sitemap:
         errors.append("sitemap missing L2")
+    for p3 in ("/tv/best-non-smart-tv/", "/tv/best-tv-for-privacy/"):
+        if f"{LIVE}{p3}" not in sitemap:
+            errors.append(f"sitemap missing P3 {p3}")
+    hub = (SITE / "tv/index.html").read_text(encoding="utf-8")
+    if "tv/best-non-smart-tv/" not in hub:
+        errors.append("hub missing P3 non-smart link")
+    if "tv/best-tv-for-privacy/" not in hub:
+        errors.append("hub missing P3 privacy link")
+    for rel in ("tv/best-non-smart-tv/index.html", "tv/best-tv-for-privacy/index.html"):
+        path = SITE / rel
+        if not path.exists():
+            continue
+        p3_html = path.read_text(encoding="utf-8")
+        if "tv/remove-smart-tv-ads/" not in p3_html:
+            errors.append(f"{rel} missing L1 back-link")
+        if "tv/smart-tv-ad-alternatives/" not in p3_html:
+            errors.append(f"{rel} missing L2 back-link")
+        if "yeahpromos.com" in p3_html or "pboost.me" in p3_html or "btn-cta-yellow" in p3_html:
+            errors.append(f"{rel} invented a Check price CTA on an empty product zone")
+        zone = re.search(r'<div class="tv-empty"[^>]*data-tv-empty-products[\s\S]*?</div>', p3_html)
+        if not zone:
+            errors.append(f"{rel} missing honest empty product zone")
+        elif "<a " in zone.group(0) or "btn-cta" in zone.group(0):
+            errors.append(f"{rel} empty product zone has a checkout link")
+        if "cleanyourtv" in rel:
+            errors.append(f"forbidden path baked {rel}")
+    for rel in ("tv/best-launcher-for-android-tv/index.html", "tv/adb-debloat-not-working/index.html"):
+        path = SITE / rel
+        if not path.exists():
+            continue
+        p2_html = path.read_text(encoding="utf-8")
+        if "when we publish scores" in p2_html.lower() or "ranking note" in p2_html.lower():
+            errors.append(f"{rel} still stub-thin")
+        if "yeahpromos.com" in p2_html or "pboost.me" in p2_html or "btn-cta-yellow" in p2_html:
+            errors.append(f"{rel} invented a Check price CTA")
+        if "tv/remove-smart-tv-ads/" not in p2_html or "tv/smart-tv-ad-alternatives/" not in p2_html:
+            errors.append(f"{rel} missing L1/L2 back-links")
+        if "tv/best-non-smart-tv/" not in p2_html or "tv/best-tv-for-privacy/" not in p2_html:
+            errors.append(f"{rel} missing P3 links")
+        body = re.search(r'<div class="legal-body">(.*)</div>\s*</div>\s*</main>', p2_html, re.S)
+        body_html = body.group(1) if body else ""
+        if body_html.count("<h2>") < 5:
+            errors.append(f"{rel} still stub-thin (few headings)")
+    llms = (SITE / "llms.txt").read_text(encoding="utf-8")
+    if f"{LIVE}/tv/best-non-smart-tv/" not in llms:
+        errors.append("llms.txt missing P3 non-smart")
+    if f"{LIVE}/tv/best-tv-for-privacy/" not in llms:
+        errors.append("llms.txt missing P3 privacy")
     if errors:
         raise SystemExit("bake_tv verify failed:\n- " + "\n- ".join(errors))
     print("bake_tv verify ok")
