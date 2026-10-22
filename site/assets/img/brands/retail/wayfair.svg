@@ -1,1 +1,7 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 140 40" width="140" height="40"><text x="70" y="26" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="16" font-weight="700" fill="#4C4C4C">Wayfair</text></svg>
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 158 48" width="158" height="48" role="img" aria-label="Wayfair">
+  <path d="M8 30 L20 15 L32 30" fill="none" stroke="#333" stroke-width="2.4" stroke-linejoin="round"/>
+  <path d="M12 30 V36 H28 V30" fill="none" stroke="#333" stroke-width="2.4"/>
+  <rect x="17" y="28" width="6" height="8" fill="#333"/>
+  <text x="40" y="30" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="700" fill="#2a2a2a">Wayfair</text>
+</svg>

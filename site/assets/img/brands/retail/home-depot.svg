@@ -1,1 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 140 40" width="140" height="40"><text x="70" y="26" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="16" font-weight="700" fill="#4C4C4C">Home Depot</text></svg>
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 198 48" width="198" height="48" role="img" aria-label="The Home Depot">
+  <rect x="2" y="9" width="30" height="30" rx="2" fill="#333"/>
+  <text x="17" y="29" text-anchor="middle" font-family="Arial Black, Arial, sans-serif" font-size="10" font-weight="900" fill="#fff">HD</text>
+  <text x="40" y="30" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="700" fill="#2a2a2a">The Home Depot</text>
+</svg>
