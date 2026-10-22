@@ -15,12 +15,15 @@ This repo clone does not ship the full inventory generator. `build.py`:
      comparison cards, reviews hubs, and individual review articles
  10. Light G-ENGAGE (sample hub+comparison): Answer-first lead + Check-price
      with price near CTA. Structural only — not bounce %.
+ 11. Best sidebar (`best_widget_html`): name + arrow + Compare All only —
+     no packshot <img>. Live snapshots still ship thumbs; bake strips them.
 
 Product cards, ASINs, and affiliate URLs are copied from Live snapshots — never
 invented here. Do not wrangler-deploy from this script.
 
 Usage:
     python3 site/scripts/build.py
+    python3 site/scripts/build.py --best-widget-only
 """
 
 from __future__ import annotations
@@ -30,6 +33,7 @@ import re
 import sys
 import urllib.request
 from concurrent.futures import ThreadPoolExecutor, as_completed
+from html import escape
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -87,6 +91,83 @@ AUTHOR_SLUGS = [
     "priya-nair",
     "moretop10-editors",
 ]
+
+BEST_WIDGET_ASIDE_RE = re.compile(r'<aside class="best-widget">.*?</aside>', re.S)
+BEST_WIDGET_IMG_RE = re.compile(
+    r'<img\b[^>]*\bclass="[^"]*\bbest-widget-img\b[^"]*"[^>]*/?>',
+    re.I,
+)
+
+
+def best_widget_row_html(
+    *,
+    href: str,
+    name: str,
+    rel: str = "sponsored noopener noreferrer",
+    target: str = "_blank",
+    extra_attrs: str = "",
+) -> str:
+    """One Best-widget row: name + arrow only (no packshot <img>)."""
+    extra = extra_attrs
+    if extra and not extra.startswith(" "):
+        extra = f" {extra}"
+    return (
+        f'<a class="best-widget-row" href="{escape(href, quote=True)}" '
+        f'rel="{escape(rel, quote=True)}" target="{escape(target, quote=True)}"{extra}>'
+        f'<span class="best-widget-name">{escape(name)}</span>'
+        f'<span class="best-widget-arrow" aria-hidden="true">→</span>'
+        f"</a>"
+    )
+
+
+def best_widget_html(
+    title: str,
+    items: list[dict],
+    compare_href: str,
+) -> str:
+    """Best … sidebar: copy/text only. CTA hrefs and sponsored attrs unchanged."""
+    rows = "".join(
+        best_widget_row_html(
+            href=item["href"],
+            name=item["name"],
+            rel=item.get("rel", "sponsored noopener noreferrer"),
+            target=item.get("target", "_blank"),
+            extra_attrs=item.get("extra_attrs", ""),
+        )
+        for item in items
+    )
+    return (
+        f'<aside class="best-widget">\n'
+        f"  <h3>{escape(title)}</h3>\n"
+        f'  <div class="best-widget-list">{rows}</div>\n'
+        f'  <p class="best-widget-more"><a class="btn btn-ghost btn-sm best-widget-compare" '
+        f'href="{escape(compare_href, quote=True)}">Compare All</a></p>\n'
+        f"</aside>"
+    )
+
+
+def rewrite_best_widget(page_html: str) -> str:
+    """Strip packshot <img> from Best sidebar rows. Leave other packshots alone."""
+
+    def _aside(match: re.Match[str]) -> str:
+        return BEST_WIDGET_IMG_RE.sub("", match.group(0))
+
+    return BEST_WIDGET_ASIDE_RE.sub(_aside, page_html)
+
+
+def rebake_best_widget_pages(site: Path | None = None) -> list[Path]:
+    """Rewrite existing baked HTML — no Live refetch."""
+    site = site or SITE
+    wrote: list[Path] = []
+    for path in sorted(site.rglob("*.html")):
+        text = path.read_text(encoding="utf-8")
+        if 'class="best-widget"' not in text:
+            continue
+        new = rewrite_best_widget(text)
+        if new != text:
+            path.write_text(new, encoding="utf-8")
+            wrote.append(path)
+    return wrote
 
 
 def page_specs(cfg: dict) -> list[dict]:
@@ -228,6 +309,7 @@ def bake_page(spec: dict, cfg: dict, cmp_html_by_slug: dict[str, str]) -> Path |
         review_slug=spec.get("review_slug"),
         site_root=SITE,
     )
+    html = rewrite_best_widget(html)
 
     dest = SITE / out_rel
     dest.parent.mkdir(parents=True, exist_ok=True)
@@ -461,6 +543,7 @@ def verify(cfg: dict) -> None:
     tests_dir = str(ROOT / "tests")
     if tests_dir not in sys.path:
         sys.path.insert(0, tests_dir)
+    from best_widget_assert import sample_errors as best_widget_errors  # noqa: E402
     from footer_cats_columns_assert import sample_errors as footer_cats_errors  # noqa: E402
     from g_engage_assert import sample_errors  # noqa: E402
     from landing_css_assert import collect_errors as landing_css_errors  # noqa: E402
@@ -468,6 +551,7 @@ def verify(cfg: dict) -> None:
     errors.extend(footer_cats_errors(SITE))
     errors.extend(sample_errors(SITE))
     errors.extend(landing_css_errors(SITE))
+    errors.extend(best_widget_errors(SITE))
 
     sample_review = SITE / "air-fryers" / "reviews" / "cosori-twinfry-9-qt-double-air" / "index.html"
     if not sample_review.exists():
@@ -554,6 +638,13 @@ def verify(cfg: dict) -> None:
 
 
 def main() -> None:
+    if "--best-widget-only" in sys.argv:
+        wrote = rebake_best_widget_pages()
+        print(f"rebaked {len(wrote)} Best-widget pages (text-only rows)")
+        for path in wrote:
+            print(f"  wrote {path.relative_to(ROOT)}")
+        return
+
     cfg = load_site_config()
     specs = page_specs(cfg)
     CACHE.mkdir(parents=True, exist_ok=True)
