@@ -100,7 +100,7 @@ def render_footer_cats(
     prefix: str,
     editorial: list[dict[str, Any]] | None = None,
 ) -> str:
-    home = f"{prefix}index.html" if prefix else "index.html"
+    home = prefix if prefix else "/"
     items = [f'<li><a href="{home}">Home</a></li>']
     for cat in cats:
         slug = cat["slug"]
