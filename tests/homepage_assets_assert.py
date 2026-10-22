@@ -17,6 +17,7 @@ from chrome import (  # noqa: E402
     home_tile_width_codes,
     split_home_tiles,
     tile_is_tv,
+    tile_width_code,
 )
 from site_config import HOME_VISIBLE_TILES  # noqa: E402
 
@@ -121,6 +122,13 @@ def main() -> int:
         errors.append("pages-home.css missing home-tile-grid / explore-footer layout")
     if "2.15fr 2.15fr 1fr 1fr" not in css:
         errors.append("pages-home.css missing WWNN grid-template-columns contract")
+    css_compact = css.replace(" ", "")
+    if ".home-tile--col-3{grid-column:3}" not in css_compact:
+        errors.append("pages-home.css missing leftover narrow column-3 pin")
+    if ".home-tile-grid>.home-tile--narrow:nth-child(4n+1){grid-column:3}" not in css_compact:
+        errors.append("pages-home.css missing site-wide leftover N at 4n+1 pin")
+    if ".home-tile--wide+.home-tile--narrow:nth-child(4n+2){grid-column:3}" not in css_compact:
+        errors.append("pages-home.css missing site-wide leftover WN (4n+2) pin")
 
     gm = re.search(
         r'<div class="home-tile-grid"[^>]*>(.*?)</div>\s*<button type="button" class="home-show-more"',
@@ -145,6 +153,33 @@ def main() -> int:
             )
         if any("is-more" in t[:200] for t in tiles[:HOME_VISIBLE_TILES]):
             errors.append("first visible home tiles still have is-more")
+        leftover_n_on_w = [
+            i
+            for i, t in enumerate(tiles)
+            if tile_width_code(t) == "N"
+            and i % 4 in (0, 1)
+            and not re.search(
+                r"home-tile--col-[34]|grid-column\s*:\s*[34]",
+                t[:320],
+            )
+        ]
+        if leftover_n_on_w:
+            errors.append(
+                "leftover narrow on W track without column fix: "
+                + ",".join(str(i) for i in leftover_n_on_w)
+            )
+        # Live math: 22 = 5*4 + WN. Leftover N is at %4==1 (any title, not Dash Cams only).
+        n_tiles = len(tiles)
+        leftover = n_tiles % 4
+        if leftover == 2:
+            last_n = tiles[-1]
+            if tile_width_code(last_n) == "N" and (n_tiles - 1) % 4 != 1:
+                errors.append(f"leftover WN N should sit at %4==1, count={n_tiles}")
+            if tile_width_code(last_n) == "N" and "home-tile--col-3" not in last_n[:320]:
+                errors.append("leftover WN narrow (4k+2 / %4==1) missing col-3 pin")
+        elif leftover == 1 and tile_width_code(tiles[-1]) == "N":
+            if "home-tile--col-3" not in tiles[-1][:320]:
+                errors.append("leftover single N (4k+1 / %4==0) missing col-3 pin")
 
     js = (SITE / "assets/js/site.js").read_text()
     if "data-home-show-more" not in js or "is-expanded" not in js:

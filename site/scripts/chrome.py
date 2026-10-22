@@ -219,6 +219,12 @@ TV_HOME_TILE = (
 )
 
 # pages-home.css ≥960px: grid-template-columns: 2.15fr 2.15fr 1fr 1fr
+# Tracks (0-index %4): 0=W, 1=W, 2=N, 3=N. Complete rows are 4k tiles.
+# Leftover after 4k — any extra N must stay on a narrow column, not a 2.15fr W:
+#   count 4k+1, leftover N at %4==0 → pin col 3
+#   count 4k+2, leftover WN (N at %4==1) → pin N col 3
+#   leftover NN → col 3 then col 4
+# Live home today: 22 = 5*4 + WN (Hair Dryers + Dash Cams). Not Dash-Cams-only.
 HOME_TILE_TRACKS = ("W", "W", "N", "N")
 HOME_TILE_GRID_RE = re.compile(
     r'(<div class="home-tile-grid"[^>]*>)(.*?)(</div>\s*<button type="button" class="home-show-more")',
@@ -247,6 +253,53 @@ def expected_wwnn_codes(n: int) -> list[str]:
     return [HOME_TILE_TRACKS[i % 4] for i in range(n)]
 
 
+_HOME_TILE_COL_CLASS_RE = re.compile(r"\s*home-tile--col-[34]")
+
+
+def set_tile_grid_column(tile: str, col: int | None) -> str:
+    """Pin a leftover tile to a 1-indexed WWNN column, or strip a prior pin."""
+
+    def repl(m: re.Match[str]) -> str:
+        classes = _HOME_TILE_COL_CLASS_RE.sub("", m.group(1))
+        parts = [p for p in classes.split() if p]
+        if col in (3, 4):
+            parts.append(f"home-tile--col-{col}")
+        return f'class="{" ".join(parts)}"'
+
+    return re.sub(r'class="(home-tile[^"]*)"', repl, tile, count=1)
+
+
+def place_leftover_narrows(tiles: list[str]) -> list[str]:
+    """Pin every leftover N after complete WWNN rows onto a narrow track.
+
+    Applies to any leftover N (today Dash Cams at 22=4k+2 / %4==1; tomorrow a
+    single N at 4k+1 / %4==0), not a named tile. Complete 4k rows are untouched.
+    """
+    if not tiles:
+        return tiles
+    complete = (len(tiles) // 4) * 4
+    out = [set_tile_grid_column(t, None) for t in tiles[:complete]]
+    leftover = tiles[complete:]
+    if not leftover:
+        return out
+    auto = 0
+    used_n: set[int] = set()
+    for tile in leftover:
+        tile = set_tile_grid_column(tile, None)
+        if tile_is_wide(tile):
+            auto += 1
+            out.append(tile)
+            continue
+        if auto in (0, 1):
+            target = 2 if 2 not in used_n else 3
+            used_n.add(target)
+            out.append(set_tile_grid_column(tile, target + 1))
+            continue
+        out.append(tile)
+        auto += 1
+    return out
+
+
 def arrange_tiles_wwnn(
     tiles: list[str],
     cats_by_slug: dict[str, dict[str, Any]] | None = None,
@@ -254,7 +307,9 @@ def arrange_tiles_wwnn(
     """Stable-partition tiles into CSS-track order: W W N N repeating.
 
     Extended / kids-bikes stay first among wides. Editorial TV stays first
-    among narrows so it lands in a row-1 Narrow slot (index 2).
+    among narrows so it lands in a row-1 Narrow slot (index 2). Any leftover
+    N after complete 4k rows (WN at %4==1, or a single N at 4k+1) pins to
+    an N column so it does not fill a W track.
     """
     slugs = set(cats_by_slug or ())
     wide: list[tuple[tuple[int, int], str]] = []
@@ -282,7 +337,7 @@ def arrange_tiles_wwnn(
             if ni < len(narrows):
                 out.append(narrows[ni])
                 ni += 1
-    return out
+    return place_leftover_narrows(out)
 
 
 def apply_home_tile_visibility(tiles: list[str], visible: int) -> list[str]:
