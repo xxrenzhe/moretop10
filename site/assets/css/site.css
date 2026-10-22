@@ -61,6 +61,8 @@ a:hover{color:var(--mt-link-hover);text-decoration:underline}
 .footer-col h2{color:#fff;margin:0 0 0.75rem;font-size:var(--mt-text-sm);text-transform:uppercase;letter-spacing:0.04em;font-weight:600}
 .footer-col ul{list-style:none;margin:0;padding:0}
 .footer-col li{margin-bottom:0.45rem}
+.footer-col-cats ul,.footer-col-categories ul{columns:1}
+@media (min-width:720px){.footer-col-cats ul,.footer-col-categories ul{columns:3}}
 .footer-legal{margin-top:2.5rem;padding-top:1.5rem;border-top:1px solid rgba(255,255,255,0.12);font-size:var(--mt-text-xs);line-height:1.65}
 .footer-legal strong{color:#ddd}
 .hero-copy .badge{margin-bottom:0.85rem}

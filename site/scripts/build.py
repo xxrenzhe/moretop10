@@ -446,6 +446,24 @@ def verify(cfg: dict) -> None:
     rv = (SITE / "robot-vacuums" / "index.html").read_text(encoding="utf-8")
     if "robot-vacuums-match" not in rv:
         errors.append("robot-vacuums hub should cluster-link the match demo")
+    from chrome import NAV_CSS as _NAV_CSS
+
+    if not re.search(
+        r"@media\s*\(min-width:720px\)\{.*?\.footer-col-cats ul.*?columns:3",
+        _NAV_CSS,
+        re.S,
+    ):
+        errors.append("NAV_CSS missing desktop 3-column Categories list")
+    site_css = (SITE / "assets/css/site.css").read_text(encoding="utf-8")
+    if not re.search(
+        r"@media\s*\(min-width:720px\)\{.*?\.footer-col-cats ul.*?columns:3",
+        site_css,
+        re.S,
+    ):
+        errors.append("site.css missing desktop 3-column Categories list")
+    rv_nav = re.search(r'<style id="landing-hub-nav">.*?</style>', rv, re.S)
+    if not rv_nav or "columns:3" not in rv_nav.group(0):
+        errors.append("robot-vacuums landing-hub-nav missing desktop columns:3")
 
     if "#geo-" not in llms:
         errors.append("llms.txt missing #geo-ASIN top-pick links")
