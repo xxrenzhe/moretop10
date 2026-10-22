@@ -16,7 +16,7 @@ NAV_CSS = """
 .mobile-nav .mega-cat{display:grid;grid-template-columns:1fr auto;gap:0 0.75rem;padding:0.15rem 0}
 .hub-reciprocity{margin:0.75rem 0 1.25rem;font-size:0.95rem}
 .footer-col-cats ul,.footer-col-categories ul{columns:1}
-@media (min-width:720px){.footer-col-cats ul,.footer-col-categories ul{columns:3}.footer-grid{grid-template-columns:1.4fr 1fr 1.1fr 0.9fr 0.8fr}}
+@media (min-width:720px){.footer-col-cats ul,.footer-col-categories ul{columns:3}.footer-grid{grid-template-columns:1.4fr 2.2fr 0.85fr 0.85fr}}
 </style>
 """
 
