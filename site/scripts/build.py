@@ -41,6 +41,7 @@ if str(SCRIPTS) not in sys.path:
 
 from chrome import (  # noqa: E402
     ensure_hub_reciprocity,
+    ensure_tv_home_tile,
     inject_nav_css,
     rel_prefix,
     reorder_home_tiles,
@@ -196,6 +197,7 @@ def bake_page(spec: dict, cfg: dict, cmp_html_by_slug: dict[str, str]) -> Path |
 
     if kind == "home":
         html = reorder_home_tiles(html, cfg["CATS_BY_SLUG"], cfg["home_visible_tiles"])
+        html = ensure_tv_home_tile(html)
 
     if kind in {"comparison", "reviews"}:
         html = ensure_hub_reciprocity(html, kind)
@@ -463,6 +465,14 @@ def verify(cfg: dict) -> None:
     missing_hubs = [c["slug"] for c in cfg["ALL_CATS"] if not (SITE / c["slug"] / "index.html").exists()]
     if missing_hubs:
         errors.append("missing hub HTML: " + ", ".join(missing_hubs))
+    if any(c["slug"] == "tv" for c in cfg["ALL_CATS"]):
+        errors.append("tv must not be registered in ALL_CATS (density exception)")
+    if not (SITE / "tv" / "index.html").exists():
+        errors.append("missing editorial hub tv/")
+    if not (SITE / "tv" / "smart-tv-ad-alternatives" / "index.html").exists():
+        errors.append("missing editorial L2 tv/smart-tv-ad-alternatives/")
+    if 'data-editorial-cluster="tv"' not in home:
+        errors.append("home missing editorial /tv/ tile")
 
     if errors:
         raise SystemExit("verify failed:\n- " + "\n- ".join(errors))
@@ -551,6 +561,9 @@ def main() -> None:
     (SITE / "sitemap.xml").write_text(sitemap, encoding="utf-8")
     print("  wrote site/sitemap.xml")
 
+    from bake_tv import main as bake_tv_main  # noqa: E402
+
+    bake_tv_main()
     verify(cfg)
 
 

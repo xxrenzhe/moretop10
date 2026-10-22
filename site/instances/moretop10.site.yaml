@@ -30,3 +30,6 @@ categories:
     - {slug: dash-cams, name: Dash Cams, short_name: Dash Cams, tier: core}
   non_mvp:
     - {slug: kids-bikes, name: Kids Bikes, short_name: Kids Bikes, tier: extended, published: "2026-10-20"}
+
+# Editorial /tv/ cluster is NOT registered here. Density-10 shortlist rules
+# do not apply. G-IL lives in site_config.EDITORIAL_CLUSTERS (footer + home tile).

@@ -1142,6 +1142,7 @@ def build_llms_txt(
         "- [Blog](https://moretop10.com/blog/): Buying guides and editorial notes",
         "- [Sitemap](https://moretop10.com/sitemap/): HTML sitemap",
         "- [Partner With Us](https://moretop10.com/partner-with-us/): Brand partnerships",
+        "- [Smart TV ads](https://moretop10.com/tv/): Editorial guide cluster (not a Top 10 product category; we do not pad it to ten SKUs)",
         "",
         "## Category hubs (money pages)",
     ]
@@ -1257,6 +1258,16 @@ def patch_robots(live_robots: str) -> str:
     return text if text.endswith("\n") else text + "\n"
 
 
+EDITORIAL_SITEMAP_PATHS = (
+    "/tv/",
+    "/tv/remove-smart-tv-ads/",
+    "/tv/supported-android-tv-models/",
+    "/tv/smart-tv-ad-alternatives/",
+    "/tv/best-launcher-for-android-tv/",
+    "/tv/adb-debloat-not-working/",
+)
+
+
 def patch_sitemap(live_sitemap: str, *, authors_exist: bool, drop_match: bool) -> str:
     xml = live_sitemap
     # Drop search + match demo.
@@ -1278,6 +1289,20 @@ def patch_sitemap(live_sitemap: str, *, authors_exist: bool, drop_match: bool) -
             "\n  <url>\n"
             f"    <loc>{LIVE}/authors/</loc>\n"
             "    <lastmod>2026-10-20</lastmod>\n"
+            "  </url>"
+        )
+        if "</urlset>" in xml:
+            xml = xml.replace("</urlset>", entry + "\n</urlset>", 1)
+        else:
+            xml += entry
+    for path in EDITORIAL_SITEMAP_PATHS:
+        loc = f"{LIVE}{path}"
+        if loc in xml:
+            continue
+        entry = (
+            "\n  <url>\n"
+            f"    <loc>{loc}</loc>\n"
+            "    <lastmod>2026-10-22</lastmod>\n"
             "  </url>"
         )
         if "</urlset>" in xml:

@@ -228,3 +228,9 @@ A missing `#geo-` link means we did not have an ASIN in the baked HTML — not a
 - Robots: https://moretop10.com/robots.txt
 
 Last updated: 2026-10-20
+
+## Editorial guides
+- [Smart TV ads](https://moretop10.com/tv/): Can you turn off ads, then what to do when the software path fails. Not a Top 10 product category — we do not pad this cluster to ten SKUs.
+  - Remove ads: https://moretop10.com/tv/remove-smart-tv-ads/
+  - Supported models: https://moretop10.com/tv/supported-android-tv-models/
+  - Alternatives (Google TV whole TVs): https://moretop10.com/tv/smart-tv-ad-alternatives/

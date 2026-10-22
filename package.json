@@ -10,7 +10,9 @@
     "format": "bunx biome format --write",
     "test:pc-card-layout": "node tests/pc-card-layout-assert.mjs",
     "test:seo-geo": "python3 tests/seo_geo_p0_assert.py && python3 tests/seo_geo_p1_unit.py && python3 tests/seo_geo_p1_assert.py && python3 tests/g_engage_assert.py",
-    "bake": "python3 site/scripts/build.py"
+    "test:tv-cluster": "python3 tests/affiliate_uid_assert.py && python3 tests/tv_cluster_assert.py",
+    "bake": "python3 site/scripts/build.py",
+    "bake:tv": "python3 site/scripts/bake_tv.py"
   },
   "dependencies": {
     "@radix-ui/react-dialog": "^1.1.14",
