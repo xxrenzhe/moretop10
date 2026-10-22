@@ -7,6 +7,8 @@ Content-Signal, match noindex.
 P1: sitewide robots preview, How-to-Cite strips, #geo-{ASIN} on comparison +
 reviews (hubs and articles). Hubs already had cite + pick anchors.
 Light G-ENGAGE: HTML Answer-first class (not JSON-LD-only) on money pages.
+Author feeds: post thumbs use each target page's cover SoT (og/product/hero),
+not a shared category cmp-hero.
 
 Honest rules:
   - Product / Offer / ASIN / price come from Live HTML (comparison cards + hub picks).
@@ -22,6 +24,7 @@ import html
 import json
 import re
 from html import unescape
+from pathlib import Path
 from typing import Any
 from urllib.parse import urljoin
 
@@ -710,6 +713,341 @@ def rewrite_author_breadcrumb(html_text: str) -> str:
     return html_text
 
 
+# Author feed thumbs: per-page cover SoT (never invent art).
+# 1. og:image / twitter:image when it is a product packshot (site products/ or Amazon CDN)
+# 2. In-page review-hero / first product packshot already referenced by that page
+# 3. og:image / twitter:image when it is any non-icon image (lifestyle included)
+# 4. Existing page hero (cmp-hero-bg / lifestyle-photo) as last-resort fallback
+# Site icon (icon-512) is never a post thumb.
+
+_AUTHOR_POST_RE = re.compile(
+    r'<article class="author-post-row[^"]*"[^>]*>.*?</article>',
+    re.S,
+)
+_OG_IMAGE_RE = re.compile(
+    r'<meta\s[^>]*(?:property|name)="(og:image|twitter:image)"[^>]*content="([^"]+)"',
+    re.I,
+)
+_OG_IMAGE_RE_SWAP = re.compile(
+    r'<meta\s[^>]*content="([^"]+)"[^>]*(?:property|name)="(og:image|twitter:image)"',
+    re.I,
+)
+_REVIEW_HERO_RE = re.compile(
+    r'class="review-hero-img"[^>]*src="([^"]+)"|src="([^"]+)"[^>]*class="review-hero-img"',
+)
+_PACKSHOT_SRC_RE = re.compile(
+    r'<img\b[^>]*\bsrc="([^"]+)"',
+    re.I,
+)
+_CMP_HERO_BG_RE = re.compile(
+    r"--cmp-hero-bg:\s*url\(['\"]?([^'\")]+)['\"]?\)",
+)
+_LIFESTYLE_PHOTO_RE = re.compile(
+    r'<img[^>]*class="[^"]*\blifestyle-photo\b[^"]*"[^>]*src="([^"]+)"|'
+    r'<img[^>]*src="([^"]+)"[^>]*class="[^"]*\blifestyle-photo\b[^"]*"',
+    re.I,
+)
+_SITE_ICON_RE = re.compile(
+    r"icon-512|favicon|apple-touch-icon",
+    re.I,
+)
+_PRODUCT_COVER_RE = re.compile(
+    r"/assets/img/products/|media-amazon\.com/images/",
+    re.I,
+)
+
+
+def _prefix_from_out(out_path: str) -> str:
+    p = out_path.strip("/").replace("\\", "/")
+    if p.endswith("index.html"):
+        p = p[: -len("index.html")].rstrip("/")
+    if not p:
+        return ""
+    return "../" * (p.count("/") + 1)
+
+
+def _join_rel(base: str, rel: str) -> str:
+    parts = [bit for bit in base.replace("\\", "/").split("/") if bit and bit != "."]
+    for bit in rel.replace("\\", "/").split("/"):
+        if bit in ("", "."):
+            continue
+        if bit == "..":
+            if parts:
+                parts.pop()
+            continue
+        parts.append(bit)
+    return "/".join(parts)
+
+
+def canonical_cover_url(src: str, page_rel: str = "") -> str:
+    """Normalize a cover src to /assets/... or an absolute external URL."""
+    src = (src or "").strip()
+    if not src:
+        return ""
+    src = src.split("?", 1)[0]
+    if src.startswith(LIVE + "/"):
+        return "/" + src[len(LIVE) + 1 :]
+    if src.startswith("http://") or src.startswith("https://"):
+        return src
+    if src.startswith("/"):
+        return src
+    if page_rel:
+        base = str(Path(page_rel).parent).replace("\\", "/")
+        if base in (".", ""):
+            base = ""
+        return "/" + _join_rel(base, src)
+    return "/" + src.lstrip("./")
+
+
+def is_site_icon_cover(url: str) -> bool:
+    return bool(url) and bool(_SITE_ICON_RE.search(url))
+
+
+def is_product_cover(url: str) -> bool:
+    return bool(url) and bool(_PRODUCT_COVER_RE.search(url))
+
+
+def extract_meta_image(html_text: str) -> str:
+    og = ""
+    twitter = ""
+    for m in _OG_IMAGE_RE.finditer(html_text):
+        kind, val = m.group(1).lower(), m.group(2).strip()
+        if kind == "og:image" and not og:
+            og = val
+        elif kind == "twitter:image" and not twitter:
+            twitter = val
+    if not og and not twitter:
+        for m in _OG_IMAGE_RE_SWAP.finditer(html_text):
+            val, kind = m.group(1).strip(), m.group(2).lower()
+            if kind == "og:image" and not og:
+                og = val
+            elif kind == "twitter:image" and not twitter:
+                twitter = val
+    return og or twitter
+
+
+def extract_review_hero_src(html_text: str) -> str:
+    m = _REVIEW_HERO_RE.search(html_text)
+    if not m:
+        return ""
+    return (m.group(1) or m.group(2) or "").strip()
+
+
+def extract_first_packshot_src(html_text: str) -> str:
+    """First product packshot already on the page (not must-read lifestyle thumbs)."""
+    main = html_text
+    m_main = re.search(r"<main\b[^>]*>(.*?)</main>", html_text, re.S | re.I)
+    if m_main:
+        main = m_main.group(1)
+    for skip in (
+        "must-reads-widget",
+        "must-read-thumb",
+        "author-post-thumb",
+        "ed-rev-list",
+        "best-widget-list",
+    ):
+        main = re.sub(rf'<[^>]*class="[^"]*\b{skip}\b[^"]*"[^>]*>.*?</\w+>', "", main, flags=re.S)
+    for m in _PACKSHOT_SRC_RE.finditer(main):
+        src = m.group(1).strip()
+        if is_product_cover(src):
+            return src
+    return ""
+
+
+def extract_page_hero_src(html_text: str) -> str:
+    m = _CMP_HERO_BG_RE.search(html_text)
+    if m:
+        return m.group(1).strip()
+    m = _LIFESTYLE_PHOTO_RE.search(html_text)
+    if m:
+        return (m.group(1) or m.group(2) or "").strip()
+    return ""
+
+
+def resolve_page_cover(html_text: str, page_rel: str = "") -> str:
+    """Return the page's cover SoT (canonical /assets/... or Amazon CDN URL)."""
+    og = canonical_cover_url(extract_meta_image(html_text), page_rel)
+    hero = canonical_cover_url(extract_review_hero_src(html_text), page_rel)
+    pack = canonical_cover_url(extract_first_packshot_src(html_text), page_rel)
+    lifestyle = canonical_cover_url(extract_page_hero_src(html_text), page_rel)
+
+    if og and not is_site_icon_cover(og) and is_product_cover(og):
+        return og
+    if hero and is_product_cover(hero):
+        return hero
+    if pack:
+        return pack
+    if og and not is_site_icon_cover(og):
+        return og
+    if lifestyle:
+        return lifestyle
+    return ""
+
+
+def cover_to_thumb_src(cover: str, prefix: str) -> str:
+    if not cover:
+        return ""
+    if cover.startswith(LIVE + "/"):
+        return prefix + cover[len(LIVE) + 1 :]
+    if cover.startswith("http://") or cover.startswith("https://"):
+        return cover
+    return prefix + cover.lstrip("/")
+
+
+def author_href_to_site_rel(href: str) -> str:
+    href = (href or "").strip()
+    if href.startswith(LIVE):
+        href = href[len(LIVE) :]
+    if href.startswith("http://") or href.startswith("https://"):
+        return ""
+    while href.startswith("../"):
+        href = href[3:]
+    href = href.lstrip("/")
+    if not href:
+        return "index.html"
+    if href.endswith(".html"):
+        return href
+    return href.rstrip("/") + "/index.html"
+
+
+def iter_author_posts(html_text: str) -> list[dict[str, str]]:
+    posts: list[dict[str, str]] = []
+    for m in _AUTHOR_POST_RE.finditer(html_text):
+        block = m.group(0)
+        href_m = re.search(r'<h3 class="feed-title"><a href="([^"]+)"', block)
+        if not href_m:
+            href_m = re.search(r'<a class="author-post-thumb-link" href="([^"]+)"', block)
+        img_m = re.search(
+            r'<img\b[^>]*\bclass="[^"]*\bauthor-post-thumb\b[^"]*"[^>]*\bsrc="([^"]+)"|'
+            r'<img\b[^>]*\bsrc="([^"]+)"[^>]*\bclass="[^"]*\bauthor-post-thumb\b[^"]*"',
+            block,
+        )
+        href = href_m.group(1) if href_m else ""
+        thumb = ""
+        if img_m:
+            thumb = (img_m.group(1) or img_m.group(2) or "").strip()
+        posts.append({"href": href, "thumb": thumb, "html": block})
+    return posts
+
+
+def _replace_author_thumb_src(block: str, new_src: str) -> str:
+    def repl_img(m: re.Match[str]) -> str:
+        tag = m.group(0)
+        if "author-post-thumb" not in tag:
+            return tag
+        tag = re.sub(r'\bsrc="[^"]+"', f'src="{new_src}"', tag, count=1)
+        tag = re.sub(r'\s*srcset="[^"]+"', "", tag)
+        return tag
+
+    return re.sub(r"<img\b[^>]*>", repl_img, block)
+
+
+def rewrite_author_feed_thumbs(
+    html_text: str,
+    *,
+    site_root: Path,
+    prefix: str,
+) -> str:
+    """Point each author-post thumb at that post's resolved page cover."""
+
+    def repl(m: re.Match[str]) -> str:
+        block = m.group(0)
+        href_m = re.search(r'<h3 class="feed-title"><a href="([^"]+)"', block)
+        if not href_m:
+            href_m = re.search(r'<a class="author-post-thumb-link" href="([^"]+)"', block)
+        if not href_m:
+            return block
+        site_rel = author_href_to_site_rel(href_m.group(1))
+        if not site_rel:
+            return block
+        target = site_root / site_rel
+        if not target.is_file():
+            return block
+        cover = resolve_page_cover(target.read_text(encoding="utf-8"), site_rel)
+        thumb = cover_to_thumb_src(cover, prefix)
+        if not thumb:
+            return block
+        return _replace_author_thumb_src(block, thumb)
+
+    return _AUTHOR_POST_RE.sub(repl, html_text)
+
+
+def rebake_author_feed_thumbs(site_root: Path) -> int:
+    """Rewrite thumbs on every author profile page. Returns pages written."""
+    authors_dir = site_root / "authors"
+    if not authors_dir.is_dir():
+        return 0
+    wrote = 0
+    for path in sorted(authors_dir.glob("*/index.html")):
+        html_text = path.read_text(encoding="utf-8")
+        if "data-author-posts" not in html_text:
+            continue
+        rel = str(path.relative_to(site_root)).replace("\\", "/")
+        new = rewrite_author_feed_thumbs(
+            html_text, site_root=site_root, prefix=_prefix_from_out(rel)
+        )
+        if new != html_text:
+            path.write_text(new, encoding="utf-8")
+            wrote += 1
+    return wrote
+
+
+def author_feed_cover_errors(site_root: Path) -> list[str]:
+    """Assert each author-post thumb equals that post's resolved cover SoT."""
+    errors: list[str] = []
+    authors_dir = site_root / "authors"
+    if not authors_dir.is_dir():
+        return ["missing authors/"]
+    for path in sorted(authors_dir.glob("*/index.html")):
+        html_text = path.read_text(encoding="utf-8")
+        if "data-author-posts" not in html_text:
+            continue
+        rel = str(path.relative_to(site_root)).replace("\\", "/")
+        slug = path.parent.name
+        seen_href: dict[str, str] = {}
+        for post in iter_author_posts(html_text):
+            href = post["href"]
+            thumb = post["thumb"]
+            if not href:
+                errors.append(f"{slug}: author post missing href")
+                continue
+            site_rel = author_href_to_site_rel(href)
+            target = site_root / site_rel
+            if not target.is_file():
+                errors.append(f"{slug}: missing target {site_rel} for {href}")
+                continue
+            cover = resolve_page_cover(target.read_text(encoding="utf-8"), site_rel)
+            if not cover:
+                errors.append(f"{slug}: no cover SoT for {site_rel}")
+                continue
+            want = canonical_cover_url(cover_to_thumb_src(cover, _prefix_from_out(rel)), rel)
+            got = canonical_cover_url(thumb, rel)
+            if got != want:
+                errors.append(f"{slug}: thumb {got or '(empty)'} != cover {want} for {href}")
+            key = canonical_cover_url(href, rel)
+            if key in seen_href:
+                continue
+            seen_href[key] = got
+        by_thumb: dict[str, list[str]] = {}
+        for href, thumb in seen_href.items():
+            by_thumb.setdefault(thumb, []).append(href)
+        for thumb, hrefs in by_thumb.items():
+            if len(hrefs) < 2:
+                continue
+            covers = []
+            for href in hrefs:
+                site_rel = author_href_to_site_rel(href)
+                cover = resolve_page_cover(
+                    (site_root / site_rel).read_text(encoding="utf-8"), site_rel
+                )
+                covers.append(canonical_cover_url(cover, site_rel))
+            if len(set(covers)) > 1:
+                errors.append(
+                    f"{slug}: distinct covers share thumb {thumb}: {', '.join(hrefs)}"
+                )
+    return errors
+
+
 def rewrite_home_robot_tile(html_text: str) -> str:
     """G-IL: robot-vacuums hub must be reachable from the home tile, not only the match quiz."""
     html_text = html_text.replace(
@@ -962,6 +1300,7 @@ def apply_hub_page(
     cmp_html: str | None,
     prefix: str,
     review_slug: str | None = None,
+    site_root: Path | None = None,
 ) -> str:
     html_text = rewrite_visible_jargon(html_text)
     products: list[dict[str, Any]] = []
@@ -990,6 +1329,10 @@ def apply_hub_page(
         html_text = apply_match_page(html_text)
     if kind == "author":
         html_text = rewrite_author_breadcrumb(html_text)
+        if site_root is not None:
+            html_text = rewrite_author_feed_thumbs(
+                html_text, site_root=site_root, prefix=prefix
+            )
     if kind == "search":
         html_text = set_robots_meta(html_text, ROBOTS_NOINDEX)
     if kind == "home":

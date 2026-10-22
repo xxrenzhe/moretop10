@@ -60,6 +60,8 @@ from seo_geo import (  # noqa: E402
     merge_hub_products,
     patch_robots,
     patch_sitemap,
+    author_feed_cover_errors,
+    rebake_author_feed_thumbs,
     render_authors_hub,
     review_article_specs,
 )
@@ -214,6 +216,7 @@ def bake_page(spec: dict, cfg: dict, cmp_html_by_slug: dict[str, str]) -> Path |
         cmp_html=cmp_html,
         prefix=prefix,
         review_slug=spec.get("review_slug"),
+        site_root=SITE,
     )
 
     dest = SITE / out_rel
@@ -491,6 +494,7 @@ def verify(cfg: dict) -> None:
         errors.append("missing editorial L2 tv/smart-tv-ad-alternatives/")
     if 'data-editorial-cluster="tv"' not in home:
         errors.append("home missing editorial /tv/ tile")
+    errors.extend(author_feed_cover_errors(SITE))
 
     if errors:
         raise SystemExit("verify failed:\n- " + "\n- ".join(errors))
@@ -533,6 +537,9 @@ def main() -> None:
         wrote += 1
         print(f"  wrote {dest.relative_to(ROOT)}")
     print(f"  baked {wrote} pages (skipped {skipped} missing live snapshots)")
+
+    author_n = rebake_author_feed_thumbs(SITE)
+    print(f"  author feed covers: {author_n} pages")
 
     home_html = (SITE / "index.html").read_text(encoding="utf-8")
     authors = extract_authors_from_home(home_html)
