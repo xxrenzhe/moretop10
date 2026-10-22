@@ -219,6 +219,12 @@ TV_HOME_TILE = (
 )
 
 # pages-home.css ≥960px: grid-template-columns: 2.15fr 2.15fr 1fr 1fr
+# Tracks (0-index %4): 0=W, 1=W, 2=N, 3=N. Complete rows are 4k tiles.
+# Leftover after 4k — any extra N must stay on a narrow column, not a 2.15fr W:
+#   count 4k+1, leftover N at %4==0 → pin col 3
+#   count 4k+2, leftover WN (N at %4==1) → pin N col 3
+#   leftover NN → col 3 then col 4
+# Live home today: 22 = 5*4 + WN (Hair Dryers + Dash Cams). Not Dash-Cams-only.
 HOME_TILE_TRACKS = ("W", "W", "N", "N")
 HOME_TILE_GRID_RE = re.compile(
     r'(<div class="home-tile-grid"[^>]*>)(.*?)(</div>\s*<button type="button" class="home-show-more")',
@@ -264,12 +270,10 @@ def set_tile_grid_column(tile: str, col: int | None) -> str:
 
 
 def place_leftover_narrows(tiles: list[str]) -> list[str]:
-    """After complete WWNN rows, pin leftover N onto a narrow track.
+    """Pin every leftover N after complete WWNN rows onto a narrow track.
 
-    Desktop grid is 2.15fr 2.15fr 1fr 1fr. Auto-placement after a row that
-    ends at index%4==3 starts on WW, so leftover WN would drop N onto track 1
-    (a wide column). Pin that N to column 3 (first N track). Extra leftover
-    Ns take column 4. Complete WWNN rows are left alone.
+    Applies to any leftover N (today Dash Cams at 22=4k+2 / %4==1; tomorrow a
+    single N at 4k+1 / %4==0), not a named tile. Complete 4k rows are untouched.
     """
     if not tiles:
         return tiles
@@ -303,8 +307,9 @@ def arrange_tiles_wwnn(
     """Stable-partition tiles into CSS-track order: W W N N repeating.
 
     Extended / kids-bikes stay first among wides. Editorial TV stays first
-    among narrows so it lands in a row-1 Narrow slot (index 2). Leftover WN
-    after complete rows pins N to column 3 so it does not fill a W track.
+    among narrows so it lands in a row-1 Narrow slot (index 2). Any leftover
+    N after complete 4k rows (WN at %4==1, or a single N at 4k+1) pins to
+    an N column so it does not fill a W track.
     """
     slugs = set(cats_by_slug or ())
     wide: list[tuple[tuple[int, int], str]] = []
