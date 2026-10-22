@@ -15,8 +15,10 @@ This repo clone does not ship the full inventory generator. `build.py`:
      comparison cards, reviews hubs, and individual review articles
  10. Light G-ENGAGE (sample hub+comparison): Answer-first lead + Check-price
      with price near CTA. Structural only — not bounce %.
- 11. Best sidebar (`best_widget_html`): name + arrow + Compare All only —
-     no packshot <img>. Live snapshots still ship thumbs; bake strips them.
+ 11. Best / Editors' Picks rails: name + arrow / review links only —
+     no product packshot <img> in `.best-widget`, `.editors-picks-widget`,
+     `.ed-reviews-sidebar`, or comparison `.sidebar-promo`. Live snapshots
+     still ship thumbs; bake strips them.
 
 Product cards, ASINs, and affiliate URLs are copied from Live snapshots — never
 invented here. Do not wrangler-deploy from this script.
@@ -93,8 +95,18 @@ AUTHOR_SLUGS = [
 ]
 
 BEST_WIDGET_ASIDE_RE = re.compile(r'<aside class="best-widget">.*?</aside>', re.S)
+RAIL_ASIDE_RE = re.compile(
+    r'<aside class="(?:best-widget|editors-picks-widget|ed-reviews-sidebar)">.*?</aside>',
+    re.S,
+)
+RAIL_IMG_RE = re.compile(r"<img\b[^>]*/?>", re.I)
 BEST_WIDGET_IMG_RE = re.compile(
     r'<img\b[^>]*\bclass="[^"]*\bbest-widget-img\b[^"]*"[^>]*/?>',
+    re.I,
+)
+SIDEBAR_PROMO_RE = re.compile(r'<div class="sidebar-promo">.*?</div>\s*</div>', re.S)
+PROMO_IMG_RE = re.compile(
+    r'<img\b[^>]*\bclass="[^"]*\bpromo-img\b[^"]*"[^>]*/?>',
     re.I,
 )
 
@@ -147,21 +159,37 @@ def best_widget_html(
 
 
 def rewrite_best_widget(page_html: str) -> str:
-    """Strip packshot <img> from Best sidebar rows. Leave other packshots alone."""
+    """Strip product <img> from Best / Editors' Picks style rails only.
+
+    Covers `.best-widget`, `.editors-picks-widget`, `.ed-reviews-sidebar`,
+    and comparison `.sidebar-promo` Chart #1 thumbs. Landing pick cards,
+    comparison product cards, Jump-to, and Must Reads stay untouched.
+    """
 
     def _aside(match: re.Match[str]) -> str:
-        return BEST_WIDGET_IMG_RE.sub("", match.group(0))
+        return RAIL_IMG_RE.sub("", match.group(0))
 
-    return BEST_WIDGET_ASIDE_RE.sub(_aside, page_html)
+    html = RAIL_ASIDE_RE.sub(_aside, page_html)
+
+    def _promo(match: re.Match[str]) -> str:
+        return PROMO_IMG_RE.sub("", match.group(0))
+
+    return SIDEBAR_PROMO_RE.sub(_promo, html)
 
 
 def rebake_best_widget_pages(site: Path | None = None) -> list[Path]:
     """Rewrite existing baked HTML — no Live refetch."""
     site = site or SITE
+    markers = (
+        'class="best-widget"',
+        'class="editors-picks-widget"',
+        'class="ed-reviews-sidebar"',
+        'class="sidebar-promo"',
+    )
     wrote: list[Path] = []
     for path in sorted(site.rglob("*.html")):
         text = path.read_text(encoding="utf-8")
-        if 'class="best-widget"' not in text:
+        if not any(m in text for m in markers):
             continue
         new = rewrite_best_widget(text)
         if new != text:
