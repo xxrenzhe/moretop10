@@ -24,6 +24,7 @@ from chrome import (  # noqa: E402
     ensure_tv_home_tile,
     inject_nav_css,
     rel_prefix,
+    rewrite_disclosure,
     rewrite_footer,
     rewrite_non_home_nav,
 )
@@ -448,6 +449,7 @@ def wrap_page(
     page = inject_nav_css(page)
     page = rewrite_non_home_nav(page, ALL_CATS, prefix)
     page = rewrite_footer(page, ALL_CATS, prefix)
+    page = rewrite_disclosure(page)
     return page
 
 
