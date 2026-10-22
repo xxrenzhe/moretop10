@@ -1,4 +1,4 @@
-"""Header mega, mobile nav, footer, home-tile pin, hub reciprocity."""
+"""Header mega, mobile nav, footer, home-tile WWNN pack, hub reciprocity."""
 
 from __future__ import annotations
 
@@ -218,26 +218,103 @@ TV_HOME_TILE = (
     '<strong class="home-tile-title">Smart TV ads</strong></a>'
 )
 
+# pages-home.css ≥960px: grid-template-columns: 2.15fr 2.15fr 1fr 1fr
+HOME_TILE_TRACKS = ("W", "W", "N", "N")
+HOME_TILE_GRID_RE = re.compile(
+    r'(<div class="home-tile-grid"[^>]*>)(.*?)(</div>\s*<button type="button" class="home-show-more")',
+    re.S,
+)
 
-def ensure_tv_home_tile(page: str) -> str:
-    """Pin an editorial /tv/ tile in the visible home grid. Not an ALL_CATS slug."""
-    if 'data-editorial-cluster="tv"' in page:
-        return page
-    m = re.search(
-        r'(<div class="home-tile-grid"[^>]*>)(.*?)(</div>\s*<button type="button" class="home-show-more")',
-        page,
-        re.S,
-    )
+
+def tile_is_wide(tile: str) -> bool:
+    return "home-tile--wide" in tile[:220]
+
+
+def tile_is_tv(tile: str) -> bool:
+    return 'data-editorial-cluster="tv"' in tile
+
+
+def tile_width_code(tile: str) -> str:
+    return "W" if tile_is_wide(tile) else "N"
+
+
+def home_tile_width_codes(tiles: list[str], n: int | None = None) -> list[str]:
+    subset = tiles if n is None else tiles[:n]
+    return [tile_width_code(t) for t in subset]
+
+
+def expected_wwnn_codes(n: int) -> list[str]:
+    return [HOME_TILE_TRACKS[i % 4] for i in range(n)]
+
+
+def arrange_tiles_wwnn(
+    tiles: list[str],
+    cats_by_slug: dict[str, dict[str, Any]] | None = None,
+) -> list[str]:
+    """Stable-partition tiles into CSS-track order: W W N N repeating.
+
+    Extended / kids-bikes stay first among wides. Editorial TV stays first
+    among narrows so it lands in a row-1 Narrow slot (index 2).
+    """
+    slugs = set(cats_by_slug or ())
+    wide: list[tuple[tuple[int, int], str]] = []
+    narrow: list[tuple[tuple[int, int], str]] = []
+    for idx, tile in enumerate(tiles):
+        if tile_is_tv(tile):
+            pin = (0, -1)
+        else:
+            cat = (cats_by_slug or {}).get(tile_slug(tile, slugs) or "")
+            pin = (0 if _is_extended(cat) else 1, idx)
+        bucket = wide if tile_is_wide(tile) else narrow
+        bucket.append((pin, tile))
+    wide.sort(key=lambda row: row[0])
+    narrow.sort(key=lambda row: row[0])
+    wides = [t for _, t in wide]
+    narrows = [t for _, t in narrow]
+    out: list[str] = []
+    wi = ni = 0
+    while wi < len(wides) or ni < len(narrows):
+        for _ in range(2):
+            if wi < len(wides):
+                out.append(wides[wi])
+                wi += 1
+        for _ in range(2):
+            if ni < len(narrows):
+                out.append(narrows[ni])
+                ni += 1
+    return out
+
+
+def apply_home_tile_visibility(tiles: list[str], visible: int) -> list[str]:
+    return [set_tile_is_more(tile, i >= visible) for i, tile in enumerate(tiles)]
+
+
+def _rebuild_home_grid(page: str, match: re.Match[str], tiles: list[str]) -> str:
+    rebuilt = match.group(1) + "\n        " + "".join(tiles) + "\n      " + match.group(3)
+    return page[: match.start()] + rebuilt + page[match.end() :]
+
+
+def ensure_tv_home_tile(
+    page: str,
+    cats_by_slug: dict[str, dict[str, Any]] | None = None,
+    visible: int = 8,
+) -> str:
+    """Keep editorial /tv/ in the visible home grid and restore WWNN track order.
+
+    Not an ALL_CATS slug. Always re-packs the grid so a prior insert-at-1
+    (W N W W…) cannot leave a narrow tile in a wide track.
+    """
+    m = HOME_TILE_GRID_RE.search(page)
     if not m:
         return page
     tiles = split_home_tiles(m.group(2))
     if not tiles:
         return page
-    # Insert after the first tile (usually kids-bikes pin) so it stays visible.
-    insert_at = 1 if len(tiles) > 1 else 0
-    tiles.insert(insert_at, TV_HOME_TILE)
-    rebuilt = m.group(1) + "\n        " + "".join(tiles) + "\n      " + m.group(3)
-    return page[: m.start()] + rebuilt + page[m.end() :]
+    if not any(tile_is_tv(t) for t in tiles):
+        tiles.append(TV_HOME_TILE)
+    tiles = arrange_tiles_wwnn(tiles, cats_by_slug)
+    tiles = apply_home_tile_visibility(tiles, visible)
+    return _rebuild_home_grid(page, m, tiles)
 
 
 def _consume_element(src: str, start: int) -> tuple[str, int]:
@@ -324,27 +401,15 @@ def reorder_home_tiles(
     cats_by_slug: dict[str, dict[str, Any]],
     visible: int,
 ) -> str:
-    m = re.search(r'(<div class="home-tile-grid"[^>]*>)(.*?)(</div>\s*<button type="button" class="home-show-more")', page, re.S)
+    m = HOME_TILE_GRID_RE.search(page)
     if not m:
         return page
-    slugs = set(cats_by_slug)
     tiles = split_home_tiles(m.group(2))
     if not tiles:
         return page
-
-    decorated = []
-    for idx, tile in enumerate(tiles):
-        slug = tile_slug(tile, slugs)
-        cat = cats_by_slug.get(slug or "")
-        pin = 0 if _is_extended(cat) else 1
-        decorated.append((pin, idx, slug, tile))
-    decorated.sort(key=lambda row: (row[0], row[1]))
-
-    out_tiles = []
-    for i, (_pin, _idx, _slug, tile) in enumerate(decorated):
-        out_tiles.append(set_tile_is_more(tile, i >= visible))
-    rebuilt = m.group(1) + "\n        " + "".join(out_tiles) + "\n      " + m.group(3)
-    return page[: m.start()] + rebuilt + page[m.end() :]
+    tiles = arrange_tiles_wwnn(tiles, cats_by_slug)
+    tiles = apply_home_tile_visibility(tiles, visible)
+    return _rebuild_home_grid(page, m, tiles)
 
 
 HUB_BLOCK = (
