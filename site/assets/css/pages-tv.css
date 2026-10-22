@@ -18,6 +18,9 @@
 .tv-tree ol{margin:0 0 1.25rem;padding-left:1.2rem}
 .tv-tree li{margin:0.35rem 0}
 .tv-related{margin:1.5rem 0 0}
+.tv-page-models .legal-layout{max-width:1080px}
+.tv-oem-summary,.tv-source,.tv-models-cta{font-size:0.95rem;line-height:1.55}
+.tv-table[data-tv-models-table] th{position:sticky;top:0;z-index:1}
 @media (max-width:639px){
   .tv-product{grid-template-columns:72px 1fr; }
   .tv-product .btn{grid-column:1 / -1;justify-self:start}

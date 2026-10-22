@@ -47,6 +47,17 @@ P4_EMPTY_SKU = [
     "tv/samsung-smart-tv-ads/index.html",
     "tv/lg-smart-tv-ads/index.html",
 ]
+MODELS_PAGE = "tv/supported-android-tv-models/index.html"
+MODELS_SNAPSHOT = SITE / "data" / "tv-supported-models.json"
+MODELS_SCAFFOLD_PHRASES = (
+    "this table is a scaffold",
+    "will replace this scaffold",
+    "absence from this scaffold",
+    "hisense u8 / u7 google tv (current us 4k panels)",
+    "other android tv / google tv (sony, tcl, and similar)",
+)
+MODELS_REQUIRED_OEMS = ("TCL", "Xiaomi", "Sony", "Hisense")
+MIN_MODEL_ROWS = 50
 CONTENT_ONLY = [
     "tv/best-launcher-for-android-tv/index.html",
     "tv/adb-debloat-not-working/index.html",
@@ -115,6 +126,96 @@ def visible_words(html_chunk: str) -> list[str]:
     text = re.sub(r"<[^>]+>", " ", html_chunk)
     text = unescape(text)
     return [w for w in re.split(r"\s+", text) if w]
+
+
+def assert_models_table(errors: list[str]) -> None:
+    """Scaffold-only / empty-fake tables must fail. Rows come from a vendored snapshot."""
+    if not MODELS_SNAPSHOT.exists():
+        errors.append("missing site/data/tv-supported-models.json snapshot")
+        return
+    try:
+        snap = json.loads(MODELS_SNAPSHOT.read_text(encoding="utf-8"))
+    except json.JSONDecodeError as exc:
+        errors.append(f"models snapshot is not JSON: {exc}")
+        return
+    models = snap.get("models") or []
+    if not isinstance(models, list) or len(models) < MIN_MODEL_ROWS:
+        errors.append(
+            f"models snapshot has {len(models) if isinstance(models, list) else 0} rows, "
+            f"need {MIN_MODEL_ROWS}+ real upstream models"
+        )
+        return
+    slugs = {(m.get("slug") or "").strip() for m in models if isinstance(m, dict)}
+    oems = {(m.get("oem") or "").strip() for m in models if isinstance(m, dict)}
+    for oem in MODELS_REQUIRED_OEMS:
+        if oem not in oems:
+            errors.append(f"models snapshot missing OEM {oem}")
+    invented = [m for m in models if isinstance(m, dict) and not (m.get("slug") or "").strip()]
+    if invented:
+        errors.append("models snapshot has rows without an upstream examples/ slug")
+
+    html = (SITE / MODELS_PAGE).read_text(encoding="utf-8")
+    body = legal_body_html(html)
+    lowered = body.lower()
+    for phrase in MODELS_SCAFFOLD_PHRASES:
+        if phrase in lowered:
+            errors.append(f"{MODELS_PAGE} still has scaffold phrase {phrase!r}")
+
+    if 'data-tv-models-table' not in html:
+        errors.append(f"{MODELS_PAGE} missing data-tv-models-table")
+    rows = re.findall(r"<tr[^>]*data-tv-model-row[^>]*>", html)
+    if len(rows) < MIN_MODEL_ROWS:
+        errors.append(
+            f"{MODELS_PAGE} has {len(rows)} data-tv-model-row cells, need {MIN_MODEL_ROWS}+"
+        )
+    baked_slugs = set(re.findall(r'data-slug="([^"]+)"', html))
+    extra = baked_slugs - slugs
+    if extra:
+        errors.append(f"{MODELS_PAGE} invented slugs not in snapshot: {sorted(extra)[:8]}")
+    missing_sample = {"tcl-65c7k-google-tv", "xiaomi-mi-tv-4a", "sony-kd-55x85j", "hisense-u75-hengshan"}
+    for slug in missing_sample:
+        if slug in slugs and slug not in html:
+            errors.append(f"{MODELS_PAGE} missing baked upstream slug {slug}")
+    for oem in MODELS_REQUIRED_OEMS:
+        if oem not in html:
+            errors.append(f"{MODELS_PAGE} missing OEM {oem}")
+
+    if "as of" not in lowered:
+        errors.append(f"{MODELS_PAGE} missing as-of date")
+    if "third-party" not in lowered or "not affiliated" not in lowered:
+        errors.append(f"{MODELS_PAGE} missing third-party / not-affiliated source disclosure")
+    if "non-official" not in lowered and "unofficial" not in lowered:
+        errors.append(f"{MODELS_PAGE} missing unofficial / non-official disclosure")
+    if "not exhaustive" not in lowered:
+        errors.append(f"{MODELS_PAGE} missing not-exhaustive caveat")
+    if "github.com/gathin23/cleanyourtv" not in lowered:
+        errors.append(f"{MODELS_PAGE} missing upstream source URL")
+    if "/tv/cleanyourtv" in html.lower():
+        errors.append(f"{MODELS_PAGE} leaked cleanyourtv into a site path")
+    if "tv/remove-smart-tv-ads/" not in html:
+        errors.append(f"{MODELS_PAGE} missing L1 /tv/remove-smart-tv-ads/ CTA")
+    if "tv/smart-tv-ad-alternatives/" not in html:
+        errors.append(f"{MODELS_PAGE} missing L2 /tv/smart-tv-ad-alternatives/ CTA")
+    if "tv/adb-debloat-not-working/" not in html:
+        errors.append(f"{MODELS_PAGE} missing ADB troubleshooting link")
+    if re.search(r'href="[^"]*tv/"', html) is None:
+        errors.append(f"{MODELS_PAGE} missing hub /tv/ back-link")
+    if "yeahpromos.com" in html or "pboost.me" in html or "btn-cta-yellow" in html:
+        errors.append(f"{MODELS_PAGE} must not add affiliate Check price CTAs")
+    if "Fire Stick" in html and not re.search(
+        r"(will not|never|not)[^.]*Fire Stick|Fire Stick[^.]*not",
+        html,
+        re.I,
+    ):
+        errors.append(f"{MODELS_PAGE} mentions Fire Stick outside a prohibition")
+    for path in (
+        "tv/samsung-smart-tv-ads/",
+        "tv/lg-smart-tv-ads/",
+        "tv/fire-tv-ads/",
+        "tv/google-tv-ads/",
+    ):
+        if path not in html:
+            errors.append(f"{MODELS_PAGE} missing P4 G-IL {path}")
 FORBIDDEN = [
     "tv/cleanyourtv/index.html",
     "tv/cleanyourtv/supported-models/index.html",
@@ -405,6 +506,8 @@ def main() -> None:
         if "Fire Stick" not in fire_html:
             errors.append("fire-tv page must prohibit Fire Stick explicitly")
 
+    assert_models_table(errors)
+
     home = (SITE / "index.html").read_text(encoding="utf-8")
     if 'data-editorial-cluster="tv"' not in home:
         errors.append("home missing /tv/ tile")
@@ -414,6 +517,8 @@ def main() -> None:
     sitemap = (SITE / "sitemap.xml").read_text(encoding="utf-8")
     if "https://moretop10.com/tv/" not in sitemap:
         errors.append("sitemap missing /tv/")
+    if "https://moretop10.com/tv/supported-android-tv-models/" not in sitemap:
+        errors.append("sitemap missing /tv/supported-android-tv-models/")
     if "https://moretop10.com/tv/best-launcher-for-android-tv/" not in sitemap:
         errors.append("sitemap missing P2 /tv/best-launcher-for-android-tv/")
     if "https://moretop10.com/tv/adb-debloat-not-working/" not in sitemap:
