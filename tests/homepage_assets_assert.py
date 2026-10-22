@@ -50,6 +50,11 @@ PICKS = {
     "Top cordless vacuums for stairs and cars": "cordless-vacuums/comparison/",
 }
 
+HOME_SHARE_IMAGE = "assets/img/lifestyle/devices-mockup.jpg"
+SHARE_IMAGE_RE = re.compile(
+    r'<meta (?:property|name)="(?:og:image|twitter:image)" content="([^"]*)"'
+)
+
 
 def main() -> int:
     errors: list[str] = []
@@ -72,6 +77,15 @@ def main() -> int:
         path = SITE / ref.split("#")[0]
         if not path.is_file():
             errors.append(f"homepage references missing file {ref}")
+
+    share_imgs = SHARE_IMAGE_RE.findall(html)
+    if len(share_imgs) < 2:
+        errors.append("homepage missing og:image / twitter:image")
+    for url in share_imgs:
+        if "icon-512.png" in url:
+            errors.append("homepage share image still uses icon-512.png")
+        elif HOME_SHARE_IMAGE not in url:
+            errors.append(f"homepage share image {url} != devices-mockup")
 
     if 'href="/"' not in html:
         errors.append("logo/home should point at / not index.html")
