@@ -37,6 +37,13 @@ UPDATED = "2026-10-22"
 L1_UPDATED = "2026-10-23"
 LIVE = "https://moretop10.com"
 CTA_LABEL = "Check price"
+# Live Google TV hero (ASIN B0F1DRNWP7 Hisense 55" U8). Same Amazon CDN
+# pattern as /hair-dryers/. Do not fall back to icon-512 for share tags.
+HUB_OG_ASIN = "B0F1DRNWP7"
+HUB_OG_IMAGE = "https://m.media-amazon.com/images/I/81IgwvJG9GL._AC_SL1500_.jpg"
+SHARE_IMAGE_RE = re.compile(
+    r'<meta (?:property|name)="(?:og:image|twitter:image)" content="([^"]*)"'
+)
 VIDEO_FILE = "cleanyourtv-demo-hfcorriez.mp4"
 POSTER_FILE = "cleanyourtv-demo-hfcorriez-poster.jpg"
 VIDEO_REL = f"assets/video/{VIDEO_FILE}"
@@ -381,6 +388,17 @@ def wrap_page(
         f'<meta name="twitter:url" content="{_esc(canonical)}"',
         head,
     )
+    for attr, prop in (
+        ("property", "og:image"),
+        ("name", "twitter:image"),
+        ("name", "og:image"),
+        ("property", "twitter:image"),
+    ):
+        head = re.sub(
+            rf'<meta {attr}="{prop}" content="[^"]*"',
+            f'<meta {attr}="{prop}" content="{_esc(HUB_OG_IMAGE)}"',
+            head,
+        )
     # Drop about-us JSON-LD; we inject cluster JSON-LD.
     head = re.sub(r'<script type="application/ld\+json">.*?</script>\n?', "", head, flags=re.S)
     if "pages-tv.css" not in head:
@@ -1465,6 +1483,14 @@ def verify_tv(shortlist: dict) -> None:
         errors.append("tv must not be in ALL_CATS")
     if not any(c["slug"] == "tv" for c in EDITORIAL_CLUSTERS):
         errors.append("EDITORIAL_CLUSTERS missing tv")
+    hero_og = next(
+        (item for item in (shortlist.get("hero_google_tv") or []) if item.get("asin") == HUB_OG_ASIN),
+        None,
+    )
+    if not hero_og:
+        errors.append(f"shortlist missing hub og ASIN {HUB_OG_ASIN}")
+    elif (hero_og.get("image") or "") != HUB_OG_IMAGE:
+        errors.append(f"hub og image does not match shortlist {HUB_OG_ASIN}")
 
     for spec in PAGES:
         path = SITE / spec["out"]
@@ -1482,6 +1508,14 @@ def verify_tv(shortlist: dict) -> None:
             errors.append(f"{spec['out']} leaked uid= on a CTA")
         if "PartnerBoost" in html_out or "YeahPromos" in html_out or "fromsll" in html_out:
             errors.append(f"{spec['out']} visitor jargon")
+        share_imgs = SHARE_IMAGE_RE.findall(html_out)
+        if not share_imgs:
+            errors.append(f"{spec['out']} missing og:image / twitter:image")
+        for url in share_imgs:
+            if "icon-512.png" in url:
+                errors.append(f"{spec['out']} share image still uses icon-512.png")
+            elif url != HUB_OG_IMAGE:
+                errors.append(f"{spec['out']} share image {url} != hub hero")
 
     l1 = (SITE / "tv/remove-smart-tv-ads/index.html").read_text(encoding="utf-8")
     if "<video" not in l1:
