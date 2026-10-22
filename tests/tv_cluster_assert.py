@@ -25,15 +25,56 @@ REQUIRED = [
     "tv/best-non-smart-tv/index.html",
     "tv/best-tv-for-privacy/index.html",
 ]
+P2 = [
+    "tv/best-launcher-for-android-tv/index.html",
+    "tv/adb-debloat-not-working/index.html",
+]
 P3 = [
     "tv/best-non-smart-tv/index.html",
     "tv/best-tv-for-privacy/index.html",
 ]
 CONTENT_ONLY = [
     "tv/best-launcher-for-android-tv/index.html",
+    "tv/adb-debloat-not-working/index.html",
     "tv/best-non-smart-tv/index.html",
     "tv/best-tv-for-privacy/index.html",
 ]
+STUB_PHRASES = (
+    "when we publish scores",
+    "ranking note",
+    "p2 stub",
+    "coming soon",
+    "placeholder",
+    "thin stub",
+)
+MIN_P2_WORDS = 400
+MIN_P2_H2 = 5
+P2_REQUIRED_HEADINGS = {
+    "tv/best-launcher-for-android-tv/index.html": (
+        "What a launcher can and cannot do",
+        "How we rank (validation, not scores)",
+        "After you install",
+        "When to leave this page",
+        "No product list",
+    ),
+    "tv/adb-debloat-not-working/index.html": (
+        "Confirm the platform first",
+        "Network and ADB over IP",
+        "Honest next steps",
+        "No product list",
+    ),
+}
+
+
+def legal_body_html(html: str) -> str:
+    match = re.search(r'<div class="legal-body">(.*)</div>\s*</div>\s*</main>', html, re.S)
+    return match.group(1) if match else ""
+
+
+def visible_words(html_chunk: str) -> list[str]:
+    text = re.sub(r"<[^>]+>", " ", html_chunk)
+    text = unescape(text)
+    return [w for w in re.split(r"\s+", text) if w]
 FORBIDDEN = [
     "tv/cleanyourtv/index.html",
     "tv/cleanyourtv/supported-models/index.html",
@@ -124,15 +165,17 @@ def main() -> None:
     if "No retailer link yet" not in alt and "stay empty" not in alt.lower():
         errors.append("L2 missing empty-slot honesty")
 
-    launcher = (SITE / "tv/best-launcher-for-android-tv/index.html").read_text(encoding="utf-8")
-    if "yeahpromos.com" in launcher or "pboost.me" in launcher:
-        errors.append("launcher page must not carry affiliate SKUs")
-
     hub = (SITE / "tv/index.html").read_text(encoding="utf-8")
     if "tv/best-non-smart-tv/" not in hub:
         errors.append("hub missing /tv/best-non-smart-tv/ G-IL")
     if "tv/best-tv-for-privacy/" not in hub:
         errors.append("hub missing /tv/best-tv-for-privacy/ G-IL")
+    if "tv/best-launcher-for-android-tv/" not in hub:
+        errors.append("hub missing /tv/best-launcher-for-android-tv/ G-IL")
+    if "tv/adb-debloat-not-working/" not in hub:
+        errors.append("hub missing /tv/adb-debloat-not-working/ G-IL")
+    if "ranking notes" in hub.lower() or "p2 stub" in hub.lower():
+        errors.append("hub still labels P2 pages as stubs / ranking notes")
 
     for rel in CONTENT_ONLY:
         html = (SITE / rel).read_text(encoding="utf-8")
@@ -140,6 +183,39 @@ def main() -> None:
             errors.append(f"{rel} invented a Check price CTA on an empty product zone")
         if "cleanyourtv" in rel.replace("\\", "/").lower():
             errors.append(f"forbidden cleanyourtv path {rel}")
+
+    for rel in P2:
+        html = (SITE / rel).read_text(encoding="utf-8")
+        body = legal_body_html(html)
+        words = visible_words(body)
+        h2s = re.findall(r"<h2>[^<]+</h2>", body)
+        if len(words) < MIN_P2_WORDS:
+            errors.append(f"{rel} still stub-thin ({len(words)} words, need {MIN_P2_WORDS}+)")
+        if len(h2s) < MIN_P2_H2:
+            errors.append(f"{rel} still stub-thin ({len(h2s)} h2, need {MIN_P2_H2}+)")
+        lowered = body.lower()
+        for phrase in STUB_PHRASES:
+            if phrase in lowered:
+                errors.append(f"{rel} still has stub phrase {phrase!r}")
+        if re.search(r'href="[^"]*tv/"', html) is None:
+            errors.append(f"{rel} missing hub /tv/ back-link")
+        if "tv/remove-smart-tv-ads/" not in html:
+            errors.append(f"{rel} missing L1 /tv/remove-smart-tv-ads/ back-link")
+        if "tv/smart-tv-ad-alternatives/" not in html:
+            errors.append(f"{rel} missing L2 /tv/smart-tv-ad-alternatives/ back-link")
+        if "tv/best-non-smart-tv/" not in html:
+            errors.append(f"{rel} missing P3 /tv/best-non-smart-tv/ link")
+        if "tv/best-tv-for-privacy/" not in html:
+            errors.append(f"{rel} missing P3 /tv/best-tv-for-privacy/ link")
+        for heading in P2_REQUIRED_HEADINGS[rel]:
+            if heading not in body:
+                errors.append(f"{rel} missing first-class heading {heading!r}")
+        if "Fire Stick" in html and not re.search(
+            r"(will not|never|not)[^.]*Fire Stick|Fire Stick[^.]*not",
+            html,
+            re.I,
+        ):
+            errors.append(f"{rel} mentions Fire Stick outside a prohibition")
 
     for rel in P3:
         html = (SITE / rel).read_text(encoding="utf-8")
@@ -172,6 +248,10 @@ def main() -> None:
     sitemap = (SITE / "sitemap.xml").read_text(encoding="utf-8")
     if "https://moretop10.com/tv/" not in sitemap:
         errors.append("sitemap missing /tv/")
+    if "https://moretop10.com/tv/best-launcher-for-android-tv/" not in sitemap:
+        errors.append("sitemap missing P2 /tv/best-launcher-for-android-tv/")
+    if "https://moretop10.com/tv/adb-debloat-not-working/" not in sitemap:
+        errors.append("sitemap missing P2 /tv/adb-debloat-not-working/")
     if "https://moretop10.com/tv/best-non-smart-tv/" not in sitemap:
         errors.append("sitemap missing P3 /tv/best-non-smart-tv/")
     if "https://moretop10.com/tv/best-tv-for-privacy/" not in sitemap:
@@ -182,6 +262,10 @@ def main() -> None:
         errors.append("sitemap contains cleanyourtv")
 
     llms = (SITE / "llms.txt").read_text(encoding="utf-8")
+    if "https://moretop10.com/tv/best-launcher-for-android-tv/" not in llms:
+        errors.append("llms.txt missing P2 /tv/best-launcher-for-android-tv/")
+    if "https://moretop10.com/tv/adb-debloat-not-working/" not in llms:
+        errors.append("llms.txt missing P2 /tv/adb-debloat-not-working/")
     if "https://moretop10.com/tv/best-non-smart-tv/" not in llms:
         errors.append("llms.txt missing P3 /tv/best-non-smart-tv/")
     if "https://moretop10.com/tv/best-tv-for-privacy/" not in llms:
