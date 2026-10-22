@@ -40,6 +40,33 @@ def collect_errors(site: Path = SITE) -> list[str]:
         errors.append("pages-landing.css missing desktop 1.15fr 0.85fr hero grid")
     if "margin:0.75rem 0 1.75rem" not in css:
         errors.append("pages-landing.css missing .landing-hero SoT margins")
+    if ".landing-pick-cta-bar{display:flex" not in css:
+        errors.append("pages-landing.css missing .landing-pick-cta-bar flex row")
+    # Later img.landing-packshot{width:140px;height:100px} must not win in the bar.
+    if ".landing-pick-cta-bar .landing-pick-logo.landing-packshot" not in css:
+        errors.append(
+            "pages-landing.css missing CTA-bar packshot override "
+            "(.landing-pick-cta-bar .landing-pick-logo.landing-packshot)"
+        )
+    bar_pack = css.split(".landing-pick-cta-bar .landing-pick-logo.landing-packshot", 1)
+    if len(bar_pack) > 1 and "max-height:36px" not in bar_pack[1][:220]:
+        errors.append("CTA-bar packshot override missing max-height:36px")
+
+    leftover = "Confirm mop pads, bags, and dock footprint"
+    keep_rv = {"robot-vacuums"}
+    for hub in site.iterdir():
+        if not hub.is_dir():
+            continue
+        landing = hub / "index.html"
+        if not landing.is_file():
+            continue
+        html = landing.read_text(encoding="utf-8")
+        if leftover not in html:
+            continue
+        if hub.name not in keep_rv:
+            errors.append(
+                f"{hub.name}/ landing still has RV mop-pads leftover cons"
+            )
 
     for rel in SAMPLE_PAGES:
         path = site / rel
@@ -70,7 +97,7 @@ def main() -> int:
     css_path = LANDING_CSS
     print(
         f"landing_css_assert OK bytes={css_path.stat().st_size} "
-        f"hero=grid+1.15fr/0.85fr"
+        f"hero=grid+1.15fr/0.85fr cta-bar=36px"
     )
     return 0
 

@@ -445,6 +445,18 @@ def strip_cmp_hero_steps(page: str) -> str:
     return _HERO_STEPS_RE.sub("", page)
 
 
+_RV_MOP_PADS_LEFTOVER = (
+    "<li>Confirm mop pads, bags, and dock footprint on the retailer page.</li>"
+)
+
+
+def strip_rv_mop_pads_leftover(page: str, slug: str | None, kind: str) -> str:
+    """Drop the robot-vacuum template cons line on non-RV landings."""
+    if kind != "landing" or slug == "robot-vacuums":
+        return page
+    return page.replace(_RV_MOP_PADS_LEFTOVER, "")
+
+
 def ensure_hub_reciprocity(page: str, kind: str) -> str:
     """Inbound path from comparison/ and reviews/ hubs back to /{slug}/."""
     block = render_hub_block(kind)

@@ -42,6 +42,7 @@ if str(SCRIPTS) not in sys.path:
 from chrome import (  # noqa: E402
     ensure_hub_reciprocity,
     strip_cmp_hero_steps,
+    strip_rv_mop_pads_leftover,
     ensure_tv_home_tile,
     expected_wwnn_codes,
     home_tile_width_codes,
@@ -209,6 +210,7 @@ def bake_page(spec: dict, cfg: dict, cmp_html_by_slug: dict[str, str]) -> Path |
         html = ensure_hub_reciprocity(html, kind)
     if kind == "comparison":
         html = strip_cmp_hero_steps(html)
+    html = strip_rv_mop_pads_leftover(html, slug, kind)
 
     cmp_html = (
         cmp_html_by_slug.get(slug or "")
