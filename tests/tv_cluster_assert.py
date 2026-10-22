@@ -24,6 +24,10 @@ REQUIRED = [
     "tv/adb-debloat-not-working/index.html",
     "tv/best-non-smart-tv/index.html",
     "tv/best-tv-for-privacy/index.html",
+    "tv/samsung-smart-tv-ads/index.html",
+    "tv/lg-smart-tv-ads/index.html",
+    "tv/fire-tv-ads/index.html",
+    "tv/google-tv-ads/index.html",
 ]
 P2 = [
     "tv/best-launcher-for-android-tv/index.html",
@@ -33,12 +37,48 @@ P3 = [
     "tv/best-non-smart-tv/index.html",
     "tv/best-tv-for-privacy/index.html",
 ]
+P4 = [
+    "tv/samsung-smart-tv-ads/index.html",
+    "tv/lg-smart-tv-ads/index.html",
+    "tv/fire-tv-ads/index.html",
+    "tv/google-tv-ads/index.html",
+]
+P4_EMPTY_SKU = [
+    "tv/samsung-smart-tv-ads/index.html",
+    "tv/lg-smart-tv-ads/index.html",
+]
 CONTENT_ONLY = [
     "tv/best-launcher-for-android-tv/index.html",
     "tv/adb-debloat-not-working/index.html",
     "tv/best-non-smart-tv/index.html",
     "tv/best-tv-for-privacy/index.html",
+    "tv/samsung-smart-tv-ads/index.html",
+    "tv/lg-smart-tv-ads/index.html",
 ]
+MIN_P4_WORDS = 280
+MIN_P4_H2 = 4
+P4_REQUIRED_HEADINGS = {
+    "tv/samsung-smart-tv-ads/index.html": (
+        "Why ADB and sideload usually fail",
+        "Honest next steps",
+        "Product zone",
+    ),
+    "tv/lg-smart-tv-ads/index.html": (
+        "Why ADB and sideload usually fail",
+        "Honest next steps",
+        "Product zone",
+    ),
+    "tv/fire-tv-ads/index.html": (
+        "Buying Fire is not escape ads",
+        "Software on Fire TV panels",
+        "Product zone",
+    ),
+    "tv/google-tv-ads/index.html": (
+        "Software first",
+        "When to leave for a whole-TV replacement",
+        "Product zone",
+    ),
+}
 STUB_PHRASES = (
     "when we publish scores",
     "ranking note",
@@ -82,7 +122,19 @@ FORBIDDEN = [
     "tv/cleanyourtv/not-working/index.html",
     "tv/cleanyourtv-best-non-smart/index.html",
     "tv/cleanyourtv/privacy/index.html",
+    "tv/cleanyourtv/samsung/index.html",
+    "tv/cleanyourtv/lg/index.html",
+    "tv/cleanyourtv/fire/index.html",
+    "tv/cleanyourtv/google/index.html",
 ]
+
+
+def page_asins(html: str) -> set[str]:
+    return set(re.findall(r"\bB0[A-Z0-9]{8}\b", html))
+
+
+def page_tracks(html: str) -> set[str]:
+    return set(re.findall(r"https://yeahpromos\.com/[^\"'\s]+", unescape(html)))
 DO_NOT_HERO = {"B0DGHZ1C8V", "B0FHGNWZXT", "B0FMK1B4LW", "B0HGXYM1WD"}
 
 
@@ -174,11 +226,22 @@ def main() -> None:
         errors.append("hub missing /tv/best-launcher-for-android-tv/ G-IL")
     if "tv/adb-debloat-not-working/" not in hub:
         errors.append("hub missing /tv/adb-debloat-not-working/ G-IL")
+    if "tv/samsung-smart-tv-ads/" not in hub:
+        errors.append("hub missing /tv/samsung-smart-tv-ads/ G-IL")
+    if "tv/lg-smart-tv-ads/" not in hub:
+        errors.append("hub missing /tv/lg-smart-tv-ads/ G-IL")
+    if "tv/fire-tv-ads/" not in hub:
+        errors.append("hub missing /tv/fire-tv-ads/ G-IL")
+    if "tv/google-tv-ads/" not in hub:
+        errors.append("hub missing /tv/google-tv-ads/ G-IL")
     if "ranking notes" in hub.lower() or "p2 stub" in hub.lower():
         errors.append("hub still labels P2 pages as stubs / ranking notes")
 
     for rel in CONTENT_ONLY:
-        html = (SITE / rel).read_text(encoding="utf-8")
+        path = SITE / rel
+        if not path.exists():
+            continue
+        html = path.read_text(encoding="utf-8")
         if "yeahpromos.com" in html or "pboost.me" in html or "btn-cta-yellow" in html:
             errors.append(f"{rel} invented a Check price CTA on an empty product zone")
         if "cleanyourtv" in rel.replace("\\", "/").lower():
@@ -239,6 +302,109 @@ def main() -> None:
         ):
             errors.append(f"{rel} mentions Fire Stick outside a prohibition")
 
+    hero_asins = {item.get("asin") for item in hero}
+    fire_shortlist_asins = {item.get("asin") for item in fire}
+    hero_tracks = {item.get("affiliate_link") for item in hero if item.get("affiliate_link")}
+    fire_tracks = {item.get("affiliate_link") for item in fire if item.get("affiliate_link")}
+    allowed_asins = hero_asins | fire_shortlist_asins
+    oos_track_by_asin = {
+        item.get("asin"): item.get("affiliate_link")
+        for item in hero + fire
+        if item.get("oos") and item.get("affiliate_link")
+    }
+
+    for rel in P4:
+        path = SITE / rel
+        if not path.exists():
+            continue
+        html = path.read_text(encoding="utf-8")
+        body = legal_body_html(html)
+        words = visible_words(body)
+        h2s = re.findall(r"<h2>[^<]+</h2>", body)
+        if len(words) < MIN_P4_WORDS:
+            errors.append(f"{rel} still stub-thin ({len(words)} words, need {MIN_P4_WORDS}+)")
+        if len(h2s) < MIN_P4_H2:
+            errors.append(f"{rel} still stub-thin ({len(h2s)} h2, need {MIN_P4_H2}+)")
+        lowered = body.lower()
+        for phrase in STUB_PHRASES:
+            if phrase in lowered:
+                errors.append(f"{rel} still has stub phrase {phrase!r}")
+        if re.search(r'href="[^"]*tv/"', html) is None:
+            errors.append(f"{rel} missing hub /tv/ back-link")
+        if "tv/remove-smart-tv-ads/" not in html:
+            errors.append(f"{rel} missing L1 /tv/remove-smart-tv-ads/ back-link")
+        if "tv/smart-tv-ad-alternatives/" not in html:
+            errors.append(f"{rel} missing L2 /tv/smart-tv-ad-alternatives/ back-link")
+        for heading in P4_REQUIRED_HEADINGS[rel]:
+            if heading not in body:
+                errors.append(f"{rel} missing first-class heading {heading!r}")
+        if "Fire Stick" in html and not re.search(
+            r"(will not|never|not)[^.]*Fire Stick|Fire Stick[^.]*not",
+            html,
+            re.I,
+        ):
+            errors.append(f"{rel} mentions Fire Stick outside a prohibition")
+        if "cleanyourtv" in rel.replace("\\", "/").lower():
+            errors.append(f"forbidden cleanyourtv path {rel}")
+        found_asins = page_asins(html)
+        unknown = found_asins - allowed_asins
+        if unknown:
+            errors.append(f"{rel} invented ASINs {sorted(unknown)}")
+        leaked_oos = [
+            asin for asin, track in oos_track_by_asin.items() if track and track in unescape(html)
+        ]
+        if leaked_oos:
+            errors.append(f"{rel} rendered OOS Check price for {leaked_oos}")
+
+    for rel in P4_EMPTY_SKU:
+        path = SITE / rel
+        if not path.exists():
+            continue
+        html = path.read_text(encoding="utf-8")
+        if "yeahpromos.com" in html or "pboost.me" in html or "btn-cta-yellow" in html:
+            errors.append(f"{rel} invented a Check price CTA on an empty product zone")
+        zone = re.search(r'<div class="tv-empty"[^>]*data-tv-empty-products[\s\S]*?</div>', html)
+        if not zone:
+            errors.append(f"{rel} missing honest empty product zone")
+        elif "<a " in zone.group(0) or "btn-cta" in zone.group(0):
+            errors.append(f"{rel} empty product zone has a checkout link")
+        if "tv/adb-debloat-not-working/" not in html:
+            errors.append(f"{rel} missing P2 /tv/adb-debloat-not-working/ link")
+        if "tv/best-non-smart-tv/" not in html and "tv/best-tv-for-privacy/" not in html:
+            errors.append(f"{rel} missing relevant P3 link")
+
+    google_path = SITE / "tv/google-tv-ads/index.html"
+    if google_path.exists():
+        google_html = google_path.read_text(encoding="utf-8")
+        if "tv/best-launcher-for-android-tv/" not in google_html:
+            errors.append("google-tv page missing P2 launcher link")
+        if "tv/adb-debloat-not-working/" not in google_html:
+            errors.append("google-tv page missing P2 ADB link")
+        if "tv/supported-android-tv-models/" not in google_html:
+            errors.append("google-tv page missing P2 supported-models link")
+        google_asins = page_asins(google_html)
+        if google_asins - hero_asins:
+            errors.append(f"google-tv page used non-hero tracks {sorted(google_asins - hero_asins)}")
+        google_yp = page_tracks(google_html)
+        if google_yp - hero_tracks:
+            errors.append("google-tv page used a track that is not a shortlist Google TV hero")
+
+    fire_path = SITE / "tv/fire-tv-ads/index.html"
+    if fire_path.exists():
+        fire_html = fire_path.read_text(encoding="utf-8")
+        if "Buying Fire is not escape ads" not in fire_html and "escape ads" not in fire_html.lower():
+            errors.append("fire-tv page missing honest 'buying Fire is not escape ads' copy")
+        page_fire_asins = page_asins(fire_html)
+        if page_fire_asins - fire_shortlist_asins:
+            errors.append(
+                f"fire-tv page used non-Fire tracks {sorted(page_fire_asins - fire_shortlist_asins)}"
+            )
+        fire_yp = page_tracks(fire_html)
+        if fire_yp - fire_tracks:
+            errors.append("fire-tv page used a track that is not a shortlist Fire TV panel")
+        if "Fire Stick" not in fire_html:
+            errors.append("fire-tv page must prohibit Fire Stick explicitly")
+
     home = (SITE / "index.html").read_text(encoding="utf-8")
     if 'data-editorial-cluster="tv"' not in home:
         errors.append("home missing /tv/ tile")
@@ -256,6 +422,14 @@ def main() -> None:
         errors.append("sitemap missing P3 /tv/best-non-smart-tv/")
     if "https://moretop10.com/tv/best-tv-for-privacy/" not in sitemap:
         errors.append("sitemap missing P3 /tv/best-tv-for-privacy/")
+    if "https://moretop10.com/tv/samsung-smart-tv-ads/" not in sitemap:
+        errors.append("sitemap missing P4 /tv/samsung-smart-tv-ads/")
+    if "https://moretop10.com/tv/lg-smart-tv-ads/" not in sitemap:
+        errors.append("sitemap missing P4 /tv/lg-smart-tv-ads/")
+    if "https://moretop10.com/tv/fire-tv-ads/" not in sitemap:
+        errors.append("sitemap missing P4 /tv/fire-tv-ads/")
+    if "https://moretop10.com/tv/google-tv-ads/" not in sitemap:
+        errors.append("sitemap missing P4 /tv/google-tv-ads/")
     if "https://moretop10.com/tv/cleanyourtv/" in sitemap:
         errors.append("sitemap lists a forbidden branded path")
     if "cleanyourtv" in sitemap:
@@ -270,6 +444,14 @@ def main() -> None:
         errors.append("llms.txt missing P3 /tv/best-non-smart-tv/")
     if "https://moretop10.com/tv/best-tv-for-privacy/" not in llms:
         errors.append("llms.txt missing P3 /tv/best-tv-for-privacy/")
+    if "https://moretop10.com/tv/samsung-smart-tv-ads/" not in llms:
+        errors.append("llms.txt missing P4 /tv/samsung-smart-tv-ads/")
+    if "https://moretop10.com/tv/lg-smart-tv-ads/" not in llms:
+        errors.append("llms.txt missing P4 /tv/lg-smart-tv-ads/")
+    if "https://moretop10.com/tv/fire-tv-ads/" not in llms:
+        errors.append("llms.txt missing P4 /tv/fire-tv-ads/")
+    if "https://moretop10.com/tv/google-tv-ads/" not in llms:
+        errors.append("llms.txt missing P4 /tv/google-tv-ads/")
 
     if errors:
         raise SystemExit("tv_cluster_assert failed:\n- " + "\n- ".join(errors))
