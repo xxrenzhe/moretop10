@@ -32,6 +32,7 @@ from site_config import ALL_CATS, EDITORIAL_CLUSTERS  # noqa: E402
 ROOT = Path(__file__).resolve().parents[2]
 SITE = ROOT / "site"
 SHORTLIST = SITE / "data" / "shortlist-tv.json"
+MODELS_SNAPSHOT = SITE / "data" / "tv-supported-models.json"
 UPDATED = "2026-10-22"
 LIVE = "https://moretop10.com"
 CTA_LABEL = "Check price"
@@ -437,36 +438,76 @@ def remove_ads_body(prefix: str, current: str) -> str:
 </main>"""
 
 
+def load_models_snapshot() -> dict:
+    if not MODELS_SNAPSHOT.exists():
+        raise SystemExit(
+            "bake_tv: missing site/data/tv-supported-models.json — "
+            "run python3 site/scripts/fetch_tv_models.py first"
+        )
+    snap = json.loads(MODELS_SNAPSHOT.read_text(encoding="utf-8"))
+    models = snap.get("models") or []
+    if not isinstance(models, list) or len(models) < 20:
+        raise SystemExit("bake_tv: models snapshot is empty or too thin — refusing to bake a scaffold")
+    return snap
+
+
+def oem_summary_html(counts: dict) -> str:
+    parts = [f"{_esc(oem)} {int(n)}" for oem, n in counts.items() if n]
+    return " · ".join(parts)
+
+
+def model_row_html(item: dict) -> str:
+    slug = item.get("slug") or ""
+    return (
+        f'<tr data-tv-model-row data-slug="{_esc(slug)}" '
+        f'data-oem="{_esc(item.get("oem") or "")}" data-kind="{_esc(item.get("kind") or "")}">'
+        f"<td>{_esc(item.get('oem') or '')}</td>"
+        f"<td>{_esc(item.get('name') or slug)}</td>"
+        f"<td>{_esc(item.get('platform') or item.get('os') or '')}</td>"
+        f"<td>{_esc(item.get('software_path') or '')}</td>"
+        f"<td>{_esc(item.get('notes') or '')}</td>"
+        "</tr>"
+    )
+
+
 def models_body(prefix: str, current: str) -> str:
-    return f"""<main class="legal-page tv-page">
+    snap = load_models_snapshot()
+    models = sorted(
+        [m for m in (snap.get("models") or []) if isinstance(m, dict) and m.get("slug")],
+        key=lambda m: ((m.get("oem") or "").lower(), (m.get("name") or "").lower(), m.get("slug") or ""),
+    )
+    as_of = snap.get("as_of") or UPDATED
+    source = snap.get("source") or {}
+    counts = snap.get("oem_counts") or {}
+    commit = (source.get("commit") or "")[:12]
+    commit_note = f", commit {commit}" if commit else ""
+    rows = "\n".join(model_row_html(m) for m in models)
+    return f"""<main class="legal-page tv-page tv-page-models">
   <div class="container legal-layout">
     <nav class="breadcrumb"><a href="{prefix}index.html">Home</a> <span class="sep">/</span> <a href="{prefix}tv/">Smart TV ads</a> <span class="sep">/</span> <span>Supported models</span></nav>
     <header class="page-head">
       <h1>Supported Android TV / Google TV models</h1>
-      <p class="page-lede tv-lede">Last updated {UPDATED}. A scaffold that should follow the unofficial project’s <code>examples/</code> list — not a frozen headcount.</p>
+      <p class="page-lede tv-lede">Last updated {UPDATED}. A living table baked from a snapshot of the unofficial project’s <code>examples/</code> folder — not a frozen headcount.</p>
     </header>
     {cluster_nav_html(current, prefix)}
     {DISCLOSURE}
     <div class="legal-body">
-      <p class="geo-answer-first">As of {UPDATED}, this table is a scaffold. The unofficial CleanYourTV repository documents supported builds under <code>examples/</code>; that list moves. We will not hard-code “54,” “23,” or “66” models as if they were a permanent count. If your set is missing, go to <a href="{prefix}tv/smart-tv-ad-alternatives/">when software will not install</a> rather than assuming a checkout link.</p>
+      <p class="geo-answer-first">As of {as_of}, this bake lists <strong>{len(models)}</strong> contributor-tested builds from a third-party open-source snapshot of the unofficial CleanYourTV <code>examples/</code> table. That project is non-official. MoreTop10 is not affiliated with it, its authors, or any TV brand. The list is <strong>not exhaustive</strong> and it moves — rebake after a refresh rather than treating {len(models)} as a permanent count. If your set is missing, go to <a href="{prefix}tv/smart-tv-ad-alternatives/">when software will not install</a> rather than assuming a checkout link. We will not recommend a Fire Stick.</p>
+      <p class="tv-source" data-tv-models-source>Source: unofficial <a href="https://github.com/Gathin23/cleanyourtv" rel="noopener noreferrer">github.com/Gathin23/cleanyourtv</a> <code>examples/README.md</code> as of {as_of}{commit_note}. We do not host the software.</p>
       <h2>How to read this table</h2>
-      <p>Retail stickers say “Hisense U8” or “Toshiba Fire TV.” The software path cares about the Android / Google TV build and whether USB debugging stays on. Fire TV panels are listed only so you do not confuse them with Google TV. Samsung and LG do not belong here.</p>
+      <p>Retail stickers and software builds disagree. Match the OEM and the model / board string, then the platform. <strong>Try software first</strong> means Android TV / Google TV with a documented debloat list — see <a href="{prefix}tv/google-tv-ads/">Google TV ads</a>. <strong>Debloat only</strong> means Fire OS or a firmware that will not hand Home to a third-party launcher — not a reason to buy Fire hardware; read <a href="{prefix}tv/fire-tv-ads/">Fire TV panels</a>. Samsung Tizen and LG webOS are not in this table: there is no supported ADB path. Use <a href="{prefix}tv/samsung-smart-tv-ads/">Samsung ads</a> or <a href="{prefix}tv/lg-smart-tv-ads/">LG ads</a>, then the <a href="{prefix}tv/smart-tv-ad-alternatives/">decision tree</a> if you are replacing the set.</p>
+      <p class="tv-oem-summary"><strong>OEM counts in this snapshot:</strong> {oem_summary_html(counts)}</p>
       <div class="tv-table-wrap">
-        <table class="tv-table">
-          <thead><tr><th>Retail name (examples)</th><th>OS</th><th>Software path?</th><th>Notes</th></tr></thead>
+        <table class="tv-table" data-tv-models-table>
+          <thead><tr><th>OEM</th><th>Model (as upstream lists it)</th><th>Platform</th><th>Software path</th><th>Notes</th></tr></thead>
           <tbody>
-            <tr><td>Hisense U8 / U7 Google TV (current US 4K panels)</td><td>Google TV</td><td>Try software first</td><td>Confirm the exact build in upstream examples. Brand guide: <a href="{prefix}tv/google-tv-ads/">Google TV ads</a>.</td></tr>
-            <tr><td>Other Android TV / Google TV (Sony, TCL, and similar)</td><td>Android TV / Google TV</td><td>Maybe</td><td>Look up the codename. Absence from this scaffold is not a “no.”</td></tr>
-            <tr><td>Hisense / Toshiba Fire TV panels</td><td>Fire TV</td><td>Software-first on Fire, not a Google TV twin</td><td>Do not buy Fire hardware to escape ads. See <a href="{prefix}tv/fire-tv-ads/">Fire TV panels</a>.</td></tr>
-            <tr><td>Samsung Crystal / Frame / QLED (Tizen)</td><td>Tizen</td><td>No ADB path</td><td><a href="{prefix}tv/samsung-smart-tv-ads/">Samsung ads</a> — then the <a href="{prefix}tv/smart-tv-ad-alternatives/">decision tree</a> if you are replacing the set.</td></tr>
-            <tr><td>LG OLED / NanoCell (webOS)</td><td>webOS</td><td>No ADB path</td><td><a href="{prefix}tv/lg-smart-tv-ads/">LG ads</a> — software will not sideload a third-party launcher.</td></tr>
-            <tr><td>Apple TV 4K (box)</td><td>tvOS</td><td>No ADB path</td><td>No retailer link on this site yet. Slot stays empty.</td></tr>
+            {rows}
           </tbody>
         </table>
       </div>
-      <p>Dynamic row count from upstream <code>examples/</code> will replace this scaffold in a later bake. Until then, thin is honest.</p>
+      <p>Projectors and streamers appear only when the unofficial examples folder has a tested list for them. Absence from this bake is “unknown,” not “impossible.”</p>
       <h2>Not on the list</h2>
-      <p>If the unofficial examples folder does not mention your build, use <a href="{prefix}tv/adb-debloat-not-working/">ADB troubleshooting</a> first. If the platform has no debugging surface, use <a href="{prefix}tv/smart-tv-ad-alternatives/">when software will not install</a>.</p>
+      <p class="tv-models-cta">This snapshot is not exhaustive. See the upstream <code>examples/</code> folder for builds added after {as_of}. If the unofficial list does not mention your build, start with <a href="{prefix}tv/adb-debloat-not-working/">ADB troubleshooting</a>. If the platform has no debugging surface — or you want hardware after software fails — use <a href="{prefix}tv/smart-tv-ad-alternatives/">when software will not install</a> (not on the list → alternatives). Software-first install order lives on <a href="{prefix}tv/remove-smart-tv-ads/">turn off smart-TV ads</a>.</p>
       {related_html(prefix)}
     </div>
   </div>
@@ -1076,7 +1117,7 @@ PAGES = [
         "out": "tv/supported-android-tv-models/index.html",
         "path": "/tv/supported-android-tv-models/",
         "title": "Supported Android TV and Google TV models | MoreTop10",
-        "description": "Scaffold for Android TV and Google TV models. Counts follow upstream examples, not a frozen headcount.",
+        "description": "Contributor-tested Android TV and Google TV models from a third-party open-source examples snapshot. Not exhaustive. No checkout list.",
         "crumbs": [
             ("Home", f"{LIVE}/"),
             ("Smart TV ads", f"{LIVE}/tv/"),
