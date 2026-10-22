@@ -21,6 +21,10 @@
 .tv-page-models .legal-layout{max-width:1080px}
 .tv-oem-summary,.tv-source,.tv-models-cta{font-size:0.95rem;line-height:1.55}
 .tv-table[data-tv-models-table] th{position:sticky;top:0;z-index:1}
+.tv-demo{margin:0 0 1.75rem}
+.tv-demo-figure{margin:0}
+.tv-demo-figure video{display:block;width:100%;height:auto;aspect-ratio:16/9;object-fit:contain;background:#111;border-radius:6px}
+.tv-demo-figure figcaption{margin:0.65rem 0 0;font-size:0.9rem;line-height:1.5;color:var(--mt-ink-muted,#5b6573)}
 @media (max-width:639px){
   .tv-product{grid-template-columns:72px 1fr; }
   .tv-product .btn{grid-column:1 / -1;justify-self:start}

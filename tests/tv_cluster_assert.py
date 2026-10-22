@@ -508,6 +508,18 @@ def main() -> None:
 
     assert_models_table(errors)
 
+    l1 = (SITE / "tv/remove-smart-tv-ads/index.html").read_text(encoding="utf-8")
+    if "<video" not in l1:
+        errors.append("L1 missing <video tag")
+    if "assets/video/cleanyourtv-demo-hfcorriez.mp4" not in l1:
+        errors.append("L1 missing vendored mp4 path")
+    if "https://x.com/hfcorriez/status/2112732522937553003" not in l1:
+        errors.append("L1 missing X status credit link")
+    if not (SITE / "assets/video/cleanyourtv-demo-hfcorriez.mp4").is_file():
+        errors.append("vendored mp4 missing from site/assets/video/")
+    if not (SITE / "assets/video/cleanyourtv-demo-hfcorriez-poster.jpg").is_file():
+        errors.append("vendored poster missing from site/assets/video/")
+
     home = (SITE / "index.html").read_text(encoding="utf-8")
     if 'data-editorial-cluster="tv"' not in home:
         errors.append("home missing /tv/ tile")
