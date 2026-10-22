@@ -1267,6 +1267,10 @@ EDITORIAL_SITEMAP_PATHS = (
     "/tv/adb-debloat-not-working/",
     "/tv/best-non-smart-tv/",
     "/tv/best-tv-for-privacy/",
+    "/tv/samsung-smart-tv-ads/",
+    "/tv/lg-smart-tv-ads/",
+    "/tv/fire-tv-ads/",
+    "/tv/google-tv-ads/",
 )
 
 

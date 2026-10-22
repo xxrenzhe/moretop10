@@ -238,3 +238,7 @@ Last updated: 2026-10-20
   - ADB troubleshooting: https://moretop10.com/tv/adb-debloat-not-working/
   - Non-smart TVs: https://moretop10.com/tv/best-non-smart-tv/
   - Privacy TVs: https://moretop10.com/tv/best-tv-for-privacy/
+  - Samsung Tizen: https://moretop10.com/tv/samsung-smart-tv-ads/
+  - LG webOS: https://moretop10.com/tv/lg-smart-tv-ads/
+  - Fire TV panels: https://moretop10.com/tv/fire-tv-ads/
+  - Google / Android TV: https://moretop10.com/tv/google-tv-ads/
