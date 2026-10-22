@@ -82,6 +82,7 @@ from site_config import (  # noqa: E402
     HOME_VISIBLE_TILES,
     load_site_config,
 )
+from landing_faq import site_errors as landing_faq_site_errors  # noqa: E402
 from watchouts import site_errors as watchouts_site_errors  # noqa: E402
 
 UA = "MoreTop10Bake/1.0 (+seo-geo-p1)"
@@ -656,6 +657,7 @@ def verify(cfg: dict) -> None:
     errors.extend(author_feed_cover_errors(SITE))
 
     errors.extend(watchouts_site_errors(SITE))
+    errors.extend(landing_faq_site_errors(SITE))
 
     if errors:
         raise SystemExit("verify failed:\n- " + "\n- ".join(errors))
