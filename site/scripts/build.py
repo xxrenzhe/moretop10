@@ -41,13 +41,17 @@ if str(SCRIPTS) not in sys.path:
 
 from chrome import (  # noqa: E402
     ensure_hub_reciprocity,
+    strip_cmp_hero_steps,
     ensure_tv_home_tile,
+    expected_wwnn_codes,
+    home_tile_width_codes,
     inject_nav_css,
     rel_prefix,
     reorder_home_tiles,
     rewrite_compare_cta,
     rewrite_footer,
     rewrite_non_home_nav,
+    tile_is_tv,
 )
 from seo_geo import (  # noqa: E402
     LIVE,
@@ -199,10 +203,14 @@ def bake_page(spec: dict, cfg: dict, cmp_html_by_slug: dict[str, str]) -> Path |
 
     if kind == "home":
         html = reorder_home_tiles(html, cfg["CATS_BY_SLUG"], cfg["home_visible_tiles"])
-        html = ensure_tv_home_tile(html)
+        html = ensure_tv_home_tile(
+            html, cfg["CATS_BY_SLUG"], cfg["home_visible_tiles"]
+        )
 
     if kind in {"comparison", "reviews"}:
         html = ensure_hub_reciprocity(html, kind)
+    if kind == "comparison":
+        html = strip_cmp_hero_steps(html)
 
     cmp_html = (
         cmp_html_by_slug.get(slug or "")
@@ -239,7 +247,10 @@ def _first_home_tiles(html: str, n: int = 8) -> list[str]:
     slugs = set(CATS_BY_SLUG)
     out = []
     for tile in tiles[:n]:
-        slug = tile_slug(tile, slugs) or "?"
+        if tile_is_tv(tile):
+            slug = "tv"
+        else:
+            slug = tile_slug(tile, slugs) or "?"
         more = " is-more" if "is-more" in tile[:160] else ""
         out.append(f"{slug}{more}")
     return out
@@ -310,11 +321,40 @@ def verify(cfg: dict) -> None:
             i, t = kids[0]
             if i >= HOME_VISIBLE_TILES:
                 errors.append(f"kids-bikes tile at slot {i} (need < {HOME_VISIBLE_TILES})")
+            if i not in (0, 1):
+                errors.append(f"kids-bikes tile at slot {i} (need row-1 wide slot 0 or 1)")
             if "is-more" in t[:200]:
                 errors.append("kids-bikes tile still has is-more")
         robot = next((t for t in tiles if tile_slug(t, slugs) == "robot-vacuums"), "")
         if robot and "robot-vacuums-match/" in robot and "robot-vacuums/" not in robot:
             errors.append("home robot tile still orphans the hub in favor of match/")
+        # CSS ≥960px is WWNN (2.15fr 2.15fr 1fr 1fr). Check every complete row
+        # plus the first 8 visible tiles.
+        n_check = max(8, (len(tiles) // 4) * 4)
+        n_check = min(n_check, len(tiles))
+        got_codes = home_tile_width_codes(tiles, n_check)
+        want_codes = expected_wwnn_codes(n_check)
+        if got_codes != want_codes:
+            errors.append(
+                "home tiles WWNN expected "
+                + "".join(want_codes)
+                + " got "
+                + "".join(got_codes)
+            )
+        visible = tiles[:HOME_VISIBLE_TILES]
+        if any("is-more" in t[:200] for t in visible):
+            errors.append("first visible home tiles still have is-more")
+        if any("is-more" not in t[:200] for t in tiles[HOME_VISIBLE_TILES:]):
+            errors.append("tiles past home_visible_tiles must have is-more")
+        tv_idxs = [i for i, t in enumerate(tiles) if tile_is_tv(t)]
+        if not tv_idxs:
+            errors.append("home missing editorial /tv/ tile in grid")
+        else:
+            tv_i = tv_idxs[0]
+            if tv_i >= HOME_VISIBLE_TILES:
+                errors.append(f"tv tile at slot {tv_i} (need < {HOME_VISIBLE_TILES})")
+            if tv_i not in (2, 3):
+                errors.append(f"tv tile at slot {tv_i} (need row-1 narrow slot 2 or 3)")
 
     if "nav-home-simple" not in home:
         errors.append("home header should stay nav-home-simple")
@@ -340,10 +380,28 @@ def verify(cfg: dict) -> None:
             errors.append("comparison missing landing href")
     if "Category overview" not in cmp and "Full guide" not in cmp:
         errors.append("comparison missing Category overview / Full guide copy")
+    cmp_related = re.search(
+        r'<p class="landing-related-cluster hub-reciprocity">.*?</p>', cmp, re.S
+    )
+    if cmp_related:
+        related = cmp_related.group(0)
+        if 'href="./"' in related or 'href="../comparison/"' in related:
+            errors.append("comparison Related cluster self-links to the chart")
+        if 'href="../reviews/"' not in related:
+            errors.append("comparison Related missing Full guide → reviews hub")
+    if 'class="cmp-hero-steps"' in cmp:
+        errors.append("comparison hero still has decorative cmp-hero-steps")
     if 'href="../"' not in rev and "kids-bikes/" not in rev:
         errors.append("reviews hub missing landing href")
     if "Category overview" not in rev and "Full guide" not in rev:
         errors.append("reviews hub missing landing href copy")
+    rev_related = re.search(
+        r'<p class="landing-related-cluster hub-reciprocity">.*?</p>', rev, re.S
+    )
+    if rev_related:
+        related = rev_related.group(0)
+        if 'href="../reviews/"' in related or 'href="./"' in related:
+            errors.append("reviews Related cluster self-links to the reviews hub")
 
     # Compare CTA: comparison must not self-link to comparison.
     cmp_head = cmp.split("<main", 1)[0]
@@ -401,8 +459,10 @@ def verify(cfg: dict) -> None:
     tests_dir = str(ROOT / "tests")
     if tests_dir not in sys.path:
         sys.path.insert(0, tests_dir)
+    from footer_cats_columns_assert import sample_errors as footer_cats_errors  # noqa: E402
     from g_engage_assert import sample_errors  # noqa: E402
 
+    errors.extend(footer_cats_errors(SITE))
     errors.extend(sample_errors(SITE))
 
     sample_review = SITE / "air-fryers" / "reviews" / "cosori-twinfry-9-qt-double-air" / "index.html"
@@ -449,24 +509,6 @@ def verify(cfg: dict) -> None:
     rv = (SITE / "robot-vacuums" / "index.html").read_text(encoding="utf-8")
     if "robot-vacuums-match" not in rv:
         errors.append("robot-vacuums hub should cluster-link the match demo")
-    from chrome import NAV_CSS as _NAV_CSS
-
-    if not re.search(
-        r"@media\s*\(min-width:720px\)\{.*?\.footer-col-cats ul.*?columns:3",
-        _NAV_CSS,
-        re.S,
-    ):
-        errors.append("NAV_CSS missing desktop 3-column Categories list")
-    site_css = (SITE / "assets/css/site.css").read_text(encoding="utf-8")
-    if not re.search(
-        r"@media\s*\(min-width:720px\)\{.*?\.footer-col-cats ul.*?columns:3",
-        site_css,
-        re.S,
-    ):
-        errors.append("site.css missing desktop 3-column Categories list")
-    rv_nav = re.search(r'<style id="landing-hub-nav">.*?</style>', rv, re.S)
-    if not rv_nav or "columns:3" not in rv_nav.group(0):
-        errors.append("robot-vacuums landing-hub-nav missing desktop columns:3")
 
     if "#geo-" not in llms:
         errors.append("llms.txt missing #geo-ASIN top-pick links")
@@ -501,6 +543,8 @@ def verify(cfg: dict) -> None:
 
     print("verify ok")
     print("  home first 8 tiles:", ", ".join(_first_home_tiles(home)))
+    if gm:
+        print("  home WWNN:", "".join(home_tile_width_codes(tiles, min(len(tiles), 8))))
     print("  ALL_CATS:", ", ".join(c["slug"] for c in ALL_CATS))
     print("  authors:", ", ".join(AUTHOR_SLUGS))
 

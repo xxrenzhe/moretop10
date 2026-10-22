@@ -1,4 +1,4 @@
-"""Header mega, mobile nav, footer, home-tile pin, hub reciprocity."""
+"""Header mega, mobile nav, footer, home-tile WWNN pack, hub reciprocity."""
 
 from __future__ import annotations
 
@@ -16,7 +16,7 @@ NAV_CSS = """
 .mobile-nav .mega-cat{display:grid;grid-template-columns:1fr auto;gap:0 0.75rem;padding:0.15rem 0}
 .hub-reciprocity{margin:0.75rem 0 1.25rem;font-size:0.95rem}
 .footer-col-cats ul,.footer-col-categories ul{columns:1}
-@media (min-width:720px){.footer-col-cats ul,.footer-col-categories ul{columns:3}.footer-grid{grid-template-columns:1.4fr 1fr 1.1fr 0.9fr 0.8fr}}
+@media (min-width:720px){.footer-col-cats ul,.footer-col-categories ul{columns:3}.footer-grid{grid-template-columns:1.4fr 2.2fr 0.85fr 0.85fr}}
 </style>
 """
 
@@ -218,26 +218,103 @@ TV_HOME_TILE = (
     '<strong class="home-tile-title">Smart TV ads</strong></a>'
 )
 
+# pages-home.css ≥960px: grid-template-columns: 2.15fr 2.15fr 1fr 1fr
+HOME_TILE_TRACKS = ("W", "W", "N", "N")
+HOME_TILE_GRID_RE = re.compile(
+    r'(<div class="home-tile-grid"[^>]*>)(.*?)(</div>\s*<button type="button" class="home-show-more")',
+    re.S,
+)
 
-def ensure_tv_home_tile(page: str) -> str:
-    """Pin an editorial /tv/ tile in the visible home grid. Not an ALL_CATS slug."""
-    if 'data-editorial-cluster="tv"' in page:
-        return page
-    m = re.search(
-        r'(<div class="home-tile-grid"[^>]*>)(.*?)(</div>\s*<button type="button" class="home-show-more")',
-        page,
-        re.S,
-    )
+
+def tile_is_wide(tile: str) -> bool:
+    return "home-tile--wide" in tile[:220]
+
+
+def tile_is_tv(tile: str) -> bool:
+    return 'data-editorial-cluster="tv"' in tile
+
+
+def tile_width_code(tile: str) -> str:
+    return "W" if tile_is_wide(tile) else "N"
+
+
+def home_tile_width_codes(tiles: list[str], n: int | None = None) -> list[str]:
+    subset = tiles if n is None else tiles[:n]
+    return [tile_width_code(t) for t in subset]
+
+
+def expected_wwnn_codes(n: int) -> list[str]:
+    return [HOME_TILE_TRACKS[i % 4] for i in range(n)]
+
+
+def arrange_tiles_wwnn(
+    tiles: list[str],
+    cats_by_slug: dict[str, dict[str, Any]] | None = None,
+) -> list[str]:
+    """Stable-partition tiles into CSS-track order: W W N N repeating.
+
+    Extended / kids-bikes stay first among wides. Editorial TV stays first
+    among narrows so it lands in a row-1 Narrow slot (index 2).
+    """
+    slugs = set(cats_by_slug or ())
+    wide: list[tuple[tuple[int, int], str]] = []
+    narrow: list[tuple[tuple[int, int], str]] = []
+    for idx, tile in enumerate(tiles):
+        if tile_is_tv(tile):
+            pin = (0, -1)
+        else:
+            cat = (cats_by_slug or {}).get(tile_slug(tile, slugs) or "")
+            pin = (0 if _is_extended(cat) else 1, idx)
+        bucket = wide if tile_is_wide(tile) else narrow
+        bucket.append((pin, tile))
+    wide.sort(key=lambda row: row[0])
+    narrow.sort(key=lambda row: row[0])
+    wides = [t for _, t in wide]
+    narrows = [t for _, t in narrow]
+    out: list[str] = []
+    wi = ni = 0
+    while wi < len(wides) or ni < len(narrows):
+        for _ in range(2):
+            if wi < len(wides):
+                out.append(wides[wi])
+                wi += 1
+        for _ in range(2):
+            if ni < len(narrows):
+                out.append(narrows[ni])
+                ni += 1
+    return out
+
+
+def apply_home_tile_visibility(tiles: list[str], visible: int) -> list[str]:
+    return [set_tile_is_more(tile, i >= visible) for i, tile in enumerate(tiles)]
+
+
+def _rebuild_home_grid(page: str, match: re.Match[str], tiles: list[str]) -> str:
+    rebuilt = match.group(1) + "\n        " + "".join(tiles) + "\n      " + match.group(3)
+    return page[: match.start()] + rebuilt + page[match.end() :]
+
+
+def ensure_tv_home_tile(
+    page: str,
+    cats_by_slug: dict[str, dict[str, Any]] | None = None,
+    visible: int = 8,
+) -> str:
+    """Keep editorial /tv/ in the visible home grid and restore WWNN track order.
+
+    Not an ALL_CATS slug. Always re-packs the grid so a prior insert-at-1
+    (W N W W…) cannot leave a narrow tile in a wide track.
+    """
+    m = HOME_TILE_GRID_RE.search(page)
     if not m:
         return page
     tiles = split_home_tiles(m.group(2))
     if not tiles:
         return page
-    # Insert after the first tile (usually kids-bikes pin) so it stays visible.
-    insert_at = 1 if len(tiles) > 1 else 0
-    tiles.insert(insert_at, TV_HOME_TILE)
-    rebuilt = m.group(1) + "\n        " + "".join(tiles) + "\n      " + m.group(3)
-    return page[: m.start()] + rebuilt + page[m.end() :]
+    if not any(tile_is_tv(t) for t in tiles):
+        tiles.append(TV_HOME_TILE)
+    tiles = arrange_tiles_wwnn(tiles, cats_by_slug)
+    tiles = apply_home_tile_visibility(tiles, visible)
+    return _rebuild_home_grid(page, m, tiles)
 
 
 def _consume_element(src: str, start: int) -> tuple[str, int]:
@@ -324,47 +401,57 @@ def reorder_home_tiles(
     cats_by_slug: dict[str, dict[str, Any]],
     visible: int,
 ) -> str:
-    m = re.search(r'(<div class="home-tile-grid"[^>]*>)(.*?)(</div>\s*<button type="button" class="home-show-more")', page, re.S)
+    m = HOME_TILE_GRID_RE.search(page)
     if not m:
         return page
-    slugs = set(cats_by_slug)
     tiles = split_home_tiles(m.group(2))
     if not tiles:
         return page
-
-    decorated = []
-    for idx, tile in enumerate(tiles):
-        slug = tile_slug(tile, slugs)
-        cat = cats_by_slug.get(slug or "")
-        pin = 0 if _is_extended(cat) else 1
-        decorated.append((pin, idx, slug, tile))
-    decorated.sort(key=lambda row: (row[0], row[1]))
-
-    out_tiles = []
-    for i, (_pin, _idx, _slug, tile) in enumerate(decorated):
-        out_tiles.append(set_tile_is_more(tile, i >= visible))
-    rebuilt = m.group(1) + "\n        " + "".join(out_tiles) + "\n      " + m.group(3)
-    return page[: m.start()] + rebuilt + page[m.end() :]
+    tiles = arrange_tiles_wwnn(tiles, cats_by_slug)
+    tiles = apply_home_tile_visibility(tiles, visible)
+    return _rebuild_home_grid(page, m, tiles)
 
 
-HUB_BLOCK = (
-    '<p class="landing-related-cluster hub-reciprocity">'
-    "<strong>Related:</strong> "
-    '<a href="../">Category overview</a>'
-    " · "
-    '<a href="../">Full guide</a>'
-    " · "
-    '<a href="{compare}">Comparison chart</a>'
-    "</p>"
+_HUB_CLUSTER_RE = re.compile(
+    r'<p class="landing-related-cluster hub-reciprocity">.*?</p>',
+    re.S,
 )
+
+
+def render_hub_block(kind: str) -> str:
+    """Related strip. Omit the current page so links are not self / duplicate."""
+    parts = ['<a href="../">Category overview</a>']
+    if kind == "comparison":
+        parts.append('<a href="../reviews/">Full guide</a>')
+    else:
+        parts.append('<a href="../comparison/">Comparison chart</a>')
+    return (
+        '<p class="landing-related-cluster hub-reciprocity">'
+        "<strong>Related:</strong> "
+        + " · ".join(parts)
+        + "</p>"
+    )
+
+
+_HERO_STEPS_RE = re.compile(r"\s*<ol class=\"cmp-hero-steps\">.*?</ol>", re.S)
+
+
+def strip_cmp_hero_steps(page: str) -> str:
+    """Drop the decorative Compare / Shortlist / Check price icon row.
+
+    Per-card Check price CTAs (``.product-cta`` / ``.top3-cta``) stay.
+    Live snapshots still ship the ``<ol>``; strip on every comparison bake.
+    """
+    return _HERO_STEPS_RE.sub("", page)
 
 
 def ensure_hub_reciprocity(page: str, kind: str) -> str:
     """Inbound path from comparison/ and reviews/ hubs back to /{slug}/."""
-    compare = "../comparison/" if kind == "reviews" else "./"
-    block = HUB_BLOCK.format(compare=compare)
+    block = render_hub_block(kind)
 
-    if 'class="landing-related-cluster hub-reciprocity"' not in page:
+    if _HUB_CLUSTER_RE.search(page):
+        page = _HUB_CLUSTER_RE.sub(block, page, count=1)
+    elif 'class="landing-related-cluster hub-reciprocity"' not in page:
         if kind == "reviews":
             page = re.sub(
                 r'(<header class="page-head">.*?</header>)',

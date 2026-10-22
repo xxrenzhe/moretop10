@@ -27,7 +27,7 @@ from chrome import (  # noqa: E402
     rewrite_footer,
     rewrite_non_home_nav,
 )
-from site_config import ALL_CATS, EDITORIAL_CLUSTERS  # noqa: E402
+from site_config import ALL_CATS, CATS_BY_SLUG, EDITORIAL_CLUSTERS, HOME_VISIBLE_TILES  # noqa: E402
 
 ROOT = Path(__file__).resolve().parents[2]
 SITE = ROOT / "site"
@@ -1388,7 +1388,7 @@ def patch_existing_chrome() -> int:
         text = path.read_text(encoding="utf-8")
         updated = rewrite_footer(text, ALL_CATS, prefix)
         if rel == "index.html":
-            updated = ensure_tv_home_tile(updated)
+            updated = ensure_tv_home_tile(updated, CATS_BY_SLUG, HOME_VISIBLE_TILES)
         if rel == "projectors/index.html":
             cluster = re.search(r'<p class="landing-related-cluster">.*?</p>', updated, re.S)
             if cluster and f"{prefix}tv/" not in cluster.group(0):
