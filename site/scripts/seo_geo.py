@@ -28,6 +28,8 @@ from pathlib import Path
 from typing import Any
 from urllib.parse import urljoin
 
+from watchouts import scrub_watchouts  # noqa: E402
+
 LIVE = "https://moretop10.com"
 ORG_LOGO = f"{LIVE}/icon-512.png"
 ROBOTS_INDEX = "index,follow,max-image-preview:large"
@@ -1395,6 +1397,7 @@ def apply_hub_page(
     html_text = rewrite_visible_jargon(html_text)
     products: list[dict[str, Any]] = []
     if cat:
+        html_text = scrub_watchouts(html_text, cat.get("slug"))
         cmp_products = (
             extract_comparison_products(cmp_html or html_text, cat["slug"])
             if (cmp_html or kind in {"comparison", "reviews", "review"})
