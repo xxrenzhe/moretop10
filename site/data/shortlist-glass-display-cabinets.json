@@ -1,0 +1,349 @@
+{
+  "generated": "2026-10-23",
+  "slug": "glass-display-cabinets",
+  "name": "Glass Display Cabinets",
+  "amazon_category": "Home & Kitchen",
+  "density": 10,
+  "density_target": 10,
+  "density_shortfall": false,
+  "status": "unpublished_scaffold",
+  "waiting_for_部署上线": "yes",
+  "inventory": "l2_partial",
+  "baked": true,
+  "live": false,
+  "publishable": true,
+  "cta_label": "Check price",
+  "cta_rule": "PB pboost.me keeps uid=fromsll when L2 ok + verified track; otherwise track_pending and no Check price",
+  "l2": {
+    "status": "partial",
+    "method": "mac_chrome_cdp_9333",
+    "ok_count": 9,
+    "blocked": [
+      "B0HJNLKK9R"
+    ]
+  },
+  "notes": [
+    "Day-add densify L2 2026-10-23. waiting_for_部署上线=yes. No Live.",
+    "Main products only — no fridge/Brita cartridges, mounts, or arms.",
+    "CTA = verified fromsll (pboost.me or PB Amazon maas). No invented hops.",
+    "Lifestyle cover remains a gradient placeholder.",
+    "Replaced B0HKK8PJJR with B0H9YH5DF9. Skipped blocked alt B0HDKZKXS9."
+  ],
+  "dropped_accessory_asins": [],
+  "picks": [
+    {
+      "asin": "B0GX149LLS",
+      "title": "Lvifur LED Glass Display Cabinet with 3 Drawer for Collectibles,Natural",
+      "title_source": "l2_pack",
+      "brand": "Lvifur",
+      "affiliate_network": "pb",
+      "affiliate_link": "https://pboost.me/N5QgdvCIE?uid=fromsll",
+      "track_status": "ok",
+      "l2_status": "ok",
+      "price": "189.99",
+      "price_raw": "$189.99",
+      "price_displayed": "$189.99",
+      "list_price": null,
+      "image": "https://m.media-amazon.com/images/I/81tLHdPJkeL._AC_SL1500_.jpg",
+      "availability": "In Stock",
+      "in_stock": true,
+      "rating": 5.0,
+      "review_count": 2,
+      "feature_bullets": [
+        "✨ 【Easy to assemble】The package comes with step-by-step instructions, all parts and accessories are labeled, it is recommended that you follow each step in the instructions! If there are any issues with missing items or damaged parts, just click \"Contact Seller\" to get a satisfactory solution.",
+        "✨ 【Ideal Holiday Gift】You can give this Bookcase to your husband, boyfriend, son or yourself on holidays/anniversaries, it is an ideal gift for various occasions such as Valentine's Day, Father's Day, Christmas, boyfriend's birthday or housewarming celebration.",
+        "✨ 【Pop-up Glass Doors】This sideboard features pop-up high-definition glass doors on both sides, allowing you to immediately appreciate the exquisite and stylish collection inside. The removable glass shelves can be easily installed and removed for convenient adjustments as needed. The center includes three drawers and an open display compartment, providing ample space."
+      ],
+      "l2": {
+        "ok": true,
+        "method": "mac_chrome_cdp",
+        "zip": "10001",
+        "fetched_at": "2026-10-23T09:53:21.589138+08:00"
+      }
+    },
+    {
+      "asin": "B0HLYY6BM2",
+      "title": "Lvifur 6-Tier Corner RGB LED Glass Display Cabinet with Human Sensor, Black",
+      "title_source": "l2_pack",
+      "brand": "Lvifur",
+      "affiliate_network": "pb",
+      "affiliate_link": "https://pboost.me/h5SME7aXd?uid=fromsll",
+      "track_status": "ok",
+      "l2_status": "ok",
+      "price": "199.99",
+      "price_raw": "$199.99",
+      "price_displayed": "$199.99",
+      "list_price": "$249.99",
+      "image": "https://m.media-amazon.com/images/I/81EXx5iLOqL._AC_SL1500_.jpg",
+      "availability": "In Stock",
+      "in_stock": true,
+      "rating": 5.0,
+      "review_count": 6,
+      "feature_bullets": [
+        "Maximize Wasted Corner Space: Designed as corner curio cabinet, it utilizes home dead‑corner space without extra floor occupation. Perfect for small apartments & compact living rooms, fits standard 90° household wall corners for easy placement",
+        "Tempered‑Glass Dust‑Proof Display Protection: Tempered glass doors & panels block dust while offering full view for your valuables. Keep collectibles, trophies & decor clean and visible; tempered glass features better shatter‑resistance than regular glass",
+        "Multi‑Tier Movable Display & Storage: Multi‑tier adjustable glass shelves create separated display & storage zones. Freely arrange ornaments, figurines and keepsakes in different heights; solid shelf stably holds daily decorative pieces"
+      ],
+      "l2": {
+        "ok": true,
+        "method": "mac_chrome_cdp",
+        "zip": "10001",
+        "fetched_at": "2026-10-23T09:53:32.133513+08:00"
+      }
+    },
+    {
+      "asin": "B0GRZLY75T",
+      "title": "69\" Corner Glass Curio Display with RGB Lights for Living Room, White",
+      "title_source": "l2_pack",
+      "brand": "Lvifur",
+      "affiliate_network": "pb",
+      "affiliate_link": "https://pboost.me/b5SM64wX0?uid=fromsll",
+      "track_status": "ok",
+      "l2_status": "ok",
+      "price": "209.99",
+      "price_raw": "$209.99",
+      "price_displayed": "$209.99",
+      "list_price": null,
+      "image": "https://m.media-amazon.com/images/I/71djUFNnIUL._AC_SL1500_.jpg",
+      "availability": "In Stock",
+      "in_stock": true,
+      "rating": null,
+      "review_count": null,
+      "feature_bullets": [
+        "【Easy to assemble】The package comes with step-by-step instructions, all parts and accessories are labeled, it is recommended that you follow each step in the instructions! If there are any issues with missing items or damaged parts, just click \"Contact Seller\" to get a satisfactory solution.",
+        "【High Quality】Our corner glass display are made of high-density engineered wood and high-definition glass, which is sturdy and durable. It is very suitable for use as a collection cabinet for the bedroom/e-sports room, an antique cabinet, a bookcase in the office/study, a wine cabinet in the restaurant, etc.",
+        "【Pop-up Glass Door】The pop-up high-definition glass door design of this curio cabinet allows you to enjoy the beauty of the collection at a glance, stylish and exquisite. 2 removable glass compartments and 1 removable wooden compartment can be installed/removed at any time, so that you can adjust it according to your needs."
+      ],
+      "l2": {
+        "ok": true,
+        "method": "mac_chrome_cdp",
+        "zip": "10001",
+        "fetched_at": "2026-10-23T09:53:41.712032+08:00"
+      }
+    },
+    {
+      "asin": "B0HLDJBJKX",
+      "title": "Lvifur Rotating 360 Glass Display Cabinet with RGB Light - Auto Sensor",
+      "title_source": "l2_pack",
+      "brand": "Lvifur",
+      "affiliate_network": "pb",
+      "affiliate_link": "https://pboost.me/c5SMqaW7?uid=fromsll",
+      "track_status": "ok",
+      "l2_status": "ok",
+      "price": "219.99",
+      "price_raw": "$219.99",
+      "price_displayed": "$219.99",
+      "list_price": null,
+      "image": "https://m.media-amazon.com/images/I/81Jp9HZnEsL._AC_SL1500_.jpg",
+      "availability": "In Stock",
+      "in_stock": true,
+      "rating": 5.0,
+      "review_count": 1,
+      "feature_bullets": [
+        "RGB Lighting with App Control：This LED display cabinet supports custom lighting settings via a user‑friendly mobile app. It comes with 5 dynamic and 7 static lighting modes along with adjustable brightness, bringing modern and interactive flair to your glass display case",
+        "360° Rotation Full Clear Glass Display：Boasting HD tempered glass on four sides (front, sides and back) for maximized viewing visibility, this curio cabinet is fitted with a 360‑degree swivel base. Your Legos, figurines and collectibles can be clearly viewed from every angle",
+        "Intelligent Human Motion Sensor：Equipped with a human‑body sensing system, this smart glass cabinet automatically turns on its lights when you come within 2 meters. It accentuates your collectibles even in darkness, the human‑centered design boosts convenience while saving energy"
+      ],
+      "l2": {
+        "ok": true,
+        "method": "mac_chrome_cdp",
+        "zip": "10001",
+        "fetched_at": "2026-10-23T09:53:49.770442+08:00"
+      }
+    },
+    {
+      "asin": "B0HL87SRGG",
+      "title": "Lvifur Rotating 360 Glass Display Cabinet with RGB Light - Auto Sensor",
+      "title_source": "l2_pack",
+      "brand": "Lvifur",
+      "affiliate_network": "pb",
+      "affiliate_link": "https://pboost.me/Y5SMeTWa?uid=fromsll",
+      "track_status": "ok",
+      "l2_status": "ok",
+      "price": "219.99",
+      "price_raw": "$219.99",
+      "price_displayed": "$219.99",
+      "list_price": null,
+      "image": "https://m.media-amazon.com/images/I/91Q-D0AzsVL._AC_SL1500_.jpg",
+      "availability": "In Stock",
+      "in_stock": true,
+      "rating": 5.0,
+      "review_count": 1,
+      "feature_bullets": [
+        "RGB Lighting with App Control：This LED display cabinet supports custom lighting settings via a user‑friendly mobile app. It comes with 5 dynamic and 7 static lighting modes along with adjustable brightness, bringing modern and interactive flair to your glass display case",
+        "360° Rotation Full Clear Glass Display：Boasting HD tempered glass on four sides (front, sides and back) for maximized viewing visibility, this curio cabinet is fitted with a 360‑degree swivel base. Your Legos, figurines and collectibles can be clearly viewed from every angle",
+        "Intelligent Human Motion Sensor：Equipped with a human‑body sensing system, this smart glass cabinet automatically turns on its lights when you come within 2 meters. It accentuates your collectibles even in darkness, the human‑centered design boosts convenience while saving energy"
+      ],
+      "l2": {
+        "ok": true,
+        "method": "mac_chrome_cdp",
+        "zip": "10001",
+        "fetched_at": "2026-10-23T09:53:58.337719+08:00"
+      }
+    },
+    {
+      "asin": "B0FJ1XNFS1",
+      "title": "69\" Corner Glass Display Cabinet with RGB Lights for Living Room, White",
+      "title_source": "l2_pack",
+      "brand": null,
+      "affiliate_network": "pb",
+      "affiliate_link": "https://pboost.me/h5SMwMaWD?uid=fromsll",
+      "track_status": "ok",
+      "l2_status": "ok",
+      "price": "179.99",
+      "price_raw": "$179.99",
+      "price_displayed": "$179.99",
+      "list_price": "$199.99",
+      "image": "https://m.media-amazon.com/images/I/81opfi3M+FL._AC_SL1500_.jpg",
+      "availability": "In Stock",
+      "in_stock": true,
+      "rating": 4.6,
+      "review_count": 56,
+      "feature_bullets": [
+        "【High Quality】Our corner glass display are made of high-density engineered wood and high-definition glass, which is sturdy and durable. It is very suitable for use as a collection cabinet for the bedroom/e-sports room, an antique cabinet, a bookcase in the office/study, a wine cabinet in the restaurant, etc.",
+        "【Pop-up Glass Door】The pop-up high-definition glass door design of this curio cabinet allows you to enjoy the beauty of the collection at a glance, stylish and exquisite. 2 removable glass compartments and 1 removable wooden compartment can be installed/removed at any time, so that you can adjust it according to your needs.",
+        "【Smart Human Body Sensing】Our storage cabinet is equipped with a smart sensor. You only need to turn on the human body sensing function, and the light will automatically light up when you approach. After leaving, the light will automatically turn off."
+      ],
+      "l2": {
+        "ok": true,
+        "method": "mac_chrome_cdp",
+        "zip": "10001",
+        "fetched_at": "2026-10-23T09:54:08.087017+08:00"
+      }
+    },
+    {
+      "asin": "B0HKM1SFLZ",
+      "title": "Lvifur 6-Tier Corner Display Cabinet for Collectibles, Black",
+      "title_source": "l2_pack",
+      "brand": null,
+      "affiliate_network": "pb",
+      "affiliate_link": "https://pboost.me/Q5SMUaVd?uid=fromsll",
+      "track_status": "ok",
+      "l2_status": "ok",
+      "price": "169.99",
+      "price_raw": "$169.99",
+      "price_displayed": "$169.99",
+      "list_price": "$199.99",
+      "image": "https://m.media-amazon.com/images/I/81m3DT+7X9L._AC_SL1500_.jpg",
+      "availability": "In Stock",
+      "in_stock": true,
+      "rating": 4.5,
+      "review_count": 38,
+      "feature_bullets": [
+        "Easy Assembly Process: package comes with step-by-step instructions, all parts and accessories are labeled, it is recommended that you follow each step in the instructions for straightforward setup",
+        "Gift Option for Various Occasions: display case can be given to your husband, boyfriend, son or yourself on holidays and anniversaries such as Valentine's Day, Father's Day, Christmas, birthdays or housewarming celebrations",
+        "RGB Magic Light with Multiple Modes: glass display cabinet is equipped with 7 static lights and 5 dynamic dancing light modes, adding a modern touch to your living space. Touch the switch to change the color mode, or adjust the brightness by long pressing the touch. The human body sensing function automatically lights up when you approach and turns off after leaving"
+      ],
+      "l2": {
+        "ok": true,
+        "method": "mac_chrome_cdp",
+        "zip": "10001",
+        "fetched_at": "2026-10-23T09:54:18.162041+08:00"
+      }
+    },
+    {
+      "asin": "B0GWDYRQKM",
+      "title": "65\"H Corner Display Cabinet with Glass Doors and Sensor Lights,lock,White",
+      "title_source": "l2_pack",
+      "brand": null,
+      "affiliate_network": "pb",
+      "affiliate_link": "https://pboost.me/i5SMH2Wc?uid=fromsll",
+      "track_status": "ok",
+      "l2_status": "ok",
+      "price": "189.99",
+      "price_raw": "$189.99",
+      "price_displayed": "$189.99",
+      "list_price": null,
+      "image": "https://m.media-amazon.com/images/I/816azcdaG6L._AC_SL1500_.jpg",
+      "availability": "In Stock",
+      "in_stock": true,
+      "rating": 5.0,
+      "review_count": 1,
+      "feature_bullets": [
+        "【Lockable Pop-Up Glass Doors】The curio cabinet with locking pop-up magnetic tempered glass doors creates an unobstructed view of your collection, while the handle-less design adds sleek sophistication, and the locking design can keep your collection safer",
+        "【Smart Human Sensor】With its intelligent human body sensing system, this lighted curio cabinet automatically turns on/off when you approach or leave within 2-3 meter, save more energy",
+        "【3 Color LED Lights】This lighed glass display cabinet features 3 color LED lights (white light, warm light, blue light) and the brightness can be adjustable, add a modern touch to your room and allow for clear display even in the dark"
+      ],
+      "l2": {
+        "ok": true,
+        "method": "mac_chrome_cdp",
+        "zip": "10001",
+        "fetched_at": "2026-10-23T09:54:26.308522+08:00"
+      }
+    },
+    {
+      "asin": "B0H9YH5DF9",
+      "title": "Lvifur RGB Glass Display Cabinet with Glass Doors for Collectibles, Black",
+      "title_source": "l2_pack",
+      "brand": "Lvifur",
+      "affiliate_network": "pb",
+      "affiliate_link": "https://www.amazon.com/dp/B0H9YH5DF9?maas=maas_adg_api_586569983377671966_static_12_201&ref_=aa_maas&tag=maas&aa_campaignid=PB37cca3e7667aa242b7ceab100326ca9b_022ae8672cca&aa_adgroupid=1c74og0VQp09jNJQyoE7YUJELwcqa3Je0Ulbq3x3sgAanNyGAj3UFem3rHvc8KjB7VGy35bcB4KetjW8_aJLw_b15I4w_c_c&aa_creativeid=12a9uoAvEmHjDbE4JU6FilvTXwls4_awL5uqxdby2gF1XlZs_c&uid=fromsll",
+      "track_status": "ok",
+      "l2_status": "ok",
+      "price": "89.99",
+      "price_raw": "$89.99",
+      "price_displayed": "$89.99",
+      "list_price": "$109.99",
+      "image": "https://m.media-amazon.com/images/I/81Y5dyOfQmL._AC_SL1500_.jpg",
+      "availability": "In Stock",
+      "in_stock": true,
+      "rating": 4.8,
+      "review_count": 9,
+      "feature_bullets": [
+        "【RGB LED Lighting System】Lvifur Modern Curio Cabinet built-in adjustable LED light strips with multiple lighting modes(5 Dynamic Lighting Modes & 7 Static Lighting Modes); illuminates your collectibles, figurines and decorations; creates stylish atmosphere for bedroom, gaming room and entertainment space",
+        "【Dual Ports Built-in Charging Station】This High Gloss Display Cabinet is specially designed for technology lovers. It is equipped with USB-A and Type-C interfaces. Fully meet the charging needs of various mobile phone models on the market, bringing a convenient bedside charging experience.",
+        "【Intelligent Human Sensor】With its intelligent human body sensing system, this modern China Cabinet glass display cabinet will light up automatically when you approach within 2 meters. It allows clear display even in the dark, the humanized design make life more convenient"
+      ],
+      "l2": {
+        "ok": true,
+        "method": "mac_chrome_cdp",
+        "zip": "10001",
+        "fetched_at": "2026-10-23T09:52:15.337143+08:00"
+      }
+    },
+    {
+      "asin": "B0HJNLKK9R",
+      "title": "Lvifur 6-Tier Corner RGB LED Glass Display Cabinet with Human Sensor, Black",
+      "title_source": "densify_sot",
+      "brand": null,
+      "affiliate_network": "pb",
+      "affiliate_link": null,
+      "track_status": "track_pending",
+      "l2_status": "l2_blocked",
+      "price": null,
+      "price_raw": null,
+      "price_displayed": null,
+      "list_price": null,
+      "image": null,
+      "availability": null,
+      "in_stock": null,
+      "rating": null,
+      "review_count": null,
+      "feature_bullets": [],
+      "l2": {
+        "ok": false,
+        "method": "mac_chrome_cdp",
+        "status": "blocked"
+      },
+      "held_track": "https://pboost.me/n5SMZ2dX1?uid=fromsll",
+      "held_track_note": "PB fromsll track exists; CTA withheld until L2 ok"
+    }
+  ],
+  "l2_ok_asins": [
+    "B0GX149LLS",
+    "B0HLYY6BM2",
+    "B0GRZLY75T",
+    "B0HLDJBJKX",
+    "B0HL87SRGG",
+    "B0FJ1XNFS1",
+    "B0HKM1SFLZ",
+    "B0GWDYRQKM",
+    "B0H9YH5DF9"
+  ],
+  "l2_pending_asins": [
+    "B0HJNLKK9R"
+  ],
+  "track_pending_asins": [
+    "B0HJNLKK9R"
+  ]
+}

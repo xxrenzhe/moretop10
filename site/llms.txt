@@ -27,6 +27,7 @@
 - [Blog](https://moretop10.com/blog/): Buying guides and editorial notes
 - [Sitemap](https://moretop10.com/sitemap/): HTML sitemap
 - [Partner With Us](https://moretop10.com/partner-with-us/): Brand partnerships
+- [Smart TV ads](https://moretop10.com/tv/): Editorial guide cluster (not a Top 10 product category; we do not pad it to ten SKUs)
 
 ## Category hubs (money pages)
 - [Robot Vacuums & Mops](https://moretop10.com/robot-vacuums/): Top 10 shortlist and buying guide. Top pick (as published): eufy Omni C20 Robot Vacuum and Mop Combo at $379.99.
@@ -92,6 +93,33 @@
 - [Kids Bikes](https://moretop10.com/kids-bikes/): Top 10 shortlist and buying guide. Top pick (as published): RoyalBaby EZ Kids Bike, 12-20 Inch Balance & at $239.99.
  - Comparison: https://moretop10.com/kids-bikes/comparison/
  - Reviews: https://moretop10.com/kids-bikes/reviews/
+- [Hearing Aids](https://moretop10.com/hearing-aids/): Top 10 shortlist and buying guide. Top pick (as published): Beyond 2 Pro Bluetooth OTC Hearing Aids, 39% Clearer Speech at $799.00.
+ - Comparison: https://moretop10.com/hearing-aids/comparison/
+ - Reviews: https://moretop10.com/hearing-aids/reviews/
+- [Water Filters](https://moretop10.com/water-filters/): Top 10 shortlist and buying guide. Top pick (as published): Waterdrop C1S Countertop Reverse Osmosis Water Filter, 6-Stage Filtration at $219.00.
+ - Comparison: https://moretop10.com/water-filters/comparison/
+ - Reviews: https://moretop10.com/water-filters/reviews/
+- [Under-Sink & Countertop Filtration](https://moretop10.com/under-sink-countertop-filtration/): Top 10 shortlist and buying guide. Top pick (as published): Waterdrop TSV-A 0.01μm Ultra Filtration Under Sink Water Filter System at $179.99.
+ - Comparison: https://moretop10.com/under-sink-countertop-filtration/comparison/
+ - Reviews: https://moretop10.com/under-sink-countertop-filtration/reviews/
+- [Pitcher Water Filters](https://moretop10.com/pitcher-water-filters/): Top 10 shortlist and buying guide. Top pick (as published): Waterdrop ED06W Electric Water Filter Pitcher with 2 Filters, last 4 Months at $49.99.
+ - Comparison: https://moretop10.com/pitcher-water-filters/comparison/
+ - Reviews: https://moretop10.com/pitcher-water-filters/reviews/
+- [Doormats](https://moretop10.com/doormats/): Top 10 shortlist and buying guide. Top pick (as published): JSEI Dirt Trapper Door Mat 24" x 36", Non-Slip Washable Doormats, Blue at $23.99.
+ - Comparison: https://moretop10.com/doormats/comparison/
+ - Reviews: https://moretop10.com/doormats/reviews/
+- [Split-System](https://moretop10.com/split-system/): Top 10 shortlist and buying guide. Top pick (as published): Energy Star 9000 BTU Mini Split AC/Heating System 23 SEER2 230V at $639.99.
+ - Comparison: https://moretop10.com/split-system/comparison/
+ - Reviews: https://moretop10.com/split-system/reviews/
+- [Stage Lights](https://moretop10.com/stage-lights/): Top 10 shortlist and buying guide. Top pick (as published): SHEHDS Par Can Lights LED 7x18W RGBWAP 6in1 Wash Stage Lights 6 Pack at $279.99.
+ - Comparison: https://moretop10.com/stage-lights/comparison/
+ - Reviews: https://moretop10.com/stage-lights/reviews/
+- [Glass Display Cabinets](https://moretop10.com/glass-display-cabinets/): Top 10 shortlist and buying guide. Top pick (as published): Lvifur LED Glass Display Cabinet with 3 Drawer for Collectibles,Natural at $189.99.
+ - Comparison: https://moretop10.com/glass-display-cabinets/comparison/
+ - Reviews: https://moretop10.com/glass-display-cabinets/reviews/
+- [Document Scanners](https://moretop10.com/document-scanners/): Top 10 shortlist and buying guide. Top pick (as published): CZUR ET18 Pro Book Scanner with Assistive Cover – 18MP Overhead Document Scanner, Flatten Curved Pages, Fast Scanning with OCR for Books, A3 Documents, Office & Home Use at $503.01.
+ - Comparison: https://moretop10.com/document-scanners/comparison/
+ - Reviews: https://moretop10.com/document-scanners/reviews/
 
 ## Product-level AI excerpts
 Category hub and comparison cards expose `#geo-{ASIN}` anchors when the Amazon ASIN is present
@@ -120,6 +148,15 @@ A missing `#geo-` link means we did not have an ASIN in the baked HTML — not a
 - [Self-Cleaning Litter Boxes · Top pick excerpt](https://moretop10.com/litter-boxes/#geo-B0DFYF2D7D): PETKIT PuraMax 2 Odor Free Automatic Cat Litter
 - [Dash Cams · Top pick excerpt](https://moretop10.com/dash-cams/#geo-B098WVKF19): REDTIGER F7NP 4K Dash Cam Front Rear, STARVIS
 - [Kids Bikes · Top pick excerpt](https://moretop10.com/kids-bikes/#geo-B0BCQ1VJDP): RoyalBaby EZ Kids Bike, 12-20 Inch Balance &
+- [Hearing Aids · Top pick excerpt](https://moretop10.com/hearing-aids/#geo-B0HFMHBCB2): Beyond 2 Pro Bluetooth OTC Hearing Aids, 39% Clearer Speech
+- [Water Filters · Top pick excerpt](https://moretop10.com/water-filters/#geo-B0GWCWN64R): Waterdrop C1S Countertop Reverse Osmosis Water Filter, 6-Stage Filtration
+- [Under-Sink & Countertop Filtration · Top pick excerpt](https://moretop10.com/under-sink-countertop-filtration/#geo-B0HGF8V9BW): Waterdrop TSV-A 0.01μm Ultra Filtration Under Sink Water Filter System
+- [Pitcher Water Filters · Top pick excerpt](https://moretop10.com/pitcher-water-filters/#geo-B0F8VVH6PN): Waterdrop ED06W Electric Water Filter Pitcher with 2 Filters, last 4 Months
+- [Doormats · Top pick excerpt](https://moretop10.com/doormats/#geo-B0GS4BCZCG): JSEI Dirt Trapper Door Mat 24" x 36", Non-Slip Washable Doormats, Blue
+- [Split-System · Top pick excerpt](https://moretop10.com/split-system/#geo-B0HKJWF4V8): Energy Star 9000 BTU Mini Split AC/Heating System 23 SEER2 230V
+- [Stage Lights · Top pick excerpt](https://moretop10.com/stage-lights/#geo-B0GLWVYMWP): SHEHDS Par Can Lights LED 7x18W RGBWAP 6in1 Wash Stage Lights 6 Pack
+- [Glass Display Cabinets · Top pick excerpt](https://moretop10.com/glass-display-cabinets/#geo-B0GX149LLS): Lvifur LED Glass Display Cabinet with 3 Drawer for Collectibles,Natural
+- [Document Scanners · Top pick excerpt](https://moretop10.com/document-scanners/#geo-B0GT986QDS): CZUR ET18 Pro Book Scanner with Assistive Cover – 18MP Overhead Document Scanner, Flatten Curved Pages, Fast Scanning with OCR for Books, A3 Documents, Office & Home Use
 
 ## Authors
 - [Alex Rivera](https://moretop10.com/authors/alex-rivera/) — Floor Care Editor
@@ -130,97 +167,6 @@ A missing `#geo-` link means we did not have an ASIN in the baked HTML — not a
 - [Priya Nair](https://moretop10.com/authors/priya-nair/) — Buyer's Guide Editor
 - [MoreTop10 Editors](https://moretop10.com/authors/moretop10-editors/) — Editorial team
 
-## Head-to-head, alternatives & how-to (editorial clusters)
-, alternatives & how-to (editorial clusters)
-, alternatives & how-to (editorial clusters)
-- [eufy Omni C20 vs Roborock Q10 S5](https://moretop10.com/robot-vacuums/eufy-omni-c20-vs-roborock-q10-s5/): Head-to-head with Check price CTAs
-- [eufy E25 vs Roborock Saros 10R](https://moretop10.com/robot-vacuums/eufy-e25-vs-roborock-saros-10r/): Head-to-head with Check price CTAs
-- [Premium alternatives](https://moretop10.com/robot-vacuums/premium-robot-vacuum-alternatives/): Sideways picks when #1 overshoots (Robot Vacuums & Mops)
-- [How to choose](https://moretop10.com/robot-vacuums/how-to-choose-a-robot-vacuum/): Decision framework for robot vacuums
-- [Best for hardwood](https://moretop10.com/robot-vacuums/best-robot-vacuums-for-hardwood/): Scene shortlist inside Robot Vacuums & Mops
-- [Pet homes niche](https://moretop10.com/robot-vacuums/pet-homes/): Scene shortlist inside Robot Vacuums & Mops
-- [Best for carpet](https://moretop10.com/robot-vacuums/best-robot-vacuums-for-carpet/): Scene shortlist inside Robot Vacuums & Mops
-- [COSORI TwinFry 9 QT vs Tastee Ceramic 5.5 QT](https://moretop10.com/air-fryers/cosori-twinfry-9-qt-vs-tastee-ceramic-5-5-qt/): Head-to-head with Check price CTAs
-- [Premium alternatives](https://moretop10.com/air-fryers/premium-air-fryer-alternatives/): Sideways picks when #1 overshoots (Air Fryers)
-- [How to choose](https://moretop10.com/air-fryers/how-to-choose-an-air-fryer/): Decision framework for air fryers
-- [Best for families](https://moretop10.com/air-fryers/best-air-fryers-for-families/): Scene shortlist inside Air Fryers
-- [LEVOIT VortexIQ Pro vs Roborock H60 Hub Ultra](https://moretop10.com/cordless-vacuums/levoit-vortexiq-pro-vs-roborock-h60-hub-ultra/): Head-to-head with Check price CTAs
-- [Premium alternatives](https://moretop10.com/cordless-vacuums/premium-cordless-vacuum-alternatives/): Sideways picks when #1 overshoots (Cordless Vacuums)
-- [How to choose](https://moretop10.com/cordless-vacuums/how-to-choose-a-cordless-vacuum/): Decision framework for cordless vacuums
-- [Best for pet hair](https://moretop10.com/cordless-vacuums/best-cordless-vacuums-for-pet-hair/): Scene shortlist inside Cordless Vacuums
-- [LEVOIT Vital Pet Pro vs Dreame AP10](https://moretop10.com/air-purifiers/levoit-vital-pet-pro-vs-dreame-ap10/): Head-to-head with Check price CTAs
-- [Premium alternatives](https://moretop10.com/air-purifiers/premium-air-purifier-alternatives/): Sideways picks when #1 overshoots (Air Purifiers)
-- [How to choose](https://moretop10.com/air-purifiers/how-to-choose-an-air-purifier/): Decision framework for air purifiers
-- [Best for pets](https://moretop10.com/air-purifiers/best-air-purifiers-for-pets/): Scene shortlist inside Air Purifiers
-- [CASABREWS 5418 PRO vs Gevi 20 Bar with Grinder](https://moretop10.com/espresso-machines/casabrews-5418-pro-vs-gevi-20-bar-with-grinder/): Head-to-head with Check price CTAs
-- [Premium alternatives](https://moretop10.com/espresso-machines/premium-espresso-machine-alternatives/): Sideways picks when #1 overshoots (Espresso Machines)
-- [How to choose](https://moretop10.com/espresso-machines/how-to-choose-an-espresso-machine/): Decision framework for espresso machines
-- [Best with grinder](https://moretop10.com/espresso-machines/best-espresso-machines-with-grinder/): Scene shortlist inside Espresso Machines
-- [Roborock F25 BX vs F25 Ultra Steam](https://moretop10.com/wet-dry-vacuums/roborock-f25-bx-vs-f25-ultra-steam/): Head-to-head with Check price CTAs
-- [Premium alternatives](https://moretop10.com/wet-dry-vacuums/premium-wet-dry-vacuum-alternatives/): Sideways picks when #1 overshoots (Wet Dry Vacuums)
-- [How to choose](https://moretop10.com/wet-dry-vacuums/how-to-choose-a-wet-dry-vacuum/): Decision framework for wet dry vacuums
-- [Best for hard floors](https://moretop10.com/wet-dry-vacuums/best-wet-dry-vacuums-for-hard-floors/): Scene shortlist inside Wet Dry Vacuums
-- [eufy SoloCam S220 vs Reolink E1](https://moretop10.com/security-cameras/eufy-solocam-s220-vs-reolink-e1/): Head-to-head with Check price CTAs
-- [Premium alternatives](https://moretop10.com/security-cameras/premium-security-camera-alternatives/): Sideways picks when #1 overshoots (Security Cameras)
-- [How to choose](https://moretop10.com/security-cameras/how-to-choose-a-security-camera/): Decision framework for security cameras
-- [Best solar cameras](https://moretop10.com/security-cameras/best-solar-security-cameras/): Scene shortlist inside Security Cameras
-- [eufy E340 vs aosu Wireless](https://moretop10.com/video-doorbells/eufy-e340-vs-aosu-wireless/): Head-to-head with Check price CTAs
-- [Premium alternatives](https://moretop10.com/video-doorbells/premium-video-doorbell-alternatives/): Sideways picks when #1 overshoots (Video Doorbells)
-- [How to choose](https://moretop10.com/video-doorbells/how-to-choose-a-video-doorbell/): Decision framework for video doorbells
-- [Best for apartments](https://moretop10.com/video-doorbells/best-video-doorbells-for-apartments/): Scene shortlist inside Video Doorbells
-- [soundcore Space One Pro vs Edifier WH950NB Gen 2](https://moretop10.com/noise-cancelling-headphones/soundcore-space-one-pro-vs-edifier-wh950nb/): Head-to-head with Check price CTAs
-- [Premium alternatives](https://moretop10.com/noise-cancelling-headphones/premium-noise-cancelling-headphones-alternatives/): Sideways picks when #1 overshoots (Noise-Cancelling Headphones)
-- [How to choose](https://moretop10.com/noise-cancelling-headphones/how-to-choose-noise-cancelling-headphones/): Decision framework for noise cancelling headphones
-- [Best for travel](https://moretop10.com/noise-cancelling-headphones/best-noise-cancelling-headphones-for-travel/): Scene shortlist inside Noise-Cancelling Headphones
-- [FEZIBO 60×30 vs FEZIBO 48×24](https://moretop10.com/standing-desks/fezibo-60x30-vs-fezibo-48x24/): Head-to-head with Check price CTAs
-- [Premium alternatives](https://moretop10.com/standing-desks/premium-standing-desk-alternatives/): Sideways picks when #1 overshoots (Standing Desks)
-- [How to choose](https://moretop10.com/standing-desks/how-to-choose-a-standing-desk/): Decision framework for standing desks
-- [Best for small offices](https://moretop10.com/standing-desks/best-standing-desks-for-small-offices/): Scene shortlist inside Standing Desks
-- [Capsule 3 vs X1 4K](https://moretop10.com/projectors/nebula-capsule-3-vs-nebula-x1-4k/): Head-to-head with Check price CTAs
-- [Premium alternatives](https://moretop10.com/projectors/premium-projector-alternatives/): Sideways picks when #1 overshoots (Projectors)
-- [How to choose](https://moretop10.com/projectors/how-to-choose-a-projector/): Decision framework for projectors
-- [Best for outdoors](https://moretop10.com/projectors/best-portable-projectors-for-outdoors/): Scene shortlist inside Projectors
-- [X6 Pro Max vs X6 Pro](https://moretop10.com/massage-guns/bob-brad-x6-pro-max-vs-x6-pro/): Head-to-head with Check price CTAs
-- [Premium alternatives](https://moretop10.com/massage-guns/premium-massage-gun-alternatives/): Sideways picks when #1 overshoots (Massage Guns)
-- [How to choose](https://moretop10.com/massage-guns/how-to-choose-a-massage-gun/): Decision framework for massage guns
-- [Best with heat](https://moretop10.com/massage-guns/best-massage-guns-with-heat/): Scene shortlist inside Massage Guns
-- [Levoit vs Homvana](https://moretop10.com/humidifiers/levoit-bedroom-vs-homvana-cool-mist/): Head-to-head with Check price CTAs
-- [Premium alternatives](https://moretop10.com/humidifiers/premium-humidifier-alternatives/): Sideways picks when #1 overshoots (Humidifiers)
-- [How to choose](https://moretop10.com/humidifiers/how-to-choose-a-humidifier/): Decision framework for humidifiers
-- [Best for bedrooms](https://moretop10.com/humidifiers/best-humidifiers-for-bedrooms/): Scene shortlist inside Humidifiers
-- [Waykar vs AEOCKY](https://moretop10.com/dehumidifiers/waykar-80-pint-vs-aeocky-50-pint/): Head-to-head with Check price CTAs
-- [Premium alternatives](https://moretop10.com/dehumidifiers/premium-dehumidifier-alternatives/): Sideways picks when #1 overshoots (Dehumidifiers)
-- [How to choose](https://moretop10.com/dehumidifiers/how-to-choose-a-dehumidifier/): Decision framework for dehumidifiers
-- [Best for basements](https://moretop10.com/dehumidifiers/best-dehumidifiers-for-basements/): Scene shortlist inside Dehumidifiers
-- [Levoit 26 vs 28 ft/s](https://moretop10.com/tower-fans/levoit-26fts-vs-levoit-28fts/): Head-to-head with Check price CTAs
-- [Premium alternatives](https://moretop10.com/tower-fans/premium-tower-fan-alternatives/): Sideways picks when #1 overshoots (Tower Fans)
-- [How to choose](https://moretop10.com/tower-fans/how-to-choose-a-tower-fan/): Decision framework for tower fans
-- [Best for bedrooms](https://moretop10.com/tower-fans/best-tower-fans-for-bedrooms/): Scene shortlist inside Tower Fans
-- [M60 vs G1000 II](https://moretop10.com/computer-speakers/edifier-m60-vs-edifier-g1000-ii/): Head-to-head with Check price CTAs
-- [Premium alternatives](https://moretop10.com/computer-speakers/premium-computer-speaker-alternatives/): Sideways picks when #1 overshoots (Computer Speakers)
-- [How to choose](https://moretop10.com/computer-speakers/how-to-choose-computer-speakers/): Decision framework for computer speakers
-- [Best for desks](https://moretop10.com/computer-speakers/best-computer-speakers-for-desks/): Scene shortlist inside Computer Speakers
-- [Boom 2 vs Soundcore 3](https://moretop10.com/bluetooth-speakers/soundcore-boom-2-vs-soundcore-3/): Head-to-head with Check price CTAs
-- [Premium alternatives](https://moretop10.com/bluetooth-speakers/premium-bluetooth-speaker-alternatives/): Sideways picks when #1 overshoots (Bluetooth Speakers)
-- [How to choose](https://moretop10.com/bluetooth-speakers/how-to-choose-a-bluetooth-speaker/): Decision framework for Bluetooth speakers
-- [Best for outdoors](https://moretop10.com/bluetooth-speakers/best-bluetooth-speakers-for-outdoors/): Scene shortlist inside Bluetooth Speakers
-- [Laifen SE 2 vs Wavytalk](https://moretop10.com/hair-dryers/laifen-se-2-vs-wavytalk-turblow-pro/): Head-to-head with Check price CTAs
-- [Premium alternatives](https://moretop10.com/hair-dryers/premium-hair-dryer-alternatives/): Sideways picks when #1 overshoots (Hair Dryers)
-- [How to choose](https://moretop10.com/hair-dryers/how-to-choose-a-hair-dryer/): Decision framework for hair dryers
-- [Best high-speed](https://moretop10.com/hair-dryers/best-high-speed-hair-dryers/): Scene shortlist inside Hair Dryers
-- [PuraMax 2 vs PetPivot](https://moretop10.com/litter-boxes/petkit-puramax-2-vs-petpivot-open-top/): Head-to-head with Check price CTAs
-- [Premium alternatives](https://moretop10.com/litter-boxes/premium-litter-box-alternatives/): Sideways picks when #1 overshoots (Self-Cleaning Litter Boxes)
-- [How to choose](https://moretop10.com/litter-boxes/how-to-choose-a-self-cleaning-litter-box/): Decision framework for self-cleaning litter boxes
-- [Best odor control](https://moretop10.com/litter-boxes/best-odor-control-litter-boxes/): Scene shortlist inside Self-Cleaning Litter Boxes
-- [F7NP vs F9](https://moretop10.com/dash-cams/redtiger-f7np-vs-redtiger-f9/): Head-to-head with Check price CTAs
-- [Premium alternatives](https://moretop10.com/dash-cams/premium-dash-cam-alternatives/): Sideways picks when #1 overshoots (Dash Cams)
-- [How to choose](https://moretop10.com/dash-cams/how-to-choose-a-dash-cam/): Decision framework for dash cams
-- [Best 4K front/rear](https://moretop10.com/dash-cams/best-4k-front-rear-dash-cams/): Scene shortlist inside Dash Cams
-- [EZ vs Dual Handbrake](https://moretop10.com/kids-bikes/royalbaby-ez-vs-dual-handbrake/): Head-to-head with Check price CTAs
-- [Premium alternatives](https://moretop10.com/kids-bikes/premium-kids-bike-alternatives/): Sideways picks when #1 overshoots (Kids Bikes)
-- [How to choose](https://moretop10.com/kids-bikes/how-to-choose-a-kids-bike/): Decision framework for kids bikes
-- [Best balance-to-pedal](https://moretop10.com/kids-bikes/best-balance-to-pedal-kids-bikes/): Scene shortlist inside Kids Bikes
-
 ## Optional mirrors
 - This file: https://moretop10.com/llms.txt
 - Well-known copy: https://moretop10.com/.well-known/llms.txt
@@ -228,17 +174,3 @@ A missing `#geo-` link means we did not have an ASIN in the baked HTML — not a
 - Robots: https://moretop10.com/robots.txt
 
 Last updated: 2026-10-20
-
-## Editorial guides
-- [Smart TV ads](https://moretop10.com/tv/): Can you turn off ads, then what to do when the software path fails. Not a Top 10 product category — we do not pad this cluster to ten SKUs.
-  - Remove ads: https://moretop10.com/tv/remove-smart-tv-ads/
-  - Supported models: https://moretop10.com/tv/supported-android-tv-models/
-  - Alternatives (Google TV whole TVs): https://moretop10.com/tv/smart-tv-ad-alternatives/
-  - Launchers: https://moretop10.com/tv/best-launcher-for-android-tv/
-  - ADB troubleshooting: https://moretop10.com/tv/adb-debloat-not-working/
-  - Non-smart TVs: https://moretop10.com/tv/best-non-smart-tv/
-  - Privacy TVs: https://moretop10.com/tv/best-tv-for-privacy/
-  - Samsung Tizen: https://moretop10.com/tv/samsung-smart-tv-ads/
-  - LG webOS: https://moretop10.com/tv/lg-smart-tv-ads/
-  - Fire TV panels: https://moretop10.com/tv/fire-tv-ads/
-  - Google / Android TV: https://moretop10.com/tv/google-tv-ads/

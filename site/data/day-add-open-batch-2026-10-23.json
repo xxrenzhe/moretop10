@@ -1,0 +1,2400 @@
+{
+  "generated_from": "day-add-from-inventory-2026-10-23.json",
+  "waiting_for_部署上线": "yes",
+  "sites": {
+    "mt10": {
+      "ready_count": 11,
+      "notes": "检索PB∪YP；新类目标≥10；ready_for_draft",
+      "niches": [
+        {
+          "slug": "hearing-aids",
+          "niche_label": "Hearing Aids",
+          "category": "Health & Household",
+          "healthy_count": 31,
+          "asins": [
+            "B0HFMHBCB2",
+            "B0HFM9DXKF",
+            "B0GSVXB2N7",
+            "B0DXL23JNF",
+            "B0FZBVVNR6",
+            "B0F4XN36V3",
+            "B0HJCPDBZ1",
+            "B0HBQ15XYR",
+            "B0H9RR7SCC",
+            "B0GPVFL1D5",
+            "B0GKNQRK4D",
+            "B0FPQMPBK1",
+            "B0FDKQWJR4",
+            "B0F53QV6PM",
+            "B0F4D28154"
+          ],
+          "sample_asins": [
+            {
+              "asin": "B0HFMHBCB2",
+              "brand": "ELEHEAR",
+              "title": "Beyond 2 Pro Bluetooth OTC Hearing Aids, 39% Clearer Speech",
+              "network": "pb_mt10",
+              "tier": 2
+            },
+            {
+              "asin": "B0HFM9DXKF",
+              "brand": "ELEHEAR",
+              "title": "Beyond 2 Pro OTC Hearing Aids for Seniors, 39% Clearer Speech",
+              "network": "pb_mt10",
+              "tier": 2
+            },
+            {
+              "asin": "B0GSVXB2N7",
+              "brand": "ELEHEAR",
+              "title": "Beyond Hearing Aids, OTC Rechargeable Bluetooth Hearing aids",
+              "network": "pb_mt10",
+              "tier": 2
+            },
+            {
+              "asin": "B0DXL23JNF",
+              "brand": "ELEHEAR",
+              "title": "Beyond OTC Hearing Aids for Seniors, AI Powered Speech Enhancement",
+              "network": "pb_mt10",
+              "tier": 2
+            },
+            {
+              "asin": "B0FZBVVNR6",
+              "brand": "ELEHEAR",
+              "title": "Beyond Pro Bluetooth Hearing Aids for Seniors, 30% Clearer Speech",
+              "network": "pb_mt10",
+              "tier": 2
+            }
+          ],
+          "brand_top": [
+            {
+              "name": "ELEHEAR",
+              "n": 31
+            }
+          ]
+        },
+        {
+          "slug": "water-filters",
+          "niche_label": "Water Filters",
+          "category": "Appliances",
+          "healthy_count": 176,
+          "asins": [
+            "B01CC87G86",
+            "B075J9RLL6",
+            "B079ZRQNMM",
+            "B0GTPT3LJV",
+            "B0GTPH2Z1W",
+            "B0GSVSD8JD",
+            "B0H5C3GVDL",
+            "B0H5BYJ78P",
+            "B0F7QJZWLV",
+            "B0DRCXJNMK",
+            "B0D5YG5G7C",
+            "B0CGVB8H5L",
+            "B0CGV6Q5LW",
+            "B08Z3YF9BH",
+            "B08Z2ZM9BW"
+          ],
+          "sample_asins": [
+            {
+              "asin": "B01CC87G86",
+              "brand": "WFT-Waterdrop",
+              "title": "Waterdrop WF1CB Refrigerator Water Filter, 3 Pack",
+              "network": "pb_mt10",
+              "tier": 2
+            },
+            {
+              "asin": "B075J9RLL6",
+              "brand": "WFT-Waterdrop",
+              "title": "Waterdrop ADQ36006101 Water Filter, Replacement for LG® LT700P®, 3 Combo",
+              "network": "pb_mt10",
+              "tier": 2
+            },
+            {
+              "asin": "B079ZRQNMM",
+              "brand": "WFT-Waterdrop",
+              "title": "Waterdrop ADQ73613401 Water Filter Replacement for LG® LT800P®",
+              "network": "pb_mt10",
+              "tier": 2
+            },
+            {
+              "asin": "B0GTPT3LJV",
+              "brand": "WFT-Waterdrop",
+              "title": "Waterdrop Plus Water Filter Replacement for GE® XWFE®, Built-in Chip 3 Pack",
+              "network": "pb_mt10",
+              "tier": 2
+            },
+            {
+              "asin": "B0GTPH2Z1W",
+              "brand": "WFT-Waterdrop",
+              "title": "Waterdrop Plus Water Filter Replacement for GE® XWFE®, Built-in Chip 2 Pack",
+              "network": "pb_mt10",
+              "tier": 2
+            }
+          ],
+          "brand_top": [
+            {
+              "name": "WFT-Waterdrop",
+              "n": 175
+            },
+            {
+              "name": "Frizzlife AMZ",
+              "n": 1
+            }
+          ]
+        },
+        {
+          "slug": "under-sink-countertop-filtration",
+          "niche_label": "Under-Sink & Countertop Filtration",
+          "category": "Tools & Home Improvement",
+          "healthy_count": 120,
+          "asins": [
+            "B0HGF8V9BW",
+            "B0HDNZR3V7",
+            "B0HDPNZ65Y",
+            "B0GWGX82QD",
+            "B0DX244R2N",
+            "B0GWGTLXRF",
+            "B0H4FXNBB3",
+            "B0GWH6B18J",
+            "B0GWH6J8Y4",
+            "B0GGQM6X5H",
+            "B0GWCWN64R",
+            "B0GVYQRQXR",
+            "B0FCFLX4ZR",
+            "B07G2FXTZD",
+            "B0H5JZZ3GK"
+          ],
+          "sample_asins": [
+            {
+              "asin": "B0HGF8V9BW",
+              "brand": "WFT-Waterdrop",
+              "title": "Waterdrop TSV-A 0.01μm Ultra Filtration Under Sink Water Filter System",
+              "network": "pb_mt10",
+              "tier": 2
+            },
+            {
+              "asin": "B0HDNZR3V7",
+              "brand": "WFT-Waterdrop",
+              "title": "Waterdrop G3P800-WCK Reverse Osmosis System Under-Sink, 800 GPD",
+              "network": "pb_mt10",
+              "tier": 2
+            },
+            {
+              "asin": "B0HDPNZ65Y",
+              "brand": "WFT-Waterdrop",
+              "title": "Waterdrop G3P600 Tankless Reverse Osmosis Water Filter System, Black Faucet",
+              "network": "pb_mt10",
+              "tier": 2
+            },
+            {
+              "asin": "B0GWGX82QD",
+              "brand": "WFT-Waterdrop",
+              "title": "Waterdrop X16 Reverse Osmosis System Alkaline Mineral 1600GPD Bronze Faucet",
+              "network": "pb_mt10",
+              "tier": 2
+            },
+            {
+              "asin": "B0DX244R2N",
+              "brand": "WFT-Waterdrop",
+              "title": "Waterdrop X16 Reverse Osmosis System Alkaline Mineral 1600GPD Silver Faucet",
+              "network": "pb_mt10",
+              "tier": 2
+            }
+          ],
+          "brand_top": [
+            {
+              "name": "WFT-Waterdrop",
+              "n": 82
+            },
+            {
+              "name": "Frizzlife AMZ",
+              "n": 38
+            }
+          ]
+        },
+        {
+          "slug": "pitcher-water-filters",
+          "niche_label": "Pitcher Water Filters",
+          "category": "Home & Kitchen",
+          "healthy_count": 82,
+          "asins": [
+            "B0F8VVH6PN",
+            "B0F8VQC2C7",
+            "B0GK1BT4QZ",
+            "B0GK16S6Y9",
+            "B0GJS9SCJ6",
+            "B0GGQYS85K",
+            "B0GGQKB4TX",
+            "B0GGQCHLK1",
+            "B0F5Q2FNTV",
+            "B0H44DKV6V",
+            "B0H444NL8F",
+            "B0H3TLNCLG",
+            "B0FS6DT3WK",
+            "B0GWGSW2XB",
+            "B0DKT4YJH7"
+          ],
+          "sample_asins": [
+            {
+              "asin": "B0F8VVH6PN",
+              "brand": "WFT-Waterdrop",
+              "title": "Waterdrop ED06W Electric Water Filter Pitcher with 2 Filters, Last 4 Months",
+              "network": "pb_mt10",
+              "tier": 2
+            },
+            {
+              "asin": "B0F8VQC2C7",
+              "brand": "WFT-Waterdrop",
+              "title": "Waterdrop ED06W Electric Water Filter Pitcher with 4 Filters, Last 8 Months",
+              "network": "pb_mt10",
+              "tier": 2
+            },
+            {
+              "asin": "B0GK1BT4QZ",
+              "brand": "WFT-Waterdrop",
+              "title": "Waterdrop Water Filter Replacement for Brita® & WD-PT-11 Water Pitcher",
+              "network": "pb_mt10",
+              "tier": 2
+            },
+            {
+              "asin": "B0GK16S6Y9",
+              "brand": "WFT-Waterdrop",
+              "title": "Waterdrop Alkaline Water Filter Replacement for Brita® & WD-PT-11 Pitcher",
+              "network": "pb_mt10",
+              "tier": 2
+            },
+            {
+              "asin": "B0GJS9SCJ6",
+              "brand": "WFT-Waterdrop",
+              "title": "Waterdrop Water Filter Replacement for Brita® & WD-PT-11 Water Pitcher",
+              "network": "pb_mt10",
+              "tier": 2
+            }
+          ],
+          "brand_top": [
+            {
+              "name": "WFT-Waterdrop",
+              "n": 78
+            },
+            {
+              "name": "Frizzlife AMZ",
+              "n": 4
+            }
+          ]
+        },
+        {
+          "slug": "doormats",
+          "niche_label": "Doormats",
+          "category": "Patio, Lawn & Garden",
+          "healthy_count": 303,
+          "asins": [
+            "B0GS4BCZCG",
+            "B0H97Z8RDC",
+            "B0H86TXGS5",
+            "B0H86RSPNC",
+            "B0H86PRS7M",
+            "B0HDB8KK33",
+            "B0H86WFJZ2",
+            "B0HDBF6WXC",
+            "B0HDBBMK2T",
+            "B0HDB3CQYD",
+            "B0HD9XZFCW",
+            "B0HD9XLP78",
+            "B0HD9X2PQQ",
+            "B0HDBHS5C1",
+            "B0HDB8R4MR"
+          ],
+          "sample_asins": [
+            {
+              "asin": "B0GS4BCZCG",
+              "brand": "JSEI",
+              "title": "JSEI Dirt Trapper Door Mat 24\" x 36\", Non-Slip Washable Doormats, Blue",
+              "network": "pb_mt10",
+              "tier": 2
+            },
+            {
+              "asin": "B0H97Z8RDC",
+              "brand": "JSEI",
+              "title": "JSEI Stair Treads 15PCs Light Grey Door Mat for Entrance 36‘’ x 60‘’ Light Grey",
+              "network": "pb_mt10",
+              "tier": 2
+            },
+            {
+              "asin": "B0H86TXGS5",
+              "brand": "JSEI",
+              "title": "JSEI Welcome Door Mat 36\"x 60\",Dirt Trapper Doormat, Black",
+              "network": "pb_mt10",
+              "tier": 2
+            },
+            {
+              "asin": "B0H86RSPNC",
+              "brand": "JSEI",
+              "title": "JSEI Welcome Door Mat 36\"x 60\",Dirt Trapper Doormat, Beige",
+              "network": "pb_mt10",
+              "tier": 2
+            },
+            {
+              "asin": "B0H86PRS7M",
+              "brand": "JSEI",
+              "title": "JSEI Welcome Door Mat 36\"x 60\",Dirt Trapper Doormat, Brown",
+              "network": "pb_mt10",
+              "tier": 2
+            }
+          ],
+          "brand_top": [
+            {
+              "name": "JSEI",
+              "n": 250
+            },
+            {
+              "name": "BEQHAUSE",
+              "n": 53
+            }
+          ]
+        },
+        {
+          "slug": "split-system",
+          "niche_label": "Split-System",
+          "category": "Home & Kitchen",
+          "healthy_count": 256,
+          "asins": [
+            "B0HKJWF4V8",
+            "B0HKJWB8H4",
+            "B0HKJQWD5S",
+            "B0HKJNMN9R",
+            "B0HKJNDLTD",
+            "B0HKJLX9NR",
+            "B0HKJBN5DG",
+            "B0H1HHMMNC",
+            "B0GWDYT9Y7",
+            "B0HCBQMWVT",
+            "B0HB4VZ8JP",
+            "B0H1CTQRB4",
+            "B0HDP8J13K",
+            "B0HDPF421Y",
+            "B0HCC8MR15"
+          ],
+          "sample_asins": [
+            {
+              "asin": "B0HKJWF4V8",
+              "brand": "Cozeware Amz",
+              "title": "Energy Star 9000 BTU Mini Split AC/Heating System 23 SEER2 230V",
+              "network": "pb_mt10",
+              "tier": 2
+            },
+            {
+              "asin": "B0HKJWB8H4",
+              "brand": "Cozeware Amz",
+              "title": "Energy Star 18000 BTU Mini Split AC/Heating System 24 SEER2 230V",
+              "network": "pb_mt10",
+              "tier": 2
+            },
+            {
+              "asin": "B0HKJQWD5S",
+              "brand": "Cozeware Amz",
+              "title": "Energy Star 12000 BTU Mini Split AC/Heating System 24 SEER2 115V",
+              "network": "pb_mt10",
+              "tier": 2
+            },
+            {
+              "asin": "B0HKJNMN9R",
+              "brand": "Cozeware Amz",
+              "title": "Energy Star 9000 BTU Mini Split AC/Heating System 23 SEER2 115V",
+              "network": "pb_mt10",
+              "tier": 2
+            },
+            {
+              "asin": "B0HKJNDLTD",
+              "brand": "Cozeware Amz",
+              "title": "Energy Star 9000 BTU Mini Split AC/Heating System 23 SEER2 115V",
+              "network": "pb_mt10",
+              "tier": 2
+            }
+          ],
+          "brand_top": [
+            {
+              "name": "DELLA",
+              "n": 206
+            },
+            {
+              "name": "Cozeware Amz",
+              "n": 41
+            },
+            {
+              "name": "Mountman",
+              "n": 9
+            }
+          ]
+        },
+        {
+          "slug": "tv-wall-ceiling-mounts",
+          "niche_label": "TV Wall & Ceiling Mounts",
+          "category": "Electronics",
+          "healthy_count": 169,
+          "asins": [
+            "B0HNNCYXJ6",
+            "B0HNNBH9GS",
+            "B0H8P8F4NP",
+            "B0H8P7DJNG",
+            "B0H36XX5BG",
+            "B0HL8X87P5",
+            "B0DPKBCWBY",
+            "B0DPK2CCTL",
+            "B0HML57S9P",
+            "B0H36TGQT8",
+            "B0H2VR46ZC",
+            "B0H4PGK9QJ",
+            "B0HHNGLGWT",
+            "B0H2D641ZY",
+            "B0H2D57XGS"
+          ],
+          "sample_asins": [
+            {
+              "asin": "B0HNNCYXJ6",
+              "brand": "monTEK - US",
+              "title": "monTEK 0.77\" Ultra Slim Full Motion TV Wall Mount & TV Mount Extension Bracket",
+              "network": "pb_mt10",
+              "tier": 2
+            },
+            {
+              "asin": "B0HNNBH9GS",
+              "brand": "monTEK - US",
+              "title": "monTEK 0.77\" Ultra Slim Full Motion TV Wall Mount & TV Mount Extension Bracket",
+              "network": "pb_mt10",
+              "tier": 2
+            },
+            {
+              "asin": "B0H8P8F4NP",
+              "brand": "monTEK - US",
+              "title": "monTEK Heavy Duty Tilting TV Wall Mount Barckt for 37–90\" TVs & monTEK 1.3\" Ultra Slim Ful",
+              "network": "pb_mt10",
+              "tier": 2
+            },
+            {
+              "asin": "B0H8P7DJNG",
+              "brand": "monTEK - US",
+              "title": "monTEK Heavy Duty Tilting TV Wall Mount Barckt for 37–90\" TVs & monTEK 1.5\" Ultra Slim Ful",
+              "network": "pb_mt10",
+              "tier": 2
+            },
+            {
+              "asin": "B0H36XX5BG",
+              "brand": "monTEK - US",
+              "title": "monTEK Universal TV Mounting Hardware Kit with M8x70mm Lag Bolts",
+              "network": "pb_mt10",
+              "tier": 2
+            }
+          ],
+          "brand_top": [
+            {
+              "name": "monTEK - US",
+              "n": 169
+            }
+          ]
+        },
+        {
+          "slug": "monitor-arms",
+          "niche_label": "Monitor Arms",
+          "category": "Electronics",
+          "healthy_count": 159,
+          "asins": [
+            "B0HD6RWK82",
+            "B0HC5QGYVF",
+            "B0GY3S2SZ7",
+            "B0G6YFPC5Z",
+            "B0G6L23LZR",
+            "B0G6DK4JJ6",
+            "B0G6DGL4GS",
+            "B0G6DB6KNF",
+            "B0G6D4MM4T",
+            "B0G6D3ZZCC",
+            "B0G6CZNQ4S",
+            "B0G1M8V7F3",
+            "B0G1M3NM7L",
+            "B0G1C4DH2H",
+            "B0G1C42639"
+          ],
+          "sample_asins": [
+            {
+              "asin": "B0HD6RWK82",
+              "brand": "monTEK - US",
+              "title": "monTEK Dual Monitor Desk Mount 17-32in, Mechanical Spring, 20lb Per Arm",
+              "network": "pb_mt10",
+              "tier": 2
+            },
+            {
+              "asin": "B0HC5QGYVF",
+              "brand": "monTEK - US",
+              "title": "monTEK Monitor Desk Mount 17-32in, Mechanical Spring, 20lb, Home Office",
+              "network": "pb_mt10",
+              "tier": 2
+            },
+            {
+              "asin": "B0GY3S2SZ7",
+              "brand": "monTEK - US",
+              "title": "monTEK Freestanding Dual Monitor Stand with Power Strip, 13-32 Inch, Black",
+              "network": "pb_mt10",
+              "tier": 2
+            },
+            {
+              "asin": "B0G6YFPC5Z",
+              "brand": "monTEK - US",
+              "title": "monTEK Monitor Wall Mount & VESA Extension Adapter Bundle, Fits 17\"-57\" Screens up to 59.4",
+              "network": "pb_mt10",
+              "tier": 2
+            },
+            {
+              "asin": "B0G6L23LZR",
+              "brand": "monTEK - US",
+              "title": "monTEK Sleek Aluminum Monitor Arm with Mount Reinforcement Plate for 17–57” Ultrawide Scre",
+              "network": "pb_mt10",
+              "tier": 2
+            }
+          ],
+          "brand_top": [
+            {
+              "name": "monTEK - US",
+              "n": 159
+            }
+          ]
+        },
+        {
+          "slug": "stage-lights",
+          "niche_label": "Stage Lights",
+          "category": "Musical Instruments",
+          "healthy_count": 134,
+          "asins": [
+            "B0GLWVYMWP",
+            "B0GLWVNK4D",
+            "B0HMW5R2WC",
+            "B0HMW1SR5T",
+            "B0GDDP123K",
+            "B0CQM4LTK4",
+            "B0DGTD3QP2",
+            "B0DGQHFYTX",
+            "B0GLX8R7X4",
+            "B0G7S4V9Y3",
+            "B0GWLVTRVC",
+            "B0HJGTYGPQ",
+            "B0HJGT2L4Z",
+            "B0HJGT291H",
+            "B0HJGS9PG8"
+          ],
+          "sample_asins": [
+            {
+              "asin": "B0GLWVYMWP",
+              "brand": "SHEHDS Direct",
+              "title": "SHEHDS Par Can Lights LED 7x18W RGBWAP 6in1 Wash Stage Lights 6 Pack",
+              "network": "pb_mt10",
+              "tier": 2
+            },
+            {
+              "asin": "B0GLWVNK4D",
+              "brand": "SHEHDS Direct",
+              "title": "SHEHDS 7x18W IP65 Waterproof LED Par Lights 4 Pack",
+              "network": "pb_mt10",
+              "tier": 2
+            },
+            {
+              "asin": "B0HMW5R2WC",
+              "brand": "SHEHDS Direct",
+              "title": "Moving Light",
+              "network": "pb_mt10",
+              "tier": 2
+            },
+            {
+              "asin": "B0HMW1SR5T",
+              "brand": "SHEHDS Direct",
+              "title": "Stage Light",
+              "network": "pb_mt10",
+              "tier": 2
+            },
+            {
+              "asin": "B0GDDP123K",
+              "brand": "SHEHDS Direct",
+              "title": "SHEHDS LED Stage Par Lights LED 18X18W DJ Stage Lights 6 Pack",
+              "network": "pb_mt10",
+              "tier": 2
+            }
+          ],
+          "brand_top": [
+            {
+              "name": "SHEHDS Direct",
+              "n": 76
+            },
+            {
+              "name": "SHEHDS US",
+              "n": 58
+            }
+          ]
+        },
+        {
+          "slug": "glass-display-cabinets",
+          "niche_label": "Glass Display Cabinets",
+          "category": "Home & Kitchen",
+          "healthy_count": 116,
+          "asins": [
+            "B0GX149LLS",
+            "B0HLYY6BM2",
+            "B0GRZLY75T",
+            "B0HLDJBJKX",
+            "B0HL87SRGG",
+            "B0FJ1XNFS1",
+            "B0HKM1SFLZ",
+            "B0GWDYRQKM",
+            "B0HKK8PJJR",
+            "B0HJNLKK9R",
+            "B0HDKZKXS9",
+            "B0H9YH5DF9",
+            "B0H3DSQV33",
+            "B0HCPGBBBF",
+            "B0HGLTG5L5"
+          ],
+          "sample_asins": [
+            {
+              "asin": "B0GX149LLS",
+              "brand": "Lvifur",
+              "title": "Lvifur LED Glass Display Cabinet with 3 Drawer for Collectibles,Natural",
+              "network": "pb_mt10",
+              "tier": 2
+            },
+            {
+              "asin": "B0HLYY6BM2",
+              "brand": "Lvifur",
+              "title": "Lvifur 6-Tier Corner RGB LED Glass Display Cabinet with Human Sensor, Black",
+              "network": "pb_mt10",
+              "tier": 2
+            },
+            {
+              "asin": "B0GRZLY75T",
+              "brand": "Lvifur",
+              "title": "69\" Corner Glass Curio Display with RGB Lights for Living Room, White",
+              "network": "pb_mt10",
+              "tier": 2
+            },
+            {
+              "asin": "B0HLDJBJKX",
+              "brand": "Lvifur",
+              "title": "Lvifur Rotating 360 Glass Display Cabinet with RGB Light - Auto Sensor",
+              "network": "pb_mt10",
+              "tier": 2
+            },
+            {
+              "asin": "B0HL87SRGG",
+              "brand": "Lvifur",
+              "title": "Lvifur Rotating 360 Glass Display Cabinet with RGB Light - Auto Sensor",
+              "network": "pb_mt10",
+              "tier": 2
+            }
+          ],
+          "brand_top": [
+            {
+              "name": "Lvifur",
+              "n": 111
+            },
+            {
+              "name": "DELLA",
+              "n": 5
+            }
+          ]
+        },
+        {
+          "slug": "document-scanners",
+          "niche_label": "Document Scanners",
+          "category": "Office Products",
+          "healthy_count": 29,
+          "asins": [
+            "B0GT986QDS",
+            "B0GT95MVBL",
+            "B0GT93YZM8",
+            "B0GT93T3HS",
+            "B0GT91DZ4H",
+            "B0GT8WJK8X",
+            "B0GT8W7HM7",
+            "B0GT8FBSGY",
+            "B0FWJHL3FX",
+            "B0FLJJXJYF",
+            "B0D2KH2VVB",
+            "B0CJY4JN4F",
+            "B0CJY2RCMT",
+            "B0C58FM85X",
+            "B0C4CWPRQD"
+          ],
+          "sample_asins": [
+            {
+              "asin": "B0GT986QDS",
+              "brand": "CZUR",
+              "title": "CZUR ET18 Pro Book Scanner with Assistive Cover – 18MP Overhead Document Scanner, Flatten ",
+              "network": "pb_mt10",
+              "tier": 2
+            },
+            {
+              "asin": "B0GT95MVBL",
+              "brand": "CZUR",
+              "title": "CZUR Aura Book Scanner with Assistive Cover – Overhead Document Scanner, Flatten Curved Pa",
+              "network": "pb_mt10",
+              "tier": 2
+            },
+            {
+              "asin": "B0GT93YZM8",
+              "brand": "CZUR",
+              "title": "CZUR ET16 Plus Book Scanner with Assistive Cover – 16MP Overhead Document Scanner, Flatten",
+              "network": "pb_mt10",
+              "tier": 2
+            },
+            {
+              "asin": "B0GT93T3HS",
+              "brand": "CZUR",
+              "title": "CZUR ET24 Pro Book Scanner with Assistive Cover – 24MP Overhead Document Scanner, Flatten ",
+              "network": "pb_mt10",
+              "tier": 2
+            },
+            {
+              "asin": "B0GT91DZ4H",
+              "brand": "CZUR",
+              "title": "CZUR Shine Ultra Pro Book Scanner with Assistive Cover – 24MP Overhead Document Scanner, F",
+              "network": "pb_mt10",
+              "tier": 2
+            }
+          ],
+          "brand_top": [
+            {
+              "name": "CZUR",
+              "n": 29
+            }
+          ]
+        }
+      ]
+    },
+    "lab": {
+      "ready_count": 10,
+      "notes": "独立清单；不改 Live products_base；ready_for_draft",
+      "niches": [
+        {
+          "slug": "hearing-aids",
+          "niche_label": "Hearing Aids",
+          "category": "Health & Household",
+          "healthy_count": 31,
+          "asins": [
+            "B0HFMHBCB2",
+            "B0HFM9DXKF",
+            "B0GSVXB2N7",
+            "B0DXL23JNF",
+            "B0FZBVVNR6",
+            "B0F4XN36V3",
+            "B0HJCPDBZ1",
+            "B0HBQ15XYR",
+            "B0H9RR7SCC",
+            "B0GPVFL1D5",
+            "B0GKNQRK4D",
+            "B0FPQMPBK1",
+            "B0FDKQWJR4",
+            "B0F53QV6PM",
+            "B0F4D28154"
+          ],
+          "sample_asins": [
+            {
+              "asin": "B0HFMHBCB2",
+              "brand": "ELEHEAR",
+              "title": "Beyond 2 Pro Bluetooth OTC Hearing Aids, 39% Clearer Speech",
+              "network": "pb_yzzy723",
+              "tier": 2
+            },
+            {
+              "asin": "B0HFM9DXKF",
+              "brand": "ELEHEAR",
+              "title": "Beyond 2 Pro OTC Hearing Aids for Seniors, 39% Clearer Speech",
+              "network": "pb_yzzy723",
+              "tier": 2
+            },
+            {
+              "asin": "B0GSVXB2N7",
+              "brand": "ELEHEAR",
+              "title": "Beyond Hearing Aids, OTC Rechargeable Bluetooth Hearing aids",
+              "network": "pb_yzzy723",
+              "tier": 2
+            },
+            {
+              "asin": "B0DXL23JNF",
+              "brand": "ELEHEAR",
+              "title": "Beyond OTC Hearing Aids for Seniors, AI Powered Speech Enhancement",
+              "network": "pb_yzzy723",
+              "tier": 2
+            },
+            {
+              "asin": "B0FZBVVNR6",
+              "brand": "ELEHEAR",
+              "title": "Beyond Pro Bluetooth Hearing Aids for Seniors, 30% Clearer Speech",
+              "network": "pb_yzzy723",
+              "tier": 2
+            }
+          ],
+          "brand_top": [
+            {
+              "name": "ELEHEAR",
+              "n": 31
+            }
+          ]
+        },
+        {
+          "slug": "water-filters",
+          "niche_label": "Water Filters",
+          "category": "Appliances",
+          "healthy_count": 175,
+          "asins": [
+            "B01CC87G86",
+            "B075J9RLL6",
+            "B079ZRQNMM",
+            "B0GTPT3LJV",
+            "B0GTPH2Z1W",
+            "B0GSVSD8JD",
+            "B0H5C3GVDL",
+            "B0H5BYJ78P",
+            "B0F7QJZWLV",
+            "B0DRCXJNMK",
+            "B0D5YG5G7C",
+            "B0CGVB8H5L",
+            "B0CGV6Q5LW",
+            "B08Z3YF9BH",
+            "B08Z2ZM9BW"
+          ],
+          "sample_asins": [
+            {
+              "asin": "B01CC87G86",
+              "brand": "WFT-Waterdrop",
+              "title": "Waterdrop WF1CB Refrigerator Water Filter, 3 Pack",
+              "network": "pb_yzzy723",
+              "tier": 2
+            },
+            {
+              "asin": "B075J9RLL6",
+              "brand": "WFT-Waterdrop",
+              "title": "Waterdrop ADQ36006101 Water Filter, Replacement for LG® LT700P®, 3 Combo",
+              "network": "pb_yzzy723",
+              "tier": 2
+            },
+            {
+              "asin": "B079ZRQNMM",
+              "brand": "WFT-Waterdrop",
+              "title": "Waterdrop ADQ73613401 Water Filter Replacement for LG® LT800P®",
+              "network": "pb_yzzy723",
+              "tier": 2
+            },
+            {
+              "asin": "B0GTPT3LJV",
+              "brand": "WFT-Waterdrop",
+              "title": "Waterdrop Plus Water Filter Replacement for GE® XWFE®, Built-in Chip 3 Pack",
+              "network": "pb_yzzy723",
+              "tier": 2
+            },
+            {
+              "asin": "B0GTPH2Z1W",
+              "brand": "WFT-Waterdrop",
+              "title": "Waterdrop Plus Water Filter Replacement for GE® XWFE®, Built-in Chip 2 Pack",
+              "network": "pb_yzzy723",
+              "tier": 2
+            }
+          ],
+          "brand_top": [
+            {
+              "name": "WFT-Waterdrop",
+              "n": 174
+            },
+            {
+              "name": "Frizzlife AMZ",
+              "n": 1
+            }
+          ]
+        },
+        {
+          "slug": "under-sink-countertop-filtration",
+          "niche_label": "Under-Sink & Countertop Filtration",
+          "category": "Tools & Home Improvement",
+          "healthy_count": 85,
+          "asins": [
+            "B0HGF8V9BW",
+            "B0HDNZR3V7",
+            "B0HDPNZ65Y",
+            "B0GWGX82QD",
+            "B0DX244R2N",
+            "B0GWGTLXRF",
+            "B0H4FXNBB3",
+            "B0GWH6B18J",
+            "B0GWH6J8Y4",
+            "B0GGQM6X5H",
+            "B0GWCWN64R",
+            "B0GVYQRQXR",
+            "B0FCFLX4ZR",
+            "B07G2FXTZD",
+            "B0H5JZZ3GK"
+          ],
+          "sample_asins": [
+            {
+              "asin": "B0HGF8V9BW",
+              "brand": "WFT-Waterdrop",
+              "title": "Waterdrop TSV-A 0.01μm Ultra Filtration Under Sink Water Filter System",
+              "network": "pb_yzzy723",
+              "tier": 2
+            },
+            {
+              "asin": "B0HDNZR3V7",
+              "brand": "WFT-Waterdrop",
+              "title": "Waterdrop G3P800-WCK Reverse Osmosis System Under-Sink, 800 GPD",
+              "network": "pb_yzzy723",
+              "tier": 2
+            },
+            {
+              "asin": "B0HDPNZ65Y",
+              "brand": "WFT-Waterdrop",
+              "title": "Waterdrop G3P600 Tankless Reverse Osmosis Water Filter System, Black Faucet",
+              "network": "pb_yzzy723",
+              "tier": 2
+            },
+            {
+              "asin": "B0GWGX82QD",
+              "brand": "WFT-Waterdrop",
+              "title": "Waterdrop X16 Reverse Osmosis System Alkaline Mineral 1600GPD Bronze Faucet",
+              "network": "pb_yzzy723",
+              "tier": 2
+            },
+            {
+              "asin": "B0DX244R2N",
+              "brand": "WFT-Waterdrop",
+              "title": "Waterdrop X16 Reverse Osmosis System Alkaline Mineral 1600GPD Silver Faucet",
+              "network": "pb_yzzy723",
+              "tier": 2
+            }
+          ],
+          "brand_top": [
+            {
+              "name": "WFT-Waterdrop",
+              "n": 47
+            },
+            {
+              "name": "Frizzlife AMZ",
+              "n": 38
+            }
+          ]
+        },
+        {
+          "slug": "pitcher-water-filters",
+          "niche_label": "Pitcher Water Filters",
+          "category": "Home & Kitchen",
+          "healthy_count": 36,
+          "asins": [
+            "B0F8VVH6PN",
+            "B0F8VQC2C7",
+            "B0GK1BT4QZ",
+            "B0GK16S6Y9",
+            "B0GJS9SCJ6",
+            "B0GGQYS85K",
+            "B0GGQKB4TX",
+            "B0GGQCHLK1",
+            "B0F5Q2FNTV",
+            "B0H44DKV6V",
+            "B0H444NL8F",
+            "B0H3TLNCLG",
+            "B0FS6DT3WK",
+            "B0GWGSW2XB",
+            "B0DKT4YJH7"
+          ],
+          "sample_asins": [
+            {
+              "asin": "B0F8VVH6PN",
+              "brand": "WFT-Waterdrop",
+              "title": "Waterdrop ED06W Electric Water Filter Pitcher with 2 Filters, Last 4 Months",
+              "network": "pb_yzzy723",
+              "tier": 2
+            },
+            {
+              "asin": "B0F8VQC2C7",
+              "brand": "WFT-Waterdrop",
+              "title": "Waterdrop ED06W Electric Water Filter Pitcher with 4 Filters, Last 8 Months",
+              "network": "pb_yzzy723",
+              "tier": 2
+            },
+            {
+              "asin": "B0GK1BT4QZ",
+              "brand": "WFT-Waterdrop",
+              "title": "Waterdrop Water Filter Replacement for Brita® & WD-PT-11 Water Pitcher",
+              "network": "pb_yzzy723",
+              "tier": 2
+            },
+            {
+              "asin": "B0GK16S6Y9",
+              "brand": "WFT-Waterdrop",
+              "title": "Waterdrop Alkaline Water Filter Replacement for Brita® & WD-PT-11 Pitcher",
+              "network": "pb_yzzy723",
+              "tier": 2
+            },
+            {
+              "asin": "B0GJS9SCJ6",
+              "brand": "WFT-Waterdrop",
+              "title": "Waterdrop Water Filter Replacement for Brita® & WD-PT-11 Water Pitcher",
+              "network": "pb_yzzy723",
+              "tier": 2
+            }
+          ],
+          "brand_top": [
+            {
+              "name": "WFT-Waterdrop",
+              "n": 32
+            },
+            {
+              "name": "Frizzlife AMZ",
+              "n": 4
+            }
+          ]
+        },
+        {
+          "slug": "split-system",
+          "niche_label": "Split-System",
+          "category": "Home & Kitchen",
+          "healthy_count": 123,
+          "asins": [
+            "B0FJ1RG78L",
+            "B0FJ1Z5VWS",
+            "B0FJ1DTFKK",
+            "B0CBKBZ5RC",
+            "B0FNCSS3WL",
+            "B0FDVYPQKB",
+            "B0HHQRQX5J",
+            "B0HHQWQBBW",
+            "B0HHQWJBB5",
+            "B0GMWD53VW",
+            "B0HMH5185B",
+            "B0HBW97884",
+            "B0HBW6WGG8",
+            "B0HBW5R77F",
+            "B0HBW1C5GR"
+          ],
+          "sample_asins": [
+            {
+              "asin": "B0FJ1RG78L",
+              "brand": "DELLA",
+              "title": "DELLA 42,000 BTU 5 Zone (9K+12K+12K+12K+12K) Ceiling Cassette Mini Split AC,Ultra Heat -13",
+              "network": "pb_yzzy723",
+              "tier": 2
+            },
+            {
+              "asin": "B0FJ1Z5VWS",
+              "brand": "DELLA",
+              "title": "DELLA 42,000 BTU 4 Zone (9K+12K+2×18K) Ceiling Cassette Mini Split AC",
+              "network": "pb_yzzy723",
+              "tier": 2
+            },
+            {
+              "asin": "B0FJ1DTFKK",
+              "brand": "DELLA",
+              "title": "DELLA 42,000 BTU 5 Zone (9K+9K+9K+12K+18K) Ceiling Cassette Mini Split AC, Ultra Heat -13℉",
+              "network": "pb_yzzy723",
+              "tier": 2
+            },
+            {
+              "asin": "B0CBKBZ5RC",
+              "brand": "DELLA",
+              "title": "DELLA Umbra 12000 BTU Mini Split Air Conditioner, 20 SEER2 115V, Energy Efficient, Cools U",
+              "network": "pb_yzzy723",
+              "tier": 2
+            },
+            {
+              "asin": "B0FNCSS3WL",
+              "brand": "DELLA",
+              "title": "DELLA 42K BTU ODU 22 SEER2 208-230V Multi Zone AC 5 Zone (5 * 9K BTU) Mini Split Cools Up ",
+              "network": "pb_yzzy723",
+              "tier": 2
+            }
+          ],
+          "brand_top": [
+            {
+              "name": "DELLA",
+              "n": 114
+            },
+            {
+              "name": "Mountman",
+              "n": 9
+            }
+          ]
+        },
+        {
+          "slug": "tv-wall-ceiling-mounts",
+          "niche_label": "TV Wall & Ceiling Mounts",
+          "category": "Electronics",
+          "healthy_count": 107,
+          "asins": [
+            "B0HNNCYXJ6",
+            "B0HNNBH9GS",
+            "B0H8P8F4NP",
+            "B0H8P7DJNG",
+            "B0H36XX5BG",
+            "B0HL8X87P5",
+            "B0DPKBCWBY",
+            "B0DPK2CCTL",
+            "B0HML57S9P",
+            "B0H36TGQT8",
+            "B0H2VR46ZC",
+            "B0H4PGK9QJ",
+            "B0HHNGLGWT",
+            "B0H2D641ZY",
+            "B0H2D57XGS"
+          ],
+          "sample_asins": [
+            {
+              "asin": "B0HNNCYXJ6",
+              "brand": "monTEK - US",
+              "title": "monTEK 0.77\" Ultra Slim Full Motion TV Wall Mount & TV Mount Extension Bracket",
+              "network": "pb_yzzy723",
+              "tier": 2
+            },
+            {
+              "asin": "B0HNNBH9GS",
+              "brand": "monTEK - US",
+              "title": "monTEK 0.77\" Ultra Slim Full Motion TV Wall Mount & TV Mount Extension Bracket",
+              "network": "pb_yzzy723",
+              "tier": 2
+            },
+            {
+              "asin": "B0H8P8F4NP",
+              "brand": "monTEK - US",
+              "title": "monTEK Heavy Duty Tilting TV Wall Mount Barckt for 37–90\" TVs & monTEK 1.3\" Ultra Slim Ful",
+              "network": "pb_yzzy723",
+              "tier": 2
+            },
+            {
+              "asin": "B0H8P7DJNG",
+              "brand": "monTEK - US",
+              "title": "monTEK Heavy Duty Tilting TV Wall Mount Barckt for 37–90\" TVs & monTEK 1.5\" Ultra Slim Ful",
+              "network": "pb_yzzy723",
+              "tier": 2
+            },
+            {
+              "asin": "B0H36XX5BG",
+              "brand": "monTEK - US",
+              "title": "monTEK Universal TV Mounting Hardware Kit with M8x70mm Lag Bolts",
+              "network": "pb_yzzy723",
+              "tier": 2
+            }
+          ],
+          "brand_top": [
+            {
+              "name": "monTEK - US",
+              "n": 107
+            }
+          ]
+        },
+        {
+          "slug": "monitor-arms",
+          "niche_label": "Monitor Arms",
+          "category": "Electronics",
+          "healthy_count": 129,
+          "asins": [
+            "B0HD6RWK82",
+            "B0HC5QGYVF",
+            "B0GY3S2SZ7",
+            "B0G6YFPC5Z",
+            "B0G6L23LZR",
+            "B0G6DK4JJ6",
+            "B0G6DGL4GS",
+            "B0G6DB6KNF",
+            "B0G6D4MM4T",
+            "B0G6D3ZZCC",
+            "B0G6CZNQ4S",
+            "B0G1M8V7F3",
+            "B0G1M3NM7L",
+            "B0G1C4DH2H",
+            "B0G1C42639"
+          ],
+          "sample_asins": [
+            {
+              "asin": "B0HD6RWK82",
+              "brand": "monTEK - US",
+              "title": "monTEK Dual Monitor Desk Mount 17-32in, Mechanical Spring, 20lb Per Arm",
+              "network": "pb_yzzy723",
+              "tier": 2
+            },
+            {
+              "asin": "B0HC5QGYVF",
+              "brand": "monTEK - US",
+              "title": "monTEK Monitor Desk Mount 17-32in, Mechanical Spring, 20lb, Home Office",
+              "network": "pb_yzzy723",
+              "tier": 2
+            },
+            {
+              "asin": "B0GY3S2SZ7",
+              "brand": "monTEK - US",
+              "title": "monTEK Freestanding Dual Monitor Stand with Power Strip, 13-32 Inch, Black",
+              "network": "pb_yzzy723",
+              "tier": 2
+            },
+            {
+              "asin": "B0G6YFPC5Z",
+              "brand": "monTEK - US",
+              "title": "monTEK Monitor Wall Mount & VESA Extension Adapter Bundle, Fits 17\"-57\" Screens up to 59.4",
+              "network": "pb_yzzy723",
+              "tier": 2
+            },
+            {
+              "asin": "B0G6L23LZR",
+              "brand": "monTEK - US",
+              "title": "monTEK Sleek Aluminum Monitor Arm with Mount Reinforcement Plate for 17–57” Ultrawide Scre",
+              "network": "pb_yzzy723",
+              "tier": 2
+            }
+          ],
+          "brand_top": [
+            {
+              "name": "monTEK - US",
+              "n": 129
+            }
+          ]
+        },
+        {
+          "slug": "stage-lights",
+          "niche_label": "Stage Lights",
+          "category": "Musical Instruments",
+          "healthy_count": 134,
+          "asins": [
+            "B0GLWVYMWP",
+            "B0GLWVNK4D",
+            "B0HMW5R2WC",
+            "B0HMW1SR5T",
+            "B0GDDP123K",
+            "B0CQM4LTK4",
+            "B0DGTD3QP2",
+            "B0DGQHFYTX",
+            "B0GLX8R7X4",
+            "B0G7S4V9Y3",
+            "B0GWLVTRVC",
+            "B0HJGTYGPQ",
+            "B0HJGT2L4Z",
+            "B0HJGT291H",
+            "B0HJGS9PG8"
+          ],
+          "sample_asins": [
+            {
+              "asin": "B0GLWVYMWP",
+              "brand": "SHEHDS Direct",
+              "title": "SHEHDS Par Can Lights LED 7x18W RGBWAP 6in1 Wash Stage Lights 6 Pack",
+              "network": "pb_yzzy723",
+              "tier": 2
+            },
+            {
+              "asin": "B0GLWVNK4D",
+              "brand": "SHEHDS Direct",
+              "title": "SHEHDS 7x18W IP65 Waterproof LED Par Lights 4 Pack",
+              "network": "pb_yzzy723",
+              "tier": 2
+            },
+            {
+              "asin": "B0HMW5R2WC",
+              "brand": "SHEHDS Direct",
+              "title": "Moving Light",
+              "network": "pb_yzzy723",
+              "tier": 2
+            },
+            {
+              "asin": "B0HMW1SR5T",
+              "brand": "SHEHDS Direct",
+              "title": "Stage Light",
+              "network": "pb_yzzy723",
+              "tier": 2
+            },
+            {
+              "asin": "B0GDDP123K",
+              "brand": "SHEHDS Direct",
+              "title": "SHEHDS LED Stage Par Lights LED 18X18W DJ Stage Lights 6 Pack",
+              "network": "pb_yzzy723",
+              "tier": 2
+            }
+          ],
+          "brand_top": [
+            {
+              "name": "SHEHDS Direct",
+              "n": 76
+            },
+            {
+              "name": "SHEHDS US",
+              "n": 58
+            }
+          ]
+        },
+        {
+          "slug": "kvm-switches",
+          "niche_label": "KVM Switches",
+          "category": "Electronics",
+          "healthy_count": 58,
+          "asins": [
+            "B0H6J5TFMT",
+            "B0HMBF83JS",
+            "B0H2TYJ8VG",
+            "B0HLCQQ21L",
+            "B0HLCPY6VX",
+            "B0HLCML1P1",
+            "B0G51Q899W",
+            "B0HJW46PZD",
+            "B0H5K28N1T",
+            "B0HFN365NN",
+            "B0GYPJ97Z2",
+            "B0GTY8Z8PN",
+            "B0H1Q6G3K4",
+            "B0HHJHYF8Z",
+            "B0HDN5MHLR"
+          ],
+          "sample_asins": [
+            {
+              "asin": "B0H6J5TFMT",
+              "brand": "v AV Access-US",
+              "title": "AV Access 8K Dual Monitor KVM Docking Station for Laptop & Desktop PC",
+              "network": "pb_yzzy723",
+              "tier": 2
+            },
+            {
+              "asin": "B0HMBF83JS",
+              "brand": "v AV Access-US",
+              "title": "AV Access 8K KVM Switch 3 Monitors 2 Computers, KVM Dock for 2 Desktop PCs",
+              "network": "pb_yzzy723",
+              "tier": 2
+            },
+            {
+              "asin": "B0H2TYJ8VG",
+              "brand": "v AV Access-US",
+              "title": "Remote Switch Button EXB01 for Effortless Device Switching",
+              "network": "pb_yzzy723",
+              "tier": 2
+            },
+            {
+              "asin": "B0HLCQQ21L",
+              "brand": "v AV Access-US",
+              "title": "AV Access 8K KVM Switch 3 Monitors 2 Computers, DP KVM Dock for Desktop PCs",
+              "network": "pb_yzzy723",
+              "tier": 2
+            },
+            {
+              "asin": "B0HLCPY6VX",
+              "brand": "v AV Access-US",
+              "title": "AV Access KVM Switch 1 Monitor 2 Computers, 10K HDMI 2.1 KVM with USB 3.0",
+              "network": "pb_yzzy723",
+              "tier": 2
+            }
+          ],
+          "brand_top": [
+            {
+              "name": "v AV Access-US",
+              "n": 58
+            }
+          ]
+        },
+        {
+          "slug": "glass-display-cabinets",
+          "niche_label": "Glass Display Cabinets",
+          "category": "Home & Kitchen",
+          "healthy_count": 116,
+          "asins": [
+            "B0GX149LLS",
+            "B0HLYY6BM2",
+            "B0GRZLY75T",
+            "B0HLDJBJKX",
+            "B0HL87SRGG",
+            "B0FJ1XNFS1",
+            "B0HKM1SFLZ",
+            "B0GWDYRQKM",
+            "B0HKK8PJJR",
+            "B0HJNLKK9R",
+            "B0HDKZKXS9",
+            "B0H9YH5DF9",
+            "B0H3DSQV33",
+            "B0HCPGBBBF",
+            "B0HGLTG5L5"
+          ],
+          "sample_asins": [
+            {
+              "asin": "B0GX149LLS",
+              "brand": "Lvifur",
+              "title": "Lvifur LED Glass Display Cabinet with 3 Drawer for Collectibles,Natural",
+              "network": "pb_yzzy723",
+              "tier": 2
+            },
+            {
+              "asin": "B0HLYY6BM2",
+              "brand": "Lvifur",
+              "title": "Lvifur 6-Tier Corner RGB LED Glass Display Cabinet with Human Sensor, Black",
+              "network": "pb_yzzy723",
+              "tier": 2
+            },
+            {
+              "asin": "B0GRZLY75T",
+              "brand": "Lvifur",
+              "title": "69\" Corner Glass Curio Display with RGB Lights for Living Room, White",
+              "network": "pb_yzzy723",
+              "tier": 2
+            },
+            {
+              "asin": "B0HLDJBJKX",
+              "brand": "Lvifur",
+              "title": "Lvifur Rotating 360 Glass Display Cabinet with RGB Light - Auto Sensor",
+              "network": "pb_yzzy723",
+              "tier": 2
+            },
+            {
+              "asin": "B0HL87SRGG",
+              "brand": "Lvifur",
+              "title": "Lvifur Rotating 360 Glass Display Cabinet with RGB Light - Auto Sensor",
+              "network": "pb_yzzy723",
+              "tier": 2
+            }
+          ],
+          "brand_top": [
+            {
+              "name": "Lvifur",
+              "n": 111
+            },
+            {
+              "name": "DELLA",
+              "n": 5
+            }
+          ]
+        }
+      ]
+    },
+    "rr": {
+      "ready_count": 2,
+      "notes": "仅YP；跳过②；标题映射到未占用真实 niche；无主 inventory_blocked",
+      "niches": [
+        {
+          "slug": "light-therapy",
+          "niche_label": "Light Therapy",
+          "category": "Health & Household",
+          "healthy_count": 33,
+          "asins": [
+            "B0CQP2KNVS",
+            "B0CPY3NKWB",
+            "B0CQJTHZG2",
+            "B0CR3PBQ25",
+            "B0H7JJDW58"
+          ],
+          "sample_asins": [
+            {
+              "asin": "B0CQP2KNVS",
+              "brand": "?",
+              "title": "MEGELIN 7 Colors Led Light Therapy Facial Mask, Face Light Therapy Mask for Face, Reduce W",
+              "network": "yp",
+              "tier": 3
+            },
+            {
+              "asin": "B0CPY3NKWB",
+              "brand": "?",
+              "title": "MEGELIN Led Red Light Therapy Face & Neck Mask, 7 Colors Led Light Therapy Facial Mask, In",
+              "network": "yp",
+              "tier": 3
+            },
+            {
+              "asin": "B0CQJTHZG2",
+              "brand": "?",
+              "title": "MEGELIN Red Infrared Light Therapy Bag for Whole Body",
+              "network": "yp",
+              "tier": 3
+            },
+            {
+              "asin": "B0CR3PBQ25",
+              "brand": "?",
+              "title": "MEGELIN 7 Colors Led Light Therapy Facial Mask, Face Light Therapy Mask for Face, Reduce W",
+              "network": "yp",
+              "tier": 3
+            },
+            {
+              "asin": "B0H7JJDW58",
+              "brand": "?",
+              "title": "MEGELIN Wireless LED Light Therapy Mask with 4 Targeted Light - FDA Cleared",
+              "network": "yp",
+              "tier": 3
+            }
+          ],
+          "brand_top": [
+            {
+              "name": "?",
+              "n": 33
+            }
+          ]
+        },
+        {
+          "slug": "heat-transfer-vinyl",
+          "niche_label": "Heat Transfer Vinyl",
+          "category": "",
+          "healthy_count": 147,
+          "asins": [
+            "B0912MN5H5",
+            "B0FF973GV4",
+            "B08XK6C5M1",
+            "B08BJV3NKP",
+            "B0FV2V2255"
+          ],
+          "sample_asins": [
+            {
+              "asin": "B0912MN5H5",
+              "brand": "?",
+              "title": "HTVRONT Heat Transfer Vinyl Red HTV Vinyl Rolls - 12\" x 35ft Red HTV",
+              "network": "yp",
+              "tier": 3
+            },
+            {
+              "asin": "B0FF973GV4",
+              "brand": "?",
+              "title": "HTVRONT Reflective Rainbow HTV Heat Transfer Vinyl, 12\" x 8ft Iron on Vinyl",
+              "network": "yp",
+              "tier": 3
+            },
+            {
+              "asin": "B08XK6C5M1",
+              "brand": "?",
+              "title": "HTVRONT Transfer Tape for Vinyl, 12\" X 120 FT, Medium Tack",
+              "network": "yp",
+              "tier": 3
+            },
+            {
+              "asin": "B08BJV3NKP",
+              "brand": "?",
+              "title": "HTVRONT Heat Transfer Vinyl Bundle: 24 Pack 12\"x12\" Iron on Vinyl",
+              "network": "yp",
+              "tier": 3
+            },
+            {
+              "asin": "B0FV2V2255",
+              "brand": "?",
+              "title": "HTVRONT Silver Glitter HTV Heat Transfer Vinyl, 12''X10'', 11 Pack",
+              "network": "yp",
+              "tier": 3
+            }
+          ],
+          "brand_top": [
+            {
+              "name": "?",
+              "n": 147
+            }
+          ]
+        }
+      ]
+    },
+    "ol": {
+      "ready_count": 12,
+      "notes": "可部署本地候选；waiting_for_部署上线；不碰 CF_OFFERLUCK Live",
+      "niches": [
+        {
+          "slug": "hearing-aids",
+          "niche_label": "Hearing Aids",
+          "category": "Health & Household",
+          "healthy_count": 31,
+          "asins": [
+            "B0HFMHBCB2",
+            "B0HFM9DXKF",
+            "B0GSVXB2N7",
+            "B0DXL23JNF",
+            "B0FZBVVNR6",
+            "B0F4XN36V3",
+            "B0HJCPDBZ1",
+            "B0HBQ15XYR",
+            "B0H9RR7SCC",
+            "B0GPVFL1D5",
+            "B0GKNQRK4D",
+            "B0FPQMPBK1",
+            "B0FDKQWJR4",
+            "B0F53QV6PM",
+            "B0F4D28154"
+          ],
+          "sample_asins": [
+            {
+              "asin": "B0HFMHBCB2",
+              "brand": "ELEHEAR",
+              "title": "Beyond 2 Pro Bluetooth OTC Hearing Aids, 39% Clearer Speech",
+              "network": "pb_yzzy723",
+              "tier": 2
+            },
+            {
+              "asin": "B0HFM9DXKF",
+              "brand": "ELEHEAR",
+              "title": "Beyond 2 Pro OTC Hearing Aids for Seniors, 39% Clearer Speech",
+              "network": "pb_yzzy723",
+              "tier": 2
+            },
+            {
+              "asin": "B0GSVXB2N7",
+              "brand": "ELEHEAR",
+              "title": "Beyond Hearing Aids, OTC Rechargeable Bluetooth Hearing aids",
+              "network": "pb_yzzy723",
+              "tier": 2
+            },
+            {
+              "asin": "B0DXL23JNF",
+              "brand": "ELEHEAR",
+              "title": "Beyond OTC Hearing Aids for Seniors, AI Powered Speech Enhancement",
+              "network": "pb_yzzy723",
+              "tier": 2
+            },
+            {
+              "asin": "B0FZBVVNR6",
+              "brand": "ELEHEAR",
+              "title": "Beyond Pro Bluetooth Hearing Aids for Seniors, 30% Clearer Speech",
+              "network": "pb_yzzy723",
+              "tier": 2
+            }
+          ],
+          "brand_top": [
+            {
+              "name": "ELEHEAR",
+              "n": 31
+            }
+          ]
+        },
+        {
+          "slug": "water-filters",
+          "niche_label": "Water Filters",
+          "category": "Appliances",
+          "healthy_count": 175,
+          "asins": [
+            "B01CC87G86",
+            "B075J9RLL6",
+            "B079ZRQNMM",
+            "B0GTPT3LJV",
+            "B0GTPH2Z1W",
+            "B0GSVSD8JD",
+            "B0H5C3GVDL",
+            "B0H5BYJ78P",
+            "B0F7QJZWLV",
+            "B0DRCXJNMK",
+            "B0D5YG5G7C",
+            "B0CGVB8H5L",
+            "B0CGV6Q5LW",
+            "B08Z3YF9BH",
+            "B08Z2ZM9BW"
+          ],
+          "sample_asins": [
+            {
+              "asin": "B01CC87G86",
+              "brand": "WFT-Waterdrop",
+              "title": "Waterdrop WF1CB Refrigerator Water Filter, 3 Pack",
+              "network": "pb_yzzy723",
+              "tier": 2
+            },
+            {
+              "asin": "B075J9RLL6",
+              "brand": "WFT-Waterdrop",
+              "title": "Waterdrop ADQ36006101 Water Filter, Replacement for LG® LT700P®, 3 Combo",
+              "network": "pb_yzzy723",
+              "tier": 2
+            },
+            {
+              "asin": "B079ZRQNMM",
+              "brand": "WFT-Waterdrop",
+              "title": "Waterdrop ADQ73613401 Water Filter Replacement for LG® LT800P®",
+              "network": "pb_yzzy723",
+              "tier": 2
+            },
+            {
+              "asin": "B0GTPT3LJV",
+              "brand": "WFT-Waterdrop",
+              "title": "Waterdrop Plus Water Filter Replacement for GE® XWFE®, Built-in Chip 3 Pack",
+              "network": "pb_yzzy723",
+              "tier": 2
+            },
+            {
+              "asin": "B0GTPH2Z1W",
+              "brand": "WFT-Waterdrop",
+              "title": "Waterdrop Plus Water Filter Replacement for GE® XWFE®, Built-in Chip 2 Pack",
+              "network": "pb_yzzy723",
+              "tier": 2
+            }
+          ],
+          "brand_top": [
+            {
+              "name": "WFT-Waterdrop",
+              "n": 174
+            },
+            {
+              "name": "Frizzlife AMZ",
+              "n": 1
+            }
+          ]
+        },
+        {
+          "slug": "under-sink-countertop-filtration",
+          "niche_label": "Under-Sink & Countertop Filtration",
+          "category": "Tools & Home Improvement",
+          "healthy_count": 85,
+          "asins": [
+            "B0HGF8V9BW",
+            "B0HDNZR3V7",
+            "B0HDPNZ65Y",
+            "B0GWGX82QD",
+            "B0DX244R2N",
+            "B0GWGTLXRF",
+            "B0H4FXNBB3",
+            "B0GWH6B18J",
+            "B0GWH6J8Y4",
+            "B0GGQM6X5H",
+            "B0GWCWN64R",
+            "B0GVYQRQXR",
+            "B0FCFLX4ZR",
+            "B07G2FXTZD",
+            "B0H5JZZ3GK"
+          ],
+          "sample_asins": [
+            {
+              "asin": "B0HGF8V9BW",
+              "brand": "WFT-Waterdrop",
+              "title": "Waterdrop TSV-A 0.01μm Ultra Filtration Under Sink Water Filter System",
+              "network": "pb_yzzy723",
+              "tier": 2
+            },
+            {
+              "asin": "B0HDNZR3V7",
+              "brand": "WFT-Waterdrop",
+              "title": "Waterdrop G3P800-WCK Reverse Osmosis System Under-Sink, 800 GPD",
+              "network": "pb_yzzy723",
+              "tier": 2
+            },
+            {
+              "asin": "B0HDPNZ65Y",
+              "brand": "WFT-Waterdrop",
+              "title": "Waterdrop G3P600 Tankless Reverse Osmosis Water Filter System, Black Faucet",
+              "network": "pb_yzzy723",
+              "tier": 2
+            },
+            {
+              "asin": "B0GWGX82QD",
+              "brand": "WFT-Waterdrop",
+              "title": "Waterdrop X16 Reverse Osmosis System Alkaline Mineral 1600GPD Bronze Faucet",
+              "network": "pb_yzzy723",
+              "tier": 2
+            },
+            {
+              "asin": "B0DX244R2N",
+              "brand": "WFT-Waterdrop",
+              "title": "Waterdrop X16 Reverse Osmosis System Alkaline Mineral 1600GPD Silver Faucet",
+              "network": "pb_yzzy723",
+              "tier": 2
+            }
+          ],
+          "brand_top": [
+            {
+              "name": "WFT-Waterdrop",
+              "n": 47
+            },
+            {
+              "name": "Frizzlife AMZ",
+              "n": 38
+            }
+          ]
+        },
+        {
+          "slug": "pitcher-water-filters",
+          "niche_label": "Pitcher Water Filters",
+          "category": "Home & Kitchen",
+          "healthy_count": 36,
+          "asins": [
+            "B0F8VVH6PN",
+            "B0F8VQC2C7",
+            "B0GK1BT4QZ",
+            "B0GK16S6Y9",
+            "B0GJS9SCJ6",
+            "B0GGQYS85K",
+            "B0GGQKB4TX",
+            "B0GGQCHLK1",
+            "B0F5Q2FNTV",
+            "B0H44DKV6V",
+            "B0H444NL8F",
+            "B0H3TLNCLG",
+            "B0FS6DT3WK",
+            "B0GWGSW2XB",
+            "B0DKT4YJH7"
+          ],
+          "sample_asins": [
+            {
+              "asin": "B0F8VVH6PN",
+              "brand": "WFT-Waterdrop",
+              "title": "Waterdrop ED06W Electric Water Filter Pitcher with 2 Filters, Last 4 Months",
+              "network": "pb_yzzy723",
+              "tier": 2
+            },
+            {
+              "asin": "B0F8VQC2C7",
+              "brand": "WFT-Waterdrop",
+              "title": "Waterdrop ED06W Electric Water Filter Pitcher with 4 Filters, Last 8 Months",
+              "network": "pb_yzzy723",
+              "tier": 2
+            },
+            {
+              "asin": "B0GK1BT4QZ",
+              "brand": "WFT-Waterdrop",
+              "title": "Waterdrop Water Filter Replacement for Brita® & WD-PT-11 Water Pitcher",
+              "network": "pb_yzzy723",
+              "tier": 2
+            },
+            {
+              "asin": "B0GK16S6Y9",
+              "brand": "WFT-Waterdrop",
+              "title": "Waterdrop Alkaline Water Filter Replacement for Brita® & WD-PT-11 Pitcher",
+              "network": "pb_yzzy723",
+              "tier": 2
+            },
+            {
+              "asin": "B0GJS9SCJ6",
+              "brand": "WFT-Waterdrop",
+              "title": "Waterdrop Water Filter Replacement for Brita® & WD-PT-11 Water Pitcher",
+              "network": "pb_yzzy723",
+              "tier": 2
+            }
+          ],
+          "brand_top": [
+            {
+              "name": "WFT-Waterdrop",
+              "n": 32
+            },
+            {
+              "name": "Frizzlife AMZ",
+              "n": 4
+            }
+          ]
+        },
+        {
+          "slug": "split-system",
+          "niche_label": "Split-System",
+          "category": "Home & Kitchen",
+          "healthy_count": 123,
+          "asins": [
+            "B0FJ1RG78L",
+            "B0FJ1Z5VWS",
+            "B0FJ1DTFKK",
+            "B0CBKBZ5RC",
+            "B0FNCSS3WL",
+            "B0FDVYPQKB",
+            "B0HHQRQX5J",
+            "B0HHQWQBBW",
+            "B0HHQWJBB5",
+            "B0GMWD53VW",
+            "B0HMH5185B",
+            "B0HBW97884",
+            "B0HBW6WGG8",
+            "B0HBW5R77F",
+            "B0HBW1C5GR"
+          ],
+          "sample_asins": [
+            {
+              "asin": "B0FJ1RG78L",
+              "brand": "DELLA",
+              "title": "DELLA 42,000 BTU 5 Zone (9K+12K+12K+12K+12K) Ceiling Cassette Mini Split AC,Ultra Heat -13",
+              "network": "pb_yzzy723",
+              "tier": 2
+            },
+            {
+              "asin": "B0FJ1Z5VWS",
+              "brand": "DELLA",
+              "title": "DELLA 42,000 BTU 4 Zone (9K+12K+2×18K) Ceiling Cassette Mini Split AC",
+              "network": "pb_yzzy723",
+              "tier": 2
+            },
+            {
+              "asin": "B0FJ1DTFKK",
+              "brand": "DELLA",
+              "title": "DELLA 42,000 BTU 5 Zone (9K+9K+9K+12K+18K) Ceiling Cassette Mini Split AC, Ultra Heat -13℉",
+              "network": "pb_yzzy723",
+              "tier": 2
+            },
+            {
+              "asin": "B0CBKBZ5RC",
+              "brand": "DELLA",
+              "title": "DELLA Umbra 12000 BTU Mini Split Air Conditioner, 20 SEER2 115V, Energy Efficient, Cools U",
+              "network": "pb_yzzy723",
+              "tier": 2
+            },
+            {
+              "asin": "B0FNCSS3WL",
+              "brand": "DELLA",
+              "title": "DELLA 42K BTU ODU 22 SEER2 208-230V Multi Zone AC 5 Zone (5 * 9K BTU) Mini Split Cools Up ",
+              "network": "pb_yzzy723",
+              "tier": 2
+            }
+          ],
+          "brand_top": [
+            {
+              "name": "DELLA",
+              "n": 114
+            },
+            {
+              "name": "Mountman",
+              "n": 9
+            }
+          ]
+        },
+        {
+          "slug": "tv-wall-ceiling-mounts",
+          "niche_label": "TV Wall & Ceiling Mounts",
+          "category": "Electronics",
+          "healthy_count": 107,
+          "asins": [
+            "B0HNNCYXJ6",
+            "B0HNNBH9GS",
+            "B0H8P8F4NP",
+            "B0H8P7DJNG",
+            "B0H36XX5BG",
+            "B0HL8X87P5",
+            "B0DPKBCWBY",
+            "B0DPK2CCTL",
+            "B0HML57S9P",
+            "B0H36TGQT8",
+            "B0H2VR46ZC",
+            "B0H4PGK9QJ",
+            "B0HHNGLGWT",
+            "B0H2D641ZY",
+            "B0H2D57XGS"
+          ],
+          "sample_asins": [
+            {
+              "asin": "B0HNNCYXJ6",
+              "brand": "monTEK - US",
+              "title": "monTEK 0.77\" Ultra Slim Full Motion TV Wall Mount & TV Mount Extension Bracket",
+              "network": "pb_yzzy723",
+              "tier": 2
+            },
+            {
+              "asin": "B0HNNBH9GS",
+              "brand": "monTEK - US",
+              "title": "monTEK 0.77\" Ultra Slim Full Motion TV Wall Mount & TV Mount Extension Bracket",
+              "network": "pb_yzzy723",
+              "tier": 2
+            },
+            {
+              "asin": "B0H8P8F4NP",
+              "brand": "monTEK - US",
+              "title": "monTEK Heavy Duty Tilting TV Wall Mount Barckt for 37–90\" TVs & monTEK 1.3\" Ultra Slim Ful",
+              "network": "pb_yzzy723",
+              "tier": 2
+            },
+            {
+              "asin": "B0H8P7DJNG",
+              "brand": "monTEK - US",
+              "title": "monTEK Heavy Duty Tilting TV Wall Mount Barckt for 37–90\" TVs & monTEK 1.5\" Ultra Slim Ful",
+              "network": "pb_yzzy723",
+              "tier": 2
+            },
+            {
+              "asin": "B0H36XX5BG",
+              "brand": "monTEK - US",
+              "title": "monTEK Universal TV Mounting Hardware Kit with M8x70mm Lag Bolts",
+              "network": "pb_yzzy723",
+              "tier": 2
+            }
+          ],
+          "brand_top": [
+            {
+              "name": "monTEK - US",
+              "n": 107
+            }
+          ]
+        },
+        {
+          "slug": "monitor-arms",
+          "niche_label": "Monitor Arms",
+          "category": "Electronics",
+          "healthy_count": 129,
+          "asins": [
+            "B0HD6RWK82",
+            "B0HC5QGYVF",
+            "B0GY3S2SZ7",
+            "B0G6YFPC5Z",
+            "B0G6L23LZR",
+            "B0G6DK4JJ6",
+            "B0G6DGL4GS",
+            "B0G6DB6KNF",
+            "B0G6D4MM4T",
+            "B0G6D3ZZCC",
+            "B0G6CZNQ4S",
+            "B0G1M8V7F3",
+            "B0G1M3NM7L",
+            "B0G1C4DH2H",
+            "B0G1C42639"
+          ],
+          "sample_asins": [
+            {
+              "asin": "B0HD6RWK82",
+              "brand": "monTEK - US",
+              "title": "monTEK Dual Monitor Desk Mount 17-32in, Mechanical Spring, 20lb Per Arm",
+              "network": "pb_yzzy723",
+              "tier": 2
+            },
+            {
+              "asin": "B0HC5QGYVF",
+              "brand": "monTEK - US",
+              "title": "monTEK Monitor Desk Mount 17-32in, Mechanical Spring, 20lb, Home Office",
+              "network": "pb_yzzy723",
+              "tier": 2
+            },
+            {
+              "asin": "B0GY3S2SZ7",
+              "brand": "monTEK - US",
+              "title": "monTEK Freestanding Dual Monitor Stand with Power Strip, 13-32 Inch, Black",
+              "network": "pb_yzzy723",
+              "tier": 2
+            },
+            {
+              "asin": "B0G6YFPC5Z",
+              "brand": "monTEK - US",
+              "title": "monTEK Monitor Wall Mount & VESA Extension Adapter Bundle, Fits 17\"-57\" Screens up to 59.4",
+              "network": "pb_yzzy723",
+              "tier": 2
+            },
+            {
+              "asin": "B0G6L23LZR",
+              "brand": "monTEK - US",
+              "title": "monTEK Sleek Aluminum Monitor Arm with Mount Reinforcement Plate for 17–57” Ultrawide Scre",
+              "network": "pb_yzzy723",
+              "tier": 2
+            }
+          ],
+          "brand_top": [
+            {
+              "name": "monTEK - US",
+              "n": 129
+            }
+          ]
+        },
+        {
+          "slug": "stage-lights",
+          "niche_label": "Stage Lights",
+          "category": "Musical Instruments",
+          "healthy_count": 134,
+          "asins": [
+            "B0GLWVYMWP",
+            "B0GLWVNK4D",
+            "B0HMW5R2WC",
+            "B0HMW1SR5T",
+            "B0GDDP123K",
+            "B0CQM4LTK4",
+            "B0DGTD3QP2",
+            "B0DGQHFYTX",
+            "B0GLX8R7X4",
+            "B0G7S4V9Y3",
+            "B0GWLVTRVC",
+            "B0HJGTYGPQ",
+            "B0HJGT2L4Z",
+            "B0HJGT291H",
+            "B0HJGS9PG8"
+          ],
+          "sample_asins": [
+            {
+              "asin": "B0GLWVYMWP",
+              "brand": "SHEHDS Direct",
+              "title": "SHEHDS Par Can Lights LED 7x18W RGBWAP 6in1 Wash Stage Lights 6 Pack",
+              "network": "pb_yzzy723",
+              "tier": 2
+            },
+            {
+              "asin": "B0GLWVNK4D",
+              "brand": "SHEHDS Direct",
+              "title": "SHEHDS 7x18W IP65 Waterproof LED Par Lights 4 Pack",
+              "network": "pb_yzzy723",
+              "tier": 2
+            },
+            {
+              "asin": "B0HMW5R2WC",
+              "brand": "SHEHDS Direct",
+              "title": "Moving Light",
+              "network": "pb_yzzy723",
+              "tier": 2
+            },
+            {
+              "asin": "B0HMW1SR5T",
+              "brand": "SHEHDS Direct",
+              "title": "Stage Light",
+              "network": "pb_yzzy723",
+              "tier": 2
+            },
+            {
+              "asin": "B0GDDP123K",
+              "brand": "SHEHDS Direct",
+              "title": "SHEHDS LED Stage Par Lights LED 18X18W DJ Stage Lights 6 Pack",
+              "network": "pb_yzzy723",
+              "tier": 2
+            }
+          ],
+          "brand_top": [
+            {
+              "name": "SHEHDS Direct",
+              "n": 76
+            },
+            {
+              "name": "SHEHDS US",
+              "n": 58
+            }
+          ]
+        },
+        {
+          "slug": "kvm-switches",
+          "niche_label": "KVM Switches",
+          "category": "Electronics",
+          "healthy_count": 58,
+          "asins": [
+            "B0H6J5TFMT",
+            "B0HMBF83JS",
+            "B0H2TYJ8VG",
+            "B0HLCQQ21L",
+            "B0HLCPY6VX",
+            "B0HLCML1P1",
+            "B0G51Q899W",
+            "B0HJW46PZD",
+            "B0H5K28N1T",
+            "B0HFN365NN",
+            "B0GYPJ97Z2",
+            "B0GTY8Z8PN",
+            "B0H1Q6G3K4",
+            "B0HHJHYF8Z",
+            "B0HDN5MHLR"
+          ],
+          "sample_asins": [
+            {
+              "asin": "B0H6J5TFMT",
+              "brand": "v AV Access-US",
+              "title": "AV Access 8K Dual Monitor KVM Docking Station for Laptop & Desktop PC",
+              "network": "pb_yzzy723",
+              "tier": 2
+            },
+            {
+              "asin": "B0HMBF83JS",
+              "brand": "v AV Access-US",
+              "title": "AV Access 8K KVM Switch 3 Monitors 2 Computers, KVM Dock for 2 Desktop PCs",
+              "network": "pb_yzzy723",
+              "tier": 2
+            },
+            {
+              "asin": "B0H2TYJ8VG",
+              "brand": "v AV Access-US",
+              "title": "Remote Switch Button EXB01 for Effortless Device Switching",
+              "network": "pb_yzzy723",
+              "tier": 2
+            },
+            {
+              "asin": "B0HLCQQ21L",
+              "brand": "v AV Access-US",
+              "title": "AV Access 8K KVM Switch 3 Monitors 2 Computers, DP KVM Dock for Desktop PCs",
+              "network": "pb_yzzy723",
+              "tier": 2
+            },
+            {
+              "asin": "B0HLCPY6VX",
+              "brand": "v AV Access-US",
+              "title": "AV Access KVM Switch 1 Monitor 2 Computers, 10K HDMI 2.1 KVM with USB 3.0",
+              "network": "pb_yzzy723",
+              "tier": 2
+            }
+          ],
+          "brand_top": [
+            {
+              "name": "v AV Access-US",
+              "n": 58
+            }
+          ]
+        },
+        {
+          "slug": "glass-display-cabinets",
+          "niche_label": "Glass Display Cabinets",
+          "category": "Home & Kitchen",
+          "healthy_count": 116,
+          "asins": [
+            "B0GX149LLS",
+            "B0HLYY6BM2",
+            "B0GRZLY75T",
+            "B0HLDJBJKX",
+            "B0HL87SRGG",
+            "B0FJ1XNFS1",
+            "B0HKM1SFLZ",
+            "B0GWDYRQKM",
+            "B0HKK8PJJR",
+            "B0HJNLKK9R",
+            "B0HDKZKXS9",
+            "B0H9YH5DF9",
+            "B0H3DSQV33",
+            "B0HCPGBBBF",
+            "B0HGLTG5L5"
+          ],
+          "sample_asins": [
+            {
+              "asin": "B0GX149LLS",
+              "brand": "Lvifur",
+              "title": "Lvifur LED Glass Display Cabinet with 3 Drawer for Collectibles,Natural",
+              "network": "pb_yzzy723",
+              "tier": 2
+            },
+            {
+              "asin": "B0HLYY6BM2",
+              "brand": "Lvifur",
+              "title": "Lvifur 6-Tier Corner RGB LED Glass Display Cabinet with Human Sensor, Black",
+              "network": "pb_yzzy723",
+              "tier": 2
+            },
+            {
+              "asin": "B0GRZLY75T",
+              "brand": "Lvifur",
+              "title": "69\" Corner Glass Curio Display with RGB Lights for Living Room, White",
+              "network": "pb_yzzy723",
+              "tier": 2
+            },
+            {
+              "asin": "B0HLDJBJKX",
+              "brand": "Lvifur",
+              "title": "Lvifur Rotating 360 Glass Display Cabinet with RGB Light - Auto Sensor",
+              "network": "pb_yzzy723",
+              "tier": 2
+            },
+            {
+              "asin": "B0HL87SRGG",
+              "brand": "Lvifur",
+              "title": "Lvifur Rotating 360 Glass Display Cabinet with RGB Light - Auto Sensor",
+              "network": "pb_yzzy723",
+              "tier": 2
+            }
+          ],
+          "brand_top": [
+            {
+              "name": "Lvifur",
+              "n": 111
+            },
+            {
+              "name": "DELLA",
+              "n": 5
+            }
+          ]
+        },
+        {
+          "slug": "document-scanners",
+          "niche_label": "Document Scanners",
+          "category": "Office Products",
+          "healthy_count": 29,
+          "asins": [
+            "B0GT986QDS",
+            "B0GT95MVBL",
+            "B0GT93YZM8",
+            "B0GT93T3HS",
+            "B0GT91DZ4H",
+            "B0GT8WJK8X",
+            "B0GT8W7HM7",
+            "B0GT8FBSGY",
+            "B0FWJHL3FX",
+            "B0FLJJXJYF",
+            "B0D2KH2VVB",
+            "B0CJY4JN4F",
+            "B0CJY2RCMT",
+            "B0C58FM85X",
+            "B0C4CWPRQD"
+          ],
+          "sample_asins": [
+            {
+              "asin": "B0GT986QDS",
+              "brand": "CZUR",
+              "title": "CZUR ET18 Pro Book Scanner with Assistive Cover – 18MP Overhead Document Scanner, Flatten ",
+              "network": "pb_yzzy723",
+              "tier": 2
+            },
+            {
+              "asin": "B0GT95MVBL",
+              "brand": "CZUR",
+              "title": "CZUR Aura Book Scanner with Assistive Cover – Overhead Document Scanner, Flatten Curved Pa",
+              "network": "pb_yzzy723",
+              "tier": 2
+            },
+            {
+              "asin": "B0GT93YZM8",
+              "brand": "CZUR",
+              "title": "CZUR ET16 Plus Book Scanner with Assistive Cover – 16MP Overhead Document Scanner, Flatten",
+              "network": "pb_yzzy723",
+              "tier": 2
+            },
+            {
+              "asin": "B0GT93T3HS",
+              "brand": "CZUR",
+              "title": "CZUR ET24 Pro Book Scanner with Assistive Cover – 24MP Overhead Document Scanner, Flatten ",
+              "network": "pb_yzzy723",
+              "tier": 2
+            },
+            {
+              "asin": "B0GT91DZ4H",
+              "brand": "CZUR",
+              "title": "CZUR Shine Ultra Pro Book Scanner with Assistive Cover – 24MP Overhead Document Scanner, F",
+              "network": "pb_yzzy723",
+              "tier": 2
+            }
+          ],
+          "brand_top": [
+            {
+              "name": "CZUR",
+              "n": 29
+            }
+          ]
+        },
+        {
+          "slug": "desk-lamps",
+          "niche_label": "Desk Lamps",
+          "category": "Tools & Home Improvement",
+          "healthy_count": 58,
+          "asins": [
+            "B0C13HJPJC",
+            "B0DGX68QDH",
+            "B0F53XNY6C",
+            "B0DXKM1Z37",
+            "B0DVSVF3V2",
+            "B0F5414C8X",
+            "B0HJGMW1V7",
+            "B0GCNDVJ4F",
+            "B0G4G599J5",
+            "B0FMJFTQJM",
+            "B0DWFP722S",
+            "B0DL21SDX9",
+            "B0G1R2MT8X",
+            "B0DW9DTTLL",
+            "B0HDHW7HRF"
+          ],
+          "sample_asins": [
+            {
+              "asin": "B0C13HJPJC",
+              "brand": "Honeywell Smart Lighting",
+              "title": "Honeywell 01A Sunturalux LED Desk Lamp with Swing Arm for Desk Craft",
+              "network": "pb_yzzy723",
+              "tier": 2
+            },
+            {
+              "asin": "B0DGX68QDH",
+              "brand": "Honeywell Smart Lighting",
+              "title": "Honeywell HWT-H4 LED Desk Lamp, Eye-Caring, Dimmable, Auto Sensor",
+              "network": "pb_yzzy723",
+              "tier": 2
+            },
+            {
+              "asin": "B0F53XNY6C",
+              "brand": "Honeywell Smart Lighting",
+              "title": "Honeywell H6+H4 Desk Lamp for Home Office",
+              "network": "pb_yzzy723",
+              "tier": 2
+            },
+            {
+              "asin": "B0DXKM1Z37",
+              "brand": "Honeywell Smart Lighting",
+              "title": "Honeywell LED Desk Lamp for Home Office, Dimmable Desk Light with USB A+C Dual Charging De",
+              "network": "pb_yzzy723",
+              "tier": 2
+            },
+            {
+              "asin": "B0DVSVF3V2",
+              "brand": "Honeywell Smart Lighting",
+              "title": "Honeywell Desk Lamp for Home Office, H6 Sunturalux™ Eye-Caring Led Desk Light, 800LM Dimma",
+              "network": "pb_yzzy723",
+              "tier": 2
+            }
+          ],
+          "brand_top": [
+            {
+              "name": "Honeywell Smart Lighting",
+              "n": 58
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

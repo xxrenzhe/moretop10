@@ -1,0 +1,347 @@
+{
+  "generated": "2026-10-23",
+  "slug": "water-filters",
+  "name": "Water Filters",
+  "amazon_category": "Appliances",
+  "density": 10,
+  "density_target": 10,
+  "density_shortfall": false,
+  "status": "unpublished_scaffold",
+  "waiting_for_部署上线": "yes",
+  "inventory": "l2_ok",
+  "baked": true,
+  "live": false,
+  "publishable": true,
+  "cta_label": "Check price",
+  "cta_rule": "PB pboost.me keeps uid=fromsll when L2 ok + verified track; otherwise track_pending and no Check price",
+  "l2": {
+    "status": "ok",
+    "method": "mac_chrome_cdp_9333",
+    "ok_count": 10,
+    "blocked": []
+  },
+  "notes": [
+    "Day-add densify L2 2026-10-23. waiting_for_部署上线=yes. No Live.",
+    "Main products only — no fridge/Brita cartridges, mounts, or arms.",
+    "CTA = verified fromsll (pboost.me or PB Amazon maas). No invented hops.",
+    "Lifestyle cover remains a gradient placeholder.",
+    "Rebuilt from densify main systems. Dropped B01CC87G86 fridge cartridge."
+  ],
+  "dropped_accessory_asins": [],
+  "picks": [
+    {
+      "asin": "B0GWCWN64R",
+      "title": "Waterdrop C1S Countertop Reverse Osmosis Water Filter, 6-Stage Filtration",
+      "title_source": "l2_pack",
+      "brand": "WFT-Waterdrop",
+      "affiliate_network": "pb",
+      "affiliate_link": "https://www.amazon.com/dp/B0GWCWN64R?maas=maas_adg_api_579776037387427332_static_12_201&ref_=aa_maas&tag=maas&aa_campaignid=PB6e4244366fc3631cf1e83967d7db05f8_e0cd30977707&aa_adgroupid=d32cYAQXf0gZ6Zp0x4CPptlWbg_bfz8aaut9mnPUWVdCrvKXcuCuV3XxB56ay0zKypqDJf4iqLySV_bh_bT3am10nJXbeOdkA_c_c&aa_creativeid=c480xOSPM28J_aghjXgq4X4Tc707vB15N9JKyJEy5ynphFak_c&uid=fromsll",
+      "track_status": "ok",
+      "l2_status": "ok",
+      "price": "219.00",
+      "price_raw": "$219.00",
+      "price_displayed": "$219.00",
+      "list_price": "$259.00",
+      "image": "https://m.media-amazon.com/images/I/61b-P2OB3PL._SL1500_.jpg",
+      "availability": "In Stock",
+      "in_stock": true,
+      "rating": 4.2,
+      "review_count": 287,
+      "feature_bullets": [
+        "[6-stage RO Filtration] This countertop reverse osmosis water filter system uses premium 0.0001μm RO membrane to reduce TDS, providing you healthy water. Note: The WD-C1S can only enhance room-temperature water",
+        "[Easy to Operate] This countertop reverse osmosis system has a smart touch screen for TDS real-time displaying and filter life monitoring. Enjoy the convenience of 5 adjustable water volumes and effortlessly customize your water volume with simple controls. Note: Before use, please make sure that the black protective film on the screen is removed to avoid affecting normal operation",
+        "[Fits Every Countertop] Ideal for kitchen, office, or bedroom - its compact design fits every countertop. No installation hassle, just plug and play for immediate clean water access, simplifying your path to a healthier lifestyle"
+      ],
+      "l2": {
+        "ok": true,
+        "method": "mac_chrome_cdp",
+        "zip": "10001",
+        "fetched_at": "2026-10-23T09:31:36.836984+08:00"
+      }
+    },
+    {
+      "asin": "B0FCFLX4ZR",
+      "title": "Waterdrop C1H Instant Hot Countertop RO System, No Installation Required",
+      "title_source": "l2_pack",
+      "brand": "WFT-Waterdrop",
+      "affiliate_network": "pb",
+      "affiliate_link": "https://www.amazon.com/dp/B0FCFLX4ZR?maas=maas_adg_api_581162320068749297_static_12_201&ref_=aa_maas&tag=maas&aa_campaignid=PBbea1170d0dfde9a50dca26d8736aef93_e0cd30977707&aa_adgroupid=31cfCROHDiMrVHDcU0ze_bOBkWgmxmpMhKx721VWVtdTqeqLmQgMQ6DBPAhKezaFoMEApNi2l1ELszZIfqGJjN9DU7VF3ejg_c&aa_creativeid=113cCjuHnApIEYZpRCXKwkf6_bEVkwpjcHgVHWhI5MrfHsWU_c&uid=fromsll",
+      "track_status": "ok",
+      "l2_status": "ok",
+      "price": "249.00",
+      "price_raw": "$249.00",
+      "price_displayed": "$249.00",
+      "list_price": "$279.00",
+      "image": "https://m.media-amazon.com/images/I/71T4Xt3iSiL._SL1500_.jpg",
+      "availability": "In Stock",
+      "in_stock": true,
+      "rating": 4.2,
+      "review_count": 287,
+      "feature_bullets": [
+        "[ 6-Stage RO Filtration ] Certified for safety with NSF/ANSI 372 lead-free material standard and SGS-tested, the C1 system uses premium 0.0001μm RO membrane to reduce TDS、PFOA、PFOS、chlorine、fluoride、arsenic、lead and more, providing you healthy water",
+        "[ 3S Instant Heating ] Revolutionize your life with the countertop reverse osmosis water Filter, featuring cutting-edge heating technology for 3-second instant heat. Effortlessly perfect for soothing tea, refreshing coffee, and more, its convenience redefined. Plus a glass bottle for stylish hydration",
+        "[ Easy to Operate ] This instant hot countertop reverse osmosis system features an intelligent digital screen for temperature and filter life monitoring. When the TDS ＞150, the water dispenser key icon will flash a reminder. Choose from 5 water volumes and temperatures. Also, you can easily customize and memorize your favorite mode for personalized hydration"
+      ],
+      "l2": {
+        "ok": true,
+        "method": "mac_chrome_cdp",
+        "zip": "10001",
+        "fetched_at": "2026-10-23T09:32:07.480309+08:00"
+      }
+    },
+    {
+      "asin": "B0GYRWYBZY",
+      "title": "Waterdrop C2S Countertop RO Filtration System, 40oz Autofill Glass Pitcher",
+      "title_source": "l2_pack",
+      "brand": "WFT-Waterdrop",
+      "affiliate_network": "pb",
+      "affiliate_link": "https://www.amazon.com/dp/B0GYRWYBZY?maas=maas_adg_api_581162320068749297_static_12_201&ref_=aa_maas&tag=maas&aa_campaignid=PBbea1170d0dfde9a50dca26d8736aef93_225033be075d&aa_adgroupid=7dd22rgESJgNS1sSCLWXlIaLNgc5vLJTY7Vn_bexItugY1Dph43SoOB1MMsOzuAMyFveNv4PVLJnwNAwEDStjLp5nacnEkqg_c&aa_creativeid=c3eflJ3njSmgKMX_aCSr6sgU2R91IBqTLPF306JasmCpEaWE_c&uid=fromsll",
+      "track_status": "ok",
+      "l2_status": "ok",
+      "price": "149.99",
+      "price_raw": "$149.99",
+      "price_displayed": "$149.99",
+      "list_price": "$169.99",
+      "image": "https://m.media-amazon.com/images/I/61uNsKThpzL._SL1500_.jpg",
+      "availability": "In Stock",
+      "in_stock": true,
+      "rating": 4.2,
+      "review_count": 202,
+      "feature_bullets": [
+        "[𝟔-𝐒𝐭𝐚𝐠𝐞 𝐅𝐢𝐥𝐭𝐫𝐚𝐭𝐢𝐨𝐧]The WD-C2S countertop ro system features a 0.0001μm RO membrane. It reduces PFOA*, PFOS*, TDS*, Chlorine*, Lead*, Heavy Metals*, VOCs*, and more*, providing you with healthy water *Tested by SGS analytical laboratory for 10 unit volumes reduction of substances. Actual performance may vary with water quality and use",
+        "[𝐂𝐞𝐫𝐭𝐢𝐟𝐢𝐞𝐝 𝐒𝐚𝐟𝐞 𝐅𝐢𝐥𝐭𝐞𝐫] IAPMO R&T certified to NSF/ANSI 372 standards for lead-free materials, our installation-free countertop reverse osmosis system offers more than just filtration — it's a promise of cleaner, healthier hydration",
+        "[𝐒𝐦𝐚𝐫𝐭 𝐚𝐥𝐞𝐫𝐭𝐬 𝐟𝐨𝐫 𝐞𝐚𝐬𝐲 𝐬𝐞𝐭𝐮𝐩] Never miss a refill or filter change with smart display and voice alerts, plus guided first rinse — ensuring hassle-free use of your compact countertop reverse osmosis water filter system"
+      ],
+      "l2": {
+        "ok": true,
+        "method": "mac_chrome_cdp_9333",
+        "zip": "10001",
+        "fetched_at": "2026-10-23T10:06:08.302027+08:00"
+      }
+    },
+    {
+      "asin": "B0H6WKMXPB",
+      "title": "Waterdrop 15UA Under Sink Water Filter System with 2 Filters, 4 Years",
+      "title_source": "l2_pack",
+      "brand": "WFT-Waterdrop",
+      "affiliate_network": "pb",
+      "affiliate_link": "https://www.amazon.com/dp/B0H6WKMXPB?maas=maas_adg_api_581162320068749297_static_12_201&ref_=aa_maas&tag=maas&aa_campaignid=PBbea1170d0dfde9a50dca26d8736aef93_f36a772c8981&aa_adgroupid=4743QtS4dtekp2wTxYYNGdKTmUGn_asC_bI8uEAzZzKXf1WThWzVFyW0scIyMbserY3Z0zD8XLf_b23ZV_bi5QQP_b3fw2FBjF60_c&aa_creativeid=0e8aGqmNO1slzObHIUaKIL_bREKxo1g5fA7_bZOrpOtpz8oew_c&uid=fromsll",
+      "track_status": "ok",
+      "l2_status": "ok",
+      "price": "77.99",
+      "price_raw": "$77.99",
+      "price_displayed": "$77.99",
+      "list_price": "$92.99",
+      "image": "https://m.media-amazon.com/images/I/71mO37Ly0PL._SL1500_.jpg",
+      "availability": "In Stock",
+      "in_stock": true,
+      "rating": 4.5,
+      "review_count": 8790,
+      "feature_bullets": [
+        "Compatible Replacement Filter: WD-RF15. To purchase, please search for ASIN B085G78F7R on Amazon.",
+        "𝐔𝐥𝐭𝐫𝐚-𝐋𝐨𝐧𝐠 𝐒𝐞𝐫𝐯𝐢𝐜𝐞 𝐋𝐢𝐟𝐞: When used with municipal water, each under sink water filtration system has a maximum service life of 24 months.[1]Before going on vacation, please put the filters in separate sealed plastic bags, and store the bags in your refrigerator (NOT the freezer) to keep it fresh in 30 days. It is specifically designed for municipal tap water and can only be used with cold water sources.It is not suitable for well water or hot water.",
+        "𝐈𝐧𝐧𝐨𝐯𝐚𝐭𝐢𝐯𝐞 𝐌𝐮𝐥𝐭𝐢𝐬𝐭𝐚𝐠𝐞 𝐅𝐢𝐥𝐭𝐫𝐚𝐭𝐢𝐨𝐧: The Waterdrop Direct Connect under sink water filtration system uses innovative multistage filtration. It can effectively reduce PFOA/PFOS, lead, chlorine, heavy metals, chemical iṁpurity, sediment and other large particles.[2] Enjoy pure water straight from your tap – no need to buy bottled water anymore."
+      ],
+      "l2": {
+        "ok": true,
+        "method": "mac_chrome_cdp_9333",
+        "zip": "10001",
+        "fetched_at": "2026-10-23T10:06:18.847985+08:00"
+      }
+    },
+    {
+      "asin": "B087R2V8V7",
+      "title": "Waterdrop DST Under Sink Water Filter System, No Drill Required for Renters",
+      "title_source": "l2_pack",
+      "brand": "WFT-Waterdrop",
+      "affiliate_network": "pb",
+      "affiliate_link": "https://www.amazon.com/dp/B087R2V8V7?maas=maas_adg_api_581162320068749297_static_12_201&ref_=aa_maas&tag=maas&aa_campaignid=PBbea1170d0dfde9a50dca26d8736aef93_8ec52b980f9f&aa_adgroupid=c63eNJilL7eq_alHH_aFE2yT9f9BO00AIOSoN55Rw4iyHJXUlcsNFRAs_bY97kKwN_atk4VGDoz4NhHJ0vKSCWtYkjVS5Un5F8M_c&aa_creativeid=3a29JaeuZBIAJcF_b5E4_aRi683UHvXcK9Ge2Vk_bvIsX_a1eq0_c&uid=fromsll",
+      "track_status": "ok",
+      "l2_status": "ok",
+      "price": "89.99",
+      "price_raw": "$89.99",
+      "price_displayed": "$89.99",
+      "list_price": "$109.99",
+      "image": "https://m.media-amazon.com/images/I/71BiS8N91YL._SL1500_.jpg",
+      "availability": "In Stock",
+      "in_stock": true,
+      "rating": 4.4,
+      "review_count": 1005,
+      "feature_bullets": [
+        "Important Note: This under sink water filter system does NOT reduce TDS. It is specifically designed for municipal tap water and can only be used with cold water sources. It is not suitable for well water or hot water. Suitable for faucets with 1/2\" or 3/8\" FEMALE NPT thread. Need to connect to a quick-connect faucet? Just reach out — we’ll gladly send free connection fittings.",
+        "Replacing your filter? To replace the filter for your WD-DST under-sink water filtration system, Please search for B0DLVZ2M34 for the WD-DSP1 filter, B0DLW3N7FX for the WD-DSC2 filter",
+        "SLIM & SPACE-SAVING: Seeking an under sink water filter with a small footprint? Dimensions of 2.76\"W x 12.8\"H x 7.28\"L fit small spaces, suitable for cabinets even with a large food disposal taking up a lot of space. It easily fits underneath your sink"
+      ],
+      "l2": {
+        "ok": true,
+        "method": "mac_chrome_cdp_9333",
+        "zip": "10001",
+        "fetched_at": "2026-10-23T10:06:29.043655+08:00"
+      }
+    },
+    {
+      "asin": "B0H5JZZ3GK",
+      "title": "Waterdrop WHF21-PBL 2-Stage Whole House Water Filter System, NSF/ANSI 372",
+      "title_source": "l2_pack",
+      "brand": "WFT-Waterdrop",
+      "affiliate_network": "pb",
+      "affiliate_link": "https://www.amazon.com/dp/B0H5JZZ3GK?maas=maas_adg_api_579776037387427332_static_12_201&ref_=aa_maas&tag=maas&aa_campaignid=PB6e4244366fc3631cf1e83967d7db05f8_c81e68d66949&aa_adgroupid=667e1SgJW9Y0EHQJZM8iy63rPtq2BA9LnqxZY_a_an_bGWVBlP7m7MnU5RRDxRgL0KWuRv5AxgHjIeXkNKY2jwf6GBTAHK3XQ_c_c&aa_creativeid=e8bbkuHrJjQ7QaNLXTydor3C9MIhjlkGB9AJNBTuQQUkbCg_c&uid=fromsll",
+      "track_status": "ok",
+      "l2_status": "ok",
+      "price": "169.99",
+      "price_raw": "$169.99",
+      "price_displayed": "$169.99",
+      "list_price": "$229.99",
+      "image": "https://m.media-amazon.com/images/I/71j88IuQAOL._SL1500_.jpg",
+      "availability": "In Stock",
+      "in_stock": true,
+      "rating": 4.4,
+      "review_count": 1584,
+      "feature_bullets": [
+        "𝐅𝐨𝐫 𝐌𝐮𝐧𝐢𝐜𝐢𝐩𝐚𝐥 𝐚𝐧𝐝 𝐖𝐞𝐥𝐥 𝐖𝐚𝐭𝐞𝐫: Suitable for municipal and well water sources. This whole house water filter system combines an upgraded pleated PP sediment filter with premium coconut shell activated carbon and advanced filtration media for comprehensive whole-home protection.",
+        "𝐑𝐞𝐝𝐮𝐜𝐞𝐬 𝐔𝐩 𝐭𝐨 𝟗𝟗% 𝐨𝐟 𝐋𝐞𝐚𝐝 𝐚𝐧𝐝 𝐂𝐡𝐥𝐨𝐫𝐢𝐧𝐞: It delivers up to 99% reduction of lead and chlorine while helping reduce dirt, sand, rust, mercury, hydrogen sulfide, heavy metals, arsenic, cadmium, PFAS, odors, and other contaminants. Enjoy cleaner, fresher-tasting water from every faucet while helping protect your plumbing and household appliances.",
+        "𝐍𝐒𝐅/𝐀𝐍𝐒𝐈 𝟑𝟕𝟐 𝐂𝐞𝐫𝐭𝐢𝐟𝐢𝐞𝐝: Made with lead-free and BPA-free materials, this system is certified by IAPMO R&T to NSF/ANSI 372 for lead-free compliance, providing added confidence for your family’s everyday water use."
+      ],
+      "l2": {
+        "ok": true,
+        "method": "mac_chrome_cdp",
+        "zip": "10001",
+        "fetched_at": "2026-10-23T09:32:38.110447+08:00"
+      }
+    },
+    {
+      "asin": "B097YC4VC2",
+      "title": "Waterdrop TSB 8 Layer Under Sink Water Filter System, with Dedicated Faucet",
+      "title_source": "l2_pack",
+      "brand": "WFT-Waterdrop",
+      "affiliate_network": "pb",
+      "affiliate_link": "https://www.amazon.com/dp/B097YC4VC2?maas=maas_adg_api_581162320068749297_static_12_201&ref_=aa_maas&tag=maas&aa_campaignid=PBbea1170d0dfde9a50dca26d8736aef93_ba1895d27b9a&aa_adgroupid=3784Thq9BJLEOnUvSsmQdl5tgMLH_bQG3x2fB7NGkj_brHBKkWsTMCuixXXk2D3dq3_bFmictAt_aGTGUgZ7Tj_b_aI9vEC7E_bQws_c&aa_creativeid=4029e7PbcgNLa8PwzNzuUjsc1qnXXb1n1tcWP0eU8_bVgSk0_c&uid=fromsll",
+      "track_status": "ok",
+      "l2_status": "ok",
+      "price": "105.25",
+      "price_raw": "$105.25",
+      "price_displayed": "$105.25",
+      "list_price": "$143.99",
+      "image": "https://m.media-amazon.com/images/I/712QbxOznaL._SL1500_.jpg",
+      "availability": "In Stock",
+      "in_stock": true,
+      "rating": 4.4,
+      "review_count": 1409,
+      "feature_bullets": [
+        "[Easy DIY Compatibility] This 3-stage under sink water filter system does NOT reduce TDS and helps retain beneficial minerals. Designed for standard under-sink cold-water connections and municipal tap water. Not suitable for hot water or well water. Includes a new dedicated faucet for your setup",
+        "[Easy Filter Replacement] Replacement filters are easy to find and install. For WD-TSA / TSB 3 stage under sink water filtration system, search B0CM8MHWNT for WD-10PP, B0CM8KV1M9 for WD-10GC, and B0CM8SDWWD for WD-10CT",
+        "[More filters, better taste] This under sink filter system comes with 3 filters and can realize 8-stage deep filtration to reduce PFAS, PFOA/PFOS, residual chlorine, fluorides, heavy metals, silt, rust, cyst, etc. Its KDF materials can effectively reduce heavy metals. Its fluoride reduction resin reduces 97% of fluorides. This filter has passed IAPMO certification to reduce residual chlorine and improve taste, thereby ensuring every drop is pure and healthy. It also can retain minerals, but cannot reduce TDS"
+      ],
+      "l2": {
+        "ok": true,
+        "method": "mac_chrome_cdp_9333",
+        "zip": "10001",
+        "fetched_at": "2026-10-23T10:06:39.943863+08:00"
+      }
+    },
+    {
+      "asin": "B09W1Y557B",
+      "title": "Frizzlife SW15F Under Sink Water Filter System with Brushed Nickel Faucet",
+      "title_source": "l2_pack",
+      "brand": "Frizzlife AMZ",
+      "affiliate_network": "pb",
+      "affiliate_link": "https://www.amazon.com/dp/B09W1Y557B?maas=maas_adg_api_584966293070898849_static_12_201&ref_=aa_maas&tag=maas&aa_campaignid=PBa9c9e3745791556dd0b7fb8a812eb965_b6604227acfd&aa_adgroupid=fdb5zwWKC79BZRxI_anUST1S7d_a7LtHu4KgqEalvZoPcCr7frlqzlqMWwQdJr5S1PZgY4IGHg6_bmXc9_aXiplsVCmO2qg4ig_c_c&aa_creativeid=d0f5r0AzPJ05G77818mcSBDtKXEjZkBhqGzlMgCJSbijZkc_c&uid=fromsll",
+      "track_status": "ok",
+      "l2_status": "ok",
+      "price": "80.99",
+      "price_raw": "$80.99",
+      "price_displayed": "$80.99",
+      "list_price": "$94.99",
+      "image": "https://m.media-amazon.com/images/I/61SvlGeDQbL._SL1500_.jpg",
+      "availability": "In Stock",
+      "in_stock": true,
+      "rating": 4.4,
+      "review_count": 449,
+      "feature_bullets": [
+        "【Pre-Purchase Check】The dimensions of the SW15F are 4.9\"L x 6.1\"W x 18.9\"H，please ensure you have sufficient under-sink space for SW15F.",
+        "【Multi-Layer Filtration】Featured with innovative multi-stage filtration technology, Frizzlife SW15F under sink water filter system extrudes NSF 42&53 Certified filtration elements and combines sediment filter and coconut carbon block filter into a composite filter with 0.5 micron filtration accuracy. It can effectively reduce chlorine, lead, fluoride, heavy metals, VOCs, bad taste & odor and other harmful contaminants from water. Do not reduce TDS!",
+        "【5min DIY Install & Premium Dedicated Faucet】SW15F under sink water filtration comes with a Lead-free brushed stainless steel faucet and should be connected to the dedicated faucet provided. With the help of comprehensive manual and step-to-step install guide video, the sink filter system can be installed in a few minutes on your own! No additional plumbing service required. Please note: This system is designed for COLD WATER USE ONLY."
+      ],
+      "l2": {
+        "ok": true,
+        "method": "mac_chrome_cdp_9333",
+        "zip": "10001",
+        "fetched_at": "2026-10-23T10:07:03.381308+08:00"
+      }
+    },
+    {
+      "asin": "B08R8FD43K",
+      "title": "Frizzlife PX500-A Under Sink Tankless Reverse Osmosis Water Filtration System, 500 Gallons Per Day, Remineralizes Water, Easy DIY Installation, Low Maintenance",
+      "title_source": "l2_pack",
+      "brand": "Frizzlife AMZ",
+      "affiliate_network": "pb",
+      "affiliate_link": "https://www.amazon.com/dp/B08R8FD43K?maas=maas_adg_api_584966293070898849_static_12_201&ref_=aa_maas&tag=maas&aa_campaignid=PBa9c9e3745791556dd0b7fb8a812eb965_b7738c13852c&aa_adgroupid=1987cVUh41dA2KUWFg2MGbln6scH8Keg1tl5vLzgKAp_ac2aaRJzfDNNh4hKGMC03ICgrJlg5VBDeds6dbcFDzxZMM3_ayVg_c_c&aa_creativeid=0aea92qObOixlD6otQ_b5BE7zckVnKAfHtvMbCZ4AkulmWIc_c&uid=fromsll",
+      "track_status": "ok",
+      "l2_status": "ok",
+      "price": "329.99",
+      "price_raw": "$329.99",
+      "price_displayed": "$329.99",
+      "list_price": "$379.99",
+      "image": "https://m.media-amazon.com/images/I/614l+DwLXGL._SL1500_.jpg",
+      "availability": "In Stock",
+      "in_stock": true,
+      "rating": 4.4,
+      "review_count": 589,
+      "feature_bullets": [
+        "【Superior filtration performance】Frizzlife PX500-A under sink tankless reverse osmosis water filtration system has a RO membrane (ASR312-500G) with precision at 0.0001 micron, which eliminates more than 1000+ kinds of contaminants (99.99%) from water including fluoride, chlorine, chloramine, TDS, limescale and lead&other heavy metals. The pre-filter (ASR311) greatly prolongs the service life of the RO membrane while the post alkaline filter(ASR313-A) remineralizes the pure water.",
+        "【Tankless design】With a high capacity of 500 Gallons per day, Frizzlife PX500-A RO water filter system abandons the traditional water tank. It takes up less space under the counter and swipes out the secondary pollution caused by the unventilated tank. The direct water flow reaches up to 0.4 GPM@ 60psi. The system could also be hooked up to your refrigerator by using IMC-1 ice maker connection kit, providing you with crystal and healthy ice cubes.",
+        "【Easy DIY installation】Comes with filters loaded, Frizzlife RO water purification system is an integrated RO unit without a tank nor massive connection points. Fewer leakage concerns! It can be installed all by yourself in a breeze following a step-by-step installation video and comprehensive instructional user manual. Everything needed for installation is included in the package including a brush nickel faucet set! Save money from plumber hiring!"
+      ],
+      "l2": {
+        "ok": true,
+        "method": "mac_chrome_cdp_9333",
+        "zip": "10001",
+        "fetched_at": "2026-10-23T10:07:12.945275+08:00"
+      }
+    },
+    {
+      "asin": "B0CJ2QC33R",
+      "title": "Frizzlife TS99 Countertop Water Filter System, NSF 42&372 Certified 9-Stage Stainless Steel Faucet Water Filtration, 0.5 Micron Elements Reduces 99.99% Lead, Chlorine, Heavy Metals, Bad Taste & Odor",
+      "title_source": "l2_pack",
+      "brand": "Frizzlife AMZ",
+      "affiliate_network": "pb",
+      "affiliate_link": "https://www.amazon.com/dp/B0CJ2QC33R?maas=maas_adg_api_584966293070898849_static_12_201&ref_=aa_maas&tag=maas&aa_campaignid=PBa9c9e3745791556dd0b7fb8a812eb965_bf63d3e9929f&aa_adgroupid=4279nNi5zagU6l_aSW8SNJERKY1sPpZ1XMi7QOTJbVfeypl9MAvDKQ5MFo3uboFt3c_bHm1PxGnYCmcxZWskPqgGVwweuXWw_c_c&aa_creativeid=3aa5GZ8Dst6SfPCZ6z_aJXRrvOwkiJo5XH7F9I3c8HrU3zDA_c&uid=fromsll",
+      "track_status": "ok",
+      "l2_status": "ok",
+      "price": "116.99",
+      "price_raw": "$116.99",
+      "price_displayed": "$116.99",
+      "list_price": "$129.99",
+      "image": "https://m.media-amazon.com/images/I/71izEjG9gFL._SL1500_.jpg",
+      "availability": "In Stock",
+      "in_stock": true,
+      "rating": 4.3,
+      "review_count": 572,
+      "feature_bullets": [
+        "【Suitable Thread Sizes】Our product offers 6 connectable sizes:MALE:3/4\"-27, 13/16\"-27, 55/64\"-27, 15/16\"-27; FEMALE:3/4\"-27, 55/64\"-27. NOTE: Please check if your faucet fits with Frizzlife TS99 sink water filter system first. If the included adapters don't fit, please contact us for more adapters!",
+        "【9-Stage Deep Filtration】The 1st stage PP layer removes large particles such as sediments, dirt, and rust. The 2nd stage adopts PP membrane and activated coconut shell carbon block, which also blended with KDF. By combining carbon block and lead removal ingredients, the 3rd stage features (0.5 micron) can effectively reduce Lead, Chlorine, Fluoride, Heavy Metals, VOCs, bad taste & odor and other harmful contaminants from tap water. The essential minerals are still kept.",
+        "【Safe, Durable Materials & Reinforced Construction】Frizzlife TS99 countertop water filtration system is made from food-grade and lead-free 304 stainless steel. By only using safe and reliable materials, TS99 countertop water purifier is designed for healthy and fresh water. The thickened filter housings (1mm) are corrosion-resistant, durable and can be used for years. The whole system has passed 100,000 times water hammer test and 10,000 times pulse tests. No more burst concern."
+      ],
+      "l2": {
+        "ok": true,
+        "method": "mac_chrome_cdp_9333",
+        "zip": "10001",
+        "fetched_at": "2026-10-23T10:07:22.759895+08:00"
+      }
+    }
+  ],
+  "l2_ok_asins": [
+    "B0GWCWN64R",
+    "B0FCFLX4ZR",
+    "B0GYRWYBZY",
+    "B0H6WKMXPB",
+    "B087R2V8V7",
+    "B0H5JZZ3GK",
+    "B097YC4VC2",
+    "B09W1Y557B",
+    "B08R8FD43K",
+    "B0CJ2QC33R"
+  ],
+  "l2_pending_asins": [],
+  "track_pending_asins": []
+}

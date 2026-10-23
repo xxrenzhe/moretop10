@@ -30,6 +30,16 @@ categories:
     - {slug: dash-cams, name: Dash Cams, short_name: Dash Cams, tier: core}
   non_mvp:
     - {slug: kids-bikes, name: Kids Bikes, short_name: Kids Bikes, tier: extended, published: "2026-10-20"}
+    # 2026-10-23 day-add local drafts — unpublished, no Live, waiting_for_部署上线.
+    - {slug: hearing-aids, name: Hearing Aids, short_name: Hearing Aids, tier: extended, status: draft}
+    - {slug: water-filters, name: Water Filters, short_name: Water Filters, tier: extended, status: draft}
+    - {slug: under-sink-countertop-filtration, name: Under-Sink & Countertop Filtration, short_name: Under-Sink Filters, tier: extended, status: draft}
+    - {slug: pitcher-water-filters, name: Pitcher Water Filters, short_name: Pitcher Filters, tier: extended, status: draft}
+    - {slug: doormats, name: Doormats, short_name: Doormats, tier: extended, status: draft}
+    - {slug: split-system, name: Split-System, short_name: Split-System, tier: extended, status: draft}
+    - {slug: stage-lights, name: Stage Lights, short_name: Stage Lights, tier: extended, status: draft}
+    - {slug: glass-display-cabinets, name: Glass Display Cabinets, short_name: Display Cabinets, tier: extended, status: draft}
+    - {slug: document-scanners, name: Document Scanners, short_name: Document Scanners, tier: extended, status: draft}
 
 # Editorial /tv/ cluster is NOT registered here. Density-10 shortlist rules
 # do not apply. G-IL lives in site_config.EDITORIAL_CLUSTERS (footer + home tile).

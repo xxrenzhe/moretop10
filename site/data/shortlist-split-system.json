@@ -1,0 +1,345 @@
+{
+  "generated": "2026-10-23",
+  "slug": "split-system",
+  "name": "Split-System",
+  "amazon_category": "Home & Kitchen",
+  "density": 10,
+  "density_target": 10,
+  "density_shortfall": false,
+  "status": "unpublished_scaffold",
+  "waiting_for_部署上线": "yes",
+  "inventory": "l2_ok",
+  "baked": true,
+  "live": false,
+  "publishable": true,
+  "cta_label": "Check price",
+  "cta_rule": "PB pboost.me keeps uid=fromsll when L2 ok + verified track; otherwise track_pending and no Check price",
+  "l2": {
+    "status": "ok",
+    "method": "mac_chrome_cdp_9333",
+    "ok_count": 10,
+    "blocked": []
+  },
+  "notes": [
+    "Day-add L2 merge 2026-10-23. waiting_for_部署上线=yes. No Live.",
+    "Accessory ASINs and accessory niches removed. No invented pboost hops.",
+    "Lifestyle cover remains a gradient placeholder."
+  ],
+  "dropped_accessory_asins": [],
+  "picks": [
+    {
+      "asin": "B0HKJWF4V8",
+      "title": "Energy Star 9000 BTU Mini Split AC/Heating System 23 SEER2 230V",
+      "title_source": "l2_pack",
+      "brand": "Cozeware Amz",
+      "affiliate_network": "pb",
+      "affiliate_link": "https://pboost.me/k5SPiEu9?uid=fromsll",
+      "track_status": "ok",
+      "l2_status": "ok",
+      "price": "639.99",
+      "price_raw": "$639.99",
+      "price_displayed": "$639.99",
+      "list_price": null,
+      "image": "https://m.media-amazon.com/images/I/71fvjhxTtFL._AC_SL1500_.jpg",
+      "availability": "In Stock",
+      "in_stock": true,
+      "rating": null,
+      "review_count": null,
+      "feature_bullets": [
+        "Energy Star & 23 SEER2 Ultra Energy-Saving: This ductless mini split heat pump is officially Energy Star certified, meeting strict US high-efficiency energy standards for low-power and eco operation. Equipped with an upgraded smart inverter compressor and precise temperature control system, it boasts a 23 SEER2 rating, effectively avoiding frequent startup and shutdown and redundant energy waste. It maintains stable indoor temperatures all year round, delivering powerful cooling and heating performance while drastically cutting daily and monthly electricity consumption, bringing energy-saving and cost-reducing benefits for long-term home use",
+        "Extreme Weather Adaptability: Designed for harsh temperature conditions, the outdoor unit comes with chassis electric heating support, enabling stable operation in extreme climates. It delivers efficient cooling at up to 140°F in scorching summer and steady heating at as low as -13°F in freezing winter, ensuring reliable home comfort regardless of extreme outdoor weather changes",
+        "Multi Functional Modes: This smart ductless mini split supports precise remote control operation. It offers 7 working modes (Auto, Cool, Heat, Dry, Fan, ECO, Sleep), 8 adjustable fan speeds, 24-hour programmable timer, and child-lock function, fully meeting daily family comfort and safety needs"
+      ],
+      "l2": {
+        "ok": true,
+        "method": "mac_chrome_cdp",
+        "zip": "10001",
+        "fetched_at": "2026-10-23T09:48:47.706125+08:00"
+      }
+    },
+    {
+      "asin": "B0HKJWB8H4",
+      "title": "Energy Star 18000 BTU Mini Split AC/Heating System 24 SEER2 230V",
+      "title_source": "l2_pack",
+      "brand": "Cozeware Amz",
+      "affiliate_network": "pb",
+      "affiliate_link": "https://pboost.me/b5SP11cug?uid=fromsll",
+      "track_status": "ok",
+      "l2_status": "ok",
+      "price": "999.99",
+      "price_raw": "$999.99",
+      "price_displayed": "$999.99",
+      "list_price": null,
+      "image": "https://m.media-amazon.com/images/I/71fvjhxTtFL._AC_SL1500_.jpg",
+      "availability": "In Stock",
+      "in_stock": true,
+      "rating": null,
+      "review_count": null,
+      "feature_bullets": [
+        "Energy Star & 24 SEER2 Ultra Energy-Saving: This ductless mini split heat pump is officially Energy Star certified, meeting strict US high-efficiency energy standards for low-power and eco operation. Equipped with an upgraded smart inverter compressor and precise temperature control system, it boasts a 24 SEER2 rating, effectively avoiding frequent startup and shutdown and redundant energy waste. It maintains stable indoor temperatures all year round, delivering powerful cooling and heating performance while drastically cutting daily and monthly electricity consumption, bringing energy-saving and cost-reducing benefits for long-term home use",
+        "Extreme Weather Adaptability: Designed for harsh temperature conditions, the outdoor unit comes with chassis electric heating support, enabling stable operation in extreme climates. It delivers efficient cooling at up to 140°F in scorching summer and steady heating at as low as -13°F in freezing winter, ensuring reliable home comfort regardless of extreme outdoor weather changes",
+        "Multi Functional Modes: This smart ductless mini split supports precise remote control operation. It offers 7 working modes (Auto, Cool, Heat, Dry, Fan, ECO, Sleep), 8 adjustable fan speeds, 24-hour programmable timer, and child-lock function, fully meeting daily family comfort and safety needs"
+      ],
+      "l2": {
+        "ok": true,
+        "method": "mac_chrome_cdp",
+        "zip": "10001",
+        "fetched_at": "2026-10-23T09:48:55.617564+08:00"
+      }
+    },
+    {
+      "asin": "B0HKJQWD5S",
+      "title": "Energy Star 12000 BTU Mini Split AC/Heating System 24 SEER2 115V",
+      "title_source": "l2_pack",
+      "brand": "Cozeware Amz",
+      "affiliate_network": "pb",
+      "affiliate_link": "https://pboost.me/Q5SPqTu4?uid=fromsll",
+      "track_status": "ok",
+      "l2_status": "ok",
+      "price": "739.99",
+      "price_raw": "$739.99",
+      "price_displayed": "$739.99",
+      "list_price": null,
+      "image": "https://m.media-amazon.com/images/I/71fvjhxTtFL._AC_SL1500_.jpg",
+      "availability": "In Stock",
+      "in_stock": true,
+      "rating": null,
+      "review_count": null,
+      "feature_bullets": [
+        "Energy Star & 24 SEER2 Ultra Energy-Saving: This ductless mini split heat pump is officially Energy Star certified, meeting strict US high-efficiency energy standards for low-power and eco operation. Equipped with an upgraded smart inverter compressor and precise temperature control system, it boasts a 24 SEER2 rating, effectively avoiding frequent startup and shutdown and redundant energy waste. It maintains stable indoor temperatures all year round, delivering powerful cooling and heating performance while drastically cutting daily and monthly electricity consumption, bringing energy-saving and cost-reducing benefits for long-term home use",
+        "Extreme Weather Adaptability: Designed for harsh temperature conditions, the outdoor unit comes with chassis electric heating support, enabling stable operation in extreme climates. It delivers efficient cooling at up to 140°F in scorching summer and steady heating at as low as -13°F in freezing winter, ensuring reliable home comfort regardless of extreme outdoor weather changes",
+        "Multi Functional Modes: This smart ductless mini split supports precise remote control operation. It offers 7 working modes (Auto, Cool, Heat, Dry, Fan, ECO, Sleep), 8 adjustable fan speeds, 24-hour programmable timer, and child-lock function, fully meeting daily family comfort and safety needs"
+      ],
+      "l2": {
+        "ok": true,
+        "method": "mac_chrome_cdp",
+        "zip": "10001",
+        "fetched_at": "2026-10-23T09:49:04.679200+08:00"
+      }
+    },
+    {
+      "asin": "B0HKJNMN9R",
+      "title": "Energy Star 9000 BTU Mini Split AC/Heating System 23 SEER2 115V",
+      "title_source": "l2_pack",
+      "brand": "Cozeware Amz",
+      "affiliate_network": "pb",
+      "affiliate_link": "https://pboost.me/X5SPaB4u3?uid=fromsll",
+      "track_status": "ok",
+      "l2_status": "ok",
+      "price": "659.99",
+      "price_raw": "$659.99",
+      "price_displayed": "$659.99",
+      "list_price": null,
+      "image": "https://m.media-amazon.com/images/I/71fvjhxTtFL._AC_SL1500_.jpg",
+      "availability": "In Stock",
+      "in_stock": true,
+      "rating": null,
+      "review_count": null,
+      "feature_bullets": [
+        "Energy Star & 23 SEER2 Ultra Energy-Saving: This ductless mini split heat pump is officially Energy Star certified, meeting strict US high-efficiency energy standards for low-power and eco operation. Equipped with an upgraded smart inverter compressor and precise temperature control system, it boasts a 23 SEER2 rating, effectively avoiding frequent startup and shutdown and redundant energy waste. It maintains stable indoor temperatures all year round, delivering powerful cooling and heating performance while drastically cutting daily and monthly electricity consumption, bringing energy-saving and cost-reducing benefits for long-term home use",
+        "Extreme Weather Adaptability: Designed for harsh temperature conditions, the outdoor unit comes with chassis electric heating support, enabling stable operation in extreme climates. It delivers efficient cooling at up to 140°F in scorching summer and steady heating at as low as -13°F in freezing winter, ensuring reliable home comfort regardless of extreme outdoor weather changes",
+        "Multi Functional Modes: This smart ductless mini split supports precise remote control operation. It offers 7 working modes (Auto, Cool, Heat, Dry, Fan, ECO, Sleep), 8 adjustable fan speeds, 24-hour programmable timer, and child-lock function, fully meeting daily family comfort and safety needs"
+      ],
+      "l2": {
+        "ok": true,
+        "method": "mac_chrome_cdp",
+        "zip": "10001",
+        "fetched_at": "2026-10-23T09:49:12.573985+08:00"
+      }
+    },
+    {
+      "asin": "B0HKJNDLTD",
+      "title": "Energy Star 9000 BTU Mini Split AC/Heating System 23 SEER2 115V",
+      "title_source": "l2_pack",
+      "brand": "Cozeware Amz",
+      "affiliate_network": "pb",
+      "affiliate_link": "https://pboost.me/g5SPe6uw?uid=fromsll",
+      "track_status": "ok",
+      "l2_status": "ok",
+      "price": "659.99",
+      "price_raw": "$659.99",
+      "price_displayed": "$659.99",
+      "list_price": null,
+      "image": "https://m.media-amazon.com/images/I/71fvjhxTtFL._AC_SL1500_.jpg",
+      "availability": "In Stock",
+      "in_stock": true,
+      "rating": null,
+      "review_count": null,
+      "feature_bullets": [
+        "Energy Star & 23 SEER2 Ultra Energy-Saving: This ductless mini split heat pump is officially Energy Star certified, meeting strict US high-efficiency energy standards for low-power and eco operation. Equipped with an upgraded smart inverter compressor and precise temperature control system, it boasts a 23 SEER2 rating, effectively avoiding frequent startup and shutdown and redundant energy waste. It maintains stable indoor temperatures all year round, delivering powerful cooling and heating performance while drastically cutting daily and monthly electricity consumption, bringing energy-saving and cost-reducing benefits for long-term home use",
+        "Extreme Weather Adaptability: Designed for harsh temperature conditions, the outdoor unit comes with chassis electric heating support, enabling stable operation in extreme climates. It delivers efficient cooling at up to 140°F in scorching summer and steady heating at as low as -13°F in freezing winter, ensuring reliable home comfort regardless of extreme outdoor weather changes",
+        "Multi Functional Modes: This smart ductless mini split supports precise remote control operation. It offers 7 working modes (Auto, Cool, Heat, Dry, Fan, ECO, Sleep), 8 adjustable fan speeds, 24-hour programmable timer, and child-lock function, fully meeting daily family comfort and safety needs"
+      ],
+      "l2": {
+        "ok": true,
+        "method": "mac_chrome_cdp",
+        "zip": "10001",
+        "fetched_at": "2026-10-23T09:49:19.869156+08:00"
+      }
+    },
+    {
+      "asin": "B0HKJLX9NR",
+      "title": "Energy Star 24000 BTU Mini Split AC/Heating System 23 SEER2 230V",
+      "title_source": "l2_pack",
+      "brand": null,
+      "affiliate_network": "pb",
+      "affiliate_link": "https://pboost.me/n5SP9mguZ?uid=fromsll",
+      "track_status": "ok",
+      "l2_status": "ok",
+      "price": "1299.99",
+      "price_raw": "$1299.99",
+      "price_displayed": "$1299.99",
+      "list_price": null,
+      "image": "https://m.media-amazon.com/images/I/71fvjhxTtFL._AC_SL1500_.jpg",
+      "availability": "In Stock",
+      "in_stock": true,
+      "rating": null,
+      "review_count": null,
+      "feature_bullets": [
+        "Energy Star & 23 SEER2 Ultra Energy-Saving: This ductless mini split heat pump is officially Energy Star certified, meeting strict US high-efficiency energy standards for low-power and eco operation. Equipped with an upgraded smart inverter compressor and precise temperature control system, it boasts a 23 SEER2 rating, effectively avoiding frequent startup and shutdown and redundant energy waste. It maintains stable indoor temperatures all year round, delivering powerful cooling and heating performance while drastically cutting daily and monthly electricity consumption, bringing energy-saving and cost-reducing benefits for long-term home use",
+        "Extreme Weather Adaptability: Designed for harsh temperature conditions, the outdoor unit comes with chassis electric heating support, enabling stable operation in extreme climates. It delivers efficient cooling at up to 140°F in scorching summer and steady heating at as low as -13°F in freezing winter, ensuring reliable home comfort regardless of extreme outdoor weather changes",
+        "Multi Functional Modes: This smart ductless mini split supports precise remote control operation. It offers 7 working modes (Auto, Cool, Heat, Dry, Fan, ECO, Sleep), 8 adjustable fan speeds, 24-hour programmable timer, and child-lock function, fully meeting daily family comfort and safety needs"
+      ],
+      "l2": {
+        "ok": true,
+        "method": "mac_chrome_cdp",
+        "zip": "10001",
+        "fetched_at": "2026-10-23T09:49:27.483371+08:00"
+      }
+    },
+    {
+      "asin": "B0HKJBN5DG",
+      "title": "Energy Star 12000 BTU Mini Split AC/Heating System 24 SEER2 230V",
+      "title_source": "l2_pack",
+      "brand": null,
+      "affiliate_network": "pb",
+      "affiliate_link": "https://pboost.me/x5SP7hkug?uid=fromsll",
+      "track_status": "ok",
+      "l2_status": "ok",
+      "price": "719.99",
+      "price_raw": "$719.99",
+      "price_displayed": "$719.99",
+      "list_price": null,
+      "image": "https://m.media-amazon.com/images/I/71fvjhxTtFL._AC_SL1500_.jpg",
+      "availability": "In Stock",
+      "in_stock": true,
+      "rating": null,
+      "review_count": null,
+      "feature_bullets": [
+        "Energy Star & 24 SEER2 Ultra Energy-Saving: This ductless mini split heat pump is officially Energy Star certified, meeting strict US high-efficiency energy standards for low-power and eco operation. Equipped with an upgraded smart inverter compressor and precise temperature control system, it boasts a 24 SEER2 rating, effectively avoiding frequent startup and shutdown and redundant energy waste. It maintains stable indoor temperatures all year round, delivering powerful cooling and heating performance while drastically cutting daily and monthly electricity consumption, bringing energy-saving and cost-reducing benefits for long-term home use",
+        "Extreme Weather Adaptability: Designed for harsh temperature conditions, the outdoor unit comes with chassis electric heating support, enabling stable operation in extreme climates. It delivers efficient cooling at up to 140°F in scorching summer and steady heating at as low as -13°F in freezing winter, ensuring reliable home comfort regardless of extreme outdoor weather changes",
+        "Multi Functional Modes: This smart ductless mini split supports precise remote control operation. It offers 7 working modes (Auto, Cool, Heat, Dry, Fan, ECO, Sleep), 8 adjustable fan speeds, 24-hour programmable timer, and child-lock function, fully meeting daily family comfort and safety needs"
+      ],
+      "l2": {
+        "ok": true,
+        "method": "mac_chrome_cdp",
+        "zip": "10001",
+        "fetched_at": "2026-10-23T09:49:35.039356+08:00"
+      }
+    },
+    {
+      "asin": "B0H1HHMMNC",
+      "title": "9000 BTU Mini Split AC/Heating System 115V 18 SEER2",
+      "title_source": "l2_pack",
+      "brand": null,
+      "affiliate_network": "pb",
+      "affiliate_link": "https://pboost.me/g5SPfDud?uid=fromsll",
+      "track_status": "ok",
+      "l2_status": "ok",
+      "price": "449.99",
+      "price_raw": "$449.99",
+      "price_displayed": "$449.99",
+      "list_price": "$499.99",
+      "image": "https://m.media-amazon.com/images/I/71qyUgExGVL._AC_SL1500_.jpg",
+      "availability": "In Stock",
+      "in_stock": true,
+      "rating": 4.4,
+      "review_count": 9,
+      "feature_bullets": [
+        "Energy Saving & Ultra-Low Sleep Noise: Built with efficient inverter technology, this mini split air conditioner greatly reduces power draw even under continuous full-load operation. Three separate ECO energy-saving modes are available for personalized power management. You can toggle between modes based on room temperature, operating hours and the number of users to maintain ideal cooling comfort while keeping electricity costs in check. Its exclusive sleep mode drops operating noise to as low as 31dB, supplying smooth, near-silent airflow for quiet nighttime rest.",
+        "Remote Control: Conveniently adjust your air conditioner from across the room using the remote. Power the unit on or off, tweak temperatures, change fan speeds, redirect airflow, and pick modes including dehumidification and sleep mode with ease. The integrated timer helps schedule operation to save energy and enhance your comfort. Note: The 9000 BTU model has no built-in Wi-Fi, so APP and WIFI connectivity are not supported.",
+        "Multi-Mode Intelligent Control & 4D Full-Range Airflow System: This mini split air conditioner features 8 practical working modes-Cool, Heat, Dry, Fan, Sleep, Auto, ECO and Care-to satisfy year-round cooling and heating demands. There are 7 selectable fan speeds, letting you easily shift between soft silent breeze and strong powerful airflow as preferred. Outfitted with 4D auto air swing technology, it circulates air evenly throughout the room for fully immersive comfort."
+      ],
+      "l2": {
+        "ok": true,
+        "method": "mac_chrome_cdp",
+        "zip": "10001",
+        "fetched_at": "2026-10-23T09:49:43.836936+08:00"
+      }
+    },
+    {
+      "asin": "B0GWDYT9Y7",
+      "title": "12000 BTU Mini Split Ac/Heating System, 115V 20 SEER2 Ductless Inverter Mini Split Compatible with Alexa and WiFi, Cools & Heat Up to 750 Sq.Ft with 3 Eco Mode and Installation Kit, 1 Ton",
+      "title_source": "l2_pack",
+      "brand": null,
+      "affiliate_network": "pb",
+      "affiliate_link": "https://pboost.me/G5SPgguc?uid=fromsll",
+      "track_status": "ok",
+      "l2_status": "ok",
+      "price": "599.99",
+      "price_raw": "$599.99",
+      "price_displayed": "$599.99",
+      "list_price": null,
+      "image": "https://m.media-amazon.com/images/I/71TTao+Ko-L._AC_SL1500_.jpg",
+      "availability": "In Stock",
+      "in_stock": true,
+      "rating": null,
+      "review_count": null,
+      "feature_bullets": [
+        "Year Round Operation Range: This mini split ac/heating system provides 12000 BTU output for heating and cooling with efficient ratings. Designed for use between 5°F and 125°F, it supports stable operation across different seasons in spaces up to 750 sq ft",
+        "Smart Adjustment: With COZEWARE app control, this ductless mini split enables users to manage temperature and airflow remotely. Voice control by using alexa or google assistant, allows simple command based adjustments, improving accessibility and control efficiency",
+        "Quiet Performance: Equipped with inverter technology, this mini split air conditioner reduces energy consumption through multiple modes. Low noise operation in sleep mode supports minimal sound output 31dB"
+      ],
+      "l2": {
+        "ok": true,
+        "method": "mac_chrome_cdp",
+        "zip": "10001",
+        "fetched_at": "2026-10-23T09:49:52.311811+08:00"
+      }
+    },
+    {
+      "asin": "B0HCBQMWVT",
+      "title": "Energy Star 18000 BTU 2 Zone Mini Split AC/Heating System 9K+9K",
+      "title_source": "l2_pack",
+      "brand": null,
+      "affiliate_network": "pb",
+      "affiliate_link": "https://pboost.me/Q5SP06u5?uid=fromsll",
+      "track_status": "ok",
+      "l2_status": "ok",
+      "price": "1359.00",
+      "price_raw": "$1359.00",
+      "price_displayed": "$1359.00",
+      "list_price": null,
+      "image": "https://m.media-amazon.com/images/I/71GKqA7XGEL._AC_SL1500_.jpg",
+      "availability": "In Stock",
+      "in_stock": true,
+      "rating": 4.7,
+      "review_count": 4,
+      "feature_bullets": [
+        "Customized 2-Zone Zonal Cooling & Heating: Featuring a powerful 18000 BTU dual zone mini split system, this ductless AC and heat pump delivers independent room-by-room temperature control for large households. Equipped with 4D air swing technology, it distributes airflow evenly across every corner, eliminating hot and cold spots to maintain consistent, personalized comfort in separate living spaces, bedrooms, and working areas",
+        "Energy Star & 23 SEER2 Ultra Energy-Saving: This ductless mini split heat pump is officially Energy Star certified, meeting strict US high-efficiency energy standards for low-power and eco operation. Equipped with an upgraded smart inverter compressor and precise temperature control system, it boasts a 23 SEER2 rating, effectively avoiding frequent startup and shutdown and redundant energy waste. It maintains stable indoor temperatures all year round, delivering powerful cooling and heating performance while drastically cutting daily and monthly electricity consumption, bringing energy-saving and cost-reducing benefits for long-term home use",
+        "Extreme Weather Adaptability: Designed for harsh temperature conditions, the outdoor unit comes with chassis electric heating support, enabling stable operation in extreme climates. It delivers efficient cooling at up to 125°F in scorching summer and steady heating at as low as 5°F in freezing winter, ensuring reliable home comfort regardless of extreme outdoor weather changes"
+      ],
+      "l2": {
+        "ok": true,
+        "method": "mac_chrome_cdp",
+        "zip": "10001",
+        "fetched_at": "2026-10-23T09:50:00.319230+08:00"
+      }
+    }
+  ],
+  "l2_ok_asins": [
+    "B0HKJWF4V8",
+    "B0HKJWB8H4",
+    "B0HKJQWD5S",
+    "B0HKJNMN9R",
+    "B0HKJNDLTD",
+    "B0HKJLX9NR",
+    "B0HKJBN5DG",
+    "B0H1HHMMNC",
+    "B0GWDYT9Y7",
+    "B0HCBQMWVT"
+  ],
+  "l2_pending_asins": [],
+  "track_pending_asins": []
+}

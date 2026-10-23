@@ -186,8 +186,10 @@ def _baked_errors(site: Path) -> list[str]:
     stale_promo: list[str] = []
     missing_chrome: list[str] = []
     for path in sorted(site.rglob("*.html")):
-        text = path.read_text(encoding="utf-8")
         rel = str(path.relative_to(site))
+        if rel.startswith(".cache/") or "/.cache/" in f"/{rel}":
+            continue
+        text = path.read_text(encoding="utf-8")
         for regex, bucket, label in (
             (BEST_ASIDE_RE, stale_best, "Best"),
             (ED_REV_ASIDE_RE, stale_ed, "Editorial Reviews"),

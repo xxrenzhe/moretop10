@@ -1,0 +1,341 @@
+{
+  "generated": "2026-10-23",
+  "slug": "stage-lights",
+  "name": "Stage Lights",
+  "amazon_category": "Musical Instruments",
+  "density": 10,
+  "density_target": 10,
+  "density_shortfall": false,
+  "status": "unpublished_scaffold",
+  "waiting_for_部署上线": "yes",
+  "inventory": "l2_ok",
+  "baked": true,
+  "live": false,
+  "publishable": true,
+  "cta_label": "Check price",
+  "cta_rule": "PB pboost.me keeps uid=fromsll when L2 ok + verified track; otherwise track_pending and no Check price",
+  "l2": {
+    "status": "ok",
+    "method": "mac_chrome_cdp_9333",
+    "ok_count": 10,
+    "blocked": []
+  },
+  "notes": [
+    "Day-add L2 merge 2026-10-23. waiting_for_部署上线=yes. No Live.",
+    "Accessory ASINs and accessory niches removed. No invented pboost hops.",
+    "Lifestyle cover remains a gradient placeholder."
+  ],
+  "dropped_accessory_asins": [],
+  "picks": [
+    {
+      "asin": "B0GLWVYMWP",
+      "title": "SHEHDS Par Can Lights LED 7x18W RGBWAP 6in1 Wash Stage Lights 6 Pack",
+      "title_source": "l2_pack",
+      "brand": "SHEHDS Direct",
+      "affiliate_network": "pb",
+      "affiliate_link": "https://pboost.me/o5SRfgO7?uid=fromsll",
+      "track_status": "ok",
+      "l2_status": "ok",
+      "price": "279.99",
+      "price_raw": "$279.99",
+      "price_displayed": "$279.99",
+      "list_price": null,
+      "image": "https://m.media-amazon.com/images/I/71d9XUCCh3L._AC_SL1500_.jpg",
+      "availability": "In Stock",
+      "in_stock": true,
+      "rating": 4.2,
+      "review_count": 23,
+      "feature_bullets": [
+        "RGBWA+UV and Wash/Strobe Stage Effect: 7 LEDs RGBWA+UV including red, green, blue, white, amber, purple, and mixed color. Color changing and light dimming for this party light are available.",
+        "REMOTE or DMX512 CONTROL: Every 2 lights are equipped with a separate remote which are pretty straightforward and easy to use. You can also connect it with DMX system by DMX cables, then manipulate it by DMX controller. The instruction manual described how to use this product in detail, it's easy to program no matter you are professional or the beginner.",
+        "VARIOUS FUNCTION MODES: DMX Control, Master/Slave, Stand Alone, Auto Run, Sound Activate. Convenient to control the speed and color. The bright par light is built with 6in1 RGBWA UV creating multiple color effects."
+      ],
+      "l2": {
+        "ok": true,
+        "method": "mac_chrome_cdp",
+        "zip": "10001",
+        "fetched_at": "2026-10-23T09:50:09.645943+08:00"
+      }
+    },
+    {
+      "asin": "B0GLWVNK4D",
+      "title": "SHEHDS 7x18W IP65 Waterproof LED Par Lights 4 Pack",
+      "title_source": "l2_pack",
+      "brand": "SHEHDS Direct",
+      "affiliate_network": "pb",
+      "affiliate_link": "https://pboost.me/B5SR9TwN9?uid=fromsll",
+      "track_status": "ok",
+      "l2_status": "ok",
+      "price": "459.99",
+      "price_raw": "$459.99",
+      "price_displayed": "$459.99",
+      "list_price": null,
+      "image": "https://m.media-amazon.com/images/I/7184DH8pCBL._AC_SL1500_.jpg",
+      "availability": "In Stock",
+      "in_stock": true,
+      "rating": null,
+      "review_count": null,
+      "feature_bullets": [
+        "IP65 Waterproof and Muted Design: This LED par outdoor comes with waterproof and durable cast aluminum shell, the signal line, the power cord and buttons. You can use it with confidence even it rains, and you don't need to cover it with a tarp which can save you all the trouble, perfect for the outdoor party, stage show, concert, wedding, and so on. Without fan, so it is 100% muted.",
+        "RGBWAP 6 in 1 Par Lights: 7 LEDs (7*18W) RGBWA+UV including red, green, blue, white, amber, purple, and mixed color. Color changing, light dimming and strobe effect are available, which can create colorful, dynamic and fantasitc stage effect. This outdoor light also equipped with efficient optics lens which can maximally increase its brightness.",
+        "RGBWAP 6 in 1 Par Lights: 7 LEDs (7*18W) RGBWA+UV including red, green, blue, white, amber, purple, and mixed color. Color changing, light dimming and strobe effect are available, which can create colorful, dynamic and fantasitc stage effect. This outdoor light also equipped with efficient optics lens which can maximally increase its brightness."
+      ],
+      "l2": {
+        "ok": true,
+        "method": "mac_chrome_cdp",
+        "zip": "10001",
+        "fetched_at": "2026-10-23T09:50:17.859450+08:00"
+      }
+    },
+    {
+      "asin": "B0HMW5R2WC",
+      "title": "Moving Light",
+      "title_source": "l2_pack",
+      "brand": "SHEHDS Direct",
+      "affiliate_network": "pb",
+      "affiliate_link": "https://pboost.me/u5SRGgNE?uid=fromsll",
+      "track_status": "ok",
+      "l2_status": "ok",
+      "price": "599.99",
+      "price_raw": "$599.99",
+      "price_displayed": "$599.99",
+      "list_price": null,
+      "image": null,
+      "availability": "In Stock",
+      "in_stock": true,
+      "rating": null,
+      "review_count": null,
+      "feature_bullets": [
+        "moving light"
+      ],
+      "l2": {
+        "ok": true,
+        "method": "mac_chrome_cdp",
+        "zip": "10001",
+        "fetched_at": "2026-10-23T09:50:24.764174+08:00"
+      }
+    },
+    {
+      "asin": "B0HMW1SR5T",
+      "title": "Stage Light",
+      "title_source": "l2_pack",
+      "brand": "SHEHDS Direct",
+      "affiliate_network": "pb",
+      "affiliate_link": "https://pboost.me/O5SRC8Oa?uid=fromsll",
+      "track_status": "ok",
+      "l2_status": "ok",
+      "price": "599.99",
+      "price_raw": "$599.99",
+      "price_displayed": "$599.99",
+      "list_price": null,
+      "image": null,
+      "availability": "In Stock",
+      "in_stock": true,
+      "rating": null,
+      "review_count": null,
+      "feature_bullets": [
+        "stage light"
+      ],
+      "l2": {
+        "ok": true,
+        "method": "mac_chrome_cdp",
+        "zip": "10001",
+        "fetched_at": "2026-10-23T09:50:31.554440+08:00"
+      }
+    },
+    {
+      "asin": "B0GDDP123K",
+      "title": "SHEHDS LED Stage Par Lights LED 18X18W DJ Stage Lights 6 Pack",
+      "title_source": "l2_pack",
+      "brand": "SHEHDS Direct",
+      "affiliate_network": "pb",
+      "affiliate_link": "https://pboost.me/l5SRTd1R7?uid=fromsll",
+      "track_status": "ok",
+      "l2_status": "ok",
+      "price": "719.99",
+      "price_raw": "$719.99",
+      "price_displayed": "$719.99",
+      "list_price": null,
+      "image": "https://m.media-amazon.com/images/I/71X6uibHlxL._AC_SL1500_.jpg",
+      "availability": "In Stock",
+      "in_stock": true,
+      "rating": 4.5,
+      "review_count": 90,
+      "feature_bullets": [
+        "6in1 Color Stage Effect: 18 LEDs RGBWA+UV including red, green, blue, white, amber, purple, and mixed color. Color changing and light dimming are available, which could meet your mand stage need.",
+        "Different Operational Modes: Stage lighting with DMX512, Auto Run, Sound Action, Strobe, Stand Alone, Master/Slave modes. Create a fantastic stage effect.",
+        "Durable and Elegant Design: DJ ligths is made of cast aluminum shell, flexible double bracket and knob for easy adjustment, easy to install and hang on the floor, truss and ceiling. Good for long time working."
+      ],
+      "l2": {
+        "ok": true,
+        "method": "mac_chrome_cdp",
+        "zip": "10001",
+        "fetched_at": "2026-10-23T09:50:40.637033+08:00"
+      }
+    },
+    {
+      "asin": "B0CQM4LTK4",
+      "title": "SHEHDS IP65 Waterproof Moving Head Stage Lights 380W 19R Bulb(7500K)",
+      "title_source": "l2_pack",
+      "brand": null,
+      "affiliate_network": "pb",
+      "affiliate_link": "https://pboost.me/h5SRdtdOg?uid=fromsll",
+      "track_status": "ok",
+      "l2_status": "ok",
+      "price": "956.99",
+      "price_raw": "$956.99",
+      "price_displayed": "$956.99",
+      "list_price": null,
+      "image": "https://m.media-amazon.com/images/I/51AOha1+rbL._AC_SL1200_.jpg",
+      "availability": "In Stock",
+      "in_stock": true,
+      "rating": 3.4,
+      "review_count": 4,
+      "feature_bullets": [
+        "【IP65 Watarproof Super Bright】This gobos beam moving head lights adopts a 380W 19R bulb as the light source, equipped with efficient optics lens(160mm diameter) which can maximally increase its brightness, making the beam penetration stronger and brighter. Color Temperature is 7500±500k; Beam Angle is Beam 1.8°- Frost 9.5° . 540 degrees pan, 270 degrees tilt automatic correction and positionin, dual strobe structure, 0.5-14 times / s adjustable. (The light penetration of light bulbs is stronger than that of LEDs); The IP65 waterproof function can cope with the vast majority of rainy situations.",
+        "【14 Colors and 17 Static Gobos】The moving DJ light has 14 colors + white, 17 Static gobo wheel, 6 colors raimbow wheel, which can show more refined gobos and more fantastic beam effects for magical viewing enjoyment. Perfect for Stage, ballroom, KTV, party, or other entertaining places.",
+        "【Double Prism and Frosts Effect】This spot moving light is combined with one rotatable 8-facet circular prism and one 24-facet prism rotating in both directions at variable speed, those 2 prisms are independently rotating and the speed of rotation is variable. It also comes with Fast change frosts for instant softening of the showed gobo or framing shutters, Frost angel is 9.5°, which could create a gorgeous and spectacular lighting effect."
+      ],
+      "l2": {
+        "ok": true,
+        "method": "mac_chrome_cdp",
+        "zip": "10001",
+        "fetched_at": "2026-10-23T09:50:48.757002+08:00"
+      }
+    },
+    {
+      "asin": "B0DGTD3QP2",
+      "title": "SHEHDS Par Can Lights LED 7x18W RGBWAP 6in1 Wash Stage Lights 2 Pack",
+      "title_source": "l2_pack",
+      "brand": null,
+      "affiliate_network": "pb",
+      "affiliate_link": "https://pboost.me/e5SRQdN2?uid=fromsll",
+      "track_status": "ok",
+      "l2_status": "ok",
+      "price": "99.98",
+      "price_raw": "$99.98",
+      "price_displayed": "$99.98",
+      "list_price": null,
+      "image": "https://m.media-amazon.com/images/I/71pVvkxRt3L._AC_SL1500_.jpg",
+      "availability": "In Stock",
+      "in_stock": true,
+      "rating": 4.2,
+      "review_count": 23,
+      "feature_bullets": [
+        "RGBWA+UV and Wash/Strobe Stage Effect: 7 LEDs RGBWA+UV including red, green, blue, white, amber, purple, and mixed color. Color changing and light dimming for this party light are available.",
+        "REMOTE or DMX512 CONTROL: Every 2 lights are equipped with a separate remote which are pretty straightforward and easy to use. You can also connect it with DMX system by DMX cables, then manipulate it by DMX controller. The instruction manual described how to use this product in detail, it's easy to program no matter you are professional or the beginner.",
+        "VARIOUS FUNCTION MODES: DMX Control, Master/Slave, Stand Alone, Auto Run, Sound Activate. Convenient to control the speed and color. The bright par light is built with 6in1 RGBWA UV creating multiple color effects."
+      ],
+      "l2": {
+        "ok": true,
+        "method": "mac_chrome_cdp",
+        "zip": "10001",
+        "fetched_at": "2026-10-23T09:50:57.903751+08:00"
+      }
+    },
+    {
+      "asin": "B0DGQHFYTX",
+      "title": "SHEHDS Par Can Lights LED 7x18W RGBWAP 6in1 Wash Stage Lights 1 Pack",
+      "title_source": "l2_pack",
+      "brand": null,
+      "affiliate_network": "pb",
+      "affiliate_link": "https://pboost.me/c5SRLdO4?uid=fromsll",
+      "track_status": "ok",
+      "l2_status": "ok",
+      "price": "45.11",
+      "price_raw": "$45.11",
+      "price_displayed": "$45.11",
+      "list_price": "$49.99",
+      "image": "https://m.media-amazon.com/images/I/61uITLSQDqL._AC_SL1500_.jpg",
+      "availability": "In Stock",
+      "in_stock": true,
+      "rating": 4.2,
+      "review_count": 23,
+      "feature_bullets": [
+        "RGBWA+UV and Wash/Strobe Stage Effect: 7 LEDs RGBWA+UV including red, green, blue, white, amber, purple, and mixed color. Color changing and light dimming for this party light are available.",
+        "REMOTE or DMX512 CONTROL: Every 2 lights are equipped with a separate remote which are pretty straightforward and easy to use. You can also connect it with DMX system by DMX cables, then manipulate it by DMX controller. The instruction manual described how to use this product in detail, it's easy to program no matter you are professional or the beginner.",
+        "VARIOUS FUNCTION MODES: DMX Control, Master/Slave, Stand Alone, Auto Run, Sound Activate. Convenient to control the speed and color. The bright par light is built with 6in1 RGBWA UV creating multiple color effects."
+      ],
+      "l2": {
+        "ok": true,
+        "method": "mac_chrome_cdp",
+        "zip": "10001",
+        "fetched_at": "2026-10-23T09:51:06.863017+08:00"
+      }
+    },
+    {
+      "asin": "B0GLX8R7X4",
+      "title": "SHEHDS 230W 16-Pixel Waterproof Spliced LED Strobe Light",
+      "title_source": "l2_pack",
+      "brand": null,
+      "affiliate_network": "pb",
+      "affiliate_link": "https://pboost.me/R5SRZFDQw?uid=fromsll",
+      "track_status": "ok",
+      "l2_status": "ok",
+      "price": "349.99",
+      "price_raw": "$349.99",
+      "price_displayed": "$349.99",
+      "list_price": null,
+      "image": "https://m.media-amazon.com/images/I/61a+lYWOPqL._AC_SL1500_.jpg",
+      "availability": "In Stock",
+      "in_stock": true,
+      "rating": null,
+      "review_count": null,
+      "feature_bullets": [
+        "Powerful & Versatile：672 x 0.3W RGB SMD 5050 LEDs + 112 x 3W Cool White SMD 3030 LEDs. This hybrid configuration delivers blinding strobe bursts, rich RGB washes, and pixel-mapping effects — all in one fixture.",
+        "Multiple Effects in One Compact Unit：Functions as an audience blinder, strobe light, LED pixel-mapping surface, eye-catching effect light, and stage wash. Perfect for concerts, nightclubs, DJ performances, and dynamic stage shows.",
+        "IP65 Waterproof & Silent Operation：IP65 rated for reliable indoor and outdoor performance, even in rain or splashing water. Fan-free, silent operation (0 dB) — no unwanted noise, making it ideal for quiet venues, live recordings, and outdoor events."
+      ],
+      "l2": {
+        "ok": true,
+        "method": "mac_chrome_cdp",
+        "zip": "10001",
+        "fetched_at": "2026-10-23T09:51:15.102289+08:00"
+      }
+    },
+    {
+      "asin": "B0G7S4V9Y3",
+      "title": "SHEHDS Strobe Light 350W Waterproof LED, RGBW Stage Light",
+      "title_source": "l2_pack",
+      "brand": null,
+      "affiliate_network": "pb",
+      "affiliate_link": "https://pboost.me/S5SR57RC?uid=fromsll",
+      "track_status": "ok",
+      "l2_status": "ok",
+      "price": "359.99",
+      "price_raw": "$359.99",
+      "price_displayed": "$359.99",
+      "list_price": "$379.99",
+      "image": "https://m.media-amazon.com/images/I/71v6HvRv0ZL._AC_SL1500_.jpg",
+      "availability": "In Stock",
+      "in_stock": true,
+      "rating": null,
+      "review_count": null,
+      "feature_bullets": [
+        "350W high-power ultra-bright strobe light, equipped with 48 RGB LED segments and 12 white LED segments, supports 5/20/168 channel DMX control modes. Designed for concerts, clubs, and large stage performances, it delivers powerful dynamic strobe and full-color burst effects.",
+        "Supports strobe frequencies up to 25Hz and a wide 110° angle, providing ultra-fast high-intensity flashes and vibrant, uniform light coverage to meet the demands of high-energy performances.",
+        "Rated IP65 for protection against rain and dust, suitable for both indoor and outdoor use in various harsh environments, ensuring durable and reliable performance."
+      ],
+      "l2": {
+        "ok": true,
+        "method": "mac_chrome_cdp",
+        "zip": "10001",
+        "fetched_at": "2026-10-23T09:51:23.673777+08:00"
+      }
+    }
+  ],
+  "l2_ok_asins": [
+    "B0GLWVYMWP",
+    "B0GLWVNK4D",
+    "B0HMW5R2WC",
+    "B0HMW1SR5T",
+    "B0GDDP123K",
+    "B0CQM4LTK4",
+    "B0DGTD3QP2",
+    "B0DGQHFYTX",
+    "B0GLX8R7X4",
+    "B0G7S4V9Y3"
+  ],
+  "l2_pending_asins": [],
+  "track_pending_asins": []
+}

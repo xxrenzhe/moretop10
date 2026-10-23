@@ -1,0 +1,611 @@
+{
+  "generated_at": "2026-10-23T10:03:47+08:00",
+  "timezone": "Asia/Shanghai",
+  "site": "moretop10",
+  "pr": "https://github.com/xxrenzhe/moretop10/pull/33",
+  "waiting_for_部署上线": true,
+  "deployed": false,
+  "constraint": "日加类去除配件：滤芯/挂架/支架臂/线材耗材-only 禁止；Main= under-sink/countertop RO/pitcher devices",
+  "cta": {
+    "network": "partnerboost",
+    "uid": "fromsll",
+    "live_cta": "PB fromsll only"
+  },
+  "discovery": {
+    "pb_brand_ids": {
+      "WFT-Waterdrop": 138654,
+      "Waterdrop": 103211,
+      "Frizzlife AMZ": 135821
+    },
+    "yp": "not required (PB pool sufficient)"
+  },
+  "excluded": {
+    "under_sink_countertop_filtration_dens10_reserved": [
+      "B0DX244R2N",
+      "B0GGQM6X5H",
+      "B0GWGTLXRF",
+      "B0GWGX82QD",
+      "B0GWH6B18J",
+      "B0GWH6J8Y4",
+      "B0H4FXNBB3",
+      "B0HDNZR3V7",
+      "B0HDPNZ65Y",
+      "B0HGF8V9BW"
+    ],
+    "reclassified_accessory": [
+      {
+        "asin": "B01CC87G86",
+        "title": "Waterdrop WF1CB Refrigerator Water Filter, 3 Pack",
+        "reason": "refrigerator water filter 3-pack (was wrongly kept as only water-filters main)"
+      }
+    ],
+    "prior_water_dens10_cartridges": [
+      "B075J9RLL6",
+      "B079ZRQNMM",
+      "B0GTPT3LJV",
+      "B0GTPH2Z1W",
+      "B0GSVSD8JD",
+      "B0H5C3GVDL",
+      "B0H5BYJ78P",
+      "B0F7QJZWLV",
+      "B0DRCXJNMK"
+    ],
+    "prior_pitcher_cartridges": [
+      "B0GK1BT4QZ",
+      "B0GK16S6Y9",
+      "B0GJS9SCJ6"
+    ]
+  },
+  "by_slug": {
+    "water-filters": {
+      "density_target": 10,
+      "proposed_count": 10,
+      "density_10_reachable": true,
+      "shortfall": 0,
+      "proposed": [
+        {
+          "asin": "B0GWCWN64R",
+          "title": "Waterdrop C1S Countertop Reverse Osmosis Water Filter, 6-Stage Filtration",
+          "brand": "WFT-Waterdrop",
+          "brand_id": "138654",
+          "why_main_not_accessory": "countertop filtration / RO appliance (complete unit), not a replacement cartridge",
+          "source": "pb_brand_catalog+prefer",
+          "model_key": "C1S",
+          "has_pb_track": true,
+          "pb_track": "https://www.amazon.com/dp/B0GWCWN64R?maas=maas_adg_api_579776037387427332_static_12_201&ref_=aa_maas&tag=maas&aa_campaignid=PB6e4244366fc3631cf1e83967d7db05f8_e0cd30977707&aa_adgroupid=d32cYAQXf0gZ6Zp0x4CPptlWbg_bfz8aaut9mnPUWVdCrvKXcuCuV3XxB56ay0zKypqDJf4iqLySV_bh_bT3am10nJXbeOdkA_c_c&aa_creativeid=c480xOSPM28J_aghjXgq4X4Tc707vB15N9JKyJEy5ynphFak_c&uid=fromsll",
+          "pb_link_raw_present": true,
+          "price": "$209.00",
+          "stock_hint": "IN_STOCK"
+        },
+        {
+          "asin": "B0FCFLX4ZR",
+          "title": "Waterdrop C1H Instant Hot Countertop RO System, No Installation Required",
+          "brand": "WFT-Waterdrop",
+          "brand_id": "138654",
+          "why_main_not_accessory": "countertop filtration / RO appliance (complete unit), not a replacement cartridge",
+          "source": "pb_brand_catalog+prefer",
+          "model_key": "C1H",
+          "has_pb_track": true,
+          "pb_track": "https://www.amazon.com/dp/B0FCFLX4ZR?maas=maas_adg_api_581162320068749297_static_12_201&ref_=aa_maas&tag=maas&aa_campaignid=PBbea1170d0dfde9a50dca26d8736aef93_e0cd30977707&aa_adgroupid=31cfCROHDiMrVHDcU0ze_bOBkWgmxmpMhKx721VWVtdTqeqLmQgMQ6DBPAhKezaFoMEApNi2l1ELszZIfqGJjN9DU7VF3ejg_c&aa_creativeid=113cCjuHnApIEYZpRCXKwkf6_bEVkwpjcHgVHWhI5MrfHsWU_c&uid=fromsll",
+          "pb_link_raw_present": true,
+          "price": "$239.00",
+          "stock_hint": "IN_STOCK"
+        },
+        {
+          "asin": "B0GYRWYBZY",
+          "title": "Waterdrop C2S Countertop RO Filtration System, 40oz Autofill Glass Pitcher",
+          "brand": "WFT-Waterdrop",
+          "brand_id": "138654",
+          "why_main_not_accessory": "countertop filtration / RO appliance (complete unit), not a replacement cartridge",
+          "source": "pb_brand_catalog+prefer",
+          "model_key": "C2S",
+          "has_pb_track": true,
+          "pb_track": "https://www.amazon.com/dp/B0GYRWYBZY?maas=maas_adg_api_581162320068749297_static_12_201&ref_=aa_maas&tag=maas&aa_campaignid=PBbea1170d0dfde9a50dca26d8736aef93_225033be075d&aa_adgroupid=7dd22rgESJgNS1sSCLWXlIaLNgc5vLJTY7Vn_bexItugY1Dph43SoOB1MMsOzuAMyFveNv4PVLJnwNAwEDStjLp5nacnEkqg_c&aa_creativeid=c3eflJ3njSmgKMX_aCSr6sgU2R91IBqTLPF306JasmCpEaWE_c&uid=fromsll",
+          "pb_link_raw_present": true,
+          "price": "$149.99",
+          "stock_hint": "IN_STOCK"
+        },
+        {
+          "asin": "B0H6WKMXPB",
+          "title": "Waterdrop 15UA Under Sink Water Filter System with 2 Filters, 4 Years",
+          "brand": "WFT-Waterdrop",
+          "brand_id": "138654",
+          "why_main_not_accessory": "under-sink water filter system (complete install unit), not fridge/Brita cartridge",
+          "source": "pb_brand_catalog+prefer",
+          "model_key": "15UA",
+          "has_pb_track": true,
+          "pb_track": "https://www.amazon.com/dp/B0H6WKMXPB?maas=maas_adg_api_581162320068749297_static_12_201&ref_=aa_maas&tag=maas&aa_campaignid=PBbea1170d0dfde9a50dca26d8736aef93_f36a772c8981&aa_adgroupid=4743QtS4dtekp2wTxYYNGdKTmUGn_asC_bI8uEAzZzKXf1WThWzVFyW0scIyMbserY3Z0zD8XLf_b23ZV_bi5QQP_b3fw2FBjF60_c&aa_creativeid=0e8aGqmNO1slzObHIUaKIL_bREKxo1g5fA7_bZOrpOtpz8oew_c&uid=fromsll",
+          "pb_link_raw_present": true,
+          "price": "$85.99",
+          "stock_hint": "IN_STOCK"
+        },
+        {
+          "asin": "B087R2V8V7",
+          "title": "Waterdrop DST Under Sink Water Filter System, No Drill Required for Renters",
+          "brand": "WFT-Waterdrop",
+          "brand_id": "138654",
+          "why_main_not_accessory": "under-sink water filter system (complete install unit), not fridge/Brita cartridge",
+          "source": "pb_brand_catalog+prefer",
+          "model_key": "DST",
+          "has_pb_track": true,
+          "pb_track": "https://www.amazon.com/dp/B087R2V8V7?maas=maas_adg_api_581162320068749297_static_12_201&ref_=aa_maas&tag=maas&aa_campaignid=PBbea1170d0dfde9a50dca26d8736aef93_8ec52b980f9f&aa_adgroupid=c63eNJilL7eq_alHH_aFE2yT9f9BO00AIOSoN55Rw4iyHJXUlcsNFRAs_bY97kKwN_atk4VGDoz4NhHJ0vKSCWtYkjVS5Un5F8M_c&aa_creativeid=3a29JaeuZBIAJcF_b5E4_aRi683UHvXcK9Ge2Vk_bvIsX_a1eq0_c&uid=fromsll",
+          "pb_link_raw_present": true,
+          "price": "$89.99",
+          "stock_hint": "IN_STOCK"
+        },
+        {
+          "asin": "B0H5JZZ3GK",
+          "title": "Waterdrop WHF21-PBL 2-Stage Whole House Water Filter System, NSF/ANSI 372",
+          "brand": "WFT-Waterdrop",
+          "brand_id": "138654",
+          "why_main_not_accessory": "whole-house filtration system (main equipment), not a drop-in replacement pack",
+          "source": "pb_brand_catalog+prefer",
+          "model_key": "WHF21-PBL",
+          "has_pb_track": true,
+          "pb_track": "https://www.amazon.com/dp/B0H5JZZ3GK?maas=maas_adg_api_579776037387427332_static_12_201&ref_=aa_maas&tag=maas&aa_campaignid=PB6e4244366fc3631cf1e83967d7db05f8_c81e68d66949&aa_adgroupid=667e1SgJW9Y0EHQJZM8iy63rPtq2BA9LnqxZY_a_an_bGWVBlP7m7MnU5RRDxRgL0KWuRv5AxgHjIeXkNKY2jwf6GBTAHK3XQ_c_c&aa_creativeid=e8bbkuHrJjQ7QaNLXTydor3C9MIhjlkGB9AJNBTuQQUkbCg_c&uid=fromsll",
+          "pb_link_raw_present": true,
+          "price": "$169.99",
+          "stock_hint": "IN_STOCK"
+        },
+        {
+          "asin": "B097YC4VC2",
+          "title": "Waterdrop TSB 8 Layer Under Sink Water Filter System, with Dedicated Faucet",
+          "brand": "WFT-Waterdrop",
+          "brand_id": "138654",
+          "why_main_not_accessory": "under-sink water filter system (complete install unit), not fridge/Brita cartridge",
+          "source": "pb_brand_catalog+prefer",
+          "model_key": "TSB",
+          "has_pb_track": true,
+          "pb_track": "https://www.amazon.com/dp/B097YC4VC2?maas=maas_adg_api_581162320068749297_static_12_201&ref_=aa_maas&tag=maas&aa_campaignid=PBbea1170d0dfde9a50dca26d8736aef93_ba1895d27b9a&aa_adgroupid=3784Thq9BJLEOnUvSsmQdl5tgMLH_bQG3x2fB7NGkj_brHBKkWsTMCuixXXk2D3dq3_bFmictAt_aGTGUgZ7Tj_b_aI9vEC7E_bQws_c&aa_creativeid=4029e7PbcgNLa8PwzNzuUjsc1qnXXb1n1tcWP0eU8_bVgSk0_c&uid=fromsll",
+          "pb_link_raw_present": true,
+          "price": "$105.99",
+          "stock_hint": "IN_STOCK"
+        },
+        {
+          "asin": "B09W1Y557B",
+          "title": "Frizzlife SW15F Under Sink Water Filter System with Brushed Nickel Faucet",
+          "brand": "Frizzlife AMZ",
+          "brand_id": "135821",
+          "why_main_not_accessory": "under-sink water filter system (complete install unit), not fridge/Brita cartridge",
+          "source": "pb_brand_catalog+prefer",
+          "model_key": "SW15F",
+          "has_pb_track": true,
+          "pb_track": "https://www.amazon.com/dp/B09W1Y557B?maas=maas_adg_api_584966293070898849_static_12_201&ref_=aa_maas&tag=maas&aa_campaignid=PBa9c9e3745791556dd0b7fb8a812eb965_b6604227acfd&aa_adgroupid=fdb5zwWKC79BZRxI_anUST1S7d_a7LtHu4KgqEalvZoPcCr7frlqzlqMWwQdJr5S1PZgY4IGHg6_bmXc9_aXiplsVCmO2qg4ig_c_c&aa_creativeid=d0f5r0AzPJ05G77818mcSBDtKXEjZkBhqGzlMgCJSbijZkc_c&uid=fromsll",
+          "pb_link_raw_present": true,
+          "price": "$80.99",
+          "stock_hint": "IN_STOCK"
+        },
+        {
+          "asin": "B08R8FD43K",
+          "title": "Frizzlife PX500-A Under Sink Tankless Reverse Osmosis Water Filtration System, 500 Gallons Per Day, Remineralizes Water, Easy DIY Installation, Low Maintenance",
+          "brand": "Frizzlife AMZ",
+          "brand_id": "135821",
+          "why_main_not_accessory": "under-sink water filter system (complete install unit), not fridge/Brita cartridge",
+          "source": "pb_brand_catalog+prefer",
+          "model_key": "PX500-A",
+          "has_pb_track": true,
+          "pb_track": "https://www.amazon.com/dp/B08R8FD43K?maas=maas_adg_api_584966293070898849_static_12_201&ref_=aa_maas&tag=maas&aa_campaignid=PBa9c9e3745791556dd0b7fb8a812eb965_b7738c13852c&aa_adgroupid=1987cVUh41dA2KUWFg2MGbln6scH8Keg1tl5vLzgKAp_ac2aaRJzfDNNh4hKGMC03ICgrJlg5VBDeds6dbcFDzxZMM3_ayVg_c_c&aa_creativeid=0aea92qObOixlD6otQ_b5BE7zckVnKAfHtvMbCZ4AkulmWIc_c&uid=fromsll",
+          "pb_link_raw_present": true,
+          "price": "$329.99",
+          "stock_hint": "IN_STOCK"
+        },
+        {
+          "asin": "B0CJ2QC33R",
+          "title": "Frizzlife TS99 Countertop Water Filter System, NSF 42&372 Certified 9-Stage Stainless Steel Faucet Water Filtration, 0.5 Micron Elements Reduces 99.99% Lead, Chlorine, Heavy Metals, Bad Tast",
+          "brand": "Frizzlife AMZ",
+          "brand_id": "135821",
+          "why_main_not_accessory": "countertop filtration / RO appliance (complete unit), not a replacement cartridge",
+          "source": "pb_brand_catalog+prefer",
+          "model_key": "TS99",
+          "has_pb_track": true,
+          "pb_track": "https://www.amazon.com/dp/B0CJ2QC33R?maas=maas_adg_api_584966293070898849_static_12_201&ref_=aa_maas&tag=maas&aa_campaignid=PBa9c9e3745791556dd0b7fb8a812eb965_bf63d3e9929f&aa_adgroupid=4279nNi5zagU6l_aSW8SNJERKY1sPpZ1XMi7QOTJbVfeypl9MAvDKQ5MFo3uboFt3c_bHm1PxGnYCmcxZWskPqgGVwweuXWw_c_c&aa_creativeid=3aa5GZ8Dst6SfPCZ6z_aJXRrvOwkiJo5XH7F9I3c8HrU3zDA_c&uid=fromsll",
+          "pb_link_raw_present": true,
+          "price": "$116.99",
+          "stock_hint": "IN_STOCK"
+        }
+      ],
+      "candidates_headroom": []
+    },
+    "pitcher-water-filters": {
+      "density_target": 10,
+      "proposed_count": 10,
+      "density_10_reachable": true,
+      "shortfall": 0,
+      "proposed": [
+        {
+          "asin": "B0F8VVH6PN",
+          "title": "Waterdrop ED06W Electric Water Filter Pitcher with 2 Filters, Last 4 Months",
+          "brand": "WFT-Waterdrop",
+          "brand_id": "138654",
+          "why_main_not_accessory": "pitcher/dispenser device (full unit), not Brita/cartridge replacement",
+          "source": "keep",
+          "model_key": "ED06",
+          "has_pb_track": true,
+          "pb_track": "https://www.amazon.com/dp/B0F8VVH6PN?maas=maas_adg_api_579776037387427332_static_12_201&ref_=aa_maas&tag=maas&aa_campaignid=PB6e4244366fc3631cf1e83967d7db05f8_2fcb11d438be&aa_adgroupid=9e33HSKozIo_bZcP_bCsJhNpjXgH_al8gSQzVm1xnAGPqR_a_a6Xjnsr2jqwo3TTW0NhaRL1lNDoF9wSR8bXHoIMmVZ7mUPUvgQ_c_c&aa_creativeid=61006D_b6nil7RWf7JSlDIbnXreg1mkeFDwv8CXu6dLXlZeg_c&uid=fromsll",
+          "pb_link_raw_present": true,
+          "price": "$55.99",
+          "stock_hint": "IN_STOCK"
+        },
+        {
+          "asin": "B0GGQKB4TX",
+          "title": "Waterdrop PT-11W 7-Cup Water Filter Pitcher with 3 Filters, White",
+          "brand": "WFT-Waterdrop",
+          "brand_id": "138654",
+          "why_main_not_accessory": "pitcher/dispenser device (full unit), not Brita/cartridge replacement",
+          "source": "keep",
+          "model_key": "PT-11",
+          "has_pb_track": true,
+          "pb_track": "https://www.amazon.com/dp/B0GGQKB4TX?maas=maas_adg_api_581162320068749297_static_12_201&ref_=aa_maas&tag=maas&aa_campaignid=PBbea1170d0dfde9a50dca26d8736aef93_3161e16f3c10&aa_adgroupid=d15b0ona68MCq3v9h7pHCq0bHBfeZ4v_byf2S3t_bDPRQFtANz_bAKFbmTM9qQzlL0Z_asXMClFnm7LfJ1B_aaNE4Bj54vHUlW1c_c&aa_creativeid=f7269aKqFL9io7JlZlx3eQIjLloYesRwh8I8_aKmuX3DU7GU_c&uid=fromsll",
+          "pb_link_raw_present": true,
+          "price": "$29.99",
+          "stock_hint": "IN_STOCK"
+        },
+        {
+          "asin": "B0F5Q2FNTV",
+          "title": "Waterdrop WFD-02L 35-Cup Water Filter Dispenser, Fluoride Reduction, Black",
+          "brand": "WFT-Waterdrop",
+          "brand_id": "138654",
+          "why_main_not_accessory": "pitcher/dispenser device (full unit), not Brita/cartridge replacement",
+          "source": "keep",
+          "model_key": "WFD-02",
+          "has_pb_track": true,
+          "pb_track": "https://www.amazon.com/dp/B0F5Q2FNTV?maas=maas_adg_api_579776037387427332_static_12_201&ref_=aa_maas&tag=maas&aa_campaignid=PB6e4244366fc3631cf1e83967d7db05f8_62bfd448e795&aa_adgroupid=99e3MIN2bbI_a5ZyJwomKdZL5vl6Q7cw8vprB7inKUZoIG60GympkIekaoi3gvOWyaMM_agkwqj7IEUtBGkc05UxKcZnFJow_c_c&aa_creativeid=93e4u8HhIsCTzKmMqeGJ97hVqyQDPRGoWkhpXljF66ezeqw_c&uid=fromsll",
+          "pb_link_raw_present": true,
+          "price": "$53.99",
+          "stock_hint": "IN_STOCK"
+        },
+        {
+          "asin": "B0H44DKV6V",
+          "title": "Waterdrop PT-13P TDS-Reducing Glass Water Filter Pitcher, Large 10-Cup",
+          "brand": "WFT-Waterdrop",
+          "brand_id": "138654",
+          "why_main_not_accessory": "pitcher/dispenser device (full unit), not Brita/cartridge replacement",
+          "source": "keep",
+          "model_key": "PT-13",
+          "has_pb_track": true,
+          "pb_track": "https://www.amazon.com/dp/B0H44DKV6V?maas=maas_adg_api_579776037387427332_static_12_201&ref_=aa_maas&tag=maas&aa_campaignid=PB6e4244366fc3631cf1e83967d7db05f8_3cdb2dd0d447&aa_adgroupid=cebbgKfm5FwO3R2gbVd4OH0om4jLOOWzr9VrbX3f2Kbo1M4TnAAyNFTey8dtlZf7BcWR9AwDMdwFcfT_bxCdsSGfQJSg_aXg_c_c&aa_creativeid=57b1D9sGZske65pAkgjBqFLBSgmaEHa5z4XpBL8qC0S11yg_c&uid=fromsll",
+          "pb_link_raw_present": true,
+          "price": "$79.99",
+          "stock_hint": "IN_STOCK"
+        },
+        {
+          "asin": "B0FS6DT3WK",
+          "title": "Waterdrop ED01W Electric Water Filter Pitcher with 2 Filters, 15-Cup, White",
+          "brand": "WFT-Waterdrop",
+          "brand_id": "138654",
+          "why_main_not_accessory": "pitcher/dispenser device (full unit), not Brita/cartridge replacement",
+          "source": "densify",
+          "model_key": "ED01",
+          "has_pb_track": true,
+          "pb_track": "https://www.amazon.com/dp/B0FS6DT3WK?maas=maas_adg_api_581162320068749297_static_12_201&ref_=aa_maas&tag=maas&aa_campaignid=PBbea1170d0dfde9a50dca26d8736aef93_ef9203d52813&aa_adgroupid=a772dH9RSRhGm5ww6OZyEAcybyjAow9_b3xOM1czzQCJ0ccHu4LyDzfRV3E55NclvqRlF2_aL2ApSVVNZ9R4EkPUZ2LjYZ4mE_c&aa_creativeid=c05849zWEU40yjEjYrgnn0JXOTmcihWho3a7hICd4AeXSoU_c&uid=fromsll",
+          "pb_link_raw_present": true,
+          "price": "$79.99",
+          "stock_hint": "IN_STOCK"
+        },
+        {
+          "asin": "B0GWGSW2XB",
+          "title": "Waterdrop PT-05B-AL Alkaline Water Filter Pitcher, 7-Cup, Up to pH 9.5",
+          "brand": "WFT-Waterdrop",
+          "brand_id": "138654",
+          "why_main_not_accessory": "pitcher/dispenser device (full unit), not Brita/cartridge replacement",
+          "source": "densify",
+          "model_key": "PT-05",
+          "has_pb_track": true,
+          "pb_track": "https://www.amazon.com/dp/B0GWGSW2XB?maas=maas_adg_api_581162320068749297_static_12_201&ref_=aa_maas&tag=maas&aa_campaignid=PBbea1170d0dfde9a50dca26d8736aef93_ac6184840e54&aa_adgroupid=4767yp2bUWJ_ba62T47uD5LMLKB8XmOzyXp2WWVE8uKo6tjut2_a09IK12YJQSAOBocmOEYkN8FioqXYK4TIjxjd25ApxizvQ_c&aa_creativeid=964631BWYxqg_bzjUz_bfMCz8Wk17gnZwvlhiupoOdQ_bcSGdo_c&uid=fromsll",
+          "pb_link_raw_present": true,
+          "price": "$20.69",
+          "stock_hint": "IN_STOCK"
+        },
+        {
+          "asin": "B0H3TLNCLG",
+          "title": "Waterdrop WFD-40L-L Water Filter Dispenser with 3 Filters, 35-Cup Large Capacity, 200-Gallon Long-Life, Faster Filtration, Reduces Chlorine, PFOA/PFOS and More, BPA Free, Black",
+          "brand": "WFT-Waterdrop",
+          "brand_id": "138654",
+          "why_main_not_accessory": "pitcher/dispenser device (full unit), not Brita/cartridge replacement",
+          "source": "densify",
+          "model_key": "WFD-40",
+          "has_pb_track": true,
+          "pb_track": "https://www.amazon.com/dp/B0H3TLNCLG?maas=maas_adg_api_579776037387427332_static_12_201&ref_=aa_maas&tag=maas&aa_campaignid=PB6e4244366fc3631cf1e83967d7db05f8_62bfd448e795&aa_adgroupid=07009QyzIdtuxs_b4m57WFP1RLlBt7Ku1On8mAdd23os1UKfIt1wdx5MG7_b0iaGHVCdpVwAbHEynEdb13zc6qgjWtypHUZg_c_c&aa_creativeid=3847vGOCeaexeJK8HHad7EDMdZqOlAfuMXprPhN6Jxia1Tk_c&uid=fromsll",
+          "pb_link_raw_present": true,
+          "price": "$54.99",
+          "stock_hint": "IN_STOCK"
+        },
+        {
+          "asin": "B0F62NRGGY",
+          "title": "Frizzlife MD40 Electric Water Filter Dispenser with 2 Filters, 400 Gallon, NSF/ANSI 53&42&372, Reduce Lead, PFAS, 6 Months Filter Life Pitcher, Countertop Rechargeable Instant System",
+          "brand": "Frizzlife AMZ",
+          "brand_id": "135821",
+          "why_main_not_accessory": "pitcher/dispenser device (full unit), not Brita/cartridge replacement",
+          "source": "densify",
+          "model_key": "MD40",
+          "has_pb_track": true,
+          "pb_track": "https://www.amazon.com/dp/B0F62NRGGY?maas=maas_adg_api_584966293070898849_static_12_201&ref_=aa_maas&tag=maas&aa_campaignid=PBa9c9e3745791556dd0b7fb8a812eb965_480e623eca47&aa_adgroupid=7789fit1742PiYIN1XqsJozG9Ia5cgxOS_aNU_apxUDVzot8qwab_aq3oszA9TQWaSe_bKgUChnXjnAVSacP2jIDuj_aD_aXnQEA_c_c&aa_creativeid=c40ahbzXWABvdfLdCiqd1R1W_b2Vu6KQnV8JRxNjIsF6i0eU_c&uid=fromsll",
+          "pb_link_raw_present": true,
+          "price": "$69.99",
+          "stock_hint": "IN_STOCK"
+        },
+        {
+          "asin": "B0DMVYB9B1",
+          "title": "Waterdrop ED12W Glass Rechargeable Water Filter Dispenser, Large 22-Cup, Reduce 70+ Contaminants, Instant Eco-Friendly Countertop Water Filter System, 5-Stage Soften Water Pitcher, with 1 Fi",
+          "brand": "WFT-Waterdrop",
+          "brand_id": "138654",
+          "why_main_not_accessory": "pitcher/dispenser device (full unit), not Brita/cartridge replacement",
+          "source": "densify",
+          "model_key": "ED12",
+          "has_pb_track": true,
+          "pb_track": "https://www.amazon.com/dp/B0DMVYB9B1?maas=maas_adg_api_581162320068749297_static_12_201&ref_=aa_maas&tag=maas&aa_campaignid=PBbea1170d0dfde9a50dca26d8736aef93_e33c313690c1&aa_adgroupid=0e1fYl378A_bqez0l6TM9CDaR9O7euok588lmWxkROJCkzkoJjjtvlKwP7lrEr1TfG_aalccssPLETybG0YqZujIziryqAlLM_c&aa_creativeid=c82ddqWFu_bA_alviYoI_aSYqlYaHn7zn7sr8LdQ81rwzvXKn4_c&uid=fromsll",
+          "pb_link_raw_present": true,
+          "price": "$99.99",
+          "stock_hint": "IN_STOCK"
+        },
+        {
+          "asin": "B0GGQCHLK1",
+          "title": "Waterdrop PT-11BL 7-Cup Alkaline Water Filter Pitcher with 3 Filters, Blue",
+          "brand": "WFT-Waterdrop",
+          "brand_id": "138654",
+          "why_main_not_accessory": "pitcher/dispenser device (full unit), not Brita/cartridge replacement",
+          "source": "keep",
+          "model_key": "PT-11BL",
+          "has_pb_track": true,
+          "pb_track": "https://www.amazon.com/dp/B0GGQCHLK1?maas=maas_adg_api_581162320068749297_static_12_201&ref_=aa_maas&tag=maas&aa_campaignid=PBbea1170d0dfde9a50dca26d8736aef93_3161e16f3c10&aa_adgroupid=8235YMY2GGBuj9ZR_aDWaAKbY14qCHL9VC0YT1EKcFi_ae8id_bS3WOqG_bNd8yd8c_attOIxIZ_ar0i6VzY7BPY7Aw1xqkuQeGZg_c&aa_creativeid=4c5amCxkJKyLlVbpS1o132S_bTrrZA4zgFtINlUC1bNWKbZo_c&uid=fromsll",
+          "pb_link_raw_present": true,
+          "price": "$32.99",
+          "stock_hint": "IN_STOCK"
+        }
+      ],
+      "kept_from_prior": [
+        {
+          "asin": "B0F8VVH6PN",
+          "title": "Waterdrop ED06W Electric Water Filter Pitcher with 2 Filters, Last 4 Months",
+          "brand": "WFT-Waterdrop",
+          "brand_id": "138654",
+          "why_main_not_accessory": "pitcher/dispenser device (full unit), not Brita/cartridge replacement",
+          "source": "keep",
+          "model_key": "ED06",
+          "has_pb_track": true,
+          "pb_track": "https://www.amazon.com/dp/B0F8VVH6PN?maas=maas_adg_api_579776037387427332_static_12_201&ref_=aa_maas&tag=maas&aa_campaignid=PB6e4244366fc3631cf1e83967d7db05f8_2fcb11d438be&aa_adgroupid=9e33HSKozIo_bZcP_bCsJhNpjXgH_al8gSQzVm1xnAGPqR_a_a6Xjnsr2jqwo3TTW0NhaRL1lNDoF9wSR8bXHoIMmVZ7mUPUvgQ_c_c&aa_creativeid=61006D_b6nil7RWf7JSlDIbnXreg1mkeFDwv8CXu6dLXlZeg_c&uid=fromsll",
+          "pb_link_raw_present": true,
+          "price": "$55.99",
+          "stock_hint": "IN_STOCK"
+        },
+        {
+          "asin": "B0GGQKB4TX",
+          "title": "Waterdrop PT-11W 7-Cup Water Filter Pitcher with 3 Filters, White",
+          "brand": "WFT-Waterdrop",
+          "brand_id": "138654",
+          "why_main_not_accessory": "pitcher/dispenser device (full unit), not Brita/cartridge replacement",
+          "source": "keep",
+          "model_key": "PT-11",
+          "has_pb_track": true,
+          "pb_track": "https://www.amazon.com/dp/B0GGQKB4TX?maas=maas_adg_api_581162320068749297_static_12_201&ref_=aa_maas&tag=maas&aa_campaignid=PBbea1170d0dfde9a50dca26d8736aef93_3161e16f3c10&aa_adgroupid=d15b0ona68MCq3v9h7pHCq0bHBfeZ4v_byf2S3t_bDPRQFtANz_bAKFbmTM9qQzlL0Z_asXMClFnm7LfJ1B_aaNE4Bj54vHUlW1c_c&aa_creativeid=f7269aKqFL9io7JlZlx3eQIjLloYesRwh8I8_aKmuX3DU7GU_c&uid=fromsll",
+          "pb_link_raw_present": true,
+          "price": "$29.99",
+          "stock_hint": "IN_STOCK"
+        },
+        {
+          "asin": "B0F5Q2FNTV",
+          "title": "Waterdrop WFD-02L 35-Cup Water Filter Dispenser, Fluoride Reduction, Black",
+          "brand": "WFT-Waterdrop",
+          "brand_id": "138654",
+          "why_main_not_accessory": "pitcher/dispenser device (full unit), not Brita/cartridge replacement",
+          "source": "keep",
+          "model_key": "WFD-02",
+          "has_pb_track": true,
+          "pb_track": "https://www.amazon.com/dp/B0F5Q2FNTV?maas=maas_adg_api_579776037387427332_static_12_201&ref_=aa_maas&tag=maas&aa_campaignid=PB6e4244366fc3631cf1e83967d7db05f8_62bfd448e795&aa_adgroupid=99e3MIN2bbI_a5ZyJwomKdZL5vl6Q7cw8vprB7inKUZoIG60GympkIekaoi3gvOWyaMM_agkwqj7IEUtBGkc05UxKcZnFJow_c_c&aa_creativeid=93e4u8HhIsCTzKmMqeGJ97hVqyQDPRGoWkhpXljF66ezeqw_c&uid=fromsll",
+          "pb_link_raw_present": true,
+          "price": "$53.99",
+          "stock_hint": "IN_STOCK"
+        },
+        {
+          "asin": "B0H44DKV6V",
+          "title": "Waterdrop PT-13P TDS-Reducing Glass Water Filter Pitcher, Large 10-Cup",
+          "brand": "WFT-Waterdrop",
+          "brand_id": "138654",
+          "why_main_not_accessory": "pitcher/dispenser device (full unit), not Brita/cartridge replacement",
+          "source": "keep",
+          "model_key": "PT-13",
+          "has_pb_track": true,
+          "pb_track": "https://www.amazon.com/dp/B0H44DKV6V?maas=maas_adg_api_579776037387427332_static_12_201&ref_=aa_maas&tag=maas&aa_campaignid=PB6e4244366fc3631cf1e83967d7db05f8_3cdb2dd0d447&aa_adgroupid=cebbgKfm5FwO3R2gbVd4OH0om4jLOOWzr9VrbX3f2Kbo1M4TnAAyNFTey8dtlZf7BcWR9AwDMdwFcfT_bxCdsSGfQJSg_aXg_c_c&aa_creativeid=57b1D9sGZske65pAkgjBqFLBSgmaEHa5z4XpBL8qC0S11yg_c&uid=fromsll",
+          "pb_link_raw_present": true,
+          "price": "$79.99",
+          "stock_hint": "IN_STOCK"
+        },
+        {
+          "asin": "B0GGQCHLK1",
+          "title": "Waterdrop PT-11BL 7-Cup Alkaline Water Filter Pitcher with 3 Filters, Blue",
+          "brand": "WFT-Waterdrop",
+          "brand_id": "138654",
+          "why_main_not_accessory": "pitcher/dispenser device (full unit), not Brita/cartridge replacement",
+          "source": "keep",
+          "model_key": "PT-11BL",
+          "has_pb_track": true,
+          "pb_track": "https://www.amazon.com/dp/B0GGQCHLK1?maas=maas_adg_api_581162320068749297_static_12_201&ref_=aa_maas&tag=maas&aa_campaignid=PBbea1170d0dfde9a50dca26d8736aef93_3161e16f3c10&aa_adgroupid=8235YMY2GGBuj9ZR_aDWaAKbY14qCHL9VC0YT1EKcFi_ae8id_bS3WOqG_bNd8yd8c_attOIxIZ_ar0i6VzY7BPY7Aw1xqkuQeGZg_c&aa_creativeid=4c5amCxkJKyLlVbpS1o132S_bTrrZA4zgFtINlUC1bNWKbZo_c&uid=fromsll",
+          "pb_link_raw_present": true,
+          "price": "$32.99",
+          "stock_hint": "IN_STOCK"
+        }
+      ],
+      "new_densify": [
+        {
+          "asin": "B0FS6DT3WK",
+          "title": "Waterdrop ED01W Electric Water Filter Pitcher with 2 Filters, 15-Cup, White",
+          "brand": "WFT-Waterdrop",
+          "brand_id": "138654",
+          "why_main_not_accessory": "pitcher/dispenser device (full unit), not Brita/cartridge replacement",
+          "source": "densify",
+          "model_key": "ED01",
+          "has_pb_track": true,
+          "pb_track": "https://www.amazon.com/dp/B0FS6DT3WK?maas=maas_adg_api_581162320068749297_static_12_201&ref_=aa_maas&tag=maas&aa_campaignid=PBbea1170d0dfde9a50dca26d8736aef93_ef9203d52813&aa_adgroupid=a772dH9RSRhGm5ww6OZyEAcybyjAow9_b3xOM1czzQCJ0ccHu4LyDzfRV3E55NclvqRlF2_aL2ApSVVNZ9R4EkPUZ2LjYZ4mE_c&aa_creativeid=c05849zWEU40yjEjYrgnn0JXOTmcihWho3a7hICd4AeXSoU_c&uid=fromsll",
+          "pb_link_raw_present": true,
+          "price": "$79.99",
+          "stock_hint": "IN_STOCK"
+        },
+        {
+          "asin": "B0GWGSW2XB",
+          "title": "Waterdrop PT-05B-AL Alkaline Water Filter Pitcher, 7-Cup, Up to pH 9.5",
+          "brand": "WFT-Waterdrop",
+          "brand_id": "138654",
+          "why_main_not_accessory": "pitcher/dispenser device (full unit), not Brita/cartridge replacement",
+          "source": "densify",
+          "model_key": "PT-05",
+          "has_pb_track": true,
+          "pb_track": "https://www.amazon.com/dp/B0GWGSW2XB?maas=maas_adg_api_581162320068749297_static_12_201&ref_=aa_maas&tag=maas&aa_campaignid=PBbea1170d0dfde9a50dca26d8736aef93_ac6184840e54&aa_adgroupid=4767yp2bUWJ_ba62T47uD5LMLKB8XmOzyXp2WWVE8uKo6tjut2_a09IK12YJQSAOBocmOEYkN8FioqXYK4TIjxjd25ApxizvQ_c&aa_creativeid=964631BWYxqg_bzjUz_bfMCz8Wk17gnZwvlhiupoOdQ_bcSGdo_c&uid=fromsll",
+          "pb_link_raw_present": true,
+          "price": "$20.69",
+          "stock_hint": "IN_STOCK"
+        },
+        {
+          "asin": "B0H3TLNCLG",
+          "title": "Waterdrop WFD-40L-L Water Filter Dispenser with 3 Filters, 35-Cup Large Capacity, 200-Gallon Long-Life, Faster Filtration, Reduces Chlorine, PFOA/PFOS and More, BPA Free, Black",
+          "brand": "WFT-Waterdrop",
+          "brand_id": "138654",
+          "why_main_not_accessory": "pitcher/dispenser device (full unit), not Brita/cartridge replacement",
+          "source": "densify",
+          "model_key": "WFD-40",
+          "has_pb_track": true,
+          "pb_track": "https://www.amazon.com/dp/B0H3TLNCLG?maas=maas_adg_api_579776037387427332_static_12_201&ref_=aa_maas&tag=maas&aa_campaignid=PB6e4244366fc3631cf1e83967d7db05f8_62bfd448e795&aa_adgroupid=07009QyzIdtuxs_b4m57WFP1RLlBt7Ku1On8mAdd23os1UKfIt1wdx5MG7_b0iaGHVCdpVwAbHEynEdb13zc6qgjWtypHUZg_c_c&aa_creativeid=3847vGOCeaexeJK8HHad7EDMdZqOlAfuMXprPhN6Jxia1Tk_c&uid=fromsll",
+          "pb_link_raw_present": true,
+          "price": "$54.99",
+          "stock_hint": "IN_STOCK"
+        },
+        {
+          "asin": "B0F62NRGGY",
+          "title": "Frizzlife MD40 Electric Water Filter Dispenser with 2 Filters, 400 Gallon, NSF/ANSI 53&42&372, Reduce Lead, PFAS, 6 Months Filter Life Pitcher, Countertop Rechargeable Instant System",
+          "brand": "Frizzlife AMZ",
+          "brand_id": "135821",
+          "why_main_not_accessory": "pitcher/dispenser device (full unit), not Brita/cartridge replacement",
+          "source": "densify",
+          "model_key": "MD40",
+          "has_pb_track": true,
+          "pb_track": "https://www.amazon.com/dp/B0F62NRGGY?maas=maas_adg_api_584966293070898849_static_12_201&ref_=aa_maas&tag=maas&aa_campaignid=PBa9c9e3745791556dd0b7fb8a812eb965_480e623eca47&aa_adgroupid=7789fit1742PiYIN1XqsJozG9Ia5cgxOS_aNU_apxUDVzot8qwab_aq3oszA9TQWaSe_bKgUChnXjnAVSacP2jIDuj_aD_aXnQEA_c_c&aa_creativeid=c40ahbzXWABvdfLdCiqd1R1W_b2Vu6KQnV8JRxNjIsF6i0eU_c&uid=fromsll",
+          "pb_link_raw_present": true,
+          "price": "$69.99",
+          "stock_hint": "IN_STOCK"
+        },
+        {
+          "asin": "B0DMVYB9B1",
+          "title": "Waterdrop ED12W Glass Rechargeable Water Filter Dispenser, Large 22-Cup, Reduce 70+ Contaminants, Instant Eco-Friendly Countertop Water Filter System, 5-Stage Soften Water Pitcher, with 1 Fi",
+          "brand": "WFT-Waterdrop",
+          "brand_id": "138654",
+          "why_main_not_accessory": "pitcher/dispenser device (full unit), not Brita/cartridge replacement",
+          "source": "densify",
+          "model_key": "ED12",
+          "has_pb_track": true,
+          "pb_track": "https://www.amazon.com/dp/B0DMVYB9B1?maas=maas_adg_api_581162320068749297_static_12_201&ref_=aa_maas&tag=maas&aa_campaignid=PBbea1170d0dfde9a50dca26d8736aef93_e33c313690c1&aa_adgroupid=0e1fYl378A_bqez0l6TM9CDaR9O7euok588lmWxkROJCkzkoJjjtvlKwP7lrEr1TfG_aalccssPLETybG0YqZujIziryqAlLM_c&aa_creativeid=c82ddqWFu_bA_alviYoI_aSYqlYaHn7zn7sr8LdQ81rwzvXKn4_c&uid=fromsll",
+          "pb_link_raw_present": true,
+          "price": "$99.99",
+          "stock_hint": "IN_STOCK"
+        }
+      ]
+    },
+    "kvm-switches_optional": {
+      "need": 1,
+      "note": "prior keep=9 after dropping Remote Switch Button; 2 dens10 L2-blocked",
+      "proposed_alts": [
+        {
+          "asin": "B0GYPJ97Z2",
+          "title": "AV Access KVM Switch Docking Station for a Laptop and 2 Desktop PCs Dual 4K",
+          "brand": "v AV Access-US",
+          "why_main_not_accessory": "KVM switch unit (main device), not remote button accessory",
+          "has_pb_track": true,
+          "pb_track": "https://www.amazon.com/dp/B0GYPJ97Z2?maas=maas_adg_api_594163023189815506_static_12_201&ref_=aa_maas&tag=maas&aa_campaignid=PB3fef5a0a7e64cf18de5966d76c756c97_883764612b47&aa_adgroupid=eaca2p_b_bL7b6gqHzadYs_a_apDflthO1lTWRga9ebnkApga03QCbFVrL7eEGxW3_a_afAE2oZS7ogi_ahDO1_aw9lt8yrgeQ_c_c&aa_creativeid=6df7hnqYvE6LDoUEZYYZ9Qp_b2PbilOmGQz2PuMkimzfxaqg_c&uid=fromsll",
+          "source": "open_batch_extra"
+        },
+        {
+          "asin": "B0HHJHYF8Z",
+          "title": "AV Access KVM Switch 2 Monitors 2 Computers, 4K@60Hz KVM Docking Station",
+          "brand": "v AV Access-US",
+          "why_main_not_accessory": "KVM switch unit (main device), not remote button accessory",
+          "has_pb_track": true,
+          "pb_track": "https://www.amazon.com/dp/B0HHJHYF8Z?maas=maas_adg_api_594163023189815506_static_12_201&ref_=aa_maas&tag=maas&aa_campaignid=PB3fef5a0a7e64cf18de5966d76c756c97_5537f3808811&aa_adgroupid=b6f4yZWaeBkmhQOQ9mz7ehytLyQ1to6RgeDAQf4NdP9_bj6jOBJud8GaVKU6Uk2X1lM_aOw_bp_ajqpEp7n_baJEDsVI6tA_c_c&aa_creativeid=db71vbezfp1wZUv4A9LfbWMyUpxkzzAxKM8MKDUeVYUij7o_c&uid=fromsll",
+          "source": "open_batch_extra"
+        },
+        {
+          "asin": "B0HDN5MHLR",
+          "title": "AV Access KVM Switch Docking Station 2 Monitors 2 Computers, 60W Charging",
+          "brand": "v AV Access-US",
+          "why_main_not_accessory": "KVM switch unit (main device), not remote button accessory",
+          "has_pb_track": true,
+          "pb_track": "https://www.amazon.com/dp/B0HDN5MHLR?maas=maas_adg_api_594163023189815506_static_12_201&ref_=aa_maas&tag=maas&aa_campaignid=PB3fef5a0a7e64cf18de5966d76c756c97_58c002b41340&aa_adgroupid=a44be8ClCCH5onLD0NlE2FigJsqMaIqcYFxhljKrM3fYtIH04GMlF3Qm9m0_boHvgwTC3436o4ZgGCb357t0ckdmh_aA_c_c&aa_creativeid=2106Cro7L711cKarDsHsFDJlXasHVf_ai3HZCDJZeoSe3NKU_c&uid=fromsll",
+          "source": "open_batch_extra"
+        }
+      ]
+    },
+    "glass-display-cabinets_optional": {
+      "need": "alts for L2-blocked dens10",
+      "blocked": [
+        "B0HKK8PJJR",
+        "B0HJNLKK9R"
+      ],
+      "proposed_alts": [
+        {
+          "asin": "B0HDKZKXS9",
+          "title": "Lvifur Rotating 360 Glass Display Cabinet with RGB Light - Auto Sensor",
+          "brand": "Lvifur",
+          "why_main_not_accessory": "glass display cabinet (furniture main), alternate for L2-blocked dens10 slots",
+          "has_pb_track": true,
+          "pb_track": "https://www.amazon.com/dp/B0HDKZKXS9?maas=maas_adg_api_586569983377671966_static_12_201&ref_=aa_maas&tag=maas&aa_campaignid=PB37cca3e7667aa242b7ceab100326ca9b_ebe31262ce0a&aa_adgroupid=b81cIZ8fPiyXLctmTvjZC5RNZrMDAIgyNNDEkrlwVqyLggsP3b_aJwKX5Jk5ocRNhSs97vE9R5SNVOTWUUCLteMWTwA_c_c&aa_creativeid=94dfo1_aRNElUL2RNgQ4laaLX_bhaKmXTc2Qf8D5kYrKWMN_bw_c&uid=fromsll",
+          "source": "open_batch_extra",
+          "replaces_blocked": [
+            "B0HKK8PJJR",
+            "B0HJNLKK9R"
+          ]
+        },
+        {
+          "asin": "B0H9YH5DF9",
+          "title": "Lvifur RGB Glass Display Cabinet with Glass Doors for Collectibles, Black",
+          "brand": "Lvifur",
+          "why_main_not_accessory": "glass display cabinet (furniture main), alternate for L2-blocked dens10 slots",
+          "has_pb_track": true,
+          "pb_track": "https://www.amazon.com/dp/B0H9YH5DF9?maas=maas_adg_api_586569983377671966_static_12_201&ref_=aa_maas&tag=maas&aa_campaignid=PB37cca3e7667aa242b7ceab100326ca9b_022ae8672cca&aa_adgroupid=1c74og0VQp09jNJQyoE7YUJELwcqa3Je0Ulbq3x3sgAanNyGAj3UFem3rHvc8KjB7VGy35bcB4KetjW8_aJLw_b15I4w_c_c&aa_creativeid=12a9uoAvEmHjDbE4JU6FilvTXwls4_awL5uqxdby2gF1XlZs_c&uid=fromsll",
+          "source": "open_batch_extra",
+          "replaces_blocked": [
+            "B0HKK8PJJR",
+            "B0HJNLKK9R"
+          ]
+        },
+        {
+          "asin": "B0H3DSQV33",
+          "title": "Lvifur Lighted Display Case with Glass Door,5-Tier Arched Glass Display Cabinet with RGB Lights App Control for Collectibles, Curio Cabinet with Human Body Senor,Bookcase for Living Room,Bla",
+          "brand": "Lvifur",
+          "why_main_not_accessory": "glass display cabinet (furniture main), alternate for L2-blocked dens10 slots",
+          "has_pb_track": true,
+          "pb_track": "https://www.amazon.com/dp/B0H3DSQV33?maas=maas_adg_api_586569983377671966_static_12_201&ref_=aa_maas&tag=maas&aa_campaignid=PB37cca3e7667aa242b7ceab100326ca9b_345ac7f10330&aa_adgroupid=59d79S_av4YtnLUmfPM6s_bYxGluYZywqwb1Ex2UtYTh8CJGz1m4UWH12ZNzx3ticyXsewkvF9b12_bMEjbWH3_bDrnUMQ_c_c&aa_creativeid=e67aY4yUgEFhhPKTp4gxNAgj_amOser7GzUyHojeB2whv6uU_c&uid=fromsll",
+          "source": "open_batch_extra",
+          "replaces_blocked": [
+            "B0HKK8PJJR",
+            "B0HJNLKK9R"
+          ]
+        }
+      ]
+    }
+  },
+  "l2": {
+    "ran": false,
+    "reason": "parent asked propose+track-verify; Mac L2 only if CDP free — skipped (propose only)",
+    "suggested_new_asins_for_l2": [
+      "B0GWCWN64R",
+      "B0FCFLX4ZR",
+      "B0GYRWYBZY",
+      "B0H6WKMXPB",
+      "B087R2V8V7",
+      "B0H5JZZ3GK",
+      "B097YC4VC2",
+      "B09W1Y557B",
+      "B08R8FD43K",
+      "B0CJ2QC33R",
+      "B0FS6DT3WK",
+      "B0GWGSW2XB",
+      "B0H3TLNCLG",
+      "B0F62NRGGY",
+      "B0DMVYB9B1",
+      "B0GYPJ97Z2",
+      "B0HDKZKXS9",
+      "B0H9YH5DF9"
+    ]
+  },
+  "paths": {
+    "json": "/workspace/shared/mt10-day-add-filter-densify-2026-10-23.json",
+    "md": "/workspace/shared/mt10-day-add-filter-densify-2026-10-23.md"
+  }
+}

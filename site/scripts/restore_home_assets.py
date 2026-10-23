@@ -505,6 +505,15 @@ def restore_company_pages() -> None:
         ("Litter Boxes", "litter-boxes"),
         ("Dash Cams", "dash-cams"),
         ("Kids Bikes", "kids-bikes"),
+        ("Hearing Aids", "hearing-aids"),
+        ("Water Filters", "water-filters"),
+        ("Under-Sink Filters", "under-sink-countertop-filtration"),
+        ("Pitcher Filters", "pitcher-water-filters"),
+        ("Doormats", "doormats"),
+        ("Split-System", "split-system"),
+        ("Stage Lights", "stage-lights"),
+        ("Display Cabinets", "glass-display-cabinets"),
+        ("Document Scanners", "document-scanners"),
         ("Smart TV ads", "tv"),
     ]
     items = "\n".join(

@@ -1,0 +1,345 @@
+{
+  "generated": "2026-10-23",
+  "slug": "under-sink-countertop-filtration",
+  "name": "Under-Sink & Countertop Filtration",
+  "amazon_category": "Tools & Home Improvement",
+  "density": 10,
+  "density_target": 10,
+  "density_shortfall": false,
+  "status": "unpublished_scaffold",
+  "waiting_for_部署上线": "yes",
+  "inventory": "l2_ok",
+  "baked": true,
+  "live": false,
+  "publishable": true,
+  "cta_label": "Check price",
+  "cta_rule": "PB pboost.me keeps uid=fromsll when L2 ok + verified track; otherwise track_pending and no Check price",
+  "l2": {
+    "status": "ok",
+    "method": "mac_chrome_cdp_9333",
+    "ok_count": 10,
+    "blocked": []
+  },
+  "notes": [
+    "Day-add L2 merge 2026-10-23. waiting_for_部署上线=yes. No Live.",
+    "Accessory ASINs and accessory niches removed. No invented pboost hops.",
+    "Lifestyle cover remains a gradient placeholder."
+  ],
+  "dropped_accessory_asins": [],
+  "picks": [
+    {
+      "asin": "B0HGF8V9BW",
+      "title": "Waterdrop TSV-A 0.01μm Ultra Filtration Under Sink Water Filter System",
+      "title_source": "l2_pack",
+      "brand": "WFT-Waterdrop",
+      "affiliate_network": "pb",
+      "affiliate_link": "https://pboost.me/w5yR4g27?uid=fromsll",
+      "track_status": "ok",
+      "l2_status": "ok",
+      "price": "179.99",
+      "price_raw": "$179.99",
+      "price_displayed": "$179.99",
+      "list_price": "$189.99",
+      "image": "https://m.media-amazon.com/images/I/61lyFMZEtaL._SL1500_.jpg",
+      "availability": "In Stock",
+      "in_stock": true,
+      "rating": 4.4,
+      "review_count": 3495,
+      "feature_bullets": [
+        "𝐄𝐚𝐬𝐲 𝐃𝐈𝐘 𝐈𝐧𝐬𝐭𝐚𝐥𝐥𝐚𝐭𝐢𝐨𝐧: (𝙉𝙊𝙏 𝙍𝙊) This under sink water filter system is designed for standard under-sink cold-water connections and municipal tap water. It requires no power, produces no wastewater, needs no drilling. Unlike RO systems, it 𝐝𝐨𝐞𝐬 𝐧𝐨𝐭 𝐫𝐞𝐝𝐮𝐜𝐞 𝐓𝐃𝐒, helping retain naturally occurring minerals for fresh-tasting water",
+        "𝐂𝐨𝐦𝐩𝐚𝐜𝐭 𝐔𝐧𝐝𝐞𝐫-𝐒𝐢𝐧𝐤 𝐃𝐞𝐬𝐢𝐠𝐧, 𝐌𝐨𝐫𝐞 𝐒𝐭𝐨𝐫𝐚𝐠𝐞 𝐒𝐩𝐚𝐜𝐞: Meet Waterdrop's smallest under sink water filter system, designed for direct connection to your kitchen faucet with no drilling or extra faucet required. It saves up to 28.4% more under-sink space than the previous generation (WD-TSU). Measuring just 13.44\" D × 5.31\" W × 9.71\" H, this compact under sink water filtration system fits neatly under most sinks while leaving more room for cleaning supplies and other kitchen essentials",
+        "𝟎.𝟎𝟏μ𝐦 𝐔𝐥𝐭𝐫𝐚𝐟𝐢𝐥𝐭𝐫𝐚𝐭𝐢𝐨𝐧 𝐟𝐨𝐫 𝐂𝐥𝐞𝐚𝐧𝐞𝐫 𝐖𝐚𝐭𝐞𝐫: This under sink water filter system features a 0.01μm ultrafiltration membrane, PP cotton, and an activated carbon block to help reduce chlorine, taste and odor, rust, sediments, colloids, fluoride, PFOA, PFOS, lead, copper, VOCs, cysts, chloramines, and other impurities"
+      ],
+      "l2": {
+        "ok": true,
+        "method": "mac_chrome_cdp",
+        "zip": "10001",
+        "fetched_at": "2026-10-23T09:29:02.139394+08:00"
+      }
+    },
+    {
+      "asin": "B0HDNZR3V7",
+      "title": "Waterdrop G3P800-WCK Reverse Osmosis System Under-Sink, 800 GPD",
+      "title_source": "l2_pack",
+      "brand": "WFT-Waterdrop",
+      "affiliate_network": "pb",
+      "affiliate_link": "https://pboost.me/P5yRaNc1g?uid=fromsll",
+      "track_status": "ok",
+      "l2_status": "ok",
+      "price": "849.00",
+      "price_raw": "$849.00",
+      "price_displayed": "$849.00",
+      "list_price": "$999.00",
+      "image": "https://m.media-amazon.com/images/I/61hztA8yc0L._SL1500_.jpg",
+      "availability": "In Stock",
+      "in_stock": true,
+      "rating": 4.5,
+      "review_count": 1141,
+      "feature_bullets": [
+        "[𝐀𝐝𝐯𝐚𝐧𝐜𝐞𝐝 𝟏𝟎-𝐒𝐭𝐚𝐠𝐞 𝐑𝐎 𝐅𝐢𝐥𝐭𝐫𝐚𝐭𝐢𝐨𝐧] This reverse osmosis water filter features an advanced 10-stage filtration system with a 0.0001μm RO membrane, activated carbon blocks, PP cotton, and scale-inhibiting media. Designed to reduce TDS, chlorine, fluoride, and other specified substances, it provides filtered water for everyday drinking, cooking, coffee, and more",
+        "[𝐋𝐄𝐃 𝐏𝐮𝐫𝐢𝐟𝐢𝐜𝐚𝐭𝐢𝐨𝐧 𝐟𝐨𝐫 𝐀𝐝𝐝𝐞𝐝 𝐏𝐫𝐨𝐭𝐞𝐜𝐭𝐢𝐨𝐧] Beyond RO filtration, this under sink reverse osmosis system features built-in LED purification for an additional layer of water treatment. It provides added protection after filtration, giving your family greater confidence in every glass",
+        "[𝐂𝐞𝐫𝐭𝐢𝐟𝐢𝐞𝐝 𝐌𝐚𝐭𝐞𝐫𝐢𝐚𝐥𝐬 & 𝐓𝐞𝐬𝐭𝐞𝐝 𝐏𝐞𝐫𝐟𝐨𝐫𝐦𝐚𝐧𝐜𝐞] This under sink reverse osmosis system is certified by IAPMO R&T to NSF/ANSI/CAN 372 for low lead content. Its filtration performance has also been evaluated through SGS and CSA testing, providing additional information about product quality and performance"
+      ],
+      "l2": {
+        "ok": true,
+        "method": "mac_chrome_cdp",
+        "zip": "10001",
+        "fetched_at": "2026-10-23T09:29:17.308369+08:00"
+      }
+    },
+    {
+      "asin": "B0HDPNZ65Y",
+      "title": "Waterdrop G3P600 Tankless Reverse Osmosis Water Filter System, Black Faucet",
+      "title_source": "l2_pack",
+      "brand": "WFT-Waterdrop",
+      "affiliate_network": "pb",
+      "affiliate_link": "https://pboost.me/K5SQcwOZ?uid=fromsll",
+      "track_status": "ok",
+      "l2_status": "ok",
+      "price": "439.00",
+      "price_raw": "$439.00",
+      "price_displayed": "$439.00",
+      "list_price": "$539.00",
+      "image": "https://m.media-amazon.com/images/I/610NguLunhL._SL1500_.jpg",
+      "availability": "In Stock",
+      "in_stock": true,
+      "rating": 4.5,
+      "review_count": 4215,
+      "feature_bullets": [
+        "[ 𝐀𝐝𝐯𝐚𝐧𝐜𝐞𝐝 𝟖-𝐒𝐭𝐚𝐠𝐞 𝐑𝐎 𝐅𝐢𝐥𝐭𝐫𝐚𝐭𝐢𝐨𝐧 ] This reverse osmosis water filter features an advanced 8-stage filtration system with a 0.0001μm RO membrane, activated carbon blocks, PP cotton, and scale-inhibiting media. Designed to reduce TDS, chlorine, fluoride, and other specified substances, it provides filtered water for everyday drinking, cooking, coffee, and more",
+        "[ 𝐂𝐞𝐫𝐭𝐢𝐟𝐢𝐞𝐝 𝐌𝐚𝐭𝐞𝐫𝐢𝐚𝐥𝐬 & 𝐓𝐞𝐬𝐭𝐞𝐝 𝐏𝐞𝐫𝐟𝐨𝐫𝐦𝐚𝐧𝐜𝐞 ] This under sink reverse osmosis system is certified by IAPMO R&T to NSF/ANSI/CAN 372 for low lead content. Its filtration performance has also been evaluated through SGS and CSA testing, providing additional information about product quality and performance",
+        "[ 𝟔𝟎𝟎 𝐆𝐏𝐃 𝐅𝐚𝐬𝐭, 𝐒𝐭𝐞𝐚𝐝𝐲 𝐅𝐥𝐨𝐰 ] This 600 GPD reverse osmosis system delivers a fast 0.42 GPM flow rate, filling an 8 oz cup in about 8 seconds. Get filtered water with less waiting when filling glasses, bottles, coffee makers, and cooking pots, making it well suited to everyday household water needs"
+      ],
+      "l2": {
+        "ok": true,
+        "method": "mac_chrome_cdp",
+        "zip": "10001",
+        "fetched_at": "2026-10-23T09:29:32.473934+08:00"
+      }
+    },
+    {
+      "asin": "B0GWGX82QD",
+      "title": "Waterdrop X16 Reverse Osmosis System Alkaline Mineral 1600GPD Bronze Faucet",
+      "title_source": "l2_pack",
+      "brand": "WFT-Waterdrop",
+      "affiliate_network": "pb",
+      "affiliate_link": "https://pboost.me/g5SPr3a8?uid=fromsll",
+      "track_status": "ok",
+      "l2_status": "ok",
+      "price": "1599.00",
+      "price_raw": "$1599.00",
+      "price_displayed": "$1599.00",
+      "list_price": "$1,999.00",
+      "image": "https://m.media-amazon.com/images/I/61WKSHB7hdL._SL1500_.jpg",
+      "availability": "In Stock",
+      "in_stock": true,
+      "rating": 4.6,
+      "review_count": 130,
+      "feature_bullets": [
+        "[Trusted certification] Tested and certified by IAPMO R&T against NSF/ANSI 42 & 58 & 372 standard, and tested by SGS to reduce harmful substances",
+        "[1600 GPD peak capacity] Unleash the power of peak hydration with our revolutionary tankless reverse osmosis system. With a 1600 GPD high flow rate, it delivers water at an incredible rate, filling a 6 oz cup in just 2 seconds. Embrace the convenience and health of instant RO filtration",
+        "[Healthy mineral boost] By original PCC mineralization technology, this under-sink RO system activates specific mineral crystals to mimic the natural formation of spring water. Enjoy not only the health-promoting benefits of weak alkaline water but also a smooth taste that enhances the flavors"
+      ],
+      "l2": {
+        "ok": true,
+        "method": "mac_chrome_cdp",
+        "zip": "10001",
+        "fetched_at": "2026-10-23T09:29:47.942707+08:00"
+      }
+    },
+    {
+      "asin": "B0DX244R2N",
+      "title": "Waterdrop X16 Reverse Osmosis System Alkaline Mineral 1600GPD Silver Faucet",
+      "title_source": "l2_pack",
+      "brand": "WFT-Waterdrop",
+      "affiliate_network": "pb",
+      "affiliate_link": "https://pboost.me/L5SPkf79c?uid=fromsll",
+      "track_status": "ok",
+      "l2_status": "ok",
+      "price": "1599.00",
+      "price_raw": "$1599.00",
+      "price_displayed": "$1599.00",
+      "list_price": "$1,999.00",
+      "image": "https://m.media-amazon.com/images/I/61Re9VX199L._SL1500_.jpg",
+      "availability": "In Stock",
+      "in_stock": true,
+      "rating": 4.6,
+      "review_count": 130,
+      "feature_bullets": [
+        "[Trusted certification] Tested and certified by IAPMO R&T against NSF/ANSI 42 & 58 & 372 standard, and tested by SGS to reduce harmful substances",
+        "[1600 GPD peak capacity] Unleash the power of peak hydration with our revolutionary tankless reverse osmosis system. With a 1600 GPD high flow rate, it delivers water at an incredible rate, filling a 6 oz cup in just 2 seconds. Embrace the convenience and health of instant RO filtration",
+        "[Healthy mineral boost] By original PCC mineralization technology, this under-sink RO system activates specific mineral crystals to mimic the natural formation of spring water. Enjoy not only the health-promoting benefits of weak alkaline water but also a smooth taste that enhances the flavors"
+      ],
+      "l2": {
+        "ok": true,
+        "method": "mac_chrome_cdp",
+        "zip": "10001",
+        "fetched_at": "2026-10-23T09:30:03.175612+08:00"
+      }
+    },
+    {
+      "asin": "B0GWGTLXRF",
+      "title": "Waterdrop X16 Reverse Osmosis System Alkaline Mineral 1600 GPD Gold Faucet",
+      "title_source": "l2_pack",
+      "brand": null,
+      "affiliate_network": "pb",
+      "affiliate_link": "https://pboost.me/L5SPc41ak?uid=fromsll",
+      "track_status": "ok",
+      "l2_status": "ok",
+      "price": "1599.00",
+      "price_raw": "$1599.00",
+      "price_displayed": "$1599.00",
+      "list_price": null,
+      "image": "https://m.media-amazon.com/images/I/61LvcVtoIwL._SL1500_.jpg",
+      "availability": "In Stock",
+      "in_stock": true,
+      "rating": 4.6,
+      "review_count": 130,
+      "feature_bullets": [
+        "[Trusted certification] Tested and certified by IAPMO R&T against NSF/ANSI 42 & 58 & 372 standard, and tested by SGS to reduce harmful substances",
+        "[1600 GPD peak capacity] Unleash the power of peak hydration with our revolutionary tankless reverse osmosis system. With a 1600 GPD high flow rate, it delivers water at an incredible rate, filling a 6 oz cup in just 2 seconds. Embrace the convenience and health of instant RO filtration",
+        "[Healthy mineral boost] By original PCC mineralization technology, this under-sink RO system activates specific mineral crystals to mimic the natural formation of spring water. Enjoy not only the health-promoting benefits of weak alkaline water but also a smooth taste that enhances the flavors"
+      ],
+      "l2": {
+        "ok": true,
+        "method": "mac_chrome_cdp",
+        "zip": "10001",
+        "fetched_at": "2026-10-23T09:30:18.414494+08:00"
+      }
+    },
+    {
+      "asin": "B0H4FXNBB3",
+      "title": "Waterdrop M6HG Instant Hot Countertop RO Water Filter, [ Mineral Added ]",
+      "title_source": "l2_pack",
+      "brand": null,
+      "affiliate_network": "pb",
+      "affiliate_link": "https://pboost.me/x5SPw2daT?uid=fromsll",
+      "track_status": "ok",
+      "l2_status": "ok",
+      "price": "379.00",
+      "price_raw": "$379.00",
+      "price_displayed": "$379.00",
+      "list_price": "$429.00",
+      "image": "https://m.media-amazon.com/images/I/8112uWHfeAL._SL1500_.jpg",
+      "availability": "In Stock",
+      "in_stock": true,
+      "rating": 4.1,
+      "review_count": 201,
+      "feature_bullets": [
+        "[𝐂𝐞𝐫𝐭𝐢𝐟𝐢𝐞𝐝 𝐟𝐨𝐫 𝐂𝐥𝐞𝐚𝐧 & 𝐒𝐚𝐟𝐞 𝐖𝐚𝐭𝐞𝐫] This countertop reverse osmosis system is certified to NSF/ANSI 58 and NSF/ANSI/CAN 372, ensuring effective RO filtration and lead-free materials. Drink with confidence knowing your water is filtered by a system that meets trusted industry standards",
+        "[𝟖-𝐒𝐭𝐚𝐠𝐞 𝐅𝐢𝐥𝐭𝐫𝐚𝐭𝐢𝐨𝐧] The WD-M6HG reverse osmosis water filter features a 0.0001μm RO membrane and LED function. It reduces TDS, PFOA, PFOS, Nitrate, Fluoride, Arsenic, Lead, and more, providing you with healthy water",
+        "[𝐌𝐢𝐧𝐞𝐫𝐚𝐥-𝐈𝐧𝐟𝐮𝐬𝐞𝐝] The Waterdrop reverse osmosis water filter adds essential minerals such as K⁺, Ca²⁺, Na⁺, Mg²⁺, Sr²⁺ and H₄SiO₄, delivering pure water with a balanced taste. These minerals contribute to supporting normal bodily functions and promoting overall well-being, making it suitable for daily hydration and various uses"
+      ],
+      "l2": {
+        "ok": true,
+        "method": "mac_chrome_cdp",
+        "zip": "10001",
+        "fetched_at": "2026-10-23T09:30:33.636812+08:00"
+      }
+    },
+    {
+      "asin": "B0GWH6B18J",
+      "title": "Waterdrop X12Alkaline Mineral Reverse Osmosis System 1200 GPD Bronze Faucet",
+      "title_source": "l2_pack",
+      "brand": null,
+      "affiliate_network": "pb",
+      "affiliate_link": "https://pboost.me/L5SPcHTac?uid=fromsll",
+      "track_status": "ok",
+      "l2_status": "ok",
+      "price": "1099.00",
+      "price_raw": "$1099.00",
+      "price_displayed": "$1099.00",
+      "list_price": "$1,299.00",
+      "image": "https://m.media-amazon.com/images/I/61e2n32IolL._AC_SL1500_.jpg",
+      "availability": "In Stock",
+      "in_stock": true,
+      "rating": 4.5,
+      "review_count": 408,
+      "feature_bullets": [
+        "[Trusted certification] Tested and certified by IAPMO R&T against NSF/ANSI 42 & 58 & 372 standard, and tested by SGS to reduce harmful substances",
+        "[1200 GPD fast filtration] Experience the ultimate upgrade in water purification with our 1200 GPD high-speed tankless reverse osmosis water filter. Designed for family efficiency, it delivers healthy water, ensuring no more waiting, just instant, pure hydration for you at home",
+        "[11-stage RO filtration] This reverse osmosis water filter features 11-stage precision filtration including a robust 0.0001 μm RO membrane, composed of 16 layers. Enhanced with an LED light for assured water safety. It has been tested by SGS to reduce TDS, PFOA, PFOS, Chlorine, Fluoride, Arsenic, Lead and more, delivering healthy, pure water for you"
+      ],
+      "l2": {
+        "ok": true,
+        "method": "mac_chrome_cdp",
+        "zip": "10001",
+        "fetched_at": "2026-10-23T09:30:49.035887+08:00"
+      }
+    },
+    {
+      "asin": "B0GWH6J8Y4",
+      "title": "Waterdrop X12Alkaline Mineral Reverse Osmosis System 1200 GPD Gold Faucet",
+      "title_source": "l2_pack",
+      "brand": null,
+      "affiliate_network": "pb",
+      "affiliate_link": "https://pboost.me/W5SPaca5?uid=fromsll",
+      "track_status": "ok",
+      "l2_status": "ok",
+      "price": "1299.00",
+      "price_raw": "$1299.00",
+      "price_displayed": "$1299.00",
+      "list_price": null,
+      "image": "https://m.media-amazon.com/images/I/613mH61DOkL._AC_SL1500_.jpg",
+      "availability": "In Stock",
+      "in_stock": true,
+      "rating": 4.5,
+      "review_count": 408,
+      "feature_bullets": [
+        "[Trusted certification] Tested and certified by IAPMO R&T against NSF/ANSI 42 & 58 & 372 standard, and tested by SGS to reduce harmful substances",
+        "[1200 GPD fast filtration] Experience the ultimate upgrade in water purification with our 1200 GPD high-speed tankless reverse osmosis water filter. Designed for family efficiency, it delivers healthy water, ensuring no more waiting, just instant, pure hydration for you at home",
+        "[11-Stage RO filtration] This reverse osmosis water filter features 11-stage precision filtration including a robust 0.0001 μm RO membrane, composed of 16 layers. Enhanced with an LED light for assured water safety. It has been tested by SGS to reduce TDS, PFOA, PFOS, Chlorine, Fluoride, Arsenic, Lead and more, delivering healthy, pure water for you"
+      ],
+      "l2": {
+        "ok": true,
+        "method": "mac_chrome_cdp",
+        "zip": "10001",
+        "fetched_at": "2026-10-23T09:31:04.836083+08:00"
+      }
+    },
+    {
+      "asin": "B0GGQM6X5H",
+      "title": "Waterdrop T3-T Remineralizing Reverse Osmosis System, 220 GPD Faster Flow",
+      "title_source": "l2_pack",
+      "brand": null,
+      "affiliate_network": "pb",
+      "affiliate_link": "https://pboost.me/r5SP9y89a?uid=fromsll",
+      "track_status": "ok",
+      "l2_status": "ok",
+      "price": "169.97",
+      "price_raw": "$169.97",
+      "price_displayed": "$169.97",
+      "list_price": "$229.99",
+      "image": "https://m.media-amazon.com/images/I/61gh7mM0KyL._SL1500_.jpg",
+      "availability": "In Stock",
+      "in_stock": true,
+      "rating": 4.4,
+      "review_count": 107,
+      "feature_bullets": [
+        "[220 GPD Faster Flow, Less Waiting] This reverse osmosis water filter system produces up to 220 gallons of purified water per day and can fill five 16.9 oz water bottles in about one minute. Compared with traditional 75-GPD systems, the faster production rate helps keep purified water readily available for drinking, cooking, and everyday household needs while reducing refill wait times",
+        "[𝐏𝐥𝐞𝐚𝐬𝐞 N𝐨𝐭𝐞] Faucet installation requires drilling holes in the countertop",
+        "[7-Stage Reverse Osmosis Filtration & SGS Tested] The Reverse Osmosis water filter system features advanced 7-stage filtration to reduce TDS, chlorine, fluoride, heavy metals, sediment, rust, odors, and other unwanted contaminants. SGS tested according to NSF/ANSI 58 standards, with tested reduction of contaminants including nitrate, nitrite, fluoride, arsenic, cadmium, chromium, lead, mercury, copper, barium, selenium, PFOA, PFOS, TDS, chloroform, and total coliforms. Made with NSF/ANSI 372 certified lead-free materials for cleaner, safer water for everyday drinking and cooking"
+      ],
+      "l2": {
+        "ok": true,
+        "method": "mac_chrome_cdp",
+        "zip": "10001",
+        "fetched_at": "2026-10-23T09:31:21.479048+08:00"
+      }
+    }
+  ],
+  "l2_ok_asins": [
+    "B0HGF8V9BW",
+    "B0HDNZR3V7",
+    "B0HDPNZ65Y",
+    "B0GWGX82QD",
+    "B0DX244R2N",
+    "B0GWGTLXRF",
+    "B0H4FXNBB3",
+    "B0GWH6B18J",
+    "B0GWH6J8Y4",
+    "B0GGQM6X5H"
+  ],
+  "l2_pending_asins": [],
+  "track_pending_asins": []
+}

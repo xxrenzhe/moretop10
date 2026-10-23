@@ -281,6 +281,8 @@ def rebake_best_widget_pages(site: Path | None = None) -> list[Path]:
     )
     wrote: list[Path] = []
     for path in sorted(site.rglob("*.html")):
+        if set(path.relative_to(site).parts) & SKIP_DISCLOSURE_DIRS:
+            continue
         text = path.read_text(encoding="utf-8")
         if not any(m in text for m in markers):
             continue
@@ -382,18 +384,33 @@ def prefetch(specs: list[dict]) -> None:
             fut.result()
 
 
+def load_snapshot(spec: dict) -> str | None:
+    """Live HTML, or a local unpublished scaffold when Live 404s.
+
+    New day-add slugs are not on Live yet. Mechanical 404s must not invent
+    pages — they reuse the local scaffold written by scaffold_day_add.py.
+    """
+    cache_name = spec["out"].replace("/", "__")
+    try:
+        return fetch(spec["live"], CACHE / cache_name)
+    except LiveNotFound:
+        dest = SITE / spec["out"]
+        if dest.exists() and dest.stat().st_size > 500:
+            print(f"  local scaffold {spec['out']} (Live 404)")
+            return dest.read_text(encoding="utf-8")
+        if spec.get("kind") in {"review", "landing", "comparison", "reviews"}:
+            print(f"  skip 404 {spec['live']}")
+            return None
+        raise
+
+
 def bake_page(spec: dict, cfg: dict, cmp_html_by_slug: dict[str, str]) -> Path | None:
     cats = cfg["ALL_CATS"]
     out_rel = spec["out"]
     prefix = rel_prefix(out_rel)
-    cache_name = out_rel.replace("/", "__")
-    try:
-        html = fetch(spec["live"], CACHE / cache_name)
-    except LiveNotFound:
-        if spec.get("kind") == "review":
-            print(f"  skip 404 {spec['live']}")
-            return None
-        raise
+    html = load_snapshot(spec)
+    if html is None:
+        return None
     kind = spec["kind"]
     slug = spec.get("slug")
     cat = cfg["CATS_BY_SLUG"].get(slug) if slug else None
@@ -811,7 +828,9 @@ def main() -> None:
     cmp_html_by_slug: dict[str, str] = {}
     for spec in specs:
         if spec["kind"] == "comparison":
-            cmp_html_by_slug[spec["slug"]] = fetch(spec["live"], CACHE / spec["out"].replace("/", "__"))
+            snap = load_snapshot(spec)
+            if snap is not None:
+                cmp_html_by_slug[spec["slug"]] = snap
 
     wrote = 0
     skipped = 0
@@ -839,7 +858,11 @@ def main() -> None:
     products_by_slug: dict[str, list] = {}
     for cat in cfg["ALL_CATS"]:
         slug = cat["slug"]
-        landing = (SITE / slug / "index.html").read_text(encoding="utf-8")
+        landing_path = SITE / slug / "index.html"
+        if not landing_path.exists():
+            products_by_slug[slug] = []
+            continue
+        landing = landing_path.read_text(encoding="utf-8")
         cmp = cmp_html_by_slug.get(slug, "")
         products_by_slug[slug] = merge_hub_products(
             extract_landing_picks(landing),
