@@ -180,6 +180,11 @@ body.has-sticky-cta{padding-bottom:72px}
 .prose-block{padding:2rem 0;max-width:720px}
 .prose-block h2{font-size:var(--mt-text-xl)}
 .prose-block p{color:var(--mt-ink-muted);font-size:var(--mt-text-base);line-height:1.65}
+.gemini-shell-densify h3{font-size:var(--mt-text-lg);margin:1.25rem 0 0.5rem;line-height:1.35}
+.gemini-shell-densify .densify-table-wrap{overflow-x:auto;margin:1.25rem 0}
+.gemini-shell-densify .densify-table{width:100%;border-collapse:collapse;font-size:var(--mt-text-sm)}
+.gemini-shell-densify .densify-table th,.gemini-shell-densify .densify-table td{border:1px solid var(--mt-border,#e5e5e5);padding:0.55rem 0.7rem;text-align:left;vertical-align:top}
+.gemini-shell-densify .densify-table thead th{background:#f7f5fb;font-weight:600}
 .top-affiliate-bar{background:#f5f5f5;border-bottom:1px solid var(--mt-border);font-size:12px;color:var(--mt-ink-muted);position:relative;z-index:110}
 .top-affiliate-inner{position:relative;padding:0.45rem 0;text-align:center}
 .top-affiliate-inner>p{margin:0;line-height:1.4}
