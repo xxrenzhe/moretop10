@@ -15,7 +15,7 @@
 ## Methodology
 - [About us](https://moretop10.com/about-us/): who we are and how rankings work.
 - Each live category aims for **ten complete cards** (title, image, price snapshot, Check price link).
- If we cannot fill ten solid cards, we hold the category rather than pad the chart.
+ We keep the category unpublished until we can fill ten honest cards.
 - Rank order follows a score mapped from retailer star ratings (roughly stars × 2). That is not a MoreTop10 lab test.
 - Prices are publish-time snapshots. Always confirm tax, shipping, stock, and returns on the retailer page.
 - Brands cannot buy a rank slot. Affiliate relationships can affect which products we can link; we disclose that on every page.

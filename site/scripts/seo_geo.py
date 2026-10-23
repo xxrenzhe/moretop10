@@ -14,7 +14,7 @@ Honest rules:
   - Product / Offer / ASIN / price come from Live HTML (comparison cards + hub picks).
   - Never emit AggregateRating, awards, or invented SKUs.
   - Visitor FAQ / visible copy: no publishable, inventory-blocked, completeness gate,
-    PartnerBoost, or other internal jargon.
+    card checklist, PartnerBoost, Mac L2/CDP, or other internal jargon.
   - Bake ≠ Deploy.
 """
 
@@ -37,32 +37,149 @@ ROBOTS_INDEX = "index,follow,max-image-preview:large"
 ROBOTS_NOINDEX = "noindex,follow"
 ASIN_RE = re.compile(r"\b(B0[0-9A-Z]{8,10})\b")
 
+# Visitor-facing copy only. Do not strip affiliate track query params (uid=fromsll).
+RETAILER_CONFIRM = (
+    "Confirm current specs, stock, and returns on the retailer page."
+)
+PUBLISH_RULE = (
+    "We only publish products with a title, gallery, and price snapshot."
+)
+UNPUBLISHED_UNTIL_TEN = (
+    "We keep the category unpublished until we can fill ten honest cards."
+)
+
 JARGON_PATTERNS: list[tuple[re.Pattern[str], str]] = [
-    (re.compile(r"Draft card from PartnerBoost L1\s*[—–-]\s*Mac L2 required before publish\.?", re.I),
-     "Confirm current specs, stock, and returns on the retailer page."),
-    (re.compile(r"Draft card from PartnerBoost L1[^.]*\.?", re.I),
-     "Confirm current specs, stock, and returns on the retailer page."),
-    (re.compile(r"PartnerBoost", re.I), "our retail partner"),
-    (re.compile(r"YeahPromos", re.I), "our retail partner"),
-    (re.compile(r"PartnerWhiz", re.I), "our retail partner"),
-    (re.compile(r"\bSeaker\b", re.I), "our product research"),
-    (re.compile(r"inventory[_-]blocked", re.I), "held"),
+    # Kids-bikes / feed draft leaks (full sentences first).
+    (re.compile(
+        r"Draft card from PartnerBoost L1\s*[—–-]\s*Mac L2 required before publish\.?",
+        re.I,
+    ), RETAILER_CONFIRM),
+    (re.compile(r"Draft card from PartnerBoost L1[^.<]*\.?", re.I), RETAILER_CONFIRM),
+    (re.compile(
+        r"[^.<>]*Mac CDP blocked[^.<>]*?(?:\.|&hellip;|…)",
+        re.I,
+    ), RETAILER_CONFIRM),
+    (re.compile(r"[^.<>]*Mac CDP blocked[^.<>]*", re.I), RETAILER_CONFIRM),
+    (re.compile(
+        r"Value-lane dual-handbrake kids bike;\s*replaces Chipmunk variant that L2[^.<>]*\.?",
+        re.I,
+    ), RETAILER_CONFIRM),
+    (re.compile(r"replaces Chipmunk variant that L2[^.<>…]*[.…]?", re.I), ""),
+    (re.compile(r";?\s*L2 In Stock ZIP \d+\.?", re.I), ""),
+    (re.compile(r"\bMac CDP\b", re.I), ""),
+    (re.compile(r"\bMac L2\b", re.I), ""),
+    (re.compile(r"\bL2 In Stock\b", re.I), "In stock"),
+    (re.compile(r"\bL2 showed Currently unavailable\b", re.I), "the prior listing was unavailable"),
+    # Chrome methodology — visitor English, not “completeness gate” / “card checklist”.
+    (re.compile(
+        r"We only publish products that clear our (?:completeness gate|card checklist):\s*"
+        r"title, gallery, price snapshot, and a healthy affiliate CTA\.?",
+        re.I,
+    ), PUBLISH_RULE),
+    (re.compile(
+        r"We publish products that clear our (?:completeness gate|card checklist) "
+        r"\(title, gallery, price snapshot, and a healthy Check price CTA\)",
+        re.I,
+    ), PUBLISH_RULE.rstrip(".")),
+    (re.compile(
+        r"Every pick on this page (?:clears|meets) our "
+        r"(?:completeness gate|card checklist|title, gallery, and price snapshot):\s*"
+        r"a usable title, product imagery, a current price snapshot, and a Check price CTA"
+        r" that opens the retailer\.?",
+        re.I,
+    ), PUBLISH_RULE),
+    (re.compile(
+        r"Editorial work is the shortlist and (?:completeness gate|card checklist) "
+        r"\(title, gallery, price snapshot, Check price CTA\)\.?",
+        re.I,
+    ), "Editorial work is the shortlist: a title, gallery, price snapshot, and Check price link."),
+    (re.compile(
+        r"Every card must clear the (?:completeness gate|card checklist):\s*"
+        r"title, gallery, price snapshot, and a[^.]*\.?",
+        re.I,
+    ), "Every card needs a title, gallery, and price snapshot."),
+    (re.compile(
+        r"Every ranked card clears the same gate:\s*clear title, usable gallery, "
+        r"price snapshot, and a healthy Check price CTA\.?",
+        re.I,
+    ), PUBLISH_RULE),
+    (re.compile(
+        r"when the shortlist clears our (?:completeness gate|card checklist)",
+        re.I,
+    ), "when each pick has a title, gallery, and price snapshot"),
+    (re.compile(
+        r"Thin imagery or stock fails the (?:completeness gate|card checklist)\.?",
+        re.I,
+    ), "We skip listings that are missing a title, gallery, or price snapshot."),
+    (re.compile(
+        r"(\d+) products clear the (?:completeness gate|card checklist)",
+        re.I,
+    ), r"\1 products include a title, gallery, and price snapshot"),
+    (re.compile(
+        r"using our (?:completeness gate|card checklist) and role labels",
+        re.I,
+    ), "using a title, gallery, and price snapshot"),
+    (re.compile(
+        r"when a product fails the (?:completeness gate|card checklist)",
+        re.I,
+    ), "when a product is missing a title, gallery, or price snapshot"),
+    (re.compile(
+        r"clears our (?:completeness gate|card checklist)",
+        re.I,
+    ), "has a title, gallery, and price snapshot"),
+    (re.compile(r"\bcompleteness-gated\b", re.I), "complete"),
+    (re.compile(r"Completeness-gated picks", re.I), "Complete shortlist picks"),
+    (re.compile(r"completeness gate", re.I), "title, gallery, and price snapshot"),
+    (re.compile(r"card checklist", re.I), "title, gallery, and price snapshot"),
+    # Inventory hold — visitor English, not “inventory-blocked”.
+    (re.compile(
+        r"A category that cannot fill ten stays (?:inventory-blocked|held)"
+        r"(?: until listings are complete)?—we do not ship a short chart\.?",
+        re.I,
+    ), UNPUBLISHED_UNTIL_TEN),
+    (re.compile(
+        r"If we cannot fill ten(?: solid cards)?, we hold the category rather than "
+        r"(?:pad the chart|ship a short chart)\.?",
+        re.I,
+    ), UNPUBLISHED_UNTIL_TEN),
+    (re.compile(
+        r"Incomplete inventory keeps the category (?:inventory-blocked|held) "
+        r"rather than shipping a short list\.?",
+        re.I,
+    ), UNPUBLISHED_UNTIL_TEN),
+    (re.compile(r"inventory[_-]blocked", re.I), "unpublished"),
     (re.compile(r"\bpublishable\b", re.I), "live"),
-    (re.compile(r"completeness-gated", re.I), "complete"),
-    (re.compile(r"completeness gate", re.I), "card checklist"),
+    # Network / lab names that must never reach visitors.
+    (re.compile(r"(?<![A-Za-z0-9.-])PartnerBoost(?![A-Za-z0-9.-])", re.I), "our retail partner"),
+    (re.compile(r"(?<![A-Za-z0-9.-])YeahPromos(?![A-Za-z0-9.-])", re.I), "our retail partner"),
+    (re.compile(r"(?<![A-Za-z0-9.-])PartnerWhiz(?![A-Za-z0-9.-])", re.I), "our retail partner"),
+    (re.compile(r"\bSeaker\b", re.I), "our product research"),
     (re.compile(r"\bG-HD\b|\bG-IL\b|\bG-SE\b|\bG-NM\b", re.I), ""),
     (re.compile(r"\bL1/L2\b|\bL2\b evidence|\bL1\b feed", re.I), "listing"),
     (re.compile(r"\(listing\)", re.I), ""),
     (re.compile(r"\(fromsll\)", re.I), ""),
     (re.compile(r"aff_pb_autoads", re.I), ""),
-    (re.compile(r"uid=fromsll", re.I), ""),
-    (re.compile(r"\s{2,}"), " "),
+    # American English (visitor-facing; do not touch <time datetime>).
+    (re.compile(r"\bwhilst\b"), "while"),
+    (re.compile(r"\bWhilst\b"), "While"),
+    (re.compile(r"\btowards\b"), "toward"),
+    (re.compile(r"\bTowards\b"), "Toward"),
+    (re.compile(r"\bUtilize\b"), "Use"),
 ]
 
 FAQ_VISITOR_OK = re.compile(
     r"publishable|inventory[_-]blocked|completeness gate|completeness-gated|"
-    r"PartnerBoost|YeahPromos|PartnerWhiz|\bSeaker\b|\bG-HD\b|\bG-IL\b",
+    r"card checklist|PartnerBoost|YeahPromos|PartnerWhiz|\bSeaker\b|"
+    r"\bG-HD\b|\bG-IL\b|\bMac CDP\b|\bMac L2\b",
     re.I,
+)
+
+VISITOR_LEAK_RE = re.compile(
+    r"(?i:completeness gate|card checklist|inventory-blocked|inventory_blocked|"
+    r"(?<![A-Za-z0-9.-])PartnerBoost(?![A-Za-z0-9.-])|"
+    r"(?<![A-Za-z0-9.-])YeahPromos(?![A-Za-z0-9.-])|"
+    r"Mac CDP|Mac L2|\bwhilst\b|\btowards\b)"
+    r"|\bUtilize\b"
 )
 
 
@@ -132,11 +249,19 @@ def page_kind(out_rel: str) -> str:
     return "page"
 
 
-def scrub_jargon(text: str) -> str:
+def apply_jargon_patterns(text: str, *, collapse_ws: bool = False) -> str:
     out = text
     for pat, repl in JARGON_PATTERNS:
         out = pat.sub(repl, out)
-    return out.strip()
+    if collapse_ws:
+        out = re.sub(r"[ \t]{2,}", " ", out)
+        out = re.sub(r" \.", ".", out)
+        return out.strip()
+    return out
+
+
+def scrub_jargon(text: str) -> str:
+    return apply_jargon_patterns(text, collapse_ws=True)
 
 
 def set_robots_meta(html_text: str, content: str) -> str:
@@ -664,33 +789,12 @@ def h1_text(html_text: str) -> str:
 
 
 def rewrite_visible_jargon(html_text: str) -> str:
-    """Scrub jargon in visible copy + JSON-LD, not in URLs or class names."""
+    """Scrub jargon in visible copy, meta, and JSON-LD.
 
-    def sub_text(m: re.Match[str]) -> str:
-        return scrub_jargon(m.group(0))
-
-    # FAQ answers + summaries + ld+json text nodes we already rebuild.
-    def faq_block(m: re.Match[str]) -> str:
-        return scrub_jargon(m.group(0))
-
-    html_text = re.sub(
-        r"<details[^>]*>.*?</details>",
-        faq_block,
-        html_text,
-        flags=re.S,
-    )
-    html_text = re.sub(
-        r'(<(?:p|li|span|div|h[1-6]|td|th)[^>]*>)([^<]*?(?:completeness|publishable|inventory-blocked|PartnerBoost|YeahPromos|fromsll|aff_pb)[^<]*)',
-        lambda m: m.group(1) + scrub_jargon(m.group(2)),
-        html_text,
-        flags=re.I,
-    )
-    html_text = html_text.replace("Completeness-gated picks", "Complete shortlist picks")
-    html_text = html_text.replace("completeness-gated", "complete")
-    html_text = html_text.replace("completeness gate", "card checklist")
-    html_text = html_text.replace("publishable shortlist", "live shortlist")
-    html_text = html_text.replace("publishable", "live")
-    return html_text
+    Affiliate track URLs (pboost.me?uid=fromsll) and <time datetime> stay intact.
+    Patterns are phrase-level and do not rewrite class names or hrefs.
+    """
+    return apply_jargon_patterns(html_text, collapse_ws=False)
 
 
 def rewrite_footer_editors(html_text: str, prefix: str) -> str:
