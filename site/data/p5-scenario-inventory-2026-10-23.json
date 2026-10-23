@@ -1,0 +1,1072 @@
+{
+  "date": "2026-10-23",
+  "batch": "P5a",
+  "waiting_for_部署上线": true,
+  "published": false,
+  "live": false,
+  "merged": false,
+  "independent_of_shortlist_lab": true,
+  "do_not_touch": [
+    "Lab",
+    "RR",
+    "OL",
+    "P4 pages",
+    "parent hub cards"
+  ],
+  "parent_hubs": "exist_not_recreated",
+  "fill_pack": "/workspace/site/data/p5-l1-fill-pack-2026-10-23.json",
+  "fill_status": "filled",
+  "need_fill": [],
+  "sources": {
+    "1_pb": {
+      "live_query": "skipped_no_token",
+      "note": "No affiliate API tokens in this VM environment. Do not invent Check price hops."
+    },
+    "2_yp": {
+      "live_query": "skipped_yp_timeout_or_500",
+      "note": "YP unused. Pack is PB-only. Live CTA stays PB ?uid=fromsll."
+    },
+    "l1_fill_pack": "p5-l1-fill-pack-2026-10-23.json"
+  },
+  "occupied_groups": {
+    "p4_curly": [
+      "B0CSFTC3GT",
+      "B0CY4QMMBH",
+      "B0CY8DS8B1",
+      "B0CYLVK9JJ",
+      "B0CYZCJNYZ",
+      "B0DRF7M6H5",
+      "B0F8QH8XHV",
+      "B0FG2N9M9N",
+      "B0FL1R84WL",
+      "B0H2YXNQYB"
+    ],
+    "p4_outdoor_proj": [
+      "B0CHW168LV",
+      "B0D3T44YZ2",
+      "B0F832HNG4",
+      "B0FDGGQVXC",
+      "B0FG322D4R",
+      "B0FKMHPCCB",
+      "B0G78PKNCJ",
+      "B0GSQKP7RF",
+      "B0H4TKY7WG",
+      "B0H7J15S7R"
+    ],
+    "p4_espresso_home": [
+      "B0BQ6PPQGZ",
+      "B0DY3X1MB8",
+      "B0F2SWVC9N",
+      "B0F6BFV1ZB",
+      "B0FMR5QPHW",
+      "B0GX8WDTCJ",
+      "B0GYR96XTF",
+      "B0HDND86K3",
+      "B0HDRXVXGP",
+      "B0HJPRWSPK"
+    ],
+    "p4_pet_hair": [
+      "B0CB6B2JWG",
+      "B0D9XLCP28",
+      "B0DK4QTRF5",
+      "B0F5WT2Q8W",
+      "B0F9L92BTC",
+      "B0FC5MJ5T6",
+      "B0FLJPZD5B",
+      "B0FLX94VCL",
+      "B0GX93T8X7",
+      "B0GXJVW633"
+    ],
+    "robot_pet_hair": [
+      "B0CQ7JCN6Z",
+      "B0DHCJ571Z",
+      "B0DWX69JVG",
+      "B0DWXBCQVP",
+      "B0DX1DQKMD",
+      "B0F3337BV7",
+      "B0FK2HPNCB",
+      "B0GCDZBK9Q",
+      "B0GGRTD2ZY",
+      "B0GTLY9Z1K"
+    ]
+  },
+  "occupied_global_n": 429,
+  "pages": [
+    {
+      "n": 1,
+      "path": "/hair-dryers/best-hair-dryers-for-fine-hair/",
+      "type": "07-best-of",
+      "parent": "/hair-dryers/",
+      "published": false,
+      "robots": "noindex,follow",
+      "density": 10,
+      "density_target": 10,
+      "fill_status": "filled",
+      "cta_status": "pb_fromsll",
+      "cta_rule": "PB fromsll only when a verified track exists; never invent hops; do not rebind to YP",
+      "reviews": "none — Top pick + Upgrade articles do not exist for this scene",
+      "ban_groups": [
+        "p4_curly"
+      ],
+      "cross_ban_scenes": [
+        "best-hair-dryers-for-travel"
+      ],
+      "picks": [
+        {
+          "asin": "B0HH9F1X3F",
+          "title": "Laifen Swift 4 High-Speed Ionic Hair Dryer with Diffuser, Polished Burgundy",
+          "role": "Top pick",
+          "brand": null,
+          "affiliate_link": "https://pboost.me/I5SNNDu3?uid=fromsll",
+          "track_status": "ok",
+          "price": "$209.99",
+          "image": null
+        },
+        {
+          "asin": "B0H6Z8N9ZB",
+          "title": "Laifen Swift 4 High-Speed Ionic Hair Dryer with Diffuser, Polished Burgundy",
+          "role": "Upgrade",
+          "brand": null,
+          "affiliate_link": "https://pboost.me/V5SN1jzvk?uid=fromsll",
+          "track_status": "ok",
+          "price": "$209.99",
+          "image": null
+        },
+        {
+          "asin": "B0H8DBJD5J",
+          "title": "Laifen Swift 4 High-Speed Ionic Hair Dryer with Diffuser, Polished Titanium",
+          "role": "Best value",
+          "brand": null,
+          "affiliate_link": "https://pboost.me/D5SNgb4v3?uid=fromsll",
+          "track_status": "ok",
+          "price": "$199.99",
+          "image": null
+        },
+        {
+          "asin": "B0F8QJRX4F",
+          "title": "Dreame Pocket Pro Hair Dryer, Dual Voltage Travel Blow Dryer with Diffuser, 1300W Professional HighSpeed Ionic Hair Blower, Fast Drying, Low Noise, Lightweight, No Heat Damage, Global Travel",
+          "role": "Premium",
+          "brand": "Dreame",
+          "affiliate_link": "https://pboost.me/U5QMazZa?uid=fromsll",
+          "track_status": "ok",
+          "price": "$109.85",
+          "image": null
+        },
+        {
+          "asin": "B0FRLBG7V4",
+          "title": "Dreame Pocket Pro Hair Dryer, Dual Voltage Travel Blow Dryer with Diffuser, 1300W Professional HighSpeed Ionic Hair Blower, Fast Drying, Low Noise, Lightweight, No Heat Damage, Global Travel",
+          "role": "Alternative",
+          "brand": "Dreame",
+          "affiliate_link": "https://pboost.me/z5QO8Cz7g?uid=fromsll",
+          "track_status": "ok",
+          "price": "$107.93",
+          "image": null
+        },
+        {
+          "asin": "B0CXPQZZPZ",
+          "title": "Dreame Gleam Hair Dryer for Women – Powerful Fast Drying, Lightweight, 200M Negative Ions for Frizz-Free Shine, Low Noise, Intelligent Temperature Control, 4 Temp Settings, Compact & Ergonom",
+          "role": "Also consider",
+          "brand": "Dreame",
+          "affiliate_link": "https://pboost.me/E5SNi4I6?uid=fromsll",
+          "track_status": "ok",
+          "price": "$99.99",
+          "image": null
+        },
+        {
+          "asin": "B0DFWR9WZ5",
+          "title": "slopehill Professional Ionic Hair Dryer, High-Speed Blow Dryer with Brushless Motor for Salon Use, Lightweight Compact Hairdryer for Travel, Low Noise Quiet for Home, Ceramic Pink",
+          "role": "Editor pick",
+          "brand": "slopehill",
+          "affiliate_link": "https://pboost.me/r5UQ8X77T?uid=fromsll",
+          "track_status": "ok",
+          "price": "$89.99",
+          "image": null
+        },
+        {
+          "asin": "B0H4V41SCF",
+          "title": "slopehill Professinoal Ionic Hair Dryer,High-Speed Lightweight Travel Dryer",
+          "role": "Budget",
+          "brand": "slopehill",
+          "affiliate_link": "https://pboost.me/L5UQa4d8C?uid=fromsll",
+          "track_status": "ok",
+          "price": "$89.97",
+          "image": null
+        },
+        {
+          "asin": "B0H4TX26ZD",
+          "title": "slopehill Professinoal Ionic Hair Dryer,High-Speed Lightweight Travel Dryer",
+          "role": "Runner-up",
+          "brand": "slopehill",
+          "affiliate_link": "https://pboost.me/s5UQ1887?uid=fromsll",
+          "track_status": "ok",
+          "price": "$89.97",
+          "image": null
+        },
+        {
+          "asin": "B0DZNMWN1Y",
+          "title": "Hair Dryer, Wavytalk Turblow Pro Fast Drying Blow Dryer, High Speed Hair Dryer for Women with 110,000 RPM, Pro Negative Ions for Reduces Damage, Frizz Smoothing, 3 Speeds &3 Temps, One Cool",
+          "role": "Worth a look",
+          "brand": "Wavytalk",
+          "affiliate_link": "https://pboost.me/z5QNDSzQD?uid=fromsll",
+          "track_status": "ok",
+          "price": "$79.99",
+          "image": null
+        }
+      ]
+    },
+    {
+      "n": 2,
+      "path": "/projectors/best-projectors-for-home-theater/",
+      "type": "07-best-of",
+      "parent": "/projectors/",
+      "published": false,
+      "robots": "noindex,follow",
+      "density": 10,
+      "density_target": 10,
+      "fill_status": "filled",
+      "cta_status": "pb_fromsll",
+      "cta_rule": "PB fromsll only when a verified track exists; never invent hops; do not rebind to YP",
+      "reviews": "none — Top pick + Upgrade articles do not exist for this scene",
+      "ban_groups": [
+        "p4_outdoor_proj"
+      ],
+      "cross_ban_scenes": [],
+      "picks": [
+        {
+          "asin": "B0GL5LDFFQ",
+          "title": "NEBULA X1 4K Triple-Laser Projector, Satellite Speakers, Smart AI",
+          "role": "Top pick",
+          "brand": "Nebula",
+          "affiliate_link": "https://pboost.me/C5Vemaog?uid=fromsll",
+          "track_status": "ok",
+          "price": "$2499.00",
+          "image": null
+        },
+        {
+          "asin": "B0G2LH5GRQ",
+          "title": "HAPPRUN Outdoor Smart Projector 3000 ANSI, 4K, Auto Focus, Built-in Apps",
+          "role": "Upgrade",
+          "brand": "HAPPRUN",
+          "affiliate_link": "https://pboost.me/v5URv4137?uid=fromsll",
+          "track_status": "ok",
+          "price": "$449.95",
+          "image": null
+        },
+        {
+          "asin": "B0FJRYTH7R",
+          "title": "HAPPRUN 2500 ANSI Outdoor Projector with Official Google TV, 4K Decoding",
+          "role": "Best value",
+          "brand": "HAPPRUN",
+          "affiliate_link": "https://pboost.me/r5QNtI7Yt?uid=fromsll",
+          "track_status": "ok",
+          "price": "$399.99",
+          "image": null
+        },
+        {
+          "asin": "B0H3NHLCJ3",
+          "title": "HAPPRUN 2500 ANSI Google TV Built-in Smart Movie Projector for Home Theater",
+          "role": "Premium",
+          "brand": "HAPPRUN",
+          "affiliate_link": "https://pboost.me/D5URD9c3a?uid=fromsll",
+          "track_status": "ok",
+          "price": "$399.97",
+          "image": null
+        },
+        {
+          "asin": "B0FK5N8HK5",
+          "title": "Aurzen EAZZE D1 MAX 1000 ANSI Google TV Projector with 4K Support & MEMC",
+          "role": "Alternative",
+          "brand": "Aurzen",
+          "affiliate_link": "https://pboost.me/v5QNCctRg?uid=fromsll",
+          "track_status": "ok",
+          "price": "$299.99",
+          "image": null
+        },
+        {
+          "asin": "B0DX1HGMBX",
+          "title": "Aurzen EAZZE D1G 4K Supported Google TV Smart Projector w/ WiFi & Bluetooth",
+          "role": "Also consider",
+          "brand": "Aurzen",
+          "affiliate_link": "https://pboost.me/b5UPcvwWa?uid=fromsll",
+          "track_status": "ok",
+          "price": "$229.99",
+          "image": null
+        },
+        {
+          "asin": "B0DR2L1L3G",
+          "title": "Aurzen BOOM mini Google TV Outdoor Smart Projector with 20W Dolby Audio",
+          "role": "Editor pick",
+          "brand": "Aurzen",
+          "affiliate_link": "https://pboost.me/c5QNgcz1?uid=fromsll",
+          "track_status": "ok",
+          "price": "$229.97",
+          "image": null
+        },
+        {
+          "asin": "B0GLY8C7P2",
+          "title": "soundcore Nebula P1 GTV Projector with Anker Solix C300 Power Station",
+          "role": "Budget",
+          "brand": "Nebula",
+          "affiliate_link": "https://pboost.me/p5VewOzov?uid=fromsll",
+          "track_status": "ok",
+          "price": "$1098.00",
+          "image": null
+        },
+        {
+          "asin": "B0HJ7C9M38",
+          "title": "Nebula P1 Projector with SOLIX C300 DC",
+          "role": "Runner-up",
+          "brand": "Nebula",
+          "affiliate_link": "https://pboost.me/E5Vej8o6?uid=fromsll",
+          "track_status": "ok",
+          "price": "$819.00",
+          "image": null
+        },
+        {
+          "asin": "B0F7XBPX44",
+          "title": "HAPPRUN 3000 ANSI Official Licensed Google TV Outdoor 4K Full HD Projector",
+          "role": "Worth a look",
+          "brand": "HAPPRUN",
+          "affiliate_link": "https://pboost.me/W5UR8432?uid=fromsll",
+          "track_status": "ok",
+          "price": "$349.99",
+          "image": null
+        }
+      ]
+    },
+    {
+      "n": 3,
+      "path": "/espresso-machines/best-espresso-machines-for-beginners/",
+      "type": "07-best-of",
+      "parent": "/espresso-machines/",
+      "published": false,
+      "robots": "noindex,follow",
+      "density": 10,
+      "density_target": 10,
+      "fill_status": "filled",
+      "cta_status": "pb_fromsll",
+      "cta_rule": "PB fromsll only when a verified track exists; never invent hops; do not rebind to YP",
+      "reviews": "none — Top pick + Upgrade articles do not exist for this scene",
+      "ban_groups": [
+        "p4_espresso_home"
+      ],
+      "cross_ban_scenes": [],
+      "picks": [
+        {
+          "asin": "B0GYR73NV5",
+          "title": "AMZCHEF 9 Bar OPV Espresso Machine with Automatic Milk Frother, Dual Boiler",
+          "role": "Top pick",
+          "brand": "AMZCHEF",
+          "affiliate_link": "https://pboost.me/T5Ve4d2C6?uid=fromsll",
+          "track_status": "ok",
+          "price": "$399.98",
+          "image": null
+        },
+        {
+          "asin": "B0HMKC7FRJ",
+          "title": "CASABREWS MARENZA Espresso Machine with 58mm Portafilter",
+          "role": "Upgrade",
+          "brand": "Casabrews",
+          "affiliate_link": "https://pboost.me/H5UQ3ucKw?uid=fromsll",
+          "track_status": "ok",
+          "price": "$343.14",
+          "image": null
+        },
+        {
+          "asin": "B0HP13SLFQ",
+          "title": "CASABREWS MARENZA Espresso Machine with Built-in Grinder and Steam Wand",
+          "role": "Best value",
+          "brand": "Casabrews",
+          "affiliate_link": "https://pboost.me/T5UQkycKZ?uid=fromsll",
+          "track_status": "ok",
+          "price": "$329.99",
+          "image": null
+        },
+        {
+          "asin": "B0H364HN1W",
+          "title": "CASABREWS MARENZA Espresso Machine with Built-in Grinder and Steam Wand",
+          "role": "Premium",
+          "brand": "Casabrews",
+          "affiliate_link": "https://pboost.me/G5UQfCLd?uid=fromsll",
+          "track_status": "ok",
+          "price": "$329.99",
+          "image": null
+        },
+        {
+          "asin": "B0HDRXP78P",
+          "title": "AMZCHEF Espresso Machine with Grinder, 1500W, 40 Grind Settings",
+          "role": "Alternative",
+          "brand": "AMZCHEF",
+          "affiliate_link": "https://pboost.me/q5Veokzz?uid=fromsll",
+          "track_status": "ok",
+          "price": "$299.99",
+          "image": null
+        },
+        {
+          "asin": "B0HJRFV6BK",
+          "title": "AMZCHEF Espresso Machine 7205-6",
+          "role": "Also consider",
+          "brand": "AMZCHEF",
+          "affiliate_link": "https://pboost.me/T5Vezg9yC?uid=fromsll",
+          "track_status": "ok",
+          "price": "$299.99",
+          "image": null
+        },
+        {
+          "asin": "B0HFC9MNZH",
+          "title": "CASABREWS MARENZA Espresso Machine with 58mm Dual Wall Filter Baskets",
+          "role": "Editor pick",
+          "brand": "Casabrews",
+          "affiliate_link": "https://pboost.me/F5UQEPkK9?uid=fromsll",
+          "track_status": "ok",
+          "price": "$306.22",
+          "image": null
+        },
+        {
+          "asin": "B0HBBMH7S5",
+          "title": "CASABREWS Ultra Pro 20 Bar Espresso Machine with Fast Heating System",
+          "role": "Budget",
+          "brand": "Casabrews",
+          "affiliate_link": "https://pboost.me/G5UQukL0?uid=fromsll",
+          "track_status": "ok",
+          "price": "$299.99",
+          "image": null
+        },
+        {
+          "asin": "B0H4FHZ2TZ",
+          "title": "CASABREWS Ultra Pro 20 Bar Espresso Machine with Fast Heating System",
+          "role": "Runner-up",
+          "brand": "Casabrews",
+          "affiliate_link": "https://pboost.me/W5UQktK6?uid=fromsll",
+          "track_status": "ok",
+          "price": "$299.99",
+          "image": null
+        },
+        {
+          "asin": "B0HJRCLJFV",
+          "title": "AMZCHEF Espresso Machine 7205-8",
+          "role": "Worth a look",
+          "brand": "AMZCHEF",
+          "affiliate_link": "https://pboost.me/w5VeN1yv?uid=fromsll",
+          "track_status": "ok",
+          "price": "$299.99",
+          "image": null
+        }
+      ]
+    },
+    {
+      "n": 4,
+      "path": "/bluetooth-speakers/best-bluetooth-speakers-for-outdoor/",
+      "type": "07-best-of",
+      "parent": "/bluetooth-speakers/",
+      "published": false,
+      "robots": "noindex,follow",
+      "density": 10,
+      "density_target": 10,
+      "fill_status": "filled",
+      "cta_status": "pb_fromsll",
+      "cta_rule": "PB fromsll only when a verified track exists; never invent hops; do not rebind to YP",
+      "reviews": "none — Top pick + Upgrade articles do not exist for this scene",
+      "ban_groups": [],
+      "cross_ban_scenes": [
+        "best-computer-speakers-for-desktop"
+      ],
+      "picks": [
+        {
+          "asin": "B0CZ81ZQFG",
+          "title": "Soundcore Boom 2 Plus Portable Bluetooth Speaker by Anker, 140W, IPX7",
+          "role": "Top pick",
+          "brand": "Nebula",
+          "affiliate_link": "https://pboost.me/r5QNvLd48?uid=fromsll",
+          "track_status": "ok",
+          "price": "$179.99",
+          "image": null
+        },
+        {
+          "asin": "B0CZ8T8PVC",
+          "title": "Soundcore Boom 2 Plus Portable Bluetooth Speaker by Anker, 140W, IPX7",
+          "role": "Upgrade",
+          "brand": "Nebula",
+          "affiliate_link": "https://pboost.me/R5QNciDf4?uid=fromsll",
+          "track_status": "ok",
+          "price": "$179.99",
+          "image": null
+        },
+        {
+          "asin": "B0BXW5JQ21",
+          "title": "Soundcore Motion X600 by Anker, Portable Bluetooth Speaker, Hi-Res, 50W",
+          "role": "Best value",
+          "brand": "Nebula",
+          "affiliate_link": "https://pboost.me/Q5Vep6ow?uid=fromsll",
+          "track_status": "ok",
+          "price": "$159.99",
+          "image": null
+        },
+        {
+          "asin": "B0DTHV3QSW",
+          "title": "Edifier ES60 Bluetooth Speaker, 9H Playtime, IP66, Ambient Light, Black",
+          "role": "Premium",
+          "brand": null,
+          "affiliate_link": "https://pboost.me/T5UOtNcIk?uid=fromsll",
+          "track_status": "ok",
+          "price": "$119.99",
+          "image": null
+        },
+        {
+          "asin": "B0CMTMN3CP",
+          "title": "Edifier Retro Wood Bluetooth Speaker,Wireless Portable Speakers with 20W Stereo Sound,Vintage Decor Speaker with AUX,USB Soundcard,Micro SD Brown",
+          "role": "Alternative",
+          "brand": null,
+          "affiliate_link": "https://pboost.me/t5UO8baVT?uid=fromsll",
+          "track_status": "ok",
+          "price": "$84.99",
+          "image": null
+        },
+        {
+          "asin": "B0D31JX5KB",
+          "title": "Tribit XSound Plus 2 Bluetooth Speaker, 30W, IPX7, 24H Playtime, Blue",
+          "role": "Also consider",
+          "brand": null,
+          "affiliate_link": "https://pboost.me/H5Vw4ad4c?uid=fromsll",
+          "track_status": "ok",
+          "price": "$69.99",
+          "image": null
+        },
+        {
+          "asin": "B0BXW4KKXK",
+          "title": "Soundcore Motion X600 Portable Bluetooth Speaker with Spatial Audio, 50W Sound, IPX7 Waterproof, Pro EQ, AUX-in, for Home, Office, Backyard and Bathroom Use (Blue)",
+          "role": "Editor pick",
+          "brand": "Nebula",
+          "affiliate_link": "https://pboost.me/R5Ve5Ago9?uid=fromsll",
+          "track_status": "ok",
+          "price": "$159.99",
+          "image": null
+        },
+        {
+          "asin": "B0F634G7N3",
+          "title": "Soundcore by Anker, Boom 3i Outdoor Bluetooth Speaker, Saltwater-Resistant",
+          "role": "Budget",
+          "brand": "Nebula",
+          "affiliate_link": "https://pboost.me/c5QO1c55?uid=fromsll",
+          "track_status": "ok",
+          "price": "$129.99",
+          "image": null
+        },
+        {
+          "asin": "B0F6315R3J",
+          "title": "Soundcore by Anker, Outdoor Bluetooth Speaker, Saltwater-Resistant",
+          "role": "Runner-up",
+          "brand": "Nebula",
+          "affiliate_link": "https://pboost.me/J5QN7Gajv?uid=fromsll",
+          "track_status": "ok",
+          "price": "$129.99",
+          "image": null
+        },
+        {
+          "asin": "B0CQ6WNXKF",
+          "title": "Soundcore Boom 2 by Anker, 80W Outdoor Bluetooth Speaker, 24H Playtime",
+          "role": "Worth a look",
+          "brand": "Nebula",
+          "affiliate_link": "https://pboost.me/h5QNZd11a?uid=fromsll",
+          "track_status": "ok",
+          "price": "$99.99",
+          "image": null
+        }
+      ]
+    },
+    {
+      "n": 5,
+      "path": "/cordless-vacuums/best-cordless-vacuums-for-cars/",
+      "type": "07-best-of",
+      "parent": "/cordless-vacuums/",
+      "published": false,
+      "robots": "noindex,follow",
+      "density": 10,
+      "density_target": 10,
+      "fill_status": "filled",
+      "cta_status": "pb_fromsll",
+      "cta_rule": "PB fromsll only when a verified track exists; never invent hops; do not rebind to YP",
+      "reviews": "none — Top pick + Upgrade articles do not exist for this scene",
+      "ban_groups": [
+        "p4_pet_hair",
+        "robot_pet_hair"
+      ],
+      "cross_ban_scenes": [
+        "best-cordless-vacuums-for-hardwood-floors"
+      ],
+      "picks": [
+        {
+          "asin": "B075P7J8BB",
+          "title": "Eureka Blaze Stick Vacuum Cleaner, Powerful Suction 3-in-1 Small Handheld Vac with Filter for Hard Floor Lightweight Upright Home Pet Hair, Dark Black",
+          "role": "Top pick",
+          "brand": null,
+          "affiliate_link": "https://pboost.me/X5QM3ggZc?uid=fromsll",
+          "track_status": "ok",
+          "price": "$34.99",
+          "image": null
+        },
+        {
+          "asin": "B07NVR2NTT",
+          "title": "Eureka NES215A Blaze 3-in-1 Swivel Handheld & Stick Vacuum Cleaner, Blue",
+          "role": "Upgrade",
+          "brand": "Eureka",
+          "affiliate_link": "https://pboost.me/z5QNdRw2z?uid=fromsll",
+          "track_status": "ok",
+          "price": "$33.99",
+          "image": null
+        },
+        {
+          "asin": "B0GXTVBT2B",
+          "title": "Tineco Pure ONE Station 5 Pro Cordless Vacuum, Automatic Dust Collection, Full-Path Self-Cleaning, ZeroTangle Brush, Up to 100 Minutes Runtime, Stick Vacuum Cleaner for Pet Hair, Carpet & Ha",
+          "role": "Best value",
+          "brand": null,
+          "affiliate_link": "https://pboost.me/r5UIwrDu4?uid=fromsll",
+          "track_status": "ok",
+          "price": "$499.00",
+          "image": null
+        },
+        {
+          "asin": "B0F4827KRX",
+          "title": "Tineco Pure ONE S50 Pro Cordless Vacuum, 200AW Suction, 95Min Runtime, Anti-Tangle Brush, 120° Green Light, Easily Tackles Large Debris, Stick Vacuum Cleaner for Pet Hair, Carpet & Hard Floo",
+          "role": "Premium",
+          "brand": null,
+          "affiliate_link": "https://pboost.me/u5UI13v9?uid=fromsll",
+          "track_status": "ok",
+          "price": "$469.00",
+          "image": null
+        },
+        {
+          "asin": "B0HJPWQZPF",
+          "title": "roborock H60 Hub Pro-B Cordless Vacuum Cleaner with Auto-Empty Dock, 170AW",
+          "role": "Alternative",
+          "brand": "roborock",
+          "affiliate_link": "https://pboost.me/B5UItUEr7?uid=fromsll",
+          "track_status": "ok",
+          "price": "$349.99",
+          "image": null
+        },
+        {
+          "asin": "B0HJCRPJJH",
+          "title": "roborock H60 Hub-N Cordless Stick Vacuum with Auto-Empty Dock, 60Mins",
+          "role": "Also consider",
+          "brand": "roborock",
+          "affiliate_link": "https://pboost.me/I5SPEgw5?uid=fromsll",
+          "track_status": "ok",
+          "price": "$269.99",
+          "image": null
+        },
+        {
+          "asin": "B0HJC6B3DJ",
+          "title": "roborock H60 Pro-N Cordless Stick Vacuum, 90° Bendable, 80Min Runtime",
+          "role": "Editor pick",
+          "brand": "roborock",
+          "affiliate_link": "https://pboost.me/a5SPK3wa?uid=fromsll",
+          "track_status": "ok",
+          "price": "$249.99",
+          "image": null
+        },
+        {
+          "asin": "B0FLY3DY6P",
+          "title": "Levoit Cordless Vacuum, Up to 70 Minutes, Lightweight, Charging Dock",
+          "role": "Budget",
+          "brand": "LEVOIT",
+          "affiliate_link": "https://pboost.me/M5QNE9oa?uid=fromsll",
+          "track_status": "ok",
+          "price": "$219.99",
+          "image": null
+        },
+        {
+          "asin": "B0D86SCPH3",
+          "title": "Eureka RapidClean Pro Lightweight Cordless Stick Vacuum, NEC285GR",
+          "role": "Runner-up",
+          "brand": "Eureka",
+          "affiliate_link": "https://pboost.me/Q5QNhkg4?uid=fromsll",
+          "track_status": "ok",
+          "price": "$134.99",
+          "image": null
+        },
+        {
+          "asin": "B0CNRRSJ5Y",
+          "title": "Eureka Lightweight Cordless Stick Vacuum Cleaner, Moss Green, NEC370GR",
+          "role": "Worth a look",
+          "brand": "Eureka",
+          "affiliate_link": "https://pboost.me/C5QNd3Xd?uid=fromsll",
+          "track_status": "ok",
+          "price": "$129.99",
+          "image": null
+        }
+      ]
+    },
+    {
+      "n": 6,
+      "path": "/hair-dryers/best-hair-dryers-for-travel/",
+      "type": "07-best-of",
+      "parent": "/hair-dryers/",
+      "published": false,
+      "robots": "noindex,follow",
+      "density": 10,
+      "density_target": 10,
+      "fill_status": "filled",
+      "cta_status": "pb_fromsll",
+      "cta_rule": "PB fromsll only when a verified track exists; never invent hops; do not rebind to YP",
+      "reviews": "none — Top pick + Upgrade articles do not exist for this scene",
+      "ban_groups": [
+        "p4_curly"
+      ],
+      "cross_ban_scenes": [
+        "best-hair-dryers-for-fine-hair"
+      ],
+      "picks": [
+        {
+          "asin": "B0HCNXCRJY",
+          "title": "Laifen Sand Gold MINI Hair Dryer with Laifen Grey Hair Dryer Bag",
+          "role": "Top pick",
+          "brand": null,
+          "affiliate_link": "https://pboost.me/j5SNTxgud?uid=fromsll",
+          "track_status": "ok",
+          "price": "$135.61",
+          "image": null
+        },
+        {
+          "asin": "B0HCP51LFH",
+          "title": "Laifen sandgold MINI Hair Dryer with Laifen Pink Hair Brushes",
+          "role": "Upgrade",
+          "brand": null,
+          "affiliate_link": "https://pboost.me/H5SNCgkvw?uid=fromsll",
+          "track_status": "ok",
+          "price": "$135.61",
+          "image": null
+        },
+        {
+          "asin": "B0HC9NKFHG",
+          "title": "Laifen Green MINI Hair Dryer with Laifen Grey Hair Dryer Bag",
+          "role": "Best value",
+          "brand": null,
+          "affiliate_link": "https://pboost.me/I5SNIcua?uid=fromsll",
+          "track_status": "ok",
+          "price": "$135.61",
+          "image": null
+        },
+        {
+          "asin": "B0H9SD3RTV",
+          "title": "Dreame Pocket Cake Dual Voltage Hair Dryer with Diffuser, Travel Blow Dryer",
+          "role": "Premium",
+          "brand": "Dreame",
+          "affiliate_link": "https://pboost.me/p5SN0T3H3?uid=fromsll",
+          "track_status": "ok",
+          "price": "$109.99",
+          "image": null
+        },
+        {
+          "asin": "B0H8TB6G9F",
+          "title": "Dreame Pocket Cake Travel Hair Dryer with Diffuser, Dual Voltage Blow Dryer",
+          "role": "Alternative",
+          "brand": "Dreame",
+          "affiliate_link": "https://pboost.me/v5SNEjCIC?uid=fromsll",
+          "track_status": "ok",
+          "price": "$109.99",
+          "image": null
+        },
+        {
+          "asin": "B0H8SRP5M2",
+          "title": "Dreame PocketCake Dual Voltage Travel Hair Dryer,Blow Dryer with Diffuser",
+          "role": "Also consider",
+          "brand": "Dreame",
+          "affiliate_link": "https://pboost.me/e5SNUtH2?uid=fromsll",
+          "track_status": "ok",
+          "price": "$109.99",
+          "image": null
+        },
+        {
+          "asin": "B0H417NKW7",
+          "title": "slopehill Dual Voltage Travel Hair Dryer, Lightweight Ionic Blow Dryer",
+          "role": "Editor pick",
+          "brand": "slopehill",
+          "affiliate_link": "https://pboost.me/A5UQSz7a?uid=fromsll",
+          "track_status": "ok",
+          "price": "$69.99",
+          "image": null
+        },
+        {
+          "asin": "B0D2XV7Z4Z",
+          "title": "Slopehill Professional Ionic Hair Dryer, Powerful 1800W Fast Drying Low Noise Blow Dryer with 2 Concentrator Nozzle 1 Diffuser Attachments for Home Salon Travel (Pottery Pink and Rose Gold)",
+          "role": "Budget",
+          "brand": "slopehill",
+          "affiliate_link": "https://pboost.me/K5UQ8D89?uid=fromsll",
+          "track_status": "ok",
+          "price": "$39.99",
+          "image": null
+        },
+        {
+          "asin": "B0CSFRQWH4",
+          "title": "Slopehill Professional Ionic Hair Dryer, Powerful 1800W Fast Drying Low Noise Blow Dryer with 2 Concentrator Nozzle 1 Diffuser Attachments for Home Salon Travel (Agate Red)",
+          "role": "Runner-up",
+          "brand": "slopehill",
+          "affiliate_link": "https://pboost.me/w5UQTw7k?uid=fromsll",
+          "track_status": "ok",
+          "price": "$39.99",
+          "image": null
+        },
+        {
+          "asin": "B0D5H8LGGJ",
+          "title": "Wavytalk Turblow Pro Fast Drying Hair Dryer with Diffuser",
+          "role": "Worth a look",
+          "brand": "Wavytalk",
+          "affiliate_link": "https://pboost.me/s5QNpC2a?uid=fromsll",
+          "track_status": "ok",
+          "price": "$61.35",
+          "image": null
+        }
+      ]
+    },
+    {
+      "n": 7,
+      "path": "/cordless-vacuums/best-cordless-vacuums-for-hardwood-floors/",
+      "type": "07-best-of",
+      "parent": "/cordless-vacuums/",
+      "published": false,
+      "robots": "noindex,follow",
+      "density": 10,
+      "density_target": 10,
+      "fill_status": "filled",
+      "cta_status": "pb_fromsll",
+      "cta_rule": "PB fromsll only when a verified track exists; never invent hops; do not rebind to YP",
+      "reviews": "none — Top pick + Upgrade articles do not exist for this scene",
+      "ban_groups": [
+        "p4_pet_hair",
+        "robot_pet_hair"
+      ],
+      "cross_ban_scenes": [
+        "best-cordless-vacuums-for-cars"
+      ],
+      "picks": [
+        {
+          "asin": "B0FKM65DLZ",
+          "title": "Tineco Pure ONE A90S Cordless Vacuum Cleaner, 270AW Powerful Suction, Up to 105min Runtime, 3DSense Master Brush, 150° Green LED Light, Stick Vacuum Cleaner for Pet Hair, Carpet & Hard Floor",
+          "role": "Top pick",
+          "brand": null,
+          "affiliate_link": "https://pboost.me/X5UIgRDu3?uid=fromsll",
+          "track_status": "ok",
+          "price": "$749.00",
+          "image": null
+        },
+        {
+          "asin": "B0FF42WG3M",
+          "title": "Tineco Floor One S7 Stretch Steam Cordless Wet Dry Vacuum Steam Mop All-in-One, 320℉ HyperSteam, 180° Lay-Flat, Anti-Tangle Design, FlashDry Self-Cleaning, Up to 75 Min Runtime",
+          "role": "Upgrade",
+          "brand": null,
+          "affiliate_link": "https://pboost.me/k5UIZ3u3?uid=fromsll",
+          "track_status": "ok",
+          "price": "$699.00",
+          "image": null
+        },
+        {
+          "asin": "B0GT4MFVFQ",
+          "title": "roborock F25 Steam Series Wet Dry Vacuum Mop, 356°F Cordless Steam Cleaner",
+          "role": "Best value",
+          "brand": "roborock",
+          "affiliate_link": "https://pboost.me/K5qeJvH5?uid=fromsll",
+          "track_status": "ok",
+          "price": "$599.99",
+          "image": null
+        },
+        {
+          "asin": "B0DPPLWYGX",
+          "title": "Tineco Floor ONE S7 Stretch Ultra Cordless Wet Dry Vacuum Cleaner, 180°Lay-Flat Anti-Tangle Design, 50 Minutes Runtime, 185℉ Flashdry Self-Cleaning, Dual-Sided Edge Cleaning Floor Cleaner",
+          "role": "Premium",
+          "brand": null,
+          "affiliate_link": "https://pboost.me/q5UIncu7?uid=fromsll",
+          "track_status": "ok",
+          "price": "$449.00",
+          "image": null
+        },
+        {
+          "asin": "B0H8SGSDW9",
+          "title": "roborock F25 BX Gen 2 Wet Dry Vacuum Cleaner, Cordless Vacuum Mop Combo",
+          "role": "Alternative",
+          "brand": "roborock",
+          "affiliate_link": "https://pboost.me/M5qeu4HT?uid=fromsll",
+          "track_status": "ok",
+          "price": "$399.99",
+          "image": null
+        },
+        {
+          "asin": "B0DHTW17RR",
+          "title": "roborock F25 XT Wet Dry Vacuum Mop, Cordless Vacuum Cleaner, APP Control",
+          "role": "Also consider",
+          "brand": "roborock",
+          "affiliate_link": "https://pboost.me/h5pi25Cn3?uid=fromsll",
+          "track_status": "ok",
+          "price": "$359.99",
+          "image": null
+        },
+        {
+          "asin": "B0GT8BXNGL",
+          "title": "Eureka Floor Shine 830 Cordless Wet Dry Vacuum Cleaner, 24KPa Vacuum Mop",
+          "role": "Editor pick",
+          "brand": "Eureka",
+          "affiliate_link": "https://pboost.me/b5UN4eCTZ?uid=fromsll",
+          "track_status": "ok",
+          "price": "$294.49",
+          "image": null
+        },
+        {
+          "asin": "B0FBW3YF8N",
+          "title": "DREAME H12 Pro Gen2 Vacuum Mop, 0 Tangle Wet Dry Vacuum Cleaner, Cordless Vacuum Mop All-in-One for Hard Floors, 180° Lie-Flat Floor Cleaner Machine with 194°F Hot Self-Cleaning, 50Mins Runt",
+          "role": "Budget",
+          "brand": "Dreame",
+          "affiliate_link": "https://pboost.me/f5QOvzgAE?uid=fromsll",
+          "track_status": "ok",
+          "price": "$289.99",
+          "image": null
+        },
+        {
+          "asin": "B0DPF9CZ4X",
+          "title": "dreame H12 Pro FlexReach Wet Dry Vacuum Cleaner, 0 Tangle Cordless Vacuum Mop All-in-One for Hard Floors, 180° Lie-Flat Floor Cleaner Machine with 194°F Hot Self-Cleaning, 50Mins Runtime",
+          "role": "Runner-up",
+          "brand": "Dreame",
+          "affiliate_link": "https://pboost.me/v5QNzEZmz?uid=fromsll",
+          "track_status": "ok",
+          "price": "$279.98",
+          "image": null
+        },
+        {
+          "asin": "B0CWV3C423",
+          "title": "dreame H14 Cordless Vacuum Mop, 180° Lie-Flat Wet Dry Vacuum cleaner, 140°F Brush Washing, Fast Hot Air Drying in 5Mins, Smart Hard Floor Cleaner Machine with Powerful Suction, Great for Sti",
+          "role": "Worth a look",
+          "brand": "Dreame",
+          "affiliate_link": "https://pboost.me/D5QN6vDud?uid=fromsll",
+          "track_status": "ok",
+          "price": "$276.64",
+          "image": null
+        }
+      ]
+    },
+    {
+      "n": 8,
+      "path": "/computer-speakers/best-computer-speakers-for-desktop/",
+      "type": "07-best-of",
+      "parent": "/computer-speakers/",
+      "published": false,
+      "robots": "noindex,follow",
+      "density": 10,
+      "density_target": 10,
+      "fill_status": "filled",
+      "cta_status": "pb_fromsll",
+      "cta_rule": "PB fromsll only when a verified track exists; never invent hops; do not rebind to YP",
+      "reviews": "none — Top pick + Upgrade articles do not exist for this scene",
+      "ban_groups": [],
+      "cross_ban_scenes": [
+        "best-bluetooth-speakers-for-outdoor"
+      ],
+      "picks": [
+        {
+          "asin": "B07ZVP9XBG",
+          "title": "Edifier S2000MKIII Tri-Amped Bookshelf Speakers, 130W Studio Monitor",
+          "role": "Top pick",
+          "brand": null,
+          "affiliate_link": "https://pboost.me/b5UO1UdIv?uid=fromsll",
+          "track_status": "ok",
+          "price": "$594.99",
+          "image": null
+        },
+        {
+          "asin": "B0G7H9GX68",
+          "title": "Edifier S355DB 2.1 Powered Bookshelf Speakers, 150W Hi-Res Audio, Walnut",
+          "role": "Upgrade",
+          "brand": null,
+          "affiliate_link": "https://pboost.me/H5UO5W3Ic?uid=fromsll",
+          "track_status": "ok",
+          "price": "$509.99",
+          "image": null
+        },
+        {
+          "asin": "B0H4118PJZ",
+          "title": "Edifier Airpulse A60 Desktop Hi-Res Bluetooth Bookshelf Speakers, Walnut",
+          "role": "Best value",
+          "brand": null,
+          "affiliate_link": "https://pboost.me/E5yRa82v?uid=fromsll",
+          "track_status": "ok",
+          "price": "$499.99",
+          "image": null
+        },
+        {
+          "asin": "B0H3ZZCNJF",
+          "title": "Edifier Airpulse A60 Desktop Hi-Res Bluetooth Bookshelf Speakers, White",
+          "role": "Premium",
+          "brand": null,
+          "affiliate_link": "https://pboost.me/i5yRW61D?uid=fromsll",
+          "track_status": "ok",
+          "price": "$499.99",
+          "image": null
+        },
+        {
+          "asin": "B0H3ZZ6ZY7",
+          "title": "Edifier Airpulse A60 Desktop Hi-Res Bluetooth Bookshelf Speakers, White",
+          "role": "Alternative",
+          "brand": null,
+          "affiliate_link": "https://pboost.me/I5yR842g?uid=fromsll",
+          "track_status": "ok",
+          "price": "$499.99",
+          "image": null
+        },
+        {
+          "asin": "B0FY63RTRR",
+          "title": "Edifier R2750DB MKII 3-Way Powered Bookshelf Speakers, 144W RMS, Black",
+          "role": "Also consider",
+          "brand": null,
+          "affiliate_link": "https://pboost.me/o5UOO2Ic?uid=fromsll",
+          "track_status": "ok",
+          "price": "$399.98",
+          "image": null
+        },
+        {
+          "asin": "B0FY63RTRQ",
+          "title": "Edifier R2750DB MKII 3-Way Powered Bookshelf Speakers, 144W RMS, Walnut",
+          "role": "Editor pick",
+          "brand": null,
+          "affiliate_link": "https://pboost.me/P5UO5P2Ic?uid=fromsll",
+          "track_status": "ok",
+          "price": "$399.98",
+          "image": null
+        },
+        {
+          "asin": "B0FGNS3KFC",
+          "title": "Edifier S880DB MKII Hi-Fi Bookshelf Speakers, 88W RMS, Dark Wood",
+          "role": "Budget",
+          "brand": null,
+          "affiliate_link": "https://pboost.me/O5UORaI5?uid=fromsll",
+          "track_status": "ok",
+          "price": "$369.99",
+          "image": null
+        },
+        {
+          "asin": "B0FCFYSZSY",
+          "title": "Edifier S880DB MKII Hi-Fi Bookshelf Speakers, 88W RMS, White",
+          "role": "Runner-up",
+          "brand": null,
+          "affiliate_link": "https://pboost.me/r5UOgVgI0?uid=fromsll",
+          "track_status": "ok",
+          "price": "$369.98",
+          "image": null
+        },
+        {
+          "asin": "B0F5B73RGT",
+          "title": "Edifier MR5 2.0 Studio Monitor Bookshelf Speakers, 110W RMS, Black",
+          "role": "Worth a look",
+          "brand": null,
+          "affiliate_link": "https://pboost.me/c5QNsaZd?uid=fromsll",
+          "track_status": "ok",
+          "price": "$299.99",
+          "image": null
+        }
+      ]
+    }
+  ],
+  "notes": [
+    "No invented ASINs, prices, was/%, gallery, or Check price hops.",
+    "Parent hubs already exist. Not recreated.",
+    "published=false / noindex until a later 部署上线 order.",
+    "Independent of Shortlist Lab."
+  ]
+}
