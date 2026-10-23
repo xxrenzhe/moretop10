@@ -1,0 +1,27 @@
+{
+  "path": "/tower-fans/best-tower-fans-for-bedroom/",
+  "published": false,
+  "fill_status": "filled",
+  "waiting_for_部署上线": true,
+  "stub": true,
+  "products": [
+    {
+      "asin": "B0BVZFQ4DF",
+      "title": "Levoit Tower Fan for Bedroom, 28ft/s Fans that Blow Cold Air, 28dB Quiet",
+      "role": "Top pick",
+      "brand": "LEVOIT",
+      "track_url": "https://pboost.me/m5QMG3Iv?uid=fromsll",
+      "price": "54.91",
+      "price_str": "$54.91"
+    },
+    {
+      "asin": "B0GGHX7HCY",
+      "title": "dreame Bladeless Tower Fan MF10 for Bedroom with 270° Spatial Airflow",
+      "role": "Upgrade",
+      "brand": "Dreame",
+      "track_url": "https://pboost.me/S5QOck33?uid=fromsll",
+      "price": "169.99",
+      "price_str": "$169.99"
+    }
+  ]
+}

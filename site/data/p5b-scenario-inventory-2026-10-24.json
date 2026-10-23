@@ -1,0 +1,406 @@
+{
+  "date": "2026-10-24",
+  "batch": "P5b",
+  "waiting_for_部署上线": true,
+  "published": false,
+  "live": false,
+  "merged": false,
+  "independent_of_shortlist_lab": true,
+  "do_not_touch": [
+    "Lab",
+    "RR",
+    "OL",
+    "#54 home nav",
+    "#55 stamp",
+    "parent hub cards"
+  ],
+  "parent_hubs": "exist_not_recreated",
+  "soft_parent_densify": "cluster_links_only — L1 pack has no extra hub SKUs; hub ASINs mattresses=8 pillows=6 office=8; prefer not block scenes",
+  "skipped": [
+    {
+      "path": "best-mattresses-for-back-pain",
+      "url": "/mattresses/best-mattresses-for-back-pain/",
+      "reason": "brand_gate FAIL · Sweetnight-only — do not scaffold until multi-brand"
+    }
+  ],
+  "out_of_scope": [
+    "best-pillows-for-back-sleepers",
+    "best-mattresses-for-heavy-people"
+  ],
+  "fill_pack": "/workspace/site/data/p5b-l1-fill-pack-2026-10-24.json",
+  "fill_status": "filled",
+  "need_fill": [],
+  "counts": {
+    "best-office-chairs-for-long-hours": 10,
+    "best-pillows-for-stomach-sleepers": 10,
+    "best-tower-fans-for-bedroom": 2
+  },
+  "sources": {
+    "1_pb": {
+      "live_query": "skipped_no_token",
+      "note": "No affiliate API tokens in this VM environment. Do not invent Check price hops."
+    },
+    "2_yp": {
+      "live_query": "skipped_yp_timeout_or_500",
+      "note": "YP unused. Pack is PB-only. Live CTA stays PB ?uid=fromsll."
+    },
+    "l1_fill_pack": "p5b-l1-fill-pack-2026-10-24.json"
+  },
+  "occupied_groups": {
+    "mattress_side_and_hub": [
+      "B096Y619TY",
+      "B096Y7PQJJ",
+      "B0CLLVQJB4",
+      "B0CYH37GR8",
+      "B0DLMZWSRB",
+      "B0DQ18HP9N",
+      "B0F4JHDTH3",
+      "B0F4JXT42J",
+      "B0FN7GYJ6F",
+      "B0GSC68YWV",
+      "B0HFHQXZL4"
+    ],
+    "office_back_pain": [
+      "B0BG1H99FB",
+      "B0CQ2PCK6S",
+      "B0CQX84Y3W",
+      "B0DPKB5JPL",
+      "B0DZC58HPL",
+      "B0FGQ7PBK1",
+      "B0FJ5TQBRT",
+      "B0GR4G8QDF",
+      "B0H5QXFPYQ",
+      "B0HJ86Z5DX",
+      "B0HMR973SR",
+      "B0HNP7G1VB"
+    ],
+    "pillow_neck_side": [
+      "B0D3LM3FH3",
+      "B0D7Q997YS",
+      "B0D7Q9FRHF",
+      "B0D7Q9H63S",
+      "B0DT67CS22",
+      "B0DT9MGL6H",
+      "B0F6LR3CYP",
+      "B0FFGLQ5YR",
+      "B0FMJWRVM8",
+      "B0FNCGPBGW",
+      "B0GSFGD75J",
+      "B0GWK7Q33H",
+      "B0HFJKJZ8M",
+      "B0HKJ5NW57",
+      "B0HKJCJZ1N",
+      "B0HKMHRNV5",
+      "B0HKR8LX5N"
+    ],
+    "tower_hub": [
+      "B0BSH7YKHT",
+      "B0CJRN8CWZ",
+      "B0CKQNHK1H",
+      "B0FFGJLNLN",
+      "B0GGJ7334B",
+      "B0GH1B2YD2",
+      "B0GH7X9FGS",
+      "B0GLP9WRBP",
+      "B0GVD6D2KL",
+      "B0GVDBKMVN"
+    ]
+  },
+  "occupied_global_n": 326,
+  "pages": [
+    {
+      "n": 1,
+      "path": "/office-chairs/best-office-chairs-for-long-hours/",
+      "type": "07-best-of",
+      "parent": "/office-chairs/",
+      "published": false,
+      "robots": "noindex,follow",
+      "density": 10,
+      "density_target": 10,
+      "density_expected": 10,
+      "stub": false,
+      "fill_status": "filled",
+      "cta_status": "pb_fromsll",
+      "cta_rule": "PB fromsll only when a verified track exists; never invent hops; do not rebind to YP",
+      "reviews": "none — Top pick + Upgrade articles do not exist for this scene",
+      "ban_groups": [
+        "office_back_pain"
+      ],
+      "cross_ban_scenes": [],
+      "picks": [
+        {
+          "asin": "B0FPWSRW2P",
+          "title": "FelixKing Office Desk Chairs, Ergonomic PC Desk Chair with Wheels, Adjustable Lumbar Support and Height, Swivel Computer Chair with Flip-up Armrests, Ergo Mesh Backrest for Working (Black, P",
+          "role": "Top pick",
+          "brand": "FelixKing",
+          "affiliate_link": "https://pboost.me/G5UOCaZw?uid=fromsll",
+          "track_status": "ok",
+          "price": "$499.99",
+          "image": null
+        },
+        {
+          "asin": "B0FPWZ7DNG",
+          "title": "FelixKing Office Desk Chairs, Ergonomic PC Desk Chair with Wheels, Adjustable Lumbar Support and Height, Swivel Computer Chair with Flip-up Armrests, Ergo Mesh Backrest for Working (Black, P",
+          "role": "Upgrade",
+          "brand": "FelixKing",
+          "affiliate_link": "https://pboost.me/T5UPE7z01?uid=fromsll",
+          "track_status": "ok",
+          "price": "$314.99",
+          "image": null
+        },
+        {
+          "asin": "B0FPWP2WXG",
+          "title": "FelixKing Office Desk Chairs, Ergonomic PC Desk Chair with Wheels, Adjustable Lumbar Support and Height, Swivel Computer Chair with Flip-up Armrests, Ergo Mesh Backrest for Working (Black, P",
+          "role": "Best value",
+          "brand": "FelixKing",
+          "affiliate_link": "https://pboost.me/G5UOltZ1?uid=fromsll",
+          "track_status": "ok",
+          "price": "$170.99",
+          "image": null
+        },
+        {
+          "asin": "B0FZBQHXZP",
+          "title": "2-Pack Office Chair Ergonomic Desk Chair with Flip up Armrests Swivel Breathable Desk Mesh Computer Chair with Adjustable Lumbar Support and Height for Conference Room (Black)",
+          "role": "Premium",
+          "brand": "Primy",
+          "affiliate_link": "https://pboost.me/Q5UPvDva?uid=fromsll",
+          "track_status": "ok",
+          "price": "$179.99",
+          "image": null
+        },
+        {
+          "asin": "B0B41WB554",
+          "title": "Office Chair Ergonomic Desk Chair with Flip up Armrests Swivel Breathable Desk Mesh Computer Chair with Adjustable Lumbar Support and Height for Conference Room (Gray)",
+          "role": "Alternative",
+          "brand": "Primy",
+          "affiliate_link": "https://pboost.me/r5UPdtcv6?uid=fromsll",
+          "track_status": "ok",
+          "price": "$129.99",
+          "image": null
+        },
+        {
+          "asin": "B0F4D8ZN7C",
+          "title": "Office Chair Ergonomic Desk Chair with Flip up Armrests Swivel Breathable Desk Mesh Computer Chair with Adjustable Lumbar Support and Height for Conference Room (Navy)",
+          "role": "Also consider",
+          "brand": "Primy",
+          "affiliate_link": "https://pboost.me/q5UPNgv3?uid=fromsll",
+          "track_status": "ok",
+          "price": "$106.00",
+          "image": null
+        },
+        {
+          "asin": "B0GRVN1QXK",
+          "title": "Ergonomic Office Chair, High Back Desk Chair with Flip-up Arms, 300 LBS Mesh Computer Chair with Adjustable Headrest & Lumbar Support, Comfy Gaming Chair for Adults, Home Office Desk Chairs",
+          "role": "Editor pick",
+          "brand": "HeroSet",
+          "affiliate_link": "https://pboost.me/g5SPicS6?uid=fromsll",
+          "track_status": "ok",
+          "price": "$69.98",
+          "image": null
+        },
+        {
+          "asin": "B0DM1JR73Q",
+          "title": "Office Chair, Ergonomic Big and Tall Computer Desk Chair with Retractable Adjustable Headrest, Executive Breathable Leather Chair, Lumbar Support Swivel Flip-up Armrests Rocking Function,Mat",
+          "role": "Budget",
+          "brand": "HeroSet",
+          "affiliate_link": "https://pboost.me/p5SP7l4S8?uid=fromsll",
+          "track_status": "ok",
+          "price": "$129.99",
+          "image": null
+        },
+        {
+          "asin": "B0HGYCK7Q1",
+          "title": "Office Chair, Ergonomic Big and Tall Computer Desk Chairs, Executive Breathable Leather Chair with Adjustable Flip-up Armrests, Lumbar Support Swivel PC Chair with Rocking Function,Brown",
+          "role": "Runner-up",
+          "brand": "HeroSet",
+          "affiliate_link": "https://pboost.me/F5UfEIvjD?uid=fromsll",
+          "track_status": "ok",
+          "price": "$139.99",
+          "image": null
+        },
+        {
+          "asin": "B0GXW2DTNR",
+          "title": "Dowinx Big and Tall Office Chair, Ergonomic Desk Chair with Thick Cushion, Wide Seat & Armrests Computer Gaming Chair,High Back Reclining Teddy Fleece Criss Cross Chair with Foot Rest, Pink",
+          "role": "Worth a look",
+          "brand": "Dowinx",
+          "affiliate_link": "https://pboost.me/c5UTc3ec?uid=fromsll",
+          "track_status": "ok",
+          "price": "$179.99",
+          "image": null
+        }
+      ]
+    },
+    {
+      "n": 2,
+      "path": "/pillows/best-pillows-for-stomach-sleepers/",
+      "type": "07-best-of",
+      "parent": "/pillows/",
+      "published": false,
+      "robots": "noindex,follow",
+      "density": 10,
+      "density_target": 10,
+      "density_expected": 10,
+      "stub": false,
+      "fill_status": "filled",
+      "cta_status": "pb_fromsll",
+      "cta_rule": "PB fromsll only when a verified track exists; never invent hops; do not rebind to YP",
+      "reviews": "none — Top pick + Upgrade articles do not exist for this scene",
+      "ban_groups": [
+        "pillow_neck_side"
+      ],
+      "cross_ban_scenes": [],
+      "picks": [
+        {
+          "asin": "B0FNCJKZ6J",
+          "title": "Sweetnight Pillows Queen Size Set of 2, Bed Hotel Pillows, Almohadas para Dormir, Side Back Stomach Sleeper, Relief Neck, Head, Shoulder",
+          "role": "Top pick",
+          "brand": "Sweetnight",
+          "affiliate_link": "https://pboost.me/K5UTvDaw?uid=fromsll",
+          "track_status": "ok",
+          "price": "$47.76",
+          "image": null
+        },
+        {
+          "asin": "B0DT97KHGT",
+          "title": "Sweetnight Cooling Pillows Queen Size Set of 2, Shredded Memory Foam Pillows 2 Pack for Hot Sleepers, Cold Bed Pillows for Sleeping, Washable with Removable Cover, Cool Night",
+          "role": "Upgrade",
+          "brand": "Sweetnight",
+          "affiliate_link": "https://pboost.me/x5UTzdzb1?uid=fromsll",
+          "track_status": "ok",
+          "price": "$81.31",
+          "image": null
+        },
+        {
+          "asin": "B0HFJMX34K",
+          "title": "Sweetnight CoolNest Gel Memory Foam Pillows, Queen Size Cooling Bed Pillows",
+          "role": "Best value",
+          "brand": "Sweetnight",
+          "affiliate_link": "https://pboost.me/H5UTcREb9?uid=fromsll",
+          "track_status": "ok",
+          "price": "$79.99",
+          "image": null
+        },
+        {
+          "asin": "B0H5VQC5F6",
+          "title": "Sweetnight Cooling Pillows King Size Set of 2, Shredded Memory Foam Pillows",
+          "role": "Premium",
+          "brand": "Sweetnight",
+          "affiliate_link": "https://pboost.me/N5UTdwZag?uid=fromsll",
+          "track_status": "ok",
+          "price": "$63.99",
+          "image": null
+        },
+        {
+          "asin": "B0FMJXJXGB",
+          "title": "Sweetnight Cooling Pillows Queen Size Set of 2, CertiPUR-US Pillows",
+          "role": "Alternative",
+          "brand": "Sweetnight",
+          "affiliate_link": "https://pboost.me/K5UTVvav?uid=fromsll",
+          "track_status": "ok",
+          "price": "$43.10",
+          "image": null
+        },
+        {
+          "asin": "B0H5WGBQWR",
+          "title": "Sweetnight Cooling Pillows Queen Size Set of 2, Shredded Memory Foam Pillow",
+          "role": "Also consider",
+          "brand": "Sweetnight",
+          "affiliate_link": "https://pboost.me/a5UTSTac?uid=fromsll",
+          "track_status": "ok",
+          "price": "$41.70",
+          "image": null
+        },
+        {
+          "asin": "B0H5VXT4PQ",
+          "title": "Sweetnight Cooling Pillows Queen Size Set of 2, Shredded Memory Foam Pillow",
+          "role": "Editor pick",
+          "brand": "Sweetnight",
+          "affiliate_link": "https://pboost.me/n5UT0taa0?uid=fromsll",
+          "track_status": "ok",
+          "price": "$41.70",
+          "image": null
+        },
+        {
+          "asin": "B0HKSGBMN7",
+          "title": "Sweetnight Gusseted Pillows King Size Set of 2,Fluffy Luxury Hotel Pillows",
+          "role": "Budget",
+          "brand": "Sweetnight",
+          "affiliate_link": "https://pboost.me/G5UTNaa6?uid=fromsll",
+          "track_status": "ok",
+          "price": "$35.49",
+          "image": null
+        },
+        {
+          "asin": "B0HN1YQYY6",
+          "title": "Sweetnight Gusseted Pillows Standard Size Set of 2, Luxury Hotel Pillows",
+          "role": "Runner-up",
+          "brand": "Sweetnight",
+          "affiliate_link": "https://pboost.me/K5UTeCbC?uid=fromsll",
+          "track_status": "ok",
+          "price": "$31.99",
+          "image": null
+        },
+        {
+          "asin": "B0HMWQDHMZ",
+          "title": "Sweetnight Gusseted Pillows Standard Size Set of 2, Luxury Hotel Pillows",
+          "role": "Worth a look",
+          "brand": "Sweetnight",
+          "affiliate_link": "https://pboost.me/g5UTH7bT?uid=fromsll",
+          "track_status": "ok",
+          "price": "$31.99",
+          "image": null
+        }
+      ]
+    },
+    {
+      "n": 3,
+      "path": "/tower-fans/best-tower-fans-for-bedroom/",
+      "type": "07-best-of",
+      "parent": "/tower-fans/",
+      "published": false,
+      "robots": "noindex,follow",
+      "density": 2,
+      "density_target": 10,
+      "density_expected": 2,
+      "stub": true,
+      "fill_status": "filled",
+      "cta_status": "pb_fromsll",
+      "cta_rule": "PB fromsll only when a verified track exists; never invent hops; do not rebind to YP",
+      "reviews": "none — Top pick + Upgrade articles do not exist for this scene",
+      "ban_groups": [
+        "tower_hub"
+      ],
+      "cross_ban_scenes": [],
+      "picks": [
+        {
+          "asin": "B0BVZFQ4DF",
+          "title": "Levoit Tower Fan for Bedroom, 28ft/s Fans that Blow Cold Air, 28dB Quiet",
+          "role": "Top pick",
+          "brand": "LEVOIT",
+          "affiliate_link": "https://pboost.me/m5QMG3Iv?uid=fromsll",
+          "track_status": "ok",
+          "price": "$54.91",
+          "image": null
+        },
+        {
+          "asin": "B0GGHX7HCY",
+          "title": "dreame Bladeless Tower Fan MF10 for Bedroom with 270° Spatial Airflow",
+          "role": "Upgrade",
+          "brand": "Dreame",
+          "affiliate_link": "https://pboost.me/S5QOck33?uid=fromsll",
+          "track_status": "ok",
+          "price": "$169.99",
+          "image": null
+        }
+      ]
+    }
+  ],
+  "notes": [
+    "No invented ASINs, prices, was/%, gallery, or Check price hops.",
+    "Parent hubs already exist. Not recreated. Soft densify = cluster links only.",
+    "published=false / noindex until a later 部署上线 order.",
+    "Independent of Shortlist Lab.",
+    "Mattress back-pain skipped (brand_gate FAIL · Sweetnight-only).",
+    "Tower bedroom is an honest 2-product stub. Do not pad."
+  ]
+}
