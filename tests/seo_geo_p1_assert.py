@@ -12,7 +12,7 @@ SITE = ROOT / "site"
 SCRIPTS = ROOT / "site" / "scripts"
 sys.path.insert(0, str(SCRIPTS))
 
-from seo_geo import ROBOTS_INDEX  # noqa: E402
+from seo_geo import ROBOTS_INDEX, aggregate_rating_issues  # noqa: E402
 from site_config import ALL_CATS  # noqa: E402
 
 JARGON = re.compile(
@@ -94,8 +94,7 @@ def main() -> None:
             errors.append("sample review missing #geo-B0GLX9TGJV")
         if JARGON.search(html):
             errors.append("sample review still has visitor jargon")
-        if "AggregateRating" in html:
-            errors.append("sample review leaked AggregateRating")
+        errors.extend(f"sample review {issue}" for issue in aggregate_rating_issues(html))
 
     review_pages = list((SITE).glob("*/reviews/*/index.html"))
     if len(review_pages) < 50:
@@ -109,8 +108,9 @@ def main() -> None:
             errors.append(f"{path.relative_to(SITE)} missing How to cite")
         if 'id="geo-' in html:
             geo_ok += 1
-        if "AggregateRating" in html:
-            errors.append(f"{path.relative_to(SITE)} leaked AggregateRating")
+        errors.extend(
+            f"{path.relative_to(SITE)} {issue}" for issue in aggregate_rating_issues(html)
+        )
     if review_pages and geo_ok == 0:
         errors.append("no review article received a #geo-ASIN anchor")
 

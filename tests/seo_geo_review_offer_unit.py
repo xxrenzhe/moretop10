@@ -99,8 +99,8 @@ def main() -> None:
             errors.append(f"snapshot priceCurrency={offer.get('priceCurrency')!r}")
         if offer.get("url") != "https://pboost.me/y5piG3lw?uid=fromsll":
             errors.append("snapshot rewrite invented or dropped Offer.url")
-        if offer.get("availability") != "https://schema.org/InStock":
-            errors.append("snapshot rewrite dropped existing availability")
+        if offer.get("availability"):
+            errors.append("must not keep unbacked InStock")
         if not isinstance(offer.get("price"), str):
             errors.append("Offer.price must be a string of the number")
 
@@ -220,8 +220,15 @@ def main() -> None:
                 errors.append(f"{path.relative_to(SITE)} missing USD")
         elif offer is not None:
             errors.append(f"{path.relative_to(SITE)} invented Offer without snapshot")
-        if "AggregateRating" in out:
-            errors.append(f"{path.relative_to(SITE)} leaked AggregateRating")
+        rating = None
+        article = _ld_by_type(out, "Article")
+        if article:
+            entity = article.get("mainEntity") or {}
+            rating = entity.get("aggregateRating") if isinstance(entity, dict) else None
+        if rating and not (
+            rating.get("ratingValue") and (rating.get("ratingCount") or rating.get("reviewCount"))
+        ):
+            errors.append(f"{path.relative_to(SITE)} dishonest AggregateRating")
         if asin and f'id="geo-{asin}"' not in out:
             errors.append(f"{path.relative_to(SITE)} lost #geo-{asin}")
 
