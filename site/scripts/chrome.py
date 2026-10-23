@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import html
 import re
+from pathlib import Path
 from typing import Any
 
 NAV_CSS = """
@@ -132,6 +133,77 @@ def inject_nav_css(page: str) -> str:
     if "</head>" in page:
         return page.replace("</head>", block + "</head>", 1)
     return block + page
+
+
+_LANDING_CSS_LINK_RE = re.compile(
+    r'<link\s+rel="stylesheet"\s+href="[^"]*pages-landing\.css"/>'
+)
+_SITE_CSS_LINK_RE = re.compile(
+    r'(<link\s+rel="stylesheet"\s+href="[^"]*site\.css"/>)'
+)
+_MAIN_CLASS_RE = re.compile(r'<main class="([^"]*)"')
+
+
+def needs_pages_landing_css(html: str) -> bool:
+    """True when the page uses the landing hero / lifestyle cover layout."""
+    return "landing-hero" in html or "lifestyle-photo" in html
+
+
+def ensure_pages_landing_css(html: str, prefix: str) -> str:
+    """Guarantee pages-landing.css is linked next to site.css at `prefix` depth.
+
+    Editorial VS / alts / howto / best-of shells historically shipped with
+    tokens.css + site.css only. Without the landing grid, `.lifestyle-photo`
+    goes full container width at 16/10.
+    """
+    if not needs_pages_landing_css(html):
+        return html
+    href = f"{prefix}assets/css/pages-landing.css"
+    link = f'<link rel="stylesheet" href="{href}"/>'
+    if _LANDING_CSS_LINK_RE.search(html):
+        return _LANDING_CSS_LINK_RE.sub(link, html, count=1)
+    if _SITE_CSS_LINK_RE.search(html):
+        return _SITE_CSS_LINK_RE.sub(rf"\1\n{link}", html, count=1)
+    if "</head>" in html:
+        return html.replace("</head>", f"{link}\n</head>", 1)
+    return html
+
+
+def editorial_page_kind(out_rel: str) -> str | None:
+    """Map a cluster URL to an existing pages-landing.css page class."""
+    parts = Path(out_rel).as_posix().strip("/").split("/")
+    if len(parts) != 3 or parts[-1] != "index.html":
+        return None
+    leaf = parts[1]
+    if "-vs-" in leaf:
+        return "vs-page"
+    if "alternatives" in leaf:
+        return "alts-page"
+    if leaf.startswith("best-"):
+        return "bestof-page"
+    return None
+
+
+def apply_editorial_page_class(html: str, out_rel: str) -> str:
+    """Add vs-page / alts-page / bestof-page next to editorial-page when obvious.
+
+    Does not invent new classes or restyle category hubs (`landing-page`).
+    """
+    kind = editorial_page_kind(out_rel)
+    if not kind:
+        return html
+    match = _MAIN_CLASS_RE.search(html)
+    if not match:
+        return html
+    classes = match.group(1).split()
+    if "landing-page" in classes or kind in classes:
+        return html
+    classes.append(kind)
+    return (
+        html[: match.start()]
+        + f'<main class="{" ".join(classes)}"'
+        + html[match.end() :]
+    )
 
 
 _COMPARE_MOBILE_RE = re.compile(r"<details[^>]*>\s*<summary>Compare</summary>.*?</details>", re.S)

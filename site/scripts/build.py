@@ -52,7 +52,9 @@ from chrome import (  # noqa: E402
     MISLEADING_STRIP,
     TOP_STRIP_COPY,
     TOP_STRIP_PANEL,
+    apply_editorial_page_class,
     ensure_hub_reciprocity,
+    ensure_pages_landing_css,
     strip_cmp_hero_steps,
     strip_rv_mop_pads_leftover,
     ensure_tv_home_tile,
@@ -250,6 +252,8 @@ def bake_editorial_copy_pages(cfg: dict) -> list[Path]:
         html = rewrite_disclosure(html)
         html = rewrite_best_widget(html)
         html = rewrite_visible_jargon(html)
+        html = ensure_pages_landing_css(html, prefix)
+        html = apply_editorial_page_class(html, out_rel)
         dest.write_text(html, encoding="utf-8")
         wrote.append(dest)
         print(f"  wrote {dest.relative_to(ROOT)}")
@@ -268,6 +272,26 @@ def rebake_disclosure_pages(site: Path | None = None) -> list[Path]:
         if "site-header" not in text and "top-affiliate-bar" not in text:
             continue
         new = rewrite_disclosure(text)
+        if new != text:
+            path.write_text(new, encoding="utf-8")
+            wrote.append(path)
+    return wrote
+
+
+def rebake_landing_hero_css(site: Path | None = None) -> list[Path]:
+    """Inject pages-landing.css on any existing hero page that omitted it."""
+    site = site or SITE
+    wrote: list[Path] = []
+    for path in sorted(site.rglob("*.html")):
+        if set(path.relative_to(site).parts) & SKIP_COPY_DIRS:
+            continue
+        text = path.read_text(encoding="utf-8")
+        if "landing-hero" not in text and "lifestyle-photo" not in text:
+            continue
+        rel = path.relative_to(site).as_posix()
+        prefix = rel_prefix(rel)
+        new = ensure_pages_landing_css(text, prefix)
+        new = apply_editorial_page_class(new, rel)
         if new != text:
             path.write_text(new, encoding="utf-8")
             wrote.append(path)
@@ -453,6 +477,8 @@ def bake_page(spec: dict, cfg: dict, cmp_html_by_slug: dict[str, str]) -> Path |
         site_root=SITE,
     )
     html = rewrite_best_widget(html)
+    html = ensure_pages_landing_css(html, prefix)
+    html = apply_editorial_page_class(html, out_rel)
 
     dest = SITE / out_rel
     dest.parent.mkdir(parents=True, exist_ok=True)
@@ -910,6 +936,8 @@ def main() -> None:
     print(f"  wrote site/blog/index.html ({blog_n} articles)")
     disc = rebake_disclosure_pages(SITE)
     print(f"  disclosure chrome {len(disc)} pages")
+    hero = rebake_landing_hero_css(SITE)
+    print(f"  landing-hero css {len(hero)} pages")
     verify(cfg)
 
 
@@ -952,6 +980,8 @@ def visitor_copy_only() -> None:
     print(f"editorial copy pages {len(editorial)}")
     wrote = rebake_visitor_copy_pages(SITE)
     print(f"visitor-copy rewrote {len(wrote)} files")
+    hero = rebake_landing_hero_css(SITE)
+    print(f"landing-hero css {len(hero)} pages")
     verify(cfg)
 
 

@@ -6,14 +6,26 @@ so ~261 landing/review pages 404'd that stylesheet. .landing-hero then fell
 through to site.css .lifestyle-block.has-photo{aspect-ratio:16/10} full-width
 (huge cover, tight gap). Fail closed if the file is missing or lacks the
 desktop copy|photo grid.
+
+A later miss: editorial VS / alts / howto / best-of shells used landing-hero
++ lifestyle-photo but only linked tokens.css + site.css. Full-site gate:
+every baked HTML with landing-hero or lifestyle-photo must link
+pages-landing.css at the correct relative depth.
 """
 
 from __future__ import annotations
 
+import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 SITE = ROOT / "site"
+SCRIPTS = ROOT / "site" / "scripts"
+if str(SCRIPTS) not in sys.path:
+    sys.path.insert(0, str(SCRIPTS))
+
+from chrome import rel_prefix  # noqa: E402
+
 LANDING_CSS = SITE / "assets" / "css" / "pages-landing.css"
 SAMPLE_PAGES = (
     "security-cameras/index.html",
@@ -21,6 +33,8 @@ SAMPLE_PAGES = (
     "air-fryers/index.html",
     "security-cameras/reviews/eufy-security-solocam-s220-solar-security/index.html",
 )
+SKIP_DIRS = {".cache", "fixtures", "data", "assets"}
+HERO_MARKERS = ("landing-hero", "lifestyle-photo")
 
 # SoT bake copy is 22296 bytes. A stub / empty file must fail.
 MIN_BYTES = 20000
@@ -84,6 +98,24 @@ def collect_errors(site: Path = SITE) -> list[str]:
         errors.append(
             f"only {linked} HTML pages link pages-landing.css (expected ~261)"
         )
+
+    # Full-site gate: any baked hero (landing-hero or lifestyle cover) must
+    # link pages-landing.css at the correct relative depth. Editorial VS /
+    # alts / howto / best-of shells used to omit it and render a full-width
+    # 16/10 lifestyle photo.
+    for path in sorted(site.rglob("*.html")):
+        rel_parts = path.relative_to(site).parts
+        if set(rel_parts) & SKIP_DIRS:
+            continue
+        html = path.read_text(encoding="utf-8")
+        if not any(marker in html for marker in HERO_MARKERS):
+            continue
+        rel = path.relative_to(site).as_posix()
+        expected = f"{rel_prefix(rel)}assets/css/pages-landing.css"
+        if expected not in html:
+            errors.append(
+                f"{rel} has landing-hero/lifestyle-photo but does not link {expected}"
+            )
     return errors
 
 
