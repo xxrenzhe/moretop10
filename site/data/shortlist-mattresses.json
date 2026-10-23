@@ -1,0 +1,222 @@
+{
+  "generated": "2026-10-23",
+  "slug": "mattresses",
+  "name": "Mattresses",
+  "amazon_category": "Home & Kitchen",
+  "density": 8,
+  "density_target": 10,
+  "density_shortfall": true,
+  "status": "unpublished_scaffold",
+  "waiting_for_部署上线": "yes",
+  "inventory": "l1_fill",
+  "baked": true,
+  "live": false,
+  "publishable": false,
+  "cta_label": "Check price",
+  "cta_rule": "PB pboost.me keeps uid=fromsll when a verified track exists; no invented hops",
+  "l2": {
+    "status": "l1_api",
+    "method": "l1_pb_fromsll_pack",
+    "ok_count": 8,
+    "blocked": []
+  },
+  "notes": [
+    "P2 L1 fill mattresses 2026-10-23. waiting_for_部署上线=yes. No Live.",
+    "Healthy PB fromsll only. Density is honest — not padded to 10.",
+    "Prices are L1 API snapshots from the fill pack. No invented ASINs, images, or was/%. list_price omitted.",
+    "No Mac CDP gallery — product photos stay empty until L2. Lifestyle cover is a gradient placeholder.",
+    "No accessories. No new MT10 review articles (Top/Upgrade reviews do not exist).",
+    "Honest Sweetnight-only concentration: other mattress brands were absent from the L1 pack networks."
+  ],
+  "dropped_accessory_asins": [],
+  "picks": [
+    {
+      "asin": "B096Y7PQJJ",
+      "title": "Sweetnight Twin Mattress, 8 Inch Hybrid Mattress with Gel Memory Foam & Pocket Innerspring, Bed Mattress with Moisture Wicking Adaptive Cover, Medium Firm, Twin Size",
+      "title_source": "l1_pack",
+      "brand": "Sweetnight",
+      "role": "Top pick",
+      "affiliate_network": "pb",
+      "affiliate_link": "https://pboost.me/L5UTcPTb0?uid=fromsll",
+      "track_status": "ok",
+      "l2_status": "l1_api",
+      "price": "203.58",
+      "price_raw": "$203.58",
+      "price_displayed": "$203.58",
+      "image": null,
+      "availability": "IN_STOCK",
+      "feature_bullets": [],
+      "l2": {
+        "ok": false,
+        "method": "l1_pb_api",
+        "status": "pending_cdp"
+      }
+    },
+    {
+      "asin": "B0CYH37GR8",
+      "title": "Sweetnight Queen Size Mattress, 14 Inch Memory Foam Mattress for Pressure Relief & Motion Isolation, Queen Mattress in a Box, Starry Night",
+      "title_source": "l1_pack",
+      "brand": "Sweetnight",
+      "role": "Upgrade",
+      "affiliate_network": "pb",
+      "affiliate_link": "https://pboost.me/r5UT2Xgb2?uid=fromsll",
+      "track_status": "ok",
+      "l2_status": "l1_api",
+      "price": "323.23",
+      "price_raw": "$323.23",
+      "price_displayed": "$323.23",
+      "image": null,
+      "availability": "IN_STOCK",
+      "feature_bullets": [],
+      "l2": {
+        "ok": false,
+        "method": "l1_pb_api",
+        "status": "pending_cdp"
+      }
+    },
+    {
+      "asin": "B0CLLVQJB4",
+      "title": "Sweetnight King Mattress,12 Inch Hybrid Mattress with Individual Pocketed Coils for Pressure Relief & Motion Isolation, Nimbus",
+      "title_source": "l1_pack",
+      "brand": "Sweetnight",
+      "role": "Premium",
+      "affiliate_network": "pb",
+      "affiliate_link": "https://pboost.me/a5UTVdba?uid=fromsll",
+      "track_status": "ok",
+      "l2_status": "l1_api",
+      "price": "329.99",
+      "price_raw": "$329.99",
+      "price_displayed": "$329.99",
+      "image": null,
+      "availability": "IN_STOCK",
+      "feature_bullets": [],
+      "l2": {
+        "ok": false,
+        "method": "l1_pb_api",
+        "status": "pending_cdp"
+      }
+    },
+    {
+      "asin": "B0DLMZWSRB",
+      "title": "Sweetnight 6 Inch Twin Mattress, Memory Foam Twin Size Mattress in a Box for Comfort Sleep & Pressure Relief, CertiPUR-US Certified Twin Mattresses Medium Firm",
+      "title_source": "l1_pack",
+      "brand": "Sweetnight",
+      "role": "Best value",
+      "affiliate_network": "pb",
+      "affiliate_link": "https://pboost.me/U5UTBvb7?uid=fromsll",
+      "track_status": "ok",
+      "l2_status": "l1_api",
+      "price": "100.31",
+      "price_raw": "$100.31",
+      "price_displayed": "$100.31",
+      "image": null,
+      "availability": "IN_STOCK",
+      "feature_bullets": [],
+      "l2": {
+        "ok": false,
+        "method": "l1_pb_api",
+        "status": "pending_cdp"
+      }
+    },
+    {
+      "asin": "B096Y619TY",
+      "title": "Sweetnight Mattress Queen, 8 Inch Hybrid Mattress with Gel Memory Foam & Pocket Innerspring , Bed Mattress with Moisture Wicking Adaptive Cover, Medium Firm, Queen Size",
+      "title_source": "l1_pack",
+      "brand": "Sweetnight",
+      "role": "Editor pick",
+      "affiliate_network": "pb",
+      "affiliate_link": "https://pboost.me/t5UTcu2bZ?uid=fromsll",
+      "track_status": "ok",
+      "l2_status": "l1_api",
+      "price": "339.99",
+      "price_raw": "$339.99",
+      "price_displayed": "$339.99",
+      "image": null,
+      "availability": "IN_STOCK",
+      "feature_bullets": [],
+      "l2": {
+        "ok": false,
+        "method": "l1_pb_api",
+        "status": "pending_cdp"
+      }
+    },
+    {
+      "asin": "B0DQ18HP9N",
+      "title": "Sweetnight 14 Inch King Mattress,King Memory Foam Mattress in a Box for Comfort Sleep & Pressure Relief, CertiPUR-US Certified King Size Mattress Medium Firm",
+      "title_source": "l1_pack",
+      "brand": "Sweetnight",
+      "role": "Alternative",
+      "affiliate_network": "pb",
+      "affiliate_link": "https://pboost.me/G5UTN7bk?uid=fromsll",
+      "track_status": "ok",
+      "l2_status": "l1_api",
+      "price": "302.77",
+      "price_raw": "$302.77",
+      "price_displayed": "$302.77",
+      "image": null,
+      "availability": "IN_STOCK",
+      "feature_bullets": [],
+      "l2": {
+        "ok": false,
+        "method": "l1_pb_api",
+        "status": "pending_cdp"
+      }
+    },
+    {
+      "asin": "B0F4JHDTH3",
+      "title": "Sweetnight CoolNest 12 Inch Queen Mattress, Cooling Memory Foam Mattress",
+      "title_source": "l1_pack",
+      "brand": "Sweetnight",
+      "role": "Budget cooling",
+      "affiliate_network": "pb",
+      "affiliate_link": "https://pboost.me/x5UTDL5a3?uid=fromsll",
+      "track_status": "ok",
+      "l2_status": "l1_api",
+      "price": "399.99",
+      "price_raw": "$399.99",
+      "price_displayed": "$399.99",
+      "image": null,
+      "availability": "IN_STOCK",
+      "feature_bullets": [],
+      "l2": {
+        "ok": false,
+        "method": "l1_pb_api",
+        "status": "pending_cdp"
+      }
+    },
+    {
+      "asin": "B0F4JXT42J",
+      "title": "Sweetnight CoolNest 12 Inch King Mattress, Cooling Memory Foam Mattress",
+      "title_source": "l1_pack",
+      "brand": "Sweetnight",
+      "role": "Also consider",
+      "affiliate_network": "pb",
+      "affiliate_link": "https://pboost.me/s5UT1cbg?uid=fromsll",
+      "track_status": "ok",
+      "l2_status": "l1_api",
+      "price": "449.99",
+      "price_raw": "$449.99",
+      "price_displayed": "$449.99",
+      "image": null,
+      "availability": "IN_STOCK",
+      "feature_bullets": [],
+      "l2": {
+        "ok": false,
+        "method": "l1_pb_api",
+        "status": "pending_cdp"
+      }
+    }
+  ],
+  "l2_ok_asins": [
+    "B096Y7PQJJ",
+    "B0CYH37GR8",
+    "B0CLLVQJB4",
+    "B0DLMZWSRB",
+    "B096Y619TY",
+    "B0DQ18HP9N",
+    "B0F4JHDTH3",
+    "B0F4JXT42J"
+  ],
+  "l2_pending_asins": [],
+  "track_pending_asins": []
+}

@@ -41,6 +41,11 @@ categories:
     - {slug: glass-display-cabinets, name: Glass Display Cabinets, short_name: Display Cabinets, tier: extended, status: draft}
     - {slug: document-scanners, name: Document Scanners, short_name: Document Scanners, tier: extended, status: draft}
     - {slug: ceramic-space-heaters, name: Ceramic Space Heaters, short_name: Ceramic Heaters, tier: extended, status: draft}
+    # 2026-10-23 P2 greenfield drafts — unpublished, no Live, waiting_for_部署上线.
+    - {slug: pillows, name: Pillows, short_name: Pillows, tier: extended, status: draft}
+    - {slug: mattresses, name: Mattresses, short_name: Mattresses, tier: extended, status: draft}
+    - {slug: office-chairs, name: Office Chairs, short_name: Office Chairs, tier: extended, status: draft}
+    - {slug: water-flossers, name: Water Flossers, short_name: Water Flossers, tier: extended, status: draft}
 
 # Editorial /tv/ cluster is NOT registered here. Density-10 shortlist rules
 # do not apply. G-IL lives in site_config.EDITORIAL_CLUSTERS (footer + home tile).

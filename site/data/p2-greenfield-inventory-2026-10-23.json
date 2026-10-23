@@ -1,0 +1,105 @@
+{
+  "date": "2026-10-23",
+  "waiting_for_\u90e8\u7f72\u4e0a\u7ebf": true,
+  "source_pack": "site/data/p2-l1-fill-pack-2026-10-23.json",
+  "pages": [
+    {
+      "scene": "best pillows for neck pain",
+      "path": "/pillows/best-pillows-for-neck-pain/",
+      "density": 6,
+      "order_asins": [
+        "B0F6LR3CYP",
+        "B0HKJ5NW57",
+        "B0D3LM3FH3",
+        "B0HKR8LX5N",
+        "B0DT67CS22",
+        "B0HKJCJZ1N"
+      ],
+      "top_pick": "B0F6LR3CYP",
+      "upgrade": "B0HKJ5NW57",
+      "tracks": [
+        "https://pboost.me/S5UTb7ad?uid=fromsll",
+        "https://pboost.me/r5UT4Rdat?uid=fromsll",
+        "https://pboost.me/m5UTH7a1?uid=fromsll",
+        "https://pboost.me/U5UTqga2?uid=fromsll",
+        "https://pboost.me/k5UTmka2?uid=fromsll",
+        "https://pboost.me/n5UTvf5bk?uid=fromsll"
+      ],
+      "new_reviews": [],
+      "reused_reviews": [],
+      "shortfall": null
+    },
+    {
+      "scene": "best mattresses for side sleepers",
+      "path": "/mattresses/best-mattresses-for-side-sleepers/",
+      "density": 8,
+      "order_asins": [
+        "B0DLMZWSRB",
+        "B096Y7PQJJ",
+        "B0CYH37GR8",
+        "B0CLLVQJB4",
+        "B0DQ18HP9N",
+        "B096Y619TY",
+        "B0F4JHDTH3",
+        "B0F4JXT42J"
+      ],
+      "top_pick": "B096Y7PQJJ",
+      "upgrade": "B0CYH37GR8",
+      "tracks": [
+        "https://pboost.me/U5UTBvb7?uid=fromsll",
+        "https://pboost.me/L5UTcPTb0?uid=fromsll",
+        "https://pboost.me/r5UT2Xgb2?uid=fromsll",
+        "https://pboost.me/a5UTVdba?uid=fromsll",
+        "https://pboost.me/G5UTN7bk?uid=fromsll",
+        "https://pboost.me/t5UTcu2bZ?uid=fromsll",
+        "https://pboost.me/x5UTDL5a3?uid=fromsll",
+        "https://pboost.me/s5UT1cbg?uid=fromsll"
+      ],
+      "new_reviews": [],
+      "reused_reviews": [],
+      "shortfall": null
+    },
+    {
+      "scene": "best office chairs for back pain",
+      "path": "/office-chairs/best-office-chairs-for-back-pain/",
+      "density": 8,
+      "order_asins": [
+        "B0BG1H99FB",
+        "B0DPKB5JPL",
+        "B0CQX84Y3W",
+        "B0CQ2PCK6S",
+        "B0FGQ7PBK1",
+        "B0DZC58HPL",
+        "B0HNP7G1VB",
+        "B0HJ86Z5DX"
+      ],
+      "top_pick": "B0BG1H99FB",
+      "upgrade": "B0CQX84Y3W",
+      "tracks": [
+        "https://pboost.me/m5UOmEZg?uid=fromsll",
+        "https://pboost.me/a5UPM0v8?uid=fromsll",
+        "https://pboost.me/v5UT1R2eg?uid=fromsll",
+        "https://pboost.me/G5QNR431?uid=fromsll",
+        "https://pboost.me/Y5USO2Vd?uid=fromsll",
+        "https://pboost.me/f5UTked7v?uid=fromsll",
+        "https://pboost.me/N5UTgd49d?uid=fromsll",
+        "https://pboost.me/B5SP2ycCa?uid=fromsll"
+      ],
+      "new_reviews": [],
+      "reused_reviews": [],
+      "shortfall": null
+    },
+    {
+      "scene": "best water flossers for braces",
+      "path": "/water-flossers/best-water-flossers-for-braces/",
+      "density": 0,
+      "order_asins": [],
+      "top_pick": null,
+      "upgrade": null,
+      "tracks": [],
+      "new_reviews": [],
+      "reused_reviews": [],
+      "shortfall": "no_healthy_pb_fromsll"
+    }
+  ]
+}

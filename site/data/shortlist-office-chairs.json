@@ -1,0 +1,221 @@
+{
+  "generated": "2026-10-23",
+  "slug": "office-chairs",
+  "name": "Office Chairs",
+  "amazon_category": "Home & Kitchen",
+  "density": 8,
+  "density_target": 10,
+  "density_shortfall": true,
+  "status": "unpublished_scaffold",
+  "waiting_for_部署上线": "yes",
+  "inventory": "l1_fill",
+  "baked": true,
+  "live": false,
+  "publishable": false,
+  "cta_label": "Check price",
+  "cta_rule": "PB pboost.me keeps uid=fromsll when a verified track exists; no invented hops",
+  "l2": {
+    "status": "l1_api",
+    "method": "l1_pb_fromsll_pack",
+    "ok_count": 8,
+    "blocked": []
+  },
+  "notes": [
+    "P2 L1 fill office-chairs 2026-10-23. waiting_for_部署上线=yes. No Live.",
+    "Healthy PB fromsll only. Density is honest — not padded to 10.",
+    "Prices are L1 API snapshots from the fill pack. No invented ASINs, images, or was/%. list_price omitted.",
+    "No Mac CDP gallery — product photos stay empty until L2. Lifestyle cover is a gradient placeholder.",
+    "No accessories. No new MT10 review articles (Top/Upgrade reviews do not exist)."
+  ],
+  "dropped_accessory_asins": [],
+  "picks": [
+    {
+      "asin": "B0BG1H99FB",
+      "title": "FelixKing Office Chair, Ergonomic Desk Chair Breathable Mesh Chairs with Adjustable High Back Lumbar Support Flip-up Armrests, Executive Rolling Swivel Comfy Task Computer Chairs for Home Of",
+      "title_source": "l1_pack",
+      "brand": "FelixKing",
+      "role": "Top pick",
+      "affiliate_network": "pb",
+      "affiliate_link": "https://pboost.me/m5UOmEZg?uid=fromsll",
+      "track_status": "ok",
+      "l2_status": "l1_api",
+      "price": "129.99",
+      "price_raw": "$129.99",
+      "price_displayed": "$129.99",
+      "image": null,
+      "availability": "IN_STOCK",
+      "feature_bullets": [],
+      "l2": {
+        "ok": false,
+        "method": "l1_pb_api",
+        "status": "pending_cdp"
+      }
+    },
+    {
+      "asin": "B0CQX84Y3W",
+      "title": "Dowinx Gaming Chair with Pocket Spring Cushion for Adults, Ergonomic Computer Chair with Footrest and Massage Lumbar Support, High Back Leather Game Chair for Office, Gaming, 300LBS, White",
+      "title_source": "l1_pack",
+      "brand": "Dowinx",
+      "role": "Upgrade",
+      "affiliate_network": "pb",
+      "affiliate_link": "https://pboost.me/v5UT1R2eg?uid=fromsll",
+      "track_status": "ok",
+      "l2_status": "l1_api",
+      "price": "99.99",
+      "price_raw": "$99.99",
+      "price_displayed": "$99.99",
+      "image": null,
+      "availability": "IN_STOCK",
+      "feature_bullets": [],
+      "l2": {
+        "ok": false,
+        "method": "l1_pb_api",
+        "status": "pending_cdp"
+      }
+    },
+    {
+      "asin": "B0CQ2PCK6S",
+      "title": "Office Chair, Ergonomic Big and Tall Computer Desk Chairs, Executive Breathable Leather Chair with Adjustable Flip-up Armrests, Lumbar Support Swivel PC Chair with Rocking Function,Matte Bla",
+      "title_source": "l1_pack",
+      "brand": "HeroSet",
+      "role": "Premium",
+      "affiliate_network": "pb",
+      "affiliate_link": "https://pboost.me/G5QNR431?uid=fromsll",
+      "track_status": "ok",
+      "l2_status": "l1_api",
+      "price": "139.99",
+      "price_raw": "$139.99",
+      "price_displayed": "$139.99",
+      "image": null,
+      "availability": "IN_STOCK",
+      "feature_bullets": [],
+      "l2": {
+        "ok": false,
+        "method": "l1_pb_api",
+        "status": "pending_cdp"
+      }
+    },
+    {
+      "asin": "B0DPKB5JPL",
+      "title": "Drafting Chair Tall Office Chair with Flip-up Armrests, Adjustable Height, Enhanced Lumbar Support Ergonomic Rolling Stool, Back Support, Adjustable Foot Rest Ring for Standing Desk Dark Gra",
+      "title_source": "l1_pack",
+      "brand": "Primy",
+      "role": "Best value",
+      "affiliate_network": "pb",
+      "affiliate_link": "https://pboost.me/a5UPM0v8?uid=fromsll",
+      "track_status": "ok",
+      "l2_status": "l1_api",
+      "price": "149.99",
+      "price_raw": "$149.99",
+      "price_displayed": "$149.99",
+      "image": null,
+      "availability": "IN_STOCK",
+      "feature_bullets": [],
+      "l2": {
+        "ok": false,
+        "method": "l1_pb_api",
+        "status": "pending_cdp"
+      }
+    },
+    {
+      "asin": "B0HNP7G1VB",
+      "title": "AMSEATEC Ergonomic Mesh Office Chair,5D Flip-Up Arms,3D Lumbar Support",
+      "title_source": "l1_pack",
+      "brand": "AMSEATEC",
+      "role": "Editor pick",
+      "affiliate_network": "pb",
+      "affiliate_link": "https://pboost.me/N5UTgd49d?uid=fromsll",
+      "track_status": "ok",
+      "l2_status": "l1_api",
+      "price": "149.99",
+      "price_raw": "$149.99",
+      "price_displayed": "$149.99",
+      "image": null,
+      "availability": "IN_STOCK",
+      "feature_bullets": [],
+      "l2": {
+        "ok": false,
+        "method": "l1_pb_api",
+        "status": "pending_cdp"
+      }
+    },
+    {
+      "asin": "B0FGQ7PBK1",
+      "title": "Dowinx Big and Tall Office Chair with Pocket Spring Cushion,High Back Computer Gaming Chairs with Adjustable Armrests,Executive Desk Chairs with Lumbar Support and Footrest,PU-Brown",
+      "title_source": "l1_pack",
+      "brand": "Dowinx",
+      "role": "Alternative",
+      "affiliate_network": "pb",
+      "affiliate_link": "https://pboost.me/Y5USO2Vd?uid=fromsll",
+      "track_status": "ok",
+      "l2_status": "l1_api",
+      "price": "179.99",
+      "price_raw": "$179.99",
+      "price_displayed": "$179.99",
+      "image": null,
+      "availability": "IN_STOCK",
+      "feature_bullets": [],
+      "l2": {
+        "ok": false,
+        "method": "l1_pb_api",
+        "status": "pending_cdp"
+      }
+    },
+    {
+      "asin": "B0DZC58HPL",
+      "title": "Leather Office Chair, PU Home Computer Desk Chairs with Ergonomic Back Support, 360°Swivel Free，Small Gaming Chair with Wheels and Adjustable Armrests, for Short People Use",
+      "title_source": "l1_pack",
+      "brand": "Brick Attic",
+      "role": "Budget",
+      "affiliate_network": "pb",
+      "affiliate_link": "https://pboost.me/f5UTked7v?uid=fromsll",
+      "track_status": "ok",
+      "l2_status": "l1_api",
+      "price": "109.98",
+      "price_raw": "$109.98",
+      "price_displayed": "$109.98",
+      "image": null,
+      "availability": "IN_STOCK",
+      "feature_bullets": [],
+      "l2": {
+        "ok": false,
+        "method": "l1_pb_api",
+        "status": "pending_cdp"
+      }
+    },
+    {
+      "asin": "B0HJ86Z5DX",
+      "title": "SEDETA S100 Ergonomic Office Chair with Lumbar Support, 6D Armrests, Black",
+      "title_source": "l1_pack",
+      "brand": "SEDETA",
+      "role": "Also consider",
+      "affiliate_network": "pb",
+      "affiliate_link": "https://pboost.me/B5SP2ycCa?uid=fromsll",
+      "track_status": "ok",
+      "l2_status": "l1_api",
+      "price": "139.99",
+      "price_raw": "$139.99",
+      "price_displayed": "$139.99",
+      "image": null,
+      "availability": "IN_STOCK",
+      "feature_bullets": [],
+      "l2": {
+        "ok": false,
+        "method": "l1_pb_api",
+        "status": "pending_cdp"
+      }
+    }
+  ],
+  "l2_ok_asins": [
+    "B0BG1H99FB",
+    "B0CQX84Y3W",
+    "B0CQ2PCK6S",
+    "B0DPKB5JPL",
+    "B0HNP7G1VB",
+    "B0FGQ7PBK1",
+    "B0DZC58HPL",
+    "B0HJ86Z5DX"
+  ],
+  "l2_pending_asins": [],
+  "track_pending_asins": []
+}

@@ -51,6 +51,10 @@ CONFIRM = {
     "glass-display-cabinets": "Confirm dimensions, lighting type, and shelf rating on the retailer page.",
     "document-scanners": "Confirm camera MP, cover contents, and OS support on the retailer page.",
     "ceramic-space-heaters": "Confirm wattage, oscillation, noise, and tip-over protection on the retailer page.",
+    "pillows": "Confirm loft, fill, and firmness on the retailer page.",
+    "mattresses": "Confirm size, firmness, and trial window on the retailer page.",
+    "office-chairs": "Confirm lumbar support, weight rating, and seat depth on the retailer page.",
+    "water-flossers": "Confirm tank size, pressure settings, and tip count on the retailer page.",
 }
 
 LEDE = {
@@ -66,6 +70,10 @@ LEDE = {
     "glass-display-cabinets": "Glass display cabinets and curios for collectibles.",
     "document-scanners": "Overhead book and document scanners with flattening covers.",
     "ceramic-space-heaters": "Portable PTC ceramic space heaters for bedrooms, offices, large rooms, and garages.",
+    "pillows": "Bed pillows by loft, fill, and firmness — not pillowcases or protectors.",
+    "mattresses": "Mattresses by size and feel — not toppers, sheets, or foundations.",
+    "office-chairs": "Task and executive office chairs — not mats, casters, or lumbar pillows alone.",
+    "water-flossers": "Countertop and cordless water flossers — not replacement tips alone.",
 }
 
 COVER_COLORS = {
@@ -81,6 +89,10 @@ COVER_COLORS = {
     "glass-display-cabinets": ((180, 170, 150), (90, 80, 70)),
     "document-scanners": ((140, 140, 145), (70, 70, 75)),
     "ceramic-space-heaters": ((180, 90, 50), (90, 40, 25)),
+    "pillows": ((210, 200, 190), (120, 110, 100)),
+    "mattresses": ((160, 150, 145), (70, 65, 60)),
+    "office-chairs": ((90, 95, 105), (40, 42, 50)),
+    "water-flossers": ((80, 150, 165), (30, 70, 80)),
 }
 
 ASIN_RE = re.compile(r"\b(B0[0-9A-Z]{8,10})\b")

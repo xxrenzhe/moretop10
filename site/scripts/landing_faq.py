@@ -652,6 +652,91 @@ CATEGORY_FAQS: dict[str, list[tuple[str, str]]] = {
             "plug directly into a wall outlet — listings warn against extension cords.",
         ),
     ],
+    "pillows": [
+        (
+            "Memory foam or down-alternative fill?",
+            "This shortlist is bed pillows, not pillowcases or protectors. Confirm loft, "
+            "fill, and firmness on the retailer page before you buy.",
+        ),
+        (
+            "What loft should I pick?",
+            "Loft and firmness should match how you sleep. We do not invent a padded "
+            "Top 10 when a verified retail track is missing. Confirm loft on the listing.",
+        ),
+        (
+            "Do I need a pair or a single pillow?",
+            "Pack count is listing-specific. Confirm whether the offer is one pillow or "
+            "a pair, plus the return window, on the retailer page.",
+        ),
+        (
+            "What should I confirm on the listing?",
+            "Confirm loft, fill, and firmness on the retailer page.",
+        ),
+    ],
+    "mattresses": [
+        (
+            "Memory foam or a hybrid mattress?",
+            "This shortlist is mattresses — not toppers, sheets, or foundations. Confirm "
+            "size, firmness, and trial window on the retailer page.",
+        ),
+        (
+            "What firmness works for most sleepers?",
+            "Firmness is listing-specific. We do not invent a padded Top 10 when a "
+            "verified retail track is missing. Confirm the listed feel before you buy.",
+        ),
+        (
+            "Queen vs king — what changes?",
+            "Size changes the box and the shipping path more than the feel. Confirm "
+            "size and trial window on the retailer page.",
+        ),
+        (
+            "What should I confirm on the listing?",
+            "Confirm size, firmness, and trial window on the retailer page.",
+        ),
+    ],
+    "office-chairs": [
+        (
+            "Mesh back or a cushioned executive chair?",
+            "This shortlist is task and executive office chairs — not mats, casters, or "
+            "lumbar pillows alone. Confirm lumbar support and seat depth on the listing.",
+        ),
+        (
+            "Do I need adjustable lumbar support?",
+            "Lumbar and arm adjustments are listing-specific. We do not invent a padded "
+            "Top 10 when a verified retail track is missing. Confirm those controls "
+            "on the retailer page.",
+        ),
+        (
+            "What weight rating should I look for?",
+            "Weight and seat-depth ratings vary by model. Confirm lumbar support, "
+            "weight rating, and seat depth on the retailer page.",
+        ),
+        (
+            "What should I confirm on the listing?",
+            "Confirm lumbar support, weight rating, and seat depth on the retailer page.",
+        ),
+    ],
+    "water-flossers": [
+        (
+            "Countertop reservoir or a cordless water flosser?",
+            "This shortlist is complete water flossers — not replacement tips alone. "
+            "Confirm tank size, pressure settings, and tip count on the retailer page.",
+        ),
+        (
+            "Do I need a braces tip?",
+            "Tip kits are listing-specific. We do not invent a padded Top 10 when a "
+            "verified retail track is missing. Confirm whether a braces tip is in the box.",
+        ),
+        (
+            "How many pressure settings do I need?",
+            "Pressure and tank size vary by model. Confirm tank size, pressure settings, "
+            "and tip count on the retailer page before you buy.",
+        ),
+        (
+            "What should I confirm on the listing?",
+            "Confirm tank size, pressure settings, and tip count on the retailer page.",
+        ),
+    ],
 }
 
 LANDING_FAQ_BLOCK = re.compile(

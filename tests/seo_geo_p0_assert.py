@@ -50,14 +50,18 @@ def main() -> None:
             continue
         html = path.read_text(encoding="utf-8")
         types = ld_types(html)
-        for needed in ("CollectionPage", "ItemList", "Product"):
+        for needed in ("CollectionPage", "ItemList"):
             if needed not in types:
                 errors.append(f"{cat['slug']} hub missing {needed}")
         if "AggregateRating" in types:
             errors.append(f"{cat['slug']} hub has AggregateRating")
         n = re.search(r'"numberOfItems":(\d+)', html)
-        if n and int(n.group(1)) > 10:
+        item_count = int(n.group(1)) if n else None
+        if item_count is not None and item_count > 10:
             errors.append(f"{cat['slug']} numberOfItems={n.group(1)} > 10")
+        # Honest empty drafts (density 0) must not invent Product schema.
+        if (item_count or 0) > 0 and "Product" not in types:
+            errors.append(f"{cat['slug']} hub missing Product")
 
     authors = SITE / "authors" / "index.html"
     if not authors.exists():

@@ -65,6 +65,30 @@
       "lifestyle": "assets/img/lifestyle/cmp-hero-ceramic-space-heaters.jpg",
       "product_photos": "Lab packshots on cards only — cover is a gradient placeholder",
       "todo": "Replace gradient placeholder with a real lifestyle cover after deploy. Do not invent product photos."
+    },
+    "pillows": {
+      "status": "placeholder",
+      "lifestyle": "assets/img/lifestyle/cmp-hero-pillows.jpg",
+      "product_photos": "none — no healthy product cards",
+      "todo": "Replace gradient placeholder with a real lifestyle cover after deploy. Do not invent product photos."
+    },
+    "mattresses": {
+      "status": "placeholder",
+      "lifestyle": "assets/img/lifestyle/cmp-hero-mattresses.jpg",
+      "product_photos": "none — no healthy product cards",
+      "todo": "Replace gradient placeholder with a real lifestyle cover after deploy. Do not invent product photos."
+    },
+    "office-chairs": {
+      "status": "placeholder",
+      "lifestyle": "assets/img/lifestyle/cmp-hero-office-chairs.jpg",
+      "product_photos": "none — no healthy product cards",
+      "todo": "Replace gradient placeholder with a real lifestyle cover after deploy. Do not invent product photos."
+    },
+    "water-flossers": {
+      "status": "placeholder",
+      "lifestyle": "assets/img/lifestyle/cmp-hero-water-flossers.jpg",
+      "product_photos": "none — no healthy product cards",
+      "todo": "Replace gradient placeholder with a real lifestyle cover after deploy. Do not invent product photos."
     }
   }
 }
