@@ -1,0 +1,336 @@
+{
+  "date": "2026-10-23",
+  "waiting_for_\u90e8\u7f72\u4e0a\u7ebf": true,
+  "pages": [
+    {
+      "scene": "best dehumidifier for basement",
+      "path": "/dehumidifiers/best-dehumidifiers-for-basements/",
+      "density": 10,
+      "order_asins": [
+        "B0C9THG48W",
+        "B0B5V6MBMR",
+        "B0D1C6HWFF",
+        "B0FWB57KYQ",
+        "B0H41K4PQN",
+        "B0GXYD5JBY",
+        "B0H26KMQHT",
+        "B0FRQVWSS4",
+        "B081RG8JYR",
+        "B0FCDZM4JL"
+      ],
+      "top_pick": {
+        "asin": "B0C9THG48W",
+        "name": "Waykar 80 Pints 2025 Energy Star Dehumidifier",
+        "review": "waykar-80-pints-2025-energy-star",
+        "review_exists": true,
+        "track_network": "pb",
+        "track_ok": true
+      },
+      "upgrade": {
+        "asin": "B0D1C6HWFF",
+        "name": "AEOCKY 5500 Sq.Ft Energy Star Most Efficient",
+        "review": "aeocky-5500-sqft-energy-star-most",
+        "review_exists": true,
+        "track_network": "pb",
+        "track_ok": true
+      },
+      "tracks": [
+        {
+          "asin": "B0C9THG48W",
+          "network": "pb",
+          "ok": true,
+          "price": "189.96",
+          "score": "8.6"
+        },
+        {
+          "asin": "B0B5V6MBMR",
+          "network": "pb",
+          "ok": true,
+          "price": "259.97",
+          "score": "8.6"
+        },
+        {
+          "asin": "B0D1C6HWFF",
+          "network": "pb",
+          "ok": true,
+          "price": "224.97",
+          "score": "9.0"
+        },
+        {
+          "asin": "B0FWB57KYQ",
+          "network": "pb",
+          "ok": true,
+          "price": "339.93",
+          "score": "9.0"
+        },
+        {
+          "asin": "B0H41K4PQN",
+          "network": "pb",
+          "ok": true,
+          "price": "229.99",
+          "score": "7.0"
+        },
+        {
+          "asin": "B0GXYD5JBY",
+          "network": "pb",
+          "ok": true,
+          "price": "199.96",
+          "score": "8.6"
+        },
+        {
+          "asin": "B0H26KMQHT",
+          "network": "pb",
+          "ok": true,
+          "price": "279.99",
+          "score": "9.2"
+        },
+        {
+          "asin": "B0FRQVWSS4",
+          "network": "pb",
+          "ok": true,
+          "price": "179.91",
+          "score": "8.6"
+        },
+        {
+          "asin": "B081RG8JYR",
+          "network": "pb",
+          "ok": true,
+          "price": "175.99",
+          "score": "8.6"
+        },
+        {
+          "asin": "B0FCDZM4JL",
+          "network": "pb",
+          "ok": true,
+          "price": "159.96",
+          "score": "8.6"
+        }
+      ],
+      "new_reviews": [],
+      "reused_reviews": [
+        "waykar-80-pints-2025-energy-star",
+        "aeocky-5500-sqft-energy-star-most"
+      ]
+    },
+    {
+      "scene": "best air purifier for pets",
+      "path": "/air-purifiers/best-air-purifiers-for-pets/",
+      "density": 10,
+      "order_asins": [
+        "B0GXKSC38S",
+        "B0FS68R44C",
+        "B0CXJ97TV1",
+        "B09LMF648R",
+        "B0F32TGRMR",
+        "B0F2G5DPJN",
+        "B07X25BNBR",
+        "B0FK53C7B9",
+        "B0H4SVJ2RF",
+        "B08BR1CR78"
+      ],
+      "top_pick": {
+        "asin": "B0GXKSC38S",
+        "name": "LEVOIT Smart Pet Air Purifier for Home Pets",
+        "review": "levoit-smart-pet-air-purifier-home",
+        "review_exists": true,
+        "track_network": "pb",
+        "track_ok": true
+      },
+      "upgrade": {
+        "asin": "B0FS68R44C",
+        "name": "Dreame Pet Air Purifier AP10, Suck Up Floating",
+        "review": "dreame-pet-air-purifier-ap10-suck",
+        "review_exists": true,
+        "track_network": "pb",
+        "track_ok": true
+      },
+      "tracks": [
+        {
+          "asin": "B0GXKSC38S",
+          "network": "pb",
+          "ok": true,
+          "price": "179.99",
+          "score": "9.2"
+        },
+        {
+          "asin": "B0FS68R44C",
+          "network": "pb",
+          "ok": true,
+          "price": "209.99",
+          "score": "8.4"
+        },
+        {
+          "asin": "B0CXJ97TV1",
+          "network": "pb",
+          "ok": true,
+          "price": "73.67",
+          "score": "9.0"
+        },
+        {
+          "asin": "B09LMF648R",
+          "network": "pb",
+          "ok": true,
+          "price": "48.78",
+          "score": "9.2"
+        },
+        {
+          "asin": "B0F32TGRMR",
+          "network": "pb",
+          "ok": true,
+          "price": "599.99",
+          "score": "7.8"
+        },
+        {
+          "asin": "B0F2G5DPJN",
+          "network": "pb",
+          "ok": true,
+          "price": "575.83",
+          "score": "8.4"
+        },
+        {
+          "asin": "B07X25BNBR",
+          "network": "pb",
+          "ok": true,
+          "price": "119.99",
+          "score": "9.2"
+        },
+        {
+          "asin": "B0FK53C7B9",
+          "network": "pb",
+          "ok": true,
+          "price": "99.99",
+          "score": "9.4"
+        },
+        {
+          "asin": "B0H4SVJ2RF",
+          "network": "pb",
+          "ok": true,
+          "price": "69.99",
+          "score": "8.6"
+        },
+        {
+          "asin": "B08BR1CR78",
+          "network": "pb",
+          "ok": true,
+          "price": "49.99",
+          "score": "9.2"
+        }
+      ],
+      "new_reviews": [],
+      "reused_reviews": [
+        "levoit-smart-pet-air-purifier-home",
+        "dreame-pet-air-purifier-ap10-suck"
+      ]
+    },
+    {
+      "scene": "best robot vacuum for pet hair",
+      "path": "/robot-vacuums/pet-homes/",
+      "density": 10,
+      "order_asins": [
+        "B0FK2HPNCB",
+        "B0GGRTD2ZY",
+        "B0DWX69JVG",
+        "B0DWXBCQVP",
+        "B0DX1DQKMD",
+        "B0GTLY9Z1K",
+        "B0GCDZBK9Q",
+        "B0F3337BV7",
+        "B0DHCJ571Z",
+        "B0CQ7JCN6Z"
+      ],
+      "top_pick": {
+        "asin": "B0FK2HPNCB",
+        "name": "eufy E25 Robot Vacuum and Mop Combo, 20,000 Pa",
+        "review": "eufy-e25-robot-vacuum-mop-combo",
+        "review_exists": true,
+        "track_network": "pb",
+        "track_ok": true
+      },
+      "upgrade": {
+        "asin": "B0GGRTD2ZY",
+        "name": "Roborock 2026 New Qrevo S Pro Robot Vacuum",
+        "review": "roborock-2026-new-qrevo-s-pro",
+        "review_exists": true,
+        "track_network": "pb",
+        "track_ok": true
+      },
+      "tracks": [
+        {
+          "asin": "B0FK2HPNCB",
+          "network": "pb",
+          "ok": true,
+          "price": "629.99",
+          "score": "8.8"
+        },
+        {
+          "asin": "B0GGRTD2ZY",
+          "network": "pb",
+          "ok": true,
+          "price": "699.99",
+          "score": "8.2"
+        },
+        {
+          "asin": "B0DWX69JVG",
+          "network": "pb",
+          "ok": true,
+          "price": "299.99",
+          "score": "8.0"
+        },
+        {
+          "asin": "B0DWXBCQVP",
+          "network": "pb",
+          "ok": true,
+          "price": "279.98",
+          "score": "8.0"
+        },
+        {
+          "asin": "B0DX1DQKMD",
+          "network": "pb",
+          "ok": true,
+          "price": "1199.99",
+          "score": "8.4"
+        },
+        {
+          "asin": "B0GTLY9Z1K",
+          "network": "pb",
+          "ok": true,
+          "price": "299.99",
+          "score": "8.0"
+        },
+        {
+          "asin": "B0GCDZBK9Q",
+          "network": "pb",
+          "ok": true,
+          "price": "379.99",
+          "score": "8.8"
+        },
+        {
+          "asin": "B0F3337BV7",
+          "network": "pb",
+          "ok": true,
+          "price": "199.99",
+          "score": "8.0"
+        },
+        {
+          "asin": "B0DHCJ571Z",
+          "network": "pb",
+          "ok": true,
+          "price": "899.99",
+          "score": "8.0"
+        },
+        {
+          "asin": "B0CQ7JCN6Z",
+          "network": "pb",
+          "ok": true,
+          "price": "349.99",
+          "score": "8.0"
+        }
+      ],
+      "new_reviews": [],
+      "reused_reviews": [
+        "eufy-e25-robot-vacuum-mop-combo",
+        "roborock-2026-new-qrevo-s-pro"
+      ]
+    }
+  ]
+}
