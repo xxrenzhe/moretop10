@@ -401,7 +401,7 @@ def role_block(label: str, pick: dict) -> str:
         f"<p>### {_esc(pick['name'])} — {escape(label)}</p>\n"
         "<ul>"
         f"<li><strong>Editorial score:</strong> {escape(score)} / 10{escape(rating)}</li>"
-        f"<li><strong>Snapshot price:</strong> {escape(price)}</li>"
+        f"<li><strong>Price:</strong> {escape(price)}</li>"
         f"<li><strong>Why it fits this scene:</strong> {_esc(why)}{_esc(feat)}</li>"
         "<li><strong>Who should skip:</strong> Skip if this scene is not your job — "
         "use the parent comparison for the full shortlist.</li>"
@@ -1238,12 +1238,13 @@ def inventory_rows(scene: str, path: str, picks: list[dict], top: dict, upg: dic
             }
             for p in picks
         ],
-        "new_reviews": [],
-        "reused_reviews": [
+        "new_reviews": [
             p["review_slug"]
             for p in (top, upg)
             if p.get("review_exists")
         ],
+        "reused_reviews": [],
+        "deep_reviews": "rewritten_from_sot",
     }
 
 
@@ -1265,7 +1266,7 @@ def write_inventory(rows: list[dict]) -> Path:
             f"- Density: {row['density']} (scene-reordered; not comparison order)",
             f"- Top pick: {row['top_pick']['name']} `{row['top_pick']['asin']}` review `{row['top_pick']['review']}` (reused)",
             f"- Upgrade: {row['upgrade']['name']} `{row['upgrade']['asin']}` review `{row['upgrade']['review']}` (reused)",
-            f"- New reviews: none",
+            f"- Deep reviews: Top pick + Upgrade rewritten from SoT (see notes/p1a-deep-reviews-2026-10-23.md)",
             "- Tracks: " + ", ".join(
                 f"{t['asin']}={'ok/' + (t['network'] or '?') if t['ok'] else 'MISSING'}"
                 for t in row["tracks"]
@@ -1278,7 +1279,7 @@ def write_inventory(rows: list[dict]) -> Path:
         "- Density is 10 scene-reordered live cards (type-07 / bedroom humidifier pattern). Not a 4-item Lab shortlist.",
         "- Role blocks keep the live densify `###` inside `<p>` and append a truncated live-card feature sentence. No invented prices/images/was.",
         "- Neighbor slots include cards whose pet/basement copy is thin (AEOCKY YearChange, Dreame compact, refurbished Qrevo MaxV, Waykar 30/34). They stay last so we do not invent claims.",
-        "- Reviews: Top pick + Upgrade reused only. No new `/{cat}/reviews/{slug}/` files.",
+        "- Reviews: Top pick + Upgrade deep articles rewritten in place at existing `/{cat}/reviews/{slug}/` paths. Not a full Top 10.",
         "- Lab `/shortlists/*` paths from the locked batch are out of scope (MT10 draft only).",
         "- `robots` stays `index,follow` to match live type-07. The deploy gate is the draft PR + `waiting_for_部署上线=yes`. Do not Cloudflare Live deploy.",
         "",

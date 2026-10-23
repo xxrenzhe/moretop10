@@ -15,24 +15,35 @@ from seo_geo import VISITOR_LEAK_RE, html_without_ld_json  # noqa: E402
 SKIP = {".cache", "fixtures", "data", "assets"}
 
 
-def main() -> int:
+def collect_errors(site: Path | None = None) -> list[str]:
+    """Sitewide visitor-body leak scan. JSON-LD scripts are stripped first."""
+    site = site or SITE
     errors: list[str] = []
-    scanned = 0
-    for path in sorted(SITE.rglob("*")):
+    for path in sorted(site.rglob("*")):
         if not path.is_file():
             continue
-        if set(path.relative_to(SITE).parts) & SKIP:
+        if set(path.relative_to(site).parts) & SKIP:
             continue
         if path.suffix not in {".html", ".txt"}:
             continue
-        scanned += 1
         text = path.read_text(encoding="utf-8")
         if path.suffix == ".html":
             text = html_without_ld_json(text)
         hit = VISITOR_LEAK_RE.search(text)
         if hit:
-            errors.append(f"{path.relative_to(SITE)} still has {hit.group(0)!r}")
+            errors.append(f"{path.relative_to(site)} still has {hit.group(0)!r}")
+    return errors
 
+
+def main() -> int:
+    errors = collect_errors(SITE)
+    scanned = sum(
+        1
+        for path in SITE.rglob("*")
+        if path.is_file()
+        and path.suffix in {".html", ".txt"}
+        and not (set(path.relative_to(SITE).parts) & SKIP)
+    )
     if errors:
         print("visitor_copy_assert failed:")
         for err in errors[:40]:

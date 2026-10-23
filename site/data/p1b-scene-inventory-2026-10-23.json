@@ -110,7 +110,8 @@
       "reused_reviews": [
         "levoit-smart-pet-air-purifier-home",
         "levoit-air-purifier-home-bedroom-small"
-      ]
+      ],
+      "deep_reviews": "rewritten_from_sot"
     },
     {
       "scene": "best air purifier for mold",
@@ -220,7 +221,8 @@
       "reused_reviews": [
         "mooka-air-purifier-home-bedroom-large",
         "dreame-air-purifier-pm20-home-large"
-      ]
+      ],
+      "deep_reviews": "rewritten_from_sot"
     },
     {
       "scene": "best air purifier for bedrooms",
@@ -330,7 +332,8 @@
       "reused_reviews": [
         "levoit-air-purifier-home-bedroom-small",
         "mooka-air-purifier-home-bedroom-large"
-      ]
+      ],
+      "deep_reviews": "rewritten_from_sot"
     },
     {
       "scene": "best air purifier for dust",
@@ -440,7 +443,8 @@
       "reused_reviews": [
         "levoit-air-purifier-home-bedroom-small",
         "dreame-pet-air-purifier-ap10-suck"
-      ]
+      ],
+      "deep_reviews": "rewritten_from_sot"
     },
     {
       "scene": "best air purifier for smoke",
@@ -550,7 +554,8 @@
       "reused_reviews": [
         "dreame-smart-air-purifier-pm10-home",
         "levoit-smart-pet-air-purifier-home"
-      ]
+      ],
+      "deep_reviews": "rewritten_from_sot"
     },
     {
       "scene": "best air purifier for large rooms",
@@ -660,7 +665,8 @@
       "reused_reviews": [
         "mooka-air-purifier-home-bedroom-large",
         "dreame-air-purifier-pm20-home-large"
-      ]
+      ],
+      "deep_reviews": "rewritten_from_sot"
     },
     {
       "scene": "best humidifier for babies",
@@ -770,7 +776,8 @@
       "reused_reviews": [
         "homvana-36l-cool-mist-humidifiers-bedroom",
         "homvana-humidifier-large-room-7l-807ft"
-      ]
+      ],
+      "deep_reviews": "rewritten_from_sot"
     },
     {
       "scene": "best standing desk for home office",
@@ -880,7 +887,9 @@
       "reused_reviews": [
         "fezibo-60-x-30-inch-standing",
         "fezibo-63-x-37-inch-large"
-      ]
+      ],
+      "deep_reviews": "rewritten_from_sot"
     }
-  ]
+  ],
+  "deep_reviews": "p1b_top_pick_upgrade_only"
 }
