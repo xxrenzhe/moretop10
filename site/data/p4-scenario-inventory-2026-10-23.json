@@ -1,0 +1,243 @@
+{
+  "date": "2026-10-23",
+  "waiting_for_部署上线": true,
+  "published": false,
+  "live": false,
+  "merged": false,
+  "independent_of_shortlist_lab": true,
+  "do_not_touch": [
+    "#48",
+    "#49",
+    "Lab",
+    "RR",
+    "OL"
+  ],
+  "pillows_hub": "exists_p2_not_recreated",
+  "fill_pack": null,
+  "fill_status": "need_fill",
+  "need_fill": [
+    "/espresso-machines/best-espresso-machines-for-home/",
+    "/litter-boxes/best-automatic-litter-boxes/",
+    "/security-cameras/best-security-cameras-for-outdoor/",
+    "/cordless-vacuums/best-cordless-vacuums-for-pet-hair/",
+    "/hair-dryers/best-hair-dryers-for-curly-hair/",
+    "/humidifiers/best-humidifiers-for-large-rooms/",
+    "/projectors/best-projectors-for-outdoor/",
+    "/pillows/best-pillows-for-side-sleepers/"
+  ],
+  "sources": {
+    "1_pb": {
+      "live_query": "skipped_no_token",
+      "note": "No affiliate API tokens in this VM environment. Do not invent Check price hops."
+    },
+    "2_yp": {
+      "live_query": "skipped_no_token",
+      "note": "No affiliate API tokens in this VM environment. Do not invent Check price hops."
+    },
+    "l1_fill_pack": null
+  },
+  "occupied_groups": {
+    "litter_main": [
+      "B0CSKBWBF6",
+      "B0DFYF2D7D",
+      "B0DFYJ29XG",
+      "B0DFYKK25Y",
+      "B0DFYLFFG1",
+      "B0DK6RSFG2",
+      "B0DM83CLW3",
+      "B0GL74MB73",
+      "B0GL7Q6YXZ",
+      "B0HC6Y2MS3"
+    ],
+    "video_doorbells": [
+      "B09H2T18WD",
+      "B09SFQ5V16",
+      "B0B7S3JSG7",
+      "B0CD7NT4Y9",
+      "B0D4Z7SX71",
+      "B0DYJ6X6RR",
+      "B0F5914CT1",
+      "B0FX3LNLLQ",
+      "B0GDTGZZ6N",
+      "B0GHPW7SVQ"
+    ],
+    "robot_pet_hair": [
+      "B0CQ7JCN6Z",
+      "B0DHCJ571Z",
+      "B0DWX69JVG",
+      "B0DWXBCQVP",
+      "B0DX1DQKMD",
+      "B0F3337BV7",
+      "B0FK2HPNCB",
+      "B0GCDZBK9Q",
+      "B0GGRTD2ZY",
+      "B0GTLY9Z1K"
+    ],
+    "humidifiers_babies": [
+      "B095KGXPW5",
+      "B09C24TYGQ",
+      "B0B1DQ8KV3",
+      "B0BLV8BM5J",
+      "B0C2GKJ9RT",
+      "B0C369CCDY",
+      "B0C4GHYH2M",
+      "B0DF567NW8",
+      "B0DSP78FG4",
+      "B0GSR397Z7"
+    ],
+    "pillows_neck_pain": [
+      "B0D3LM3FH3",
+      "B0DT67CS22",
+      "B0F6LR3CYP",
+      "B0HKJ5NW57",
+      "B0HKJCJZ1N",
+      "B0HKR8LX5N"
+    ]
+  },
+  "pages": [
+    {
+      "n": 1,
+      "path": "/espresso-machines/best-espresso-machines-for-home/",
+      "type": "07-best-of",
+      "parent": "/espresso-machines/",
+      "published": false,
+      "robots": "noindex,follow",
+      "density": 0,
+      "density_target": "6-10 scene-fit if inventory allows",
+      "fill_status": "need_fill",
+      "cta_status": "empty",
+      "cta_rule": "PB fromsll only when a verified track exists; never invent hops",
+      "reviews": "none — Top pick + Upgrade articles do not exist for this scene",
+      "ban_groups": [],
+      "picks": []
+    },
+    {
+      "n": 2,
+      "path": "/litter-boxes/best-automatic-litter-boxes/",
+      "type": "07-best-of",
+      "parent": "/litter-boxes/",
+      "published": false,
+      "robots": "noindex,follow",
+      "density": 0,
+      "density_target": "6-10 scene-fit if inventory allows",
+      "fill_status": "need_fill",
+      "cta_status": "empty",
+      "cta_rule": "PB fromsll only when a verified track exists; never invent hops",
+      "reviews": "none — Top pick + Upgrade articles do not exist for this scene",
+      "ban_groups": [
+        "litter_main"
+      ],
+      "picks": []
+    },
+    {
+      "n": 3,
+      "path": "/security-cameras/best-security-cameras-for-outdoor/",
+      "type": "07-best-of",
+      "parent": "/security-cameras/",
+      "published": false,
+      "robots": "noindex,follow",
+      "density": 0,
+      "density_target": "6-10 scene-fit if inventory allows",
+      "fill_status": "need_fill",
+      "cta_status": "empty",
+      "cta_rule": "PB fromsll only when a verified track exists; never invent hops",
+      "reviews": "none — Top pick + Upgrade articles do not exist for this scene",
+      "ban_groups": [
+        "video_doorbells"
+      ],
+      "picks": []
+    },
+    {
+      "n": 4,
+      "path": "/cordless-vacuums/best-cordless-vacuums-for-pet-hair/",
+      "type": "07-best-of",
+      "parent": "/cordless-vacuums/",
+      "published": false,
+      "robots": "noindex,follow",
+      "density": 0,
+      "density_target": "6-10 scene-fit if inventory allows",
+      "fill_status": "need_fill",
+      "cta_status": "empty",
+      "cta_rule": "PB fromsll only when a verified track exists; never invent hops",
+      "reviews": "none — Top pick + Upgrade articles do not exist for this scene",
+      "ban_groups": [
+        "robot_pet_hair"
+      ],
+      "picks": []
+    },
+    {
+      "n": 5,
+      "path": "/hair-dryers/best-hair-dryers-for-curly-hair/",
+      "type": "07-best-of",
+      "parent": "/hair-dryers/",
+      "published": false,
+      "robots": "noindex,follow",
+      "density": 0,
+      "density_target": "6-10 scene-fit if inventory allows",
+      "fill_status": "need_fill",
+      "cta_status": "empty",
+      "cta_rule": "PB fromsll only when a verified track exists; never invent hops",
+      "reviews": "none — Top pick + Upgrade articles do not exist for this scene",
+      "ban_groups": [],
+      "picks": []
+    },
+    {
+      "n": 6,
+      "path": "/humidifiers/best-humidifiers-for-large-rooms/",
+      "type": "07-best-of",
+      "parent": "/humidifiers/",
+      "published": false,
+      "robots": "noindex,follow",
+      "density": 0,
+      "density_target": "6-10 scene-fit if inventory allows",
+      "fill_status": "need_fill",
+      "cta_status": "empty",
+      "cta_rule": "PB fromsll only when a verified track exists; never invent hops",
+      "reviews": "none — Top pick + Upgrade articles do not exist for this scene",
+      "ban_groups": [
+        "humidifiers_babies"
+      ],
+      "picks": []
+    },
+    {
+      "n": 7,
+      "path": "/projectors/best-projectors-for-outdoor/",
+      "type": "07-best-of",
+      "parent": "/projectors/",
+      "published": false,
+      "robots": "noindex,follow",
+      "density": 0,
+      "density_target": "6-10 scene-fit if inventory allows",
+      "fill_status": "need_fill",
+      "cta_status": "empty",
+      "cta_rule": "PB fromsll only when a verified track exists; never invent hops",
+      "reviews": "none — Top pick + Upgrade articles do not exist for this scene",
+      "ban_groups": [],
+      "picks": []
+    },
+    {
+      "n": 8,
+      "path": "/pillows/best-pillows-for-side-sleepers/",
+      "type": "07-best-of",
+      "parent": "/pillows/",
+      "published": false,
+      "robots": "noindex,follow",
+      "density": 0,
+      "density_target": "6-10 scene-fit if inventory allows",
+      "fill_status": "need_fill",
+      "cta_status": "empty",
+      "cta_rule": "PB fromsll only when a verified track exists; never invent hops",
+      "reviews": "none — Top pick + Upgrade articles do not exist for this scene",
+      "ban_groups": [
+        "pillows_neck_pain"
+      ],
+      "picks": []
+    }
+  ],
+  "notes": [
+    "Affiliate tokens were not available in this VM. Empty shells stay empty.",
+    "No invented ASINs, prices, was/%, gallery, or Check price hops.",
+    "Parent hubs already exist — including /pillows/ from P2. Not recreated.",
+    "published=false / noindex until a later 部署上线 order."
+  ]
+}

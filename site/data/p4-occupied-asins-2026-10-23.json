@@ -1,0 +1,83 @@
+{
+  "date": "2026-10-23",
+  "waiting_for_部署上线": true,
+  "note": "Collision bans for P4 scene fills. Do not invent replacements. Empty shells stay empty until a verified pack row clears these lists.",
+  "groups": {
+    "litter_main": {
+      "reason": "#2 dedupe litter-boxes main chart",
+      "applies_to": ["best-automatic-litter-boxes"],
+      "asins": [
+        "B0DFYF2D7D",
+        "B0CSKBWBF6",
+        "B0GL7Q6YXZ",
+        "B0DFYLFFG1",
+        "B0HC6Y2MS3",
+        "B0DFYKK25Y",
+        "B0DFYJ29XG",
+        "B0DK6RSFG2",
+        "B0DM83CLW3",
+        "B0GL74MB73"
+      ]
+    },
+    "video_doorbells": {
+      "reason": "#3 no doorbells on outdoor security-camera scene",
+      "applies_to": ["best-security-cameras-for-outdoor"],
+      "asins": [
+        "B0CD7NT4Y9",
+        "B0GHPW7SVQ",
+        "B0D4Z7SX71",
+        "B0F5914CT1",
+        "B09H2T18WD",
+        "B09SFQ5V16",
+        "B0GDTGZZ6N",
+        "B0DYJ6X6RR",
+        "B0B7S3JSG7",
+        "B0FX3LNLLQ"
+      ]
+    },
+    "robot_pet_hair": {
+      "reason": "#4 do not collide robot-vacuums pet-hair / pet-homes ASINs",
+      "applies_to": ["best-cordless-vacuums-for-pet-hair"],
+      "asins": [
+        "B0FK2HPNCB",
+        "B0GGRTD2ZY",
+        "B0DWX69JVG",
+        "B0DWXBCQVP",
+        "B0DX1DQKMD",
+        "B0GTLY9Z1K",
+        "B0GCDZBK9Q",
+        "B0F3337BV7",
+        "B0DHCJ571Z",
+        "B0CQ7JCN6Z"
+      ]
+    },
+    "humidifiers_babies": {
+      "reason": "#6 no baby-humidifier ASINs on large-room scene",
+      "applies_to": ["best-humidifiers-for-large-rooms"],
+      "asins": [
+        "B0DF567NW8",
+        "B0C369CCDY",
+        "B0DSP78FG4",
+        "B0C2GKJ9RT",
+        "B0B1DQ8KV3",
+        "B0C4GHYH2M",
+        "B09C24TYGQ",
+        "B095KGXPW5",
+        "B0BLV8BM5J",
+        "B0GSR397Z7"
+      ]
+    },
+    "pillows_neck_pain": {
+      "reason": "#8 dedupe pillows-for-neck-pain / P2 pillow shortlist",
+      "applies_to": ["best-pillows-for-side-sleepers"],
+      "asins": [
+        "B0F6LR3CYP",
+        "B0HKJ5NW57",
+        "B0D3LM3FH3",
+        "B0HKR8LX5N",
+        "B0DT67CS22",
+        "B0HKJCJZ1N"
+      ]
+    }
+  }
+}
