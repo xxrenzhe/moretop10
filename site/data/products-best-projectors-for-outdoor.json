@@ -1,7 +1,98 @@
 {
   "path": "/projectors/best-projectors-for-outdoor/",
   "published": false,
-  "fill_status": "need_fill",
+  "fill_status": "filled",
   "waiting_for_部署上线": true,
-  "products": []
+  "products": [
+    {
+      "asin": "B0CHW168LV",
+      "title": "NEBULA Mars 3 Air Portable Outdoor Projector, Built-In Battery",
+      "role": "Top pick",
+      "brand": "Nebula",
+      "track_url": "https://pboost.me/C5QNq0Na?uid=fromsll",
+      "price": "509.99",
+      "price_str": "$509.99"
+    },
+    {
+      "asin": "B0FDGGQVXC",
+      "title": "Aurzen Roku TV Smart Projector with Wifi and Bluetooth, D1R Cube Roku Streaming Experience Built-in, Sealed Optical Engine, 1080P FHD, Dolby Audio, Portable Projector for Home/Outdoor Movies",
+      "role": "Upgrade",
+      "brand": "Aurzen",
+      "track_url": "https://pboost.me/y5Qg03Iw?uid=fromsll",
+      "price": "249.99",
+      "price_str": "$249.99"
+    },
+    {
+      "asin": "B0FKMHPCCB",
+      "title": "Aurzen Roku TV D1R Smart Portable Outdoor Projector with WiFi and Bluetooth",
+      "role": "Best value",
+      "brand": "Aurzen",
+      "track_url": "https://pboost.me/W5QMmDXv?uid=fromsll",
+      "price": "129.98",
+      "price_str": "$129.98"
+    },
+    {
+      "asin": "B0D3T44YZ2",
+      "title": "Aurzen EAZZE D1 Smart Portable Outdoor Projector with WiFi and Bluetooth",
+      "role": "Premium",
+      "brand": "Aurzen",
+      "track_url": "https://pboost.me/r5QNZAdrd?uid=fromsll",
+      "price": "109.99",
+      "price_str": "$109.99"
+    },
+    {
+      "asin": "B0GSQKP7RF",
+      "title": "Aurzen Roku TV D1R air USB-C Powered Smart Portable Outdoor Projector White",
+      "role": "Alternative",
+      "brand": "Aurzen",
+      "track_url": "https://pboost.me/g5QNk90k?uid=fromsll",
+      "price": "149.97",
+      "price_str": "$149.97"
+    },
+    {
+      "asin": "B0FG322D4R",
+      "title": "HAPPRUN Portable Smart Mini Projector with WiFi and Bluetooth 4K Decoding",
+      "role": "Also consider",
+      "brand": "HAPPRUN",
+      "track_url": "https://pboost.me/q5UR6g38?uid=fromsll",
+      "price": "139.96",
+      "price_str": "$139.96"
+    },
+    {
+      "asin": "B0H4TKY7WG",
+      "title": "Aurzen Roku TV E1R Smart Portable Mini Projector with WiFi and Bluetooth",
+      "role": "Editor pick",
+      "brand": "Aurzen",
+      "track_url": "https://pboost.me/h5QN1vcq9?uid=fromsll",
+      "price": "89.99",
+      "price_str": "$89.99"
+    },
+    {
+      "asin": "B0F832HNG4",
+      "title": "HAPPRUN 2000 ANSI Lumens Outdoor Projector with Built-in Streaming Apps",
+      "role": "Budget",
+      "brand": "HAPPRUN",
+      "track_url": "https://pboost.me/j5UR9e03t?uid=fromsll",
+      "price": "669.99",
+      "price_str": "$669.99"
+    },
+    {
+      "asin": "B0G78PKNCJ",
+      "title": "HAPPRUN 3000 ANSI Lumens Outdoor Projector with Official Google TV",
+      "role": "Runner-up",
+      "brand": "HAPPRUN",
+      "track_url": "https://pboost.me/D5UR0a534?uid=fromsll",
+      "price": "499.96",
+      "price_str": "$499.96"
+    },
+    {
+      "asin": "B0H7J15S7R",
+      "title": "HAPPRUN 3000 ANSI Lumens Outdoor Projector with Built-in Apps, Smart OS",
+      "role": "Worth a look",
+      "brand": "HAPPRUN",
+      "track_url": "https://pboost.me/G5UR3c3a?uid=fromsll",
+      "price": "449.95",
+      "price_str": "$449.95"
+    }
+  ]
 }

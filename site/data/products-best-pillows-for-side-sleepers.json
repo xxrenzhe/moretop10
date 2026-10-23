@@ -1,7 +1,98 @@
 {
   "path": "/pillows/best-pillows-for-side-sleepers/",
   "published": false,
-  "fill_status": "need_fill",
+  "fill_status": "filled",
   "waiting_for_部署上线": true,
-  "products": []
+  "products": [
+    {
+      "asin": "B0DT9MGL6H",
+      "title": "Sweetnight Cooling Pillows King Size Set of 2, Shredded Memory Foam Pillows 2 Pack for Hot Sleepers, Cold Bed Pillows for Sleeping, Washable with Removable Cover, Cool Night",
+      "role": "Top pick",
+      "brand": "Sweetnight",
+      "track_url": "https://pboost.me/r5UT1Y9a3?uid=fromsll",
+      "price": "89.99",
+      "price_str": "$89.99"
+    },
+    {
+      "asin": "B0FFGLQ5YR",
+      "title": "Sweetnight Cooling Pillows Queen Size Set of 2, Shredded Memory Foam Pillows 2 Pack for Hot Sleepers, Cold Bed Pillows for Sleeping, Washable with Removable Cover, Cool Night",
+      "role": "Upgrade",
+      "brand": "Sweetnight",
+      "track_url": "https://pboost.me/M5UTCTbD?uid=fromsll",
+      "price": "81.31",
+      "price_str": "$81.31"
+    },
+    {
+      "asin": "B0HKMHRNV5",
+      "title": "Sweetnight CoolNest Gel Memory Foam Pillows, Queen Size Cooling Bed Pillows",
+      "role": "Best value",
+      "brand": "Sweetnight",
+      "track_url": "https://pboost.me/o5UT8cbc?uid=fromsll",
+      "price": "79.99",
+      "price_str": "$79.99"
+    },
+    {
+      "asin": "B0HFJKJZ8M",
+      "title": "Sweetnight CoolNest Gel Memory Foam Pillows, Pillows Queen Size Set of 2",
+      "role": "Premium",
+      "brand": "Sweetnight",
+      "track_url": "https://pboost.me/T5UTEQ1ag?uid=fromsll",
+      "price": "109.99",
+      "price_str": "$109.99"
+    },
+    {
+      "asin": "B0FMJWRVM8",
+      "title": "Sweetnight Cooling Pillows King Size Set of 2, CertiPUR-US Pillows",
+      "role": "Alternative",
+      "brand": "Sweetnight",
+      "track_url": "https://pboost.me/A5UTc2bg?uid=fromsll",
+      "price": "60.91",
+      "price_str": "$60.91"
+    },
+    {
+      "asin": "B0GWK7Q33H",
+      "title": "Sweetnight Cooling Pillows Queen Size Set of 2, CertiPUR-US Pillows",
+      "role": "Also consider",
+      "brand": "Sweetnight",
+      "track_url": "https://pboost.me/q5UTrCbg?uid=fromsll",
+      "price": "43.1",
+      "price_str": "$43.10"
+    },
+    {
+      "asin": "B0D7Q9H63S",
+      "title": "SweetNight Bed Pillows Standard Size Set of 2, Fluffy Luxury Hotel Collection Gusseted Pillows for Neck and Shoulder, Side Back Stomach Sleeper Pillow, Cozy Night 18\"X24\"",
+      "role": "Editor pick",
+      "brand": "Sweetnight",
+      "track_url": "https://pboost.me/R5UTvj1ba?uid=fromsll",
+      "price": "32.27",
+      "price_str": "$32.27"
+    },
+    {
+      "asin": "B0D7Q997YS",
+      "title": "SweetNight Bed Pillows King Size Set of 2, Fluffy Luxury Hotel Collection Gusseted Large Pillows for Neck and Shoulder, Side Back Stomach Sleeper Pillow, Cozy Night 18\"X34\"",
+      "role": "Budget",
+      "brand": "Sweetnight",
+      "track_url": "https://pboost.me/U5UTScbC?uid=fromsll",
+      "price": "31.41",
+      "price_str": "$31.41"
+    },
+    {
+      "asin": "B0D7Q9FRHF",
+      "title": "SweetNight Bed Pillows Queen Size Set of 2, Fluffy Luxury Hotel Pillows Collection Gusseted for Neck and Shoulder, Side Back Stomach Sleeper Pillow, Cozy Night 18\"X28\"",
+      "role": "Runner-up",
+      "brand": "Sweetnight",
+      "track_url": "https://pboost.me/v5UTauda1?uid=fromsll",
+      "price": "29.99",
+      "price_str": "$29.99"
+    },
+    {
+      "asin": "B0GSFGD75J",
+      "title": "BEDSUM Queen Size Bed Pillows Set of 2, Down Alternative Pillows for Sleeping, Soft & Supportive Gusseted Bed Pillows for Side, Back and Stomach Sleepers, Machine Washable, Khaki",
+      "role": "Worth a look",
+      "brand": "Bedsum",
+      "track_url": "https://pboost.me/O5USbdDv?uid=fromsll",
+      "price": "26.99",
+      "price_str": "$26.99"
+    }
+  ]
 }

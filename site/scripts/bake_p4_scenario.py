@@ -82,8 +82,7 @@ ACCESSORY_RE = re.compile(
     r"replacement|cartridge|filter pack|brush head|roller only|mop pad|"
     r"diffuser only|concentrator only|attachment only|pillowcase|protector|"
     r"sham\b|litter beads|trash bag|liner only|solar panel only|wall mount only|"
-    r"screen only|tripod only|portafilter only|tamper only|capsule only|"
-    r"3 pack|2 pack",
+    r"screen only|tripod only|portafilter only|tamper only|capsule only",
     re.I,
 )
 DOORBELL_RE = re.compile(r"doorbell|video door", re.I)
@@ -314,18 +313,56 @@ def _esc(text: str) -> str:
     return escape(text or "", quote=True)
 
 
+OCCUPIED_SOURCE_MAP = {
+    "litter_main": ("hub:litter-boxes",),
+    "video_doorbells": ("hub:video-doorbells",),
+    "robot_pet_hair": (
+        "hub:robot-vacuums",
+        "inv:/robot-vacuums/pet-homes/",
+        "scene:pet-homes",
+    ),
+    "humidifiers_babies": (
+        "hub:humidifiers",
+        "inv:/humidifiers/best-humidifiers-for-babies/",
+        "scene:humidifiers-babies",
+    ),
+    "pillows_neck_pain": (
+        "hub:pillows",
+        "inv:/pillows/best-pillows-for-neck-pain/",
+        "shortlist-pillows",
+    ),
+}
+
+
+def _asin_set(values: Any) -> set[str]:
+    return {str(a).strip().upper() for a in values or [] if str(a).strip()}
+
+
 def load_occupied() -> dict[str, set[str]]:
     blob = json.loads(OCCUPIED_PATH.read_text(encoding="utf-8"))
     out: dict[str, set[str]] = {}
-    for key, group in (blob.get("groups") or {}).items():
-        out[key] = {
-            str(a).strip().upper() for a in group.get("asins") or [] if str(a).strip()
-        }
+    if blob.get("groups"):
+        for key, group in blob["groups"].items():
+            out[key] = _asin_set(group.get("asins"))
+    by_source = blob.get("by_source") or {}
+    if by_source:
+        for key, sources in OCCUPIED_SOURCE_MAP.items():
+            merged: set[str] = set()
+            for src in sources:
+                merged |= _asin_set(by_source.get(src))
+            out[key] = merged
+    out["global"] = _asin_set(blob.get("flat"))
+    if not out["global"]:
+        extra: set[str] = set()
+        for key, values in out.items():
+            if key != "global":
+                extra |= values
+        out["global"] = extra
     return out
 
 
 def banned_for(scene: dict[str, Any], occupied: dict[str, set[str]]) -> set[str]:
-    banned: set[str] = set()
+    banned = set(occupied.get("global") or ())
     for key in scene.get("ban_groups") or []:
         banned |= occupied.get(key) or set()
     return banned

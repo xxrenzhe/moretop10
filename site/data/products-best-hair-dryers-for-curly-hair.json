@@ -1,7 +1,98 @@
 {
   "path": "/hair-dryers/best-hair-dryers-for-curly-hair/",
   "published": false,
-  "fill_status": "need_fill",
+  "fill_status": "filled",
   "waiting_for_部署上线": true,
-  "products": []
+  "products": [
+    {
+      "asin": "B0FG2N9M9N",
+      "title": "Wavytalk Blown Away Ionic Hair Dryer with Diffuser for Curly Hair",
+      "role": "Top pick",
+      "brand": "Wavytalk",
+      "track_url": "https://pboost.me/d5QNTfdnT?uid=fromsll",
+      "price": "36.71",
+      "price_str": "$36.71"
+    },
+    {
+      "asin": "B0CY8DS8B1",
+      "title": "slopehill Professional Hair Dryer with Diffuser, Ionic Hair Dryer,Lightweight Compact Powerful & Fast Salon Blow Dryer with High Speed Brushless Motor, Travel Hairdryer, Women & Men (Ceramic",
+      "role": "Upgrade",
+      "brand": "slopehill",
+      "track_url": "https://pboost.me/T5UQdaD81?uid=fromsll",
+      "price": "89.97",
+      "price_str": "$89.97"
+    },
+    {
+      "asin": "B0F8QH8XHV",
+      "title": "Dreame Pocket Pro Hair Dryer, Dual Voltage Travel Blow Dryer with Diffuser, 1300W Professional HighSpeed Ionic Hair Blower, Fast Drying, Low Noise, Lightweight, No Heat Damage, Global Travel",
+      "role": "Best value",
+      "brand": "Dreame",
+      "track_url": "https://pboost.me/m5QNz81z?uid=fromsll",
+      "price": "109.94",
+      "price_str": "$109.94"
+    },
+    {
+      "asin": "B0CY4QMMBH",
+      "title": "slopehill Professional Ionic Hair Dryer with Diffuser - Lightweight, Compact, Powerful & Fast Salon Blow Dryer with High Speed Brushless Motor for Travel, Women & Men Ceramic, Black",
+      "role": "Premium",
+      "brand": "slopehill",
+      "track_url": "https://pboost.me/O5UQ318c?uid=fromsll",
+      "price": "89.99",
+      "price_str": "$89.99"
+    },
+    {
+      "asin": "B0CYLVK9JJ",
+      "title": "Hair Dryer, Wavytalk Turblow Pro Fast Drying Blow Dryer with Diffuser, High Speed Hair Dryer with 110,000 RPM, Pro Negative Ions for Reduces Damage, Frizz Smoothing, 3 Speeds & 3 Temps, Matt",
+      "role": "Alternative",
+      "brand": "Wavytalk",
+      "track_url": "https://pboost.me/s5QNtT11?uid=fromsll",
+      "price": "61.35",
+      "price_str": "$61.35"
+    },
+    {
+      "asin": "B0CSFTC3GT",
+      "title": "Slopehill Professional Ionic Hair Dryer, Powerful 1800W Fast Drying Low Noise Blow Dryer with 2 Concentrator Nozzle 1 Diffuser Attachments for Home Salon Travel (Prussian Blue)",
+      "role": "Also consider",
+      "brand": "slopehill",
+      "track_url": "https://pboost.me/o5UQ9680?uid=fromsll",
+      "price": "39.99",
+      "price_str": "$39.99"
+    },
+    {
+      "asin": "B0H2YXNQYB",
+      "title": "Dreame Gleam Travel Hair Dryer for Women, 110,000RPM High Speed Hair Blower with Diffusers, Fast Drying, 200M Negative Ions for Frizz-Free, Smart Heat Control, Compact Hair Dryer",
+      "role": "Editor pick",
+      "brand": "Dreame",
+      "track_url": "https://pboost.me/L5SNCM6H3?uid=fromsll",
+      "price": "69.95",
+      "price_str": "$69.95"
+    },
+    {
+      "asin": "B0CYZCJNYZ",
+      "title": "slopehill Professional Ionic Hair Dryer with Diffuser 2000W",
+      "role": "Budget",
+      "brand": "slopehill",
+      "track_url": "https://pboost.me/n5UQ6WZ72?uid=fromsll",
+      "price": "89.98",
+      "price_str": "$89.98"
+    },
+    {
+      "asin": "B0DRF7M6H5",
+      "title": "DREAME Pocket Pure High-Speed Hair Dryer, Lightweight Foldable Blow Dryer with 110,000 RPM Motor, Ionic Care, 5 Modes, Travel Bag, Quiet Fast Drying for Frizz-Free Hair",
+      "role": "Runner-up",
+      "brand": "Dreame",
+      "track_url": "https://pboost.me/s5QNSCgC?uid=fromsll",
+      "price": "71.97",
+      "price_str": "$71.97"
+    },
+    {
+      "asin": "B0FL1R84WL",
+      "title": "slopehill Dual Voltage Travel Hair Dryer with Diffuser, Ionic, 1500W, Gold",
+      "role": "Worth a look",
+      "brand": "slopehill",
+      "track_url": "https://pboost.me/w5UQUz7T?uid=fromsll",
+      "price": "62.99",
+      "price_str": "$62.99"
+    }
+  ]
 }

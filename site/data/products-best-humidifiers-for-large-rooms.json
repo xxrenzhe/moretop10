@@ -1,7 +1,98 @@
 {
   "path": "/humidifiers/best-humidifiers-for-large-rooms/",
   "published": false,
-  "fill_status": "need_fill",
+  "fill_status": "filled",
   "waiting_for_部署上线": true,
-  "products": []
+  "products": [
+    {
+      "asin": "B08FHZTYJB",
+      "title": "Levoit LV600HH 6L Warm&Cool Mist Humidifier for Bedroom Large Room Home",
+      "role": "Top pick",
+      "brand": "LEVOIT",
+      "track_url": "https://pboost.me/S5UI58q8?uid=fromsll",
+      "price": "99.99",
+      "price_str": "$99.99"
+    },
+    {
+      "asin": "B08HS45N13",
+      "title": "Levoit Humidifiers for Bedroom Large Room, 6L, 60H Runtime, 26dB, Smart App",
+      "role": "Upgrade",
+      "brand": "LEVOIT",
+      "track_url": "https://pboost.me/i5QMjwZg?uid=fromsll",
+      "price": "69.96",
+      "price_str": "$69.96"
+    },
+    {
+      "asin": "B0GR99R7XD",
+      "title": "Levoit Humidifiers for Bedroom Large Room, 6.2L Tank, Smart App, Quiet 26dB",
+      "role": "Best value",
+      "brand": "LEVOIT",
+      "track_url": "https://pboost.me/o5QNYDy0?uid=fromsll",
+      "price": "67.99",
+      "price_str": "$67.99"
+    },
+    {
+      "asin": "B0DG5G7GDN",
+      "title": "Homvana Cool Mist Humidifiers for Bedroom, Baby, Large Room (3.6L, Clear)",
+      "role": "Premium",
+      "brand": "Homvana",
+      "track_url": "https://pboost.me/l5QNtZDl3?uid=fromsll",
+      "price": "31.49",
+      "price_str": "$31.49"
+    },
+    {
+      "asin": "B01MYGNGKK",
+      "title": "Levoit Humidifiers for Bedroom Large Room Home, Warm and Cool Mist, White",
+      "role": "Alternative",
+      "brand": "LEVOIT",
+      "track_url": "https://pboost.me/Z5QOt9tu0?uid=fromsll",
+      "price": "99.99",
+      "price_str": "$99.99"
+    },
+    {
+      "asin": "B0G1SQ5C11",
+      "title": "Levoit Evaporative Humidifiers for Home Whole House, 23L Superior 6000S",
+      "role": "Also consider",
+      "brand": "LEVOIT",
+      "track_url": "https://pboost.me/E5QNWkxc?uid=fromsll",
+      "price": "249.99",
+      "price_str": "$249.99"
+    },
+    {
+      "asin": "B09WQJZ7ZN",
+      "title": "Levoit Classic300 Ultrasonic Top Fill Humidifier, Extra Large 6L Tank, 60H",
+      "role": "Editor pick",
+      "brand": "LEVOIT",
+      "track_url": "https://pboost.me/r5QOcK4ua?uid=fromsll",
+      "price": "69.99",
+      "price_str": "$69.99"
+    },
+    {
+      "asin": "B0GQH7J1SW",
+      "title": "LEVOIT Smart Humidifier for Bedroom, 4.2L Top Fill Cool Mist for Large Room",
+      "role": "Budget",
+      "brand": "LEVOIT",
+      "track_url": "https://pboost.me/W5QN00D6?uid=fromsll",
+      "price": "49.99",
+      "price_str": "$49.99"
+    },
+    {
+      "asin": "B0B38TQK54",
+      "title": "Levoit Humidifiers for Bedroom, 3L Cool Mist Top Fill for Large Room, Blue",
+      "role": "Runner-up",
+      "brand": "LEVOIT",
+      "track_url": "https://pboost.me/v5UI5WapT?uid=fromsll",
+      "price": "45.99",
+      "price_str": "$45.99"
+    },
+    {
+      "asin": "B0H41G86YL",
+      "title": "Levoit Humidifiers for Bedroom 3.2L for Large Room, Dishwasher Safe",
+      "role": "Worth a look",
+      "brand": "LEVOIT",
+      "track_url": "https://pboost.me/A5QOCckt?uid=fromsll",
+      "price": "44.99",
+      "price_str": "$44.99"
+    }
+  ]
 }

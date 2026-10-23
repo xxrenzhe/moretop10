@@ -1,7 +1,98 @@
 {
   "path": "/espresso-machines/best-espresso-machines-for-home/",
   "published": false,
-  "fill_status": "need_fill",
+  "fill_status": "filled",
   "waiting_for_部署上线": true,
-  "products": []
+  "products": [
+    {
+      "asin": "B0FMR5QPHW",
+      "title": "AMZCHEF Espresso Machine 20 Bar, Compact Coffee Maker with LED Touch Screen & Steam Milk Frother, Espresso Maker with 41oz Removable Water Tank for Home & Office, Coffee Machine for Cappucci",
+      "role": "Top pick",
+      "brand": "AMZCHEF",
+      "track_url": "https://pboost.me/R5Ve8ZkAv?uid=fromsll",
+      "price": "109.99",
+      "price_str": "$109.99"
+    },
+    {
+      "asin": "B0F2SWVC9N",
+      "title": "AMZCHEF Espresso Machine 20 Bar – Professional Coffee Maker with Milk Frother, Adjustable Temperature & Pressure, Compact Stainless Steel Espresso Maker for Cappuccino, Latte, Mocha, 44oz Wa",
+      "role": "Upgrade",
+      "brand": "AMZCHEF",
+      "track_url": "https://pboost.me/e5Ve5cA4?uid=fromsll",
+      "price": "103.52",
+      "price_str": "$103.52"
+    },
+    {
+      "asin": "B0F6BFV1ZB",
+      "title": "CASABREWS Espresso Machine 20 Bar, Professional Espresso Maker with Milk Frother Steam Wand 51mm Bottomless Portafilter with Puck Screen & Filter Basket",
+      "role": "Best value",
+      "brand": "Casabrews",
+      "track_url": "https://pboost.me/R5UQgzELg?uid=fromsll",
+      "price": "153.97",
+      "price_str": "$153.97"
+    },
+    {
+      "asin": "B0BQ6PPQGZ",
+      "title": "CASABREWS CM5418 Espresso Maker, Compact Espresso Machine with Milk Frother",
+      "role": "Premium",
+      "brand": "Casabrews",
+      "track_url": "https://pboost.me/I5QN5zKa?uid=fromsll",
+      "price": "144.49",
+      "price_str": "$144.49"
+    },
+    {
+      "asin": "B0GX8WDTCJ",
+      "title": "AMZCHEF Espresso Machine with Grinder, All-in-One Coffee Maker with Milk Frother, PID Temperature Control, Cold Brew Mode, Stainless Steel Espresso Maker for Latte, Cappuccino and Iced Coffe",
+      "role": "Alternative",
+      "brand": "AMZCHEF",
+      "track_url": "https://pboost.me/M5VefTzk?uid=fromsll",
+      "price": "299.99",
+      "price_str": "$299.99"
+    },
+    {
+      "asin": "B0HDRXVXGP",
+      "title": "AMZCHEF Espresso Machine with LED Touch Screen, DIY Mode, 20 Bar Pump, 45s Heat-Up, Compact Design & Milk Frother for Home",
+      "role": "Also consider",
+      "brand": "AMZCHEF",
+      "track_url": "https://pboost.me/x5Ve6s8zw?uid=fromsll",
+      "price": "129.99",
+      "price_str": "$129.99"
+    },
+    {
+      "asin": "B0GYR96XTF",
+      "title": "AMZCHEF Espresso Machine 20 Bar, Easy-to-Use Compact Coffee Maker with LED Touchscreen, Self-Cleaning & Milk Frother, Perfect Coffee Starter for Beginners, Lattes and Cappuccinos Machine",
+      "role": "Editor pick",
+      "brand": "AMZCHEF",
+      "track_url": "https://pboost.me/p5Ve3atC6?uid=fromsll",
+      "price": "199.99",
+      "price_str": "$199.99"
+    },
+    {
+      "asin": "B0DY3X1MB8",
+      "title": "CASABREWS 3700 Essential Espresso Machine, Stainless Steel Espresso Maker",
+      "role": "Budget",
+      "brand": "Casabrews",
+      "track_url": "https://pboost.me/y5VeS7lg?uid=fromsll",
+      "price": "129.99",
+      "price_str": "$129.99"
+    },
+    {
+      "asin": "B0HDND86K3",
+      "title": "AMZCHEF Compact Espresso Machine for Home, 20 Bar Italian Pump, Touchscreen",
+      "role": "Runner-up",
+      "brand": "AMZCHEF",
+      "track_url": "https://pboost.me/s5VeFzyt?uid=fromsll",
+      "price": "129.99",
+      "price_str": "$129.99"
+    },
+    {
+      "asin": "B0HJPRWSPK",
+      "title": "AMZCHEF Espresso Machine, Auto Milk Frother, 20 Bar Pressure, Silver New",
+      "role": "Worth a look",
+      "brand": "AMZCHEF",
+      "track_url": "https://pboost.me/i5Ven0z3?uid=fromsll",
+      "price": "199.99",
+      "price_str": "$199.99"
+    }
+  ]
 }

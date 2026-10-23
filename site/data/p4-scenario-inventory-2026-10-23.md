@@ -8,23 +8,23 @@
 
 ## Fill status
 
-- Global fill status: `need_fill`
-- Fill pack: `missing — need_fill shells`
+- Global fill status: `filled`
+- Fill pack: `/workspace/site/data/p4-l1-fill-pack-2026-10-23.json`
 - Affiliate tokens on VM: `skipped_no_token` / `skipped_no_token`
-- Hubs that need_fill: 8
+- Hubs that need_fill: 0
 
 ## Paths
 
 | Path | Density | Fill | CTA | Reviews |
 | --- | --- | --- | --- | --- |
-| `/espresso-machines/best-espresso-machines-for-home/` | **0** | `need_fill` | empty | none |
-| `/litter-boxes/best-automatic-litter-boxes/` | **0** | `need_fill` | empty | none |
-| `/security-cameras/best-security-cameras-for-outdoor/` | **0** | `need_fill` | empty | none |
-| `/cordless-vacuums/best-cordless-vacuums-for-pet-hair/` | **0** | `need_fill` | empty | none |
-| `/hair-dryers/best-hair-dryers-for-curly-hair/` | **0** | `need_fill` | empty | none |
-| `/humidifiers/best-humidifiers-for-large-rooms/` | **0** | `need_fill` | empty | none |
-| `/projectors/best-projectors-for-outdoor/` | **0** | `need_fill` | empty | none |
-| `/pillows/best-pillows-for-side-sleepers/` | **0** | `need_fill` | empty | none |
+| `/espresso-machines/best-espresso-machines-for-home/` | **10** | `filled` | pb_fromsll | none |
+| `/litter-boxes/best-automatic-litter-boxes/` | **10** | `filled` | pb_fromsll | none |
+| `/security-cameras/best-security-cameras-for-outdoor/` | **10** | `filled` | pb_fromsll | none |
+| `/cordless-vacuums/best-cordless-vacuums-for-pet-hair/` | **10** | `filled` | pb_fromsll | none |
+| `/hair-dryers/best-hair-dryers-for-curly-hair/` | **10** | `filled` | pb_fromsll | none |
+| `/humidifiers/best-humidifiers-for-large-rooms/` | **10** | `filled` | pb_fromsll | none |
+| `/projectors/best-projectors-for-outdoor/` | **10** | `filled` | pb_fromsll | none |
+| `/pillows/best-pillows-for-side-sleepers/` | **10** | `filled` | pb_fromsll | none |
 
 ## Hard rules kept
 

@@ -1,7 +1,98 @@
 {
   "path": "/cordless-vacuums/best-cordless-vacuums-for-pet-hair/",
   "published": false,
-  "fill_status": "need_fill",
+  "fill_status": "filled",
   "waiting_for_部署上线": true,
-  "products": []
+  "products": [
+    {
+      "asin": "B0FC5MJ5T6",
+      "title": "DREAME Cordless Stick Vacuum Cleaner Z30 Essential, 210AW Powerful Suction, Up to 90 Mins Runtime, Anti-Tangle Brush,LED Display, Dust Reveal Technology for Pet Hair, Carpet & Hard Floor",
+      "role": "Top pick",
+      "brand": "Dreame",
+      "track_url": "https://pboost.me/R5SN9XcHc?uid=fromsll",
+      "price": "369.99",
+      "price_str": "$369.99"
+    },
+    {
+      "asin": "B0D9XLCP28",
+      "title": "Eureka Stylus Elite NEC490BL Cordless Stick Vacuum, 350W Powerful Suction, Self-Emptying Station, 60-Min Runtime, Anti-Tangle Brushroll, 5-Layer HEPA Filtration, Ideal for Pet Hair&All Floor",
+      "role": "Upgrade",
+      "brand": "Eureka",
+      "track_url": "https://pboost.me/C5QNPvYg?uid=fromsll",
+      "price": "169.95",
+      "price_str": "$169.95"
+    },
+    {
+      "asin": "B0CB6B2JWG",
+      "title": "Levoit Cordless Vacuum Cleaner, Anti-Tangle for Pet Hair, Up to 50 Minutes",
+      "role": "Best value",
+      "brand": "LEVOIT",
+      "track_url": "https://pboost.me/v5QMk35HZ?uid=fromsll",
+      "price": "139.94",
+      "price_str": "$139.94"
+    },
+    {
+      "asin": "B0GXJVW633",
+      "title": "DREAME Z10 Station T Cordless Vacuum with Auto-Empty Base, 2.5L Dust Collection, 65-Min Runtime, Powerful Stick Vac for Carpet Hardwood Tile & Pet Hair – Lightweight",
+      "role": "Premium",
+      "brand": "Dreame",
+      "track_url": "https://pboost.me/F5QO5U6D9?uid=fromsll",
+      "price": "199.99",
+      "price_str": "$199.99"
+    },
+    {
+      "asin": "B0F5WT2Q8W",
+      "title": "Eureka Cordless Vacuum Cleaner Lightweight, Stick Vacuum Rechargeable for Hardwood, Pet Hair, Blue w/Clean Station, Stylus Elite NEC490SE",
+      "role": "Alternative",
+      "brand": "Eureka",
+      "track_url": "https://pboost.me/Z5UNCc7Tc?uid=fromsll",
+      "price": "154.95",
+      "price_str": "$154.95"
+    },
+    {
+      "asin": "B0GX93T8X7",
+      "title": "Levoit VortexIQ® Cordless Vacuum Cleaner for Pet Hair, 50-Min Runtime",
+      "role": "Also consider",
+      "brand": "LEVOIT",
+      "track_url": "https://pboost.me/I5QMtdLc?uid=fromsll",
+      "price": "199.99",
+      "price_str": "$199.99"
+    },
+    {
+      "asin": "B0FLX94VCL",
+      "title": "Eureka RapidClean Pro Pet Hair Cordless Vacuum, NEC280WH",
+      "role": "Editor pick",
+      "brand": "Eureka",
+      "track_url": "https://pboost.me/F5QOkkd7g?uid=fromsll",
+      "price": "148.29",
+      "price_str": "$148.29"
+    },
+    {
+      "asin": "B0FLJPZD5B",
+      "title": "DREAME H15 Pro CarpetFlex Cordless Vacuum Mop, Wet Dry Vacuum Cleaner with Dual Brushes for Hard Floors & Carpet, Tangle-Free Hair-Cutting, 23kPa Suction, 180° Lie-Flat Floor Washer, 194°F F",
+      "role": "Budget",
+      "brand": "Dreame",
+      "track_url": "https://pboost.me/d5QO7STi4?uid=fromsll",
+      "price": "429.99",
+      "price_str": "$429.99"
+    },
+    {
+      "asin": "B0F9L92BTC",
+      "title": "Eureka ReactiSense 350W Anti-Tangle Cordless Stick Vacuum, NEC440BK",
+      "role": "Runner-up",
+      "brand": "Eureka",
+      "track_url": "https://pboost.me/j5QN0j8ct?uid=fromsll",
+      "price": "179.99",
+      "price_str": "$179.99"
+    },
+    {
+      "asin": "B0DK4QTRF5",
+      "title": "roborock F25 Combo Wet Dry Vacuum Cleaner, 5-in-1 Cordless Stick Vacuum Mop",
+      "role": "Worth a look",
+      "brand": "roborock",
+      "track_url": "https://pboost.me/c5SPJ6wC?uid=fromsll",
+      "price": "329.99",
+      "price_str": "$329.99"
+    }
+  ]
 }

@@ -124,17 +124,21 @@ def main() -> int:
         print("p4_scenario_assert failed:\n- " + "\n- ".join(errors))
         return 1
     occupied = load_occupied()
-    expected_groups = {
+    expected_min = {
         "litter_main": 10,
         "video_doorbells": 10,
         "robot_pet_hair": 10,
         "humidifiers_babies": 10,
         "pillows_neck_pain": 6,
     }
-    for key, n in expected_groups.items():
+    for key, n in expected_min.items():
         got = len(occupied.get(key) or [])
-        if got != n:
-            errors.append(f"occupied {key} expected {n}, got {got}")
+        if got < n:
+            errors.append(f"occupied {key} expected >={n}, got {got}")
+    if len(occupied.get("global") or []) < 46:
+        errors.append(
+            f"occupied global expected the L1 collision set, got {len(occupied.get('global') or [])}"
+        )
 
     if not INV_JSON.exists():
         errors.append("missing inventory json")
@@ -188,6 +192,9 @@ def main() -> int:
             errors.append(f"{url} reused a banned ASIN")
 
         n = int(row.get("density") or 0)
+        pack_path = SITE / "data" / "p4-l1-fill-pack-2026-10-23.json"
+        if pack_path.exists() and n != 10:
+            errors.append(f"{url} expected density 10 from L1 pack, got {n}")
         if n == 0:
             if row.get("fill_status") != "need_fill":
                 errors.append(f"{url} empty shell must be need_fill")
