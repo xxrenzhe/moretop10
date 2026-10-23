@@ -106,11 +106,12 @@
           "score": "8.6"
         }
       ],
-      "new_reviews": [],
-      "reused_reviews": [
+      "new_reviews": [
         "waykar-80-pints-2025-energy-star",
         "aeocky-5500-sqft-energy-star-most"
-      ]
+      ],
+      "reused_reviews": [],
+      "deep_reviews": "rewritten_from_sot"
     },
     {
       "scene": "best air purifier for pets",
@@ -216,11 +217,12 @@
           "score": "9.2"
         }
       ],
-      "new_reviews": [],
-      "reused_reviews": [
+      "new_reviews": [
         "levoit-smart-pet-air-purifier-home",
         "dreame-pet-air-purifier-ap10-suck"
-      ]
+      ],
+      "reused_reviews": [],
+      "deep_reviews": "rewritten_from_sot"
     },
     {
       "scene": "best robot vacuum for pet hair",
@@ -326,11 +328,13 @@
           "score": "8.0"
         }
       ],
-      "new_reviews": [],
-      "reused_reviews": [
+      "new_reviews": [
         "eufy-e25-robot-vacuum-mop-combo",
         "roborock-2026-new-qrevo-s-pro"
-      ]
+      ],
+      "reused_reviews": [],
+      "deep_reviews": "rewritten_from_sot"
     }
-  ]
+  ],
+  "deep_reviews": "p1a_top_pick_upgrade_only"
 }
