@@ -1,13 +1,16 @@
 #!/usr/bin/env python3
-"""Local rebake for R8 soft-scrub categories (computer-speakers, tower-fans).
+"""Local rebake for R8 soft queue (computer-speakers, tower-fans).
 
 Uses existing apply_hub_page / chrome helpers on local HTML — no Live fetch,
-no wrangler, no invented prices. Aligns published now snapshots with shortlist
-now and leaves list_price / was / % blank so bake cannot render a strike.
+no wrangler, no invented prices. Applies Mac L2 verdicts:
+
+- restore_list_ok: keep/restore honest Amazon list + now
+- clear_keep: keep list/was/% blank; align now to L2 buybox
 """
 
 from __future__ import annotations
 
+import json
 import sys
 from pathlib import Path
 
@@ -18,11 +21,15 @@ if str(SCRIPTS) not in sys.path:
     sys.path.insert(0, str(SCRIPTS))
 
 from price_honest import (  # noqa: E402
+    apply_l2_list_strike_to_card,
     apply_now_to_card,
     apply_now_to_glance,
     apply_now_to_review,
     format_display,
+    l2_list_amount,
+    l2_restore_list,
     load_shortlist,
+    parse_money,
     r8_soft_queue_rows,
     scrub_pick_was,
 )
@@ -30,35 +37,56 @@ from price_honest import (  # noqa: E402
 AFFECTED = ("computer-speakers", "tower-fans")
 
 
-def scrub_shortlists() -> None:
+def _write_json(path: Path, blob: dict) -> None:
+    path.write_text(json.dumps(blob, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+
+
+def apply_l2_shortlists() -> None:
+    """Write L2 now/list onto queued picks. Do not scrub restore_list_ok."""
     for row in r8_soft_queue_rows():
         path = SITE / "data" / row["src"]
         blob = load_shortlist(path)
         asin = (row.get("asin") or "").upper()
+        now = parse_money(row.get("now") or row.get("l2_now"))
         picks = []
         for pick in blob.get("picks") or []:
-            if (pick.get("asin") or "").upper() == asin:
-                picks.append(scrub_pick_was(pick))
-            else:
+            if (pick.get("asin") or "").upper() != asin:
                 picks.append(pick)
+                continue
+            if l2_restore_list(row):
+                out = dict(pick)
+                list_amt = l2_list_amount(row)
+                if list_amt is not None:
+                    out["list_price"] = f"{list_amt:.2f}"
+                if now is not None:
+                    out["price"] = f"{now:.2f}"
+                    out["price_raw"] = format_display(now)
+                    out["price_displayed"] = format_display(now)
+                picks.append(out)
+            else:
+                out = scrub_pick_was(pick)
+                if now is not None:
+                    out["price"] = f"{now:.2f}"
+                    out["price_raw"] = format_display(now)
+                    out["price_displayed"] = format_display(now)
+                picks.append(out)
         blob["picks"] = picks
-        path.write_text(
-            __import__("json").dumps(blob, indent=2, ensure_ascii=False) + "\n",
-            encoding="utf-8",
-        )
+        _write_json(path, blob)
 
 
-def _patch_comparison(slug: str, asin: str, old: float, new: float, short_title: str) -> None:
+def _patch_comparison(slug: str, asin: str, old: float | None, new: float, short_title: str) -> str:
     path = SITE / slug / "comparison" / "index.html"
     html = path.read_text(encoding="utf-8")
-    html = apply_now_to_card(html, asin, old, new)
-    html = apply_now_to_glance(html, short_title, old, new)
+    if old is not None and abs(old - new) > 0.009:
+        html = apply_now_to_card(html, asin, old, new)
+        html = apply_now_to_glance(html, short_title, old, new)
     path.write_text(html, encoding="utf-8")
+    return html
 
 
-def _patch_review(slug: str, review_slug: str, old: float, new: float) -> None:
+def _patch_review(slug: str, review_slug: str, old: float | None, new: float) -> None:
     path = SITE / slug / "reviews" / review_slug / "index.html"
-    if not path.exists():
+    if not path.exists() or old is None or abs(old - new) < 0.009:
         return
     html = path.read_text(encoding="utf-8")
     html = apply_now_to_review(html, old, new)
@@ -84,19 +112,40 @@ def patch_affected_html() -> None:
         if slug not in AFFECTED:
             continue
         asin = row["asin"]
-        old = row["cleared_was"]
-        new = row["now"]
+        new = parse_money(row.get("now") or row.get("l2_now"))
+        if new is None:
+            raise SystemExit(f"r8_soft_queue {asin} missing L2 now")
+        old = parse_money(
+            row.get("catalog_now") or row.get("html_now") or row.get("published_now")
+        )
         blob = load_shortlist(SITE / "data" / row["src"])
         pick = next(
             (p for p in blob.get("picks") or [] if (p.get("asin") or "").upper() == asin.upper()),
             {},
         )
+        if old is None and not l2_restore_list(row):
+            old = parse_money(pick.get("price") or pick.get("price_displayed"))
         short_title = pick.get("short_title") or ""
         review_slug = pick.get("review_slug") or ""
         _patch_comparison(slug, asin, old, new, short_title)
         if review_slug:
             _patch_review(slug, review_slug, old, new)
-        print(f"  patched {slug} {asin} now {format_display(new)} (cleared was {format_display(old)})")
+        if l2_restore_list(row):
+            list_amt = l2_list_amount(row)
+            if list_amt is None:
+                raise SystemExit(f"restore_list_ok {asin} missing L2 list")
+            path = SITE / slug / "comparison" / "index.html"
+            html = apply_l2_list_strike_to_card(path.read_text(encoding="utf-8"), asin, new, list_amt)
+            path.write_text(html, encoding="utf-8")
+            print(
+                f"  patched {slug} {asin} now {format_display(new)} "
+                f"list {format_display(list_amt)} (L2 restore_list_ok)"
+            )
+        else:
+            print(
+                f"  patched {slug} {asin} now {format_display(new)} "
+                f"(clear_keep, no list/strike)"
+            )
 
 
 def _schema_paths(slug: str, review_slug: str | None) -> list[tuple[Path, str, str | None]]:
@@ -148,8 +197,8 @@ def rebake_schema(slugs: tuple[str, ...] = AFFECTED) -> None:
 
 
 def main() -> None:
-    print("R8 soft scrub + local rebake (no Live / no deploy)")
-    scrub_shortlists()
+    print("R8 L2 apply + local rebake (no Live / no deploy)")
+    apply_l2_shortlists()
     patch_affected_html()
     rebake_schema()
 

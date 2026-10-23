@@ -1,46 +1,55 @@
-# R8 soft fake list_price scrub — 2026-10-23
+# R8 soft fake list_price — L2 apply 2026-10-23
 
 waiting_for_部署上线=yes. Draft only. No Live / wrangler / CF deploy. MoreTop10 only — not Lab / RR / OL.
 
 Handoff: `fake-price-mt10-handoff-2026-10-23.md`  
-Evidence: `fake-price-daily-2026-10-23-mt10.json` (honest=134 · fake=0 · soft=2)
+Daily scan: `fake-price-daily-2026-10-23-mt10.json` (honest=134 · fake=0 · soft=2)
+
+## L2 (Mac Chrome CDP)
+
+- date: 2026-10-23
+- method_used: `mac_chrome_cdp`
+- port: **9334**
+- evidence: `/workspace/shared/mt10-soft-r8-l2-2026-10-23.md` (not mounted on this agent; verdicts taken from parent)
+
+**Amazon L2 buybox > affiliate invent.** R8 soft math still flags 72.99/149.99, but the gate allows that list when the queue action is `restore_list_ok` / L2-verified.
 
 ## ASINs
 
-| ASIN | Category | now (kept) | was / list (cleared) | pct | ratio | file |
-| --- | --- | ---: | ---: | ---: | ---: | --- |
-| `B0FH1RFP91` | computer-speakers | $72.99 | $149.99 | 51 | 2.05 | `site/data/shortlist-computer-speakers.json` |
-| `B0GVDBKMVN` | tower-fans | $39.95 | $99.99 | 60 | 2.50 | `site/data/shortlist-tower-fans.json` |
-
-`B0GVDBKMVN` was scrubbed 2026-10-22 then `list_price` came back from affiliate/PB original_price. Cleared again. Restore strike **only** after Amazon L2 buybox. **Amazon L2 buybox > affiliate `list_price`.**
+| ASIN | Category | L2 verdict | now | list / strike | notes |
+| --- | --- | --- | ---: | --- | --- |
+| `B0FH1RFP91` | computer-speakers | **restore_list_ok** | $72.99 | **$149.99** honest Amazon list | Restore strike. Keep CTA/tracks. |
+| `B0GVDBKMVN` | tower-fans | **clear_keep** | **$99.99** | none — do not invent was | Catalog soft now $39.95 / was $99.99 was inverted junk. |
 
 ## Before → after
 
 **B0FH1RFP91** (Edifier QD25)
 
-- before: now $72.99 · list/was $149.99 · discount/% implied 51%
-- after: now $72.99 · `list_price` / was / discount / % = blank
-- comparison + review snapshot now $72.99 (no strike)
+- catalog soft: now $72.99 · list/was $149.99 (R8 51% / 2.05x) → first draft cleared list
+- L2: now $72.99 · list **$149.99** verified
+- after: now $72.99 · `list_price` $149.99 · comparison card `<s class="pc-was">$149.99</s>` next to now
+- CTA unchanged (`pboost.me/E5qe19Gc?uid=fromsll`)
 
 **B0GVDBKMVN** (Levoit Windi Lift Pro)
 
-- before: now $39.95 · list/was $99.99 · discount/% implied 60%
-- after: now $39.95 · `list_price` / was / discount / % = blank
-- comparison + review snapshot now $39.95 (no strike)
+- catalog soft: now $39.95 · was $99.99 (inverted junk)
+- L2: now **$99.99** · no strike
+- after: now $99.99 · `list_price` / was / discount / % = blank
+- CTA unchanged (`pboost.me/E5qetZHg?uid=fromsll`)
 
-CTA tracks unchanged (`pboost.me/E5qe19Gc?uid=fromsll`, `pboost.me/E5qetZHg?uid=fromsll`). Product selection unchanged.
+Product selection unchanged.
 
-## Gate (existing bake paths — no new strike UI)
+## Gate
 
-- `price_html` already renders **now only** (`price_displayed`). It does not emit list/was/%.
-- L1 / affiliate merge (`apply_day_add_l2.py`, `apply_day_add_densify.py`) drops `list_price` when the row is R8 soft or in `r8_soft_queue`.
-- `tests/r8_soft_list_price_assert.py` is wired into `build.py` verify so a later PB original_price inject fails bake.
+- `list_price_for_pick`: drop R8-soft / queued list unless queue action is `restore_list_ok` (or `l2_verified`). L2 list must match; a later PB `original_price` that disagrees is still dropped.
+- `price_html` still renders **now** as `pc-price-value`. L2 restore adds a native `<s class="pc-was">` on the comparison card only (existing strike token; no new CSS).
+- `tests/r8_soft_list_price_assert.py` is wired into `build.py` verify.
 
-Mac L2 (`merge_tv_l2.py`) is untouched — that is the restore path after buybox verify.
+Mac L2 TV merge (`merge_tv_l2.py`) is untouched.
 
 ## Bake
 
-Local rebake of `computer-speakers` + `tower-fans` only (`python3 site/scripts/rebake_r8_soft.py`): align published now + JSON-LD Offer.price, no nav/footer rewrite, no Live refetch.
+Local rebake of `computer-speakers` + `tower-fans` only (`python3 site/scripts/rebake_r8_soft.py`): align published now + JSON-LD Offer.price from cards, restore L2 list strike on the speaker card, no nav/footer rewrite, no Live refetch.
 
 Bake gate for this PR: `python3 tests/r8_soft_list_price_unit.py && python3 tests/r8_soft_list_price_assert.py` (also hooked into `build.py` verify). Full-site `verify()` is already red on `main` for unrelated landing-css / densify leaks — not in scope.
 
