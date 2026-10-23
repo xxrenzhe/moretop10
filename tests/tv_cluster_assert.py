@@ -14,6 +14,7 @@ SITE = ROOT / "site"
 sys.path.insert(0, str(ROOT / "site" / "scripts"))
 
 from bake_tv import PAGES, RELATED_LINKS  # noqa: E402
+from seo_geo import VISITOR_LEAK_RE  # noqa: E402
 from site_config import ALL_CATS, EDITORIAL_CLUSTERS  # noqa: E402
 
 REQUIRED = [
@@ -356,6 +357,9 @@ def main() -> None:
             errors.append(f"{rel} contains uid=")
         if "PartnerBoost" in html or "YeahPromos" in html:
             errors.append(f"{rel} visitor jargon")
+        hit = VISITOR_LEAK_RE.search(html)
+        if hit:
+            errors.append(f"{rel} visitor leak {hit.group(0)!r}")
         share_imgs = SHARE_IMAGE_RE.findall(html)
         if not share_imgs:
             errors.append(f"{rel} missing og:image / twitter:image")
@@ -387,10 +391,10 @@ def main() -> None:
         errors.append("OOS B0GV4Q9XSF still has a Check price CTA")
     elif "Currently unavailable" not in oos_row.group(0):
         errors.append("OOS B0GV4Q9XSF missing unavailable label")
-    if "$1299.99" not in alt:
-        errors.append("L2 price $1299.99 (B0GHZXKT1T) not baked")
-    if "$2497.99" not in alt:
-        errors.append("L2 price $2497.99 (B0GR9C4H3H) not baked")
+    if "$1,299.99" not in alt:
+        errors.append("L2 price $1,299.99 (B0GHZXKT1T) not baked")
+    if "$2,497.99" not in alt:
+        errors.append("L2 price $2,497.99 (B0GR9C4H3H) not baked")
     for asin in DO_NOT_HERO:
         if asin in alt:
             errors.append(f"L2 includes do_not_hero {asin}")

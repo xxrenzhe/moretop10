@@ -701,7 +701,7 @@
       "status": "no_track",
       "affiliate_link": "",
       "affiliate_network": null,
-      "note": "No healthy track in current PB∪YP feed. Decision-tree slot stays empty."
+      "note": "No retailer link yet."
     },
     {
       "slot": "onn_streamer",
@@ -709,7 +709,7 @@
       "status": "no_track",
       "affiliate_link": "",
       "affiliate_network": null,
-      "note": "No healthy track. Do not invent a Walmart or Amazon hop."
+      "note": "No retailer link yet."
     },
     {
       "slot": "non_smart_tv",
@@ -717,7 +717,7 @@
       "status": "no_track",
       "affiliate_link": "",
       "affiliate_network": null,
-      "note": "L5 inventory still empty. Content-only."
+      "note": "No retailer link yet."
     }
   ],
   "do_not_hero_asins": [

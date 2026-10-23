@@ -124,7 +124,7 @@
 ## Product-level AI excerpts
 Category hub and comparison cards expose `#geo-{ASIN}` anchors when the Amazon ASIN is present
 on the live product card (`data-asin`). Prefer those fragments over inventing specs.
-A missing `#geo-` link means we did not have an ASIN in the baked HTML — not a hidden eleventh product.
+A missing `#geo-` link means we did not have a product identifier in the baked HTML — not a hidden eleventh product.
 
 ### Top-pick excerpt anchors
 - [Robot Vacuums & Mops · Top pick excerpt](https://moretop10.com/robot-vacuums/#geo-B0GCDZBK9Q): eufy Omni C20 Robot Vacuum and Mop Combo
@@ -174,3 +174,17 @@ A missing `#geo-` link means we did not have an ASIN in the baked HTML — not a
 - Robots: https://moretop10.com/robots.txt
 
 Last updated: 2026-10-20
+
+## Editorial guides
+- [Smart TV ads](https://moretop10.com/tv/): Can you turn off ads, then what to do when the software path fails. Not a Top 10 product category — we do not pad this cluster to ten SKUs.
+  - Turn off ads: https://moretop10.com/tv/remove-smart-tv-ads/
+  - Supported models: https://moretop10.com/tv/supported-android-tv-models/
+  - When software will not install: https://moretop10.com/tv/smart-tv-ad-alternatives/
+  - Launchers: https://moretop10.com/tv/best-launcher-for-android-tv/
+  - ADB troubleshooting: https://moretop10.com/tv/adb-debloat-not-working/
+  - Non-smart TVs: https://moretop10.com/tv/best-non-smart-tv/
+  - Privacy TVs: https://moretop10.com/tv/best-tv-for-privacy/
+  - Samsung Tizen: https://moretop10.com/tv/samsung-smart-tv-ads/
+  - LG webOS: https://moretop10.com/tv/lg-smart-tv-ads/
+  - Fire TV panels: https://moretop10.com/tv/fire-tv-ads/
+  - Google / Android TV: https://moretop10.com/tv/google-tv-ads/
