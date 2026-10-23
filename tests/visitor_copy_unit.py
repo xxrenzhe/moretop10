@@ -136,6 +136,14 @@ def main() -> int:
             "We will not invent an ASIN to fill the slot.",
             "We will not invent a product to fill the slot.",
         ),
+        (
+            "None yet. We will scene-reorder the parent shortlist when healthy tracks land — not comparison order.",
+            "None yet. We will scene-reorder the parent shortlist when verified retailer links land — not comparison order.",
+        ),
+        (
+            "Density is honest at 0 — we do not invent ASINs, prices, images, or discounts.",
+            "Density is honest at 0 — we do not invent product listings, prices, images, or discounts.",
+        ),
     ]
     leaks = (
         "Snapshot $2997.99 · confirm on the retailer page",
@@ -153,6 +161,8 @@ def main() -> int:
         "(ASIN: B0F4KQ3D34)",
         "under ASIN B0F836S79D",
         "We will not invent an ASIN to fill the slot.",
+        "when healthy tracks land",
+        "we do not invent ASINs, prices",
     )
     for leak in leaks:
         if not VISITOR_LEAK_RE.search(leak):

@@ -460,7 +460,7 @@ def role_block(label: str, pick: dict) -> str:
         f"<p>### {_esc(pick['name'])} — {escape(label)}</p>\n"
         "<ul>"
         f"<li><strong>Editorial score:</strong> {escape(score)} / 10{escape(rating)}</li>"
-        f"<li><strong>Snapshot price:</strong> {escape(price)}</li>"
+        f"<li><strong>Price:</strong> {escape(price)}</li>"
         f"<li><strong>Why it fits this scene:</strong> {_esc(why)}{_esc(feat)}</li>"
         "<li><strong>Who should skip:</strong> Skip if this scene is not your job — "
         "use the parent comparison for the full shortlist.</li>"
