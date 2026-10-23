@@ -755,7 +755,7 @@ def visit_cards_html(picks: list[dict[str, Any]], confirm: str) -> str:
         price = pick.get("price_displayed") or ""
         pitch = f"{role}."
         if price:
-            pitch += f" Snapshot {price}."
+            pitch += f" {price}."
         pitch += f" {confirm}"
         cta = ""
         if href and pick.get("track_status") == "ok":
@@ -785,7 +785,7 @@ def inline_picks_html(picks: list[dict[str, Any]], slug: str, confirm: str) -> s
         href = pick.get("affiliate_link") or ""
         role = pick.get("role") or "Shortlist"
         price = pick.get("price_displayed") or ""
-        pitch = f"Snapshot {price}. {confirm}" if price else confirm
+        pitch = f"{price}. {confirm}" if price else confirm
         cta = ""
         if href and pick.get("track_status") == "ok":
             cta = (
@@ -809,7 +809,7 @@ def our_top_list_html(picks: list[dict[str, Any]], slug: str, name: str, confirm
     n = len(picks)
     items = []
     for i, pick in enumerate(picks, start=1):
-        price = f" Snapshot {pick['price_displayed']}." if pick.get("price_displayed") else ""
+        price = f" {pick['price_displayed']}." if pick.get("price_displayed") else ""
         items.append(
             f"<li><strong>{i}. {_esc(pick['title'])}</strong> — {_esc(confirm[:-1] if confirm.endswith('.') else confirm)}."
             f"{_esc(price)} "
@@ -831,7 +831,7 @@ def scene_article(cat: dict[str, Any], picks: list[dict[str, Any]], faqs: list[t
         return (
             f"<p>{_esc(cat['scene_desc'])}</p>"
             f"<p>Rankings follow the same shortlist rules as our main {escape(name.lower())} "
-            "comparison. Density is honest at 0 — we do not invent ASINs, prices, images, or discounts.</p>"
+            "comparison. Density is honest at 0 — we do not invent product listings, prices, images, or discounts.</p>"
             '<section class="key-insights prose-block" aria-label="Key insights"><h2>Key insights</h2>'
             '<ul class="card-bullets">'
             "<li><strong>Scene filter, not chart paste:</strong> This page exists so the URL is real. "
@@ -844,7 +844,7 @@ def scene_article(cat: dict[str, Any], picks: list[dict[str, Any]], faqs: list[t
             "MoreTop10, so we do not invent them.</li>"
             "</ul></section>"
             f"<h2>Which {escape(scene)} should you pick?</h2>"
-            "<p>None yet. We will scene-reorder the parent shortlist when healthy tracks land — "
+            "<p>None yet. We will scene-reorder the parent shortlist when verified retailer links land — "
             "not comparison order pasted into this URL.</p>"
             f'<p>Start at the <a href="../../{slug}/">{escape(name.lower())} overview</a> or the '
             f'<a href="../../{slug}/comparison/">{escape(name.lower())} comparison</a> once cards exist.</p>'
@@ -888,7 +888,7 @@ def scene_article(cat: dict[str, Any], picks: list[dict[str, Any]], faqs: list[t
     return (
         f"<p>{_esc(cat['scene_desc'])}</p>"
         f"<p>Rankings follow the same shortlist rules as our main {escape(name.lower())} "
-        f"comparison. Density is honest at {n} — we do not invent ASINs, prices, images, or discounts.</p>"
+        f"comparison. Density is honest at {n} — we do not invent product listings, prices, images, or discounts.</p>"
         '<section class="key-insights prose-block" aria-label="Key insights"><h2>Key insights</h2>'
         '<ul class="card-bullets">'
         "<li><strong>Scene filter, not chart paste:</strong> Order here follows the scene fill, "

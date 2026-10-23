@@ -75,6 +75,7 @@ from seo_geo import (  # noqa: E402
     ROBOTS_INDEX,
     VISITOR_LEAK_RE,
     aggregate_rating_issues,
+    html_without_ld_json,
     apply_hub_page,
     build_llms_txt,
     extract_authors_from_home,
@@ -695,7 +696,7 @@ def verify(cfg: dict) -> None:
         if not kids_path.exists():
             continue
         kids_html = kids_path.read_text(encoding="utf-8")
-        if VISITOR_LEAK_RE.search(kids_html):
+        if VISITOR_LEAK_RE.search(html_without_ld_json(kids_html)):
             errors.append(f"{kids_rel} still contains visitor leak jargon")
 
     kids_hub = (SITE / "kids-bikes" / "index.html").read_text(encoding="utf-8")
@@ -741,6 +742,7 @@ def verify(cfg: dict) -> None:
     from g_engage_assert import sample_errors  # noqa: E402
     from feed_thumb_object_fit_assert import collect_errors as feed_thumb_errors  # noqa: E402
     from landing_css_assert import collect_errors as landing_css_errors  # noqa: E402
+    from visitor_copy_assert import collect_errors as visitor_copy_errors  # noqa: E402
 
     errors.extend(footer_cats_errors(SITE))
     errors.extend(sample_errors(SITE))
@@ -748,6 +750,7 @@ def verify(cfg: dict) -> None:
     errors.extend(feed_thumb_errors(SITE))
     errors.extend(best_widget_errors(SITE))
     errors.extend(disclosure_errors())
+    errors.extend(visitor_copy_errors(SITE))
 
     sample_review = SITE / "air-fryers" / "reviews" / "cosori-twinfry-9-qt-double-air" / "index.html"
     if not sample_review.exists():
@@ -760,7 +763,7 @@ def verify(cfg: dict) -> None:
             errors.append("review article missing cite strip")
         if 'id="geo-' not in rev_html:
             errors.append("review article missing #geo-ASIN")
-        if VISITOR_LEAK_RE.search(rev_html):
+        if VISITOR_LEAK_RE.search(html_without_ld_json(rev_html)):
             errors.append("review article still contains visitor jargon")
         errors.extend(
             f"review article {issue}" for issue in aggregate_rating_issues(rev_html)

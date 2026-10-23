@@ -15,16 +15,16 @@
       "top_pick": {
         "asin": "B095PP1GZR",
         "name": "DREO Space Heaters for Indoor Use with Thermostat, 1500W Electric Heaters",
-        "review": null,
-        "review_exists": false,
+        "review": "dreo-space-heaters-indoor-thermostat-1500w",
+        "review_exists": true,
         "track_network": "pb",
         "track_ok": true
       },
       "upgrade": {
         "asin": "B097RG67QB",
         "name": "DREO Space Heater, Portable Electric Heaters for Indoor Use with Thermostat",
-        "review": null,
-        "review_exists": false,
+        "review": "dreo-atom-one-space-heater-thermostat",
+        "review_exists": true,
         "track_network": "pb",
         "track_ok": true
       },
@@ -58,8 +58,12 @@
           "score": "9.2"
         }
       ],
-      "new_reviews": [],
-      "reused_reviews": []
+      "new_reviews": [
+        "dreo-space-heaters-indoor-thermostat-1500w",
+        "dreo-atom-one-space-heater-thermostat"
+      ],
+      "reused_reviews": [],
+      "deep_reviews": "p1c_top_pick_upgrade_only"
     },
     {
       "scene": "best ceramic space heater for garages",
@@ -74,16 +78,16 @@
       "top_pick": {
         "asin": "B097RG67QB",
         "name": "DREO Space Heater, Portable Electric Heaters for Indoor Use with Thermostat",
-        "review": null,
-        "review_exists": false,
+        "review": "dreo-atom-one-space-heater-thermostat",
+        "review_exists": true,
         "track_network": "pb",
         "track_ok": true
       },
       "upgrade": {
         "asin": "B095PP1GZR",
         "name": "DREO Space Heaters for Indoor Use with Thermostat, 1500W Electric Heaters",
-        "review": null,
-        "review_exists": false,
+        "review": "dreo-space-heaters-indoor-thermostat-1500w",
+        "review_exists": true,
         "track_network": "pb",
         "track_ok": true
       },
@@ -117,8 +121,14 @@
           "score": "9.2"
         }
       ],
-      "new_reviews": [],
-      "reused_reviews": []
+      "new_reviews": [
+        "dreo-atom-one-space-heater-thermostat",
+        "dreo-space-heaters-indoor-thermostat-1500w"
+      ],
+      "reused_reviews": [],
+      "deep_reviews": "p1c_top_pick_upgrade_only"
     }
-  ]
+  ],
+  "deep_reviews": "p1c_top_pick_upgrade_only",
+  "tip_sha256": "f23596ced1a4681996736db1baa01e242680e01b79ebb6357a0b9edecef3307d"
 }
