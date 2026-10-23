@@ -1,0 +1,259 @@
+{
+  "date": "2026-10-23",
+  "waiting_for_部署上线": true,
+  "live": false,
+  "merged": false,
+  "independent_of_shortlist_lab": true,
+  "do_not_touch": [
+    "#36",
+    "#37",
+    "#40",
+    "#43",
+    "#45"
+  ],
+  "occupied_asins": [
+    "B01CC87G86",
+    "B075J9RLL6",
+    "B079ZRQNMM",
+    "B07MFYQBTX",
+    "B087R2V8V7",
+    "B08R8FD43K",
+    "B097YC4VC2",
+    "B09W1Y557B",
+    "B0CJ2QC33R",
+    "B0CM8MHWNT",
+    "B0CZ3D2SR9",
+    "B0DLVZ2M34",
+    "B0DLW3N7FX",
+    "B0DMVYB9B1",
+    "B0DRCXJNMK",
+    "B0DX244R2N",
+    "B0F5Q2FNTV",
+    "B0F62NRGGY",
+    "B0F7QJZWLV",
+    "B0F8VQC2C7",
+    "B0F8VVH6PN",
+    "B0FCFLX4ZR",
+    "B0FS6DT3WK",
+    "B0GGQCHLK1",
+    "B0GGQKB4TX",
+    "B0GGQM6X5H",
+    "B0GJS9SCJ6",
+    "B0GK16S6Y9",
+    "B0GK1BT4QZ",
+    "B0GSVSD8JD",
+    "B0GTPH2Z1W",
+    "B0GTPT3LJV",
+    "B0GWCWN64R",
+    "B0GWGSW2XB",
+    "B0GWGTLXRF",
+    "B0GWGX82QD",
+    "B0GWH6B18J",
+    "B0GWH6J8Y4",
+    "B0GYPJ97Z2",
+    "B0GYRWYBZY",
+    "B0H2TYJ8VG",
+    "B0H3DSQV33",
+    "B0H3TLNCLG",
+    "B0H44DKV6V",
+    "B0H4FXNBB3",
+    "B0H5BYJ78P",
+    "B0H5C3GVDL",
+    "B0H5JZZ3GK",
+    "B0H6J5TFMT",
+    "B0H6WKMXPB",
+    "B0H9YH5DF9",
+    "B0HDKZKXS9",
+    "B0HDN5MHLR",
+    "B0HDNZR3V7",
+    "B0HDPNZ65Y",
+    "B0HGF8V9BW",
+    "B0HHJHYF8Z",
+    "B0HJNLKK9R",
+    "B0HKK8PJJR",
+    "B0HLCQQ21L",
+    "B0HMBF83JS"
+  ],
+  "occupied_count": 61,
+  "lab_p3_extra_ban": [
+    "B08LPBPVPS",
+    "B0C9ZY2FDG",
+    "B0CHFCMJQS",
+    "B0CJ9DK4T2",
+    "B0GSTRNQZX",
+    "B0H29PPQVV"
+  ],
+  "sources": {
+    "1_pb": {
+      "name": "PartnerBoost brand catalog / PB∪ track search",
+      "brand_ids_known": {
+        "WFT-Waterdrop": 138654,
+        "Waterdrop": 103211,
+        "Frizzlife AMZ": 135821
+      },
+      "live_query": "skipped_no_token",
+      "scene_fit_whole_systems": [],
+      "note": "No affiliate API tokens in this VM environment. Do not invent Check price hops."
+    },
+    "2_yp": {
+      "name": "YeahPromos catalog / YP track search",
+      "live_query": "skipped_no_token",
+      "scene_fit_whole_systems": [],
+      "in_repo_yp_water_tracks": 0,
+      "note": "In-repo YP tracks are the /tv/ cluster only. No YP well-system or softener tracks on this VM."
+    },
+    "3_in_repo": {
+      "source": "in_repo_json",
+      "files_scanned": [
+        "shortlist-water-filters.json",
+        "shortlist-pitcher-water-filters.json",
+        "shortlist-under-sink-countertop-filtration.json",
+        "mt10-day-add-filter-densify-2026-10-23.json",
+        "day-add-open-batch-2026-10-23.json",
+        "mt10-day-add-track-probe-2026-10-23.json"
+      ],
+      "unique_asins": 238,
+      "scene_fit_well_unoccupied": [],
+      "scene_fit_hard_unoccupied": [],
+      "occupied_well_mentions": [
+        {
+          "asin": "B0H5JZZ3GK",
+          "title": "Waterdrop WHF21-PBL 2-Stage Whole House Water Filter System, NSF/ANSI 372",
+          "kind": "well_water_system",
+          "occupied": true,
+          "sources": [
+            "shortlist-water-filters.json",
+            "mt10-day-add-filter-densify-2026-10-23.json",
+            "day-add-open-batch-2026-10-23.json"
+          ]
+        }
+      ],
+      "note": "In-repo water inventory is drinking systems, pitchers, cartridges, or the occupied WHF21-PBL whole-house card already on /water-filters/. No unoccupied well-pretreatment or softener whole systems."
+    },
+    "l1_fill_pack": {
+      "path": "p3-l1-fill-pack-2026-10-23.json",
+      "well": 8,
+      "hard": 0,
+      "note": "Well filled from L1 pack (PB fromsll). Hard is a true shortfall after ①②③ + Lab P3 ban of sole softener."
+    }
+  },
+  "fill_status": "partial",
+  "inventory_blocked": false,
+  "pages": [
+    {
+      "path": "/water-filters/best-water-filters-for-well-water/",
+      "type": "07-best-of",
+      "parent": "/water-filters/",
+      "density": 8,
+      "density_target": "6-10 scene-fit if inventory allows",
+      "fill_status": "filled",
+      "inventory_blocked": false,
+      "inventory_shortfall": false,
+      "cta_status": "pb_fromsll",
+      "cta_rule": "PB fromsll only when a verified track exists; never invent hops",
+      "reviews": "none — Top pick + Upgrade articles do not exist for this scene",
+      "picks": [
+        {
+          "asin": "B0H29R9MJW",
+          "title": "Waterdrop WHF2E-PC Whole House Water Filter System, 4-Stage Filtration",
+          "role": "Top pick",
+          "brand": "WFT-Waterdrop",
+          "affiliate_link": "https://pboost.me/G5SPTtda?uid=fromsll",
+          "track_status": "ok",
+          "price": "$129.99",
+          "image": null
+        },
+        {
+          "asin": "B07C5P8NC7",
+          "title": "Waterdrop WHF3T-PG 3-Stage Whole House Water Filter System, 5 Micron",
+          "role": "Premium",
+          "brand": "WFT-Waterdrop",
+          "affiliate_link": "https://pboost.me/V5SPE4gf5?uid=fromsll",
+          "track_status": "ok",
+          "price": "$254.99",
+          "image": null
+        },
+        {
+          "asin": "B0C9ZY8L1C",
+          "title": "SimPure Whole House Water Filter System, 2 Stages Clear 10\" x 4.5\"",
+          "role": "Upgrade",
+          "brand": "Simpure",
+          "affiliate_link": "https://pboost.me/j5UOCw73t?uid=fromsll",
+          "track_status": "ok",
+          "price": "$129.99",
+          "image": null
+        },
+        {
+          "asin": "B0F43LV539",
+          "title": "Waterdrop WHF21-PBH 2-Stage Whole House Water Filter System, NSF/ANSI 372",
+          "role": "Best value",
+          "brand": "Waterdrop",
+          "affiliate_link": "https://pboost.me/O5SQ51Ot?uid=fromsll",
+          "track_status": "ok",
+          "price": "$99.97",
+          "image": null
+        },
+        {
+          "asin": "B09SM2ZN3X",
+          "title": "Waterdrop WHF21-FG 2-Stage Whole House Water Filter System, NSF/ANSI 372",
+          "role": "Alternative",
+          "brand": "Waterdrop",
+          "affiliate_link": "https://pboost.me/H5SQ6ucRc?uid=fromsll",
+          "track_status": "ok",
+          "price": "$138.99",
+          "image": null
+        },
+        {
+          "asin": "B0F43PC2JX",
+          "title": "Waterdrop WHF21-SH 2-Stage Whole House Water Filter System, NSF/ANSI 372",
+          "role": "Also consider",
+          "brand": "Waterdrop",
+          "affiliate_link": "https://pboost.me/A5SQAZQw?uid=fromsll",
+          "track_status": "ok",
+          "price": "$131.39",
+          "image": null
+        },
+        {
+          "asin": "B0DTKC58F6",
+          "title": "Waterdrop WHF21-BG 2-Stage Whole House Water Filter System, NSF/ANSI 372",
+          "role": "Editor pick",
+          "brand": "Waterdrop",
+          "affiliate_link": "https://pboost.me/z5SQgQ4Qa?uid=fromsll",
+          "track_status": "ok",
+          "price": "$119.99",
+          "image": null
+        },
+        {
+          "asin": "B08XXJSN29",
+          "title": "Waterdrop WHF21-PG 2-Stage Whole House Water Filter System, NSF/ANSI 372",
+          "role": "Budget",
+          "brand": "Waterdrop",
+          "affiliate_link": "https://pboost.me/p5SQgqgQC?uid=fromsll",
+          "track_status": "ok",
+          "price": "$109.99",
+          "image": null
+        }
+      ]
+    },
+    {
+      "path": "/water-filters/best-water-filters-for-hard-water/",
+      "type": "07-best-of",
+      "parent": "/water-filters/",
+      "density": 0,
+      "density_target": "6-10 scene-fit if inventory allows",
+      "fill_status": "inventory_shortfall",
+      "inventory_blocked": true,
+      "inventory_shortfall": true,
+      "cta_status": "empty",
+      "cta_rule": "PB fromsll only when a verified track exists; never invent hops",
+      "reviews": "none — Top pick + Upgrade articles do not exist for this scene",
+      "picks": []
+    }
+  ],
+  "notes": [
+    "Main /water-filters/ is already Live in this bake tree — do not recreate it.",
+    "ASIN collision ban vs occupied 61 + Lab P3 six.",
+    "No accessories as picks. No invented prices, was/%, gallery, or specs.",
+    "Well density 8 from L1 pack. Hard density 0 shortfall — do not invent softeners."
+  ]
+}
