@@ -1,0 +1,886 @@
+{
+  "date": "2026-10-23",
+  "waiting_for_\u90e8\u7f72\u4e0a\u7ebf": true,
+  "pages": [
+    {
+      "scene": "best air purifier for allergies",
+      "path": "/air-purifiers/best-air-purifiers-for-allergies/",
+      "density": 10,
+      "order_asins": [
+        "B0GXKSC38S",
+        "B07X25BNBR",
+        "B0F2G5DPJN",
+        "B08BR1CR78",
+        "B09LMF648R",
+        "B0CXJ97TV1",
+        "B0F32TGRMR",
+        "B0FS68R44C",
+        "B0FK53C7B9",
+        "B0H4SVJ2RF"
+      ],
+      "top_pick": {
+        "asin": "B0GXKSC38S",
+        "name": "LEVOIT Smart Pet Air Purifier for Home Pets",
+        "review": "levoit-smart-pet-air-purifier-home",
+        "review_exists": true,
+        "track_network": "pb",
+        "track_ok": true
+      },
+      "upgrade": {
+        "asin": "B07X25BNBR",
+        "name": "LEVOIT Air Purifier for Home Bedroom Small Room",
+        "review": "levoit-air-purifier-home-bedroom-small",
+        "review_exists": true,
+        "track_network": "pb",
+        "track_ok": true
+      },
+      "tracks": [
+        {
+          "asin": "B0GXKSC38S",
+          "network": "pb",
+          "ok": true,
+          "price": "179.99",
+          "score": "9.2"
+        },
+        {
+          "asin": "B07X25BNBR",
+          "network": "pb",
+          "ok": true,
+          "price": "119.99",
+          "score": "9.2"
+        },
+        {
+          "asin": "B0F2G5DPJN",
+          "network": "pb",
+          "ok": true,
+          "price": "575.83",
+          "score": "8.4"
+        },
+        {
+          "asin": "B08BR1CR78",
+          "network": "pb",
+          "ok": true,
+          "price": "49.99",
+          "score": "9.2"
+        },
+        {
+          "asin": "B09LMF648R",
+          "network": "pb",
+          "ok": true,
+          "price": "48.78",
+          "score": "9.2"
+        },
+        {
+          "asin": "B0CXJ97TV1",
+          "network": "pb",
+          "ok": true,
+          "price": "73.67",
+          "score": "9.0"
+        },
+        {
+          "asin": "B0F32TGRMR",
+          "network": "pb",
+          "ok": true,
+          "price": "599.99",
+          "score": "7.8"
+        },
+        {
+          "asin": "B0FS68R44C",
+          "network": "pb",
+          "ok": true,
+          "price": "209.99",
+          "score": "8.4"
+        },
+        {
+          "asin": "B0FK53C7B9",
+          "network": "pb",
+          "ok": true,
+          "price": "99.99",
+          "score": "9.4"
+        },
+        {
+          "asin": "B0H4SVJ2RF",
+          "network": "pb",
+          "ok": true,
+          "price": "69.99",
+          "score": "8.6"
+        }
+      ],
+      "new_reviews": [],
+      "reused_reviews": [
+        "levoit-smart-pet-air-purifier-home",
+        "levoit-air-purifier-home-bedroom-small"
+      ]
+    },
+    {
+      "scene": "best air purifier for mold",
+      "path": "/air-purifiers/best-air-purifiers-for-mold/",
+      "density": 10,
+      "order_asins": [
+        "B0CXJ97TV1",
+        "B0F32TGRMR",
+        "B0F2G5DPJN",
+        "B0FK53C7B9",
+        "B0H4SVJ2RF",
+        "B0GXKSC38S",
+        "B07X25BNBR",
+        "B09LMF648R",
+        "B0FS68R44C",
+        "B08BR1CR78"
+      ],
+      "top_pick": {
+        "asin": "B0CXJ97TV1",
+        "name": "Mooka Air Purifier for Home Bedroom Large Room",
+        "review": "mooka-air-purifier-home-bedroom-large",
+        "review_exists": true,
+        "track_network": "pb",
+        "track_ok": true
+      },
+      "upgrade": {
+        "asin": "B0F32TGRMR",
+        "name": "Dreame Air Purifier PM20 for Home Large Room, 3-in",
+        "review": "dreame-air-purifier-pm20-home-large",
+        "review_exists": true,
+        "track_network": "pb",
+        "track_ok": true
+      },
+      "tracks": [
+        {
+          "asin": "B0CXJ97TV1",
+          "network": "pb",
+          "ok": true,
+          "price": "73.67",
+          "score": "9.0"
+        },
+        {
+          "asin": "B0F32TGRMR",
+          "network": "pb",
+          "ok": true,
+          "price": "599.99",
+          "score": "7.8"
+        },
+        {
+          "asin": "B0F2G5DPJN",
+          "network": "pb",
+          "ok": true,
+          "price": "575.83",
+          "score": "8.4"
+        },
+        {
+          "asin": "B0FK53C7B9",
+          "network": "pb",
+          "ok": true,
+          "price": "99.99",
+          "score": "9.4"
+        },
+        {
+          "asin": "B0H4SVJ2RF",
+          "network": "pb",
+          "ok": true,
+          "price": "69.99",
+          "score": "8.6"
+        },
+        {
+          "asin": "B0GXKSC38S",
+          "network": "pb",
+          "ok": true,
+          "price": "179.99",
+          "score": "9.2"
+        },
+        {
+          "asin": "B07X25BNBR",
+          "network": "pb",
+          "ok": true,
+          "price": "119.99",
+          "score": "9.2"
+        },
+        {
+          "asin": "B09LMF648R",
+          "network": "pb",
+          "ok": true,
+          "price": "48.78",
+          "score": "9.2"
+        },
+        {
+          "asin": "B0FS68R44C",
+          "network": "pb",
+          "ok": true,
+          "price": "209.99",
+          "score": "8.4"
+        },
+        {
+          "asin": "B08BR1CR78",
+          "network": "pb",
+          "ok": true,
+          "price": "49.99",
+          "score": "9.2"
+        }
+      ],
+      "new_reviews": [],
+      "reused_reviews": [
+        "mooka-air-purifier-home-bedroom-large",
+        "dreame-air-purifier-pm20-home-large"
+      ]
+    },
+    {
+      "scene": "best air purifier for bedrooms",
+      "path": "/air-purifiers/best-air-purifiers-for-bedrooms/",
+      "density": 10,
+      "order_asins": [
+        "B07X25BNBR",
+        "B0CXJ97TV1",
+        "B08BR1CR78",
+        "B09LMF648R",
+        "B0H4SVJ2RF",
+        "B0GXKSC38S",
+        "B0FK53C7B9",
+        "B0FS68R44C",
+        "B0F2G5DPJN",
+        "B0F32TGRMR"
+      ],
+      "top_pick": {
+        "asin": "B07X25BNBR",
+        "name": "LEVOIT Air Purifier for Home Bedroom Small Room",
+        "review": "levoit-air-purifier-home-bedroom-small",
+        "review_exists": true,
+        "track_network": "pb",
+        "track_ok": true
+      },
+      "upgrade": {
+        "asin": "B0CXJ97TV1",
+        "name": "Mooka Air Purifier for Home Bedroom Large Room",
+        "review": "mooka-air-purifier-home-bedroom-large",
+        "review_exists": true,
+        "track_network": "pb",
+        "track_ok": true
+      },
+      "tracks": [
+        {
+          "asin": "B07X25BNBR",
+          "network": "pb",
+          "ok": true,
+          "price": "119.99",
+          "score": "9.2"
+        },
+        {
+          "asin": "B0CXJ97TV1",
+          "network": "pb",
+          "ok": true,
+          "price": "73.67",
+          "score": "9.0"
+        },
+        {
+          "asin": "B08BR1CR78",
+          "network": "pb",
+          "ok": true,
+          "price": "49.99",
+          "score": "9.2"
+        },
+        {
+          "asin": "B09LMF648R",
+          "network": "pb",
+          "ok": true,
+          "price": "48.78",
+          "score": "9.2"
+        },
+        {
+          "asin": "B0H4SVJ2RF",
+          "network": "pb",
+          "ok": true,
+          "price": "69.99",
+          "score": "8.6"
+        },
+        {
+          "asin": "B0GXKSC38S",
+          "network": "pb",
+          "ok": true,
+          "price": "179.99",
+          "score": "9.2"
+        },
+        {
+          "asin": "B0FK53C7B9",
+          "network": "pb",
+          "ok": true,
+          "price": "99.99",
+          "score": "9.4"
+        },
+        {
+          "asin": "B0FS68R44C",
+          "network": "pb",
+          "ok": true,
+          "price": "209.99",
+          "score": "8.4"
+        },
+        {
+          "asin": "B0F2G5DPJN",
+          "network": "pb",
+          "ok": true,
+          "price": "575.83",
+          "score": "8.4"
+        },
+        {
+          "asin": "B0F32TGRMR",
+          "network": "pb",
+          "ok": true,
+          "price": "599.99",
+          "score": "7.8"
+        }
+      ],
+      "new_reviews": [],
+      "reused_reviews": [
+        "levoit-air-purifier-home-bedroom-small",
+        "mooka-air-purifier-home-bedroom-large"
+      ]
+    },
+    {
+      "scene": "best air purifier for dust",
+      "path": "/air-purifiers/best-air-purifiers-for-dust/",
+      "density": 10,
+      "order_asins": [
+        "B07X25BNBR",
+        "B0FS68R44C",
+        "B09LMF648R",
+        "B0F2G5DPJN",
+        "B0FK53C7B9",
+        "B0CXJ97TV1",
+        "B08BR1CR78",
+        "B0GXKSC38S",
+        "B0F32TGRMR",
+        "B0H4SVJ2RF"
+      ],
+      "top_pick": {
+        "asin": "B07X25BNBR",
+        "name": "LEVOIT Air Purifier for Home Bedroom Small Room",
+        "review": "levoit-air-purifier-home-bedroom-small",
+        "review_exists": true,
+        "track_network": "pb",
+        "track_ok": true
+      },
+      "upgrade": {
+        "asin": "B0FS68R44C",
+        "name": "Dreame Pet Air Purifier AP10, Suck Up Floating",
+        "review": "dreame-pet-air-purifier-ap10-suck",
+        "review_exists": true,
+        "track_network": "pb",
+        "track_ok": true
+      },
+      "tracks": [
+        {
+          "asin": "B07X25BNBR",
+          "network": "pb",
+          "ok": true,
+          "price": "119.99",
+          "score": "9.2"
+        },
+        {
+          "asin": "B0FS68R44C",
+          "network": "pb",
+          "ok": true,
+          "price": "209.99",
+          "score": "8.4"
+        },
+        {
+          "asin": "B09LMF648R",
+          "network": "pb",
+          "ok": true,
+          "price": "48.78",
+          "score": "9.2"
+        },
+        {
+          "asin": "B0F2G5DPJN",
+          "network": "pb",
+          "ok": true,
+          "price": "575.83",
+          "score": "8.4"
+        },
+        {
+          "asin": "B0FK53C7B9",
+          "network": "pb",
+          "ok": true,
+          "price": "99.99",
+          "score": "9.4"
+        },
+        {
+          "asin": "B0CXJ97TV1",
+          "network": "pb",
+          "ok": true,
+          "price": "73.67",
+          "score": "9.0"
+        },
+        {
+          "asin": "B08BR1CR78",
+          "network": "pb",
+          "ok": true,
+          "price": "49.99",
+          "score": "9.2"
+        },
+        {
+          "asin": "B0GXKSC38S",
+          "network": "pb",
+          "ok": true,
+          "price": "179.99",
+          "score": "9.2"
+        },
+        {
+          "asin": "B0F32TGRMR",
+          "network": "pb",
+          "ok": true,
+          "price": "599.99",
+          "score": "7.8"
+        },
+        {
+          "asin": "B0H4SVJ2RF",
+          "network": "pb",
+          "ok": true,
+          "price": "69.99",
+          "score": "8.6"
+        }
+      ],
+      "new_reviews": [],
+      "reused_reviews": [
+        "levoit-air-purifier-home-bedroom-small",
+        "dreame-pet-air-purifier-ap10-suck"
+      ]
+    },
+    {
+      "scene": "best air purifier for smoke",
+      "path": "/air-purifiers/best-air-purifiers-for-smoke/",
+      "density": 10,
+      "order_asins": [
+        "B0F2G5DPJN",
+        "B0GXKSC38S",
+        "B09LMF648R",
+        "B0FK53C7B9",
+        "B0F32TGRMR",
+        "B08BR1CR78",
+        "B0CXJ97TV1",
+        "B0FS68R44C",
+        "B07X25BNBR",
+        "B0H4SVJ2RF"
+      ],
+      "top_pick": {
+        "asin": "B0F2G5DPJN",
+        "name": "Dreame Smart Air Purifier PM10 for Home Large",
+        "review": "dreame-smart-air-purifier-pm10-home",
+        "review_exists": true,
+        "track_network": "pb",
+        "track_ok": true
+      },
+      "upgrade": {
+        "asin": "B0GXKSC38S",
+        "name": "LEVOIT Smart Pet Air Purifier for Home Pets",
+        "review": "levoit-smart-pet-air-purifier-home",
+        "review_exists": true,
+        "track_network": "pb",
+        "track_ok": true
+      },
+      "tracks": [
+        {
+          "asin": "B0F2G5DPJN",
+          "network": "pb",
+          "ok": true,
+          "price": "575.83",
+          "score": "8.4"
+        },
+        {
+          "asin": "B0GXKSC38S",
+          "network": "pb",
+          "ok": true,
+          "price": "179.99",
+          "score": "9.2"
+        },
+        {
+          "asin": "B09LMF648R",
+          "network": "pb",
+          "ok": true,
+          "price": "48.78",
+          "score": "9.2"
+        },
+        {
+          "asin": "B0FK53C7B9",
+          "network": "pb",
+          "ok": true,
+          "price": "99.99",
+          "score": "9.4"
+        },
+        {
+          "asin": "B0F32TGRMR",
+          "network": "pb",
+          "ok": true,
+          "price": "599.99",
+          "score": "7.8"
+        },
+        {
+          "asin": "B08BR1CR78",
+          "network": "pb",
+          "ok": true,
+          "price": "49.99",
+          "score": "9.2"
+        },
+        {
+          "asin": "B0CXJ97TV1",
+          "network": "pb",
+          "ok": true,
+          "price": "73.67",
+          "score": "9.0"
+        },
+        {
+          "asin": "B0FS68R44C",
+          "network": "pb",
+          "ok": true,
+          "price": "209.99",
+          "score": "8.4"
+        },
+        {
+          "asin": "B07X25BNBR",
+          "network": "pb",
+          "ok": true,
+          "price": "119.99",
+          "score": "9.2"
+        },
+        {
+          "asin": "B0H4SVJ2RF",
+          "network": "pb",
+          "ok": true,
+          "price": "69.99",
+          "score": "8.6"
+        }
+      ],
+      "new_reviews": [],
+      "reused_reviews": [
+        "dreame-smart-air-purifier-pm10-home",
+        "levoit-smart-pet-air-purifier-home"
+      ]
+    },
+    {
+      "scene": "best air purifier for large rooms",
+      "path": "/air-purifiers/best-air-purifiers-for-large-rooms/",
+      "density": 10,
+      "order_asins": [
+        "B0CXJ97TV1",
+        "B0F32TGRMR",
+        "B0FK53C7B9",
+        "B0F2G5DPJN",
+        "B0GXKSC38S",
+        "B0H4SVJ2RF",
+        "B0FS68R44C",
+        "B07X25BNBR",
+        "B09LMF648R",
+        "B08BR1CR78"
+      ],
+      "top_pick": {
+        "asin": "B0CXJ97TV1",
+        "name": "Mooka Air Purifier for Home Bedroom Large Room",
+        "review": "mooka-air-purifier-home-bedroom-large",
+        "review_exists": true,
+        "track_network": "pb",
+        "track_ok": true
+      },
+      "upgrade": {
+        "asin": "B0F32TGRMR",
+        "name": "Dreame Air Purifier PM20 for Home Large Room, 3-in",
+        "review": "dreame-air-purifier-pm20-home-large",
+        "review_exists": true,
+        "track_network": "pb",
+        "track_ok": true
+      },
+      "tracks": [
+        {
+          "asin": "B0CXJ97TV1",
+          "network": "pb",
+          "ok": true,
+          "price": "73.67",
+          "score": "9.0"
+        },
+        {
+          "asin": "B0F32TGRMR",
+          "network": "pb",
+          "ok": true,
+          "price": "599.99",
+          "score": "7.8"
+        },
+        {
+          "asin": "B0FK53C7B9",
+          "network": "pb",
+          "ok": true,
+          "price": "99.99",
+          "score": "9.4"
+        },
+        {
+          "asin": "B0F2G5DPJN",
+          "network": "pb",
+          "ok": true,
+          "price": "575.83",
+          "score": "8.4"
+        },
+        {
+          "asin": "B0GXKSC38S",
+          "network": "pb",
+          "ok": true,
+          "price": "179.99",
+          "score": "9.2"
+        },
+        {
+          "asin": "B0H4SVJ2RF",
+          "network": "pb",
+          "ok": true,
+          "price": "69.99",
+          "score": "8.6"
+        },
+        {
+          "asin": "B0FS68R44C",
+          "network": "pb",
+          "ok": true,
+          "price": "209.99",
+          "score": "8.4"
+        },
+        {
+          "asin": "B07X25BNBR",
+          "network": "pb",
+          "ok": true,
+          "price": "119.99",
+          "score": "9.2"
+        },
+        {
+          "asin": "B09LMF648R",
+          "network": "pb",
+          "ok": true,
+          "price": "48.78",
+          "score": "9.2"
+        },
+        {
+          "asin": "B08BR1CR78",
+          "network": "pb",
+          "ok": true,
+          "price": "49.99",
+          "score": "9.2"
+        }
+      ],
+      "new_reviews": [],
+      "reused_reviews": [
+        "mooka-air-purifier-home-bedroom-large",
+        "dreame-air-purifier-pm20-home-large"
+      ]
+    },
+    {
+      "scene": "best humidifier for babies",
+      "path": "/humidifiers/best-humidifiers-for-babies/",
+      "density": 10,
+      "order_asins": [
+        "B0DF567NW8",
+        "B0C369CCDY",
+        "B0DSP78FG4",
+        "B0C2GKJ9RT",
+        "B0B1DQ8KV3",
+        "B0C4GHYH2M",
+        "B09C24TYGQ",
+        "B095KGXPW5",
+        "B0BLV8BM5J",
+        "B0GSR397Z7"
+      ],
+      "top_pick": {
+        "asin": "B0DF567NW8",
+        "name": "Homvana 3.6L Cool Mist Humidifiers for Bedroom, Baby",
+        "review": "homvana-36l-cool-mist-humidifiers-bedroom",
+        "review_exists": true,
+        "track_network": "pb",
+        "track_ok": true
+      },
+      "upgrade": {
+        "asin": "B0C369CCDY",
+        "name": "Homvana Humidifier Large Room, 7L (807ft\u00b2) Smart",
+        "review": "homvana-humidifier-large-room-7l-807ft",
+        "review_exists": true,
+        "track_network": "pb",
+        "track_ok": true
+      },
+      "tracks": [
+        {
+          "asin": "B0DF567NW8",
+          "network": "pb",
+          "ok": true,
+          "price": "31.49",
+          "score": "8.8"
+        },
+        {
+          "asin": "B0C369CCDY",
+          "network": "pb",
+          "ok": true,
+          "price": "79.99",
+          "score": "8.4"
+        },
+        {
+          "asin": "B0DSP78FG4",
+          "network": "pb",
+          "ok": true,
+          "price": "38.88",
+          "score": "8.2"
+        },
+        {
+          "asin": "B0C2GKJ9RT",
+          "network": "pb",
+          "ok": true,
+          "price": "49.58",
+          "score": "8.8"
+        },
+        {
+          "asin": "B0B1DQ8KV3",
+          "network": "pb",
+          "ok": true,
+          "price": "75.99",
+          "score": "8.8"
+        },
+        {
+          "asin": "B0C4GHYH2M",
+          "network": "pb",
+          "ok": true,
+          "price": "109.99",
+          "score": "8.8"
+        },
+        {
+          "asin": "B09C24TYGQ",
+          "network": "pb",
+          "ok": true,
+          "price": "79.99",
+          "score": "8.8"
+        },
+        {
+          "asin": "B095KGXPW5",
+          "network": "pb",
+          "ok": true,
+          "price": "109.00",
+          "score": "8.6"
+        },
+        {
+          "asin": "B0BLV8BM5J",
+          "network": "pb",
+          "ok": true,
+          "price": "134.99",
+          "score": "8.8"
+        },
+        {
+          "asin": "B0GSR397Z7",
+          "network": "pb",
+          "ok": true,
+          "price": "180.63",
+          "score": "8.8"
+        }
+      ],
+      "new_reviews": [],
+      "reused_reviews": [
+        "homvana-36l-cool-mist-humidifiers-bedroom",
+        "homvana-humidifier-large-room-7l-807ft"
+      ]
+    },
+    {
+      "scene": "best standing desk for home office",
+      "path": "/standing-desks/best-standing-desks-for-home-office/",
+      "density": 10,
+      "order_asins": [
+        "B0B68QSN6Y",
+        "B0GD75Y6SC",
+        "B0GWKF4M1T",
+        "B0FJXWQ3Y7",
+        "B0F8MHPVPH",
+        "B0GCNG1PK8",
+        "B0GWKCG1SS",
+        "B0GCNPGWPL",
+        "B0CJ313Q9P",
+        "B0H4LCLJXL"
+      ],
+      "top_pick": {
+        "asin": "B0B68QSN6Y",
+        "name": "FEZIBO 60 x 30 inch Standing Electric Desk",
+        "review": "fezibo-60-x-30-inch-standing",
+        "review_exists": true,
+        "track_network": "pb",
+        "track_ok": true
+      },
+      "upgrade": {
+        "asin": "B0GD75Y6SC",
+        "name": "FEZIBO 63 x 37 Inch Large Electric Standing",
+        "review": "fezibo-63-x-37-inch-large",
+        "review_exists": true,
+        "track_network": "pb",
+        "track_ok": true
+      },
+      "tracks": [
+        {
+          "asin": "B0B68QSN6Y",
+          "network": "pb",
+          "ok": true,
+          "price": "208.99",
+          "score": "9.0"
+        },
+        {
+          "asin": "B0GD75Y6SC",
+          "network": "pb",
+          "ok": true,
+          "price": "296.99",
+          "score": "9.2"
+        },
+        {
+          "asin": "B0GWKF4M1T",
+          "network": "pb",
+          "ok": true,
+          "price": "169.99",
+          "score": "9.4"
+        },
+        {
+          "asin": "B0FJXWQ3Y7",
+          "network": "pb",
+          "ok": true,
+          "price": "149.99",
+          "score": "9.0"
+        },
+        {
+          "asin": "B0F8MHPVPH",
+          "network": "pb",
+          "ok": true,
+          "price": "99.99",
+          "score": "9.0"
+        },
+        {
+          "asin": "B0GCNG1PK8",
+          "network": "pb",
+          "ok": true,
+          "price": "329.99",
+          "score": "9.0"
+        },
+        {
+          "asin": "B0GWKCG1SS",
+          "network": "pb",
+          "ok": true,
+          "price": "109.99",
+          "score": "9.4"
+        },
+        {
+          "asin": "B0GCNPGWPL",
+          "network": "pb",
+          "ok": true,
+          "price": "449.99",
+          "score": "9.0"
+        },
+        {
+          "asin": "B0CJ313Q9P",
+          "network": "pb",
+          "ok": true,
+          "price": "229.99",
+          "score": "8.8"
+        },
+        {
+          "asin": "B0H4LCLJXL",
+          "network": "pb",
+          "ok": true,
+          "price": "89.99",
+          "score": "9.0"
+        }
+      ],
+      "new_reviews": [],
+      "reused_reviews": [
+        "fezibo-60-x-30-inch-standing",
+        "fezibo-63-x-37-inch-large"
+      ]
+    }
+  ]
+}
