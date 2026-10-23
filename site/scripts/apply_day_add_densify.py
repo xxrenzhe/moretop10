@@ -23,6 +23,7 @@ from apply_day_add_l2 import (
     shortlist_payload,
     write_pages,
 )
+from price_honest import list_price_for_pick
 from scaffold_day_add import DATA, SITE
 
 DENSIFY_DIR = Path("/tmp/mt10-densify")
@@ -115,7 +116,7 @@ def merge_row(asin: str, proposed: dict, probe: dict[str, str], *, blocked: bool
         "price": price,
         "price_raw": price_raw,
         "price_displayed": (pack or {}).get("price_displayed") or proposed.get("price"),
-        "list_price": (pack or {}).get("list_price"),
+        "list_price": list_price_for_pick(asin, price, (pack or {}).get("list_price")),
         "image": image,
         "availability": (pack or {}).get("availability") if l2_ok else None,
         "in_stock": (pack or {}).get("in_stock_verified") if l2_ok else None,

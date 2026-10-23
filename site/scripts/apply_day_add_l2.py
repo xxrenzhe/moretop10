@@ -21,6 +21,7 @@ from html import escape
 from pathlib import Path
 
 from affiliate_uid import ensure_affiliate_uid, is_allowed_track_host, is_empty_track
+from price_honest import list_price_for_pick
 from seo_geo import rewrite_visible_jargon
 from scaffold_day_add import (
     CONFIRM,
@@ -160,7 +161,7 @@ def merge_pick(old: dict, track_row: dict | None) -> dict:
         "price": price,
         "price_raw": price_raw,
         "price_displayed": (pack or {}).get("price_displayed"),
-        "list_price": (pack or {}).get("list_price"),
+        "list_price": list_price_for_pick(asin, price, (pack or {}).get("list_price")),
         "image": image,
         "availability": (pack or {}).get("availability") if l2_ok else None,
         "in_stock": (pack or {}).get("in_stock_verified") if l2_ok else None,
@@ -251,6 +252,7 @@ def cta_html(pick: dict, *, extra_class: str = "") -> str:
 
 
 def price_html(pick: dict, *, value_class: str = "pc-price-value") -> str:
+    # R8 soft unverified list_price / was / % are not rendered. Now only.
     raw = pick.get("price_displayed") or (f"${pick['price']}" if pick.get("price") else None)
     if not raw:
         return '<span class="pc-price-checked">Price pending listing check</span>'

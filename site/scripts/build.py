@@ -742,6 +742,7 @@ def verify(cfg: dict) -> None:
     from g_engage_assert import sample_errors  # noqa: E402
     from feed_thumb_object_fit_assert import collect_errors as feed_thumb_errors  # noqa: E402
     from landing_css_assert import collect_errors as landing_css_errors  # noqa: E402
+    from r8_soft_list_price_assert import collect_errors as r8_soft_errors  # noqa: E402
     from visitor_copy_assert import collect_errors as visitor_copy_errors  # noqa: E402
 
     errors.extend(footer_cats_errors(SITE))
@@ -830,6 +831,7 @@ def verify(cfg: dict) -> None:
     errors.extend(watchouts_site_errors(SITE))
     errors.extend(landing_faq_site_errors(SITE))
     errors.extend(densify_html_errors(SITE))
+    errors.extend(r8_soft_errors(SITE))
 
     if errors:
         raise SystemExit("verify failed:\n- " + "\n- ".join(errors))
