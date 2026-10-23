@@ -2,7 +2,7 @@
 
 Canonical page classes for MoreTop10. FAQ rules for each type live in [`FAQ-BY-PAGE-TYPE.md`](FAQ-BY-PAGE-TYPE.md) — do not reuse one generic FAQ across types.
 
-**Status:** inventory is mixed. Money hubs (01, 02, 04–06) are baked in `site/`. Types 07–11 are live on `/tv/` and **linked** from category related clusters but often not yet baked as HTML. Types 12–13 are thin. Type 18 is a `noindex` demo.
+**Status:** inventory is mixed. Money hubs (01, 02, 04–06) are baked in `site/`. Types 07–11 are live on `/tv/` and **linked** from category related clusters but often not yet baked as HTML. Type 12 `/blog/` lists baked 07–11 (+ `/tv/` + `/blog/{slug}/` essays). Type 13 remains thin. Type 18 is a `noindex` demo.
 
 | ID | Type | Typical URL | Live today | FAQ |
 | --- | --- | --- | --- | --- |
@@ -17,7 +17,7 @@ Canonical page classes for MoreTop10. FAQ rules for each type live in [`FAQ-BY-P
 | 09 | Alternatives | `/{cat}/*-alternatives/`, `/tv/smart-tv-ad-alternatives/` | `/tv/` yes; category URLs often 404 | Yes when the article exists |
 | 10 | Guide | `/{cat}/how-to-choose-*/`, `/tv/remove-smart-tv-ads/` | `/tv/` yes; category URLs often 404 | Yes when the article exists |
 | 11 | How-to (procedural) | `/tv/adb-debloat-not-working/` and similar | `/tv/` yes | Yes — task questions only |
-| 12 | Blog hub | `/blog/` | Yes, thin inventory | Omit until the hub has a real feed |
+| 12 | Blog hub | `/blog/` | Yes — generated editorial feed (`build_blog.py`) | Omit (optional 2–3 later; still no methodology FAQ) |
 | 13 | Blog article | `/blog/{slug}/` | Thin (`how-we-pick-products` is type 20) | Optional; omit on methodology posts |
 | 14 | Authors hub | `/authors/` | Yes | Omit |
 | 15 | Author profile | `/authors/{slug}/` | Yes | Omit |

@@ -656,10 +656,19 @@ html{letter-spacing:var(--mt-tracking-body)}
 .blog-hub-page .page-head h1,.top-reads-page .page-head h1{margin:0 0 0.35rem;font-size:clamp(1.75rem,3.2vw,2.35rem);font-weight:700;line-height:1.2;color:#0E0E0E}
 .blog-hub-page .page-lede,.top-reads-page .page-lede{margin:0 0 1.25rem;font-size:16px;line-height:1.5;max-width:52ch;color:#0E0E0E}
 .blog-hub-page .feed-title,.top-reads-page .feed-title{font-size:1.25rem}
-.blog-hub-page .feed-thumb,.top-reads-page .feed-thumb{aspect-ratio:231/130;max-height:130px;border-radius:4px}
+.blog-hub-page .feed-thumb,.top-reads-page .feed-thumb{aspect-ratio:231/130;max-height:130px;border-radius:4px;overflow:hidden}
+.blog-hub-page .feed-thumb img,.blog-hub-page img.feed-thumb,.top-reads-page .feed-thumb img{width:100%;height:100%;object-fit:cover;object-position:center;display:block}
 @media (min-width:700px){.blog-hub-page .feed-row,.top-reads-page .feed-row{grid-template-columns:minmax(0,1fr) 231px;gap:1.35rem}}
 .blog-hub-page .best-widget,.top-reads-page .best-widget{margin-bottom:1rem}
 .blog-hub-page .why-widget h3 .why-brand,.top-reads-page .why-widget h3 .why-brand{color:var(--mt-purple)}
+.legal-page.blog-hub-page .legal-layout,.legal-page.blog-hub-page .blog-hub-layout{max-width:1080px}
+.blog-hub-grid{display:grid;gap:2rem}
+@media (min-width:900px){.blog-hub-grid{grid-template-columns:minmax(0,1fr) 260px;align-items:start;gap:2.5rem}}
+.blog-hub-page .feed-kicker{margin:0 0 0.2rem;font-size:12px;font-weight:600;letter-spacing:0.04em;text-transform:uppercase;color:var(--mt-ink-muted)}
+.blog-hub-page .blog-hub-count{margin:0 0 0.35rem;font-size:13px;color:var(--mt-ink-muted)}
+.blog-hub-page .blog-hub-reviews-note{margin:1rem 0 0;font-size:13px;line-height:1.5;color:var(--mt-ink-muted)}
+.blog-hub-page .must-reads-widget ul{margin:0;padding-left:1.15rem}
+.blog-hub-page .must-reads-widget li{margin:0.35rem 0;font-size:14px}
 .article-toc-list{margin:0.75rem 0 1.25rem;padding-left:1.2rem;line-height:1.7}
 .article-toc-list a{font-weight:500}
 .home-experts .experts-grid{margin-top:1.25rem}

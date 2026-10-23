@@ -256,11 +256,11 @@ Landing FAQ is **per category**. Copy-paste across the 21 hubs is a spec violati
 
 | | |
 | --- | --- |
-| **Role** | Inventory index. Thin today. |
+| **Role** | Sitewide editorial article index (guides, versus, alternatives, how-to, best-of, top-reads, `/tv/`). Not SKU reviews. |
 | **Include** | — |
 | **Exclude** | Placeholder FAQ, methodology FAQ, “what is MoreTop10”. |
 | **Count band** | 0 |
-| **Optional / omit** | **Omit until the hub has a real article feed.** Then optional 2–3 about what the blog covers vs comparisons. |
+| **Optional / omit** | **Omit for now.** Optional 2–3 later about what Articles covers vs comparison charts. |
 
 ---
 

@@ -451,20 +451,6 @@ def restore_company_pages() -> None:
         extra_class="partner-page",
     )
     write_company_page(
-        "blog",
-        "Blog",
-        "Editor notes and methodology. Individual product reviews live on each category hub.",
-        """
-<ul>
-<li><a href="how-we-pick-products/">How we pick products</a> — the ranking loop from About Us.</li>
-<li><a href="../about-us/">About Us</a> — who we are and how we make money.</li>
-<li><a href="../authors/">Editors</a> — bylines on reviews and guides.</li>
-</ul>
-<p>Category reviews are listed from each landing, for example <a href="../robot-vacuums/reviews/">robot vacuum reviews</a>.</p>
-""",
-        extra_class="blog-hub-page",
-    )
-    write_company_page(
         "blog/how-we-pick-products",
         "How we pick products",
         "The editorial loop already published on About Us, in one place.",
@@ -546,6 +532,9 @@ def restore_company_pages() -> None:
 <p>Full URL list: <a href="../sitemap.xml">sitemap.xml</a>.</p>
 """,
     )
+    from build_blog import write_blog_hub
+
+    write_blog_hub(SITE)
 
 
 def patch_html() -> None:

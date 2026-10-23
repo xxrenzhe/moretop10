@@ -19,6 +19,8 @@ This repo clone does not ship the full inventory generator. `build.py`:
      no product packshot <img> in `.best-widget`, `.editors-picks-widget`,
      `.ed-reviews-sidebar`, or comparison `.sidebar-promo`. Live snapshots
      still ship thumbs; bake strips them.
+ 12. /blog/ article index via build_blog (editorial how-to / VS /
+     alternatives / guides / top-reads / tv — not SKU reviews).
 
 Product cards, ASINs, and affiliate URLs are copied from Live snapshots — never
 invented here. Do not wrangler-deploy from this script.
@@ -26,6 +28,7 @@ invented here. Do not wrangler-deploy from this script.
 Usage:
     python3 site/scripts/build.py
     python3 site/scripts/build.py --best-widget-only
+    python3 site/scripts/build.py --blog-only
 """
 
 from __future__ import annotations
@@ -64,6 +67,7 @@ from chrome import (  # noqa: E402
     rewrite_non_home_nav,
     tile_is_tv,
 )
+from build_blog import write_blog_hub  # noqa: E402
 from seo_geo import (  # noqa: E402
     LIVE,
     ROBOTS_INDEX,
@@ -703,6 +707,7 @@ def verify(cfg: dict) -> None:
     if tests_dir not in sys.path:
         sys.path.insert(0, tests_dir)
     from best_widget_assert import sample_errors as best_widget_errors  # noqa: E402
+    from blog_hub_assert import collect_errors as blog_hub_errors  # noqa: E402
     from disclosure_chrome_assert import collect_errors as disclosure_errors  # noqa: E402
     from footer_cats_columns_assert import sample_errors as footer_cats_errors  # noqa: E402
     from g_engage_assert import sample_errors  # noqa: E402
@@ -788,6 +793,7 @@ def verify(cfg: dict) -> None:
     if 'data-editorial-cluster="tv"' not in home:
         errors.append("home missing editorial /tv/ tile")
     errors.extend(author_feed_cover_errors(SITE))
+    errors.extend(blog_hub_errors(SITE))
 
     errors.extend(watchouts_site_errors(SITE))
     errors.extend(landing_faq_site_errors(SITE))
@@ -900,6 +906,8 @@ def main() -> None:
     from bake_tv import main as bake_tv_main  # noqa: E402
 
     bake_tv_main()
+    blog_n = write_blog_hub(SITE)
+    print(f"  wrote site/blog/index.html ({blog_n} articles)")
     disc = rebake_disclosure_pages(SITE)
     print(f"  disclosure chrome {len(disc)} pages")
     verify(cfg)
@@ -920,6 +928,14 @@ def _disclosure_errors(html: str, label: str) -> list[str]:
     if MISLEADING_STRIP in html:
         errors.append(f"{label} still says commission influences listings")
     return errors
+
+
+def blog_only() -> None:
+    """Rebuild /blog/ article index from local HTML. Bake ≠ deploy."""
+    n = write_blog_hub(SITE)
+    print(f"wrote site/blog/index.html ({n} articles)")
+    cfg = load_site_config()
+    verify(cfg)
 
 
 def disclosure_only() -> None:
@@ -944,5 +960,7 @@ if __name__ == "__main__":
         disclosure_only()
     elif "--visitor-copy-only" in sys.argv:
         visitor_copy_only()
+    elif "--blog-only" in sys.argv:
+        blog_only()
     else:
         main()
