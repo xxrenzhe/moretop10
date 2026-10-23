@@ -706,11 +706,13 @@ def verify(cfg: dict) -> None:
     from disclosure_chrome_assert import collect_errors as disclosure_errors  # noqa: E402
     from footer_cats_columns_assert import sample_errors as footer_cats_errors  # noqa: E402
     from g_engage_assert import sample_errors  # noqa: E402
+    from feed_thumb_object_fit_assert import collect_errors as feed_thumb_errors  # noqa: E402
     from landing_css_assert import collect_errors as landing_css_errors  # noqa: E402
 
     errors.extend(footer_cats_errors(SITE))
     errors.extend(sample_errors(SITE))
     errors.extend(landing_css_errors(SITE))
+    errors.extend(feed_thumb_errors(SITE))
     errors.extend(best_widget_errors(SITE))
     errors.extend(disclosure_errors())
 
