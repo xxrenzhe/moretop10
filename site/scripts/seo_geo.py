@@ -264,6 +264,11 @@ JARGON_PATTERNS: list[tuple[re.Pattern[str], str]] = [
     (re.compile(r"when L2 returned one", re.I), "when the listing included a star rating"),
     (re.compile(r"Prices are a Checked-day snapshot", re.I), "Prices are from the day we checked"),
     (re.compile(r"A deep review lands after deploy\.", re.I), "A deeper review will follow."),
+    (re.compile(r"when healthy tracks land", re.I), "when verified retailer links land"),
+    (re.compile(r"No healthy retail track passed\.?", re.I), "No verified retailer link passed."),
+    (re.compile(r"\bhealthy tracks\b", re.I), "verified retailer links"),
+    (re.compile(r"\bhealthy track\b", re.I), "verified retailer link"),
+    (re.compile(r"invent ASINs", re.I), "invent product listings"),
 ]
 
 FAQ_VISITOR_OK = re.compile(
@@ -289,7 +294,7 @@ VISITOR_LEAK_RE = re.compile(
     r"|\$[0-9][0-9,]*(?:\.[0-9]{2})? price snapshot"
     r"|Price snapshot:"
     r"|\(ASIN:|under ASIN|\bASIN B0"
-    r"|invent an ASIN|invented ASIN|those ASINs"
+    r"|invent an ASIN|invented ASIN|those ASINs|invent ASINs"
     r"|no ASIN|\ban ASIN\b"
 )
 
