@@ -1,0 +1,64 @@
+{
+  "generated": "2026-10-23",
+  "notes": [
+    "Cover slots only. Gradient placeholders, not product photos.",
+    "waiting_for_部署上线=yes. No Live.",
+    "water-filters and pitcher-water-filters densified to 10 main products."
+  ],
+  "covers": {
+    "hearing-aids": {
+      "status": "placeholder",
+      "lifestyle": "assets/img/lifestyle/cmp-hero-hearing-aids.jpg",
+      "product_photos": "none — do not invent packshots",
+      "todo": "Replace gradient placeholder with a real lifestyle cover after G-L2. Do not invent product photos."
+    },
+    "water-filters": {
+      "status": "placeholder",
+      "lifestyle": "assets/img/lifestyle/cmp-hero-water-filters.jpg",
+      "product_photos": "none — do not invent packshots",
+      "todo": "Replace gradient placeholder with a real lifestyle cover after G-L2. Do not invent product photos."
+    },
+    "under-sink-countertop-filtration": {
+      "status": "placeholder",
+      "lifestyle": "assets/img/lifestyle/cmp-hero-under-sink-countertop-filtration.jpg",
+      "product_photos": "none — do not invent packshots",
+      "todo": "Replace gradient placeholder with a real lifestyle cover after G-L2. Do not invent product photos."
+    },
+    "pitcher-water-filters": {
+      "status": "placeholder",
+      "lifestyle": "assets/img/lifestyle/cmp-hero-pitcher-water-filters.jpg",
+      "product_photos": "none — do not invent packshots",
+      "todo": "Replace gradient placeholder with a real lifestyle cover after G-L2. Do not invent product photos."
+    },
+    "doormats": {
+      "status": "placeholder",
+      "lifestyle": "assets/img/lifestyle/cmp-hero-doormats.jpg",
+      "product_photos": "none — do not invent packshots",
+      "todo": "Replace gradient placeholder with a real lifestyle cover after G-L2. Do not invent product photos."
+    },
+    "split-system": {
+      "status": "placeholder",
+      "lifestyle": "assets/img/lifestyle/cmp-hero-split-system.jpg",
+      "product_photos": "none — do not invent packshots",
+      "todo": "Replace gradient placeholder with a real lifestyle cover after G-L2. Do not invent product photos."
+    },
+    "stage-lights": {
+      "status": "placeholder",
+      "lifestyle": "assets/img/lifestyle/cmp-hero-stage-lights.jpg",
+      "product_photos": "none — do not invent packshots",
+      "todo": "Replace gradient placeholder with a real lifestyle cover after G-L2. Do not invent product photos."
+    },
+    "glass-display-cabinets": {
+      "status": "placeholder",
+      "lifestyle": "assets/img/lifestyle/cmp-hero-glass-display-cabinets.jpg",
+      "product_photos": "none — do not invent packshots",
+      "todo": "Replace gradient placeholder with a real lifestyle cover after G-L2. Do not invent product photos."
+    },
+    "document-scanners": {
+      "status": "placeholder",
+      "lifestyle": "assets/img/lifestyle/cmp-hero-document-scanners.jpg",
+      "product_photos": "none — do not invent packshots",
+      "todo": "Replace gradient placeholder with a real lifestyle cover after G-L2. Do not invent product photos."
+    }
+  }
+}

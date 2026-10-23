@@ -1,0 +1,343 @@
+{
+  "generated": "2026-10-23",
+  "slug": "pitcher-water-filters",
+  "name": "Pitcher Water Filters",
+  "amazon_category": "Home & Kitchen",
+  "density": 10,
+  "density_target": 10,
+  "density_shortfall": false,
+  "status": "unpublished_scaffold",
+  "waiting_for_部署上线": "yes",
+  "inventory": "l2_ok",
+  "baked": true,
+  "live": false,
+  "publishable": true,
+  "cta_label": "Check price",
+  "cta_rule": "PB pboost.me keeps uid=fromsll when L2 ok + verified track; otherwise track_pending and no Check price",
+  "l2": {
+    "status": "ok",
+    "method": "mac_chrome_cdp_9333",
+    "ok_count": 10,
+    "blocked": []
+  },
+  "notes": [
+    "Day-add densify L2 2026-10-23. waiting_for_部署上线=yes. No Live.",
+    "Main products only — no fridge/Brita cartridges, mounts, or arms.",
+    "CTA = verified fromsll (pboost.me or PB Amazon maas). No invented hops.",
+    "Lifestyle cover remains a gradient placeholder.",
+    "Densified to 10 pitcher/dispenser systems. Replacement cartridges stay out."
+  ],
+  "dropped_accessory_asins": [],
+  "picks": [
+    {
+      "asin": "B0F8VVH6PN",
+      "title": "Waterdrop ED06W Electric Water Filter Pitcher with 2 Filters, last 4 Months",
+      "title_source": "l2_pack",
+      "brand": "WFT-Waterdrop",
+      "affiliate_network": "pb",
+      "affiliate_link": "https://pboost.me/T5SQgz2OT?uid=fromsll",
+      "track_status": "ok",
+      "l2_status": "ok",
+      "price": "49.99",
+      "price_raw": "$49.99",
+      "price_displayed": "$49.99",
+      "list_price": "$55.99",
+      "image": "https://m.media-amazon.com/images/I/611PPfhU3mL._SL1500_.jpg",
+      "availability": "In Stock",
+      "in_stock": true,
+      "rating": 4.4,
+      "review_count": 6158,
+      "feature_bullets": [
+        "[Fast water dispensing] This electric water filter pitcher dispenses water instantly, thanks to its advanced electric filtration. You no longer have to wait for your water to filter. Simply press a button and get clean water instantly, saving you time and adding convenience to your daily routine",
+        "[Soften your water for great taste] This water filter can soften your water by reducing copper, magnesium, calcium, and more. Independently tested by a third-party laboratory, it provides great-tasting water for you and your loved ones",
+        "[Reduces 20+ contaminants] This water purifier efficiently reduces 20+ contaminants, including chlorine, taste and odor, copper, calcium, magnesium, large particles, sediment, silt, and more. Tested by a third-party laboratory, it provides cleaner water and helps make every drop pure and enjoyable"
+      ],
+      "l2": {
+        "ok": true,
+        "method": "mac_chrome_cdp",
+        "zip": "10001",
+        "fetched_at": "2026-10-23T09:32:53.407779+08:00"
+      }
+    },
+    {
+      "asin": "B0GGQKB4TX",
+      "title": "Waterdrop PT-11W 7-Cup Water Filter Pitcher with 3 Filters, White",
+      "title_source": "l2_pack",
+      "brand": "WFT-Waterdrop",
+      "affiliate_network": "pb",
+      "affiliate_link": "https://pboost.me/r5SP5yaaE?uid=fromsll",
+      "track_status": "ok",
+      "l2_status": "ok",
+      "price": "29.99",
+      "price_raw": "$29.99",
+      "price_displayed": "$29.99",
+      "list_price": "$34.99",
+      "image": "https://m.media-amazon.com/images/I/61vYDBcuZAL._SL1500_.jpg",
+      "availability": "In Stock",
+      "in_stock": true,
+      "rating": 4.6,
+      "review_count": 124,
+      "feature_bullets": [
+        "Replacement filters: Need filters for PT-11? Search for WD-C06 or ASIN B0GJS9SCJ6 on Amazon. Choose genuine Waterdrop filters for a precise fit and reliable performance. Please confirm your model before ordering",
+        "4-stage filtration: The Waterdrop water filter pitcher features advanced 4-stage filtration that helps reduce chlorine, odors, bad taste, sand, sediment, and other large particles. It can work with Brita water pitcher filters, allowing you to enjoy cleaner, great-tasting water every day with the WD-PT-11W pitcher. Note: This system DOES NOT lower TDS value. If you prefer a low TDS value, please choose the Waterdrop TDS Reduction Glass Pitcher by searching PT-13W on Amazon",
+        "NSF/ANSI 42 & 372 certified filter: Equipped with an NSF/ANSI 42 & 372 certified filter, this water purifier filter delivers trusted filtration performance for daily use. Each filter treats up to 40 gallons of water and lasts up to 2 months with regular use, providing reliable Waterdrop filtration you can count on"
+      ],
+      "l2": {
+        "ok": true,
+        "method": "mac_chrome_cdp",
+        "zip": "10001",
+        "fetched_at": "2026-10-23T09:34:25.368250+08:00"
+      }
+    },
+    {
+      "asin": "B0F5Q2FNTV",
+      "title": "Waterdrop WFD-02L 35-Cup Water Filter Dispenser, Fluoride Reduction, Black",
+      "title_source": "l2_pack",
+      "brand": "WFT-Waterdrop",
+      "affiliate_network": "pb",
+      "affiliate_link": "https://pboost.me/H5SQCtkO3?uid=fromsll",
+      "track_status": "ok",
+      "l2_status": "ok",
+      "price": "53.99",
+      "price_raw": "$53.99",
+      "price_displayed": "$53.99",
+      "list_price": "$59.99",
+      "image": "https://m.media-amazon.com/images/I/61VaBaQP91L._SL1500_.jpg",
+      "availability": "In Stock",
+      "in_stock": true,
+      "rating": 4.3,
+      "review_count": 203,
+      "feature_bullets": [
+        "𝟗𝟎%+ 𝐅𝐥𝐮𝐨𝐫𝐢𝐝𝐞 𝐑𝐞𝐝𝐮𝐜𝐭𝐢𝐨𝐧: Advanced filtration reduces over 90% of fluoride, chlorine, rust, and more impurities, ensuring cleaner, healthier water with every sip. The upgraded carbon block reduces unpleasant taste and odor, giving you refreshing, great-tasting water.",
+        "𝐋𝐞𝐬𝐬 𝐅𝐥𝐮𝐨𝐫𝐢𝐝𝐞, 𝐇𝐞𝐚𝐥𝐭𝐡𝐢𝐞𝐫 𝐅𝐚𝐦𝐢𝐥𝐲: By reducing fluoride, it helps protect early childhood development, supports bone and joint health, and preserves brain function. It also prevents enamel discoloration, providing cleaner, safer water for your loved ones.",
+        "𝐋𝐚𝐫𝐠𝐞 𝟑𝟓-𝐂𝐮𝐩 𝐖𝐚𝐭𝐞𝐫 𝐂𝐚𝐩𝐚𝐜𝐢𝐭𝐲: With a large 35-cup water capacity, this filter is perfect for your whole family's needs. Whether you're sipping pure, great-tasting water, preparing meals, making morning coffee, or brewing tea, it's the ideal choice for every home. Enjoy filtered water in every situation, releasing the full flavor of your drinks and meals."
+      ],
+      "l2": {
+        "ok": true,
+        "method": "mac_chrome_cdp",
+        "zip": "10001",
+        "fetched_at": "2026-10-23T09:34:55.975926+08:00"
+      }
+    },
+    {
+      "asin": "B0H44DKV6V",
+      "title": "Waterdrop PT-13P TDS-Reducing Glass Water Filter Pitcher, Large 10-Cup",
+      "title_source": "l2_pack",
+      "brand": "WFT-Waterdrop",
+      "affiliate_network": "pb",
+      "affiliate_link": "https://pboost.me/X5SQzswOE?uid=fromsll",
+      "track_status": "ok",
+      "l2_status": "ok",
+      "price": "79.99",
+      "price_raw": "$79.99",
+      "price_displayed": "$79.99",
+      "list_price": null,
+      "image": "https://m.media-amazon.com/images/I/61qib948sNL._SL1500_.jpg",
+      "availability": "In Stock",
+      "in_stock": true,
+      "rating": 3.6,
+      "review_count": 6,
+      "feature_bullets": [
+        "𝐑𝐞𝐩𝐥𝐚𝐜𝐞𝐦𝐞𝐧𝐭 𝐟𝐢𝐥𝐭𝐞𝐫𝐬: Need reduce TDS filters for PT-13? Search for PF-03C or ASIN B0FY5XMMPK on Amazon. Choose genuine Waterdrop filters for a precise fit and reliable performance. Please confirm your model before ordering",
+        "𝐑𝐞𝐝𝐮𝐜𝐞 𝐮𝐧𝐰𝐚𝐧𝐭𝐞𝐝 𝐓𝐃𝐒, 𝐤𝐞𝐞𝐩 𝐛𝐞𝐧𝐞𝐟𝐢𝐜𝐢𝐚𝐥 𝐦𝐢𝐧𝐞𝐫𝐚𝐥𝐬: Not all TDS is the same. TDS includes both unwanted substances and beneficial minerals. This TDS-reducing water pitcher helps reduce excess dissolved solids while retaining beneficial minerals like calcium and magnesium, giving you cleaner, better-tasting water for everyday hydration",
+        "𝟔-𝐬𝐭𝐚𝐠𝐞 𝐟𝐢𝐥𝐭𝐫𝐚𝐭𝐢𝐨𝐧 𝐟𝐨𝐫 𝐛𝐞𝐭𝐭𝐞𝐫 𝐰𝐚𝐭𝐞𝐫: Featuring dual resin, carbon fiber, filter cotton, and other filtration materials, this TDS-reducing filter helps reduce TDS, chlorine, taste and odor, rust, sediments, and other large particles. Enjoy refreshing water with improved taste and quality in every glass"
+      ],
+      "l2": {
+        "ok": true,
+        "method": "mac_chrome_cdp",
+        "zip": "10001",
+        "fetched_at": "2026-10-23T09:35:11.339442+08:00"
+      }
+    },
+    {
+      "asin": "B0FS6DT3WK",
+      "title": "Waterdrop ED01W Electric Water Filter Pitcher with 2 Filters, 15-Cup, White",
+      "title_source": "l2_pack",
+      "brand": "WFT-Waterdrop",
+      "affiliate_network": "pb",
+      "affiliate_link": "https://www.amazon.com/dp/B0FS6DT3WK?maas=maas_adg_api_581162320068749297_static_12_201&ref_=aa_maas&tag=maas&aa_campaignid=PBbea1170d0dfde9a50dca26d8736aef93_ef9203d52813&aa_adgroupid=a772dH9RSRhGm5ww6OZyEAcybyjAow9_b3xOM1czzQCJ0ccHu4LyDzfRV3E55NclvqRlF2_aL2ApSVVNZ9R4EkPUZ2LjYZ4mE_c&aa_creativeid=c05849zWEU40yjEjYrgnn0JXOTmcihWho3a7hICd4AeXSoU_c&uid=fromsll",
+      "track_status": "ok",
+      "l2_status": "ok",
+      "price": "79.99",
+      "price_raw": "$79.99",
+      "price_displayed": "$79.99",
+      "list_price": "$99.99",
+      "image": "https://m.media-amazon.com/images/I/717N+nHyiRL._SL1500_.jpg",
+      "availability": "In Stock",
+      "in_stock": true,
+      "rating": 4.3,
+      "review_count": 2745,
+      "feature_bullets": [
+        "𝐓𝐡𝐢𝐬 𝐬𝐲𝐬𝐭𝐞𝐦 𝐃𝐎𝐄𝐒 𝐍𝐎𝐓 𝐥𝐨𝐰𝐞𝐫 𝐓𝐃𝐒 𝐯𝐚𝐥𝐮𝐞. If you prefer low TDS value, please choose Waterdrop TDS Reduction Rechargeable Dispenser (search model: WD-ED25TW).",
+        "Get Pure Water Instantly: Say goodbye to waiting! With its sleek electric design and one-touch operation, this water filter pitcher provides clean, filtered water in just 1 second—delivering a superior experience compared to traditional pitchers and dispensers.",
+        "10X More Efficient Filtration: Equipped with a 0.5 µm premium carbon block filter, this countertop water filter system offers 10X better filtration efficiency. It effectively removes impurities, improving both the purity and taste of your drinking water, making it an apartment and kitchen essential."
+      ],
+      "l2": {
+        "ok": true,
+        "method": "mac_chrome_cdp",
+        "zip": "10001",
+        "fetched_at": "2026-10-23T09:35:57.277094+08:00"
+      }
+    },
+    {
+      "asin": "B0GWGSW2XB",
+      "title": "Waterdrop PT-05B-AL Alkaline Water Filter Pitcher, 7-Cup, Up to pH 9.5",
+      "title_source": "l2_pack",
+      "brand": "WFT-Waterdrop",
+      "affiliate_network": "pb",
+      "affiliate_link": "https://www.amazon.com/dp/B0GWGSW2XB?maas=maas_adg_api_581162320068749297_static_12_201&ref_=aa_maas&tag=maas&aa_campaignid=PBbea1170d0dfde9a50dca26d8736aef93_ac6184840e54&aa_adgroupid=4767yp2bUWJ_ba62T47uD5LMLKB8XmOzyXp2WWVE8uKo6tjut2_a09IK12YJQSAOBocmOEYkN8FioqXYK4TIjxjd25ApxizvQ_c&aa_creativeid=964631BWYxqg_bzjUz_bfMCz8Wk17gnZwvlhiupoOdQ_bcSGdo_c&uid=fromsll",
+      "track_status": "ok",
+      "l2_status": "ok",
+      "price": "20.69",
+      "price_raw": "$20.69",
+      "price_displayed": "$20.69",
+      "list_price": "$22.99",
+      "image": "https://m.media-amazon.com/images/I/71dP6JqA0VL._AC_SL1500_.jpg",
+      "availability": "In Stock",
+      "in_stock": true,
+      "rating": 4.6,
+      "review_count": 12,
+      "feature_bullets": [
+        "[Replacement filters] Need alkaline filters for PT-05? Search for PF-AL or ASIN B096XRTY3M on Amazon. Choose genuine Waterdrop filters for a precise fit and reliable performance. Please confirm your model before ordering",
+        "[Alkaline mineral water] Waterdrop alkaline and mineral filter contains natural mineral materials and helps increase water pH to 8.0-9.5, allowing you to enjoy better-tasting alkaline water at home. It is designed for users who prefer mineral-enhanced daily drinking water",
+        "[Effective 6-stage filtration] Using 6-stage water filter technology, Waterdrop Elfin water filter pitcher helps reduce fluoride, chlorine, taste and odor, and heavy metals such as aluminum, iron, copper, and mercury, tested by a third-party lab. It also adds minerals and trace elements such as zinc, calcium, magnesium, selenium, lithium, and iodine to your water"
+      ],
+      "l2": {
+        "ok": true,
+        "method": "mac_chrome_cdp",
+        "zip": "10001",
+        "fetched_at": "2026-10-23T09:36:12.443230+08:00"
+      }
+    },
+    {
+      "asin": "B0H3TLNCLG",
+      "title": "Waterdrop WFD-40L-L Water Filter Dispenser with 3 Filters, 35-Cup Large Capacity, 200-Gallon Long-Life, Faster Filtration, Reduces Chlorine, PFOA/PFOS and More, BPA Free, Black",
+      "title_source": "l2_pack",
+      "brand": "WFT-Waterdrop",
+      "affiliate_network": "pb",
+      "affiliate_link": "https://www.amazon.com/dp/B0H3TLNCLG?maas=maas_adg_api_579776037387427332_static_12_201&ref_=aa_maas&tag=maas&aa_campaignid=PB6e4244366fc3631cf1e83967d7db05f8_62bfd448e795&aa_adgroupid=07009QyzIdtuxs_b4m57WFP1RLlBt7Ku1On8mAdd23os1UKfIt1wdx5MG7_b0iaGHVCdpVwAbHEynEdb13zc6qgjWtypHUZg_c_c&aa_creativeid=3847vGOCeaexeJK8HHad7EDMdZqOlAfuMXprPhN6Jxia1Tk_c&uid=fromsll",
+      "track_status": "ok",
+      "l2_status": "ok",
+      "price": "54.99",
+      "price_raw": "$54.99",
+      "price_displayed": "$54.99",
+      "list_price": "$67.99",
+      "image": "https://m.media-amazon.com/images/I/51axPDnQucL._SL1000_.jpg",
+      "availability": "In Stock",
+      "in_stock": true,
+      "rating": 4.3,
+      "review_count": 203,
+      "feature_bullets": [
+        "[𝐈𝐧𝐜𝐥𝐮𝐝𝐞𝐬 𝟑 𝐅𝐢𝐥𝐭𝐞𝐫𝐬 𝐟𝐨𝐫 𝐋𝐨𝐧𝐠-𝐓𝐞𝐫𝐦 𝐔𝐬𝐞] This system includes 3 filters in total: 1 pre-installed filter for immediate use and 2 replacement filters for long-term use. Please note: this system 𝐃𝐎𝐄𝐒 𝐍𝐎𝐓 lower TDS value. If you prefer low TDS value, please choose Waterdrop TDS Reduction Dispenser. Search ASIN: B0FY55BJKC.",
+        "Affordable Choice: Discover the perfect blend of affordability and quality with the Waterdrop water filter dispenser. Designed to fit your budget without compromising on performance.",
+        "Authoritative Certified Filtration: The filter used in this water filter system has been tested and certified by NSF International against NSF/ANSI Standard 42 & 372. It can efficiently reduce chlorine, taste and odor, rust, sand and sediments, tested by a third-party lab, providing clean, pure water for you."
+      ],
+      "l2": {
+        "ok": true,
+        "method": "mac_chrome_cdp",
+        "zip": "10001",
+        "fetched_at": "2026-10-23T09:35:42.002629+08:00"
+      }
+    },
+    {
+      "asin": "B0F62NRGGY",
+      "title": "Frizzlife MD40 Electric Water Filter Dispenser with 2 Filters, 400 Gallon, NSF/ANSI 53&42&372, Reduce Lead, PFAS, 6 Months Filter Life Pitcher, Countertop Rechargeable Instant System",
+      "title_source": "l2_pack",
+      "brand": "Frizzlife AMZ",
+      "affiliate_network": "pb",
+      "affiliate_link": "https://www.amazon.com/dp/B0F62NRGGY?maas=maas_adg_api_584966293070898849_static_12_201&ref_=aa_maas&tag=maas&aa_campaignid=PBa9c9e3745791556dd0b7fb8a812eb965_480e623eca47&aa_adgroupid=7789fit1742PiYIN1XqsJozG9Ia5cgxOS_aNU_apxUDVzot8qwab_aq3oszA9TQWaSe_bKgUChnXjnAVSacP2jIDuj_aD_aXnQEA_c_c&aa_creativeid=c40ahbzXWABvdfLdCiqd1R1W_b2Vu6KQnV8JRxNjIsF6i0eU_c&uid=fromsll",
+      "track_status": "ok",
+      "l2_status": "ok",
+      "price": "69.99",
+      "price_raw": "$69.99",
+      "price_displayed": "$69.99",
+      "list_price": "$79.99",
+      "image": "https://m.media-amazon.com/images/I/71c6zowGsDL._SL1500_.jpg",
+      "availability": "In Stock",
+      "in_stock": true,
+      "rating": 4.1,
+      "review_count": 338,
+      "feature_bullets": [
+        "Note: After recharging a dead battery, the MD40 will not restart automatically. Please manually restart by pressing both blue filter buttons for 3 seconds. This system preserves healthy minerals (Calcium, Magnesium, etc.), so it DOES NOT lower TDS values. TDS is not a professional measure of water quality.",
+        "[IAPMO Certified Filtration] Tested and certified by IAPMO R&T to NSF/ANSI 53, 42, and 372 standards, MD40 is made with BPA-free and lead-free materials for added peace of mind. Designed for safe, reliable everyday use, it provides cleaner, better-tasting water you can trust.",
+        "[99.89% Purification & Mineral Retention] Dual-Filter CBX technology reduces up to 99.89% of select contaminants, including chlorine, lead, fluoride, and PFAS/PFOA/PFOS, while retaining essential minerals for a clean, balanced taste. Enjoy the perfect balance of purified water and natural minerals for your family."
+      ],
+      "l2": {
+        "ok": true,
+        "method": "mac_chrome_cdp_9333",
+        "zip": "10001",
+        "fetched_at": "2026-10-23T10:07:31.289089+08:00"
+      }
+    },
+    {
+      "asin": "B0DMVYB9B1",
+      "title": "Waterdrop ED12W Glass Rechargeable Water Filter Dispenser, Large 22-Cup, Reduce 70+ Contaminants, Instant Eco-Friendly Countertop Water Filter System, 5-Stage Soften Water Pitcher, with 1 Filter",
+      "title_source": "l2_pack",
+      "brand": "WFT-Waterdrop",
+      "affiliate_network": "pb",
+      "affiliate_link": "https://www.amazon.com/dp/B0DMVYB9B1?maas=maas_adg_api_581162320068749297_static_12_201&ref_=aa_maas&tag=maas&aa_campaignid=PBbea1170d0dfde9a50dca26d8736aef93_e33c313690c1&aa_adgroupid=0e1fYl378A_bqez0l6TM9CDaR9O7euok588lmWxkROJCkzkoJjjtvlKwP7lrEr1TfG_aalccssPLETybG0YqZujIziryqAlLM_c&aa_creativeid=c82ddqWFu_bA_alviYoI_aSYqlYaHn7zn7sr8LdQ81rwzvXKn4_c&uid=fromsll",
+      "track_status": "ok",
+      "l2_status": "ok",
+      "price": "99.99",
+      "price_raw": "$99.99",
+      "price_displayed": "$99.99",
+      "list_price": "$119.99",
+      "image": "https://m.media-amazon.com/images/I/71HEyZzVNkL._SL1500_.jpg",
+      "availability": "In Stock",
+      "in_stock": true,
+      "rating": 4.0,
+      "review_count": 65,
+      "feature_bullets": [
+        "Lead-Free Glass Material: The Waterdrop Glass Electric Water Filter Dispenser is made from lead-free, high-quality, eco-friendly glass for a safe and sustainable choice. Its shatterproof design ensures durability, while the odorless material keeps water tasting pure. With reliable safety and sleek, modern style, it delivers purity you can see and trust with every pour.",
+        "Get Pure Water in 1 Second: With its electric design and one-key control, this water filter pitcher gives you experience beyond traditional pitchers and dispensers. You no longer have to wait for your water to filter. Simply press a button and get clean water instantly.",
+        "70+ Contaminants Reduced: This countertop water filter system provides cleaner, fresher water with 5-stage filtration designed to reduce 70+ contaminants, including chlorine, copper, taste and odor, and large particles. It also helps minimize calcium, magnesium, lead, cadmium, sediments, and VOCs. Independently tested by a third-party lab, it is designed to deliver a better hydration experience every time."
+      ],
+      "l2": {
+        "ok": true,
+        "method": "mac_chrome_cdp_9333",
+        "zip": "10001",
+        "fetched_at": "2026-10-23T10:07:40.055183+08:00"
+      }
+    },
+    {
+      "asin": "B0GGQCHLK1",
+      "title": "Waterdrop PT-11BL 7-Cup Alkaline Water Filter Pitcher with 3 Filters, Blue",
+      "title_source": "densify_sot",
+      "brand": "WFT-Waterdrop",
+      "affiliate_network": "pb",
+      "affiliate_link": "https://pboost.me/s5SPiDaC?uid=fromsll",
+      "track_status": "ok",
+      "l2_status": "ok",
+      "price": "29.99",
+      "price_raw": "$29.99",
+      "price_displayed": "$29.99",
+      "list_price": null,
+      "image": null,
+      "availability": "Unknown",
+      "in_stock": false,
+      "rating": null,
+      "review_count": null,
+      "feature_bullets": [],
+      "l2": {
+        "ok": true,
+        "method": "mac_chrome_cdp",
+        "zip": "10001",
+        "fetched_at": "2026-10-23T09:34:40.627371+08:00"
+      }
+    }
+  ],
+  "l2_ok_asins": [
+    "B0F8VVH6PN",
+    "B0GGQKB4TX",
+    "B0F5Q2FNTV",
+    "B0H44DKV6V",
+    "B0FS6DT3WK",
+    "B0GWGSW2XB",
+    "B0H3TLNCLG",
+    "B0F62NRGGY",
+    "B0DMVYB9B1",
+    "B0GGQCHLK1"
+  ],
+  "l2_pending_asins": [],
+  "track_pending_asins": []
+}

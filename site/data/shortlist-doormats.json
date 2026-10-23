@@ -1,0 +1,345 @@
+{
+  "generated": "2026-10-23",
+  "slug": "doormats",
+  "name": "Doormats",
+  "amazon_category": "Patio, Lawn & Garden",
+  "density": 10,
+  "density_target": 10,
+  "density_shortfall": false,
+  "status": "unpublished_scaffold",
+  "waiting_for_部署上线": "yes",
+  "inventory": "l2_ok",
+  "baked": true,
+  "live": false,
+  "publishable": true,
+  "cta_label": "Check price",
+  "cta_rule": "PB pboost.me keeps uid=fromsll when L2 ok + verified track; otherwise track_pending and no Check price",
+  "l2": {
+    "status": "ok",
+    "method": "mac_chrome_cdp_9333",
+    "ok_count": 10,
+    "blocked": []
+  },
+  "notes": [
+    "Day-add L2 merge 2026-10-23. waiting_for_部署上线=yes. No Live.",
+    "Accessory ASINs and accessory niches removed. No invented pboost hops.",
+    "Lifestyle cover remains a gradient placeholder."
+  ],
+  "dropped_accessory_asins": [],
+  "picks": [
+    {
+      "asin": "B0GS4BCZCG",
+      "title": "JSEI Dirt Trapper Door Mat 24\" x 36\", Non-Slip Washable Doormats, Blue",
+      "title_source": "l2_pack",
+      "brand": "JSEI",
+      "affiliate_network": "pb",
+      "affiliate_link": "https://pboost.me/V5SPD5Eh4?uid=fromsll",
+      "track_status": "ok",
+      "l2_status": "ok",
+      "price": "23.99",
+      "price_raw": "$23.99",
+      "price_displayed": "$23.99",
+      "list_price": null,
+      "image": "https://m.media-amazon.com/images/I/91MdnSIDAmL._AC_SL1500_.jpg",
+      "availability": "In Stock",
+      "in_stock": true,
+      "rating": 4.6,
+      "review_count": 310,
+      "feature_bullets": [
+        "Built for Everyday Entry Areas: Place this door mat at your entrance, front door, back door, hallway entry, laundry entry or mudroom entry. It gives wet shoes and daily foot traffic a defined landing spot before dirt spreads through the home.",
+        "Low Profile for Door Clearance: The low-profile design helps the mat sit comfortably in common doorway areas without a bulky look. Please measure your door clearance before purchase, especially if your door has a low sweep or raised threshold.",
+        "Absorbent Surface for Wet Shoes and Dirt: The textured surface helps absorb moisture and catch everyday dust, grit and dirt from shoes. It is useful for rainy days, busy family traffic and dirty paws near entry areas."
+      ],
+      "l2": {
+        "ok": true,
+        "method": "mac_chrome_cdp",
+        "zip": "10001",
+        "fetched_at": "2026-10-23T09:57:48.635471+08:00"
+      }
+    },
+    {
+      "asin": "B0H97Z8RDC",
+      "title": "JSEI Stair Treads 15PCs Light Grey Door Mat for Entrance 36‘’ x 60‘’ Light Grey",
+      "title_source": "l2_pack",
+      "brand": "JSEI",
+      "affiliate_network": "pb",
+      "affiliate_link": "https://pboost.me/B5SPDFDhd?uid=fromsll",
+      "track_status": "ok",
+      "l2_status": "ok",
+      "price": "112.18",
+      "price_raw": "$112.18",
+      "price_displayed": "$112.18",
+      "list_price": "$131.98",
+      "image": "https://m.media-amazon.com/images/I/91xxeIOM0JL._AC_SL1500_.jpg",
+      "availability": "In Stock",
+      "in_stock": true,
+      "rating": null,
+      "review_count": null,
+      "feature_bullets": [
+        "Built for Indoor Wooden Steps: Cover your indoor wooden stairs with a 15-pack of stair treads sized 8\" x 30\". Each tread is made for common indoor steps and helps turn bare wood stairs into a more comfortable walking surface for daily family use.",
+        "Helps Improve Traction: The TPE non-slip backing helps the tread grip clean, dry indoor wooden stairs. For best results, install each stair mat on a flat, dust-free surface and avoid using it on wet, oily, uneven, or outdoor steps.",
+        "Comfortable for Kids, Seniors and Pets: The polyester surface gives feet and paws a softer step than bare wood. Use these stair treads in homes with kids, seniors, or dogs that need steadier footing on indoor stairs."
+      ],
+      "l2": {
+        "ok": true,
+        "method": "mac_chrome_cdp",
+        "zip": "10001",
+        "fetched_at": "2026-10-23T09:47:16.123100+08:00"
+      }
+    },
+    {
+      "asin": "B0H86TXGS5",
+      "title": "JSEI Welcome Door Mat 36\"x 60\",Dirt Trapper Doormat, Black",
+      "title_source": "l2_pack",
+      "brand": "JSEI",
+      "affiliate_network": "pb",
+      "affiliate_link": "https://pboost.me/q5SPX2hd?uid=fromsll",
+      "track_status": "ok",
+      "l2_status": "ok",
+      "price": "59.99",
+      "price_raw": "$59.99",
+      "price_displayed": "$59.99",
+      "list_price": null,
+      "image": "https://m.media-amazon.com/images/I/91RIJfhkTDL._AC_SL1500_.jpg",
+      "availability": "In Stock",
+      "in_stock": true,
+      "rating": 4.9,
+      "review_count": 19,
+      "feature_bullets": [
+        "Trap Dirt and Moisture:Our Welcome mats are made of high-quality polypropylene and extremely dense yarn,which can effectively absorb and moisture,can quickly scrape off dirt from shoes,keep the floor clean and dry,suitable for any weather,especially rainy and snowy days,Suitable for any weather, especially rainy and snowy days when the road is wet and slippery, suitable for entryway, front door, back door, indoor entrance, etc",
+        "Non Slip Backing:The door mat features a non-slip TPR underside material that provides a firm grip and fits snugly to the ground for excellent anti-slip properties.Suitable for dry ground, will not slip or wear the ground.Note: Please place the doormat on dry ground",
+        "Tufted Welcome Design:This indoor door mat features large contrast WELCOME lettering formed with tufting technology. Dense solid-color yarn is designed to resist fading and deformation during year-round use."
+      ],
+      "l2": {
+        "ok": true,
+        "method": "mac_chrome_cdp",
+        "zip": "10001",
+        "fetched_at": "2026-10-23T09:47:27.113148+08:00"
+      }
+    },
+    {
+      "asin": "B0H86RSPNC",
+      "title": "JSEI Welcome Door Mat 36\"x 60\",Dirt Trapper Doormat, Beige",
+      "title_source": "l2_pack",
+      "brand": "JSEI",
+      "affiliate_network": "pb",
+      "affiliate_link": "https://pboost.me/Z5SP0uaht?uid=fromsll",
+      "track_status": "ok",
+      "l2_status": "ok",
+      "price": "59.99",
+      "price_raw": "$59.99",
+      "price_displayed": "$59.99",
+      "list_price": null,
+      "image": "https://m.media-amazon.com/images/I/91g5qkxNasL._AC_SL1500_.jpg",
+      "availability": "In Stock",
+      "in_stock": true,
+      "rating": 4.9,
+      "review_count": 19,
+      "feature_bullets": [
+        "Trap Dirt and Moisture:Our Welcome mats are made of high-quality polypropylene and extremely dense yarn,which can effectively absorb and moisture,can quickly scrape off dirt from shoes,keep the floor clean and dry,suitable for any weather,especially rainy and snowy days,Suitable for any weather, especially rainy and snowy days when the road is wet and slippery, suitable for entryway, front door, back door, indoor entrance, etc",
+        "Non Slip Backing:The door mat features a non-slip TPR underside material that provides a firm grip and fits snugly to the ground for excellent anti-slip properties.Suitable for dry ground, will not slip or wear the ground.Note: Please place the doormat on dry ground",
+        "Tufted Welcome Design:This indoor door mat features large contrast WELCOME lettering formed with tufting technology. Dense solid-color yarn is designed to resist fading and deformation during year-round use."
+      ],
+      "l2": {
+        "ok": true,
+        "method": "mac_chrome_cdp",
+        "zip": "10001",
+        "fetched_at": "2026-10-23T09:47:37.883237+08:00"
+      }
+    },
+    {
+      "asin": "B0H86PRS7M",
+      "title": "JSEI Welcome Door Mat 36\"x 60\",Dirt Trapper Doormat, Brown",
+      "title_source": "l2_pack",
+      "brand": "JSEI",
+      "affiliate_network": "pb",
+      "affiliate_link": "https://pboost.me/B5SPczwgk?uid=fromsll",
+      "track_status": "ok",
+      "l2_status": "ok",
+      "price": "59.99",
+      "price_raw": "$59.99",
+      "price_displayed": "$59.99",
+      "list_price": null,
+      "image": "https://m.media-amazon.com/images/I/9103Y2UR6WL._AC_SL1500_.jpg",
+      "availability": "In Stock",
+      "in_stock": true,
+      "rating": 4.9,
+      "review_count": 19,
+      "feature_bullets": [
+        "Trap Dirt and Moisture:Our Welcome mats are made of high-quality polypropylene and extremely dense yarn,which can effectively absorb and moisture,can quickly scrape off dirt from shoes,keep the floor clean and dry,suitable for any weather,especially rainy and snowy days,Suitable for any weather, especially rainy and snowy days when the road is wet and slippery, suitable for entryway, front door, back door, indoor entrance, etc",
+        "Non Slip Backing:The door mat features a non-slip TPR underside material that provides a firm grip and fits snugly to the ground for excellent anti-slip properties.Suitable for dry ground, will not slip or wear the ground.Note: Please place the doormat on dry ground",
+        "Tufted Welcome Design:This indoor door mat features large contrast WELCOME lettering formed with tufting technology. Dense solid-color yarn is designed to resist fading and deformation during year-round use."
+      ],
+      "l2": {
+        "ok": true,
+        "method": "mac_chrome_cdp",
+        "zip": "10001",
+        "fetched_at": "2026-10-23T09:47:47.469307+08:00"
+      }
+    },
+    {
+      "asin": "B0HDB8KK33",
+      "title": "JSEI Dirt Trapper Door Mat 20\"x32\", Non-Slip Doormat, Beige",
+      "title_source": "l2_pack",
+      "brand": null,
+      "affiliate_network": "pb",
+      "affiliate_link": "https://pboost.me/V5SPZVkhd?uid=fromsll",
+      "track_status": "ok",
+      "l2_status": "ok",
+      "price": "17.99",
+      "price_raw": "$17.99",
+      "price_displayed": "$17.99",
+      "list_price": null,
+      "image": "https://m.media-amazon.com/images/I/91tstkwrtAL._AC_SL1500_.jpg",
+      "availability": "In Stock",
+      "in_stock": true,
+      "rating": 4.7,
+      "review_count": 8,
+      "feature_bullets": [
+        "Trap Dirt and Moisture: Made of premium polypropylene and extremely dense yarns, Our door mat offers excellent stain resistance. It effectively scrapes dirt and water off shoes, helping keep your floors clean and dry. Perfect for all weather conditions, especially rain, snow, or mud",
+        "Stylish and Low Profile Design: Our indoor door mat is woven from multi-colored and solid-colored yarns, offering a stylish look that complements most home décor styles. Featuring an ultra-thin 0.4-inch thickness with reinforced edges, this floor mat effectively prevents tripping, curling, and door blockage while lying flat for a seamless appearance, ensuring safe passage at front doors, back doors, entryways, and other indoor entrances",
+        "Non-slip Backing: This entryway rug features a non-slip TPR backing that stays firmly in place on dry surfaces without shifting, sliding, or scratching floors. Whether in entryways, kitchens,or garages, this non-slip mat ensures your safety"
+      ],
+      "l2": {
+        "ok": true,
+        "method": "mac_chrome_cdp",
+        "zip": "10001",
+        "fetched_at": "2026-10-23T09:47:59.965724+08:00"
+      }
+    },
+    {
+      "asin": "B0H86WFJZ2",
+      "title": "JSEI Welcome Door Mat 20\"x 32\",Dirt Trapper Doormat, Beige",
+      "title_source": "l2_pack",
+      "brand": null,
+      "affiliate_network": "pb",
+      "affiliate_link": "https://pboost.me/y5SPo1hT?uid=fromsll",
+      "track_status": "ok",
+      "l2_status": "ok",
+      "price": "17.99",
+      "price_raw": "$17.99",
+      "price_displayed": "$17.99",
+      "list_price": null,
+      "image": "https://m.media-amazon.com/images/I/91dGbh09uoL._AC_SL1500_.jpg",
+      "availability": "In Stock",
+      "in_stock": true,
+      "rating": 4.9,
+      "review_count": 19,
+      "feature_bullets": [
+        "Trap Dirt and Moisture:Our Welcome mats are made of high-quality polypropylene and extremely dense yarn,which can effectively absorb and moisture,can quickly scrape off dirt from shoes,keep the floor clean and dry,suitable for any weather,especially rainy and snowy days,Suitable for any weather, especially rainy and snowy days when the road is wet and slippery, suitable for entryway, front door, back door, indoor entrance, etc",
+        "Non Slip Backing:The door mat features a non-slip TPR underside material that provides a firm grip and fits snugly to the ground for excellent anti-slip properties.Suitable for dry ground, will not slip or wear the ground.Note: Please place the doormat on dry ground",
+        "Tufted Welcome Design:This indoor door mat features large contrast WELCOME lettering formed with tufting technology. Dense solid-color yarn is designed to resist fading and deformation during year-round use."
+      ],
+      "l2": {
+        "ok": true,
+        "method": "mac_chrome_cdp",
+        "zip": "10001",
+        "fetched_at": "2026-10-23T09:48:08.547077+08:00"
+      }
+    },
+    {
+      "asin": "B0HDBF6WXC",
+      "title": "JSEI Dirt Trapper Door Mat 20\"x32\", Non-Slip Doormat, Blue",
+      "title_source": "l2_pack",
+      "brand": null,
+      "affiliate_network": "pb",
+      "affiliate_link": "https://pboost.me/C5SPWTgw?uid=fromsll",
+      "track_status": "ok",
+      "l2_status": "ok",
+      "price": "19.99",
+      "price_raw": "$19.99",
+      "price_displayed": "$19.99",
+      "list_price": null,
+      "image": "https://m.media-amazon.com/images/I/91Xc8rvqZLL._AC_SL1500_.jpg",
+      "availability": "In Stock",
+      "in_stock": true,
+      "rating": 4.7,
+      "review_count": 8,
+      "feature_bullets": [
+        "Trap Dirt and Moisture: Made of premium polypropylene and extremely dense yarns, Our door mat offers excellent stain resistance. It effectively scrapes dirt and water off shoes, helping keep your floors clean and dry. Perfect for all weather conditions, especially rain, snow, or mud",
+        "Trap Dirt and Moisture: Made of premium polypropylene and extremely dense yarns, Our door mat offers excellent stain resistance. It effectively scrapes dirt and water off shoes, helping keep your floors clean and dry. Perfect for all weather conditions, especially rain, snow, or mud",
+        "Trap Dirt and Moisture: Made of premium polypropylene and extremely dense yarns, Our door mat offers excellent stain resistance. It effectively scrapes dirt and water off shoes, helping keep your floors clean and dry. Perfect for all weather conditions, especially rain, snow, or mud"
+      ],
+      "l2": {
+        "ok": true,
+        "method": "mac_chrome_cdp",
+        "zip": "10001",
+        "fetched_at": "2026-10-23T09:48:17.903092+08:00"
+      }
+    },
+    {
+      "asin": "B0HDBBMK2T",
+      "title": "JSEI Dirt Trapper Door Mat 36\"x60\", Non-Slip Doormat, Black",
+      "title_source": "l2_pack",
+      "brand": null,
+      "affiliate_network": "pb",
+      "affiliate_link": "https://pboost.me/M5SPp4hd?uid=fromsll",
+      "track_status": "ok",
+      "l2_status": "ok",
+      "price": "61.99",
+      "price_raw": "$61.99",
+      "price_displayed": "$61.99",
+      "list_price": null,
+      "image": "https://m.media-amazon.com/images/I/91+rWtWdMFL._AC_SL1500_.jpg",
+      "availability": "In Stock",
+      "in_stock": true,
+      "rating": 4.7,
+      "review_count": 8,
+      "feature_bullets": [
+        "Trap Dirt and Moisture: Made of premium polypropylene and extremely dense yarns, Our door mat offers excellent stain resistance. It effectively scrapes dirt and water off shoes, helping keep your floors clean and dry. Perfect for all weather conditions, especially rain, snow, or mud",
+        "Trap Dirt and Moisture: Made of premium polypropylene and extremely dense yarns, Our door mat offers excellent stain resistance. It effectively scrapes dirt and water off shoes, helping keep your floors clean and dry. Perfect for all weather conditions, especially rain, snow, or mud",
+        "Trap Dirt and Moisture: Made of premium polypropylene and extremely dense yarns, Our door mat offers excellent stain resistance. It effectively scrapes dirt and water off shoes, helping keep your floors clean and dry. Perfect for all weather conditions, especially rain, snow, or mud"
+      ],
+      "l2": {
+        "ok": true,
+        "method": "mac_chrome_cdp",
+        "zip": "10001",
+        "fetched_at": "2026-10-23T09:48:27.922561+08:00"
+      }
+    },
+    {
+      "asin": "B0HDB3CQYD",
+      "title": "JSEI Dirt Trapper Door Mat 20\"x32\", Non-Slip Doormat, Green",
+      "title_source": "l2_pack",
+      "brand": null,
+      "affiliate_network": "pb",
+      "affiliate_link": "https://pboost.me/f5SPdEkh6?uid=fromsll",
+      "track_status": "ok",
+      "l2_status": "ok",
+      "price": "19.99",
+      "price_raw": "$19.99",
+      "price_displayed": "$19.99",
+      "list_price": null,
+      "image": "https://m.media-amazon.com/images/I/91-rHy4TJlL._AC_SL1500_.jpg",
+      "availability": "In Stock",
+      "in_stock": true,
+      "rating": 4.7,
+      "review_count": 8,
+      "feature_bullets": [
+        "Trap Dirt and Moisture: Made of premium polypropylene and extremely dense yarns, Our door mat offers excellent stain resistance. It effectively scrapes dirt and water off shoes, helping keep your floors clean and dry. Perfect for all weather conditions, especially rain, snow, or mud",
+        "Trap Dirt and Moisture: Made of premium polypropylene and extremely dense yarns, Our door mat offers excellent stain resistance. It effectively scrapes dirt and water off shoes, helping keep your floors clean and dry. Perfect for all weather conditions, especially rain, snow, or mud",
+        "Trap Dirt and Moisture: Made of premium polypropylene and extremely dense yarns, Our door mat offers excellent stain resistance. It effectively scrapes dirt and water off shoes, helping keep your floors clean and dry. Perfect for all weather conditions, especially rain, snow, or mud"
+      ],
+      "l2": {
+        "ok": true,
+        "method": "mac_chrome_cdp",
+        "zip": "10001",
+        "fetched_at": "2026-10-23T09:48:37.016745+08:00"
+      }
+    }
+  ],
+  "l2_ok_asins": [
+    "B0GS4BCZCG",
+    "B0H97Z8RDC",
+    "B0H86TXGS5",
+    "B0H86RSPNC",
+    "B0H86PRS7M",
+    "B0HDB8KK33",
+    "B0H86WFJZ2",
+    "B0HDBF6WXC",
+    "B0HDBBMK2T",
+    "B0HDB3CQYD"
+  ],
+  "l2_pending_asins": [],
+  "track_pending_asins": []
+}

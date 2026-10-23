@@ -1,0 +1,345 @@
+{
+  "generated": "2026-10-23",
+  "slug": "hearing-aids",
+  "name": "Hearing Aids",
+  "amazon_category": "Health & Household",
+  "density": 10,
+  "density_target": 10,
+  "density_shortfall": false,
+  "status": "unpublished_scaffold",
+  "waiting_for_部署上线": "yes",
+  "inventory": "l2_ok",
+  "baked": true,
+  "live": false,
+  "publishable": true,
+  "cta_label": "Check price",
+  "cta_rule": "PB pboost.me keeps uid=fromsll when L2 ok + verified track; otherwise track_pending and no Check price",
+  "l2": {
+    "status": "ok",
+    "method": "mac_chrome_cdp_9333",
+    "ok_count": 10,
+    "blocked": []
+  },
+  "notes": [
+    "Day-add L2 merge 2026-10-23. waiting_for_部署上线=yes. No Live.",
+    "Accessory ASINs and accessory niches removed. No invented pboost hops.",
+    "Lifestyle cover remains a gradient placeholder."
+  ],
+  "dropped_accessory_asins": [],
+  "picks": [
+    {
+      "asin": "B0HFMHBCB2",
+      "title": "Beyond 2 Pro Bluetooth OTC Hearing Aids, 39% Clearer Speech",
+      "title_source": "l2_pack",
+      "brand": "ELEHEAR",
+      "affiliate_network": "pb",
+      "affiliate_link": "https://pboost.me/H5SR74Cxt?uid=fromsll",
+      "track_status": "ok",
+      "l2_status": "ok",
+      "price": "799.00",
+      "price_raw": "$799.00",
+      "price_displayed": "$799.00",
+      "list_price": null,
+      "image": "https://m.media-amazon.com/images/I/71+UtsW1UsL._SL1500_.jpg",
+      "availability": "In Stock",
+      "in_stock": true,
+      "rating": 4.6,
+      "review_count": 21,
+      "feature_bullets": [
+        "VocClear 3.0 Keeps Speech in Front - Target speech enhancement lifts the voice you're listening to out of a busy room, while upgraded feedback suppression helps these hearing aids cut the whistling when you hug someone or put on a hat. It runs by itself and keeps adjusting as the room changes",
+        "Light Enough to Forget, Ready for the Whole Day - At 4.3 g per aid, these hearing aids for seniors are about 10% lighter than Beyond Pro. The slimmer body stays clear of glasses from morning to night, while the IP67 rating handles dust, sweat and light rain on walks and workouts. Swap the receiver to match your ear",
+        "Stream Music, Video and Calls in Sync – Bluetooth 5.3 pairs with iPhone (iOS 15 or later) and Android (8.0 or later) for music, podcasts, video and hands-free calls, with audio arriving in under 8.5 ms so voices stay in step with the picture. Built-in Auracast broadcast audio tunes into shared sound in supported venues, where available. Please note: connects as a standard Bluetooth device, not an Apple MFi hearing aid, all hearing adjustments are made in the ELEHEAR app."
+      ],
+      "l2": {
+        "ok": true,
+        "method": "mac_chrome_cdp",
+        "zip": "10001",
+        "fetched_at": "2026-10-23T09:21:25.345032+08:00"
+      }
+    },
+    {
+      "asin": "B0HFM9DXKF",
+      "title": "Beyond 2 Pro OTC Hearing Aids for Seniors, 39% Clearer Speech",
+      "title_source": "l2_pack",
+      "brand": "ELEHEAR",
+      "affiliate_network": "pb",
+      "affiliate_link": "https://pboost.me/Y5SR3Zx4?uid=fromsll",
+      "track_status": "ok",
+      "l2_status": "ok",
+      "price": "799.00",
+      "price_raw": "$799.00",
+      "price_displayed": "$799.00",
+      "list_price": null,
+      "image": "https://m.media-amazon.com/images/I/71hJclrZEtL._SL1500_.jpg",
+      "availability": "In Stock",
+      "in_stock": true,
+      "rating": 4.7,
+      "review_count": 29,
+      "feature_bullets": [
+        "Smarter Sound for Everyday Hearing - VocClear 3.0 does two jobs at once: target speech enhancement lifts the voice you're actually listening to out of a noisy restaurant or a room full of talk, while upgraded feedback suppression helps these hearing aids cut the whistling when you hug someone, put on a hat, or turn your head. Automatic, nothing to press",
+        "Stream Music, Video and Calls in Sync – The hearing aids use Bluetooth 5.3 pairs with iPhone (iOS 15 or later) and Android (8.0 or later) for music, podcasts, video and hands-free calls, with audio arriving in under 8.5 ms so voices stay in step with the picture. Built-in Auracast broadcast audio tunes into shared sound in supported venues, where available. Please note: connects as a standard Bluetooth device, not an Apple MFi hearing aid, all hearing adjustments are made in the ELEHEAR app.",
+        "Professional Hearing Care, Built In– ElePro Basic comes with every Beyond 2 Pro: take a self-guided hearing test in the ELEHEAR app, and a licensed hearing professional reviews your results and sends recommended adjustments remotely. Want more? ElePro Plus is an optional upgrade, offering a 45-minute live 1-on-1 video session for real-time fine-tuning in everyday environments (available in 27 U.S. states – contact us to confirm availability in your state)."
+      ],
+      "l2": {
+        "ok": true,
+        "method": "mac_chrome_cdp",
+        "zip": "10001",
+        "fetched_at": "2026-10-23T09:21:40.443631+08:00"
+      }
+    },
+    {
+      "asin": "B0GSVXB2N7",
+      "title": "Beyond Hearing Aids, OTC Rechargeable Bluetooth Hearing aids",
+      "title_source": "l2_pack",
+      "brand": "ELEHEAR",
+      "affiliate_network": "pb",
+      "affiliate_link": "https://pboost.me/R5SO9aCuE?uid=fromsll",
+      "track_status": "ok",
+      "l2_status": "ok",
+      "price": "399.00",
+      "price_raw": "$399.00",
+      "price_displayed": "$399.00",
+      "list_price": null,
+      "image": "https://m.media-amazon.com/images/I/818i+eHUQjL._AC_SL1500_.jpg",
+      "availability": "In Stock",
+      "in_stock": true,
+      "rating": 3.9,
+      "review_count": 195,
+      "feature_bullets": [
+        "Super Clear Sound with 50dB Amplification - VocClear AI Technology boosts speech clarity by 17% and cuts 24dB background noise for crisp sound in various environments. ELEHEAR-Beyond rechargeable OTC hearing aids for seniors offer 50dB amplification with feedback reduction and noise cancellation, designed for mild to moderate hearing loss",
+        "Customizable Smart Features - These Bluetooth hearing aids come with the ELEHEAR smart app for both iOS and Android devices, offering customizable features like volume adjusting, AI translation, serene sound relief, telephone speech enhancement settings, and user-customized compensation. Easily switch between four tailored scene modes via our app to meet your needs, all in an intelligent way to tailor your auditory experience",
+        "Long-lasting Up to 100 Hours - The rechargeable hearing aids and charging case provide a total of 100 hours of battery life. 15 minutes of charging delivers 6 hours of runtime, 1000mAh charging case provides 4 extra charges (Up to 20 Hours per Charge). Auto-activates when removed, with full recharge in 150 minutes. Say goodbye to the hassle of frequent battery charges, as the hearing aids keep pace with your active lifestyle"
+      ],
+      "l2": {
+        "ok": true,
+        "method": "mac_chrome_cdp",
+        "zip": "10001",
+        "fetched_at": "2026-10-23T09:21:55.854332+08:00"
+      }
+    },
+    {
+      "asin": "B0DXL23JNF",
+      "title": "Beyond OTC Hearing Aids for Seniors, AI Powered Speech Enhancement",
+      "title_source": "l2_pack",
+      "brand": "ELEHEAR",
+      "affiliate_network": "pb",
+      "affiliate_link": "https://pboost.me/F5SOdZ4tg?uid=fromsll",
+      "track_status": "ok",
+      "l2_status": "ok",
+      "price": "399.00",
+      "price_raw": "$399.00",
+      "price_displayed": "$399.00",
+      "list_price": null,
+      "image": "https://m.media-amazon.com/images/I/71YXqD48Q1L._AC_SL1500_.jpg",
+      "availability": "In Stock",
+      "in_stock": true,
+      "rating": 3.9,
+      "review_count": 727,
+      "feature_bullets": [
+        "Super Clear Sound - Powered by VocClear AI Technology with maximum gain of up to 50 dB and 24 dB noise attenuation, ELEHEAR-Beyond is specially designed for individuals with mild to moderate hearing loss. Hearing aid delivers an exceptional listening experience through noise cancellation and feedback control, allowing you to enjoy naturally clear sounds without background noise or whistling. This hearing aid ensures an immersive auditory experience for you",
+        "Customizable Smart Features - These Bluetooth hearing aids come with the ELEHEAR smart app for both iOS and Android devices, offering customizable features like volume adjusting, AI translation, serene sound relief, telephone speech enhancement settings, and user-customized compensation, all in an intelligent way to tailor your auditory experience",
+        "Long-lasting Up to 100 Hours - The rechargeable hearing aids and charging case provide a total of 100 hours of battery life for you to enjoy, which brings immense convenience to your daily life. Up to 20 hours runtime on a single charge, and the charging case offers an additional 4 charging cycles. Say goodbye to the hassle of frequent battery charges, as the hearing aids keep pace with your active lifestyle"
+      ],
+      "l2": {
+        "ok": true,
+        "method": "mac_chrome_cdp",
+        "zip": "10001",
+        "fetched_at": "2026-10-23T09:22:11.300053+08:00"
+      }
+    },
+    {
+      "asin": "B0FZBVVNR6",
+      "title": "Beyond Pro Bluetooth Hearing Aids for Seniors, 30% Clearer Speech",
+      "title_source": "l2_pack",
+      "brand": "ELEHEAR",
+      "affiliate_network": "pb",
+      "affiliate_link": "https://pboost.me/A5SO5gu3?uid=fromsll",
+      "track_status": "ok",
+      "l2_status": "ok",
+      "price": "599.99",
+      "price_raw": "$599.99",
+      "price_displayed": "$599.99",
+      "list_price": null,
+      "image": "https://m.media-amazon.com/images/I/81DqG7xX4gL._AC_SL1500_.jpg",
+      "availability": "In Stock",
+      "in_stock": true,
+      "rating": 4.7,
+      "review_count": 465,
+      "feature_bullets": [
+        "Ultra-clear, Natural Sound - Powered by VocClear 2.0 technology that delivers 30% clearer speech, ELEHEAR-Beyond Pro hearing aids eliminate muffled, distorted, and sharp tones-bringing you clearer, more natural conversations with enhanced high-frequency detail (up to 8500Hz) and ultra-low latency (just 8ms). Music mode reveals the richness in every note. Whether you’re listening to voices or melodies, it all comes together in a full, vibrant soundscape",
+        "Smarter UI, Redesigned for Simplicity - These Bluetooth hearing aids come with the ELEHEAR smart app for both iOS and Android devices. The upgraded interface makes everything easier, from one-tap actions to voice adjustments, so you hear better with less effort. Enjoy 20 immersive soundscapes: rain, breeze, vinyl crackle, ambient tones, and more. Pick and mix the tones that suit your ears and mood. They fit your flow-perfect for work, commuting, meditation, deep focus, or just winding down",
+        "15-Minute Fast Charge - Just 15 minutes of fast charging gives the rechargeable hearing aids up to 6 hours of use. They offer up to 20 hours of runtime on a single charge, and the charging case provides an additional 4 full charges. Enjoy all-day power and quick top-ups, so you can stay connected, focused, and worry-free-wherever the day takes you"
+      ],
+      "l2": {
+        "ok": true,
+        "method": "mac_chrome_cdp",
+        "zip": "10001",
+        "fetched_at": "2026-10-23T09:22:26.550106+08:00"
+      }
+    },
+    {
+      "asin": "B0F4XN36V3",
+      "title": "Beyond OTC Hearing Aids for Seniors, 50dB, AI Noise Cancellation",
+      "title_source": "l2_pack",
+      "brand": null,
+      "affiliate_network": "pb",
+      "affiliate_link": "https://pboost.me/F5SOddwu0?uid=fromsll",
+      "track_status": "ok",
+      "l2_status": "ok",
+      "price": "399.00",
+      "price_raw": "$399.00",
+      "price_displayed": "$399.00",
+      "list_price": null,
+      "image": "https://m.media-amazon.com/images/I/71mk7rJCPHL._AC_SL1500_.jpg",
+      "availability": "In Stock",
+      "in_stock": true,
+      "rating": 4.1,
+      "review_count": 507,
+      "feature_bullets": [
+        "Super Clear Sound with 50dB Amplification - VocClear AI Technology boosts speech clarity by 17% and cuts 24dB background noise for crisp sound in various environments. Champagne Gold ELEHEAR-Beyond rechargeable OTC hearing aids for seniors offer 50dB amplification with feedback reduction and noise cancellation, designed for mild to moderate hearing loss",
+        "Four Scene Modes Tailored to Your Life - Easily switch between four tailored scene modes via our intuitive app to meet your needs. With just a tap, you can hear clearly in different situations",
+        "Customizable Hearing with Bluetooth APP Control - Tailor every detail via the ELEHEAR app: adjust volume, frequency, sound directionality, and environment profiles for personalized clarity. ELEHEAR-Beyond APP ensure seamless connectivity while adapting to your unique needs-from crowded cafes to quiet calls"
+      ],
+      "l2": {
+        "ok": true,
+        "method": "mac_chrome_cdp",
+        "zip": "10001",
+        "fetched_at": "2026-10-23T09:22:41.747340+08:00"
+      }
+    },
+    {
+      "asin": "B0HJCPDBZ1",
+      "title": "ELEHEAR-Beyond Pro OTC Hearing Aids with Wax Guards, 50dB Enhancement, VocClear 2.0 AI, 30% Clearer Speech, Bluetooth 5.3 App, Music Mode, 100 hours Total Battery, Champagne Gold",
+      "title_source": "l2_pack",
+      "brand": null,
+      "affiliate_network": "pb",
+      "affiliate_link": "https://pboost.me/b5SOtl7u8?uid=fromsll",
+      "track_status": "ok",
+      "l2_status": "ok",
+      "price": "625.24",
+      "price_raw": "$625.24",
+      "price_displayed": "$625.24",
+      "list_price": "$638.00",
+      "image": "https://m.media-amazon.com/images/I/71DT+CbvujL._SL1500_.jpg",
+      "availability": "In Stock",
+      "in_stock": true,
+      "rating": null,
+      "review_count": null,
+      "feature_bullets": [
+        "Ultra-clear, Natural Sound - Powered by VocClear 2.0 technology that delivers 30% clearer speech, ELEHEAR-Beyond Pro hearing aids eliminate muffled, distorted, and sharp tones-bringing you clearer, more natural conversations with enhanced high-frequency detail (up to 8500Hz) and ultra-low latency (just 8ms). Champagne Gold Beyond Pro rechargeable OTC hearing aids for seniors offer 50dB amplification with feedback reduction and noise cancellation, designed for mild to moderate hearing loss",
+        "Smarter UI, Redesigned for Simplicity - These Bluetooth hearing aids come with the ELEHEAR smart app for both iOS and Android devices. The upgraded interface makes everything easier, from one-tap actions to voice adjustments, so you hear better with less effort. Enjoy 20 immersive soundscapes: rain, breeze, vinyl crackle, ambient tones, and more. Pick and mix the tones that suit your ears and mood. They fit your flow-perfect for work, commuting, meditation, deep focus, or just winding down",
+        "15-Minute Fast Charge - Just 15 minutes of fast charging gives the rechargeable hearing aids up to 6 hours of use. They offer up to 20 hours of runtime on a single charge, and the charging case provides an additional 4 full charges. Enjoy all-day power and quick top-ups, so you can stay connected, focused, and worry-free - wherever the day takes you"
+      ],
+      "l2": {
+        "ok": true,
+        "method": "mac_chrome_cdp",
+        "zip": "10001",
+        "fetched_at": "2026-10-23T09:22:56.842635+08:00"
+      }
+    },
+    {
+      "asin": "B0HBQ15XYR",
+      "title": "ELEHEAR-Beyond OTC Hearing Aids with Wax Guards, Smart Bluetooth Enabled & App Control",
+      "title_source": "l2_pack",
+      "brand": null,
+      "affiliate_network": "pb",
+      "affiliate_link": "https://pboost.me/x5SO9f6uk?uid=fromsll",
+      "track_status": "ok",
+      "l2_status": "ok",
+      "price": "416.10",
+      "price_raw": "$416.10",
+      "price_displayed": "$416.10",
+      "list_price": "$438.00",
+      "image": "https://m.media-amazon.com/images/I/61JLhqd0HrL._AC_SL1500_.jpg",
+      "availability": "In Stock",
+      "in_stock": true,
+      "rating": null,
+      "review_count": null,
+      "feature_bullets": [
+        "Super Clear Sound - Powered by VocClear AI Technology with maximum gain of up to 50 dB and 24 dB noise attenuation, ELEHEAR-Beyond is specially designed for individuals with mild to moderate hearing loss. Hearing aid delivers an exceptional listening experience through noise cancellation and feedback control, allowing you to enjoy naturally clear sounds without background noise or whistling. This hearing aid ensures an immersive auditory experience for you",
+        "Customizable Smart Features - These Bluetooth hearing aids come with the ELEHEAR smart app for both iOS and Android devices, offering customizable features like volume adjusting, AI translation, serene sound relief, telephone speech enhancement settings, and user-customized compensation, all in an intelligent way to tailor your auditory experience",
+        "Long-lasting Up to 100 Hours - The rechargeable hearing aids and charging case provide a total of 100 hours of battery life for you to enjoy, which brings immense convenience to your daily life. Up to 20 hours runtime on a single charge, and the charging case offers an additional 4 charging cycles. Say goodbye to the hassle of frequent battery charges, as the hearing aids keep pace with your active lifestyle"
+      ],
+      "l2": {
+        "ok": true,
+        "method": "mac_chrome_cdp",
+        "zip": "10001",
+        "fetched_at": "2026-10-23T09:23:11.921865+08:00"
+      }
+    },
+    {
+      "asin": "B0H9RR7SCC",
+      "title": "ELEHEAR-Beyond OTC Hearing Aids with 1 Dry Box and Wax Guards, Smart Bluetooth Enabled & App Control",
+      "title_source": "l2_pack",
+      "brand": null,
+      "affiliate_network": "pb",
+      "affiliate_link": "https://pboost.me/S5SOYCt3?uid=fromsll",
+      "track_status": "ok",
+      "l2_status": "ok",
+      "price": "463.60",
+      "price_raw": "$463.60",
+      "price_displayed": "$463.60",
+      "list_price": "$488.00",
+      "image": "https://m.media-amazon.com/images/I/61leIAVkWPL._AC_SL1500_.jpg",
+      "availability": "In Stock",
+      "in_stock": true,
+      "rating": null,
+      "review_count": null,
+      "feature_bullets": [
+        "Super Clear Sound with 50dB Amplification - VocClear AI Technology boosts speech clarity by 17% and cuts 24dB background noise for crisp sound in various environments. ELEHEAR-Beyond rechargeable OTC hearing aids for seniors offer 50dB amplification with feedback reduction and noise cancellation, designed for mild to moderate hearing loss",
+        "Customizable Smart Features - These Bluetooth hearing aids come with the ELEHEAR smart app for both iOS and Android devices, offering customizable features like volume adjusting, AI translation, serene sound relief, telephone speech enhancement settings, and user-customized compensation. Easily switch between four tailored scene modes via our app to meet your needs, all in an intelligent way to tailor your auditory experience",
+        "Sturdy and Compatible - Built to last, this hearing aid dryer dehumidifier provides reliable service for years. It's compatible with various devices, including hearing aids, ear amplifiers, making it a versatile choice for protecting your valuable audio devices"
+      ],
+      "l2": {
+        "ok": true,
+        "method": "mac_chrome_cdp",
+        "zip": "10001",
+        "fetched_at": "2026-10-23T09:23:26.750724+08:00"
+      }
+    },
+    {
+      "asin": "B0GPVFL1D5",
+      "title": "ELEHEAR-Beyond Pro Champagne Gold Hearing Aids with Dry Box",
+      "title_source": "l2_pack",
+      "brand": null,
+      "affiliate_network": "pb",
+      "affiliate_link": "https://pboost.me/k5SO7tuT?uid=fromsll",
+      "track_status": "ok",
+      "l2_status": "ok",
+      "price": "642.51",
+      "price_raw": "$642.51",
+      "price_displayed": "$642.51",
+      "list_price": "$649.00",
+      "image": "https://m.media-amazon.com/images/I/81yIcAJZoqL._SL1500_.jpg",
+      "availability": "In Stock",
+      "in_stock": true,
+      "rating": null,
+      "review_count": null,
+      "feature_bullets": [
+        "Ultra-clear, Natural Sound - Powered by VocClear 2.0 technology that delivers 30% clearer speech, ELEHEAR-Beyond Pro hearing aids eliminate muffled, distorted, and sharp tones-bringing you clearer, more natural conversations with enhanced high-frequency detail (up to 8500Hz) and ultra-low latency (just 8ms). Champagne Gold Beyond Pro rechargeable OTC hearing aids for seniors offer 50dB amplification with feedback reduction and noise cancellation, designed for mild to moderate hearing loss",
+        "Smarter UI, Redesigned for Simplicity - These Bluetooth hearing aids come with the ELEHEAR smart app for both iOS and Android devices. The upgraded interface makes everything easier, from one-tap actions to voice adjustments, so you hear better with less effort. Enjoy 20 immersive soundscapes: rain, breeze, vinyl crackle, ambient tones, and more. Pick and mix the tones that suit your ears and mood. They fit your flow-perfect for work, commuting, meditation, deep focus, or just winding down",
+        "15-Minute Fast Charge - Just 15 minutes of fast charging gives the rechargeable hearing aids up to 6 hours of use. They offer up to 20 hours of runtime on a single charge, and the charging case provides an additional 4 full charges. Enjoy all-day power and quick top-ups, so you can stay connected, focused, and worry-free - wherever the day takes you"
+      ],
+      "l2": {
+        "ok": true,
+        "method": "mac_chrome_cdp",
+        "zip": "10001",
+        "fetched_at": "2026-10-23T09:23:41.816591+08:00"
+      }
+    }
+  ],
+  "l2_ok_asins": [
+    "B0HFMHBCB2",
+    "B0HFM9DXKF",
+    "B0GSVXB2N7",
+    "B0DXL23JNF",
+    "B0FZBVVNR6",
+    "B0F4XN36V3",
+    "B0HJCPDBZ1",
+    "B0HBQ15XYR",
+    "B0H9RR7SCC",
+    "B0GPVFL1D5"
+  ],
+  "l2_pending_asins": [],
+  "track_pending_asins": []
+}

@@ -114,6 +114,9 @@ def sample_errors(site: Path | None = None) -> list[str]:
     stale_3col: list[str] = []
     stale_grid: list[str] = []
     for path in site.rglob("*.html"):
+        rel_parts = set(path.relative_to(site).parts)
+        if rel_parts & {".cache", "fixtures", "data", "assets"}:
+            continue
         text = path.read_text(encoding="utf-8")
         if 'id="landing-hub-nav"' not in text:
             continue

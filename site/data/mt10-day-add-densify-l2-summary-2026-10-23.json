@@ -1,0 +1,455 @@
+{
+  "stamp_asia_shanghai": "2026-10-23T10:09:05.539284+08:00",
+  "site": "moretop10",
+  "task": "mt10 densify L2 (filter densify + optional kvm/glass alts)",
+  "deployed": false,
+  "waiting_for_部署上线": true,
+  "method": "mac_chrome_cdp",
+  "cdp": "http://127.0.0.1:9333",
+  "zip": "10001",
+  "machineId": "a262b3cc-47db-4e1f-b094-cb569b0e89ff",
+  "fresh_cdp": {
+    "asins": [
+      "B087R2V8V7",
+      "B08R8FD43K",
+      "B097YC4VC2",
+      "B09W1Y557B",
+      "B0CJ2QC33R",
+      "B0DMVYB9B1",
+      "B0F62NRGGY",
+      "B0GYRWYBZY",
+      "B0H6WKMXPB"
+    ],
+    "attempted": 9,
+    "ok": 9,
+    "blocked": 0,
+    "oos": 0
+  },
+  "reused_packs": {
+    "from_offerluck_day_add": [
+      "B0FCFLX4ZR",
+      "B0FS6DT3WK",
+      "B0GWCWN64R",
+      "B0GWGSW2XB",
+      "B0GYPJ97Z2",
+      "B0H3TLNCLG",
+      "B0H5JZZ3GK",
+      "B0H9YH5DF9",
+      "B0HDKZKXS9"
+    ],
+    "from_mt10_day_add": [
+      "B0F5Q2FNTV",
+      "B0F8VVH6PN",
+      "B0GGQCHLK1",
+      "B0GGQKB4TX",
+      "B0H44DKV6V"
+    ]
+  },
+  "totals": {
+    "ok": 22,
+    "blocked": 1,
+    "oos": 0,
+    "fail": 0,
+    "missing_pack": 0
+  },
+  "by_slug": {
+    "water-filters": {
+      "density_target": 10,
+      "n": 10,
+      "counts": {
+        "ok": 10,
+        "blocked": 0,
+        "oos": 0,
+        "fail": 0,
+        "missing_pack": 0
+      },
+      "ok_asins": [
+        "B0GWCWN64R",
+        "B0FCFLX4ZR",
+        "B0GYRWYBZY",
+        "B0H6WKMXPB",
+        "B087R2V8V7",
+        "B0H5JZZ3GK",
+        "B097YC4VC2",
+        "B09W1Y557B",
+        "B08R8FD43K",
+        "B0CJ2QC33R"
+      ],
+      "blocked_asins": [],
+      "oos_asins": [],
+      "items": [
+        {
+          "status": "ok",
+          "ok": true,
+          "blocked": false,
+          "oos": false,
+          "price": "$219.00",
+          "list_price": "$259.00",
+          "availability": "In Stock",
+          "title": "Waterdrop C1S Countertop Reverse Osmosis Water Filter, 6-Stage Filtration",
+          "method_used": "mac_chrome_cdp",
+          "source_pack": "reuse_offerluck_day_add_l2",
+          "asin": "B0GWCWN64R"
+        },
+        {
+          "status": "ok",
+          "ok": true,
+          "blocked": false,
+          "oos": false,
+          "price": "$249.00",
+          "list_price": "$279.00",
+          "availability": "In Stock",
+          "title": "Waterdrop C1H Instant Hot Countertop RO System, No Installation Required",
+          "method_used": "mac_chrome_cdp",
+          "source_pack": "reuse_offerluck_day_add_l2",
+          "asin": "B0FCFLX4ZR"
+        },
+        {
+          "status": "ok",
+          "ok": true,
+          "blocked": false,
+          "oos": false,
+          "price": "$149.99",
+          "list_price": "$169.99",
+          "availability": "In Stock",
+          "title": "Waterdrop C2S Countertop RO Filtration System, 40oz Autofill Glass Pitcher",
+          "method_used": "mac_chrome_cdp",
+          "source_pack": "cdp_fresh_2026-10-23",
+          "asin": "B0GYRWYBZY"
+        },
+        {
+          "status": "ok",
+          "ok": true,
+          "blocked": false,
+          "oos": false,
+          "price": "$77.99",
+          "list_price": "$92.99",
+          "availability": "In Stock",
+          "title": "Waterdrop 15UA Under Sink Water Filter System with 2 Filters, 4 Years",
+          "method_used": "mac_chrome_cdp",
+          "source_pack": "cdp_fresh_2026-10-23",
+          "asin": "B0H6WKMXPB"
+        },
+        {
+          "status": "ok",
+          "ok": true,
+          "blocked": false,
+          "oos": false,
+          "price": "$89.99",
+          "list_price": "$109.99",
+          "availability": "In Stock",
+          "title": "Waterdrop DST Under Sink Water Filter System, No Drill Required for Renters",
+          "method_used": "mac_chrome_cdp",
+          "source_pack": "cdp_fresh_2026-10-23",
+          "asin": "B087R2V8V7"
+        },
+        {
+          "status": "ok",
+          "ok": true,
+          "blocked": false,
+          "oos": false,
+          "price": "$169.99",
+          "list_price": "$229.99",
+          "availability": "In Stock",
+          "title": "Waterdrop WHF21-PBL 2-Stage Whole House Water Filter System, NSF/ANSI 372",
+          "method_used": "mac_chrome_cdp",
+          "source_pack": "reuse_offerluck_day_add_l2",
+          "asin": "B0H5JZZ3GK"
+        },
+        {
+          "status": "ok",
+          "ok": true,
+          "blocked": false,
+          "oos": false,
+          "price": "$105.25",
+          "list_price": "$143.99",
+          "availability": "In Stock",
+          "title": "Waterdrop TSB 8 Layer Under Sink Water Filter System, with Dedicated Faucet",
+          "method_used": "mac_chrome_cdp",
+          "source_pack": "cdp_fresh_2026-10-23",
+          "asin": "B097YC4VC2"
+        },
+        {
+          "status": "ok",
+          "ok": true,
+          "blocked": false,
+          "oos": false,
+          "price": "$80.99",
+          "list_price": "$94.99",
+          "availability": "In Stock",
+          "title": "Frizzlife SW15F Under Sink Water Filter System with Brushed Nickel Faucet",
+          "method_used": "mac_chrome_cdp",
+          "source_pack": "cdp_fresh_2026-10-23",
+          "asin": "B09W1Y557B"
+        },
+        {
+          "status": "ok",
+          "ok": true,
+          "blocked": false,
+          "oos": false,
+          "price": "$329.99",
+          "list_price": "$379.99",
+          "availability": "In Stock",
+          "title": "Frizzlife PX500-A Under Sink Tankless Reverse Osmosis Water Filtration System, 5",
+          "method_used": "mac_chrome_cdp",
+          "source_pack": "cdp_fresh_2026-10-23",
+          "asin": "B08R8FD43K"
+        },
+        {
+          "status": "ok",
+          "ok": true,
+          "blocked": false,
+          "oos": false,
+          "price": "$116.99",
+          "list_price": "$129.99",
+          "availability": "In Stock",
+          "title": "Frizzlife TS99 Countertop Water Filter System, NSF 42&372 Certified 9-Stage Stai",
+          "method_used": "mac_chrome_cdp",
+          "source_pack": "cdp_fresh_2026-10-23",
+          "asin": "B0CJ2QC33R"
+        }
+      ]
+    },
+    "pitcher-water-filters": {
+      "density_target": 10,
+      "n": 10,
+      "counts": {
+        "ok": 10,
+        "blocked": 0,
+        "oos": 0,
+        "fail": 0,
+        "missing_pack": 0
+      },
+      "ok_asins": [
+        "B0F8VVH6PN",
+        "B0GGQKB4TX",
+        "B0F5Q2FNTV",
+        "B0H44DKV6V",
+        "B0FS6DT3WK",
+        "B0GWGSW2XB",
+        "B0H3TLNCLG",
+        "B0F62NRGGY",
+        "B0DMVYB9B1",
+        "B0GGQCHLK1"
+      ],
+      "blocked_asins": [],
+      "oos_asins": [],
+      "items": [
+        {
+          "status": "ok",
+          "ok": true,
+          "blocked": false,
+          "oos": false,
+          "price": "$49.99",
+          "list_price": "$55.99",
+          "availability": "In Stock",
+          "title": "Waterdrop ED06W Electric Water Filter Pitcher with 2 Filters, last 4 Months",
+          "method_used": "mac_chrome_cdp",
+          "source_pack": "reuse_mt10_day_add_l2",
+          "asin": "B0F8VVH6PN"
+        },
+        {
+          "status": "ok",
+          "ok": true,
+          "blocked": false,
+          "oos": false,
+          "price": "$29.99",
+          "list_price": "$34.99",
+          "availability": "In Stock",
+          "title": "Waterdrop PT-11W 7-Cup Water Filter Pitcher with 3 Filters, White",
+          "method_used": "mac_chrome_cdp",
+          "source_pack": "reuse_mt10_day_add_l2",
+          "asin": "B0GGQKB4TX"
+        },
+        {
+          "status": "ok",
+          "ok": true,
+          "blocked": false,
+          "oos": false,
+          "price": "$53.99",
+          "list_price": "$59.99",
+          "availability": "In Stock",
+          "title": "Waterdrop WFD-02L 35-Cup Water Filter Dispenser, Fluoride Reduction, Black",
+          "method_used": "mac_chrome_cdp",
+          "source_pack": "reuse_mt10_day_add_l2",
+          "asin": "B0F5Q2FNTV"
+        },
+        {
+          "status": "ok",
+          "ok": true,
+          "blocked": false,
+          "oos": false,
+          "price": "$79.99",
+          "list_price": null,
+          "availability": "In Stock",
+          "title": "Waterdrop PT-13P TDS-Reducing Glass Water Filter Pitcher, Large 10-Cup",
+          "method_used": "mac_chrome_cdp",
+          "source_pack": "reuse_mt10_day_add_l2",
+          "asin": "B0H44DKV6V"
+        },
+        {
+          "status": "ok",
+          "ok": true,
+          "blocked": false,
+          "oos": false,
+          "price": "$79.99",
+          "list_price": "$99.99",
+          "availability": "In Stock",
+          "title": "Waterdrop ED01W Electric Water Filter Pitcher with 2 Filters, 15-Cup, White",
+          "method_used": "mac_chrome_cdp",
+          "source_pack": "reuse_offerluck_day_add_l2",
+          "asin": "B0FS6DT3WK"
+        },
+        {
+          "status": "ok",
+          "ok": true,
+          "blocked": false,
+          "oos": false,
+          "price": "$20.69",
+          "list_price": "$22.99",
+          "availability": "In Stock",
+          "title": "Waterdrop PT-05B-AL Alkaline Water Filter Pitcher, 7-Cup, Up to pH 9.5",
+          "method_used": "mac_chrome_cdp",
+          "source_pack": "reuse_offerluck_day_add_l2",
+          "asin": "B0GWGSW2XB"
+        },
+        {
+          "status": "ok",
+          "ok": true,
+          "blocked": false,
+          "oos": false,
+          "price": "$54.99",
+          "list_price": "$67.99",
+          "availability": "In Stock",
+          "title": "Waterdrop WFD-40L-L Water Filter Dispenser with 3 Filters, 35-Cup Large Capacity",
+          "method_used": "mac_chrome_cdp",
+          "source_pack": "reuse_offerluck_day_add_l2",
+          "asin": "B0H3TLNCLG"
+        },
+        {
+          "status": "ok",
+          "ok": true,
+          "blocked": false,
+          "oos": false,
+          "price": "$69.99",
+          "list_price": "$79.99",
+          "availability": "In Stock",
+          "title": "Frizzlife MD40 Electric Water Filter Dispenser with 2 Filters, 400 Gallon, NSF/A",
+          "method_used": "mac_chrome_cdp",
+          "source_pack": "cdp_fresh_2026-10-23",
+          "asin": "B0F62NRGGY"
+        },
+        {
+          "status": "ok",
+          "ok": true,
+          "blocked": false,
+          "oos": false,
+          "price": "$99.99",
+          "list_price": "$119.99",
+          "availability": "In Stock",
+          "title": "Waterdrop ED12W Glass Rechargeable Water Filter Dispenser, Large 22-Cup, Reduce ",
+          "method_used": "mac_chrome_cdp",
+          "source_pack": "cdp_fresh_2026-10-23",
+          "asin": "B0DMVYB9B1"
+        },
+        {
+          "status": "ok",
+          "ok": true,
+          "blocked": false,
+          "oos": false,
+          "price": "$29.99",
+          "list_price": null,
+          "availability": "Unknown",
+          "title": "<a href='/gp/prime'><img src='https://images-na.ssl-images-amazon.com/images/G/0",
+          "method_used": "mac_chrome_cdp",
+          "source_pack": "reuse_mt10_day_add_l2",
+          "asin": "B0GGQCHLK1"
+        }
+      ]
+    },
+    "kvm-switches_optional": {
+      "density_target": null,
+      "n": 1,
+      "counts": {
+        "ok": 1,
+        "blocked": 0,
+        "oos": 0,
+        "fail": 0,
+        "missing_pack": 0
+      },
+      "ok_asins": [
+        "B0GYPJ97Z2"
+      ],
+      "blocked_asins": [],
+      "oos_asins": [],
+      "items": [
+        {
+          "status": "ok",
+          "ok": true,
+          "blocked": false,
+          "oos": false,
+          "price": "$279.99",
+          "list_price": null,
+          "availability": "In Stock",
+          "title": "AV Access KVM Switch Docking Station for a Laptop and 2 Desktop PCs Dual 4K",
+          "method_used": "mac_chrome_cdp",
+          "source_pack": "reuse_offerluck_day_add_l2",
+          "asin": "B0GYPJ97Z2"
+        }
+      ]
+    },
+    "glass-display-cabinets_optional": {
+      "density_target": null,
+      "n": 2,
+      "counts": {
+        "ok": 1,
+        "blocked": 1,
+        "oos": 0,
+        "fail": 0,
+        "missing_pack": 0
+      },
+      "ok_asins": [
+        "B0H9YH5DF9"
+      ],
+      "blocked_asins": [
+        "B0HDKZKXS9"
+      ],
+      "oos_asins": [],
+      "items": [
+        {
+          "status": "blocked",
+          "ok": false,
+          "blocked": true,
+          "oos": false,
+          "price": null,
+          "list_price": null,
+          "availability": "Unknown",
+          "title": null,
+          "method_used": "mac_chrome_cdp",
+          "source_pack": "reuse_offerluck_day_add_l2",
+          "asin": "B0HDKZKXS9"
+        },
+        {
+          "status": "ok",
+          "ok": true,
+          "blocked": false,
+          "oos": false,
+          "price": "$89.99",
+          "list_price": "$109.99",
+          "availability": "In Stock",
+          "title": "Lvifur RGB Glass Display Cabinet with Glass Doors for Collectibles, Black",
+          "method_used": "mac_chrome_cdp",
+          "source_pack": "reuse_offerluck_day_add_l2",
+          "asin": "B0H9YH5DF9"
+        }
+      ]
+    }
+  },
+  "paths": {
+    "densify_out": "/workspace/shared/mt10-day-add-densify-l2-2026-10-23",
+    "merged_mt10": "/workspace/shared/mt10-day-add-l2-2026-10-23",
+    "tarball": "/workspace/shared/mt10-day-add-densify-l2-2026-10-23.tgz",
+    "input": "/workspace/shared/mt10-day-add-filter-densify-2026-10-23.json",
+    "flag": "/workspace/shared/mt10-densify-l2-done.flag"
+  }
+}

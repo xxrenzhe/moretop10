@@ -1,0 +1,331 @@
+{
+  "stamp_asia_shanghai": "2026-10-23T09:58:49.746322+08:00",
+  "site": "mt10",
+  "pr": "https://github.com/xxrenzhe/moretop10/pull/33",
+  "waiting_for_部署上线": "yes",
+  "cdp_port": 9333,
+  "method_used": "mac_chrome_cdp",
+  "requested_queue": 100,
+  "excluded_accessory_count": 13,
+  "excluded_accessory": [
+    "B075J9RLL6",
+    "B079ZRQNMM",
+    "B0DRCXJNMK",
+    "B0F7QJZWLV",
+    "B0GJS9SCJ6",
+    "B0GK16S6Y9",
+    "B0GK1BT4QZ",
+    "B0GSVSD8JD",
+    "B0GTPH2Z1W",
+    "B0GTPT3LJV",
+    "B0H2TYJ8VG",
+    "B0H5BYJ78P",
+    "B0H5C3GVDL"
+  ],
+  "excluded_accessory_notes": {
+    "replacement_filter_track_probe": [
+      "B075J9RLL6",
+      "B079ZRQNMM",
+      "B0DRCXJNMK",
+      "B0F7QJZWLV",
+      "B0GJS9SCJ6",
+      "B0GK16S6Y9",
+      "B0GK1BT4QZ",
+      "B0GSVSD8JD",
+      "B0GTPH2Z1W",
+      "B0GTPT3LJV",
+      "B0H5BYJ78P",
+      "B0H5C3GVDL"
+    ],
+    "title_cdp": [
+      "B0H2TYJ8VG"
+    ]
+  },
+  "publishable_requested": 87,
+  "attempted_cdp": 60,
+  "ok": 83,
+  "blocked": 4,
+  "blocked_asins": [
+    "B0HMBF83JS",
+    "B0HLCQQ21L",
+    "B0HKK8PJJR",
+    "B0HJNLKK9R"
+  ],
+  "oos": [],
+  "soft_fail_recovered": [
+    "B0GS4BCZCG",
+    "B0HJW46PZD"
+  ],
+  "ok_asins": [
+    "B01CC87G86",
+    "B0CQM4LTK4",
+    "B0DGQHFYTX",
+    "B0DGTD3QP2",
+    "B0DX244R2N",
+    "B0DXL23JNF",
+    "B0F4XN36V3",
+    "B0F5Q2FNTV",
+    "B0F8VQC2C7",
+    "B0F8VVH6PN",
+    "B0FJ1XNFS1",
+    "B0FLJJXJYF",
+    "B0FWJHL3FX",
+    "B0FZBVVNR6",
+    "B0G51Q899W",
+    "B0G7S4V9Y3",
+    "B0GDDP123K",
+    "B0GGQCHLK1",
+    "B0GGQKB4TX",
+    "B0GGQM6X5H",
+    "B0GGQYS85K",
+    "B0GLWVNK4D",
+    "B0GLWVYMWP",
+    "B0GLX8R7X4",
+    "B0GPVFL1D5",
+    "B0GRZLY75T",
+    "B0GS4BCZCG",
+    "B0GSVXB2N7",
+    "B0GT8FBSGY",
+    "B0GT8W7HM7",
+    "B0GT8WJK8X",
+    "B0GT91DZ4H",
+    "B0GT93T3HS",
+    "B0GT93YZM8",
+    "B0GT95MVBL",
+    "B0GT986QDS",
+    "B0GWDYRQKM",
+    "B0GWDYT9Y7",
+    "B0GWGTLXRF",
+    "B0GWGX82QD",
+    "B0GWH6B18J",
+    "B0GWH6J8Y4",
+    "B0GX149LLS",
+    "B0H1HHMMNC",
+    "B0H44DKV6V",
+    "B0H4FXNBB3",
+    "B0H5K28N1T",
+    "B0H6J5TFMT",
+    "B0H86PRS7M",
+    "B0H86RSPNC",
+    "B0H86TXGS5",
+    "B0H86WFJZ2",
+    "B0H97Z8RDC",
+    "B0H9RR7SCC",
+    "B0HBQ15XYR",
+    "B0HCBQMWVT",
+    "B0HDB3CQYD",
+    "B0HDB8KK33",
+    "B0HDBBMK2T",
+    "B0HDBF6WXC",
+    "B0HDNZR3V7",
+    "B0HDPNZ65Y",
+    "B0HFM9DXKF",
+    "B0HFMHBCB2",
+    "B0HFN365NN",
+    "B0HGF8V9BW",
+    "B0HJCPDBZ1",
+    "B0HJW46PZD",
+    "B0HKJBN5DG",
+    "B0HKJLX9NR",
+    "B0HKJNDLTD",
+    "B0HKJNMN9R",
+    "B0HKJQWD5S",
+    "B0HKJWB8H4",
+    "B0HKJWF4V8",
+    "B0HKM1SFLZ",
+    "B0HL87SRGG",
+    "B0HLCML1P1",
+    "B0HLCPY6VX",
+    "B0HLDJBJKX",
+    "B0HLYY6BM2",
+    "B0HMW1SR5T",
+    "B0HMW5R2WC"
+  ],
+  "fail_asins": [
+    "B0HJNLKK9R",
+    "B0HKK8PJJR",
+    "B0HLCQQ21L",
+    "B0HMBF83JS"
+  ],
+  "reuse_ol_publishable": 28,
+  "packs_on_box": 88,
+  "packs_dir": "/workspace/shared/mt10-day-add-l2-2026-10-23",
+  "by_slug": {
+    "hearing-aids": {
+      "density_target": 10,
+      "publishable": 10,
+      "ok_packs": 10,
+      "shortfall_vs_10": 0,
+      "missing_ok": [],
+      "dropped_accessory": []
+    },
+    "water-filters": {
+      "density_target": 10,
+      "publishable": 1,
+      "ok_packs": 1,
+      "shortfall_vs_10": 9,
+      "missing_ok": [],
+      "dropped_accessory": [
+        "B075J9RLL6",
+        "B079ZRQNMM",
+        "B0GTPT3LJV",
+        "B0GTPH2Z1W",
+        "B0GSVSD8JD",
+        "B0H5C3GVDL",
+        "B0H5BYJ78P",
+        "B0F7QJZWLV",
+        "B0DRCXJNMK"
+      ]
+    },
+    "under-sink-countertop-filtration": {
+      "density_target": 10,
+      "publishable": 10,
+      "ok_packs": 10,
+      "shortfall_vs_10": 0,
+      "missing_ok": [],
+      "dropped_accessory": []
+    },
+    "pitcher-water-filters": {
+      "density_target": 10,
+      "publishable": 7,
+      "ok_packs": 7,
+      "shortfall_vs_10": 3,
+      "missing_ok": [],
+      "dropped_accessory": [
+        "B0GK1BT4QZ",
+        "B0GK16S6Y9",
+        "B0GJS9SCJ6"
+      ]
+    },
+    "doormats": {
+      "density_target": 10,
+      "publishable": 10,
+      "ok_packs": 10,
+      "shortfall_vs_10": 0,
+      "missing_ok": [],
+      "dropped_accessory": []
+    },
+    "split-system": {
+      "density_target": 10,
+      "publishable": 10,
+      "ok_packs": 10,
+      "shortfall_vs_10": 0,
+      "missing_ok": [],
+      "dropped_accessory": []
+    },
+    "stage-lights": {
+      "density_target": 10,
+      "publishable": 10,
+      "ok_packs": 10,
+      "shortfall_vs_10": 0,
+      "missing_ok": [],
+      "dropped_accessory": []
+    },
+    "kvm-switches": {
+      "density_target": 10,
+      "publishable": 9,
+      "ok_packs": 7,
+      "shortfall_vs_10": 1,
+      "missing_ok": [
+        "B0HMBF83JS",
+        "B0HLCQQ21L"
+      ],
+      "dropped_accessory": [
+        "B0H2TYJ8VG"
+      ]
+    },
+    "glass-display-cabinets": {
+      "density_target": 10,
+      "publishable": 10,
+      "ok_packs": 8,
+      "shortfall_vs_10": 0,
+      "missing_ok": [
+        "B0HKK8PJJR",
+        "B0HJNLKK9R"
+      ],
+      "dropped_accessory": []
+    },
+    "document-scanners": {
+      "density_target": 10,
+      "publishable": 10,
+      "ok_packs": 10,
+      "shortfall_vs_10": 0,
+      "missing_ok": [],
+      "dropped_accessory": []
+    }
+  },
+  "density_shortfall": {
+    "water-filters": {
+      "density_target": 10,
+      "publishable": 1,
+      "ok_packs": 1,
+      "shortfall_vs_10": 9,
+      "missing_ok": [],
+      "dropped_accessory": [
+        "B075J9RLL6",
+        "B079ZRQNMM",
+        "B0GTPT3LJV",
+        "B0GTPH2Z1W",
+        "B0GSVSD8JD",
+        "B0H5C3GVDL",
+        "B0H5BYJ78P",
+        "B0F7QJZWLV",
+        "B0DRCXJNMK"
+      ]
+    },
+    "pitcher-water-filters": {
+      "density_target": 10,
+      "publishable": 7,
+      "ok_packs": 7,
+      "shortfall_vs_10": 3,
+      "missing_ok": [],
+      "dropped_accessory": [
+        "B0GK1BT4QZ",
+        "B0GK16S6Y9",
+        "B0GJS9SCJ6"
+      ]
+    },
+    "kvm-switches": {
+      "density_target": 10,
+      "publishable": 9,
+      "ok_packs": 7,
+      "shortfall_vs_10": 1,
+      "missing_ok": [
+        "B0HMBF83JS",
+        "B0HLCQQ21L"
+      ],
+      "dropped_accessory": [
+        "B0H2TYJ8VG"
+      ]
+    },
+    "glass-display-cabinets": {
+      "density_target": 10,
+      "publishable": 10,
+      "ok_packs": 8,
+      "shortfall_vs_10": 0,
+      "missing_ok": [
+        "B0HKK8PJJR",
+        "B0HJNLKK9R"
+      ],
+      "dropped_accessory": []
+    }
+  },
+  "track_probe": {
+    "status": "done_by_parent",
+    "all_100_had_pb_fromsll": true,
+    "note": "CTA/track fill into PR#33 not done; tracks exist for publishable set"
+  },
+  "retry": {
+    "attempted": 6,
+    "recovered": [
+      "B0GS4BCZCG",
+      "B0HJW46PZD"
+    ],
+    "still_blocked": [
+      "B0HMBF83JS",
+      "B0HLCQQ21L",
+      "B0HKK8PJJR",
+      "B0HJNLKK9R"
+    ]
+  }
+}

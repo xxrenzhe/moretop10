@@ -440,6 +440,193 @@ CATEGORY_FAQS: dict[str, list[tuple[str, str]]] = {
             "and age range on the retailer page—we do not invent lab weights.",
         ),
     ],
+    "hearing-aids": [
+        (
+            "Are these over-the-counter hearing aids?",
+            "This shortlist is OTC rechargeable hearing aids for everyday speech. Confirm "
+            "prescription vs OTC labeling, return window, and fit on the retailer page.",
+        ),
+        (
+            "Do I need a charging case?",
+            "Most rechargeable pairs on this chart ship with a case. Confirm battery type, "
+            "charge time, and case contents on the retailer listing before you buy.",
+        ),
+        (
+            "Can I return a pair if the fit is wrong?",
+            "Return windows vary by seller. Confirm fit style, trial period, and returns on "
+            "the retailer page—we do not invent medical claims.",
+        ),
+    ],
+    "water-filters": [
+        (
+            "Countertop RO or an under-sink system?",
+            "This shortlist is complete water-filter systems—countertop RO, under-sink, and "
+            "whole-house units. Skip replacement fridge cartridges; those are not on this chart.",
+        ),
+        (
+            "Do I need a plumber?",
+            "Many countertop units need no install. Under-sink and whole-house kits vary. "
+            "Confirm install type and contents on the retailer page.",
+        ),
+        (
+            "How often should I replace filters?",
+            "Follow the listed month or gallon interval on the system. Confirm filter life "
+            "and which stages ship in the box on the retailer page.",
+        ),
+    ],
+    "under-sink-countertop-filtration": [
+        (
+            "Under-sink reverse osmosis or a countertop unit?",
+            "This shortlist covers under-sink and countertop filtration systems. Confirm "
+            "install type, tank vs tankless, and faucet finish on the retailer page.",
+        ),
+        (
+            "Do I need a plumber for under-sink RO?",
+            "Many tankless kits are DIY, but sink holes and drain saddles vary. Confirm "
+            "install contents and faucet type on the listing.",
+        ),
+        (
+            "How much space does an under-sink system need?",
+            "Tankless units save cabinet space; tank systems need more. Confirm GPD rating "
+            "and cabinet fit on the retailer page.",
+        ),
+    ],
+    "pitcher-water-filters": [
+        (
+            "Electric pitcher or a standard gravity pitcher?",
+            "This shortlist includes electric and replacement-filter pitchers. Confirm pitcher "
+            "vs filter-only packs and stated filter life on the retailer page.",
+        ),
+        (
+            "Will these filters fit a Brita pitcher?",
+            "Some replacements list Brita-compatible fit. Confirm the pitcher model and "
+            "filter SKU on the retailer page before you buy.",
+        ),
+        (
+            "How long does a pitcher filter last?",
+            "Life is listed in months or gallons on the pack. Confirm filter count and "
+            "stated life on the retailer listing.",
+        ),
+    ],
+    "doormats": [
+        (
+            "Indoor dirt-trapper or outdoor welcome mat?",
+            "This shortlist is washable dirt-trapper and welcome doormats. Confirm indoor vs "
+            "outdoor use and size on the retailer page.",
+        ),
+        (
+            "What size doormat do I need?",
+            "Common sizes on this chart are 24x36 and 36x60. Confirm width, depth, and "
+            "door clearance on the listing.",
+        ),
+        (
+            "Are these mats machine washable?",
+            "Many dirt-trappers list washable construction. Confirm wash method and "
+            "non-slip backing on the retailer page.",
+        ),
+    ],
+    "split-system": [
+        (
+            "What BTU rating do I need?",
+            "This shortlist is mini-split heating and cooling systems. Confirm BTU, SEER2, "
+            "and voltage (115V vs 230V) on the retailer page.",
+        ),
+        (
+            "Do I need a licensed installer?",
+            "Line-set and electrical work often need a licensed HVAC tech. Confirm kit "
+            "contents and install requirements on the listing.",
+        ),
+        (
+            "Single-zone or multi-zone?",
+            "Compare single-zone wall units vs multi-zone kits. Confirm zone count and "
+            "outdoor-unit pairing on the retailer page.",
+        ),
+    ],
+    "tv-wall-ceiling-mounts": [
+        (
+            "Full-motion or tilting TV mount?",
+            "This shortlist is TV wall and ceiling mounts. Confirm motion type, TV size "
+            "range, and VESA pattern on the retailer page.",
+        ),
+        (
+            "Will this mount hold my TV weight?",
+            "Weight and size ranges are listed per SKU. Confirm pounds, inch range, and "
+            "stud vs drywall hardware on the listing.",
+        ),
+        (
+            "Do I need an extension bracket?",
+            "Some kits bundle slim mounts with extension brackets. Confirm depth, tilt, "
+            "and hardware contents on the retailer page.",
+        ),
+    ],
+    "monitor-arms": [
+        (
+            "Single arm or dual monitor mount?",
+            "This shortlist is desk and wall monitor arms. Confirm single vs dual, screen "
+            "size, and weight per arm on the retailer page.",
+        ),
+        (
+            "Clamp or grommet install?",
+            "Most desk arms ship with clamp and grommet options. Confirm desk thickness "
+            "and reinforcement plate on the listing.",
+        ),
+        (
+            "Will this hold an ultrawide?",
+            "Ultrawide fit is listed in inches and VESA. Confirm VESA pattern and pound "
+            "rating on the retailer page.",
+        ),
+    ],
+    "stage-lights": [
+        (
+            "Par can wash or a moving head?",
+            "This shortlist is DJ and stage wash lights. Confirm par vs moving head, pack "
+            "count, and IP rating on the retailer page.",
+        ),
+        (
+            "Do I need DMX control?",
+            "Many packs list DMX and app modes. Confirm control options and power linking "
+            "on the listing before you buy.",
+        ),
+        (
+            "Indoor only or weather-resistant?",
+            "Some pars list IP65 weather resistance. Confirm indoor vs outdoor rating and "
+            "pack size on the retailer page.",
+        ),
+    ],
+    "glass-display-cabinets": [
+        (
+            "Corner cabinet or a straight glass curio?",
+            "This shortlist is glass display cabinets for collectibles. Confirm corner vs "
+            "straight, tier count, and finish on the retailer page.",
+        ),
+        (
+            "Do the LED lights need an outlet?",
+            "RGB and sensor lights usually plug in. Confirm power type, sensor, and shelf "
+            "weight rating on the listing.",
+        ),
+        (
+            "How much assembly is required?",
+            "Most curios ship flat-pack. Confirm dimensions, drawer count, and assembly "
+            "notes on the retailer page.",
+        ),
+    ],
+    "document-scanners": [
+        (
+            "Overhead book scanner or a sheet-fed scanner?",
+            "This shortlist is overhead document and book scanners. Confirm camera MP, "
+            "flattening cover, and software on the retailer page.",
+        ),
+        (
+            "Do I need the assistive cover?",
+            "Several kits bundle a flattening cover for curved pages. Confirm cover vs "
+            "scanner-only contents on the listing.",
+        ),
+        (
+            "Windows and Mac compatible?",
+            "Compatibility is listed per model. Confirm OS support and included software "
+            "on the retailer page before you buy.",
+        ),
+    ],
 }
 
 LANDING_FAQ_BLOCK = re.compile(

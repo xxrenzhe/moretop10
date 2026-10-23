@@ -67,6 +67,7 @@ from chrome import (  # noqa: E402
 from seo_geo import (  # noqa: E402
     LIVE,
     ROBOTS_INDEX,
+    VISITOR_LEAK_RE,
     apply_hub_page,
     build_llms_txt,
     extract_authors_from_home,
@@ -79,6 +80,7 @@ from seo_geo import (  # noqa: E402
     rebake_author_feed_thumbs,
     render_authors_hub,
     review_article_specs,
+    rewrite_visible_jargon,
 )
 from site_config import (  # noqa: E402
     ALL_CATS,
@@ -186,6 +188,70 @@ def rewrite_best_widget(page_html: str) -> str:
 SKIP_DISCLOSURE_DIRS = {".cache", "fixtures", "data", "assets"}
 
 
+EDITORIAL_COPY_PAGES = (
+    "kids-bikes/best-balance-to-pedal-kids-bikes/index.html",
+    "kids-bikes/premium-kids-bike-alternatives/index.html",
+    "kids-bikes/how-to-choose-a-kids-bike/index.html",
+    "kids-bikes/royalbaby-ez-vs-dual-handbrake/index.html",
+    "espresso-machines/premium-espresso-machine-alternatives/index.html",
+    "humidifiers/best-humidifiers-for-bedrooms/index.html",
+)
+
+
+SKIP_COPY_DIRS = {".cache", "fixtures", "data", "assets"}
+
+
+def rebake_visitor_copy_pages(site: Path | None = None) -> list[Path]:
+    """Rewrite existing baked HTML visitor copy — no Live refetch."""
+    site = site or SITE
+    wrote: list[Path] = []
+    for path in sorted(site.rglob("*.html")):
+        rel_parts = set(path.relative_to(site).parts)
+        if rel_parts & SKIP_COPY_DIRS:
+            continue
+        text = path.read_text(encoding="utf-8")
+        new = rewrite_visible_jargon(text)
+        if new != text:
+            path.write_text(new, encoding="utf-8")
+            wrote.append(path)
+    for extra in ("llms.txt", ".well-known/llms.txt"):
+        path = site / extra
+        if not path.exists():
+            continue
+        text = path.read_text(encoding="utf-8")
+        new = rewrite_visible_jargon(text)
+        if new != text:
+            path.write_text(new, encoding="utf-8")
+            wrote.append(path)
+    return wrote
+
+
+def bake_editorial_copy_pages(cfg: dict) -> list[Path]:
+    """Pull Live editorial pages that bake does not already own, then scrub."""
+    cats = cfg["ALL_CATS"]
+    wrote: list[Path] = []
+    for out_rel in EDITORIAL_COPY_PAGES:
+        live = f"{LIVE}/{out_rel.replace('index.html', '')}"
+        dest = SITE / out_rel
+        dest.parent.mkdir(parents=True, exist_ok=True)
+        try:
+            html = fetch(live, Path("/tmp") / out_rel.replace("/", "__"), force=True)
+        except LiveNotFound:
+            print(f"  skip 404 {live}")
+            continue
+        prefix = rel_prefix(out_rel)
+        html = inject_nav_css(html)
+        html = rewrite_non_home_nav(html, cats, prefix)
+        html = rewrite_footer(html, cats, prefix)
+        html = rewrite_disclosure(html)
+        html = rewrite_best_widget(html)
+        html = rewrite_visible_jargon(html)
+        dest.write_text(html, encoding="utf-8")
+        wrote.append(dest)
+        print(f"  wrote {dest.relative_to(ROOT)}")
+    return wrote
+
+
 def rebake_disclosure_pages(site: Path | None = None) -> list[Path]:
     """Rewrite existing baked HTML disclosure chrome — no Live refetch."""
     site = site or SITE
@@ -215,6 +281,8 @@ def rebake_best_widget_pages(site: Path | None = None) -> list[Path]:
     )
     wrote: list[Path] = []
     for path in sorted(site.rglob("*.html")):
+        if set(path.relative_to(site).parts) & SKIP_DISCLOSURE_DIRS:
+            continue
         text = path.read_text(encoding="utf-8")
         if not any(m in text for m in markers):
             continue
@@ -316,18 +384,33 @@ def prefetch(specs: list[dict]) -> None:
             fut.result()
 
 
+def load_snapshot(spec: dict) -> str | None:
+    """Live HTML, or a local unpublished scaffold when Live 404s.
+
+    New day-add slugs are not on Live yet. Mechanical 404s must not invent
+    pages — they reuse the local scaffold written by scaffold_day_add.py.
+    """
+    cache_name = spec["out"].replace("/", "__")
+    try:
+        return fetch(spec["live"], CACHE / cache_name)
+    except LiveNotFound:
+        dest = SITE / spec["out"]
+        if dest.exists() and dest.stat().st_size > 500:
+            print(f"  local scaffold {spec['out']} (Live 404)")
+            return dest.read_text(encoding="utf-8")
+        if spec.get("kind") in {"review", "landing", "comparison", "reviews"}:
+            print(f"  skip 404 {spec['live']}")
+            return None
+        raise
+
+
 def bake_page(spec: dict, cfg: dict, cmp_html_by_slug: dict[str, str]) -> Path | None:
     cats = cfg["ALL_CATS"]
     out_rel = spec["out"]
     prefix = rel_prefix(out_rel)
-    cache_name = out_rel.replace("/", "__")
-    try:
-        html = fetch(spec["live"], CACHE / cache_name)
-    except LiveNotFound:
-        if spec.get("kind") == "review":
-            print(f"  skip 404 {spec['live']}")
-            return None
-        raise
+    html = load_snapshot(spec)
+    if html is None:
+        return None
     kind = spec["kind"]
     slug = spec.get("slug")
     cat = cfg["CATS_BY_SLUG"].get(slug) if slug else None
@@ -569,6 +652,19 @@ def verify(cfg: dict) -> None:
             errors.append(f"air-fryers hub missing JSON-LD {needed}")
     if "AggregateRating" in fry_types:
         errors.append("air-fryers hub leaked AggregateRating")
+    for kids_rel in (
+        "kids-bikes/index.html",
+        "kids-bikes/comparison/index.html",
+        "kids-bikes/reviews/index.html",
+        "kids-bikes/best-balance-to-pedal-kids-bikes/index.html",
+    ):
+        kids_path = SITE / kids_rel
+        if not kids_path.exists():
+            continue
+        kids_html = kids_path.read_text(encoding="utf-8")
+        if VISITOR_LEAK_RE.search(kids_html):
+            errors.append(f"{kids_rel} still contains visitor leak jargon")
+
     kids_hub = (SITE / "kids-bikes" / "index.html").read_text(encoding="utf-8")
     if "ItemList" not in _ld_types(kids_hub):
         errors.append("kids-bikes hub missing ItemList")
@@ -629,13 +725,13 @@ def verify(cfg: dict) -> None:
             errors.append("review article missing cite strip")
         if 'id="geo-' not in rev_html:
             errors.append("review article missing #geo-ASIN")
-        if re.search(r"completeness gate|publishable|inventory-blocked|PartnerBoost", rev_html, re.I):
+        if VISITOR_LEAK_RE.search(rev_html):
             errors.append("review article still contains visitor jargon")
         if "AggregateRating" in rev_html:
             errors.append("review article leaked AggregateRating")
 
     faq_chunk = fry[fry.lower().find("faq") :] if "faq" in fry.lower() else fry
-    for term in ("publishable", "inventory-blocked", "completeness gate", "PartnerBoost"):
+    for term in ("publishable", "inventory-blocked", "completeness gate", "card checklist", "PartnerBoost"):
         if re.search(term, faq_chunk, re.I) and "<details" in faq_chunk:
             # flag only if it sits inside FAQ details
             if re.search(rf"<details[^>]*>[^<]*{term}", fry, re.I | re.S):
@@ -732,7 +828,9 @@ def main() -> None:
     cmp_html_by_slug: dict[str, str] = {}
     for spec in specs:
         if spec["kind"] == "comparison":
-            cmp_html_by_slug[spec["slug"]] = fetch(spec["live"], CACHE / spec["out"].replace("/", "__"))
+            snap = load_snapshot(spec)
+            if snap is not None:
+                cmp_html_by_slug[spec["slug"]] = snap
 
     wrote = 0
     skipped = 0
@@ -760,7 +858,11 @@ def main() -> None:
     products_by_slug: dict[str, list] = {}
     for cat in cfg["ALL_CATS"]:
         slug = cat["slug"]
-        landing = (SITE / slug / "index.html").read_text(encoding="utf-8")
+        landing_path = SITE / slug / "index.html"
+        if not landing_path.exists():
+            products_by_slug[slug] = []
+            continue
+        landing = landing_path.read_text(encoding="utf-8")
         cmp = cmp_html_by_slug.get(slug, "")
         products_by_slug[slug] = merge_hub_products(
             extract_landing_picks(landing),
@@ -825,8 +927,20 @@ def disclosure_only() -> None:
     verify(cfg)
 
 
+def visitor_copy_only() -> None:
+    """Local copy scrub + named editorial pages. Bake ≠ deploy."""
+    cfg = load_site_config()
+    editorial = bake_editorial_copy_pages(cfg)
+    print(f"editorial copy pages {len(editorial)}")
+    wrote = rebake_visitor_copy_pages(SITE)
+    print(f"visitor-copy rewrote {len(wrote)} files")
+    verify(cfg)
+
+
 if __name__ == "__main__":
     if "--disclosure-only" in sys.argv:
         disclosure_only()
+    elif "--visitor-copy-only" in sys.argv:
+        visitor_copy_only()
     else:
         main()

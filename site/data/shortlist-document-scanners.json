@@ -1,0 +1,343 @@
+{
+  "generated": "2026-10-23",
+  "slug": "document-scanners",
+  "name": "Document Scanners",
+  "amazon_category": "Office Products",
+  "density": 10,
+  "density_target": 10,
+  "density_shortfall": false,
+  "status": "unpublished_scaffold",
+  "waiting_for_部署上线": "yes",
+  "inventory": "l2_ok",
+  "baked": true,
+  "live": false,
+  "publishable": true,
+  "cta_label": "Check price",
+  "cta_rule": "PB pboost.me keeps uid=fromsll when L2 ok + verified track; otherwise track_pending and no Check price",
+  "l2": {
+    "status": "ok",
+    "method": "mac_chrome_cdp_9333",
+    "ok_count": 10,
+    "blocked": []
+  },
+  "notes": [
+    "Day-add L2 merge 2026-10-23. waiting_for_部署上线=yes. No Live.",
+    "Accessory ASINs and accessory niches removed. No invented pboost hops.",
+    "Lifestyle cover remains a gradient placeholder."
+  ],
+  "dropped_accessory_asins": [],
+  "picks": [
+    {
+      "asin": "B0GT986QDS",
+      "title": "CZUR ET18 Pro Book Scanner with Assistive Cover – 18MP Overhead Document Scanner, Flatten Curved Pages, Fast Scanning with OCR for Books, A3 Documents, Office & Home Use",
+      "title_source": "l2_pack",
+      "brand": "CZUR",
+      "affiliate_network": "pb",
+      "affiliate_link": "https://pboost.me/o5SNk76d?uid=fromsll",
+      "track_status": "ok",
+      "l2_status": "ok",
+      "price": "503.01",
+      "price_raw": "$503.01",
+      "price_displayed": "$503.01",
+      "list_price": "$558.90",
+      "image": "https://m.media-amazon.com/images/I/71gT+H8zJHL._AC_SL1500_.jpg",
+      "availability": "In Stock",
+      "in_stock": true,
+      "rating": null,
+      "review_count": null,
+      "feature_bullets": [
+        "This bundle combines the CZUR ET18 Pro scanner with an Assistive Cover, providing everything you need for efficient book scanning. Easily handle textbooks, magazines, and bound materials with improved stability and clarity",
+        "The Assistive Cover helps press pages flat, reducing curvature, shadows, and distortion. Get cleaner images and more accurate text recognition",
+        "Powered by a 18MP camera, ET18 Pro captures high-resolution scans in just seconds. Simply flip pages and continue scanning—ideal for digitizing large volumes efficiently."
+      ],
+      "l2": {
+        "ok": true,
+        "method": "mac_chrome_cdp",
+        "zip": "10001",
+        "fetched_at": "2026-10-23T09:54:46.739553+08:00"
+      }
+    },
+    {
+      "asin": "B0GT95MVBL",
+      "title": "CZUR Aura Book Scanner with Assistive Cover – Overhead Document Scanner, Flatten Curved Pages, Fast Scanning with OCR for Books, Home, Study & Office",
+      "title_source": "l2_pack",
+      "brand": "CZUR",
+      "affiliate_network": "pb",
+      "affiliate_link": "https://pboost.me/P5SN54g7E?uid=fromsll",
+      "track_status": "ok",
+      "l2_status": "ok",
+      "price": "297.60",
+      "price_raw": "$297.60",
+      "price_displayed": "$297.60",
+      "list_price": "$322.90",
+      "image": "https://m.media-amazon.com/images/I/61WC3C0jZcL._AC_SL1500_.jpg",
+      "availability": "In Stock",
+      "in_stock": true,
+      "rating": null,
+      "review_count": null,
+      "feature_bullets": [
+        "This bundle includes the CZUR Aura standalone scanner and an Assistive Cover, offering a better solution for scanning books",
+        "The Assistive Cover helps press book pages flat, reducing curvature and distortion. Capture clearer images with less shadow",
+        "Scan pages quickly with CZUR’s overhead design. Simply connect to your computer, flip pages, and continue scanning—ideal for digitizing large volumes efficiently"
+      ],
+      "l2": {
+        "ok": true,
+        "method": "mac_chrome_cdp",
+        "zip": "10001",
+        "fetched_at": "2026-10-23T09:54:55.255499+08:00"
+      }
+    },
+    {
+      "asin": "B0GT93YZM8",
+      "title": "CZUR ET16 Plus Book Scanner with Assistive Cover – 16MP Overhead Document Scanner, Flatten Curved Pages, Fast Scanning with OCR for Books, A3 Documents, Office & Home Use",
+      "title_source": "l2_pack",
+      "brand": "CZUR",
+      "affiliate_network": "pb",
+      "affiliate_link": "https://pboost.me/U5SN247d?uid=fromsll",
+      "track_status": "ok",
+      "l2_status": "ok",
+      "price": "398.61",
+      "price_raw": "$398.61",
+      "price_displayed": "$398.61",
+      "list_price": "$442.90",
+      "image": "https://m.media-amazon.com/images/I/71gT+H8zJHL._AC_SL1500_.jpg",
+      "availability": "In Stock",
+      "in_stock": true,
+      "rating": null,
+      "review_count": null,
+      "feature_bullets": [
+        "This bundle combines the CZUR ET16 Plus scanner with an Assistive Cover, providing everything you need for efficient book scanning. Easily handle textbooks, magazines, and bound materials with improved stability and clarity",
+        "The Assistive Cover helps press pages flat, reducing curvature, shadows, and distortion. Get cleaner images and more accurate text recognition",
+        "Powered by a 16MP camera, ET16 Plus captures high-resolution scans in just seconds. Simply flip pages and continue scanning—ideal for digitizing large volumes efficiently."
+      ],
+      "l2": {
+        "ok": true,
+        "method": "mac_chrome_cdp",
+        "zip": "10001",
+        "fetched_at": "2026-10-23T09:55:02.640088+08:00"
+      }
+    },
+    {
+      "asin": "B0GT93T3HS",
+      "title": "CZUR ET24 Pro Book Scanner with Assistive Cover – 24MP Overhead Document Scanner, Flatten Curved Pages, Fast Scanning with OCR for Books, A3 Documents, Office & Home Use",
+      "title_source": "l2_pack",
+      "brand": "CZUR",
+      "affiliate_network": "pb",
+      "affiliate_link": "https://pboost.me/g5SNHD6c?uid=fromsll",
+      "track_status": "ok",
+      "l2_status": "ok",
+      "price": "614.61",
+      "price_raw": "$614.61",
+      "price_displayed": "$614.61",
+      "list_price": "$682.90",
+      "image": "https://m.media-amazon.com/images/I/71gT+H8zJHL._AC_SL1500_.jpg",
+      "availability": "In Stock",
+      "in_stock": true,
+      "rating": null,
+      "review_count": null,
+      "feature_bullets": [
+        "This bundle combines the CZUR ET24 Pro scanner with an Assistive Cover, providing everything you need for efficient book scanning. Easily handle textbooks, magazines, and bound materials with improved stability and clarity",
+        "The Assistive Cover helps press pages flat, reducing curvature, shadows, and distortion. Get cleaner images and more accurate text recognition",
+        "Powered by a 24MP camera, ET24 Pro captures high-resolution scans in just seconds. Simply flip pages and continue scanning—ideal for digitizing large volumes efficiently."
+      ],
+      "l2": {
+        "ok": true,
+        "method": "mac_chrome_cdp",
+        "zip": "10001",
+        "fetched_at": "2026-10-23T09:55:09.885838+08:00"
+      }
+    },
+    {
+      "asin": "B0GT91DZ4H",
+      "title": "CZUR Shine Ultra Pro Book Scanner with Assistive Cover – 24MP Overhead Document Scanner, Flatten Curved Pages, Fast Scanning with OCR for Books, A3 Documents, Office & Home Use",
+      "title_source": "l2_pack",
+      "brand": "CZUR",
+      "affiliate_network": "pb",
+      "affiliate_link": "https://pboost.me/i5SNta6D?uid=fromsll",
+      "track_status": "ok",
+      "l2_status": "ok",
+      "price": "324.70",
+      "price_raw": "$324.70",
+      "price_displayed": "$324.70",
+      "list_price": "$362.90",
+      "image": "https://m.media-amazon.com/images/I/61o1guPlr6L._AC_SL1500_.jpg",
+      "availability": "In Stock",
+      "in_stock": true,
+      "rating": null,
+      "review_count": null,
+      "feature_bullets": [
+        "This bundle combines the CZUR Shine Ultra Pro scanner with an Assistive Cover, providing everything you need for efficient book scanning. Easily handle textbooks, magazines, and bound materials with improved stability and clarity",
+        "The Assistive Cover helps press pages flat, reducing curvature, shadows, and distortion. Get cleaner images and more accurate text recognition",
+        "Powered by a 24MP camera, Shine Ultra Pro captures high-resolution scans in just seconds. Simply flip pages and continue scanning—ideal for digitizing large volumes efficiently."
+      ],
+      "l2": {
+        "ok": true,
+        "method": "mac_chrome_cdp",
+        "zip": "10001",
+        "fetched_at": "2026-10-23T09:55:17.814635+08:00"
+      }
+    },
+    {
+      "asin": "B0GT8WJK8X",
+      "title": "CZUR Aura Book Scanner with Assistive Cover – Overhead Document Scanner, Flatten Curved Pages, Fast Scanning with OCR for Books, Home, Study & Office",
+      "title_source": "l2_pack",
+      "brand": null,
+      "affiliate_network": "pb",
+      "affiliate_link": "https://pboost.me/H5SNaM260?uid=fromsll",
+      "track_status": "ok",
+      "l2_status": "ok",
+      "price": "297.60",
+      "price_raw": "$297.60",
+      "price_displayed": "$297.60",
+      "list_price": "$322.90",
+      "image": "https://m.media-amazon.com/images/I/6164hGMK0qL._AC_SL1500_.jpg",
+      "availability": "In Stock",
+      "in_stock": true,
+      "rating": null,
+      "review_count": null,
+      "feature_bullets": [
+        "This bundle includes the CZUR Aura standalone scanner and an Assistive Cover, offering a better solution for scanning books",
+        "The Assistive Cover helps press book pages flat, reducing curvature and distortion. Capture clearer images with less shadow",
+        "Scan pages quickly with CZUR’s overhead design. Simply connect to your computer, flip pages, and continue scanning—ideal for digitizing large volumes efficiently"
+      ],
+      "l2": {
+        "ok": true,
+        "method": "mac_chrome_cdp",
+        "zip": "10001",
+        "fetched_at": "2026-10-23T09:55:25.674030+08:00"
+      }
+    },
+    {
+      "asin": "B0GT8W7HM7",
+      "title": "CZUR ET Max Book Scanner with Assistive Cover – 38MP Overhead Document Scanner, Flatten Curved Pages, Fast Scanning with OCR for Books, A3 Documents, Office & Home Use",
+      "title_source": "l2_pack",
+      "brand": null,
+      "affiliate_network": "pb",
+      "affiliate_link": "https://pboost.me/d5SNZw06D?uid=fromsll",
+      "track_status": "ok",
+      "l2_status": "ok",
+      "price": "749.61",
+      "price_raw": "$749.61",
+      "price_displayed": "$749.61",
+      "list_price": "$832.90",
+      "image": "https://m.media-amazon.com/images/I/71gT+H8zJHL._AC_SL1500_.jpg",
+      "availability": "In Stock",
+      "in_stock": true,
+      "rating": null,
+      "review_count": null,
+      "feature_bullets": [
+        "This bundle combines the CZUR ET Max scanner with an Assistive Cover, providing everything you need for efficient book scanning. Easily handle textbooks, magazines, and bound materials with improved stability and clarity",
+        "The Assistive Cover helps press pages flat, reducing curvature, shadows, and distortion. Get cleaner images and more accurate text recognition",
+        "Powered by a 38MP camera, ET Max captures high-resolution scans in just seconds. Simply flip pages and continue scanning—ideal for digitizing large volumes efficiently."
+      ],
+      "l2": {
+        "ok": true,
+        "method": "mac_chrome_cdp",
+        "zip": "10001",
+        "fetched_at": "2026-10-23T09:55:33.192058+08:00"
+      }
+    },
+    {
+      "asin": "B0GT8FBSGY",
+      "title": "CZUR Shine Ultra Book Scanner with Assistive Cover – 13MP Overhead Document Scanner, Flatten Curved Pages, Fast Scanning with OCR for Books, A3 Documents, Office & Home Use",
+      "title_source": "l2_pack",
+      "brand": null,
+      "affiliate_network": "pb",
+      "affiliate_link": "https://pboost.me/T5SN0Aa6k?uid=fromsll",
+      "track_status": "ok",
+      "l2_status": "ok",
+      "price": "209.00",
+      "price_raw": "$209.00",
+      "price_displayed": "$209.00",
+      "list_price": "$232.90",
+      "image": "https://m.media-amazon.com/images/I/61o1guPlr6L._AC_SL1500_.jpg",
+      "availability": "In Stock",
+      "in_stock": true,
+      "rating": null,
+      "review_count": null,
+      "feature_bullets": [
+        "This bundle combines the CZUR Shine Ultra scanner with an Assistive Cover, providing everything you need for efficient book scanning. Easily handle textbooks, magazines, and bound materials with improved stability and clarity",
+        "The Assistive Cover helps press pages flat, reducing curvature, shadows, and distortion. Get cleaner images and more accurate text recognition",
+        "Powered by a 13MP camera, Shine Ultra captures high-resolution scans in just seconds. Simply flip pages and continue scanning—ideal for digitizing large volumes efficiently."
+      ],
+      "l2": {
+        "ok": true,
+        "method": "mac_chrome_cdp",
+        "zip": "10001",
+        "fetched_at": "2026-10-23T09:55:40.506509+08:00"
+      }
+    },
+    {
+      "asin": "B0FWJHL3FX",
+      "title": "CZUR Shine800 Pro Portable A4 Document Scanner, 8MP Document Camera",
+      "title_source": "l2_pack",
+      "brand": null,
+      "affiliate_network": "pb",
+      "affiliate_link": "https://pboost.me/r5SNd6077?uid=fromsll",
+      "track_status": "ok",
+      "l2_status": "ok",
+      "price": "119.00",
+      "price_raw": "$119.00",
+      "price_displayed": "$119.00",
+      "list_price": null,
+      "image": "https://m.media-amazon.com/images/I/511vJmJX1ML._AC_SL1500_.jpg",
+      "availability": "In Stock",
+      "in_stock": true,
+      "rating": 5.0,
+      "review_count": 1,
+      "feature_bullets": [
+        "USB Document Camera: Work with macOS AND Windows XP/7/8/10. Connect to a PC via a USB cable, can shoot videos, project in real time, and open a convenient way to share and communicate. Shine800 as a document camera is suitable for distance learning, online teaching, remote office meetings with Zoom, Google Meet, Skype, etc. It is the choice of teachers and students, as well as business people",
+        "Portable Document Scanner: Shine800 Pro can scan documents; forms; bills; certificates, etc. smaller than or equal to A4 size (8.27*11.69 inches). Designed for portability, it is foldable at 90°and weighs 2 lbs",
+        "Excellent Performance: Includes a 8MP camera (resolution: 3264*2448) and LED lights with adjustable brightness. Shine800 Pro has a variety of useful features such as OCR, automatic tilt correction, front and back combination, etc. Notice: glossy materials（glossy photo,glossy magzine）are NOT recommended"
+      ],
+      "l2": {
+        "ok": true,
+        "method": "mac_chrome_cdp",
+        "zip": "10001",
+        "fetched_at": "2026-10-23T09:55:50.476338+08:00"
+      }
+    },
+    {
+      "asin": "B0FLJJXJYF",
+      "title": "CZUR ET MAX Book Scanner and Portable Studio Box Bundle",
+      "title_source": "l2_pack",
+      "brand": null,
+      "affiliate_network": "pb",
+      "affiliate_link": "https://pboost.me/f5SNaC16z?uid=fromsll",
+      "track_status": "ok",
+      "l2_status": "ok",
+      "price": "818.00",
+      "price_raw": "$818.00",
+      "price_displayed": "$818.00",
+      "list_price": "$878.00",
+      "image": "https://m.media-amazon.com/images/I/81+b9E8n13L._AC_SL1500_.jpg",
+      "availability": "In Stock",
+      "in_stock": true,
+      "rating": null,
+      "review_count": null,
+      "feature_bullets": [
+        "CZUR Studio Box can effectively isolate scanner light from external ambient light to achieve better scanning results."
+      ],
+      "l2": {
+        "ok": true,
+        "method": "mac_chrome_cdp",
+        "zip": "10001",
+        "fetched_at": "2026-10-23T09:55:58.296959+08:00"
+      }
+    }
+  ],
+  "l2_ok_asins": [
+    "B0GT986QDS",
+    "B0GT95MVBL",
+    "B0GT93YZM8",
+    "B0GT93T3HS",
+    "B0GT91DZ4H",
+    "B0GT8WJK8X",
+    "B0GT8W7HM7",
+    "B0GT8FBSGY",
+    "B0FWJHL3FX",
+    "B0FLJJXJYF"
+  ],
+  "l2_pending_asins": [],
+  "track_pending_asins": []
+}
