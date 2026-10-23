@@ -10,7 +10,7 @@ ROOT = Path(__file__).resolve().parents[1]
 SITE = ROOT / "site"
 sys.path.insert(0, str(ROOT / "site" / "scripts"))
 
-from seo_geo import VISITOR_LEAK_RE  # noqa: E402
+from seo_geo import VISITOR_LEAK_RE, html_without_ld_json  # noqa: E402
 
 SKIP = {".cache", "fixtures", "data", "assets"}
 
@@ -27,6 +27,8 @@ def main() -> int:
             continue
         scanned += 1
         text = path.read_text(encoding="utf-8")
+        if path.suffix == ".html":
+            text = html_without_ld_json(text)
         hit = VISITOR_LEAK_RE.search(text)
         if hit:
             errors.append(f"{path.relative_to(SITE)} still has {hit.group(0)!r}")

@@ -124,7 +124,7 @@
 ## Product-level AI excerpts
 Category hub and comparison cards expose `#geo-{ASIN}` anchors when the Amazon ASIN is present
 on the live product card (`data-asin`). Prefer those fragments over inventing specs.
-A missing `#geo-` link means we did not have an ASIN in the baked HTML — not a hidden eleventh product.
+A missing `#geo-` link means we did not have a product identifier in the baked HTML — not a hidden eleventh product.
 
 ### Top-pick excerpt anchors
 - [Robot Vacuums & Mops · Top pick excerpt](https://moretop10.com/robot-vacuums/#geo-B0GCDZBK9Q): eufy Omni C20 Robot Vacuum and Mop Combo

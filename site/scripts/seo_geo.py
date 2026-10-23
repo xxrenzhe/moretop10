@@ -183,6 +183,48 @@ JARGON_PATTERNS: list[tuple[re.Pattern[str], str]] = [
     (re.compile(r"Content-only follow-ups:", re.I), "Related guides:"),
     (re.compile(r"(?i)\bsnapshot (\$[0-9][0-9,]*(?:\.[0-9]{2})?)"), r"\1"),
     (re.compile(r"\bSnapshot [Pp]rice\b"), "Price"),
+    (re.compile(r"\bSnapshot pricing\b"), "Price"),
+    (re.compile(r"\bSnapshot value\b"), "Price"),
+    (re.compile(r"\bPrice snapshot:"), "Price:"),
+    (re.compile(
+        r"What does the (\$[0-9][0-9,]*(?:\.[0-9]{2})?) price snapshot mean\?",
+        re.I,
+    ), r"What does the \1 price mean?"),
+    (re.compile(
+        r"(\$[0-9][0-9,]*(?:\.[0-9]{2})?) figure is a publish-time snapshot",
+        re.I,
+    ), r"\1 figure is the price we last checked"),
+    (re.compile(
+        r"price snapshot of (\$[0-9][0-9,]*(?:\.[0-9]{2})?)",
+        re.I,
+    ), r"current price about \1 — confirm on the retailer page"),
+    (re.compile(
+        r"(?:a )?snapshot price of (\$[0-9][0-9,]*(?:\.[0-9]{2})?)",
+        re.I,
+    ), r"current price about \1 — confirm on the retailer page"),
+    (re.compile(
+        r"(?:a |an )?(\$[0-9][0-9,]*(?:\.[0-9]{2})?) price snapshot",
+        re.I,
+    ), r"about \1"),
+    # Visible ASIN prose — keep data-asin / JSON-LD sku.
+    (re.compile(r" or ASIN B0[0-9A-Z]{8,} on Amazon", re.I), " on the retailer page"),
+    (re.compile(r"search for ASIN B0[0-9A-Z]{8,} on Amazon", re.I), "search on the retailer page"),
+    (re.compile(r"referenced under ASIN B0[0-9A-Z]{8,}", re.I), "listed on the retailer page"),
+    (re.compile(r"\s*\(ASIN:\s*B0[0-9A-Z]{8,}\)", re.I), ""),
+    (re.compile(r"\s*\(ASIN\s+B0[0-9A-Z]{8,}\)", re.I), ""),
+    (re.compile(r"\s+under ASIN\s+B0[0-9A-Z]{8,}", re.I), ""),
+    (re.compile(r"those ASINs", re.I), "those products"),
+    (re.compile(r"invent an ASIN", re.I), "invent a product"),
+    (re.compile(r"invented ASIN", re.I), "invented product"),
+    (re.compile(r"no Check price button and no ASIN", re.I), "no Check price button and no product listing"),
+    (re.compile(r"no Check price button, no ASIN,", re.I), "no Check price button, no product listing,"),
+    (re.compile(r"or an ASIN", re.I), "or a product"),
+    (re.compile(r"and no ASIN\.", re.I), "and no product listing."),
+    (re.compile(r"No invented ASIN", re.I), "No invented product"),
+    (re.compile(
+        r"we did not have an ASIN in the baked HTML",
+        re.I,
+    ), "we did not have a product identifier in the baked HTML"),
     # Day-add leftovers (raw ops + #35 word-swap remnants).
     (re.compile(
         r"Chart prices are a(?: Mac CDP)?\s+listing check \(ZIP 10001\)—not a live cart\.",
@@ -236,6 +278,13 @@ VISITOR_LEAK_RE = re.compile(
     r"|\bUtilize\b"
     r"|(?i:snapshot \$)"
     r"|Snapshot [Pp]rice"
+    r"|Snapshot pricing|Snapshot value"
+    r"|price snapshot of \$|snapshot price of \$"
+    r"|\$[0-9][0-9,]*(?:\.[0-9]{2})? price snapshot"
+    r"|Price snapshot:"
+    r"|\(ASIN:|under ASIN|\bASIN B0"
+    r"|invent an ASIN|invented ASIN|those ASINs"
+    r"|no ASIN|\ban ASIN\b"
 )
 
 
@@ -303,6 +352,29 @@ def page_kind(out_rel: str) -> str:
     if p.count("/") == 1 and p.endswith("/index.html"):
         return "landing"
     return "page"
+
+
+LD_JSON_RE = re.compile(
+    r"<script\b[^>]*\btype=[\"']application/ld\+json[\"'][^>]*>.*?</script>",
+    re.I | re.S,
+)
+
+
+def html_without_ld_json(html_text: str) -> str:
+    """Visitor-visible HTML only — JSON-LD Offer / Review blocks stay out of leak scans."""
+    return LD_JSON_RE.sub("", html_text)
+
+
+def rewrite_outside_ld_json(html_text: str, rewriter) -> str:
+    """Rewrite chrome/body only. Leave application/ld+json scripts byte-for-byte."""
+    parts: list[str] = []
+    last = 0
+    for match in LD_JSON_RE.finditer(html_text):
+        parts.append(rewriter(html_text[last:match.start()]))
+        parts.append(match.group(0))
+        last = match.end()
+    parts.append(rewriter(html_text[last:]))
+    return "".join(parts)
 
 
 def apply_jargon_patterns(text: str, *, collapse_ws: bool = False) -> str:
@@ -845,12 +917,14 @@ def h1_text(html_text: str) -> str:
 
 
 def rewrite_visible_jargon(html_text: str) -> str:
-    """Scrub jargon in visible copy, meta, and JSON-LD.
+    """Scrub jargon in visible copy and meta. JSON-LD scripts are not rewritten.
 
     Affiliate track URLs (pboost.me?uid=fromsll) and <time datetime> stay intact.
     Patterns are phrase-level and do not rewrite class names or hrefs.
     """
-    return apply_jargon_patterns(html_text, collapse_ws=False)
+    return rewrite_outside_ld_json(
+        html_text, lambda chunk: apply_jargon_patterns(chunk, collapse_ws=False)
+    )
 
 
 def rewrite_footer_editors(html_text: str, prefix: str) -> str:
@@ -1766,7 +1840,7 @@ def build_llms_txt(
         "## Product-level AI excerpts",
         "Category hub and comparison cards expose `#geo-{ASIN}` anchors when the Amazon ASIN is present",
         "on the live product card (`data-asin`). Prefer those fragments over inventing specs.",
-        "A missing `#geo-` link means we did not have an ASIN in the baked HTML — not a hidden eleventh product.",
+        "A missing `#geo-` link means we did not have a product identifier in the baked HTML — not a hidden eleventh product.",
         "",
         "### Top-pick excerpt anchors",
     ]

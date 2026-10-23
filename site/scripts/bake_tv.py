@@ -706,7 +706,7 @@ def alternatives_body(prefix: str, current: str, shortlist: dict) -> str:
       {''.join(empty_html)}
 
       <h2>Secondary only — not the hero list</h2>
-      <p>HDMI switches, wall mounts, soundbars, and projectors are not whole-TV replacements. If you want a projection setup, use the existing <a href="{prefix}projectors/">projectors shortlist</a> and do not treat an ultra-short-throw as a Google TV panel. We will not put those ASINs in the hero row.</p>
+      <p>HDMI switches, wall mounts, soundbars, and projectors are not whole-TV replacements. If you want a projection setup, use the existing <a href="{prefix}projectors/">projectors shortlist</a> and do not treat an ultra-short-throw as a Google TV panel. We will not put those products in the hero row.</p>
       {related_html(prefix, current)}
     </div>
   </div>
@@ -724,7 +724,7 @@ def launcher_body(prefix: str, current: str) -> str:
     {cluster_nav_html(current, prefix)}
     {DISCLOSURE}
     <div class="legal-body">
-      <p class="geo-answer-first">As of {UPDATED}, the unofficial CleanYourTV launcher is the project this cluster documents for Android TV / Google TV ad rows — third-party open-source, non-official, and not hosted here. We are not selling a launcher. There is no Check price button and no ASIN. Rank on fit: does it stay default, hide boot and home-row promos, and keep HDMI-CEC? Then follow <a href="{prefix}tv/remove-smart-tv-ads/">the install guide</a>. If ADB fails, use <a href="{prefix}tv/adb-debloat-not-working/">ADB troubleshooting</a> before you shop. A Fire Stick is not a launcher and we will not recommend one.</p>
+      <p class="geo-answer-first">As of {UPDATED}, the unofficial CleanYourTV launcher is the project this cluster documents for Android TV / Google TV ad rows — third-party open-source, non-official, and not hosted here. We are not selling a launcher. There is no Check price button and no product listing. Rank on fit: does it stay default, hide boot and home-row promos, and keep HDMI-CEC? Then follow <a href="{prefix}tv/remove-smart-tv-ads/">the install guide</a>. If ADB fails, use <a href="{prefix}tv/adb-debloat-not-working/">ADB troubleshooting</a> before you shop. A Fire Stick is not a launcher and we will not recommend one.</p>
 
       <h2>What a launcher can and cannot do</h2>
       <p>A replacement home app can hide boot splashes, promoted rows, and some “because you watched” shelves on Android TV / Google TV. It cannot remove ads inside Netflix or YouTube. It cannot add ADB to Samsung Tizen, LG webOS, or Apple tvOS. It cannot make a Fire TV into Google TV. If the frustration is “this OS phones home,” that is a <a href="{prefix}tv/best-tv-for-privacy/">privacy</a> or <a href="{prefix}tv/best-non-smart-tv/">non-smart</a> decision, not a new APK.</p>
@@ -845,7 +845,7 @@ def adb_body(prefix: str, current: str) -> str:
       </ol>
 
       <h2>No product list</h2>
-      <p>This page has no Check price button, no ASIN, and no “buy this cable” slot. If you are shopping after software is closed, use the alternatives page for Google TV whole TVs that have a real track — not a Fire Stick, not an invented HDMI hub.</p>
+      <p>This page has no Check price button, no product listing, and no “buy this cable” slot. If you are shopping after software is closed, use the alternatives page for Google TV whole TVs that have a real track — not a Fire Stick, not an invented HDMI hub.</p>
       {related_html(prefix, current)}
     </div>
   </div>
@@ -868,7 +868,7 @@ def non_smart_body(prefix: str, current: str) -> str:
     {cluster_nav_html(current, prefix)}
     {DISCLOSURE}
     <div class="legal-body">
-      <p class="geo-answer-first">As of {UPDATED}, a non-smart / “dumb” TV is the honest answer when you want fewer ads at the OS level and you do not want another smart platform. It is not the first step if your current Android TV or Google TV still has a software path — start on <a href="{prefix}tv/remove-smart-tv-ads/">how to remove smart TV ads</a>. If the platform has no ADB (Samsung Tizen, LG webOS, Apple tvOS) or the unofficial install failed, use <a href="{prefix}tv/smart-tv-ad-alternatives/">when software will not install</a> first. This page has no affiliate-tracked non-smart sets yet; we will not invent a Check price button or an ASIN.</p>
+      <p class="geo-answer-first">As of {UPDATED}, a non-smart / “dumb” TV is the honest answer when you want fewer ads at the OS level and you do not want another smart platform. It is not the first step if your current Android TV or Google TV still has a software path — start on <a href="{prefix}tv/remove-smart-tv-ads/">how to remove smart TV ads</a>. If the platform has no ADB (Samsung Tizen, LG webOS, Apple tvOS) or the unofficial install failed, use <a href="{prefix}tv/smart-tv-ad-alternatives/">when software will not install</a> first. This page has no affiliate-tracked non-smart sets yet; we will not invent a Check price button or a product.</p>
 
       <h2>When a non-smart TV is the honest answer</h2>
       <ul>
@@ -987,7 +987,7 @@ def samsung_ads_body(prefix: str, current: str) -> str:
     empty = empty_products_html(
         slot="samsung_tizen",
         label="Samsung Tizen TVs",
-        note="No Samsung checkout on this page. We will not invent a Check price button or an ASIN. Use the alternatives page if you are replacing the set.",
+        note="No Samsung checkout on this page. We will not invent a Check price button or a product. Use the alternatives page if you are replacing the set.",
     )
     return f"""<main class="legal-page tv-page">
   <div class="container legal-layout">
@@ -1023,7 +1023,7 @@ def samsung_ads_body(prefix: str, current: str) -> str:
       </ol>
 
       <h2>Product zone</h2>
-      <p>Samsung Tizen has no affiliate-tracked checkout on this long-tail page. Empty is honest. We will not invent an ASIN to fill the slot.</p>
+      <p>Samsung Tizen has no affiliate-tracked checkout on this long-tail page. Empty is honest. We will not invent a product to fill the slot.</p>
       {empty}
 
       <h2>Where to go next</h2>
@@ -1043,7 +1043,7 @@ def lg_ads_body(prefix: str, current: str) -> str:
     empty = empty_products_html(
         slot="lg_webos",
         label="LG webOS TVs",
-        note="No LG checkout on this page. We will not invent a Check price button or an ASIN. Use the alternatives page if you are replacing the set.",
+        note="No LG checkout on this page. We will not invent a Check price button or a product. Use the alternatives page if you are replacing the set.",
     )
     return f"""<main class="legal-page tv-page">
   <div class="container legal-layout">
@@ -1078,7 +1078,7 @@ def lg_ads_body(prefix: str, current: str) -> str:
       </ol>
 
       <h2>Product zone</h2>
-      <p>LG webOS has no affiliate-tracked checkout on this long-tail page. Empty is honest. We will not invent an ASIN to fill the slot.</p>
+      <p>LG webOS has no affiliate-tracked checkout on this long-tail page. Empty is honest. We will not invent a product to fill the slot.</p>
       {empty}
 
       <h2>Where to go next</h2>
@@ -1141,7 +1141,7 @@ def fire_ads_body(prefix: str, current: str, shortlist: dict) -> str:
       </ol>
 
       <h2>Product zone</h2>
-      <p>Thin reuse only: in-stock <strong>Fire TV whole TVs</strong> already in our shortlist. No Fire Stick. No invented ASIN. The full honest Fire table lives on the alternatives page. Prices as of {UPDATED} — confirm on the retailer page.</p>
+      <p>Thin reuse only: in-stock <strong>Fire TV whole TVs</strong> already in our shortlist. No Fire Stick. No invented product. The full honest Fire table lives on the alternatives page. Prices as of {UPDATED} — confirm on the retailer page.</p>
       {zone}
 
       <h2>Where to go next</h2>
@@ -1201,7 +1201,7 @@ def google_ads_body(prefix: str, current: str, shortlist: dict) -> str:
         <li>You already followed the unofficial notes and the launcher will not stay default.</li>
         <li>You are shopping anyway and want Google TV called out versus Fire. Fire panels are not an “ad-free” upgrade — see <a href="{prefix}tv/fire-tv-ads/">Fire TV ads</a>.</li>
       </ul>
-      <p>The full Google TV whole-TV list lives on <a href="{prefix}tv/smart-tv-ad-alternatives/">when software will not install</a>. This page only reuses a thin slice of those same Hisense Google TV tracks. We will not invent an ASIN, and we will not put a Fire Stick, projector, or HDMI hub in this zone.</p>
+      <p>The full Google TV whole-TV list lives on <a href="{prefix}tv/smart-tv-ad-alternatives/">when software will not install</a>. This page only reuses a thin slice of those same Hisense Google TV tracks. We will not invent a product, and we will not put a Fire Stick, projector, or HDMI hub in this zone.</p>
 
       <h2>Product zone</h2>
       <p>Thin reuse of in-stock Hisense Google TV whole TVs already in our shortlist. Confirm tax, shipping, and returns on the retailer page. Prices as of {UPDATED}.</p>
