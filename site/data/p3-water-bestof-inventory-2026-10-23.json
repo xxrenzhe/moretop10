@@ -1,0 +1,203 @@
+{
+  "date": "2026-10-23",
+  "waiting_for_部署上线": true,
+  "live": false,
+  "merged": false,
+  "independent_of_shortlist_lab": true,
+  "do_not_touch": [
+    "#36",
+    "#37",
+    "#40",
+    "#43",
+    "#45"
+  ],
+  "occupied_asins": [
+    "B01CC87G86",
+    "B075J9RLL6",
+    "B079ZRQNMM",
+    "B07MFYQBTX",
+    "B087R2V8V7",
+    "B08R8FD43K",
+    "B097YC4VC2",
+    "B09W1Y557B",
+    "B0CJ2QC33R",
+    "B0CM8MHWNT",
+    "B0CZ3D2SR9",
+    "B0DLVZ2M34",
+    "B0DLW3N7FX",
+    "B0DMVYB9B1",
+    "B0DRCXJNMK",
+    "B0DX244R2N",
+    "B0F5Q2FNTV",
+    "B0F62NRGGY",
+    "B0F7QJZWLV",
+    "B0F8VQC2C7",
+    "B0F8VVH6PN",
+    "B0FCFLX4ZR",
+    "B0FS6DT3WK",
+    "B0GGQCHLK1",
+    "B0GGQKB4TX",
+    "B0GGQM6X5H",
+    "B0GJS9SCJ6",
+    "B0GK16S6Y9",
+    "B0GK1BT4QZ",
+    "B0GSVSD8JD",
+    "B0GTPH2Z1W",
+    "B0GTPT3LJV",
+    "B0GWCWN64R",
+    "B0GWGSW2XB",
+    "B0GWGTLXRF",
+    "B0GWGX82QD",
+    "B0GWH6B18J",
+    "B0GWH6J8Y4",
+    "B0GYPJ97Z2",
+    "B0GYRWYBZY",
+    "B0H2TYJ8VG",
+    "B0H3DSQV33",
+    "B0H3TLNCLG",
+    "B0H44DKV6V",
+    "B0H4FXNBB3",
+    "B0H5BYJ78P",
+    "B0H5C3GVDL",
+    "B0H5JZZ3GK",
+    "B0H6J5TFMT",
+    "B0H6WKMXPB",
+    "B0H9YH5DF9",
+    "B0HDKZKXS9",
+    "B0HDN5MHLR",
+    "B0HDNZR3V7",
+    "B0HDPNZ65Y",
+    "B0HGF8V9BW",
+    "B0HHJHYF8Z",
+    "B0HJNLKK9R",
+    "B0HKK8PJJR",
+    "B0HLCQQ21L",
+    "B0HMBF83JS"
+  ],
+  "occupied_count": 61,
+  "sources": {
+    "1_pb": {
+      "name": "PartnerBoost brand catalog / PB∪ track search",
+      "brand_ids_known": {
+        "WFT-Waterdrop": 138654,
+        "Waterdrop": 103211,
+        "Frizzlife AMZ": 135821
+      },
+      "live_query": "skipped_no_token",
+      "scene_fit_whole_systems": [],
+      "note": "No affiliate API tokens in this VM environment. Do not invent Check price hops."
+    },
+    "2_yp": {
+      "name": "YeahPromos catalog / YP track search",
+      "live_query": "skipped_no_token",
+      "scene_fit_whole_systems": [],
+      "in_repo_yp_water_tracks": 0,
+      "note": "In-repo YP tracks are the /tv/ cluster only. No YP well-system or softener tracks on this VM."
+    },
+    "3_in_repo": {
+      "source": "in_repo_json",
+      "files_scanned": [
+        "shortlist-water-filters.json",
+        "shortlist-pitcher-water-filters.json",
+        "shortlist-under-sink-countertop-filtration.json",
+        "mt10-day-add-filter-densify-2026-10-23.json",
+        "day-add-open-batch-2026-10-23.json",
+        "mt10-day-add-track-probe-2026-10-23.json"
+      ],
+      "unique_asins": 238,
+      "scene_fit_well_unoccupied": [],
+      "scene_fit_hard_unoccupied": [],
+      "occupied_well_mentions": [
+        {
+          "asin": "B0H5JZZ3GK",
+          "title": "Waterdrop WHF21-PBL 2-Stage Whole House Water Filter System, NSF/ANSI 372",
+          "kind": "well_water_system",
+          "occupied": true,
+          "sources": [
+            "shortlist-water-filters.json",
+            "mt10-day-add-filter-densify-2026-10-23.json",
+            "day-add-open-batch-2026-10-23.json"
+          ]
+        }
+      ],
+      "note": "In-repo water inventory is drinking systems, pitchers, cartridges, or the occupied WHF21-PBL whole-house card already on /water-filters/. No unoccupied well-pretreatment or softener whole systems."
+    }
+  },
+  "fill_status": "need_fill",
+  "inventory_blocked": false,
+  "pages": [
+    {
+      "path": "/water-filters/best-water-filters-for-well-water/",
+      "type": "07-best-of",
+      "parent": "/water-filters/",
+      "density": 0,
+      "density_target": "6-10 scene-fit if inventory allows",
+      "fill_status": "need_fill",
+      "inventory_blocked": false,
+      "cta_status": "empty",
+      "cta_rule": "PB fromsll only when a verified track exists; never invent hops",
+      "reviews": "none — Top pick + Upgrade articles do not exist for this scene",
+      "picks": [],
+      "need_fill_slots": [
+        {
+          "role": "Top pick",
+          "scene_fit": "well-water pretreatment and whole-house well systems",
+          "asin": "",
+          "affiliate_link": "",
+          "track_status": "need_fill",
+          "price": null,
+          "image": null
+        },
+        {
+          "role": "Upgrade",
+          "scene_fit": "well-water pretreatment and whole-house well systems",
+          "asin": "",
+          "affiliate_link": "",
+          "track_status": "need_fill",
+          "price": null,
+          "image": null
+        }
+      ]
+    },
+    {
+      "path": "/water-filters/best-water-filters-for-hard-water/",
+      "type": "07-best-of",
+      "parent": "/water-filters/",
+      "density": 0,
+      "density_target": "6-10 scene-fit if inventory allows",
+      "fill_status": "need_fill",
+      "inventory_blocked": false,
+      "cta_status": "empty",
+      "cta_rule": "PB fromsll only when a verified track exists; never invent hops",
+      "reviews": "none — Top pick + Upgrade articles do not exist for this scene",
+      "picks": [],
+      "need_fill_slots": [
+        {
+          "role": "Top pick",
+          "scene_fit": "hard-water softeners and hard-water treatment systems",
+          "asin": "",
+          "affiliate_link": "",
+          "track_status": "need_fill",
+          "price": null,
+          "image": null
+        },
+        {
+          "role": "Upgrade",
+          "scene_fit": "hard-water softeners and hard-water treatment systems",
+          "asin": "",
+          "affiliate_link": "",
+          "track_status": "need_fill",
+          "price": null,
+          "image": null
+        }
+      ]
+    }
+  ],
+  "notes": [
+    "Main /water-filters/ is already Live in this bake tree — do not recreate it.",
+    "ASIN collision ban vs occupied list (Lab water/pitcher/under-sink + MT10 main).",
+    "No accessories as picks. No invented prices, was/%, gallery, or specs.",
+    "Cloud VM has no affiliate tokens. CTA slots stay empty / need_fill.",
+    "inventory_blocked is false unless ①②③ live search actually returned 0 scene-fit whole systems."
+  ]
+}
