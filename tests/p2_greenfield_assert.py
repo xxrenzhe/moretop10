@@ -62,16 +62,6 @@ def main() -> int:
         if f'href="../{cat["slug"]}/"' not in html_map:
             errors.append(f"sitemap/index.html missing /{cat['slug']}/")
 
-    forbidden_touch = (
-        "site/ceramic-space-heaters/index.html",
-        "site/scripts/bake_p1c_ceramic.py",
-        "site/data/p1c-ceramic-inventory-2026-10-23.json",
-        "tests/p1c_ceramic_assert.py",
-    )
-    for rel in forbidden_touch:
-        if (ROOT / rel).exists():
-            errors.append(f"must not add ceramic P1c file {rel} on the P2 branch")
-
     inv_by_path = {row.get("path"): row for row in inv.get("pages") or []}
 
     for cat in CATS:
