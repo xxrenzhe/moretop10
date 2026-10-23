@@ -13,6 +13,7 @@ SITE = ROOT / "site"
 SCRIPTS = ROOT / "site" / "scripts"
 sys.path.insert(0, str(SCRIPTS))
 
+from seo_geo import aggregate_rating_issues  # noqa: E402
 from site_config import ALL_CATS  # noqa: E402
 
 
@@ -53,8 +54,7 @@ def main() -> None:
         for needed in ("CollectionPage", "ItemList"):
             if needed not in types:
                 errors.append(f"{cat['slug']} hub missing {needed}")
-        if "AggregateRating" in types:
-            errors.append(f"{cat['slug']} hub has AggregateRating")
+        errors.extend(f"{cat['slug']} hub {issue}" for issue in aggregate_rating_issues(html))
         n = re.search(r'"numberOfItems":(\d+)', html)
         item_count = int(n.group(1)) if n else None
         if item_count is not None and item_count > 10:

@@ -74,6 +74,7 @@ from seo_geo import (  # noqa: E402
     LIVE,
     ROBOTS_INDEX,
     VISITOR_LEAK_RE,
+    aggregate_rating_issues,
     apply_hub_page,
     build_llms_txt,
     extract_authors_from_home,
@@ -683,8 +684,7 @@ def verify(cfg: dict) -> None:
     for needed in ("CollectionPage", "ItemList", "Product", "Offer", "FAQPage", "SpeakableSpecification"):
         if needed not in fry_types:
             errors.append(f"air-fryers hub missing JSON-LD {needed}")
-    if "AggregateRating" in fry_types:
-        errors.append("air-fryers hub leaked AggregateRating")
+    errors.extend(f"air-fryers hub {issue}" for issue in aggregate_rating_issues(fry))
     for kids_rel in (
         "kids-bikes/index.html",
         "kids-bikes/comparison/index.html",
@@ -701,8 +701,7 @@ def verify(cfg: dict) -> None:
     kids_hub = (SITE / "kids-bikes" / "index.html").read_text(encoding="utf-8")
     if "ItemList" not in _ld_types(kids_hub):
         errors.append("kids-bikes hub missing ItemList")
-    if "AggregateRating" in _ld_types(kids_hub):
-        errors.append("kids-bikes hub leaked AggregateRating")
+    errors.extend(f"kids-bikes hub {issue}" for issue in aggregate_rating_issues(kids_hub))
     if 'class="geo-answer-first"' not in fry and "geo-answer-first" not in fry:
         errors.append("air-fryers hub missing Speakable geo-answer-first")
     if "geo-cite-strip" not in fry:
@@ -763,8 +762,9 @@ def verify(cfg: dict) -> None:
             errors.append("review article missing #geo-ASIN")
         if VISITOR_LEAK_RE.search(rev_html):
             errors.append("review article still contains visitor jargon")
-        if "AggregateRating" in rev_html:
-            errors.append("review article leaked AggregateRating")
+        errors.extend(
+            f"review article {issue}" for issue in aggregate_rating_issues(rev_html)
+        )
 
     faq_chunk = fry[fry.lower().find("faq") :] if "faq" in fry.lower() else fry
     for term in ("publishable", "inventory-blocked", "completeness gate", "card checklist", "PartnerBoost"):

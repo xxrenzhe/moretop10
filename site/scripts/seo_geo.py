@@ -11,8 +11,14 @@ Author feeds: post thumbs use each target page's cover SoT (og/product/hero),
 not a shared category cmp-hero.
 
 Honest rules:
-  - Product / Offer / ASIN / price come from Live HTML (comparison cards + hub picks).
-  - Never emit AggregateRating, awards, or invented SKUs.
+  - Product / Offer / ASIN / price come from Live HTML (comparison cards, hub picks,
+    or the review page Price snapshot). Never invent amounts.
+  - Review Article JSON-LD: emit Offer.price only when a real snapshot/catalog
+    amount exists; otherwise drop a price-less Offer (GSC offers.price warning).
+  - AggregateRating / Review / description only from retailer stars+counts and
+    review-summary already on the page. Never invent awards, SKUs, or quotes.
+  - Offer.availability only from a real catalog stock token — never fake InStock.
+  - Merchant return/shipping stay omitted unless a published policy SoT exists.
   - Visitor FAQ / visible copy: no publishable, inventory-blocked, completeness gate,
     card checklist, PartnerBoost, Mac L2/CDP, PB∪YP, healthy track, L5 inventory,
     Snapshot $ price prefix, or other internal jargon.
@@ -292,12 +298,79 @@ def _esc(text: str) -> str:
     return html.escape(text, quote=True)
 
 
+MERCHANT_NAME_LIMIT = 150  # Google Merchant listings `name` max
+_STOCK_TOKENS = frozenset(
+    {
+        "InStock",
+        "OutOfStock",
+        "PreOrder",
+        "LimitedAvailability",
+        "OnlineOnly",
+        "SoldOut",
+    }
+)
+
+
 def truncate_name(name: str, limit: int = 70) -> str:
     name = re.sub(r"\s+", " ", (name or "").strip())
     if len(name) <= limit:
         return name
     cut = name[: limit - 1].rsplit(" ", 1)[0]
     return (cut or name[: limit - 1]).rstrip(" ,;:/") + "…"
+
+
+def _plain_text(html_fragment: str) -> str:
+    text = unescape(re.sub(r"<[^>]+>", " ", html_fragment or ""))
+    return re.sub(r"\s+", " ", text).strip()
+
+
+def normalize_star_rating(value: Any) -> str | None:
+    if value is None or isinstance(value, bool):
+        return None
+    text = str(value).strip()
+    if not re.fullmatch(r"[1-5](?:\.[0-9])?", text):
+        return None
+    amount = float(text)
+    if amount < 1 or amount > 5:
+        return None
+    return text
+
+
+def normalize_review_count(value: Any) -> int | None:
+    if value is None or isinstance(value, bool):
+        return None
+    if isinstance(value, int):
+        return value if value > 0 else None
+    text = str(value).replace(",", "").strip()
+    if not text.isdigit():
+        return None
+    count = int(text)
+    return count if count > 0 else None
+
+
+def normalize_availability(value: Any) -> str | None:
+    if not value or isinstance(value, bool):
+        return None
+    token = str(value).strip().replace("https://schema.org/", "")
+    if token not in _STOCK_TOKENS:
+        return None
+    return f"https://schema.org/{token}"
+
+
+def honest_aggregate_rating_node(
+    rating_value: Any, rating_count: Any
+) -> dict[str, Any] | None:
+    stars = normalize_star_rating(rating_value)
+    count = normalize_review_count(rating_count)
+    if not stars or not count:
+        return None
+    return {
+        "@type": "AggregateRating",
+        "ratingValue": stars,
+        "bestRating": "5",
+        "worstRating": "1",
+        "ratingCount": count,
+    }
 
 
 def brand_from_name(name: str) -> str | None:
@@ -487,6 +560,14 @@ def extract_comparison_products(html_text: str, cat_slug: str) -> list[dict[str,
                 review_slug = slug_from_href(href)
                 if review_slug:
                     break
+        star_m = re.search(r'aria-label="([1-5](?:\.[0-9])?)\s+out of 5"', card, re.I)
+        count_m = re.search(
+            r'class="pc-reviews-link"[^>]*>\s*([0-9][0-9,]*)\s+reviews',
+            card,
+            re.I,
+        )
+        tag_m = re.search(r"class=['\"]pc-tagline['\"]>(.*?)</p>", card, re.S)
+        stock_m = re.search(r'data-(?:stock|availability)="([^"]+)"', card)
         key = asin or f"{review_slug}:{name}:{i}"
         if key in seen:
             continue
@@ -500,6 +581,14 @@ def extract_comparison_products(html_text: str, cat_slug: str) -> list[dict[str,
                 "review_slug": review_slug,
                 "position": int(attrs.get("data-position") or i),
                 "brand": brand_from_name(name),
+                "rating_value": normalize_star_rating(star_m.group(1)) if star_m else None,
+                "rating_count": normalize_review_count(
+                    count_m.group(1) if count_m else None
+                ),
+                "description": _plain_text(tag_m.group(1)) if tag_m else None,
+                "availability": normalize_availability(
+                    stock_m.group(1) if stock_m else None
+                ),
             }
         )
     products.sort(key=lambda p: p["position"])
@@ -631,6 +720,10 @@ def merge_hub_products(
             "asin": (found or {}).get("asin"),
             "price": (found or {}).get("price"),
             "brand": (found or {}).get("brand") or brand_from_name(pick.get("name") or ""),
+            "rating_value": (found or {}).get("rating_value"),
+            "rating_count": (found or {}).get("rating_count"),
+            "description": (found or {}).get("description"),
+            "availability": (found or {}).get("availability"),
         }
         if not row["name"]:
             continue
@@ -640,6 +733,290 @@ def merge_hub_products(
         for i, c in enumerate(cmp_products, start=1):
             merged.append({**c, "position": i, "pick_id": f"pick-{i}"})
     return merged
+
+
+_PRICE_AMOUNT_RE = re.compile(r"^[0-9]+(?:\.[0-9]{1,2})?$")
+_REVIEW_SNAPSHOT_PRICE_RE = re.compile(
+    r"<strong>Price snapshot</strong>\s*<span>\$([0-9][0-9,]*(?:\.[0-9]{2})?)",
+    re.I,
+)
+
+
+def normalize_offer_price(value: Any) -> str | None:
+    """Return a Google-safe Offer.price string, or None if this is not a real amount."""
+    if value is None or isinstance(value, bool):
+        return None
+    if isinstance(value, int):
+        return str(value) if value > 0 else None
+    if isinstance(value, float):
+        if value != value or value <= 0:  # NaN or non-positive
+            return None
+        return f"{value:.2f}"
+    text = unescape(str(value)).strip().replace(",", "").replace("$", "").strip()
+    if not text or not _PRICE_AMOUNT_RE.fullmatch(text):
+        return None
+    try:
+        amount = float(text)
+    except ValueError:
+        return None
+    if amount <= 0:
+        return None
+    return text
+
+
+def review_snapshot_price(html_text: str) -> str | None:
+    """Visible review-fact Price snapshot (the amount the page already shows)."""
+    match = _REVIEW_SNAPSHOT_PRICE_RE.search(html_text)
+    return normalize_offer_price(match.group(1)) if match else None
+
+
+def catalog_price_for_review(
+    products: list[dict[str, Any]], review_slug: str | None
+) -> str | None:
+    if not review_slug:
+        return None
+    for prod in products:
+        if prod.get("review_slug") == review_slug:
+            return normalize_offer_price(prod.get("price"))
+    return None
+
+
+def honest_review_price(
+    html_text: str,
+    products: list[dict[str, Any]],
+    review_slug: str | None,
+) -> str | None:
+    return review_snapshot_price(html_text) or catalog_price_for_review(
+        products, review_slug
+    )
+
+
+def offer_has_gsc_price(offer: dict[str, Any]) -> bool:
+    if normalize_offer_price(offer.get("price")):
+        return True
+    spec = offer.get("priceSpecification")
+    specs = spec if isinstance(spec, list) else [spec] if isinstance(spec, dict) else []
+    return any(normalize_offer_price(item.get("price")) for item in specs)
+
+
+def _iter_product_nodes(data: Any) -> list[dict[str, Any]]:
+    found: list[dict[str, Any]] = []
+
+    def walk(node: Any) -> None:
+        if isinstance(node, dict):
+            types = node.get("@type")
+            type_list = types if isinstance(types, list) else [types]
+            if "Product" in type_list:
+                found.append(node)
+            for value in node.values():
+                walk(value)
+        elif isinstance(node, list):
+            for item in node:
+                walk(item)
+
+    walk(data)
+    return found
+
+
+def apply_honest_availability(offer: dict[str, Any], availability: str | None) -> None:
+    if availability:
+        offer["availability"] = availability
+    else:
+        offer.pop("availability", None)
+    offer.pop("hasMerchantReturnPolicy", None)
+    offer.pop("shippingDetails", None)
+
+
+def apply_honest_product_offer(
+    product: dict[str, Any],
+    price: str | None,
+    availability: str | None = None,
+) -> None:
+    """Attach Offer.price from SoT, or drop a price-less Offer. Never invent amounts."""
+    if price:
+        offer = product.get("offers")
+        if isinstance(offer, list) and offer and isinstance(offer[0], dict):
+            first = dict(offer[0])
+            first.setdefault("@type", "Offer")
+            first["price"] = price
+            first.setdefault("priceCurrency", "USD")
+            apply_honest_availability(first, availability)
+            product["offers"] = [first, *offer[1:]] if len(offer) > 1 else first
+            return
+        if isinstance(offer, dict):
+            offer = dict(offer)
+            offer.setdefault("@type", "Offer")
+            offer["price"] = price
+            offer.setdefault("priceCurrency", "USD")
+            apply_honest_availability(offer, availability)
+            product["offers"] = offer
+            return
+        offer = {
+            "@type": "Offer",
+            "price": price,
+            "priceCurrency": "USD",
+        }
+        apply_honest_availability(offer, availability)
+        product["offers"] = offer
+        return
+
+    offer = product.get("offers")
+    if isinstance(offer, dict) and not offer_has_gsc_price(offer):
+        product.pop("offers", None)
+        return
+    if isinstance(offer, dict):
+        offer = dict(offer)
+        apply_honest_availability(offer, availability)
+        product["offers"] = offer
+        return
+    if isinstance(offer, list):
+        kept = [item for item in offer if isinstance(item, dict) and offer_has_gsc_price(item)]
+        if not kept:
+            product.pop("offers", None)
+            return
+        for item in kept:
+            apply_honest_availability(item, availability)
+        product["offers"] = kept[0] if len(kept) == 1 else kept
+
+
+def apply_honest_review_product(
+    product: dict[str, Any],
+    *,
+    price: str | None,
+    availability: str | None = None,
+    description: str | None = None,
+    rating: dict[str, Any] | None = None,
+    review: dict[str, Any] | None = None,
+) -> None:
+    apply_honest_product_offer(product, price, availability)
+    name = product.get("name")
+    if isinstance(name, str) and name.strip():
+        product["name"] = truncate_name(name, MERCHANT_NAME_LIMIT)
+    if description:
+        product["description"] = description
+    if rating:
+        product["aggregateRating"] = rating
+    else:
+        product.pop("aggregateRating", None)
+    if review:
+        product["review"] = review
+    else:
+        product.pop("review", None)
+
+
+_STARS_ARIA_RE = re.compile(r'aria-label="([1-5](?:\.[0-9])?)\s+out of 5"', re.I)
+_RETAILER_COUNT_RE = re.compile(
+    r"<strong>Retailer reviews</strong>\s*<span>([0-9][0-9,]*)\s+reviews</span>",
+    re.I,
+)
+_REVIEW_SUMMARY_RE = re.compile(r'<p class="review-summary">(.*?)</p>', re.S)
+
+
+def review_retailer_aggregate(html_text: str) -> dict[str, Any] | None:
+    star_m = _STARS_ARIA_RE.search(html_text)
+    count_m = _RETAILER_COUNT_RE.search(html_text)
+    return honest_aggregate_rating_node(
+        star_m.group(1) if star_m else None,
+        count_m.group(1) if count_m else None,
+    )
+
+
+def catalog_rating_for_review(
+    products: list[dict[str, Any]], review_slug: str | None
+) -> dict[str, Any] | None:
+    if not review_slug:
+        return None
+    for prod in products:
+        if prod.get("review_slug") == review_slug:
+            return honest_aggregate_rating_node(
+                prod.get("rating_value"), prod.get("rating_count")
+            )
+    return None
+
+
+def catalog_availability_for_review(
+    products: list[dict[str, Any]], review_slug: str | None
+) -> str | None:
+    if not review_slug:
+        return None
+    for prod in products:
+        if prod.get("review_slug") == review_slug:
+            return normalize_availability(prod.get("availability"))
+    return None
+
+
+def review_product_description(html_text: str) -> str | None:
+    match = _REVIEW_SUMMARY_RE.search(html_text)
+    if not match:
+        return None
+    text = _plain_text(match.group(1))
+    return text[:5000] if text else None
+
+
+def editorial_review_from_page(html_text: str) -> dict[str, Any] | None:
+    """Editorial Review from the page's own review-summary. No invented stars."""
+    body = review_product_description(html_text)
+    if not body:
+        return None
+    node: dict[str, Any] = {
+        "@type": "Review",
+        "author": {"@type": "Organization", "name": "MoreTop10", "url": f"{LIVE}/"},
+        "reviewBody": body,
+    }
+    checked = last_checked(html_text)
+    if checked:
+        node["datePublished"] = checked
+    headline = h1_text(html_text)
+    if headline:
+        node["name"] = headline
+    return node
+
+
+def patch_review_article_jsonld(
+    html_text: str,
+    *,
+    price: str | None,
+    availability: str | None = None,
+    description: str | None = None,
+    rating: dict[str, Any] | None = None,
+    review: dict[str, Any] | None = None,
+) -> str:
+    """Rewrite review Article/Product JSON-LD; leave FAQ/Org blobs alone."""
+
+    def repl(match: re.Match[str]) -> str:
+        raw = match.group(1)
+        try:
+            data = json.loads(raw)
+        except json.JSONDecodeError:
+            return match.group(0)
+        types = data.get("@type")
+        type_list = types if isinstance(types, list) else [types]
+        if not ({"Article", "Product"} & {t for t in type_list if t}):
+            return match.group(0)
+        products = _iter_product_nodes(data)
+        if not products:
+            return match.group(0)
+        for product in products:
+            apply_honest_review_product(
+                product,
+                price=price,
+                availability=availability,
+                description=description,
+                rating=rating,
+                review=review,
+            )
+        return f'<script type="application/ld+json">{dumps_ld(data)}</script>'
+
+    return re.sub(
+        r'<script type="application/ld\+json">(.*?)</script>',
+        repl,
+        html_text,
+        flags=re.S,
+    )
+
+
+def patch_review_article_offers(html_text: str, price: str | None) -> str:
+    return patch_review_article_jsonld(html_text, price=price)
 
 
 def product_node(prod: dict[str, Any], cat_slug: str, page_url: str) -> dict[str, Any]:
@@ -657,11 +1034,23 @@ def product_node(prod: dict[str, Any], cat_slug: str, page_url: str) -> dict[str
         node["image"] = prod["image"]
     if prod.get("brand"):
         node["brand"] = {"@type": "Brand", "name": prod["brand"]}
-    offer: dict[str, Any] = {"@type": "Offer", "priceCurrency": "USD"}
-    if prod.get("price"):
-        offer["price"] = prod["price"]
-    offer["url"] = node["url"]
-    if "price" in offer:
+    description = (prod.get("description") or "").strip()
+    if description:
+        node["description"] = description[:5000]
+    rating = honest_aggregate_rating_node(
+        prod.get("rating_value"), prod.get("rating_count")
+    )
+    if rating:
+        node["aggregateRating"] = rating
+    price = normalize_offer_price(prod.get("price"))
+    if price:
+        offer: dict[str, Any] = {
+            "@type": "Offer",
+            "price": price,
+            "priceCurrency": "USD",
+            "url": node["url"],
+        }
+        apply_honest_availability(offer, normalize_availability(prod.get("availability")))
         node["offers"] = offer
     return node
 
@@ -1611,12 +2000,55 @@ def apply_review_article(
     html_text = set_robots_meta(html_text, ROBOTS_INDEX)
     html_text = inject_review_geo(html_text, asin)
     html_text = inject_cite_strip(html_text, title, canonical, checked)
+    price = honest_review_price(html_text, products, review_slug)
+    html_text = patch_review_article_jsonld(
+        html_text,
+        price=price,
+        availability=catalog_availability_for_review(products, review_slug),
+        description=review_product_description(html_text),
+        rating=review_retailer_aggregate(html_text)
+        or catalog_rating_for_review(products, review_slug),
+        review=editorial_review_from_page(html_text),
+    )
     return html_text
 
 
+def aggregate_rating_issues(html_text: str) -> list[str]:
+    """Empty if every AggregateRating has a 1–5 retailer value plus a count."""
+    issues: list[str] = []
+
+    def walk(node: Any) -> None:
+        if isinstance(node, dict):
+            types = node.get("@type")
+            type_list = types if isinstance(types, list) else [types]
+            if "AggregateRating" in type_list:
+                if not normalize_star_rating(node.get("ratingValue")):
+                    issues.append("AggregateRating missing honest ratingValue")
+                if not normalize_review_count(
+                    node.get("ratingCount") or node.get("reviewCount")
+                ):
+                    issues.append("AggregateRating missing honest ratingCount")
+            for value in node.values():
+                walk(value)
+        elif isinstance(node, list):
+            for item in node:
+                walk(item)
+
+    for blob in re.findall(
+        r'<script type="application/ld\+json">(.*?)</script>', html_text, re.S
+    ):
+        try:
+            walk(json.loads(blob))
+        except json.JSONDecodeError:
+            continue
+    return issues
+
+
 def assert_no_aggregate_rating(html_text: str) -> None:
-    if re.search(r"AggregateRating", html_text):
-        raise ValueError("refusing to bake AggregateRating")
+    """Legacy name: allow retailer-sourced AggregateRating, reject empty/invented."""
+    issues = aggregate_rating_issues(html_text)
+    if issues:
+        raise ValueError("refusing to bake dishonest AggregateRating: " + "; ".join(issues))
 
 
 def apply_hub_page(
