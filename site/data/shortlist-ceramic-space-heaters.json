@@ -1,0 +1,161 @@
+{
+  "generated": "2026-10-23",
+  "slug": "ceramic-space-heaters",
+  "name": "Ceramic Space Heaters",
+  "amazon_category": "Home & Kitchen",
+  "density": 4,
+  "density_target": 10,
+  "density_shortfall": true,
+  "status": "unpublished_scaffold",
+  "waiting_for_部署上线": "yes",
+  "inventory": "density_shortfall",
+  "baked": true,
+  "live": false,
+  "publishable": false,
+  "cta_label": "Check price",
+  "cta_rule": "PB pboost.me keeps uid=fromsll when the Lab feed track is healthy; no invented hops",
+  "l2": {
+    "status": "ok",
+    "method": "lab_feed_zip_10001",
+    "ok_count": 4,
+    "blocked": []
+  },
+  "notes": [
+    "P1c ceramic plural category 2026-10-23. waiting_for_部署上线=yes. No Live.",
+    "Top 4 from healthy Lab ceramic feed (PB pboost.me?uid=fromsll). Density is honest — not padded to 10.",
+    "No invented ASINs, prices, images, or was/%. list_price omitted on cards.",
+    "No accessories. No new MT10 review articles (Lab reviews exist; MT10 reviews do not).",
+    "Lifestyle cover remains a gradient placeholder."
+  ],
+  "dropped_accessory_asins": [],
+  "picks": [
+    {
+      "asin": "B0C6FFK1GV",
+      "title": "DREO Space Heater, Portable Electric Heaters for Indoor Use with Remote",
+      "title_source": "lab_feed",
+      "brand": "DREO",
+      "affiliate_network": "pb",
+      "affiliate_link": "https://pboost.me/C5qeREta?uid=fromsll",
+      "track_status": "ok",
+      "l2_status": "ok",
+      "price": "39.99",
+      "price_raw": "$39.99",
+      "price_displayed": "$39.99",
+      "list_price": null,
+      "image": "https://m.media-amazon.com/images/I/81yZOnHdynL._AC_SL1500_.jpg",
+      "availability": "In Stock",
+      "in_stock": true,
+      "rating": 4.4,
+      "review_count": 21514,
+      "feature_bullets": [
+        "1500W PTC ceramic heat with remote, ECO, child lock, and a 41–95°F thermostat.",
+        "Listing quotes 34dB quiet heat for bedrooms and offices.",
+        "Tilt-detection tip-over protection; plug directly into a wall outlet."
+      ],
+      "l2": {
+        "ok": true,
+        "method": "lab_feed_zip_10001",
+        "zip": "10001",
+        "fetched_at": "2026-10-20T09:38:00+08:00"
+      }
+    },
+    {
+      "asin": "B097RG67QB",
+      "title": "DREO Space Heater, Portable Electric Heaters for Indoor Use with Thermostat",
+      "title_source": "lab_feed",
+      "brand": "DREO",
+      "affiliate_network": "pb",
+      "affiliate_link": "https://pboost.me/O5qeSat9?uid=fromsll",
+      "track_status": "ok",
+      "l2_status": "ok",
+      "price": "44.94",
+      "price_raw": "$44.94",
+      "price_displayed": "$44.94",
+      "list_price": null,
+      "image": "https://m.media-amazon.com/images/I/81oqGEsMPGL._AC_SL1500_.jpg",
+      "availability": "In Stock",
+      "in_stock": true,
+      "rating": 4.6,
+      "review_count": 29035,
+      "feature_bullets": [
+        "70° wide-angle oscillation for bedroom, garage, basement, office, and desktop.",
+        "1500W PTC heat with ECO and a 41–95°F digital thermostat.",
+        "Listing quotes 37.5dB; Shield360 tip-over and overheat protection."
+      ],
+      "l2": {
+        "ok": true,
+        "method": "lab_feed_zip_10001",
+        "zip": "10001",
+        "fetched_at": "2026-10-20T09:38:00+08:00"
+      }
+    },
+    {
+      "asin": "B0C6FCKQML",
+      "title": "DREO Space Heater, Portable Electric Heaters for Indoor Use with Thermostat",
+      "title_source": "lab_feed",
+      "brand": "DREO",
+      "affiliate_network": "pb",
+      "affiliate_link": "https://pboost.me/j5qe7QvtD?uid=fromsll",
+      "track_status": "ok",
+      "l2_status": "ok",
+      "price": "35.13",
+      "price_raw": "$35.13",
+      "price_displayed": "$35.13",
+      "list_price": null,
+      "image": "https://m.media-amazon.com/images/I/81Ha7nqu+bL._AC_SL1500_.jpg",
+      "availability": "In Stock",
+      "in_stock": true,
+      "rating": 4.6,
+      "review_count": 21514,
+      "feature_bullets": [
+        "Same 34dB / 1500W / 41–95°F remote stack as the white Top pick.",
+        "Lowest verified snapshot on this shortlist.",
+        "Tip-over protection; plug directly into a wall outlet."
+      ],
+      "l2": {
+        "ok": true,
+        "method": "lab_feed_zip_10001",
+        "zip": "10001",
+        "fetched_at": "2026-10-20T09:38:00+08:00"
+      }
+    },
+    {
+      "asin": "B095PP1GZR",
+      "title": "DREO Space Heaters for Indoor Use with Thermostat, 1500W Electric Heaters",
+      "title_source": "lab_feed",
+      "brand": "DREO",
+      "affiliate_network": "pb",
+      "affiliate_link": "https://pboost.me/N5qe9P4ta?uid=fromsll",
+      "track_status": "ok",
+      "l2_status": "ok",
+      "price": "67.46",
+      "price_raw": "$67.46",
+      "price_displayed": "$67.46",
+      "list_price": null,
+      "image": "https://m.media-amazon.com/images/I/818x7g6vSEL._AC_SL1500_.jpg",
+      "availability": "In Stock",
+      "in_stock": true,
+      "rating": 4.5,
+      "review_count": 15432,
+      "feature_bullets": [
+        "Listing claims 270 sq.ft heating coverage with 1500W PTC ceramic heat.",
+        "70° wide-angle oscillation; listing names bedrooms, basements, and garages.",
+        "34dB quiet heat, 24-hour auto-off, and a reminder not to use an extension cord."
+      ],
+      "l2": {
+        "ok": true,
+        "method": "lab_feed_zip_10001",
+        "zip": "10001",
+        "fetched_at": "2026-10-20T09:38:00+08:00"
+      }
+    }
+  ],
+  "l2_ok_asins": [
+    "B0C6FFK1GV",
+    "B097RG67QB",
+    "B0C6FCKQML",
+    "B095PP1GZR"
+  ],
+  "l2_pending_asins": [],
+  "track_pending_asins": []
+}

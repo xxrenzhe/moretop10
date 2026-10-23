@@ -627,6 +627,31 @@ CATEGORY_FAQS: dict[str, list[tuple[str, str]]] = {
             "on the retailer page before you buy.",
         ),
     ],
+    "ceramic-space-heaters": [
+        (
+            "Will a 1500W ceramic heater cover a large room?",
+            "The Premium card on this shortlist claims 270 sq.ft coverage with 70° "
+            "oscillation. Compact bedside units are written for bedrooms and desks. "
+            "Confirm wattage and claimed coverage on the retailer page before you buy.",
+        ),
+        (
+            "Do I need 70° oscillation?",
+            "Atom One and the Premium large-room card list 70° wide-angle oscillation "
+            "for garages, basements, and offices. The compact white and Gold cards do "
+            "not list that sweep. Skip oscillation if you only want a quiet bedside heater.",
+        ),
+        (
+            "When should I skip a compact ceramic heater?",
+            "Skip the compact white or Gold cards if you need garage or 270 sq.ft coverage. "
+            "Those listings are the quiet 34dB / 1500W remote stack for bedrooms and offices, "
+            "not a large-room default.",
+        ),
+        (
+            "What should I confirm on the listing?",
+            "Confirm wattage, oscillation, noise, tip-over protection, and that you can "
+            "plug directly into a wall outlet — listings warn against extension cords.",
+        ),
+    ],
 }
 
 LANDING_FAQ_BLOCK = re.compile(

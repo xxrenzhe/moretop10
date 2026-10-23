@@ -50,6 +50,7 @@ CONFIRM = {
     "stage-lights": "Confirm pack count, control mode, and indoor vs outdoor rating on the retailer page.",
     "glass-display-cabinets": "Confirm dimensions, lighting type, and shelf rating on the retailer page.",
     "document-scanners": "Confirm camera MP, cover contents, and OS support on the retailer page.",
+    "ceramic-space-heaters": "Confirm wattage, oscillation, noise, and tip-over protection on the retailer page.",
 }
 
 LEDE = {
@@ -64,6 +65,7 @@ LEDE = {
     "stage-lights": "Par-can wash and moving stage lights for DJ and venue setups.",
     "glass-display-cabinets": "Glass display cabinets and curios for collectibles.",
     "document-scanners": "Overhead book and document scanners with flattening covers.",
+    "ceramic-space-heaters": "Portable PTC ceramic space heaters for bedrooms, offices, large rooms, and garages.",
 }
 
 COVER_COLORS = {
@@ -78,6 +80,7 @@ COVER_COLORS = {
     "stage-lights": ((80, 40, 90), (30, 15, 40)),
     "glass-display-cabinets": ((180, 170, 150), (90, 80, 70)),
     "document-scanners": ((140, 140, 145), (70, 70, 75)),
+    "ceramic-space-heaters": ((180, 90, 50), (90, 40, 25)),
 }
 
 ASIN_RE = re.compile(r"\b(B0[0-9A-Z]{8,10})\b")

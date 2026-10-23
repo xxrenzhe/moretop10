@@ -59,6 +59,12 @@
       "lifestyle": "assets/img/lifestyle/cmp-hero-document-scanners.jpg",
       "product_photos": "none — do not invent packshots",
       "todo": "Replace gradient placeholder with a real lifestyle cover after G-L2. Do not invent product photos."
+    },
+    "ceramic-space-heaters": {
+      "status": "placeholder",
+      "lifestyle": "assets/img/lifestyle/cmp-hero-ceramic-space-heaters.jpg",
+      "product_photos": "Lab packshots on cards only — cover is a gradient placeholder",
+      "todo": "Replace gradient placeholder with a real lifestyle cover after deploy. Do not invent product photos."
     }
   }
 }
