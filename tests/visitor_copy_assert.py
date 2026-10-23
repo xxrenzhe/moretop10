@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Baked site/ must not ship visitor jargon or UK/Utilize leaks."""
+"""Baked site/ must not ship visitor jargon, UK/Utilize, TV ops-copy, or day-add leaks."""
 
 from __future__ import annotations
 

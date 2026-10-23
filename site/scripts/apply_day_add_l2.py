@@ -21,6 +21,7 @@ from html import escape
 from pathlib import Path
 
 from affiliate_uid import ensure_affiliate_uid, is_allowed_track_host, is_empty_track
+from seo_geo import rewrite_visible_jargon
 from scaffold_day_add import (
     CONFIRM,
     DATE,
@@ -279,7 +280,7 @@ def landing_main(slug: str, name: str, picks: list[dict]) -> str:
         title = pick["title"]
         asin = pick["asin"]
         short = title if len(title) <= 42 else title[:41] + "…"
-        price_bit = f" Snapshot {pick['price_displayed']}." if pick.get("price_displayed") else ""
+        price_bit = f" {pick['price_displayed']}." if pick.get("price_displayed") else ""
         items.append(
             f"<li><strong>{i}. {_esc(title)}</strong> — {confirm[:-1] if confirm.endswith('.') else confirm}.{price_bit}</li>"
         )
@@ -323,8 +324,8 @@ def landing_main(slug: str, name: str, picks: list[dict]) -> str:
     )
     lead = (
         f"As of {DATE}, we list {n} {_esc(name.lower())} "
-        f"({ok_n} with a verified price snapshot and Check price CTA). "
-        "Chart prices are a Mac CDP listing check (ZIP 10001)—not a live cart. "
+        f"({ok_n} with a verified price and Check price link). "
+        "Chart prices are a listing check (ZIP 10001)—not a live cart. "
         "Confirm shipping, tax, and returns on the retailer page before you buy."
     )
     if n < 10:
@@ -443,16 +444,16 @@ def comparison_main(slug: str, name: str, picks: list[dict]) -> str:
 """
         )
     lead = (
-        f"As of {DATE}, this chart lists {n} {_esc(name.lower())} from the day-add inventory "
-        "after accessory exclusions. Prices and Check price come from Mac CDP L2 plus a verified "
-        "PartnerBoost fromsll track. Confirm shipping, tax, and returns on the retailer page before you buy."
+        f"As of {DATE}, this chart lists {n} {_esc(name.lower())} "
+        "after we dropped accessories. Prices and Check price come from a checked "
+        "retailer listing. Confirm shipping, tax, and returns on the retailer page before you buy."
     )
     if n < 10:
         lead += f" Density is honest at {n}."
     faqs = [
         ("What should I confirm before I buy?", f"{LEDE[slug]} {confirm}"),
         ("Are these prices a live cart?", "No. Prices are a ZIP 10001 listing snapshot. Confirm tax, shipping, and stock on the retailer page."),
-        ("Why is a Check price missing?", "We only render Check price when L2 is ok and a pboost.me?uid=fromsll track is verified."),
+        ("Why is a Check price missing?", "We only show Check price when we have a verified retailer listing and a working checkout link."),
     ]
     faq_html = "\n          ".join(
         f"<details{' open' if i == 0 else ''}><summary>{_esc(q)}</summary><p>{_esc(a)}</p></details>"
@@ -473,8 +474,8 @@ def comparison_main(slug: str, name: str, picks: list[dict]) -> str:
       <section class="key-insights prose-block" aria-label="Key insights">
         <h2>Key insights</h2>
         <ul class="card-bullets">
-          <li>{n} ASINs remain after accessory exclusions.</li>
-          <li>Check price uses verified PartnerBoost fromsll tracks only.</li>
+          <li>{n} products remain after we dropped accessories.</li>
+          <li>Check price opens a verified retailer listing only.</li>
           <li>{_esc(confirm)}</li>
           <li>Last updated {DATE}.</li>
         </ul>
@@ -483,7 +484,7 @@ def comparison_main(slug: str, name: str, picks: list[dict]) -> str:
     <div class="prose-block"><ol class="cmp-howto"><li>Scan the shortlist</li><li>Open a card</li><li>Confirm the retailer listing</li></ol></div>
     <div class="cmp-layout">
       <div class="cmp-main">
-        <aside class="score-disclosure" aria-label="How scores work"><p><strong>How scores work.</strong> Scores map from the retailer star rating (stars × 2) when L2 returned one. Prices are a Checked-day snapshot—not a live cart. Last Updated: {DATE}.</p></aside>
+        <aside class="score-disclosure" aria-label="How scores work"><p><strong>How scores work.</strong> Scores map from the retailer star rating (stars × 2) when the listing included a star rating. Prices are from the day we checked—not a live cart. Last Updated: {DATE}.</p></aside>
         <div class="product-stack" role="list">
 {"".join(cards)}
         </div>
@@ -503,14 +504,14 @@ def reviews_main(slug: str, name: str, picks: list[dict]) -> str:
     for pick in picks:
         title = pick["title"]
         asin = pick["asin"]
-        extra = f" Snapshot {pick['price_displayed']}." if pick.get("price_displayed") else ""
+        extra = f" {pick['price_displayed']}." if pick.get("price_displayed") else ""
         cards.append(
             f'<article class="rev-hub-card" id="geo-{_esc(asin)}">'
             f'<div class="rev-hub-copy">'
             f'<h2 class="rev-hub-title">{_esc(title)}</h2>'
             f'<p class="rev-hub-date">{DATE}</p>'
             f'<p class="rev-hub-excerpt">{_esc(CONFIRM[slug])}{extra} '
-            f"A deep review lands after deploy.</p>"
+            f"A deeper review will follow.</p>"
             f"</div></article>"
         )
     return f"""<main class="reviews-hub-page">
@@ -519,7 +520,7 @@ def reviews_main(slug: str, name: str, picks: list[dict]) -> str:
       <nav class="breadcrumb"><a href="../../">Home</a> <span class="sep">/</span> <a href="../">{_esc(name)}</a> <span class="sep">/</span> <span>Reviews</span></nav>
       <header class="page-head">
         <h1>Unbiased {_esc(name)} Reviews by Our Experts</h1>
-        <p class="page-lede">This reviews hub lists the day-add shortlist after accessory exclusions. Last Updated: {DATE}.</p>
+        <p class="page-lede">This reviews hub lists the current shortlist after we dropped accessories. Last Updated: {DATE}.</p>
       </header>
       <p class="landing-related-cluster hub-reciprocity"><strong>Related:</strong> <a href="../">Category overview</a> · <a href="../comparison/">Comparison chart</a></p>
       <div class="rev-hub-list">{"".join(cards)}</div>
@@ -545,7 +546,7 @@ def write_pages(slug: str, name: str, picks: list[dict]) -> None:
         else:
             dest = SITE / slug / "reviews" / "index.html"
         dest.parent.mkdir(parents=True, exist_ok=True)
-        dest.write_text(html_out, encoding="utf-8")
+        dest.write_text(rewrite_visible_jargon(html_out), encoding="utf-8")
 
 
 def drop_excluded_niches() -> None:

@@ -349,15 +349,15 @@ def landing_main(slug: str, name: str, picks: list[dict]) -> str:
         <ul class="toc-items">{"".join(toc)}</ul>
       </nav>
       <article class="landing-article">
-        <p class="geo-answer-first">As of {DATE}, this {_esc(name.lower())} shortlist is a local draft of {len(picks)} ASINs. Titles come from the inventory batch when present. Prices and Check price links wait on a listing check. Confirm shipping, tax, and returns on the retailer page before you buy.</p>
+        <p class="geo-answer-first">As of {DATE}, this {_esc(name.lower())} shortlist is a local draft of {len(picks)} products. Titles come from the inventory batch when present. Prices and Check price links wait on a listing check. Confirm shipping, tax, and returns on the retailer page before you buy.</p>
         <p>{_esc(lede)}</p>
-        <p>Every pick on this page is an ASIN from the day-add inventory list. We do not invent prices, retailer tracks, or product photos. Use Jump to for the ranked ASINs, or open the comparison chart.</p>
+        <p>Every pick on this page is a product from the current shortlist. We do not invent prices, retailer tracks, or product photos. Use Jump to for the ranked products, or open the comparison chart.</p>
         <section class="our-top-list"><h2>Our top {len(picks)} {_esc(name.lower())} for 2026</h2><ol>{"".join(items)}</ol></section>
         <p><a class="btn btn-primary" href="comparison/">Jump to comparison</a></p>
         <p class="landing-related-cluster"><strong>Also explore:</strong> <a href="comparison/">Full comparison chart</a> · <a href="reviews/">Reviews hub</a></p>
         {"".join(picks_html)}
         <h2>How to use this {_esc(name)} guide</h2>
-        <p>Scan Jump to, skim Our top list, then open a pick section. Use the comparison when you want ASINs side by side.</p>
+        <p>Scan Jump to, skim Our top list, then open a pick section. Use the comparison when you want products side by side.</p>
         <h2>What we look for</h2>
         <p>A usable title, a listing we can check, and a retailer track we can verify. We skip incomplete listings rather than pad the page.</p>
         <h2>FAQ: buying {_esc(name.lower())}</h2>
@@ -420,12 +420,12 @@ def comparison_main(slug: str, name: str, picks: list[dict]) -> str:
     <div class="cmp-geo-strip">
       <section class="cmp-answer-first geo-answer-first prose-block" aria-label="Quick answer">
         <h2>Quick answer</h2>
-        <p>As of {DATE}, this chart lists {len(picks)} {_esc(name.lower())} ASINs from the day-add inventory. Prices and Check price wait on a listing check. Confirm shipping, tax, and returns on the retailer page before you buy.</p>
+        <p>As of {DATE}, this chart lists {len(picks)} {_esc(name.lower())} from the current shortlist. Prices and Check price wait on a listing check. Confirm shipping, tax, and returns on the retailer page before you buy.</p>
       </section>
       <section class="key-insights prose-block" aria-label="Key insights">
         <h2>Key insights</h2>
         <ul class="card-bullets">
-          <li>{len(picks)} ASINs are wired on this draft chart.</li>
+          <li>{len(picks)} products are listed on this draft chart.</li>
           <li>No invented prices or retailer tracks.</li>
           <li>{_esc(confirm)}</li>
           <li>Last updated {DATE}.</li>
@@ -435,7 +435,7 @@ def comparison_main(slug: str, name: str, picks: list[dict]) -> str:
     <div class="prose-block"><ol class="cmp-howto"><li>Scan the shortlist</li><li>Open a card</li><li>Confirm the retailer listing</li></ol></div>
     <div class="cmp-layout">
       <div class="cmp-main">
-        <aside class="score-disclosure" aria-label="How scores work"><p><strong>How scores work.</strong> Scores and prices land after a listing check. This draft keeps ASINs and titles only. Last Updated: {DATE}.</p></aside>
+        <aside class="score-disclosure" aria-label="How scores work"><p><strong>How scores work.</strong> Scores and prices land after a listing check. This draft keeps product titles only. Last Updated: {DATE}.</p></aside>
         <div class="product-stack" role="list">
 {"".join(cards)}
         </div>

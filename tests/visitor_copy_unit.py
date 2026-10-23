@@ -61,7 +61,72 @@ def main() -> int:
             "Utilize double ducts to provide fast symptom relief",
             "Use double ducts to provide fast symptom relief",
         ),
+        (
+            "Confirm size on the retailer page. Snapshot $23.99.",
+            "Confirm size on the retailer page. $23.99.",
+        ),
+        (
+            "No healthy track in current PB∪YP feed. Decision-tree slot stays empty.",
+            "No retailer link yet.",
+        ),
+        (
+            "No healthy track. Do not invent a Walmart or Amazon hop.",
+            "No retailer link yet.",
+        ),
+        (
+            "L5 inventory still empty. Content-only.",
+            "No retailer link yet.",
+        ),
+        (
+            "These decision-tree slots stay visible and empty. "
+            "A missing button is better than a made-up link. Content-only follow-ups:",
+            "These options stay listed even when we don't have a checkout link yet. "
+            "A missing button is better than a made-up link. Related guides:",
+        ),
+        (
+            "Chart prices are a  listing check (ZIP 10001)—not a live cart.",
+            "Chart prices are a listing check (ZIP 10001)—not a live cart.",
+        ),
+        (
+            "Prices and Check price come from  L2 plus a verified our retail partner fromsll track.",
+            "Prices and Check price come from a checked retailer listing.",
+        ),
+        (
+            "10 ASINs remain after accessory exclusions.",
+            "10 products remain after we dropped accessories.",
+        ),
+        (
+            "when L2 returned one",
+            "when the listing included a star rating",
+        ),
+        (
+            "A deep review lands after deploy.",
+            "A deeper review will follow.",
+        ),
+        (
+            "RoyalBaby EZ (12–20 inch Balance & Pedal, snapshot $239.99)",
+            "RoyalBaby EZ (12–20 inch Balance & Pedal, $239.99)",
+        ),
+        (
+            "<li><strong>Snapshot price:</strong> $75.99</li>",
+            "<li><strong>Price:</strong> $75.99</li>",
+        ),
     ]
+    leaks = (
+        "Snapshot $2997.99 · confirm on the retailer page",
+        "No healthy track in current PB∪YP feed. Decision-tree slot stays empty.",
+        "L5 inventory still empty. Content-only.",
+        "No healthy track. Do not invent a Walmart or Amazon hop.",
+        "Prices and Check price come from  L2 plus a verified our retail partner fromsll track.",
+        "10 ASINs remain after accessory exclusions.",
+        "A deep review lands after deploy.",
+        "snapshot $239.99",
+        "Snapshot price: $75.99",
+    )
+    for leak in leaks:
+        if not VISITOR_LEAK_RE.search(leak):
+            errors.append(f"leak regex missed {leak!r}")
+
     for src, want in cases:
         got = scrub_jargon(src)
         if want not in got:

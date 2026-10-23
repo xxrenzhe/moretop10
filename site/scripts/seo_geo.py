@@ -14,7 +14,8 @@ Honest rules:
   - Product / Offer / ASIN / price come from Live HTML (comparison cards + hub picks).
   - Never emit AggregateRating, awards, or invented SKUs.
   - Visitor FAQ / visible copy: no publishable, inventory-blocked, completeness gate,
-    card checklist, PartnerBoost, Mac L2/CDP, or other internal jargon.
+    card checklist, PartnerBoost, Mac L2/CDP, PB∪YP, healthy track, L5 inventory,
+    Snapshot $ price prefix, or other internal jargon.
   - Bake ≠ Deploy.
 """
 
@@ -165,6 +166,56 @@ JARGON_PATTERNS: list[tuple[re.Pattern[str], str]] = [
     (re.compile(r"\btowards\b"), "toward"),
     (re.compile(r"\bTowards\b"), "Toward"),
     (re.compile(r"\bUtilize\b"), "Use"),
+    # TV / day-add ops copy — visitor English, keep the real price.
+    (re.compile(
+        r"No healthy track in current PB∪YP feed\. Decision-tree slot stays empty\.",
+        re.I,
+    ), "No retailer link yet."),
+    (re.compile(
+        r"No healthy track\. Do not invent a Walmart or Amazon hop\.",
+        re.I,
+    ), "No retailer link yet."),
+    (re.compile(r"L5 inventory still empty\. Content-only\.", re.I), "No retailer link yet."),
+    (re.compile(
+        r"These decision-tree slots stay visible and empty\.",
+        re.I,
+    ), "These options stay listed even when we don't have a checkout link yet."),
+    (re.compile(r"Content-only follow-ups:", re.I), "Related guides:"),
+    (re.compile(r"(?i)\bsnapshot (\$[0-9][0-9,]*(?:\.[0-9]{2})?)"), r"\1"),
+    (re.compile(r"\bSnapshot [Pp]rice\b"), "Price"),
+    # Day-add leftovers (raw ops + #35 word-swap remnants).
+    (re.compile(
+        r"Chart prices are a(?: Mac CDP)?\s+listing check \(ZIP 10001\)—not a live cart\.",
+        re.I,
+    ), "Chart prices are a listing check (ZIP 10001)—not a live cart."),
+    (re.compile(
+        r"Prices and Check price come from(?: Mac CDP)?\s*L2 plus a verified "
+        r"(?:PartnerBoost|our retail partner) fromsll track\.",
+        re.I,
+    ), "Prices and Check price come from a checked retailer listing."),
+    (re.compile(
+        r"from the day-add inventory after accessory exclusions\.",
+        re.I,
+    ), "after we dropped accessories."),
+    (re.compile(
+        r"This reviews hub lists the day-add shortlist after accessory exclusions\.",
+        re.I,
+    ), "This reviews hub lists the current shortlist after we dropped accessories."),
+    (re.compile(
+        r"(\d+) ASINs remain after accessory exclusions\.",
+        re.I,
+    ), r"\1 products remain after we dropped accessories."),
+    (re.compile(
+        r"Check price uses verified (?:PartnerBoost|our retail partner) fromsll tracks only\.",
+        re.I,
+    ), "Check price opens a verified retailer listing only."),
+    (re.compile(
+        r"We only render Check price when L2 is ok and a pboost\.me\?uid=fromsll track is verified\.",
+        re.I,
+    ), "We only show Check price when we have a verified retailer listing and a working checkout link."),
+    (re.compile(r"when L2 returned one", re.I), "when the listing included a star rating"),
+    (re.compile(r"Prices are a Checked-day snapshot", re.I), "Prices are from the day we checked"),
+    (re.compile(r"A deep review lands after deploy\.", re.I), "A deeper review will follow."),
 ]
 
 FAQ_VISITOR_OK = re.compile(
@@ -178,8 +229,13 @@ VISITOR_LEAK_RE = re.compile(
     r"(?i:completeness gate|card checklist|inventory-blocked|inventory_blocked|"
     r"(?<![A-Za-z0-9.-])PartnerBoost(?![A-Za-z0-9.-])|"
     r"(?<![A-Za-z0-9.-])YeahPromos(?![A-Za-z0-9.-])|"
-    r"Mac CDP|Mac L2|\bwhilst\b|\btowards\b)"
+    r"Mac CDP|Mac L2|\bwhilst\b|\btowards\b|"
+    r"PB∪YP|healthy track|L5 inventory|Content-only\.|"
+    r"fromsll track|day-add inventory|ASINs remain|when L2 returned|L2 plus|"
+    r"lands after deploy)"
     r"|\bUtilize\b"
+    r"|(?i:snapshot \$)"
+    r"|Snapshot [Pp]rice"
 )
 
 

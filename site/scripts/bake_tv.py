@@ -89,6 +89,23 @@ def _esc(text: str) -> str:
     return html.escape(text, quote=True)
 
 
+EMPTY_SLOT_NOTE = "No retailer link yet."
+PRICE_COL = "Price"
+
+
+def format_price(price: str | float | int | None) -> str:
+    """Visitor price: $1,299.99. Never prefix with Snapshot. Do not invent a value."""
+    if price is None or price == "":
+        return ""
+    raw = str(price).strip()
+    if raw.startswith("$"):
+        raw = raw[1:].strip()
+    try:
+        return f"${float(raw.replace(',', '')):,.2f}"
+    except ValueError:
+        return f"${_esc(raw)}" if raw else ""
+
+
 def load_shortlist() -> dict:
     return json.loads(SHORTLIST.read_text(encoding="utf-8"))
 
@@ -130,7 +147,12 @@ def cta_anchor(item: dict) -> str:
 def product_card(item: dict, *, heading: str = "h3") -> str:
     name = item.get("short_title") or item.get("title") or item["asin"]
     price = item.get("price")
-    price_html = f'<p class="tv-meta">Snapshot ${ _esc(price) } · confirm on the retailer page</p>' if price else ""
+    shown = format_price(price)
+    price_html = (
+        f'<p class="tv-meta">About {shown} — check current price on the retailer page</p>'
+        if shown
+        else ""
+    )
     img = item.get("image") or ""
     img_html = (
         f'<img src="{_esc(img)}" alt="{_esc(name)}" width="88" height="66" '
@@ -158,7 +180,7 @@ def product_card(item: dict, *, heading: str = "h3") -> str:
 
 def compact_row(item: dict) -> str:
     name = item.get("short_title") or item.get("title") or item["asin"]
-    price = f"${item['price']}" if item.get("price") else "—"
+    price = format_price(item.get("price")) or "—"
     if is_oos(item):
         slot = '<span class="tv-empty">Currently unavailable</span>'
     else:
@@ -637,7 +659,7 @@ def alternatives_body(prefix: str, current: str, shortlist: dict) -> str:
         empty_html.append(
             f'<div class="tv-empty" data-slot="{_esc(slot.get("slot") or "")}">'
             f"<strong>{_esc(slot.get('label') or slot.get('slot') or 'Slot')}</strong> — "
-            f"{_esc(slot.get('note') or 'No retailer link yet. We will not invent one.')}"
+            f"{_esc(EMPTY_SLOT_NOTE)}"
             "</div>"
         )
 
@@ -663,7 +685,7 @@ def alternatives_body(prefix: str, current: str, shortlist: dict) -> str:
       </ol>
 
       <h2>Primary recommendations — Google TV whole TVs</h2>
-      <p>These are living-room TVs running Google TV. Prices are a {UPDATED} snapshot. Confirm tax, shipping, and returns on the retailer page. We are not padding this list to ten.</p>
+      <p>These are living-room TVs running Google TV. Prices as of {UPDATED}. Confirm tax, shipping, and returns on the retailer page. We are not padding this list to ten.</p>
       <div class="tv-product-list">
         {hero_html}
       </div>
@@ -672,7 +694,7 @@ def alternatives_body(prefix: str, current: str, shortlist: dict) -> str:
       <p>Fire TV is a different software stack. Some launcher ads can be reduced on Fire; many cannot. This is <strong>not</strong> a list of TVs to buy so you can skip ads. It exists so Hisense / Toshiba Fire panels are not mixed into the Google TV hero row.</p>
       <div class="tv-table-wrap">
         <table class="tv-table">
-          <thead><tr><th>Set</th><th>OS</th><th>Snapshot</th><th>Retailer</th></tr></thead>
+          <thead><tr><th>Set</th><th>OS</th><th>{PRICE_COL}</th><th>Retailer</th></tr></thead>
           <tbody>
             {fire_rows}
           </tbody>
@@ -680,7 +702,7 @@ def alternatives_body(prefix: str, current: str, shortlist: dict) -> str:
       </div>
 
       <h2>Boxes, streamers, and non-smart TVs</h2>
-      <p>These decision-tree slots stay visible and empty. A missing button is better than a made-up link. Content-only follow-ups: <a href="{prefix}tv/best-non-smart-tv/">non-smart TVs</a> and <a href="{prefix}tv/best-tv-for-privacy/">TVs for privacy</a>.</p>
+      <p>These options stay listed even when we don't have a checkout link yet. A missing button is better than a made-up link. Related guides: <a href="{prefix}tv/best-non-smart-tv/">non-smart TVs</a> and <a href="{prefix}tv/best-tv-for-privacy/">TVs for privacy</a>.</p>
       {''.join(empty_html)}
 
       <h2>Secondary only — not the hero list</h2>
@@ -1078,13 +1100,13 @@ def fire_ads_body(prefix: str, current: str, shortlist: dict) -> str:
     rows = "\n".join(compact_row(p) for p in thin)
     zone = (
         f'<div class="tv-table-wrap"><table class="tv-table">'
-        f"<thead><tr><th>Set</th><th>OS</th><th>Snapshot</th><th>Retailer</th></tr></thead>"
+        f"<thead><tr><th>Set</th><th>OS</th><th>{PRICE_COL}</th><th>Retailer</th></tr></thead>"
         f"<tbody>{rows}</tbody></table></div>"
         if rows
         else empty_products_html(
             slot="fire_tv_panels",
             label="Fire TV whole TVs",
-            note="No healthy Fire TV panel track in this bake. We will not invent a Check price button.",
+            note="No retailer link yet. We don't have a live Fire TV panel link for this page.",
         )
     )
     return f"""<main class="legal-page tv-page">
@@ -1119,7 +1141,7 @@ def fire_ads_body(prefix: str, current: str, shortlist: dict) -> str:
       </ol>
 
       <h2>Product zone</h2>
-      <p>Thin reuse only: in-stock <strong>Fire TV whole TVs</strong> already in our shortlist. No Fire Stick. No invented ASIN. The full honest Fire table lives on the alternatives page. Prices are a {UPDATED} snapshot — confirm on the retailer page.</p>
+      <p>Thin reuse only: in-stock <strong>Fire TV whole TVs</strong> already in our shortlist. No Fire Stick. No invented ASIN. The full honest Fire table lives on the alternatives page. Prices as of {UPDATED} — confirm on the retailer page.</p>
       {zone}
 
       <h2>Where to go next</h2>
@@ -1145,7 +1167,7 @@ def google_ads_body(prefix: str, current: str, shortlist: dict) -> str:
         else empty_products_html(
             slot="google_tv_hisense",
             label="Google TV whole TVs",
-            note="No healthy Google TV track in this bake. We will not invent a Check price button.",
+            note="No retailer link yet. We don't have a live Google TV link for this page.",
         )
     )
     return f"""<main class="legal-page tv-page">
@@ -1182,7 +1204,7 @@ def google_ads_body(prefix: str, current: str, shortlist: dict) -> str:
       <p>The full Google TV whole-TV list lives on <a href="{prefix}tv/smart-tv-ad-alternatives/">when software will not install</a>. This page only reuses a thin slice of those same Hisense Google TV tracks. We will not invent an ASIN, and we will not put a Fire Stick, projector, or HDMI hub in this zone.</p>
 
       <h2>Product zone</h2>
-      <p>Thin reuse of in-stock Hisense Google TV whole TVs already in our shortlist. Confirm tax, shipping, and returns on the retailer page. Snapshot date {UPDATED}.</p>
+      <p>Thin reuse of in-stock Hisense Google TV whole TVs already in our shortlist. Confirm tax, shipping, and returns on the retailer page. Prices as of {UPDATED}.</p>
       {zone}
 
       <h2>Where to go next</h2>
