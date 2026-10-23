@@ -101,7 +101,11 @@ from site_config import (  # noqa: E402
 from densify_html import htmlify_leaked_markdown  # noqa: E402
 from densify_html import site_errors as densify_html_errors  # noqa: E402
 from landing_faq import site_errors as landing_faq_site_errors  # noqa: E402
-from stamp_guard import clamp_comparison_stamps  # noqa: E402
+from stamp_guard import (  # noqa: E402
+    apply_known_stamp_floors,
+    clamp_comparison_stamps,
+    load_comparison_floors,
+)
 from watchouts import site_errors as watchouts_site_errors  # noqa: E402
 
 UA = "MoreTop10Bake/1.0 (+seo-geo-p1)"
@@ -490,11 +494,17 @@ def bake_page(spec: dict, cfg: dict, cmp_html_by_slug: dict[str, str]) -> Path |
 
     dest = SITE / out_rel
     dest.parent.mkdir(parents=True, exist_ok=True)
-    if kind == "comparison" and dest.exists():
-        existing = dest.read_text(encoding="utf-8")
-        html, notes = clamp_comparison_stamps(existing, html)
-        for note in notes:
-            print(f"  stamp clamp {out_rel}: {note}")
+    if kind == "comparison":
+        if dest.exists():
+            existing = dest.read_text(encoding="utf-8")
+            html, notes = clamp_comparison_stamps(existing, html)
+            for note in notes:
+                print(f"  stamp clamp {out_rel}: {note}")
+        html, floor_notes = apply_known_stamp_floors(
+            html, slug, load_comparison_floors(SITE / "data")
+        )
+        for note in floor_notes:
+            print(f"  stamp floor {out_rel}: {note}")
     dest.write_text(html, encoding="utf-8")
     return dest
 
@@ -751,6 +761,7 @@ def verify(cfg: dict) -> None:
     from feed_thumb_object_fit_assert import collect_errors as feed_thumb_errors  # noqa: E402
     from landing_css_assert import collect_errors as landing_css_errors  # noqa: E402
     from r8_soft_list_price_assert import collect_errors as r8_soft_errors  # noqa: E402
+    from comparison_stamp_assert import collect_errors as comparison_stamp_errors  # noqa: E402
     from robot_stamp_assert import collect_errors as robot_stamp_errors  # noqa: E402
     from visitor_copy_assert import collect_errors as visitor_copy_errors  # noqa: E402
 
@@ -842,6 +853,7 @@ def verify(cfg: dict) -> None:
     errors.extend(densify_html_errors(SITE))
     errors.extend(r8_soft_errors(SITE))
     errors.extend(robot_stamp_errors(SITE))
+    errors.extend(comparison_stamp_errors(SITE))
 
     if errors:
         raise SystemExit("verify failed:\n- " + "\n- ".join(errors))

@@ -11,7 +11,9 @@ Does not invent prices, ASINs, or copy.
 
 from __future__ import annotations
 
+import json
 import re
+from pathlib import Path
 from typing import Iterable
 
 ISO_DATE_RE = re.compile(r"^\d{4}-\d{2}-\d{2}$")
@@ -226,8 +228,6 @@ def page_stamp_floor_errors(
 
 def iter_comparison_html(site_root, slugs: Iterable[str] | None = None):
     """Yield (rel_path, html) for comparison pages under site_root."""
-    from pathlib import Path
-
     root = Path(site_root)
     if slugs is None:
         paths = sorted(root.glob("*/comparison/index.html"))
@@ -236,3 +236,70 @@ def iter_comparison_html(site_root, slugs: Iterable[str] | None = None):
     for path in paths:
         if path.is_file():
             yield path.relative_to(root).as_posix(), path.read_text(encoding="utf-8")
+
+
+FLEET_FLOOR_NAME = "comparison-stamp-floors.json"
+ROBOT_FLOOR_NAME = "robot-vacuums-comparison-stamp-floor.json"
+
+
+def load_comparison_floors(data_dir) -> dict[str, dict]:
+    """Load per-slug page_floor + checked floors. Fleet JSON wins; robot JSON fills."""
+    data_dir = Path(data_dir)
+    floors: dict[str, dict] = {}
+
+    fleet_path = data_dir / FLEET_FLOOR_NAME
+    if fleet_path.is_file():
+        fleet = json.loads(fleet_path.read_text(encoding="utf-8"))
+        default_floor = fleet.get("page_floor")
+        for slug, page in (fleet.get("pages") or {}).items():
+            if not isinstance(page, dict):
+                continue
+            floors[slug] = {
+                "page_floor": page.get("page_floor") or default_floor,
+                "checked": dict(page.get("checked") or {}),
+                "page": page.get("page") or f"{slug}/comparison/",
+            }
+
+    robot_path = data_dir / ROBOT_FLOOR_NAME
+    if robot_path.is_file() and "robot-vacuums" not in floors:
+        robot = json.loads(robot_path.read_text(encoding="utf-8"))
+        floors["robot-vacuums"] = {
+            "page_floor": robot.get("page_floor"),
+            "checked": dict(robot.get("checked") or {}),
+            "page": robot.get("page") or "robot-vacuums/comparison/",
+        }
+    return floors
+
+
+def apply_known_stamp_floors(
+    html: str,
+    slug: str | None,
+    floors: dict[str, dict] | None,
+) -> tuple[str, list[str]]:
+    """Raise page/card stamps to a durable SoT floor. Prices and copy stay."""
+    notes: list[str] = []
+    if not html or not slug or not floors:
+        return html, notes
+    spec = floors.get(slug)
+    if not spec:
+        return html, notes
+    page_floor = spec.get("page_floor")
+    checked = spec.get("checked") or {}
+    before_page = extract_page_stamps(html)
+    before_cards = extract_card_checked(html)
+    out = html
+    if page_floor:
+        out = apply_page_stamp_floor(out, page_floor)
+    if checked:
+        out = apply_card_checked_floors(out, checked)
+    after_page = extract_page_stamps(out)
+    after_cards = extract_card_checked(out)
+    for kind, after in after_page.items():
+        before = before_page.get(kind)
+        if before and after and before < after:
+            notes.append(f"floor page {kind} {before} -> {after}")
+    for asin, after in after_cards.items():
+        before = before_cards.get(asin)
+        if before and after and before < after:
+            notes.append(f"floor {asin} Checked {before} -> {after}")
+    return out, notes

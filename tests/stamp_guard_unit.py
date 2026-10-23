@@ -11,6 +11,7 @@ sys.path.insert(0, str(ROOT / "site" / "scripts"))
 
 from stamp_guard import (  # noqa: E402
     apply_card_checked_floors,
+    apply_known_stamp_floors,
     apply_page_stamp_floor,
     clamp_comparison_stamps,
     extract_card_checked,
@@ -113,6 +114,34 @@ def main() -> int:
         errors.append("apply_card_checked_floors should raise that ASIN")
     if extract_card_checked(floored).get("B0CQ7JCN6Z") != "2026-10-18":
         errors.append("apply_card_checked_floors must not invent a floor for other ASINs")
+
+    fry = _page(
+        "2026-10-20",
+        "2026-10-20",
+        _card("B0FJYK886N", "2026-10-20", "$99.99"),
+    )
+    floored_fry, floor_notes = apply_known_stamp_floors(
+        fry,
+        "air-fryers",
+        {
+            "air-fryers": {
+                "page_floor": "2026-10-23",
+                "checked": {"B0FJYK886N": "2026-10-23"},
+            }
+        },
+    )
+    if extract_page_stamps(floored_fry).get("as_of") != "2026-10-23":
+        errors.append("apply_known_stamp_floors must raise a non-robot page As of")
+    if extract_card_checked(floored_fry).get("B0FJYK886N") != "2026-10-23":
+        errors.append("apply_known_stamp_floors must raise a non-robot card Checked")
+    if "$99.99" not in floored_fry:
+        errors.append("apply_known_stamp_floors must not rewrite prices")
+    if not floor_notes:
+        errors.append("apply_known_stamp_floors should report raises")
+
+    skipped, skip_notes = apply_known_stamp_floors(fry, "unknown-hub", {"air-fryers": {}})
+    if skipped != fry or skip_notes:
+        errors.append("apply_known_stamp_floors must no-op unknown slugs")
 
     if errors:
         print("stamp_guard_unit failed:")
