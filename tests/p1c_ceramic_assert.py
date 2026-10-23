@@ -110,8 +110,14 @@ def main() -> int:
                 errors.append(f"comparison missing #geo-{asin}")
 
     review_articles = list((SITE / SLUG / "reviews").glob("*/index.html"))
-    if review_articles:
-        errors.append(f"new review articles exist: {[p.name for p in review_articles]}")
+    allowed = {
+        "dreo-space-heater-portable-electric-remote",
+        "dreo-atom-one-space-heater-thermostat",
+        "dreo-space-heaters-indoor-thermostat-1500w",
+    }
+    found = {p.parent.name for p in review_articles}
+    if found != allowed:
+        errors.append(f"review articles={sorted(found)} (want Top pick + Upgrade only: {sorted(allowed)})")
 
     for rel, scene_key, url_path in PAGES:
         path = SITE / rel
