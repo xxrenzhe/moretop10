@@ -3,7 +3,8 @@
 
 This repo clone does not ship the full inventory generator. `build.py`:
 
-  1. Non-home header mega + mobile: Overview → /{slug}/ plus Compare / Reviews
+  1. Shared header mega + mobile (home and hubs): Categories / Compare /
+     Reviews / Articles. Overview → /{slug}/ plus Compare / Reviews megas.
   2. Footer Categories column: every ALL_CATS (MVP + NON_MVP) landing
   3. Home grid: pin tier=extended / newly published cats, is-more when i >= 8
   4. comparison/ + reviews/ hubs: Related jump back to the landing
@@ -448,8 +449,7 @@ def bake_page(spec: dict, cfg: dict, cmp_html_by_slug: dict[str, str]) -> Path |
     slug = spec.get("slug")
     cat = cfg["CATS_BY_SLUG"].get(slug) if slug else None
 
-    if kind != "home":
-        html = inject_nav_css(html)
+    html = inject_nav_css(html)
     html = rewrite_non_home_nav(html, cats, prefix)
     html = rewrite_footer(html, cats, prefix)
     html = rewrite_compare_cta(html, prefix, slug, kind)
@@ -614,11 +614,21 @@ def verify(cfg: dict) -> None:
             if tv_i not in (2, 3):
                 errors.append(f"tv tile at slot {tv_i} (need row-1 narrow slot 2 or 3)")
 
-    if "nav-home-simple" not in home:
-        errors.append("home header should stay nav-home-simple")
-    if 'class="mega"' in home and "site-header-home" in home:
-        if "mega-overview" in home.split("<main", 1)[0]:
-            errors.append("home header must not grow a category mega")
+    home_head = home.split("<main", 1)[0]
+    if "nav-home-simple" in home_head or "site-header-home" in home_head:
+        errors.append("home header should use the shared hub mega nav")
+    if 'class="nav-trigger">Categories<' not in home_head:
+        errors.append("home header missing Categories mega")
+    if 'class="nav-trigger">Compare<' not in home_head:
+        errors.append("home header missing Compare mega")
+    if 'class="nav-trigger">Reviews<' not in home_head:
+        errors.append("home header missing Reviews mega")
+    if not re.search(r'href="(?:\./)?blog/">Articles</a>', home_head):
+        errors.append("home header missing Articles → /blog/")
+    if re.search(r'class="nav-link" href="(?:about-us/|partner-with-us/)"', home_head):
+        errors.append("home header still has About/Partner (footer SoT)")
+    if "mega-overview" not in home_head or 'href="kids-bikes/"' not in home_head:
+        errors.append("home mega missing kids-bikes landing")
 
     errors.extend(_disclosure_errors(home, "home"))
     errors.extend(_disclosure_errors(about, "about"))
