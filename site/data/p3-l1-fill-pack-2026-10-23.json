@@ -1,0 +1,240 @@
+{
+  "generated_at": "2026-10-23T20:16:16.527518+08:00",
+  "timezone": "Asia/Shanghai",
+  "pr": "https://github.com/xxrenzhe/moretop10/pull/46",
+  "tip": "251991e",
+  "tip_full": "251991ec9b0da4c6e9933033da5d54aa4f7c22a9",
+  "branch": "cursor/p3-water-bestof-270e",
+  "waiting_for_部署上线": true,
+  "merged": false,
+  "deployed": false,
+  "baked": false,
+  "scope": "L1 affiliate discovery only — apply pack for CloudAgent reply onto #46; do not merge / do not Cloudflare Live. Main tip Live is now 9b75ba8a — rebase #46 later if needed; pack written for tip 251991e.",
+  "cta_rules": {
+    "PB": "https://pboost.me/<code>?uid=fromsll",
+    "YP": "track_link as-is (no uid append)",
+    "retrieval": "PB ∪ YP"
+  },
+  "pb_token_env": "PARTNERBOOST_API_TOKEN",
+  "yp_sites_probed": [
+    "11767",
+    "11211"
+  ],
+  "collision_asins_checked": 61,
+  "lab_p3_extra_ban": [
+    "B0CHFCMJQS",
+    "B0C9ZY2FDG",
+    "B0H29PPQVV",
+    "B0GSTRNQZX",
+    "B0CJ9DK4T2",
+    "B08LPBPVPS"
+  ],
+  "lab_p3_ban_source": "/workspace/shared/lab-p3-inventory-fill-2026-10-23.md",
+  "fake_asin_rejected": [],
+  "accessories_policy": "mains only — rejected pitcher/under-sink RO primary pool, cartridge/filter-pack/membrane/sediment-only SKUs, shower/hose hard-water gadgets, HVAC scent diffuser false positive, scale-inhibitor-only < $80",
+  "scenes": {
+    "best-water-filters-for-well-water": {
+      "main": "water-filters",
+      "scene_slug": "best-water-filters-for-well-water",
+      "path": "/water-filters/best-water-filters-for-well-water/",
+      "keyword_intent": "best water filter for well water",
+      "count": 8,
+      "density_reachable": true,
+      "density_target": "6-10",
+      "products": [
+        {
+          "asin": "B0H29R9MJW",
+          "title": "Waterdrop WHF2E-PC Whole House Water Filter System, 4-Stage Filtration",
+          "brand": "WFT-Waterdrop",
+          "brand_id": "138654",
+          "track_url": "https://pboost.me/G5SPTtda?uid=fromsll",
+          "network": "PB",
+          "price": 129.99,
+          "price_str": "$129.99",
+          "availability": "IN_STOCK",
+          "role": "Top pick",
+          "tier": "1",
+          "notes": "4-stage WHF2E-PC POE; remaining after Lab P3 well ban",
+          "cta_uid": "fromsll",
+          "tag": "whf_generic"
+        },
+        {
+          "asin": "B07C5P8NC7",
+          "title": "Waterdrop WHF3T-PG 3-Stage Whole House Water Filter System, 5 Micron",
+          "brand": "WFT-Waterdrop",
+          "brand_id": "138654",
+          "track_url": "https://pboost.me/V5SPE4gf5?uid=fromsll",
+          "network": "PB",
+          "price": 254.99,
+          "price_str": "$254.99",
+          "availability": "IN_STOCK",
+          "role": "Premium",
+          "tier": "2",
+          "notes": "3-stage WHF3T-PG highest remaining $; Lab headroom",
+          "cta_uid": "fromsll",
+          "tag": "whf_generic"
+        },
+        {
+          "asin": "B0C9ZY8L1C",
+          "title": "SimPure Whole House Water Filter System, 2 Stages Clear 10\" x 4.5\"",
+          "brand": "Simpure",
+          "brand_id": "122652",
+          "track_url": "https://pboost.me/j5UOCw73t?uid=fromsll",
+          "network": "PB",
+          "price": 129.99,
+          "price_str": "$129.99",
+          "availability": "IN_STOCK",
+          "role": "Upgrade",
+          "tier": "2",
+          "notes": "SimPure 2-stage clear POE — brand diversity",
+          "cta_uid": "fromsll",
+          "tag": "whf_generic"
+        },
+        {
+          "asin": "B0F43LV539",
+          "title": "Waterdrop WHF21-PBH 2-Stage Whole House Water Filter System, NSF/ANSI 372",
+          "brand": "Waterdrop",
+          "brand_id": "103211",
+          "track_url": "https://pboost.me/O5SQ51Ot?uid=fromsll",
+          "network": "PB",
+          "price": 99.97,
+          "price_str": "$99.97",
+          "availability": "IN_STOCK",
+          "role": "Best value",
+          "tier": "2",
+          "notes": "WHF21-PBH 2-stage NSF/ANSI 372 entry",
+          "cta_uid": "fromsll",
+          "tag": "whf_generic"
+        },
+        {
+          "asin": "B09SM2ZN3X",
+          "title": "Waterdrop WHF21-FG 2-Stage Whole House Water Filter System, NSF/ANSI 372",
+          "brand": "Waterdrop",
+          "brand_id": "103211",
+          "track_url": "https://pboost.me/H5SQ6ucRc?uid=fromsll",
+          "network": "PB",
+          "price": 138.99,
+          "price_str": "$138.99",
+          "availability": "IN_STOCK",
+          "role": "Alternative",
+          "tier": "2",
+          "notes": "WHF21-FG 2-stage Lab headroom",
+          "cta_uid": "fromsll",
+          "tag": "whf_generic"
+        },
+        {
+          "asin": "B0F43PC2JX",
+          "title": "Waterdrop WHF21-SH 2-Stage Whole House Water Filter System, NSF/ANSI 372",
+          "brand": "Waterdrop",
+          "brand_id": "103211",
+          "track_url": "https://pboost.me/A5SQAZQw?uid=fromsll",
+          "network": "PB",
+          "price": 131.39,
+          "price_str": "$131.39",
+          "availability": "IN_STOCK",
+          "role": "Also consider",
+          "tier": "2",
+          "notes": "WHF21-SH 2-stage",
+          "cta_uid": "fromsll",
+          "tag": "whf_generic"
+        },
+        {
+          "asin": "B0DTKC58F6",
+          "title": "Waterdrop WHF21-BG 2-Stage Whole House Water Filter System, NSF/ANSI 372",
+          "brand": "Waterdrop",
+          "brand_id": "103211",
+          "track_url": "https://pboost.me/z5SQgQ4Qa?uid=fromsll",
+          "network": "PB",
+          "price": 119.99,
+          "price_str": "$119.99",
+          "availability": "IN_STOCK",
+          "role": "Editor pick",
+          "tier": "2",
+          "notes": "WHF21-BG 2-stage",
+          "cta_uid": "fromsll",
+          "tag": "whf_generic"
+        },
+        {
+          "asin": "B08XXJSN29",
+          "title": "Waterdrop WHF21-PG 2-Stage Whole House Water Filter System, NSF/ANSI 372",
+          "brand": "Waterdrop",
+          "brand_id": "103211",
+          "track_url": "https://pboost.me/p5SQgqgQC?uid=fromsll",
+          "network": "PB",
+          "price": 109.99,
+          "price_str": "$109.99",
+          "availability": "IN_STOCK",
+          "role": "Budget",
+          "tier": "2",
+          "notes": "WHF21-PG 2-stage",
+          "cta_uid": "fromsll",
+          "tag": "whf_generic"
+        }
+      ],
+      "rejected_from_curated": [
+        {
+          "asin": "B0CHFCW53P",
+          "reason": "duplicate WHF3T-PG listing vs B07C5P8NC7"
+        },
+        {
+          "asin": "B0CPXJR5MG",
+          "reason": "Mega Spin Down titled for city water — weak well scene-fit"
+        },
+        {
+          "asin": "B0GSTRNQZX",
+          "reason": "Lab P3 Premium ban"
+        },
+        {
+          "asin": "B0CHFCMJQS",
+          "reason": "Lab P3 Top pick ban"
+        },
+        {
+          "asin": "B0H29PPQVV",
+          "reason": "Lab P3 Best value ban"
+        },
+        {
+          "asin": "B0C9ZY2FDG",
+          "reason": "Lab P3 Upgrade ban"
+        }
+      ],
+      "track_source": "PB fromsll",
+      "inventory_shortfall": false
+    },
+    "best-water-filters-for-hard-water": {
+      "main": "water-filters",
+      "scene_slug": "best-water-filters-for-hard-water",
+      "path": "/water-filters/best-water-filters-for-hard-water/",
+      "keyword_intent": "best water softener / hard water filter system",
+      "count": 0,
+      "density_reachable": false,
+      "density_target": "6-10",
+      "products": [],
+      "rejected_from_curated": [
+        {
+          "asin": "B0CJ9DK4T2",
+          "reason": "only healthy PB softener (VEVOR RV 16k grain) — Lab P3 Top pick ban (两站独立不互补)"
+        },
+        {
+          "asin": "B08LPBPVPS",
+          "reason": "Waterdrop AP431 scale inhibitor — Lab P3 Best value ban; also accessory-leaning <$50"
+        }
+      ],
+      "track_source": null,
+      "inventory_shortfall": true,
+      "shortfall_after": "① Seaker softener ASINs ∩ PB (only B0CJ9DK4T2 trackable) · ② EPC brand dig Waterdrop/WFT/Frizzlife/Simpure/VEVOR/Invigorated/WaterH · ③ YP kw softener/well on sites 11767+11211 = 0 · Lab P3 extra ban removed the sole softener"
+    }
+  },
+  "summary_counts": {
+    "best-water-filters-for-well-water": 8,
+    "best-water-filters-for-hard-water": 0,
+    "distinct_asins": 8
+  },
+  "notes": {
+    "well": "Filled 8 from Lab-unused WHF headroom (B07C5P8NC7 / WHF21 / WHF2E-PC / SimPure). Explicit Lab well Top/Upgrade/Best value/Premium ASINs banned. No pitcher/RO. Dup WHF3T-PG and city spindown dropped.",
+    "hard": "True shortfall after ①②③ + Lab P3 ban of sole PB softener B0CJ9DK4T2. YP 0. Do not invent softeners.",
+    "yp": "All YP keyword probes (water softener / well water filter system / iron WHF / RV softener / salt-free) returned 0 on 11767+11211.",
+    "seaker": "Seaker softener ASIN list probed via PB asins= — only B0CJ9DK4T2 returned with track; now Lab-banned.",
+    "collision": "Occupied Live MT10+/Lab water 61 ASINs + Lab P3 probed 6. Prefer distinct across MT10 well/hard (hard empty so N/A).",
+    "main_tip_note": "Live main tip is 9b75ba8a; #46 still at 251991e — CloudAgent may rebase before apply; pack targets tip 251991e."
+  }
+}

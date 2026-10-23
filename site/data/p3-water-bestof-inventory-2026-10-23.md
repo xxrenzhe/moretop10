@@ -7,7 +7,7 @@
 
 ## Fill status
 
-- Global fill status: `need_fill`
+- Global fill status: `partial`
 - inventory_blocked: `false`
 - Affiliate tokens on VM: `skipped_no_token` / `skipped_no_token`
 
@@ -15,20 +15,18 @@
 
 | Path | Density | Fill | CTA | Reviews |
 | --- | --- | --- | --- | --- |
-| `/water-filters/best-water-filters-for-well-water/` | **0** | `need_fill` | empty | none |
-| `/water-filters/best-water-filters-for-hard-water/` | **0** | `need_fill` | empty | none |
+| `/water-filters/best-water-filters-for-well-water/` | **8** | `filled` | pb_fromsll | none |
+| `/water-filters/best-water-filters-for-hard-water/` | **0** | `inventory_shortfall` | empty | none |
 
-## ①②③
+## L1 fill pack
 
-1. **PB catalog** — live query skipped (no token). Known brand IDs only.
-2. **YP catalog** — live query skipped (no token). In-repo YP is `/tv/` only.
-3. **In-repo dumps** — shortlists + densify + day-add + track-probe scanned. No unoccupied well-pretreatment or softener whole systems. The only well-language whole-house card (`B0H5JZZ3GK` WHF21-PBL) is occupied on main.
-
-Because ①② could not run, this is **need_fill** for parent box fill — not inventory_blocked.
+- Well: 8 PB `fromsll` whole-house systems from `p3-l1-fill-pack-2026-10-23.json`.
+- Hard: true shortfall after ①②③ + Lab P3 ban of sole softener `B0CJ9DK4T2`. YP 0. Do not invent softeners.
+- Collision ban: occupied 61 + Lab P3 six.
 
 ## Hard rules kept
 
-- No occupied ASIN reuse.
+- No occupied / Lab P3 ASIN reuse.
 - No accessories as picks.
 - No invented prices / was / % / gallery / specs / CTAs.
 - Independent of Shortlist Lab.
