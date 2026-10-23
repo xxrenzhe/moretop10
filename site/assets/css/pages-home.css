@@ -293,3 +293,55 @@ button.explore-cat-link{font:inherit;cursor:pointer;width:100%;text-align:left;a
 .home-tile--compact,.home-tile--narrow{aspect-ratio:auto;height:auto;overflow:visible}
 }
 /* === /HOME TILE SOT === */
+/* MT10-E02 2026-10-23 — append last onto moretop10 site/assets/css/pages-home.css
+   Explore product mini-cards: fixed-ratio media well + contain; bullet list
+   reserved to 3 lines; CTA mt:auto.
+   Do not change HOME TILE SOT (MT10-H01 accepted) or explore-tab wrap (MT10-E01 accepted). */
+.explore-cards{align-items:stretch}
+.explore-mini-card{
+  display:flex;
+  flex-direction:column;
+  align-items:stretch;
+  height:100%;
+}
+.explore-card-logo-wrap{
+  aspect-ratio:4/3;
+  width:100%;
+  height:auto;
+  min-height:0;
+  max-height:none;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  overflow:hidden;
+  background:#f7f7f8;
+  border-radius:6px;
+  box-sizing:border-box;
+}
+.explore-card-logo-wrap .explore-card-logo,
+.explore-card-logo-wrap img.explore-packshot,
+.explore-card-logo.explore-packshot,
+img.explore-packshot{
+  width:100%;
+  height:100%;
+  max-width:100%;
+  max-height:100%;
+  object-fit:contain;
+  object-position:center;
+}
+.explore-card-bullets{
+  flex:1 1 auto;
+  min-height:calc(1.45em * 3);
+  max-height:calc(1.45em * 3);
+  overflow:hidden;
+}
+.explore-card-bullets li{
+  display:-webkit-box;
+  -webkit-box-orient:vertical;
+  -webkit-line-clamp:1;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:normal;
+  margin:0 0 0.2rem;
+}
+.explore-footer{margin-top:auto}
