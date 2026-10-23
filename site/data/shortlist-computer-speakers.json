@@ -4,7 +4,7 @@
   "name": "Computer Speakers",
   "source": "comparison HTML extract + Mac Chrome CDP L2 2026-10-23 (port 9334)",
   "notes": [
-    "Mac Chrome CDP L2 2026-10-23 port 9334 method_used=mac_chrome_cdp: B0FH1RFP91 verdict restore_list_ok. Honest Amazon list/strike $149.99 with now $72.99.",
+    "Mac Chrome CDP L2 2026-10-23 port 9334 ZIP 10001 method_used=mac_chrome_cdp SoT notes/mt10-soft-r8-l2-2026-10-23.md: B0FH1RFP91 verdict restore_list_ok. Honest Amazon list/strike $149.99 with now $72.99 (In Stock).",
     "Amazon L2 buybox > affiliate invent. R8 gate allows this list because L2-verified.",
     "waiting_for_部署上线=yes. No Live / wrangler deploy."
   ],
@@ -21,13 +21,20 @@
       "list_price": 149.99,
       "l2_list": 149.99,
       "cleared_was": 149.99,
-      "pct": 51,
+      "pct": 51.3,
       "ratio": 2.05,
+      "honest": true,
+      "availability": "In Stock",
+      "zip": "10001",
+      "deliver_to": "New York 10001",
       "l2_verified": true,
       "method_used": "mac_chrome_cdp",
       "port": 9334,
+      "machine": "a262b3cc-47db-4e1f-b094-cb569b0e89ff",
+      "fetched_at": "2026-10-23T21:59:56.101997+08:00",
+      "evidence": "notes/mt10-soft-r8-l2-2026-10-23.md",
       "restore_only": "mac_l2_amazon_buybox",
-      "note": "Mac Chrome CDP L2 2026-10-23 port 9334: Amazon buybox list $149.99 is honest. Restore strike. Amazon L2 > affiliate invent."
+      "note": "Mac Chrome CDP L2 2026-10-23 port 9334 ZIP 10001: Amazon buybox list $149.99 honest True. Restore strike. Amazon L2 > affiliate invent. SoT notes/mt10-soft-r8-l2-2026-10-23.md."
     }
   ],
   "picks": [

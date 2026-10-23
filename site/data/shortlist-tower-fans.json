@@ -4,7 +4,7 @@
   "name": "Tower Fans",
   "source": "comparison HTML extract + Mac Chrome CDP L2 2026-10-23 (port 9334)",
   "notes": [
-    "Mac Chrome CDP L2 2026-10-23 port 9334 method_used=mac_chrome_cdp: B0GVDBKMVN verdict clear_keep. L2 now $99.99 with no strike.",
+    "Mac Chrome CDP L2 2026-10-23 port 9334 ZIP 10001 method_used=mac_chrome_cdp SoT notes/mt10-soft-r8-l2-2026-10-23.md: B0GVDBKMVN verdict clear_keep. L2 now $99.99 with no strike (In Stock, honest False).",
     "Catalog soft had now $39.95 / was $99.99 — inverted junk. Keep list/was/% blank. Do not invent was.",
     "Amazon L2 buybox > affiliate invent.",
     "waiting_for_部署上线=yes. No Live / wrangler deploy."
@@ -24,11 +24,18 @@
       "cleared_was": 99.99,
       "pct": 60,
       "ratio": 2.5,
+      "honest": false,
+      "availability": "In Stock",
+      "zip": "10001",
+      "deliver_to": "New York 10001",
       "l2_verified": true,
       "method_used": "mac_chrome_cdp",
       "port": 9334,
+      "machine": "a262b3cc-47db-4e1f-b094-cb569b0e89ff",
+      "fetched_at": "2026-10-23T21:59:56.101997+08:00",
+      "evidence": "notes/mt10-soft-r8-l2-2026-10-23.md",
       "restore_only": "mac_l2_amazon_buybox",
-      "note": "Mac Chrome CDP L2 2026-10-23 port 9334: now $99.99, no strike. Catalog now $39.95 / was $99.99 was inverted junk. Do not invent was."
+      "note": "Mac Chrome CDP L2 2026-10-23 port 9334 ZIP 10001: now $99.99, list none, honest False. Catalog now $39.95 / was $99.99 was inverted junk. Do not invent was. SoT notes/mt10-soft-r8-l2-2026-10-23.md."
     }
   ],
   "picks": [

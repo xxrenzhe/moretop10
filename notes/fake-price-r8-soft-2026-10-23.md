@@ -5,36 +5,41 @@ waiting_for_部署上线=yes. Draft only. No Live / wrangler / CF deploy. MoreTo
 Handoff: `fake-price-mt10-handoff-2026-10-23.md`  
 Daily scan: `fake-price-daily-2026-10-23-mt10.json` (honest=134 · fake=0 · soft=2)
 
-## L2 (Mac Chrome CDP)
+## L2 SoT (Mac Chrome CDP)
 
-- date: 2026-10-23
+Copied from parent upload into `notes/mt10-soft-r8-l2-2026-10-23.md` (shared path `/workspace/shared/mt10-soft-r8-l2-2026-10-23.md` was not mounted).
+
+- generated: 2026-10-23T21:59:56.101997+08:00 Asia/Shanghai
+- machine: `a262b3cc-47db-4e1f-b094-cb569b0e89ff`
 - method_used: `mac_chrome_cdp`
-- port: **9334**
-- evidence: `/workspace/shared/mt10-soft-r8-l2-2026-10-23.md` (not mounted on this agent; verdicts taken from parent)
+- port: **9334** (9333 WS 403; runbook fallback)
+- ZIP / deliver_to: New York **10001** · USD
+- L2 collection itself did not write catalog / Live. This draft PR applies the user-requested amend using that md as SoT.
 
 **Amazon L2 buybox > affiliate invent.** R8 soft math still flags 72.99/149.99, but the gate allows that list when the queue action is `restore_list_ok` / L2-verified.
 
-## ASINs
+## ASINs (from L2 SoT)
 
-| ASIN | Category | L2 verdict | now | list / strike | notes |
-| --- | --- | --- | ---: | --- | --- |
-| `B0FH1RFP91` | computer-speakers | **restore_list_ok** | $72.99 | **$149.99** honest Amazon list | Restore strike. Keep CTA/tracks. |
-| `B0GVDBKMVN` | tower-fans | **clear_keep** | **$99.99** | none — do not invent was | Catalog soft now $39.95 / was $99.99 was inverted junk. |
+| ASIN | Category | L2 verdict | now | list / strike | avail | honest |
+| --- | --- | --- | ---: | --- | --- | --- |
+| `B0FH1RFP91` | computer-speakers | **restore_list_ok** | $72.99 | **$149.99** (pct≈51.3 · ratio≈2.05) | In Stock | True |
+| `B0GVDBKMVN` | tower-fans | **clear_keep** | **$99.99** | none — do not invent was | In Stock | False |
 
 ## Before → after
 
 **B0FH1RFP91** (Edifier QD25)
 
 - catalog soft: now $72.99 · list/was $149.99 (R8 51% / 2.05x) → first draft cleared list
-- L2: now $72.99 · list **$149.99** verified
-- after: now $72.99 · `list_price` $149.99 · comparison card `<s class="pc-was">$149.99</s>` next to now
+- L2 SoT: now $72.99 · list **$149.99** · honest True · In Stock · ZIP 10001
+- after (this draft): now $72.99 · `list_price` $149.99 · comparison card `<s class="pc-was">$149.99</s>` next to now
 - CTA unchanged (`pboost.me/E5qe19Gc?uid=fromsll`)
 
 **B0GVDBKMVN** (Levoit Windi Lift Pro)
 
 - catalog soft: now $39.95 · was $99.99 (inverted junk)
-- L2: now **$99.99** · no strike
-- after: now $99.99 · `list_price` / was / discount / % = blank
+- L2 SoT: now **$99.99** · list null · honest False · In Stock · ZIP 10001
+- L2 note said collection would not write catalog price (list-only check). User amend for #48 **does** apply L2 now $99.99 on shortlist + baked HTML; still no was/%.
+- after (this draft): now $99.99 · `list_price` / was / discount / % = blank
 - CTA unchanged (`pboost.me/E5qetZHg?uid=fromsll`)
 
 Product selection unchanged.
