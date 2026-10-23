@@ -11,7 +11,10 @@ Author feeds: post thumbs use each target page's cover SoT (og/product/hero),
 not a shared category cmp-hero.
 
 Honest rules:
-  - Product / Offer / ASIN / price come from Live HTML (comparison cards + hub picks).
+  - Product / Offer / ASIN / price come from Live HTML (comparison cards, hub picks,
+    or the review page Price snapshot). Never invent amounts.
+  - Review Article JSON-LD: emit Offer.price only when a real snapshot/catalog
+    amount exists; otherwise drop a price-less Offer (GSC offers.price warning).
   - Never emit AggregateRating, awards, or invented SKUs.
   - Visitor FAQ / visible copy: no publishable, inventory-blocked, completeness gate,
     card checklist, PartnerBoost, Mac L2/CDP, PB∪YP, healthy track, L5 inventory,
@@ -642,6 +645,156 @@ def merge_hub_products(
     return merged
 
 
+_PRICE_AMOUNT_RE = re.compile(r"^[0-9]+(?:\.[0-9]{1,2})?$")
+_REVIEW_SNAPSHOT_PRICE_RE = re.compile(
+    r"<strong>Price snapshot</strong>\s*<span>\$([0-9][0-9,]*(?:\.[0-9]{2})?)",
+    re.I,
+)
+
+
+def normalize_offer_price(value: Any) -> str | None:
+    """Return a Google-safe Offer.price string, or None if this is not a real amount."""
+    if value is None or isinstance(value, bool):
+        return None
+    if isinstance(value, int):
+        return str(value) if value > 0 else None
+    if isinstance(value, float):
+        if value != value or value <= 0:  # NaN or non-positive
+            return None
+        return f"{value:.2f}"
+    text = unescape(str(value)).strip().replace(",", "").replace("$", "").strip()
+    if not text or not _PRICE_AMOUNT_RE.fullmatch(text):
+        return None
+    try:
+        amount = float(text)
+    except ValueError:
+        return None
+    if amount <= 0:
+        return None
+    return text
+
+
+def review_snapshot_price(html_text: str) -> str | None:
+    """Visible review-fact Price snapshot (the amount the page already shows)."""
+    match = _REVIEW_SNAPSHOT_PRICE_RE.search(html_text)
+    return normalize_offer_price(match.group(1)) if match else None
+
+
+def catalog_price_for_review(
+    products: list[dict[str, Any]], review_slug: str | None
+) -> str | None:
+    if not review_slug:
+        return None
+    for prod in products:
+        if prod.get("review_slug") == review_slug:
+            return normalize_offer_price(prod.get("price"))
+    return None
+
+
+def honest_review_price(
+    html_text: str,
+    products: list[dict[str, Any]],
+    review_slug: str | None,
+) -> str | None:
+    return review_snapshot_price(html_text) or catalog_price_for_review(
+        products, review_slug
+    )
+
+
+def offer_has_gsc_price(offer: dict[str, Any]) -> bool:
+    if normalize_offer_price(offer.get("price")):
+        return True
+    spec = offer.get("priceSpecification")
+    specs = spec if isinstance(spec, list) else [spec] if isinstance(spec, dict) else []
+    return any(normalize_offer_price(item.get("price")) for item in specs)
+
+
+def _iter_product_nodes(data: Any) -> list[dict[str, Any]]:
+    found: list[dict[str, Any]] = []
+
+    def walk(node: Any) -> None:
+        if isinstance(node, dict):
+            types = node.get("@type")
+            type_list = types if isinstance(types, list) else [types]
+            if "Product" in type_list:
+                found.append(node)
+            for value in node.values():
+                walk(value)
+        elif isinstance(node, list):
+            for item in node:
+                walk(item)
+
+    walk(data)
+    return found
+
+
+def apply_honest_product_offer(product: dict[str, Any], price: str | None) -> None:
+    """Attach Offer.price from SoT, or drop a price-less Offer. Never invent amounts."""
+    if price:
+        offer = product.get("offers")
+        if isinstance(offer, list) and offer and isinstance(offer[0], dict):
+            first = dict(offer[0])
+            first.setdefault("@type", "Offer")
+            first["price"] = price
+            first.setdefault("priceCurrency", "USD")
+            product["offers"] = [first, *offer[1:]] if len(offer) > 1 else first
+            return
+        if isinstance(offer, dict):
+            offer = dict(offer)
+            offer.setdefault("@type", "Offer")
+            offer["price"] = price
+            offer.setdefault("priceCurrency", "USD")
+            product["offers"] = offer
+            return
+        product["offers"] = {
+            "@type": "Offer",
+            "price": price,
+            "priceCurrency": "USD",
+        }
+        return
+
+    offer = product.get("offers")
+    if isinstance(offer, dict) and not offer_has_gsc_price(offer):
+        product.pop("offers", None)
+        return
+    if isinstance(offer, list):
+        kept = [item for item in offer if isinstance(item, dict) and offer_has_gsc_price(item)]
+        if not kept:
+            product.pop("offers", None)
+        elif len(kept) == 1:
+            product["offers"] = kept[0]
+        else:
+            product["offers"] = kept
+
+
+def patch_review_article_offers(html_text: str, price: str | None) -> str:
+    """Rewrite review Article/Product JSON-LD Offer.price; leave FAQ/Org blobs alone."""
+
+    def repl(match: re.Match[str]) -> str:
+        raw = match.group(1)
+        try:
+            data = json.loads(raw)
+        except json.JSONDecodeError:
+            return match.group(0)
+        types = data.get("@type")
+        type_list = types if isinstance(types, list) else [types]
+        if not ({"Article", "Product"} & {t for t in type_list if t}):
+            return match.group(0)
+        products = _iter_product_nodes(data)
+        if not products:
+            return match.group(0)
+        for product in products:
+            apply_honest_product_offer(product, price)
+        return f'<script type="application/ld+json">{dumps_ld(data)}</script>'
+
+    return re.sub(
+        r'<script type="application/ld\+json">(.*?)</script>',
+        repl,
+        html_text,
+        flags=re.S,
+    )
+
+
 def product_node(prod: dict[str, Any], cat_slug: str, page_url: str) -> dict[str, Any]:
     name = truncate_name(prod["name"])
     node: dict[str, Any] = {"@type": "Product", "name": name}
@@ -657,12 +810,14 @@ def product_node(prod: dict[str, Any], cat_slug: str, page_url: str) -> dict[str
         node["image"] = prod["image"]
     if prod.get("brand"):
         node["brand"] = {"@type": "Brand", "name": prod["brand"]}
-    offer: dict[str, Any] = {"@type": "Offer", "priceCurrency": "USD"}
-    if prod.get("price"):
-        offer["price"] = prod["price"]
-    offer["url"] = node["url"]
-    if "price" in offer:
-        node["offers"] = offer
+    price = normalize_offer_price(prod.get("price"))
+    if price:
+        node["offers"] = {
+            "@type": "Offer",
+            "price": price,
+            "priceCurrency": "USD",
+            "url": node["url"],
+        }
     return node
 
 
@@ -1611,6 +1766,8 @@ def apply_review_article(
     html_text = set_robots_meta(html_text, ROBOTS_INDEX)
     html_text = inject_review_geo(html_text, asin)
     html_text = inject_cite_strip(html_text, title, canonical, checked)
+    price = honest_review_price(html_text, products, review_slug)
+    html_text = patch_review_article_offers(html_text, price)
     return html_text
 
 
