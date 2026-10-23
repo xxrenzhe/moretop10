@@ -16,7 +16,8 @@ from seo_geo import ROBOTS_INDEX  # noqa: E402
 from site_config import ALL_CATS  # noqa: E402
 
 JARGON = re.compile(
-    r"completeness gate|publishable|inventory-blocked|PartnerBoost|YeahPromos",
+    r"completeness gate|card checklist|publishable|inventory-blocked|"
+    r"PartnerBoost|YeahPromos|Mac CDP|Mac L2",
     re.I,
 )
 
