@@ -66,6 +66,7 @@ CATEGORY_CONFIRM = {
     "stage-lights": "Confirm pack count, control mode, and indoor vs outdoor rating on the retailer page.",
     "glass-display-cabinets": "Confirm dimensions, lighting type, and shelf rating on the retailer page.",
     "document-scanners": "Confirm camera MP, cover contents, and OS support on the retailer page.",
+    "ceramic-space-heaters": "Confirm wattage, oscillation, noise, and tip-over protection on the retailer page.",
     "litter-boxes": "Confirm entry type, waste-bag setup, and size fit on the retailer page.",
     "massage-guns": "Confirm heads, heat/cold options, and noise on the retailer page.",
     "noise-cancelling-headphones": "Confirm ANC type, fit, and battery life on the retailer page.",

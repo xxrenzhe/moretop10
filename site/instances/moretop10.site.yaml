@@ -40,6 +40,7 @@ categories:
     - {slug: stage-lights, name: Stage Lights, short_name: Stage Lights, tier: extended, status: draft}
     - {slug: glass-display-cabinets, name: Glass Display Cabinets, short_name: Display Cabinets, tier: extended, status: draft}
     - {slug: document-scanners, name: Document Scanners, short_name: Document Scanners, tier: extended, status: draft}
+    - {slug: ceramic-space-heaters, name: Ceramic Space Heaters, short_name: Ceramic Heaters, tier: extended, status: draft}
 
 # Editorial /tv/ cluster is NOT registered here. Density-10 shortlist rules
 # do not apply. G-IL lives in site_config.EDITORIAL_CLUSTERS (footer + home tile).
