@@ -52,7 +52,10 @@ def main() -> None:
         html = landing.read_text(encoding="utf-8")
         if "geo-cite-strip" not in html or "How to cite:" not in html:
             errors.append(f"{cat['slug']} hub missing How to cite strip")
-        if 'id="geo-' not in html:
+        n = re.search(r'"numberOfItems":(\d+)', html)
+        item_count = int(n.group(1)) if n else 0
+        # Honest empty drafts have no ASINs — do not invent #geo- anchors.
+        if item_count > 0 and 'id="geo-' not in html:
             errors.append(f"{cat['slug']} hub missing #geo-ASIN")
 
         cmp = SITE / cat["slug"] / "comparison" / "index.html"

@@ -1,0 +1,36 @@
+{
+  "generated": "2026-10-23",
+  "slug": "pillows",
+  "name": "Pillows",
+  "amazon_category": "Home & Kitchen",
+  "density": 0,
+  "density_target": 10,
+  "density_shortfall": true,
+  "status": "unpublished_scaffold",
+  "waiting_for_部署上线": "yes",
+  "inventory": "density_shortfall",
+  "baked": true,
+  "live": false,
+  "publishable": false,
+  "cta_label": "Check price",
+  "cta_rule": "PB pboost.me keeps uid=fromsll when a verified track exists; no invented hops",
+  "l2": {
+    "status": "shortfall",
+    "method": "pb_fromsll_only",
+    "ok_count": 0,
+    "blocked": []
+  },
+  "notes": [
+    "P2 greenfield pillows 2026-10-23. waiting_for_部署上线=yes. No Live.",
+    "Healthy PB fromsll only. Density is honest — not padded to 10.",
+    "No invented ASINs, prices, images, or was/%. list_price omitted on cards.",
+    "No accessories. No new MT10 review articles (none exist on MT10).",
+    "Lifestyle cover remains a gradient placeholder.",
+    "Sources checked: in-repo shortlists, live moretop10.com/data, public Lab/RR/OL shortlist JSON. None had healthy tracks."
+  ],
+  "dropped_accessory_asins": [],
+  "picks": [],
+  "l2_ok_asins": [],
+  "l2_pending_asins": [],
+  "track_pending_asins": []
+}
