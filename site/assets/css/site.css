@@ -770,3 +770,22 @@ body,.site-main,.product-card,.explore-mini-card,.top3-card{}
 .authors-hub .authors-grid{display:flex;flex-wrap:wrap;gap:1rem;margin:1.25rem 0 2rem}
 .authors-hub .author-hub-card{text-decoration:none}
 .authors-hub .breadcrumb{margin:1rem 0 0.75rem;font-size:0.9rem}
+/* MT10-X01 2026-10-23 — append last onto moretop10 site/assets/css/site.css
+   Editor's Picks masonry kept; stable bottom scrim.
+   White copy on bright lifestyle photos failed AA because the earlier overlay
+   faded from transparent at 35% and did not park 40–60% black under the type.
+   60% black under #fff on a white photo ≈ 5.7:1 (WCAG AA normal text). */
+.pick-overlay{
+  background:linear-gradient(
+    to top,
+    rgba(0,0,0,0.60) 0%,
+    rgba(0,0,0,0.50) 36%,
+    rgba(0,0,0,0.22) 58%,
+    transparent 78%
+  );
+}
+.pick-title,
+.pick-author{
+  color:#fff;
+  text-shadow:0 1px 2px rgba(0,0,0,0.55);
+}
