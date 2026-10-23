@@ -94,6 +94,8 @@ from site_config import (  # noqa: E402
     HOME_VISIBLE_TILES,
     load_site_config,
 )
+from densify_html import htmlify_leaked_markdown  # noqa: E402
+from densify_html import site_errors as densify_html_errors  # noqa: E402
 from landing_faq import site_errors as landing_faq_site_errors  # noqa: E402
 from watchouts import site_errors as watchouts_site_errors  # noqa: E402
 
@@ -216,7 +218,7 @@ def rebake_visitor_copy_pages(site: Path | None = None) -> list[Path]:
         if rel_parts & SKIP_COPY_DIRS:
             continue
         text = path.read_text(encoding="utf-8")
-        new = rewrite_visible_jargon(text)
+        new = htmlify_leaked_markdown(rewrite_visible_jargon(text))
         if new != text:
             path.write_text(new, encoding="utf-8")
             wrote.append(path)
@@ -252,6 +254,7 @@ def bake_editorial_copy_pages(cfg: dict) -> list[Path]:
         html = rewrite_disclosure(html)
         html = rewrite_best_widget(html)
         html = rewrite_visible_jargon(html)
+        html = htmlify_leaked_markdown(html)
         html = ensure_pages_landing_css(html, prefix)
         html = apply_editorial_page_class(html, out_rel)
         dest.write_text(html, encoding="utf-8")
@@ -823,6 +826,7 @@ def verify(cfg: dict) -> None:
 
     errors.extend(watchouts_site_errors(SITE))
     errors.extend(landing_faq_site_errors(SITE))
+    errors.extend(densify_html_errors(SITE))
 
     if errors:
         raise SystemExit("verify failed:\n- " + "\n- ".join(errors))
