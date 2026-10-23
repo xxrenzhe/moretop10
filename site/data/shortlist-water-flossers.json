@@ -16,17 +16,17 @@
   "cta_rule": "PB pboost.me keeps uid=fromsll when a verified track exists; no invented hops",
   "l2": {
     "status": "shortfall",
-    "method": "pb_fromsll_only",
+    "method": "l1_pb_fromsll_pack",
     "ok_count": 0,
     "blocked": []
   },
   "notes": [
-    "P2 greenfield water-flossers 2026-10-23. waiting_for_部署上线=yes. No Live.",
+    "P2 L1 fill water-flossers 2026-10-23. waiting_for_部署上线=yes. No Live.",
     "Healthy PB fromsll only. Density is honest — not padded to 10.",
-    "No invented ASINs, prices, images, or was/%. list_price omitted on cards.",
-    "No accessories. No new MT10 review articles (none exist on MT10).",
-    "Lifestyle cover remains a gradient placeholder.",
-    "Sources checked: in-repo shortlists, live moretop10.com/data, public Lab/RR/OL shortlist JSON. None had healthy tracks."
+    "Prices are L1 API snapshots from the fill pack. No invented ASINs, images, or was/%. list_price omitted.",
+    "No Mac CDP gallery — product photos stay empty until L2. Lifestyle cover is a gradient placeholder.",
+    "No accessories. No new MT10 review articles (Top/Upgrade reviews do not exist).",
+    "True shortfall after pack tiers 1–3: PB∪YP returned 0 water-flosser mains. Empty scaffold kept."
   ],
   "dropped_accessory_asins": [],
   "picks": [],

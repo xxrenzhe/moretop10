@@ -84,7 +84,7 @@ CATS: list[dict[str, Any]] = [
         "scene_h1": "Best Pillows for Neck Pain (2026)",
         "scene_desc": (
             "Neck-pain shoppers need loft and fill they can confirm on the listing. "
-            "This best-of stays empty until a verified retail track exists — we do not invent a padded Top 10."
+            "This best-of reorders verified pillow tracks for that job — we do not invent a padded Top 10."
         ),
         "feed": [],
         "cmp_order": [],
@@ -102,7 +102,7 @@ CATS: list[dict[str, Any]] = [
         "scene_h1": "Best Mattresses for Side Sleepers (2026)",
         "scene_desc": (
             "Side sleepers need firmness and height they can confirm on the listing. "
-            "This best-of stays empty until a verified retail track exists — we do not invent a padded Top 10."
+            "This best-of reorders verified mattress tracks for that job — we do not invent a padded Top 10."
         ),
         "feed": [],
         "cmp_order": [],
@@ -120,7 +120,7 @@ CATS: list[dict[str, Any]] = [
         "scene_h1": "Best Office Chairs for Back Pain (2026)",
         "scene_desc": (
             "Back-pain shoppers need lumbar support and seat depth they can confirm on the listing. "
-            "This best-of stays empty until a verified retail track exists — we do not invent a padded Top 10."
+            "This best-of reorders verified office-chair tracks for that job — we do not invent a padded Top 10."
         ),
         "feed": [],
         "cmp_order": [],
@@ -147,6 +147,26 @@ CATS: list[dict[str, Any]] = [
 ]
 
 
+PACK_PATH = DATA / "p2-l1-fill-pack-2026-10-23.json"
+ROLE_MAIN_RANK = {
+    "Top pick": 0,
+    "Upgrade": 1,
+    "Premium": 2,
+    "Best value": 3,
+    "Editor pick": 4,
+    "Alternative": 5,
+    "Budget": 6,
+    "Budget cooling": 7,
+    "Also consider": 8,
+}
+EXPECTED_DENSITY = {
+    "pillows": 6,
+    "mattresses": 8,
+    "office-chairs": 8,
+    "water-flossers": 0,
+}
+
+
 def _esc(text: str) -> str:
     return escape(text or "", quote=True)
 
@@ -163,36 +183,102 @@ def healthy_track(url: str | None) -> str | None:
     return raw
 
 
+def load_fill_pack() -> dict[str, Any]:
+    if not PACK_PATH.exists():
+        raise SystemExit(f"missing L1 fill pack {PACK_PATH}")
+    return json.loads(PACK_PATH.read_text(encoding="utf-8"))
+
+
+def pick_from_pack(row: dict[str, Any]) -> dict[str, Any] | None:
+    asin = (row.get("asin") or "").strip()
+    title = (row.get("title") or "").strip()
+    track = healthy_track(row.get("track_url"))
+    if not asin or not title or not track:
+        return None
+    if asin.upper().startswith("B0X") and set(asin[2:]) <= set("X"):
+        return None
+    price = row.get("price")
+    price_str = row.get("price_str")
+    if price is not None and not price_str:
+        price_str = f"${price}"
+    return {
+        "asin": asin,
+        "title": title,
+        "title_source": "l1_pack",
+        "brand": (row.get("brand") or "").strip() or None,
+        "role": (row.get("role") or "").strip() or None,
+        "affiliate_network": "pb",
+        "affiliate_link": track,
+        "track_status": "ok",
+        "l2_status": "l1_api",
+        "price": f"{price}" if price is not None else None,
+        "price_raw": price_str,
+        "price_displayed": price_str,
+        "image": None,
+        "availability": row.get("availability"),
+        "feature_bullets": [],
+        "l2": {"ok": False, "method": "l1_pb_api", "status": "pending_cdp"},
+    }
+
+
+def scene_picks_from_pack(pack: dict[str, Any], scene_path: str) -> list[dict[str, Any]]:
+    scene = (pack.get("scenes") or {}).get(scene_path) or {}
+    picks: list[dict[str, Any]] = []
+    seen: set[str] = set()
+    for row in scene.get("products") or []:
+        pick = pick_from_pack(row)
+        if not pick or pick["asin"] in seen:
+            continue
+        seen.add(pick["asin"])
+        picks.append(pick)
+    return picks
+
+
+def main_order(picks: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    return sorted(
+        picks,
+        key=lambda p: (ROLE_MAIN_RANK.get(p.get("role") or "", 50), p["asin"]),
+    )
+
+
 def write_shortlist(cat: dict[str, Any], picks: list[dict[str, Any]]) -> Path:
     slug = cat["slug"]
+    n = len(picks)
     notes = [
-        f"P2 greenfield {slug} {DATE}. waiting_for_部署上线=yes. No Live.",
+        f"P2 L1 fill {slug} {DATE}. waiting_for_部署上线=yes. No Live.",
         "Healthy PB fromsll only. Density is honest — not padded to 10.",
-        "No invented ASINs, prices, images, or was/%. list_price omitted on cards.",
-        "No accessories. No new MT10 review articles (none exist on MT10).",
-        "Lifestyle cover remains a gradient placeholder.",
-        "Sources checked: in-repo shortlists, live moretop10.com/data, public Lab/RR/OL shortlist JSON. None had healthy tracks.",
+        "Prices are L1 API snapshots from the fill pack. No invented ASINs, images, or was/%. list_price omitted.",
+        "No Mac CDP gallery — product photos stay empty until L2. Lifestyle cover is a gradient placeholder.",
+        "No accessories. No new MT10 review articles (Top/Upgrade reviews do not exist).",
     ]
+    if slug == "water-flossers":
+        notes.append(
+            "True shortfall after pack tiers 1–3: PB∪YP returned 0 water-flosser mains. Empty scaffold kept."
+        )
+    elif slug == "mattresses":
+        notes.append(
+            "Honest Sweetnight-only concentration: other mattress brands were absent from the L1 pack networks."
+        )
     payload = {
         "generated": DATE,
         "slug": slug,
         "name": cat["name"],
         "amazon_category": cat["amazon_category"],
-        "density": len(picks),
+        "density": n,
         "density_target": 10,
-        "density_shortfall": True,
+        "density_shortfall": n < 10,
         "status": "unpublished_scaffold",
         "waiting_for_部署上线": "yes",
-        "inventory": "density_shortfall",
+        "inventory": "l1_fill" if n else "density_shortfall",
         "baked": True,
         "live": False,
         "publishable": False,
         "cta_label": "Check price",
         "cta_rule": "PB pboost.me keeps uid=fromsll when a verified track exists; no invented hops",
         "l2": {
-            "status": "shortfall",
-            "method": "pb_fromsll_only",
-            "ok_count": len(picks),
+            "status": "l1_api" if n else "shortfall",
+            "method": "l1_pb_fromsll_pack",
+            "ok_count": n,
             "blocked": [],
         },
         "notes": notes,
@@ -447,7 +533,7 @@ def replace_head(
             {
                 "@type": "ListItem",
                 "position": i,
-                "name": p["name"],
+                "name": p.get("title") or p.get("name") or p["asin"],
                 "url": f"{LIVE}/{slug}/comparison/#geo-{p['asin']}",
             }
             for i, p in enumerate(picks, start=1)
@@ -597,71 +683,240 @@ def assert_clean_page(html: str, meta: dict) -> None:
         raise SystemExit(f"{meta['path']} bake assert failed: " + "; ".join(errors))
 
 
-def scene_faqs(cat: dict[str, Any]) -> list[tuple[str, str]]:
-    name = cat["name"].lower()
-    scene = cat["scene_keyword"]
-    confirm = {
+def scene_confirm(slug: str) -> str:
+    return {
         "pillows": "Confirm loft, fill, and firmness on the retailer page.",
         "mattresses": "Confirm size, firmness, and trial window on the retailer page.",
         "office-chairs": "Confirm lumbar support, weight rating, and seat depth on the retailer page.",
         "water-flossers": "Confirm tank size, pressure settings, and tip count on the retailer page.",
-    }[cat["slug"]]
+    }[slug]
+
+
+def scene_faqs(cat: dict[str, Any], picks: list[dict[str, Any]]) -> list[tuple[str, str]]:
+    name = cat["name"].lower()
+    scene = cat["scene_keyword"]
+    confirm = scene_confirm(cat["slug"])
+    n = len(picks)
+    if n == 0:
+        return [
+            (
+                f"What does “{scene}” mean on this page?",
+                f"It is an editorial slice of the {name} shortlist for this job — not a paid badge. "
+                "We only reorder cards that already have a verified retail track.",
+            ),
+            (
+                "Why is this shortlist empty?",
+                "We checked the L1 fill pack after three discovery tiers. No healthy retail track "
+                "passed. An empty slot beats an invented Top 10.",
+            ),
+            (
+                "Who should skip this slice?",
+                f"Skip it if you need a buy-now card today. Use the parent {name} overview when "
+                "we publish verified tracks, or confirm the listing yourself on the retailer page.",
+            ),
+            (
+                "What should I confirm before I buy?",
+                confirm,
+            ),
+        ]
     return [
         (
             f"What does “{scene}” mean on this page?",
             f"It is an editorial slice of the {name} shortlist for this job — not a paid badge. "
-            "We only reorder cards that already have a verified retail track.",
-        ),
-        (
-            "Why is this shortlist empty?",
-            "We checked in-repo inventory and public shortlist feeds for healthy retail tracks. "
-            "None passed. An empty slot beats an invented Top 10.",
+            "Cards here are the same verified tracks as the parent shortlist, reordered for this scene.",
         ),
         (
             "Who should skip this slice?",
-            f"Skip it if you need a buy-now card today. Use the parent {name} overview when "
-            "we publish verified tracks, or confirm the listing yourself on the retailer page.",
+            f"Skip it if you need a product this shortlist does not list, or if you only want an "
+            f"accessory. Start at the parent {name} overview for the full chart.",
         ),
         (
             "What should I confirm before I buy?",
             confirm,
         ),
+        (
+            "Why are there no review articles or product photos?",
+            "Top and Upgrade review pages do not exist on MoreTop10 yet, and this fill has no "
+            "verified gallery. We do not invent reviews, photos, or discount badges.",
+        ),
     ]
 
 
-def scene_article(cat: dict[str, Any], faqs: list[tuple[str, str]]) -> str:
+def _short_title(title: str, n: int = 52) -> str:
+    title = re.sub(r"\s+", " ", title).strip()
+    return title if len(title) <= n else title[: n - 1].rsplit(" ", 1)[0] + "…"
+
+
+def visit_cards_html(picks: list[dict[str, Any]], confirm: str) -> str:
+    bits = ['<div class="bestof-visit-stack">']
+    for i, pick in enumerate(picks, start=1):
+        href = pick.get("affiliate_link") or ""
+        role = pick.get("role") or "Shortlist"
+        price = pick.get("price_displayed") or ""
+        pitch = f"{role}."
+        if price:
+            pitch += f" Snapshot {price}."
+        pitch += f" {confirm}"
+        cta = ""
+        if href and pick.get("track_status") == "ok":
+            cta = (
+                f'<a class="btn btn-cta-yellow" href="{_esc(href)}" '
+                'rel="sponsored noopener noreferrer" target="_blank">'
+                "<span>Check price</span></a>"
+            )
+        bits.append(
+            f'<section class="bestof-visit-card" id="bestof-pick-{i}">'
+            f'<span class="geo-anchor" id="geo-{_esc(pick["asin"])}" tabindex="-1"></span>'
+            f'<div class="bestof-visit-rank">{i}</div>'
+            f'<div class="bestof-visit-main">'
+            f'<div class="bestof-visit-copy"><strong>{_esc(pick["title"])}</strong>'
+            f"<p>{_esc(pitch)}</p></div>{cta}</div></section>"
+        )
+    bits.append("</div>")
+    return "".join(bits)
+
+
+def inline_picks_html(picks: list[dict[str, Any]], slug: str, confirm: str) -> str:
+    shown = picks[: min(3, len(picks))]
+    if not shown:
+        return ""
+    bits = ['<div class="inline-picks" aria-label="Editor shortlist">']
+    for i, pick in enumerate(shown, start=1):
+        href = pick.get("affiliate_link") or ""
+        role = pick.get("role") or "Shortlist"
+        price = pick.get("price_displayed") or ""
+        pitch = f"Snapshot {price}. {confirm}" if price else confirm
+        cta = ""
+        if href and pick.get("track_status") == "ok":
+            cta = (
+                f'<a class="btn btn-cta-yellow btn-sm" href="{_esc(href)}" '
+                'rel="sponsored noopener noreferrer" target="_blank">Check price</a> '
+            )
+        bits.append(
+            f'<article class="inline-pick-card"><span class="inline-pick-rank">#{i}</span>'
+            f'<strong class="inline-pick-name">{_esc(_short_title(pick["title"]))}</strong>'
+            f'<span class="inline-pick-role">{_esc(role)}</span>'
+            f'<p class="inline-pick-pitch">{_esc(pitch)}</p>'
+            f'<div class="inline-pick-actions">{cta}'
+            f'<a href="../../{slug}/comparison/#geo-{_esc(pick["asin"])}">See in comparison</a>'
+            "</div></article>"
+        )
+    bits.append("</div>")
+    return "".join(bits)
+
+
+def our_top_list_html(picks: list[dict[str, Any]], slug: str, name: str, confirm: str) -> str:
+    n = len(picks)
+    items = []
+    for i, pick in enumerate(picks, start=1):
+        price = f" Snapshot {pick['price_displayed']}." if pick.get("price_displayed") else ""
+        items.append(
+            f"<li><strong>{i}. {_esc(pick['title'])}</strong> — {_esc(confirm[:-1] if confirm.endswith('.') else confirm)}."
+            f"{_esc(price)} "
+            f'<a href="../../{slug}/comparison/#geo-{_esc(pick["asin"])}">See in comparison →</a></li>'
+        )
+    return (
+        f'<section class="our-top-list"><h2>Our top {n} {escape(name.lower())} for this scene</h2>'
+        f"<ol>{''.join(items)}</ol></section>"
+    )
+
+
+def scene_article(cat: dict[str, Any], picks: list[dict[str, Any]], faqs: list[tuple[str, str]]) -> str:
     slug = cat["slug"]
     name = cat["name"]
     scene = cat["scene_keyword"]
+    confirm = scene_confirm(slug)
+    n = len(picks)
+    if n == 0:
+        return (
+            f"<p>{_esc(cat['scene_desc'])}</p>"
+            f"<p>Rankings follow the same shortlist rules as our main {escape(name.lower())} "
+            "comparison. Density is honest at 0 — we do not invent ASINs, prices, images, or discounts.</p>"
+            '<section class="key-insights prose-block" aria-label="Key insights"><h2>Key insights</h2>'
+            '<ul class="card-bullets">'
+            "<li><strong>Scene filter, not chart paste:</strong> This page exists so the URL is real. "
+            "It does not copy a padded ranking.</li>"
+            "<li><strong>Empty slot beats a guessed card:</strong> Check price appears only when a "
+            "verified retail track exists.</li>"
+            "<li><strong>No accessories:</strong> Pillowcases, toppers, chair mats, and replacement "
+            "tips stay off this shortlist.</li>"
+            "<li><strong>Reviews skipped:</strong> Top and Upgrade review articles do not exist on "
+            "MoreTop10, so we do not invent them.</li>"
+            "</ul></section>"
+            f"<h2>Which {escape(scene)} should you pick?</h2>"
+            "<p>None yet. We will scene-reorder the parent shortlist when healthy tracks land — "
+            "not comparison order pasted into this URL.</p>"
+            f'<p>Start at the <a href="../../{slug}/">{escape(name.lower())} overview</a> or the '
+            f'<a href="../../{slug}/comparison/">{escape(name.lower())} comparison</a> once cards exist.</p>'
+            "<h2>What shoppers should optimize</h2>"
+            f"<p>{escape(confirm)}</p>"
+            "<p>Skip accessories that cannot finish the buying job on their own.</p>"
+            f"<h2>Our top {escape(name.lower())} for this scene</h2>"
+            "<p>No editor shortlist yet. An empty slot beats a stale or invented listing.</p>"
+            "<h2>How we ranked these picks</h2>"
+            "<p>We emphasize complete product cards and buyer roles instead of padding to ten. "
+            "Density is honest at 0.</p>"
+            f"<p>Last verified {DATE}. We do not invent lab scores.</p>"
+            "<h2>Related reading</h2>"
+            "<p>Pair this best-of with the "
+            f'<a href="../../{slug}/">{escape(name.lower())} overview</a>, '
+            f'<a href="../../{slug}/reviews/">reviews hub</a>, and the '
+            f'<a href="../../{slug}/comparison/">{escape(name.lower())} comparison</a>.</p>'
+            f'<p class="article-cta-row"><a class="btn btn-primary" href="../../{slug}/comparison/">See current rankings</a></p>'
+            f"{faq_html(faqs)}"
+        )
+
+    top = next((p for p in picks if p.get("role") == "Top pick"), picks[0])
+    upgrade = next((p for p in picks if p.get("role") == "Upgrade"), None)
+    who_bits = [
+        f"<p>Start with <strong>{_esc(top['title'])}</strong>"
+        + (f" ({_esc(top['price_displayed'])} snapshot)" if top.get("price_displayed") else "")
+        + f" as the {escape((top.get('role') or 'lead').lower())} on this scene.</p>"
+    ]
+    if upgrade:
+        who_bits.append(
+            f"<p>Step up to <strong>{_esc(upgrade['title'])}</strong>"
+            + (f" ({_esc(upgrade['price_displayed'])} snapshot)" if upgrade.get("price_displayed") else "")
+            + " only if that listing’s extras match a job you will use.</p>"
+        )
+    mattress_note = ""
+    if slug == "mattresses":
+        mattress_note = (
+            "<li><strong>One brand, honest spread:</strong> Every card is Sweetnight. "
+            "Diversity here is size and construction, not a guessed extra brand.</li>"
+        )
     return (
         f"<p>{_esc(cat['scene_desc'])}</p>"
         f"<p>Rankings follow the same shortlist rules as our main {escape(name.lower())} "
-        "comparison. Density is honest at 0 — we do not invent ASINs, prices, images, or discounts.</p>"
+        f"comparison. Density is honest at {n} — we do not invent ASINs, prices, images, or discounts.</p>"
         '<section class="key-insights prose-block" aria-label="Key insights"><h2>Key insights</h2>'
         '<ul class="card-bullets">'
-        "<li><strong>Scene filter, not chart paste:</strong> This page exists so the URL is real. "
-        "It does not copy a padded ranking.</li>"
-        "<li><strong>Empty slot beats a guessed card:</strong> Check price appears only when a "
-        "verified retail track exists.</li>"
+        "<li><strong>Scene filter, not chart paste:</strong> Order here follows the scene fill, "
+        "not the parent comparison rank.</li>"
+        "<li><strong>Verified tracks only:</strong> Check price opens a verified retailer hop. "
+        "Prices are a publish-time snapshot — confirm the live cart.</li>"
         "<li><strong>No accessories:</strong> Pillowcases, toppers, chair mats, and replacement "
         "tips stay off this shortlist.</li>"
+        f"{mattress_note}"
         "<li><strong>Reviews skipped:</strong> Top and Upgrade review articles do not exist on "
         "MoreTop10, so we do not invent them.</li>"
         "</ul></section>"
         f"<h2>Which {escape(scene)} should you pick?</h2>"
-        "<p>None yet. We will scene-reorder the parent shortlist when healthy tracks land — "
-        "not comparison order pasted into this URL.</p>"
-        f'<p>Start at the <a href="../../{slug}/">{escape(name.lower())} overview</a> or the '
-        f'<a href="../../{slug}/comparison/">{escape(name.lower())} comparison</a> once cards exist.</p>'
+        f"{''.join(who_bits)}"
+        f'<p>Use the <a href="../../{slug}/comparison/">{escape(name.lower())} comparison</a> '
+        "to scan the same ASINs in parent-category order.</p>"
+        f"{our_top_list_html(picks, slug, name, confirm)}"
+        f"{inline_picks_html(picks, slug, confirm)}"
+        f"{visit_cards_html(picks, confirm)}"
         "<h2>What shoppers should optimize</h2>"
-        f"<p>{escape(scene_faqs(cat)[-1][1])}</p>"
+        f"<p>{escape(confirm)}</p>"
         "<p>Skip accessories that cannot finish the buying job on their own.</p>"
         f"<h2>Our top {escape(name.lower())} for this scene</h2>"
-        "<p>No editor shortlist yet. An empty slot beats a stale or invented listing.</p>"
+        f"<p>The {n} cards above are the honest shortlist. Empty slots were not filled with guesses.</p>"
         "<h2>How we ranked these picks</h2>"
         "<p>We emphasize complete product cards and buyer roles instead of padding to ten. "
-        "Density is honest at 0.</p>"
-        f"<p>Last verified {DATE}. We do not invent lab scores.</p>"
+        f"Density is honest at {n}.</p>"
+        f"<p>Last verified {DATE}. We do not invent lab scores or product photos.</p>"
         "<h2>Related reading</h2>"
         "<p>Pair this best-of with the "
         f'<a href="../../{slug}/">{escape(name.lower())} overview</a>, '
@@ -672,13 +927,28 @@ def scene_article(cat: dict[str, Any], faqs: list[tuple[str, str]]) -> str:
     )
 
 
-def write_scene(cat: dict[str, Any]) -> dict[str, Any]:
+def write_scene(cat: dict[str, Any], picks: list[dict[str, Any]]) -> dict[str, Any]:
     slug = cat["slug"]
     name = cat["name"]
     scene_path = f"{slug}/{cat['scene_path']}/"
-    faqs = scene_faqs(cat)
-    picks: list[dict] = []
+    faqs = scene_faqs(cat, picks)
+    n = len(picks)
     og = f"{LIVE}/assets/img/lifestyle/cmp-hero-{slug}.jpg"
+    if n:
+        desc = (
+            f"{cat['scene_title']} — {n} verified {name.lower()} with retail tracks. "
+            "Honest density, no invented photos or discounts."
+        )
+        page_desc = (
+            f"Editorial slice of {name.lower()} for {cat['scene_keyword']} — "
+            f"honest density {n} from verified retail tracks."
+        )
+    else:
+        desc = cat["scene_desc"]
+        page_desc = (
+            f"Editorial slice of {name.lower()} for {cat['scene_keyword']} — "
+            "honest density 0 until a verified retail track exists."
+        )
     meta = {
         "path": scene_path,
         "title": f"{cat['scene_title']} | MoreTop10",
@@ -688,13 +958,10 @@ def write_scene(cat: dict[str, Any]) -> dict[str, Any]:
         "scene_label": cat["scene_label"],
         "picks": picks,
         "faqs": faqs,
-        "density": 0,
-        "article": scene_article(cat, faqs),
-        "description": cat["scene_desc"],
-        "page_desc": (
-            f"Editorial slice of {name.lower()} for {cat['scene_keyword']} — "
-            "honest density 0 until a verified retail track exists."
-        ),
+        "density": n,
+        "article": scene_article(cat, picks, faqs),
+        "description": desc,
+        "page_desc": page_desc,
     }
     out_rel = scene_path + "index.html"
     dest = SITE / out_rel
@@ -800,53 +1067,66 @@ def patch_cover_map(slugs: list[str]) -> None:
     dest.write_text(json.dumps(blob, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
 
 
-def write_inventory(pages: list[dict[str, Any]]) -> Path:
+def write_inventory(pages: list[dict[str, Any]], by_slug: dict[str, dict[str, Any]]) -> Path:
     dest = DATA / "p2-greenfield-inventory-2026-10-23.json"
     dest.write_text(
-        json.dumps({"date": DATE, "waiting_for_部署上线": True, "pages": pages}, indent=2)
+        json.dumps(
+            {
+                "date": DATE,
+                "waiting_for_部署上线": True,
+                "source_pack": "site/data/p2-l1-fill-pack-2026-10-23.json",
+                "pages": pages,
+            },
+            indent=2,
+        )
         + "\n",
         encoding="utf-8",
     )
     md = DATA / "p2-greenfield-inventory-2026-10-23.md"
     lines = [
-        "# P2 MT10 greenfield inventory (2026-10-23)",
+        "# P2 MT10 L1 fill inventory (2026-10-23)",
         "",
         "**waiting_for_部署上线:** yes",
         "**Scope:** MoreTop10 draft only. No Lab / RR / OL. No Cloudflare Live deploy.",
-        "**Do not touch:** ceramic P1c #40 files, blog hub, authors CSS (beyond coexistence).",
+        "**Pack:** `site/data/p2-l1-fill-pack-2026-10-23.json`",
+        "**Do not touch:** ceramic P1c #40 files, blog hub, authors CSS, GSC #45 (beyond coexistence).",
         "",
     ]
     for cat in CATS:
+        blob = by_slug[cat["slug"]]
+        main_picks = blob["main"]
+        scene_picks = blob["scene"]
+        top = next((p for p in scene_picks if p.get("role") == "Top pick"), None)
+        upgrade = next((p for p in scene_picks if p.get("role") == "Upgrade"), None)
         lines += [
             f"## /{cat['slug']}/",
             "",
-            "- Type: new plural main category (landing + comparison + reviews hub)",
-            "- Density: 0 (honest shortfall; not padded to 10)",
-            "- Comparison order: (none)",
-            "- Top pick: none",
-            "- Upgrade: none",
-            "- New reviews: none (MT10 review articles do not exist)",
-            "- Tracks: none",
-            "- Sources checked: in-repo shortlists; live moretop10.com/data; public Lab/RR/OL shortlist JSON. All 404 or empty for this slug.",
+            "- Type: plural main category (landing + comparison + reviews hub)",
+            f"- Density: {len(main_picks)} (honest; not padded to 10)",
+            f"- Comparison order: {', '.join(p['asin'] for p in main_picks) or '(none)'}",
+            f"- Top pick: {top['asin'] if top else 'none'}",
+            f"- Upgrade: {upgrade['asin'] if upgrade else 'none'}",
+            "- New reviews: none (MT10 Top/Upgrade review articles do not exist)",
+            f"- Tracks: {len(main_picks)} PB fromsll" if main_picks else "- Tracks: none",
             "",
             f"## /{cat['slug']}/{cat['scene_path']}/",
             "",
             f"- Scene: {cat['scene_keyword']}",
-            "- Density: 0 (scene page exists; no cards to reorder)",
-            "- Top pick: none — review skipped",
-            "- Upgrade: none — review skipped",
+            f"- Density: {len(scene_picks)} (scene order from L1 pack)",
+            f"- Scene order: {', '.join(p['asin'] for p in scene_picks) or '(none)'}",
+            f"- Top pick: {top['asin'] if top else 'none'} — review skipped",
+            f"- Upgrade: {upgrade['asin'] if upgrade else 'none'} — review skipped",
             "- New reviews: none",
-            "- Tracks: none",
+            f"- Tracks: {len(scene_picks)} PB fromsll" if scene_picks else "- Tracks: none",
             "",
         ]
     lines += [
         "## Shortfalls (honest)",
         "",
-        "- Density is 0 healthy PB fromsll cards per category, not a padded Top 10. No invented ASINs, prices, images, or was/%.",
-        "- PARTNERBOOST_API_TOKEN is unset in this environment, so get_fba_products was not used to invent a catalog.",
+        "- water-flossers stays density 0 after pack tiers 1–3. Do not invent ASINs.",
+        "- mattresses is Sweetnight-only — documented concentration, not padded with other brands.",
+        "- No invented galleries, was/%, or review articles. Product photos wait for Mac L2.",
         "- Accessories (pillowcases, mattress toppers, chair mats/casters, flosser tips-only) stay excluded.",
-        "- Reviews: skipped. Existing type-07 chrome does not require new review HTML when reviews do not exist.",
-        "- Lab `/shortlists/*` paths from the locked batch are out of scope (MT10 draft only).",
         "- `robots` stays `index,follow` to match live type-07. The deploy gate is the draft PR + `waiting_for_部署上线=yes`. Do not Cloudflare Live deploy.",
         "",
     ]
@@ -854,47 +1134,53 @@ def write_inventory(pages: list[dict[str, Any]]) -> Path:
     return dest
 
 
-def inventory_row(cat: dict[str, Any], path: str) -> dict[str, Any]:
+def inventory_row(cat: dict[str, Any], path: str, picks: list[dict[str, Any]]) -> dict[str, Any]:
+    top = next((p for p in picks if p.get("role") == "Top pick"), None)
+    upgrade = next((p for p in picks if p.get("role") == "Upgrade"), None)
     return {
         "scene": cat["scene_keyword"],
         "path": "/" + path,
-        "density": 0,
-        "order_asins": [],
-        "top_pick": None,
-        "upgrade": None,
-        "tracks": [],
+        "density": len(picks),
+        "order_asins": [p["asin"] for p in picks],
+        "top_pick": top["asin"] if top else None,
+        "upgrade": upgrade["asin"] if upgrade else None,
+        "tracks": [p["affiliate_link"] for p in picks if p.get("affiliate_link")],
         "new_reviews": [],
         "reused_reviews": [],
-        "shortfall": "no_healthy_pb_fromsll",
+        "shortfall": None if picks else "no_healthy_pb_fromsll",
     }
 
 
 def main() -> None:
     from scaffold_day_add import CONFIRM  # local — after dict patches
 
+    pack = load_fill_pack()
     sitemap_paths: list[str] = []
     inv_pages: list[dict[str, Any]] = []
     slugs: list[str] = []
+    by_slug: dict[str, dict[str, Any]] = {}
 
     for cat in CATS:
         slug = cat["slug"]
         slugs.append(slug)
-        picks: list[dict[str, Any]] = []
-        for row in cat["feed"]:
-            track = healthy_track(row.get("affiliate_link"))
-            if not track:
-                continue
-            picks.append(row)
-        if len(picks) > 10:
-            picks = picks[:10]
-        write_shortlist(cat, picks)
+        scene_picks = scene_picks_from_pack(pack, cat["scene_path"])
+        expected = EXPECTED_DENSITY[slug]
+        if len(scene_picks) != expected:
+            raise SystemExit(
+                f"{slug}: pack admitted {len(scene_picks)} healthy tracks, expected {expected}"
+            )
+        if len(scene_picks) > 10:
+            scene_picks = scene_picks[:10]
+        main_picks = main_order(scene_picks)
+        by_slug[slug] = {"main": main_picks, "scene": scene_picks}
+        write_shortlist(cat, main_picks)
         top, bot = COVER_COLORS[slug]
         gradient_jpg(SITE / "assets" / "img" / "lifestyle" / f"cmp-hero-{slug}.jpg", top, bot)
-        write_pages(slug, cat["name"], picks)
+        write_pages(slug, cat["name"], main_picks)
         polish_category_pages(cat, CONFIRM[slug])
-        print(f"wrote {slug}/ landing + comparison + reviews hub (density={len(picks)})")
+        print(f"wrote {slug}/ landing + comparison + reviews hub (density={len(main_picks)})")
 
-        meta = write_scene(cat)
+        meta = write_scene(cat, scene_picks)
         print(f"wrote {meta['path']}")
         sitemap_paths.extend(
             [
@@ -904,12 +1190,12 @@ def main() -> None:
                 meta["path"],
             ]
         )
-        inv_pages.append(inventory_row(cat, meta["path"]))
+        inv_pages.append(inventory_row(cat, meta["path"], scene_picks))
 
     bump_or_insert_sitemap(sitemap_paths)
     patch_html_sitemap()
     patch_cover_map(slugs)
-    inv = write_inventory(inv_pages)
+    inv = write_inventory(inv_pages, by_slug)
     print(f"inventory {inv.relative_to(ROOT)}")
     print("bake_p2_greenfield done (draft only; no Live)")
 
