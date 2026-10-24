@@ -505,6 +505,8 @@ def bake_page(spec: dict, cfg: dict, cmp_html_by_slug: dict[str, str]) -> Path |
         )
         for note in floor_notes:
             print(f"  stamp floor {out_rel}: {note}")
+    # Final pass: Live refetch + stamp clamp must not reintroduce #47 leaks.
+    html = rewrite_visible_jargon(html)
     dest.write_text(html, encoding="utf-8")
     return dest
 

@@ -21,7 +21,8 @@ Honest rules:
   - Merchant return/shipping stay omitted unless a published policy SoT exists.
   - Visitor FAQ / visible copy: no publishable, inventory-blocked, completeness gate,
     card checklist, PartnerBoost, Mac L2/CDP, PB∪YP, healthy track, L5 inventory,
-    Snapshot $ price prefix, or other internal jargon.
+    Content-only, confirm on the retailer page, UK centre, Snapshot $ price prefix,
+    or other internal jargon.
   - Bake ≠ Deploy.
 """
 
@@ -48,12 +49,16 @@ ASIN_RE = re.compile(r"\b(B0[0-9A-Z]{8,10})\b")
 RETAILER_CONFIRM = (
     "Confirm current specs, stock, and returns on the retailer page."
 )
+AMAZON_DISCLAIMER = (
+    "Always double-check price and stock on Amazon before you buy"
+)
 PUBLISH_RULE = (
     "We only publish products with a title, gallery, and price snapshot."
 )
 UNPUBLISHED_UNTIL_TEN = (
     "We keep the category unpublished until we can fill ten honest cards."
 )
+EDITORIAL_ONLY = "editorial-only until a buy link is ready"
 
 JARGON_PATTERNS: list[tuple[re.Pattern[str], str]] = [
     # Kids-bikes / feed draft leaks (full sentences first).
@@ -156,6 +161,13 @@ JARGON_PATTERNS: list[tuple[re.Pattern[str], str]] = [
     ), UNPUBLISHED_UNTIL_TEN),
     (re.compile(r"inventory[_-]blocked", re.I), "unpublished"),
     (re.compile(r"\bpublishable\b", re.I), "live"),
+    # Shopping disclaimer — visitor English, not “confirm on the retailer page”.
+    (re.compile(
+        r"Always confirm on the retailer page before you buy",
+        re.I,
+    ), AMAZON_DISCLAIMER),
+    (re.compile(r"confirm on the retailer page before you buy", re.I), AMAZON_DISCLAIMER),
+    (re.compile(r"confirm on the retailer page", re.I), AMAZON_DISCLAIMER),
     # Network / lab names that must never reach visitors.
     (re.compile(r"(?<![A-Za-z0-9.-])PartnerBoost(?![A-Za-z0-9.-])", re.I), "our retail partner"),
     (re.compile(r"(?<![A-Za-z0-9.-])YeahPromos(?![A-Za-z0-9.-])", re.I), "our retail partner"),
@@ -172,6 +184,8 @@ JARGON_PATTERNS: list[tuple[re.Pattern[str], str]] = [
     (re.compile(r"\btowards\b"), "toward"),
     (re.compile(r"\bTowards\b"), "Toward"),
     (re.compile(r"\bUtilize\b"), "Use"),
+    (re.compile(r"\bcentre\b"), "center"),
+    (re.compile(r"\bCentre\b"), "Center"),
     # TV / day-add ops copy — visitor English, keep the real price.
     (re.compile(
         r"No healthy track in current PB∪YP feed\. Decision-tree slot stays empty\.",
@@ -181,12 +195,18 @@ JARGON_PATTERNS: list[tuple[re.Pattern[str], str]] = [
         r"No healthy track\. Do not invent a Walmart or Amazon hop\.",
         re.I,
     ), "No retailer link yet."),
-    (re.compile(r"L5 inventory still empty\. Content-only\.", re.I), "No retailer link yet."),
+    (re.compile(r"L5 inventory still empty\. Content-only\.", re.I), EDITORIAL_ONLY),
     (re.compile(
         r"These decision-tree slots stay visible and empty\.",
         re.I,
     ), "These options stay listed even when we don't have a checkout link yet."),
     (re.compile(r"Content-only follow-ups:", re.I), "Related guides:"),
+    (re.compile(
+        r"stay content-only until a real track exists",
+        re.I,
+    ), f"stay {EDITORIAL_ONLY}"),
+    (re.compile(r"content-only until a real track exists", re.I), EDITORIAL_ONLY),
+    (re.compile(r"\b[Cc]ontent-only\b"), EDITORIAL_ONLY),
     (re.compile(r"(?i)\bsnapshot (\$[0-9][0-9,]*(?:\.[0-9]{2})?)"), r"\1"),
     (re.compile(r"\bSnapshot [Pp]rice\b"), "Price"),
     (re.compile(r"\bSnapshot pricing\b"), "Price"),
@@ -203,11 +223,11 @@ JARGON_PATTERNS: list[tuple[re.Pattern[str], str]] = [
     (re.compile(
         r"price snapshot of (\$[0-9][0-9,]*(?:\.[0-9]{2})?)",
         re.I,
-    ), r"current price about \1 — confirm on the retailer page"),
+    ), rf"current price about \1 — {AMAZON_DISCLAIMER}"),
     (re.compile(
         r"(?:a )?snapshot price of (\$[0-9][0-9,]*(?:\.[0-9]{2})?)",
         re.I,
-    ), r"current price about \1 — confirm on the retailer page"),
+    ), rf"current price about \1 — {AMAZON_DISCLAIMER}"),
     (re.compile(
         r"(?:a |an )?(\$[0-9][0-9,]*(?:\.[0-9]{2})?) price snapshot",
         re.I,
@@ -274,7 +294,8 @@ JARGON_PATTERNS: list[tuple[re.Pattern[str], str]] = [
 FAQ_VISITOR_OK = re.compile(
     r"publishable|inventory[_-]blocked|completeness gate|completeness-gated|"
     r"card checklist|PartnerBoost|YeahPromos|PartnerWhiz|\bSeaker\b|"
-    r"\bG-HD\b|\bG-IL\b|\bMac CDP\b|\bMac L2\b",
+    r"\bG-HD\b|\bG-IL\b|\bMac CDP\b|\bMac L2\b|"
+    r"confirm on the retailer page|content-only|\bcentre\b|Draft card from",
     re.I,
 )
 
@@ -282,8 +303,9 @@ VISITOR_LEAK_RE = re.compile(
     r"(?i:completeness gate|card checklist|inventory-blocked|inventory_blocked|"
     r"(?<![A-Za-z0-9.-])PartnerBoost(?![A-Za-z0-9.-])|"
     r"(?<![A-Za-z0-9.-])YeahPromos(?![A-Za-z0-9.-])|"
-    r"Mac CDP|Mac L2|\bwhilst\b|\btowards\b|"
-    r"PB∪YP|healthy track|L5 inventory|Content-only\.|"
+    r"Mac CDP|Mac L2|\bwhilst\b|\btowards\b|\bcentre\b|"
+    r"confirm on the retailer page|Draft card from|"
+    r"PB∪YP|healthy track|L5 inventory|content-only|"
     r"fromsll track|day-add inventory|ASINs remain|when L2 returned|L2 plus|"
     r"lands after deploy)"
     r"|\bUtilize\b"

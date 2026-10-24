@@ -10,6 +10,8 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "site" / "scripts"))
 
 from seo_geo import (  # noqa: E402
+    AMAZON_DISCLAIMER,
+    EDITORIAL_ONLY,
     PUBLISH_RULE,
     RETAILER_CONFIRM,
     UNPUBLISHED_UNTIL_TEN,
@@ -76,7 +78,19 @@ def main() -> int:
         ),
         (
             "L5 inventory still empty. Content-only.",
-            "No retailer link yet.",
+            EDITORIAL_ONLY,
+        ),
+        (
+            "Always confirm on the retailer page before you buy—tax, shipping, and coupons can change the final total.",
+            f"{AMAZON_DISCLAIMER}—tax, shipping, and coupons can change the final total.",
+        ),
+        (
+            "those pages stay content-only until a real track exists.",
+            f"those pages stay {EDITORIAL_ONLY}.",
+        ),
+        (
+            "JMGO tracker, help centre with a preinstall downloader",
+            "JMGO tracker, help center with a preinstall downloader",
         ),
         (
             "These decision-tree slots stay visible and empty. "
@@ -114,11 +128,11 @@ def main() -> int:
         ),
         (
             "Holds a 4.7 rating with a price snapshot of $129.99, while qualifying for HSA.",
-            "Holds a 4.7 rating with a current price about $129.99 — confirm on the retailer page, while qualifying for HSA.",
+            f"Holds a 4.7 rating with a current price about $129.99 — {AMAZON_DISCLAIMER}, while qualifying for HSA.",
         ),
         (
             "listed at a snapshot price of $129.99 under ASIN B0F836S79D",
-            "listed at current price about $129.99 — confirm on the retailer page",
+            f"listed at current price about $129.99 — {AMAZON_DISCLAIMER}",
         ),
         (
             "at a $139.99 price snapshot (ASIN: B0F4KQ3D34)",
@@ -147,6 +161,9 @@ def main() -> int:
     ]
     leaks = (
         "Snapshot $2997.99 · confirm on the retailer page",
+        "Always confirm on the retailer page before you buy",
+        "help centre with a preinstall downloader",
+        "those pages stay content-only until a real track exists",
         "No healthy track in current PB∪YP feed. Decision-tree slot stays empty.",
         "L5 inventory still empty. Content-only.",
         "No healthy track. Do not invent a Walmart or Amazon hop.",
@@ -201,6 +218,12 @@ def main() -> int:
 
     if VISITOR_LEAK_RE.search(PUBLISH_RULE):
         errors.append("leak regex flagged approved #35 price snapshot phrase")
+    if VISITOR_LEAK_RE.search(AMAZON_DISCLAIMER):
+        errors.append("leak regex flagged approved Amazon shopping disclaimer")
+    if VISITOR_LEAK_RE.search(EDITORIAL_ONLY):
+        errors.append("leak regex flagged approved editorial-only phrase")
+    if VISITOR_LEAK_RE.search(RETAILER_CONFIRM):
+        errors.append("leak regex flagged approved retailer-confirm phrase")
 
     ld_html = (
         '<script type="application/ld+json">'

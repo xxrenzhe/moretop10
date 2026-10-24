@@ -20,6 +20,7 @@ if str(SCRIPTS) not in sys.path:
     sys.path.insert(0, str(SCRIPTS))
 
 from affiliate_uid import prepare_affiliate_link  # noqa: E402
+from seo_geo import rewrite_visible_jargon  # noqa: E402
 from chrome import (  # noqa: E402
     ensure_tv_home_tile,
     inject_nav_css,
@@ -559,7 +560,7 @@ def remove_ads_body(prefix: str, current: str) -> str:
         <li>Developer options are locked, grayed out, or wiped on every reboot.</li>
         <li>You already followed the unofficial install notes and the launcher will not stay default.</li>
         <li>You are shopping for a <em>replacement</em> set and want Google TV called out honestly versus Fire TV — see <a href="{prefix}tv/google-tv-ads/">Google TV ads</a> and the <a href="{prefix}tv/fire-tv-ads/">Fire TV panels</a> page.</li>
-        <li>You want a <a href="{prefix}tv/best-non-smart-tv/">non-smart set</a> or a <a href="{prefix}tv/best-tv-for-privacy/">privacy-first replacement</a> rather than another smart OS — those pages stay content-only until a real track exists.</li>
+        <li>You want a <a href="{prefix}tv/best-non-smart-tv/">non-smart set</a> or a <a href="{prefix}tv/best-tv-for-privacy/">privacy-first replacement</a> rather than another smart OS — those pages stay editorial-only until a buy link is ready.</li>
       </ul>
       <p>That alternatives page recommends <strong>whole TVs</strong> when a retailer link exists. HDMI switches, mounts, soundbars, and projectors are secondary or excluded from the hero list.</p>
       {related_html(prefix, current)}
@@ -1018,7 +1019,7 @@ def samsung_ads_body(prefix: str, current: str) -> str:
         <li>Confirm the OS on the sticker or in Support / About. If it says Tizen, stop looking for a sideload.</li>
         <li>Use settings for prompts you can actually turn off. Do not jailbreak the set.</li>
         <li>If the frustration is launcher ads and you are willing to change platforms, open <a href="{prefix}tv/smart-tv-ad-alternatives/">when software will not install</a>. Primary links there are Google TV whole TVs — not a Fire Stick, not a projector in the hero row.</li>
-        <li>If you want the OS gone, read <a href="{prefix}tv/best-non-smart-tv/">non-smart TVs</a>. If the goal is accounts and ACR, read <a href="{prefix}tv/best-tv-for-privacy/">TVs for privacy</a>. Both stay content-only until a real track exists.</li>
+        <li>If you want the OS gone, read <a href="{prefix}tv/best-non-smart-tv/">non-smart TVs</a>. If the goal is accounts and ACR, read <a href="{prefix}tv/best-tv-for-privacy/">TVs for privacy</a>. Both stay editorial-only until a buy link is ready.</li>
         <li>If someone in the house has an Android / Google TV, send them to <a href="{prefix}tv/google-tv-ads/">Google TV ads</a> instead of this page.</li>
       </ol>
 
@@ -1141,7 +1142,7 @@ def fire_ads_body(prefix: str, current: str, shortlist: dict) -> str:
       </ol>
 
       <h2>Product zone</h2>
-      <p>Thin reuse only: in-stock <strong>Fire TV whole TVs</strong> already in our shortlist. No Fire Stick. No invented product. The full honest Fire table lives on the alternatives page. Prices as of {UPDATED} — confirm on the retailer page.</p>
+      <p>Thin reuse only: in-stock <strong>Fire TV whole TVs</strong> already in our shortlist. No Fire Stick. No invented product. The full honest Fire table lives on the alternatives page. Prices as of {UPDATED} — Always double-check price and stock on Amazon before you buy.</p>
       {zone}
 
       <h2>Where to go next</h2>
@@ -1414,7 +1415,7 @@ def bake_pages(shortlist: dict) -> list[Path]:
         dest = SITE / spec["out"]
         assert_no_forbidden(dest)
         dest.parent.mkdir(parents=True, exist_ok=True)
-        dest.write_text(html_out, encoding="utf-8")
+        dest.write_text(rewrite_visible_jargon(html_out), encoding="utf-8")
         wrote.append(dest)
         print(f"  wrote {dest.relative_to(ROOT)}")
     return wrote
