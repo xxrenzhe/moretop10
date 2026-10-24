@@ -1,7 +1,7 @@
 # P6d scenario best-of inventory (2026-10-24)
 
 **waiting_for_部署上线:** yes
-**published:** false / noindex
+**published:** true / index,follow
 **Scope:** MoreTop10 draft only. No Lab / RR / OL. No Cloudflare Live deploy.
 **Parent hubs:** already exist — not recreated.
 **Tip:** `b594ea30af37d7471540e048fd1d64caa7ffe9c1` (#62 Live).
@@ -38,7 +38,7 @@
 - Sibling ASIN bans hold. Soft parent densify preferred (hub ASINs may appear).
 - Reviews skipped. Comparison / reviews stubs already exist — stamps not rolled back.
 - Independent of Shortlist Lab.
-- Did not flip #58 P6a, #60 P6b, or #61 P6c published=true.
+- P6a–d OK scenes flipped published=true together.
 - Did not flip day-add published=true.
 - Massage Bob-and-Brad lean 3/10 reported, not hard-fail.
 - YP site 11767 returned 0 usable rows — honest PB-only. Live CTA stays PB ?uid=fromsll.

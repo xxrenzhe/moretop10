@@ -1,7 +1,7 @@
 # P6a scenario batch draft — 2026-10-24
 
 **waiting_for_部署上线:** yes  
-**published:** false / `noindex,follow` on the seven new type-07 pages  
+**published:** true / `index,follow,max-image-preview:large` on the seven type-07 pages  
 **Scope:** MoreTop10 draft only. No Lab / RR / OL. Do not merge. Do not Cloudflare Live deploy.  
 **Parent hubs:** already exist — not recreated.  
 **Tip:** `c58e0df1` (#54+#55+#57).

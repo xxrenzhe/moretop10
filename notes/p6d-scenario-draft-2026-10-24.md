@@ -1,7 +1,7 @@
 # P6d scenario batch draft — 2026-10-24
 
 **waiting_for_部署上线:** yes  
-**published:** false / `noindex,follow` on the seven new type-07 pages  
+**published:** true / `index,follow,max-image-preview:large` on the seven type-07 pages  
 **Scope:** MoreTop10 draft only. No Lab / RR / OL. Do not merge. Do not Cloudflare Live deploy.  
 **Parent hubs:** already exist — not recreated.  
 **Tip:** `b594ea30af37d7471540e048fd1d64caa7ffe9c1` (#62 Live).
@@ -22,7 +22,7 @@ User `lock-p6d-rec` (#1–#7): seven type-07 children from the L1 fill pack (den
 
 **Skipped:** none. All seven lock scenes passed density ≥4.  
 **OUT (not opened):** tinnitus · seniors · mattress hang · robot-mop · TV · litter kittens · Lab.  
-**#58 / #60 / #61:** P6a, P6b, and P6c scenes stay `published=false`. Not flipped. Day-add shells stay unpublished.
+**#58/#60/#61/#64:** P6a–d OK scenes flipped `published=true` together. Day-add shells stay unpublished.
 
 **Total:** 70 distinct ASINs (10 × 7). Parent landings only gained a related-cluster link.
 

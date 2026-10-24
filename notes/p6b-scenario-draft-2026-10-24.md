@@ -1,7 +1,7 @@
 # P6b scenario batch draft — 2026-10-24
 
 **waiting_for_部署上线:** yes  
-**published:** false / `noindex,follow` on the five new type-07 pages  
+**published:** true / `index,follow,max-image-preview:large` on the five type-07 pages  
 **Scope:** MoreTop10 draft only. No Lab / RR / OL. Do not merge. Do not Cloudflare Live deploy.  
 **Parent hubs:** already exist — not recreated.  
 **Tip:** `68a6d60e` (#58+#59+IL Live).
@@ -21,7 +21,7 @@ User `lock-p6b-rec`: five type-07 children from the L1 fill pack (density≥4 on
 **Skipped:** `/pillows/best-pillows-for-snoring/` — SHORTFALL n=0 < density 4.  
 **Skipped:** `/ceramic-space-heaters/best-ceramic-space-heaters-for-bedroom/` — SHORTFALL n=3 < density 4.  
 **OUT (not opened):** tinnitus · mattress hang · red-light masks · robot-mop.  
-**#58:** P6a scenes stay `published=false`. Not flipped.
+**#58/#60/#61/#64:** P6a–d OK scenes flipped `published=true` together. Day-add unpublished bests unchanged.
 
 **Total:** 41 distinct ASINs (10 / 4 / 7 / 10 / 10). Parent landings only gained a related-cluster link.
 

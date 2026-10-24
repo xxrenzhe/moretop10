@@ -1,7 +1,7 @@
 # P6a scenario best-of inventory (2026-10-24)
 
 **waiting_for_部署上线:** yes
-**published:** false / noindex
+**published:** true / index,follow
 **Scope:** MoreTop10 draft only. No Lab / RR / OL. No Cloudflare Live deploy.
 **Parent hubs:** already exist — not recreated.
 **Tip:** `c58e0df1` (#54+#55+#57).

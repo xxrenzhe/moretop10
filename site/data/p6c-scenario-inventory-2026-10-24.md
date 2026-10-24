@@ -1,7 +1,7 @@
 # P6c scenario best-of inventory (2026-10-24)
 
 **waiting_for_部署上线:** yes
-**published:** false / noindex
+**published:** true / index,follow
 **Scope:** MoreTop10 draft only. No Lab / RR / OL. No Cloudflare Live deploy.
 **Parent hubs:** already exist — not recreated.
 **Tip:** `007d73ffe4e27a012c952f92499c9073e6fcda56` (#60 Live).
@@ -37,7 +37,7 @@
 - Sibling ASIN bans hold. Soft parent densify preferred (hub ASINs may appear).
 - Reviews skipped. Comparison / reviews stubs already exist — stamps not rolled back.
 - Independent of Shortlist Lab.
-- Did not flip #58 P6a or #60 P6b published=true.
+- P6a–d OK scenes flipped published=true together.
 - Did not flip day-add published=true.
 - JSEI doormat brand_gate risk reported, not hard-fail.
 - Office chairs use honest now price ≤$200.

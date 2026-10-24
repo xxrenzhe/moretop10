@@ -57,7 +57,14 @@ from bake_p4_scenario import (  # noqa: E402
     scene_faqs,
     token_env,
 )
-from seo_geo import LIVE, ROBOTS_NOINDEX, rewrite_visible_jargon, set_robots_meta  # noqa: E402
+from seo_geo import (  # noqa: E402
+    LIVE,
+    ROBOTS_INDEX,
+    ROBOTS_NOINDEX,
+    rewrite_visible_jargon,
+    scrub_association_copy,
+    set_robots_meta,
+)
 
 from stamp_guard import bake_stamp_date  # noqa: E402
 
@@ -496,7 +503,7 @@ def write_products_shell(scene: dict[str, Any], picks: list[dict[str, Any]]) -> 
         json.dumps(
             {
                 "path": f"/{scene['slug']}/{scene['path']}/",
-                "published": False,
+                "published": True,
                 "fill_status": "filled" if picks else "need_fill",
                 "waiting_for_部署上线": True,
                 "stub": bool(scene.get("stub")),
@@ -555,8 +562,8 @@ def build_inventory(
                 "path": f"/{scene['slug']}/{scene['path']}/",
                 "type": "07-best-of",
                 "parent": f"/{scene['slug']}/",
-                "published": False,
-                "robots": ROBOTS_NOINDEX,
+                "published": True,
+                "robots": ROBOTS_INDEX,
                 "density": n,
                 "density_target": 10,
                 "density_expected": scene["density_expected"],
@@ -580,7 +587,7 @@ def build_inventory(
         "lock": "lock-p6a-rec",
         "tip_reference": "c58e0df1",
         "waiting_for_部署上线": True,
-        "published": False,
+        "published": True,
         "live": False,
         "merged": False,
         "independent_of_shortlist_lab": True,
@@ -631,7 +638,7 @@ def build_inventory(
         "notes": [
             "No invented ASINs, prices, was/%, gallery, or Check price hops.",
             "Parent hubs already exist. Not recreated. Soft densify = hub ASINs allowed; sibling bans hold.",
-            "published=false / noindex until a later 部署上线 order.",
+            "published=true / index,follow after 部署上线 flip. Draft PR only — not Live deployed.",
             "Independent of Shortlist Lab.",
             "Pillows back-sleepers skipped (SHORTFALL n=2).",
             "Mattresses back-pain not reopened.",
@@ -662,8 +669,8 @@ def assert_clean_page(
     n = len(picks)
     if DRAFT_COMMENT not in html:
         errors.append("missing waiting_for_部署上线 draft comment")
-    if f'name="robots" content="{ROBOTS_NOINDEX}"' not in html:
-        errors.append("robots is not noindex,follow")
+    if f'name="robots" content="{ROBOTS_INDEX}"' not in html:
+        errors.append("robots is not index,follow")
     for leak in leftover_terms(scene):
         if leak in html:
             errors.append(f"template leftover {leak!r}")
@@ -764,7 +771,8 @@ def write_scene(
         scene=scene,
     )
     html = rewrite_visible_jargon(html)
-    html = set_robots_meta(html, ROBOTS_NOINDEX)
+    html = scrub_association_copy(html)
+    html = set_robots_meta(html, ROBOTS_INDEX)
     if DRAFT_COMMENT not in html:
         html = html.replace("<head>", "<head>\n" + DRAFT_COMMENT, 1)
     assert_clean_page(html, scene, banned, picks)
@@ -815,7 +823,7 @@ def write_inventory(inv: dict[str, Any]) -> None:
                 "# P6a scenario best-of inventory (2026-10-24)",
                 "",
                 "**waiting_for_部署上线:** yes",
-                "**published:** false / noindex",
+                "**published:** true / index,follow",
                 "**Scope:** MoreTop10 draft only. No Lab / RR / OL. No Cloudflare Live deploy.",
                 "**Parent hubs:** already exist — not recreated.",
                 "**Tip:** `c58e0df1` (#54+#55+#57).",

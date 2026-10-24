@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""P6d scenario best-of — unpublished shells, products SoT ASINs only, collision bans."""
+"""P6d scenario best-of — published OK scenes, products SoT ASINs only, collision bans."""
 
 from __future__ import annotations
 
@@ -20,7 +20,7 @@ from bake_p6d_scenario import (  # noqa: E402
     OUT_NICHES,
     PARENT_HUBS,
     PRIOR_KEEP_UNPUBLISHED,
-    ROBOTS_NOINDEX,
+    ROBOTS_INDEX,
     SCENES,
     SKIPPED,
     banned_for,
@@ -56,6 +56,33 @@ SIBLING_MIN = {
     "massage_siblings": 10,
 }
 NEW_PRODUCTS = {scene["path"] for scene in SCENES}
+P6_OK_PUBLISH = {
+    "best-robotic-pool-cleaners-for-inground-pools",
+    "best-bike-racks-for-hitch",
+    "best-espresso-machines-under-500",
+    "best-hair-dryers-for-thick-hair",
+    "best-security-cameras-for-indoor",
+    "best-projectors-for-bedroom",
+    "best-dehumidifiers-for-bathroom",
+    "best-computer-speakers-for-gaming",
+    "best-litter-boxes-for-multiple-cats",
+    "best-light-therapy-for-face",
+    "best-office-chairs-for-gaming",
+    "best-dehumidifiers-for-crawl-space",
+    "best-projectors-for-gaming",
+    "best-humidifiers-for-plants",
+    "best-doormats-for-outdoors",
+    "best-noise-cancelling-headphones-for-work",
+    "best-bluetooth-speakers-for-shower",
+    "best-office-chairs-under-200",
+    "best-hair-dryers-for-frizzy-hair",
+    "best-office-chairs-for-tall-people",
+    "best-barstools-for-kitchen-island",
+    "best-bike-racks-for-suv",
+    "best-bookcases-for-small-spaces",
+    "best-docking-stations-for-macbook",
+    "best-massage-guns-for-athletes",
+}
 
 
 def jsonld_blocks(html: str) -> list[dict]:
@@ -88,8 +115,8 @@ def common_page_errors(rel: str, html: str, scene: dict, banned: set[str]) -> li
     errors: list[str] = []
     if DRAFT_COMMENT not in html:
         errors.append(f"{rel} missing draft comment")
-    if f'name="robots" content="{ROBOTS_NOINDEX}"' not in html:
-        errors.append(f"{rel} robots is not {ROBOTS_NOINDEX}")
+    if f'name="robots" content="{ROBOTS_INDEX}"' not in html:
+        errors.append(f"{rel} robots is not {ROBOTS_INDEX}")
     if scene["h1"] not in html:
         errors.append(f"{rel} missing h1")
     if "Priya Nair" not in html:
@@ -172,8 +199,8 @@ def main() -> int:
     inv = json.loads(INV_JSON.read_text(encoding="utf-8"))
     if inv.get("waiting_for_部署上线") is not True:
         errors.append("inventory missing waiting_for_部署上线")
-    if inv.get("published") is not False:
-        errors.append("inventory published must be false")
+    if inv.get("published") is not True:
+        errors.append("inventory published must be true")
     if inv.get("live") is True or inv.get("merged") is True:
         errors.append("inventory must stay draft (not live/merged)")
     if inv.get("parent_hubs") != "exist_not_recreated":
@@ -248,14 +275,14 @@ def main() -> int:
         errors.extend(common_page_errors(rel, html, scene, banned))
 
         row = pages.get(url) or {}
-        if row.get("published") is not False:
-            errors.append(f"{url} inventory published must be false")
+        if row.get("published") is not True:
+            errors.append(f"{url} inventory published must be true")
         if row.get("type") != "07-best-of":
             errors.append(f"{url} type must be 07-best-of")
 
         prod = json.loads(products_path(scene).read_text(encoding="utf-8"))
-        if prod.get("published") is not False:
-            errors.append(f"{products_path(scene).name} published must be false")
+        if prod.get("published") is not True:
+            errors.append(f"{products_path(scene).name} published must be true")
         if prod.get("waiting_for_部署上线") is not True:
             errors.append(f"{products_path(scene).name} missing waiting_for_部署上线")
         prod_asins = [p.get("asin") for p in prod.get("products") or []]
@@ -321,14 +348,19 @@ def main() -> int:
     for name in PRIOR_KEEP_UNPUBLISHED:
         path = SITE / "data" / name
         if not path.exists():
-            errors.append(f"missing prior unpublished shell {name}")
+            errors.append(f"missing prior shell {name}")
             continue
         blob = json.loads(path.read_text(encoding="utf-8"))
-        if blob.get("published") is True:
+        slug = name.removeprefix("products-").removesuffix(".json")
+        if slug in P6_OK_PUBLISH:
+            if blob.get("published") is not True:
+                errors.append(f"{name} must be published=true after P6 flip")
+        elif blob.get("published") is True:
             errors.append(f"must not flip {name} to published=true")
 
     for path in (SITE / "data").glob("products-best-*.json"):
-        if path.stem.replace("products-", "") in NEW_PRODUCTS:
+        slug = path.stem.replace("products-", "")
+        if slug in P6_OK_PUBLISH or slug in NEW_PRODUCTS:
             continue
         blob = json.loads(path.read_text(encoding="utf-8"))
         if blob.get("published") is True:
@@ -337,31 +369,23 @@ def main() -> int:
     p6a_bed = SITE / "projectors" / "best-projectors-for-bedroom" / "index.html"
     if p6a_bed.exists():
         bed = p6a_bed.read_text(encoding="utf-8")
-        if f'name="robots" content="{ROBOTS_NOINDEX}"' not in bed:
-            errors.append("P6a bedroom projector must stay noindex")
-        if "published=true" in bed:
-            errors.append("P6a bedroom projector must not flip published=true")
+        if f'name="robots" content="{ROBOTS_INDEX}"' not in bed:
+            errors.append("P6a bedroom projector must be indexable after P6 flip")
     p6b_game = SITE / "office-chairs" / "best-office-chairs-for-gaming" / "index.html"
     if p6b_game.exists():
         game = p6b_game.read_text(encoding="utf-8")
-        if f'name="robots" content="{ROBOTS_NOINDEX}"' not in game:
-            errors.append("P6b gaming chair scene must stay noindex")
-        if "published=true" in game:
-            errors.append("P6b gaming chair scene must not flip published=true")
+        if f'name="robots" content="{ROBOTS_INDEX}"' not in game:
+            errors.append("P6b gaming chair scene must be indexable after P6 flip")
     p6c_under = SITE / "office-chairs" / "best-office-chairs-under-200" / "index.html"
     if p6c_under.exists():
         under = p6c_under.read_text(encoding="utf-8")
-        if f'name="robots" content="{ROBOTS_NOINDEX}"' not in under:
-            errors.append("P6c under-$200 chair scene must stay noindex")
-        if "published=true" in under:
-            errors.append("P6c under-$200 chair scene must not flip published=true")
+        if f'name="robots" content="{ROBOTS_INDEX}"' not in under:
+            errors.append("P6c under-$200 chair scene must be indexable after P6 flip")
     p6c_game = SITE / "projectors" / "best-projectors-for-gaming" / "index.html"
     if p6c_game.exists():
         gaming = p6c_game.read_text(encoding="utf-8")
-        if f'name="robots" content="{ROBOTS_NOINDEX}"' not in gaming:
-            errors.append("P6c gaming projector must stay noindex")
-        if "published=true" in gaming:
-            errors.append("P6c gaming projector must not flip published=true")
+        if f'name="robots" content="{ROBOTS_INDEX}"' not in gaming:
+            errors.append("P6c gaming projector must be indexable after P6 flip")
 
     all_asins = [a for values in asins_by_path.values() for a in values]
     if len(all_asins) != EXPECTED_TOTAL or len(set(all_asins)) != EXPECTED_TOTAL:
@@ -375,7 +399,7 @@ def main() -> int:
             print(f"- {err}")
         return 1
     counts = "/".join(str(len(asins_by_path[s["path"]])) for s in SCENES)
-    print(f"p6d_scenario_assert ok (7 scenes / {counts} / p6a+p6b+p6c unpublished)")
+    print(f"p6d_scenario_assert ok (7 scenes / {counts} / p6a+p6b+p6c published)")
     return 0
 
 
