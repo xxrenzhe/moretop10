@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""P6b scenario best-of — unpublished shells, pack ASINs only, collision bans."""
+"""P6b scenario best-of — published OK scenes, pack ASINs only, collision bans."""
 
 from __future__ import annotations
 
@@ -20,7 +20,7 @@ from bake_p6b_scenario import (  # noqa: E402
     OUT_NICHES,
     P6A_KEEP_UNPUBLISHED,
     PARENT_HUBS,
-    ROBOTS_NOINDEX,
+    ROBOTS_INDEX,
     SCENES,
     SKIPPED,
     banned_for,
@@ -84,8 +84,8 @@ def common_page_errors(rel: str, html: str, scene: dict, banned: set[str]) -> li
     errors: list[str] = []
     if DRAFT_COMMENT not in html:
         errors.append(f"{rel} missing draft comment")
-    if f'name="robots" content="{ROBOTS_NOINDEX}"' not in html:
-        errors.append(f"{rel} robots is not {ROBOTS_NOINDEX}")
+    if f'name="robots" content="{ROBOTS_INDEX}"' not in html:
+        errors.append(f"{rel} robots is not {ROBOTS_INDEX}")
     if scene["h1"] not in html:
         errors.append(f"{rel} missing h1")
     if "Priya Nair" not in html:
@@ -168,8 +168,8 @@ def main() -> int:
     inv = json.loads(INV_JSON.read_text(encoding="utf-8"))
     if inv.get("waiting_for_部署上线") is not True:
         errors.append("inventory missing waiting_for_部署上线")
-    if inv.get("published") is not False:
-        errors.append("inventory published must be false")
+    if inv.get("published") is not True:
+        errors.append("inventory published must be true")
     if inv.get("live") is True or inv.get("merged") is True:
         errors.append("inventory must stay draft (not live/merged)")
     if inv.get("parent_hubs") != "exist_not_recreated":
@@ -233,14 +233,14 @@ def main() -> int:
         errors.extend(common_page_errors(rel, html, scene, banned))
 
         row = pages.get(url) or {}
-        if row.get("published") is not False:
-            errors.append(f"{url} inventory published must be false")
+        if row.get("published") is not True:
+            errors.append(f"{url} inventory published must be true")
         if row.get("type") != "07-best-of":
             errors.append(f"{url} type must be 07-best-of")
 
         prod = json.loads(products_path(scene).read_text(encoding="utf-8"))
-        if prod.get("published") is not False:
-            errors.append(f"{products_path(scene).name} published must be false")
+        if prod.get("published") is not True:
+            errors.append(f"{products_path(scene).name} published must be true")
         prod_asins = [p.get("asin") for p in prod.get("products") or []]
         inv_asins = [p.get("asin") for p in row.get("picks") or []]
         if prod_asins != inv_asins:
@@ -291,15 +291,13 @@ def main() -> int:
             errors.append(f"missing P6a shell {name}")
             continue
         blob = json.loads(path.read_text(encoding="utf-8"))
-        if blob.get("published") is True:
-            errors.append(f"must not flip #58 {name} to published=true")
+        if blob.get("published") is not True:
+            errors.append(f"P6a {name} must be published=true")
     p6a_bath = SITE / "dehumidifiers" / "best-dehumidifiers-for-bathroom" / "index.html"
     if p6a_bath.exists():
         bath = p6a_bath.read_text(encoding="utf-8")
-        if f'name="robots" content="{ROBOTS_NOINDEX}"' not in bath:
-            errors.append("P6a bathroom scene must stay noindex")
-        if "published=true" in bath:
-            errors.append("P6a bathroom scene must not flip published=true")
+        if f'name="robots" content="{ROBOTS_INDEX}"' not in bath:
+            errors.append("P6a bathroom scene must be indexable after P6 flip")
 
     all_asins = [a for values in asins_by_path.values() for a in values]
     if len(all_asins) != EXPECTED_TOTAL or len(set(all_asins)) != EXPECTED_TOTAL:
@@ -313,7 +311,7 @@ def main() -> int:
             print(f"- {err}")
         return 1
     counts = "/".join(str(len(asins_by_path[s["path"]])) for s in SCENES)
-    print(f"p6b_scenario_assert ok (5 scenes / {counts} / pillows+heaters skipped / p6a unpublished)")
+    print(f"p6b_scenario_assert ok (5 scenes / {counts} / pillows+heaters skipped / p6a published)")
     return 0
 
 

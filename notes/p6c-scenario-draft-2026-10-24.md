@@ -1,7 +1,7 @@
 # P6c scenario batch draft — 2026-10-24
 
 **waiting_for_部署上线:** yes  
-**published:** false / `noindex,follow` on the six new type-07 pages  
+**published:** true / `index,follow,max-image-preview:large` on the six type-07 pages  
 **Scope:** MoreTop10 draft only. No Lab / RR / OL. Do not merge. Do not Cloudflare Live deploy.  
 **Parent hubs:** already exist — not recreated.  
 **Tip:** `007d73ffe4e27a012c952f92499c9073e6fcda56` (#60 Live).
@@ -21,7 +21,7 @@ User `lock-p6c-rec`: six type-07 children from the L1 fill pack (density≥4 onl
 
 **Skipped:** `/litter-boxes/best-litter-boxes-for-large-cats/` — SHORTFALL n=1 < density 4. Not scaffolded.  
 **OUT (not opened):** tinnitus · mattress hang · robot-mop · TV blocked · Lab.  
-**#58 / #60:** P6a and P6b scenes stay `published=false`. Not flipped. Day-add shells stay unpublished.
+**#58/#60/#61/#64:** P6a–d OK scenes flipped `published=true` together. Day-add shells stay unpublished.
 
 **Total:** 56 distinct ASINs (6 / 10 / 10 / 10 / 10 / 10). Parent landings only gained a related-cluster link.
 

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""P6a scenario best-of — unpublished shells, pack ASINs only, collision bans."""
+"""P6a scenario best-of — published OK scenes, pack ASINs only, collision bans."""
 
 from __future__ import annotations
 
@@ -19,7 +19,7 @@ from bake_p6a_scenario import (  # noqa: E402
     OCCUPIED_PATH,
     OUT_NICHES,
     PARENT_HUBS,
-    ROBOTS_NOINDEX,
+    ROBOTS_INDEX,
     SCENES,
     SKIPPED,
     banned_for,
@@ -80,8 +80,8 @@ def common_page_errors(rel: str, html: str, scene: dict, banned: set[str]) -> li
     errors: list[str] = []
     if DRAFT_COMMENT not in html:
         errors.append(f"{rel} missing draft comment")
-    if f'name="robots" content="{ROBOTS_NOINDEX}"' not in html:
-        errors.append(f"{rel} robots is not {ROBOTS_NOINDEX}")
+    if f'name="robots" content="{ROBOTS_INDEX}"' not in html:
+        errors.append(f"{rel} robots is not {ROBOTS_INDEX}")
     if scene["h1"] not in html:
         errors.append(f"{rel} missing h1")
     if "Priya Nair" not in html:
@@ -164,8 +164,8 @@ def main() -> int:
     inv = json.loads(INV_JSON.read_text(encoding="utf-8"))
     if inv.get("waiting_for_部署上线") is not True:
         errors.append("inventory missing waiting_for_部署上线")
-    if inv.get("published") is not False:
-        errors.append("inventory published must be false")
+    if inv.get("published") is not True:
+        errors.append("inventory published must be true")
     if inv.get("live") is True or inv.get("merged") is True:
         errors.append("inventory must stay draft (not live/merged)")
     if inv.get("parent_hubs") != "exist_not_recreated":
@@ -233,14 +233,14 @@ def main() -> int:
         errors.extend(common_page_errors(rel, html, scene, banned))
 
         row = pages.get(url) or {}
-        if row.get("published") is not False:
-            errors.append(f"{url} inventory published must be false")
+        if row.get("published") is not True:
+            errors.append(f"{url} inventory published must be true")
         if row.get("type") != "07-best-of":
             errors.append(f"{url} type must be 07-best-of")
 
         prod = json.loads(products_path(scene).read_text(encoding="utf-8"))
-        if prod.get("published") is not False:
-            errors.append(f"{products_path(scene).name} published must be false")
+        if prod.get("published") is not True:
+            errors.append(f"{products_path(scene).name} published must be true")
         prod_asins = [p.get("asin") for p in prod.get("products") or []]
         inv_asins = [p.get("asin") for p in row.get("picks") or []]
         if prod_asins != inv_asins:

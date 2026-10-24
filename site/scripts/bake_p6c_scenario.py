@@ -56,7 +56,14 @@ from bake_p4_scenario import (  # noqa: E402
     scene_faqs,
     token_env,
 )
-from seo_geo import LIVE, ROBOTS_NOINDEX, rewrite_visible_jargon, set_robots_meta  # noqa: E402
+from seo_geo import (  # noqa: E402
+    LIVE,
+    ROBOTS_INDEX,
+    ROBOTS_NOINDEX,
+    rewrite_visible_jargon,
+    scrub_association_copy,
+    set_robots_meta,
+)
 
 from stamp_guard import bake_stamp_date  # noqa: E402
 
@@ -472,8 +479,6 @@ def load_products_sot(scene: dict[str, Any]) -> list[dict[str, Any]]:
     if not dest.exists():
         return []
     blob = json.loads(dest.read_text(encoding="utf-8"))
-    if blob.get("published") is True:
-        raise SystemExit(f"{dest.name} must stay published=false")
     return list(blob.get("products") or [])
 
 
@@ -497,7 +502,7 @@ def write_products_shell(scene: dict[str, Any], picks: list[dict[str, Any]]) -> 
         json.dumps(
             {
                 "path": f"/{scene['slug']}/{scene['path']}/",
-                "published": False,
+                "published": True,
                 "fill_status": "filled" if picks else "need_fill",
                 "waiting_for_部署上线": True,
                 "stub": bool(scene.get("stub")),
@@ -556,8 +561,8 @@ def build_inventory(
                 "path": f"/{scene['slug']}/{scene['path']}/",
                 "type": "07-best-of",
                 "parent": f"/{scene['slug']}/",
-                "published": False,
-                "robots": ROBOTS_NOINDEX,
+                "published": True,
+                "robots": ROBOTS_INDEX,
                 "density": n,
                 "density_target": 10,
                 "density_expected": scene["density_expected"],
@@ -581,7 +586,7 @@ def build_inventory(
         "lock": "lock-p6c-rec",
         "tip_reference": "007d73ffe4e27a012c952f92499c9073e6fcda56",
         "waiting_for_部署上线": True,
-        "published": False,
+        "published": True,
         "live": False,
         "merged": False,
         "independent_of_shortlist_lab": True,
@@ -650,10 +655,10 @@ def build_inventory(
         "notes": [
             "No invented ASINs, prices, was/%, gallery, or Check price hops.",
             "Parent hubs already exist. Not recreated. Soft densify = hub ASINs allowed; sibling bans hold.",
-            "published=false / noindex until a later 部署上线 order.",
+            "published=true / index,follow after 部署上线 flip. Draft PR only — not Live deployed.",
             "Independent of Shortlist Lab.",
             "Litter large-cats skipped (SHORTFALL n=1).",
-            "Did not flip #58 P6a or #60 P6b published=true.",
+            "P6a–d OK scenes flipped published=true together. Day-add unpublished bests unchanged.",
             "Did not flip day-add published=true.",
             "OUT: tinnitus · mattress hang · red-light masks · robot-mop · TV blocked.",
             "JSEI doormat brand_gate risk reported, not hard-fail.",
@@ -690,8 +695,8 @@ def assert_clean_page(
     n = len(picks)
     if DRAFT_COMMENT not in html:
         errors.append("missing waiting_for_部署上线 draft comment")
-    if f'name="robots" content="{ROBOTS_NOINDEX}"' not in html:
-        errors.append("robots is not noindex,follow")
+    if f'name="robots" content="{ROBOTS_INDEX}"' not in html:
+        errors.append("robots is not index,follow")
     for leak in leftover_terms(scene):
         if leak in html:
             errors.append(f"template leftover {leak!r}")
@@ -792,7 +797,8 @@ def write_scene(
         scene=scene,
     )
     html = rewrite_visible_jargon(html)
-    html = set_robots_meta(html, ROBOTS_NOINDEX)
+    html = scrub_association_copy(html)
+    html = set_robots_meta(html, ROBOTS_INDEX)
     if DRAFT_COMMENT not in html:
         html = html.replace("<head>", "<head>\n" + DRAFT_COMMENT, 1)
     assert_clean_page(html, scene, banned, picks)
@@ -843,7 +849,7 @@ def write_inventory(inv: dict[str, Any]) -> None:
                 "# P6c scenario best-of inventory (2026-10-24)",
                 "",
                 "**waiting_for_部署上线:** yes",
-                "**published:** false / noindex",
+                "**published:** true / index,follow"
                 "**Scope:** MoreTop10 draft only. No Lab / RR / OL. No Cloudflare Live deploy.",
                 "**Parent hubs:** already exist — not recreated.",
                 "**Tip:** `007d73ffe4e27a012c952f92499c9073e6fcda56` (#60 Live).",
@@ -874,7 +880,7 @@ def write_inventory(inv: dict[str, Any]) -> None:
                 "- Sibling ASIN bans hold. Soft parent densify preferred (hub ASINs may appear).",
                 "- Reviews skipped. Comparison / reviews stubs already exist — stamps not rolled back.",
                 "- Independent of Shortlist Lab.",
-                "- Did not flip #58 P6a or #60 P6b published=true.",
+                "- P6a–d OK scenes flipped published=true together.",
                 "- Did not flip day-add published=true.",
                 "- JSEI doormat brand_gate risk reported, not hard-fail.",
                 "- Office chairs use honest now price ≤$200.",
@@ -901,13 +907,31 @@ def refuse_skipped_pages() -> None:
             raise SystemExit(f"must not scaffold {path}")
 
 
+P6_OK_PUBLISH = {
+    name.removeprefix("products-").removesuffix(".json")
+    for name in PRIOR_KEEP_UNPUBLISHED
+    if name
+    not in {
+        "products-best-bluetooth-speakers-for-outdoor.json",
+        "products-best-projectors-for-home-theater.json",
+        "products-best-projectors-for-outdoor.json",
+        "products-best-office-chairs-for-long-hours.json",
+        "products-best-humidifiers-for-large-rooms.json",
+    }
+}
+
+
 def assert_prior_stays_unpublished() -> None:
     for name in PRIOR_KEEP_UNPUBLISHED:
         path = DATA / name
         if not path.exists():
-            raise SystemExit(f"expected existing unpublished shell {name}")
+            raise SystemExit(f"expected existing shell {name}")
         blob = json.loads(path.read_text(encoding="utf-8"))
-        if blob.get("published") is True:
+        slug = name.removeprefix("products-").removesuffix(".json")
+        if slug in P6_OK_PUBLISH:
+            if blob.get("published") is not True:
+                raise SystemExit(f"{name} must be published=true after P6 flip")
+        elif blob.get("published") is True:
             raise SystemExit(f"must not flip {name} to published=true")
 
 
@@ -963,7 +987,7 @@ def main() -> int:
     counts = "/".join(str(len(by_path[s["path"]])) for s in SCENES)
     print(
         "bake_p6c_scenario ok "
-        f"(fill={inv['fill_status']} counts={counts} litter=skipped p6a+p6b=unpublished)"
+        f"(fill={inv['fill_status']} counts={counts} litter=skipped p6a+p6b=published)"
     )
     return 0
 
