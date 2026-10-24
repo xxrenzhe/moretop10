@@ -9,7 +9,7 @@
     "lint": "bunx biome lint --write && bunx tsc --noEmit",
     "format": "bunx biome format --write",
     "test:pc-card-layout": "node tests/pc-card-layout-assert.mjs",
-    "test:homepage-assets": "python3 tests/home_tiles_wwnn_unit.py && python3 tests/homepage_assets_assert.py",
+    "test:homepage-assets": "python3 tests/home_nav_unit.py && python3 tests/home_tiles_wwnn_unit.py && python3 tests/homepage_assets_assert.py",
     "test:landing-css": "python3 tests/landing_css_unit.py && python3 tests/landing_css_assert.py",
     "test:feed-thumb": "python3 tests/feed_thumb_object_fit_assert.py",
     "test:footer-cats": "python3 tests/footer_cats_columns_assert.py",

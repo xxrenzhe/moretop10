@@ -96,6 +96,56 @@ def render_reviews_mobile(cats: list[dict[str, Any]], prefix: str) -> str:
     return f"<details><summary>Reviews</summary>{links}</details>"
 
 
+def published_nav_cats(cats: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    """Categories mega matches Live hubs: omit status:draft slugs."""
+    return [c for c in cats if str(c.get("status") or "") != "draft"]
+
+
+def render_categories_mega(cats: list[dict[str, Any]], prefix: str) -> str:
+    links = "".join(
+        f'<a href="{overview_href(prefix, cat["slug"])}">{_esc(cat["name"])}</a>' for cat in cats
+    )
+    return f'<div class="mega" role="menu">{links}</div>'
+
+
+def render_categories_mobile(cats: list[dict[str, Any]], prefix: str, open_first: bool = True) -> str:
+    links = "".join(
+        f'<a href="{overview_href(prefix, cat["slug"])}">{_esc(cat["name"])}</a>' for cat in cats
+    )
+    open_attr = " open" if open_first else ""
+    return f"<details{open_attr}><summary>Categories</summary>{links}</details>"
+
+
+def render_nav_item(trigger: str, mega: str) -> str:
+    return (
+        f'<div class="nav-item">'
+        f'<button type="button" class="nav-trigger">{trigger}</button>'
+        f"{mega}"
+        f"</div>"
+    )
+
+
+def render_header_cta(prefix: str, slug: str | None = None) -> str:
+    href = comparison_href(prefix, slug or "robot-vacuums")
+    return (
+        f'<a class="nav-link nav-cta-soft" href="{href}">Compare picks '
+        f'<span aria-hidden="true">→</span></a>'
+    )
+
+
+def render_desktop_nav(cats: list[dict[str, Any]], prefix: str) -> str:
+    """Shared primary nav: Categories / Compare / Reviews / Articles."""
+    pub = published_nav_cats(cats)
+    return (
+        '<nav class="nav-desktop" aria-label="Primary">\n'
+        f"      {render_nav_item('Categories', render_categories_mega(pub, prefix))}\n"
+        f"      {render_nav_item('Compare', render_compare_mega(cats, prefix))}\n"
+        f"      {render_nav_item('Reviews', render_reviews_mega(cats, prefix))}\n"
+        f'      <a class="nav-link" href="{prefix}blog/">Articles</a>\n'
+        "      </nav>"
+    )
+
+
 def render_footer_cats(
     cats: list[dict[str, Any]],
     prefix: str,
@@ -206,8 +256,20 @@ def apply_editorial_page_class(html: str, out_rel: str) -> str:
     )
 
 
+_CATEGORIES_MOBILE_RE = re.compile(
+    r"<details[^>]*>\s*<summary>Categories</summary>.*?</details>", re.S
+)
 _COMPARE_MOBILE_RE = re.compile(r"<details[^>]*>\s*<summary>Compare</summary>.*?</details>", re.S)
 _REVIEWS_MOBILE_RE = re.compile(r"<details[^>]*>\s*<summary>Reviews</summary>.*?</details>", re.S)
+_DESKTOP_NAV_RE = re.compile(
+    r'<nav class="nav-desktop[^"]*" aria-label="Primary">.*?</nav>',
+    re.S,
+)
+_MOBILE_NAV_RE = re.compile(
+    r'<nav class="mobile-nav"[^>]*>.*?</nav>',
+    re.S,
+)
+_HEADER_CLASS_RE = re.compile(r'<header class="site-header(?: site-header-home)?"')
 _EXPLORE_COL_RE = re.compile(
     r'<div class="footer-col(?: footer-col-cats| footer-col-categories)?">\s*<h2>(?:Explore|Categories)</h2>\s*<ul>.*?</ul>\s*</div>',
     re.S,
@@ -326,8 +388,6 @@ def rewrite_disclosure(page: str) -> str:
 
 def rewrite_compare_cta(page: str, prefix: str, slug: str | None, kind: str) -> str:
     """Header/mobile Compare picks CTA. Comparison pages never self-link."""
-    if kind == "home":
-        return page
     if kind == "comparison" and slug:
         href = overview_href(prefix, slug)
         label = "Category overview"
@@ -344,16 +404,64 @@ def rewrite_compare_cta(page: str, prefix: str, slug: str | None, kind: str) -> 
     return _COMPARE_CTA_RE.sub(replacement, page)
 
 
-def rewrite_non_home_nav(page: str, cats: list[dict[str, Any]], prefix: str) -> str:
-    """Replace Compare/Reviews megas + mobile lists. Leave home simple nav alone."""
-    if "nav-home-simple" in page or "site-header-home" in page:
-        return page
+def render_mobile_nav(cats: list[dict[str, Any]], prefix: str) -> str:
+    """Shared mobile nav: Categories / Compare / Reviews / Articles + CTA."""
+    pub = published_nav_cats(cats)
+    return (
+        '<nav class="mobile-nav" data-mobile-nav aria-label="Mobile">\n'
+        f"    {render_categories_mobile(pub, prefix)}\n"
+        f"    {render_compare_mobile(cats, prefix)}\n"
+        f"    {render_reviews_mobile(cats, prefix)}\n"
+        f'    <a href="{prefix}blog/">Articles</a>\n'
+        f'    <p class="mobile-disclosure">{MOBILE_DISCLOSURE}</p>\n'
+        f'    <p style="margin-top:1rem">{render_header_cta(prefix)}</p>\n'
+        "  </nav>"
+    )
 
+
+def install_hub_nav(page: str, cats: list[dict[str, Any]], prefix: str) -> str:
+    """Replace a simple/home header with the shared hub mega nav."""
+    page = _HEADER_CLASS_RE.sub('<header class="site-header"', page, count=1)
+    desktop = render_desktop_nav(cats, prefix)
+    if _DESKTOP_NAV_RE.search(page):
+        page = _DESKTOP_NAV_RE.sub(desktop, page, count=1)
+    if 'class="header-cta"' not in page.split("</header>", 1)[0]:
+        page = re.sub(
+            r'(<button class="burger")',
+            f'<div class="header-cta">{render_header_cta(prefix)}</div>\n    \\1',
+            page,
+            count=1,
+        )
+    mobile = render_mobile_nav(cats, prefix)
+    if _MOBILE_NAV_RE.search(page):
+        page = _MOBILE_NAV_RE.sub(mobile, page, count=1)
+    return page
+
+
+def rewrite_nav(page: str, cats: list[dict[str, Any]], prefix: str) -> str:
+    """Shared header mega + mobile lists for home and hubs.
+
+    Home used to ship `nav-home-simple` (About / Partner). Inner pages already
+    have Categories / Compare / Reviews / Articles; this installs that same
+    chrome on home, then fills Compare/Reviews from ALL_CATS and Categories
+    from the published subset (Live hub Categories mega).
+    """
+    if "nav-home-simple" in page or "site-header-home" in page:
+        page = install_hub_nav(page, cats, prefix)
+
+    pub = published_nav_cats(cats)
+    page = _replace_nav_item_mega(page, "Categories", render_categories_mega(pub, prefix))
     page = _replace_nav_item_mega(page, "Compare", render_compare_mega(cats, prefix))
     page = _replace_nav_item_mega(page, "Reviews", render_reviews_mega(cats, prefix))
+    page = _CATEGORIES_MOBILE_RE.sub(render_categories_mobile(pub, prefix), page, count=1)
     page = _COMPARE_MOBILE_RE.sub(render_compare_mobile(cats, prefix), page, count=1)
     page = _REVIEWS_MOBILE_RE.sub(render_reviews_mobile(cats, prefix), page, count=1)
     return page
+
+
+def rewrite_non_home_nav(page: str, cats: list[dict[str, Any]], prefix: str) -> str:
+    """Alias kept for existing bake callers — home is no longer skipped."""
+    return rewrite_nav(page, cats, prefix)
 
 
 def rewrite_footer(page: str, cats: list[dict[str, Any]], prefix: str) -> str:
