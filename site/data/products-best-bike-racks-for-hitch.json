@@ -1,0 +1,90 @@
+{
+  "path": "/bike-racks/best-bike-racks-for-hitch/",
+  "published": false,
+  "fill_status": "filled",
+  "waiting_for_部署上线": true,
+  "stub": false,
+  "products": [
+    {
+      "asin": "B0HHS5VMH9",
+      "title": "Young 3 EBikes Rack Hitch Mount, Fat Tire Ebike Carrier with Ramp",
+      "role": "Top pick",
+      "brand": "Young Electric",
+      "track_url": "https://pboost.me/H5SRcN9G8?uid=fromsll",
+      "price": "449.99",
+      "price_str": "$449.99"
+    },
+    {
+      "asin": "B0FHGZ9Q1X",
+      "title": "Young Electric 3-Bike Rack, 250LBS, Hitch Carrier with Ramp",
+      "role": "Upgrade",
+      "brand": "Young Electric",
+      "track_url": "https://pboost.me/R5SRdOEH5?uid=fromsll",
+      "price": "449.99",
+      "price_str": "$449.99"
+    },
+    {
+      "asin": "B0DJXHZ4PR",
+      "title": "YOUNG ELECTRIC 250LBS. Capacity Foldable Aluminum 3-Ebike Rack with Ramp for Car SUV RV Truck Trailer and Van, 2 Inch Receiver",
+      "role": "Best value",
+      "brand": "Young Electric",
+      "track_url": "https://pboost.me/v5SRaB5H8?uid=fromsll",
+      "price": "379.99",
+      "price_str": "$379.99"
+    },
+    {
+      "asin": "B0D13H18W7",
+      "title": "Young 2-Bike Ebike Hitch Rack with Ramp, 200 lbs Capacity for Car, SUV",
+      "role": "Premium",
+      "brand": "Unknown",
+      "track_url": "https://pboost.me/U5SRVDHa?uid=fromsll",
+      "price": "296.99",
+      "price_str": "$296.99"
+    },
+    {
+      "asin": "B0F13KDGZ2",
+      "title": "CRAVOT E1 Ebike Rack with Ramp 100lbs 5'' Tire 2'' Receiver",
+      "role": "Alternative",
+      "brand": "CRAVOT AMZ",
+      "track_url": "https://pboost.me/c5WPT3Hk?uid=fromsll",
+      "price": "249.99",
+      "price_str": "$249.99"
+    },
+    {
+      "asin": "B09MHB7939",
+      "title": "Young 200 lbs 2-Bike Rack Hitch Mount for Car SUV, 2\" Receiver, Easy Fold",
+      "role": "Also consider",
+      "brand": "Unknown",
+      "track_url": "https://pboost.me/K5SRl6HT?uid=fromsll",
+      "price": "159.98",
+      "price_str": "$159.98"
+    },
+    {
+      "asin": "B0G46J5Z9N",
+      "title": "monTEK 4-Bike Rack for Cars, Trucks, SUVs with 2” Hitch",
+      "role": "Editor pick",
+      "brand": "monTEK",
+      "track_url": "https://pboost.me/w5SO4EVg?uid=fromsll",
+      "price": "84.99",
+      "price_str": "$84.99"
+    },
+    {
+      "asin": "B0G46JDKJS",
+      "title": "monTEK 3-Bike Rack for Cars, Trucks, SUVs with 2” Hitch",
+      "role": "Budget",
+      "brand": "monTEK",
+      "track_url": "https://pboost.me/o5SO89Vg?uid=fromsll",
+      "price": "80.99",
+      "price_str": "$80.99"
+    },
+    {
+      "asin": "B0H9W85RFZ",
+      "title": "monTEK 2-Bike Rack for Cars, Trucks, SUVs with 2” Hitch",
+      "role": "Runner-up",
+      "brand": "monTEK",
+      "track_url": "https://pboost.me/H5SO6oETE?uid=fromsll",
+      "price": "79.99",
+      "price_str": "$79.99"
+    }
+  ]
+}
