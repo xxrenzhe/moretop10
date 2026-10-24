@@ -1,0 +1,951 @@
+{
+  "date": "2026-10-24",
+  "batch": "P6c",
+  "lock": "lock-p6c-rec",
+  "tip_reference": "007d73ffe4e27a012c952f92499c9073e6fcda56",
+  "waiting_for_部署上线": true,
+  "published": false,
+  "live": false,
+  "merged": false,
+  "independent_of_shortlist_lab": true,
+  "do_not_touch": [
+    "Lab",
+    "RR",
+    "OL",
+    "#54 home nav",
+    "#55 stamp",
+    "#58 P6a published flip",
+    "#60 P6b published flip",
+    "day-add published flip",
+    "parent hub cards"
+  ],
+  "parent_hubs": "exist_not_recreated",
+  "soft_parent_densify": "hub ASINs may appear on scene; sibling bans still hold; hub ASINs projectors=10 humidifiers=10 doormats=10 noise-cancelling-headphones=10 bluetooth-speakers=10 office-chairs=8",
+  "skipped": [
+    {
+      "path": "best-litter-boxes-for-large-cats",
+      "url": "/litter-boxes/best-litter-boxes-for-large-cats/",
+      "reason": "SHORTFALL n=1 < density 4 — skip scaffold"
+    }
+  ],
+  "out_of_scope": [
+    "best-litter-boxes-for-large-cats",
+    "best-hearing-aids-for-tinnitus",
+    "best-mattresses-for-hanging",
+    "best-red-light-therapy-masks",
+    "best-robot-mops"
+  ],
+  "brand_notes": {
+    "best-doormats-for-outdoors": "JSEI brand_gate risk reported; multi-brand with BEQHAUSE; density 10 OK",
+    "best-office-chairs-under-200": "honest now price <=200 on every packed card",
+    "best-projectors-for-gaming": "aurzen + happrun; density 6 >= 4"
+  },
+  "fill_pack": "/workspace/site/data/p6c-l1-fill-pack-2026-10-24.json",
+  "fill_status": "filled",
+  "need_fill": [],
+  "counts": {
+    "best-projectors-for-gaming": 6,
+    "best-humidifiers-for-plants": 10,
+    "best-doormats-for-outdoors": 10,
+    "best-noise-cancelling-headphones-for-work": 10,
+    "best-bluetooth-speakers-for-shower": 10,
+    "best-office-chairs-under-200": 10
+  },
+  "sources": {
+    "1_pb": {
+      "live_query": "skipped_no_token",
+      "note": "No affiliate API tokens in this VM environment. Do not invent Check price hops."
+    },
+    "2_yp": {
+      "live_query": "skipped_yp_timeout_or_500",
+      "note": "YP unused. Pack is PB-only. Live CTA stays PB ?uid=fromsll."
+    },
+    "l1_fill_pack": "p6c-l1-fill-pack-2026-10-24.json",
+    "products_sot": [
+      "products-best-projectors-for-gaming.json",
+      "products-best-humidifiers-for-plants.json",
+      "products-best-doormats-for-outdoors.json",
+      "products-best-noise-cancelling-headphones-for-work.json",
+      "products-best-bluetooth-speakers-for-shower.json",
+      "products-best-office-chairs-under-200.json"
+    ]
+  },
+  "occupied_groups": {
+    "projector_siblings": [
+      "B0B28G5Y4R",
+      "B0CHW168LV",
+      "B0D3T44YZ2",
+      "B0DDT9FQCQ",
+      "B0DR2L1L3G",
+      "B0DX1HGMBX",
+      "B0F7XBPX44",
+      "B0F832HNG4",
+      "B0FDGGQVXC",
+      "B0FG322D4R",
+      "B0FJRYTH7R",
+      "B0FK5N8HK5",
+      "B0FKMHPCCB",
+      "B0G2LH5GRQ",
+      "B0G2RM3ZBZ",
+      "B0G78PKNCJ",
+      "B0GL5LDFFQ",
+      "B0GLY8C7P2",
+      "B0GSQKP7RF",
+      "B0GV3YZ5XH",
+      "B0H3KTBXRQ",
+      "B0H3NHLCJ3",
+      "B0H4TKY7WG",
+      "B0H7J15S7R",
+      "B0HGXXZPWF",
+      "B0HJ7C9M38"
+    ],
+    "projector_hub": [],
+    "humidifier_siblings": [
+      "B01MYGNGKK",
+      "B08FHZTYJB",
+      "B08HS45N13",
+      "B095KGXPW5",
+      "B09C24TYGQ",
+      "B09WQJZ7ZN",
+      "B0B1DQ8KV3",
+      "B0B38TQK54",
+      "B0BLV8BM5J",
+      "B0C369CCDY",
+      "B0C4GHYH2M",
+      "B0DF567NW8",
+      "B0DG5G7GDN",
+      "B0DSP78FG4",
+      "B0G1SQ5C11",
+      "B0GQH7J1SW",
+      "B0GR99R7XD",
+      "B0GSR397Z7",
+      "B0H41G86YL"
+    ],
+    "humidifier_hub": [],
+    "doormat_siblings": [
+      "B0FY17MZ3R",
+      "B0FY19LY15",
+      "B0FY1DWKP3",
+      "B0FYBVPN1K",
+      "B0FYC54CF4",
+      "B0GS4BCZCG",
+      "B0GYQLGR7G",
+      "B0GYQTJ7KQ",
+      "B0H86PRS7M",
+      "B0H86RSPNC",
+      "B0H86TXGS5",
+      "B0H86WFJZ2",
+      "B0H97Z8RDC",
+      "B0HDB3CQYD",
+      "B0HDB8KK33",
+      "B0HDBBMK2T",
+      "B0HDBF6WXC",
+      "B0HNVR8PR8",
+      "B0HNW3R91L",
+      "B0HNW942BJ"
+    ],
+    "doormat_hub": [
+      "B0GS4BCZCG",
+      "B0H86PRS7M",
+      "B0H86RSPNC",
+      "B0H86TXGS5",
+      "B0H86WFJZ2",
+      "B0H97Z8RDC",
+      "B0HDB3CQYD",
+      "B0HDB8KK33",
+      "B0HDBBMK2T",
+      "B0HDBF6WXC"
+    ],
+    "nc_siblings": [
+      "B08HMWZBXC",
+      "B0CRTPF7CZ",
+      "B0CZ8G716J",
+      "B0D41JQTF8",
+      "B0F4884LN3",
+      "B0F6LPDWWC",
+      "B0F9D8HMK6",
+      "B0GR4GR5QH",
+      "B0GWLKRWH7",
+      "B0H9RLZFPR"
+    ],
+    "nc_hub": [],
+    "bt_siblings": [
+      "B0BXW4KKXK",
+      "B0BXW5JQ21",
+      "B0CMTMN3CP",
+      "B0CQ6WNXKF",
+      "B0CZ81ZQFG",
+      "B0CZ8T8PVC",
+      "B0D31JX5KB",
+      "B0DTHV3QSW",
+      "B0F6315R3J",
+      "B0F634G7N3"
+    ],
+    "bt_hub": [],
+    "chair_siblings": [
+      "B08CB2PSH6",
+      "B0B41WB554",
+      "B0BG1H99FB",
+      "B0BYYM8PWH",
+      "B0CDBR4CLF",
+      "B0CQ2PCK6S",
+      "B0CQX84Y3W",
+      "B0DM1JR73Q",
+      "B0DPKB5JPL",
+      "B0DZB5DZ47",
+      "B0DZC58HPL",
+      "B0F4D8ZN7C",
+      "B0FGQ7PBK1",
+      "B0FPWP2WXG",
+      "B0FPWSRW2P",
+      "B0FPWZ7DNG",
+      "B0FWJ6NL2T",
+      "B0FWJD2W2C",
+      "B0FZBQHXZP",
+      "B0FZHXRQ82",
+      "B0FZJG3YFV",
+      "B0GD7F854P",
+      "B0GRVN1QXK",
+      "B0GXW2DTNR",
+      "B0HGYCK7Q1",
+      "B0HJ7RP87H",
+      "B0HJ86Z5DX",
+      "B0HNP7G1VB"
+    ],
+    "chair_hub": [
+      "B0BG1H99FB",
+      "B0CQ2PCK6S",
+      "B0CQX84Y3W",
+      "B0DPKB5JPL",
+      "B0DZC58HPL",
+      "B0FGQ7PBK1",
+      "B0HJ86Z5DX",
+      "B0HNP7G1VB"
+    ]
+  },
+  "occupied_global_n": 1012,
+  "pages": [
+    {
+      "n": 1,
+      "path": "/projectors/best-projectors-for-gaming/",
+      "type": "07-best-of",
+      "parent": "/projectors/",
+      "published": false,
+      "robots": "noindex,follow",
+      "density": 6,
+      "density_target": 10,
+      "density_expected": 6,
+      "stub": false,
+      "fill_status": "filled",
+      "cta_status": "pb_fromsll",
+      "cta_rule": "PB fromsll only when a verified track exists; never invent hops; do not rebind to YP",
+      "reviews": "none — Top pick + Upgrade articles do not exist for this scene",
+      "ban_groups": [
+        "projector_siblings"
+      ],
+      "soft_hub_groups": [
+        "projector_hub"
+      ],
+      "cross_ban_scenes": [],
+      "picks": [
+        {
+          "asin": "B0HFQPY1FW",
+          "title": "HAPPRUN 2000 ANSI Outdoor 4K Decoding Full HD Smart Projector with Whale TV",
+          "role": "Top pick",
+          "brand": "HAPPRUN",
+          "affiliate_link": "https://pboost.me/E5URda39?uid=fromsll",
+          "track_status": "ok",
+          "price": "$299.97",
+          "image": null
+        },
+        {
+          "asin": "B0FDGLZKKM",
+          "title": "Aurzen Roku TV D1R Cube 1080P FHD Smart Projector, Sealed Optical Engine",
+          "role": "Upgrade",
+          "brand": "Aurzen",
+          "affiliate_link": "https://pboost.me/l5QN4W2Jz?uid=fromsll",
+          "track_status": "ok",
+          "price": "$169.98",
+          "image": null
+        },
+        {
+          "asin": "B0G91DDGWR",
+          "title": "Aurzen EAZZE D1 air Smart Portable Projector, USB-C Powered, Native 1080P",
+          "role": "Best value",
+          "brand": "Aurzen",
+          "affiliate_link": "https://pboost.me/u5QNlEEc?uid=fromsll",
+          "track_status": "ok",
+          "price": "$129.99",
+          "image": null
+        },
+        {
+          "asin": "B0FDQFZ6HM",
+          "title": "HAPPRUN 1500 ANSI Official Licensed Google TV Outdoor 4K Full HD Projector",
+          "role": "Premium",
+          "brand": "HAPPRUN",
+          "affiliate_link": "https://pboost.me/e5QNHdLC?uid=fromsll",
+          "track_status": "ok",
+          "price": "$250.70",
+          "image": null
+        },
+        {
+          "asin": "B0F7XFRHC2",
+          "title": "HAPPRUN 3000 ANSI Official Licensed Google TV Outdoor 4K Full HD Projector",
+          "role": "Alternative",
+          "brand": "HAPPRUN",
+          "affiliate_link": "https://pboost.me/B5URcc93Z?uid=fromsll",
+          "track_status": "ok",
+          "price": "$199.96",
+          "image": null
+        },
+        {
+          "asin": "B0FDQFD1R7",
+          "title": "HAPPRUN 1500 ANSI Smart Outdoor Projector, Built-in Apps, 30W Dolby Audio",
+          "role": "Also consider",
+          "brand": "HAPPRUN",
+          "affiliate_link": "https://pboost.me/y5QOKEoT?uid=fromsll",
+          "track_status": "ok",
+          "price": "$159.96",
+          "image": null
+        }
+      ]
+    },
+    {
+      "n": 2,
+      "path": "/humidifiers/best-humidifiers-for-plants/",
+      "type": "07-best-of",
+      "parent": "/humidifiers/",
+      "published": false,
+      "robots": "noindex,follow",
+      "density": 10,
+      "density_target": 10,
+      "density_expected": 10,
+      "stub": false,
+      "fill_status": "filled",
+      "cta_status": "pb_fromsll",
+      "cta_rule": "PB fromsll only when a verified track exists; never invent hops; do not rebind to YP",
+      "reviews": "none — Top pick + Upgrade articles do not exist for this scene",
+      "ban_groups": [
+        "humidifier_siblings"
+      ],
+      "soft_hub_groups": [
+        "humidifier_hub"
+      ],
+      "cross_ban_scenes": [],
+      "picks": [
+        {
+          "asin": "B0HLKW21NB",
+          "title": "VIVOSUN 4L Cool Mist Humidifier with Remote Control for Bedroom, Plants, Baby, Dry Skin",
+          "role": "Top pick",
+          "brand": "VIVOSUN",
+          "affiliate_link": "https://pboost.me/p5SNDE8aT?uid=fromsll",
+          "track_status": "ok",
+          "price": "$47.49",
+          "image": null
+        },
+        {
+          "asin": "B0GR9JX71D",
+          "title": "Levoit Humidifiers for Bedroom Large Room Home, 6.2L Cool Mist, 62H Runtime",
+          "role": "Upgrade",
+          "brand": "LEVOIT",
+          "affiliate_link": "https://pboost.me/P5WPd37Hd?uid=fromsll",
+          "track_status": "ok",
+          "price": "$69.99",
+          "image": null
+        },
+        {
+          "asin": "B09KT9ZK7Q",
+          "title": "Levoit Smart Cool Mist Top Fill Humidifiers for Bedroom with Sensor, 3L",
+          "role": "Best value",
+          "brand": "LEVOIT",
+          "affiliate_link": "https://pboost.me/W5QNh8SD?uid=fromsll",
+          "track_status": "ok",
+          "price": "$44.35",
+          "image": null
+        },
+        {
+          "asin": "B0C9HBKQ5D",
+          "title": "Levoit Humidifiers for Bedroom,Top-Fill Ultrasonic Cool Mist Humidifier",
+          "role": "Premium",
+          "brand": "LEVOIT",
+          "affiliate_link": "https://pboost.me/p5qf7j04C?uid=fromsll",
+          "track_status": "ok",
+          "price": "$39.99",
+          "image": null
+        },
+        {
+          "asin": "B0F5W9968Q",
+          "title": "Homvana Cool Mist Humidifiers for Bedroom, Baby, Large Room (1.5Lx2, White)",
+          "role": "Alternative",
+          "brand": "Homvana",
+          "affiliate_link": "https://pboost.me/Q5QODT34?uid=fromsll",
+          "track_status": "ok",
+          "price": "$39.99",
+          "image": null
+        },
+        {
+          "asin": "B0DKH7G5WM",
+          "title": "Homvana Cool Mist Humidifiers for Bedroom, Baby, Large Room (4L, White)",
+          "role": "Also consider",
+          "brand": "Homvana",
+          "affiliate_link": "https://pboost.me/q5UNOdS3?uid=fromsll",
+          "track_status": "ok",
+          "price": "$38.88",
+          "image": null
+        },
+        {
+          "asin": "B09LM1588Z",
+          "title": "Homvana Cool Mist Humidifiers for Bedroom, Baby, Large Room (3.6L, Grey)",
+          "role": "Editor pick",
+          "brand": "Homvana",
+          "affiliate_link": "https://pboost.me/D5QM80wJw?uid=fromsll",
+          "track_status": "ok",
+          "price": "$29.97",
+          "image": null
+        },
+        {
+          "asin": "B0DHGP2JQ8",
+          "title": "VIVOSUN AeroStream H05 1.32 Gal Smart WiFi Humidifier with Humidity Probe",
+          "role": "Budget",
+          "brand": "VIVOSUN",
+          "affiliate_link": "https://pboost.me/W5QOQ00k?uid=fromsll",
+          "track_status": "ok",
+          "price": "$59.99",
+          "image": null
+        },
+        {
+          "asin": "B0CB1F4ZG2",
+          "title": "Homvana Cool Mist Humidifiers for Bedroom, Baby, Large Room (1.5L, White)",
+          "role": "Runner-up",
+          "brand": "Homvana",
+          "affiliate_link": "https://pboost.me/L5UNcMgS5?uid=fromsll",
+          "track_status": "ok",
+          "price": "$21.50",
+          "image": null
+        },
+        {
+          "asin": "B0GPWP16GL",
+          "title": "Levoit Humidifiers for Bedroom 4.2L Top Fill for Large Room, NeoClassic 450",
+          "role": "Worth a look",
+          "brand": "LEVOIT",
+          "affiliate_link": "https://pboost.me/D5QNgvkig?uid=fromsll",
+          "track_status": "ok",
+          "price": "$42.49",
+          "image": null
+        }
+      ]
+    },
+    {
+      "n": 3,
+      "path": "/doormats/best-doormats-for-outdoors/",
+      "type": "07-best-of",
+      "parent": "/doormats/",
+      "published": false,
+      "robots": "noindex,follow",
+      "density": 10,
+      "density_target": 10,
+      "density_expected": 10,
+      "stub": false,
+      "fill_status": "filled",
+      "cta_status": "pb_fromsll",
+      "cta_rule": "PB fromsll only when a verified track exists; never invent hops; do not rebind to YP",
+      "reviews": "none — Top pick + Upgrade articles do not exist for this scene",
+      "ban_groups": [
+        "doormat_siblings"
+      ],
+      "soft_hub_groups": [
+        "doormat_hub"
+      ],
+      "cross_ban_scenes": [],
+      "picks": [
+        {
+          "asin": "B0CYGTNJHQ",
+          "title": "BEQHAUSE Door Mat Dirt Trapper Non Slip Entryway Rugs Absorbent Welcome Mat Low Profile Washable Front Door Mat for Dirty Paws,Entrance,Hallway, 20\" x 32\", Navy Blue | Non Slip Rugs For Entr",
+          "role": "Top pick",
+          "brand": "BEQHAUSE",
+          "affiliate_link": "https://pboost.me/D5SPtz3oZ?uid=fromsll",
+          "track_status": "ok",
+          "price": "$19.99",
+          "image": null
+        },
+        {
+          "asin": "B0G2PG8JC7",
+          "title": "BEQHAUSE Dirt Trapper Door Mat 36\" x 60\" Non-Slip Washable, Blue | Doormats Welcome Mat, Trap Dirt and Absorbent Entryway Rugs, Low Profile Floor Mats for Front Back Door, Entrance, Wet Shoe",
+          "role": "Upgrade",
+          "brand": "BEQHAUSE",
+          "affiliate_link": "https://pboost.me/T5SP1ftpv?uid=fromsll",
+          "track_status": "ok",
+          "price": "$59.99",
+          "image": null
+        },
+        {
+          "asin": "B0DX1JMB2M",
+          "title": "BEQHAUSE Door Mats 36\" x 60\", Dirt Trapper Doormats, Green | Non-slip Washable Entryway Rugs Indoor, Super Absorbent Welcome Mat for Front Door, Mud Shoes & Paws",
+          "role": "Best value",
+          "brand": "BEQHAUSE",
+          "affiliate_link": "https://pboost.me/k5SP34q9?uid=fromsll",
+          "track_status": "ok",
+          "price": "$59.99",
+          "image": null
+        },
+        {
+          "asin": "B0FLTYJSS5",
+          "title": "JSEI Dirt Trapper Door Mat 24\"x36\", Non-Slip Entryway Rugs Doormat Indoor, Washable Absorbent and Stain Resist Welcome Floor Mat for Front Door, Dog Door Mat, Muddy Wet Shoes & Paws, Beige",
+          "role": "Premium",
+          "brand": "JSEI",
+          "affiliate_link": "https://pboost.me/P5WT71ZOt?uid=fromsll",
+          "track_status": "ok",
+          "price": "$34.99",
+          "image": null
+        },
+        {
+          "asin": "B0GXV6PXWC",
+          "title": "JSEI Door Mat for Entrance 36\"x60\", Dirt Trapper Doormat, Light Brown",
+          "role": "Alternative",
+          "brand": "JSEI",
+          "affiliate_link": "https://pboost.me/h5SPcevhg?uid=fromsll",
+          "track_status": "ok",
+          "price": "$59.99",
+          "image": null
+        },
+        {
+          "asin": "B0GXTYCG8H",
+          "title": "JSEI Door Mat for Entrance 36\"x60\", Dirt Trapper Doormat, Beige",
+          "role": "Also consider",
+          "brand": "JSEI",
+          "affiliate_link": "https://pboost.me/h5SPZYDja?uid=fromsll",
+          "track_status": "ok",
+          "price": "$59.99",
+          "image": null
+        },
+        {
+          "asin": "B0DSCSWPGH",
+          "title": "BEQHAUSE Door Mats 36\" x 60\", Dirt Trapper Doormats, Black | Non-slip Washable Entryway Rugs Indoor, Super Absorbent Welcome Mat for Front Door, Mud Shoes & Paws",
+          "role": "Editor pick",
+          "brand": "BEQHAUSE",
+          "affiliate_link": "https://pboost.me/C5SPOcpa?uid=fromsll",
+          "track_status": "ok",
+          "price": "$40.60",
+          "image": null
+        },
+        {
+          "asin": "B0CYGJBP14",
+          "title": "BEQHAUSE Dirt Trapper Door Mat 24\" x 36\" Non-Slip Washable, Grey | Doormats Welcome Mat, Trap Dirt and Absorbent Entryway Rugs, Low Profile Floor Mats for Front Back Door, Entrance, Wet Shoe",
+          "role": "Budget",
+          "brand": "BEQHAUSE",
+          "affiliate_link": "https://pboost.me/y5SPX3oc?uid=fromsll",
+          "track_status": "ok",
+          "price": "$37.99",
+          "image": null
+        },
+        {
+          "asin": "B0CYGGLFZM",
+          "title": "BEQHAUSE Dirt Trapper Door Mat 32\" x 48\" Non-Slip Washable, Blue | Doormats Welcome Mat, Trap Dirt and Absorbent Entryway Rugs, Low Profile Floor Mats for Front Back Door, Entrance, Wet Shoe",
+          "role": "Runner-up",
+          "brand": "BEQHAUSE",
+          "affiliate_link": "https://pboost.me/N5SP5h1pC?uid=fromsll",
+          "track_status": "ok",
+          "price": "$29.99",
+          "image": null
+        },
+        {
+          "asin": "B0CYGWRPPX",
+          "title": "BEQHAUSE Dirt Trapper Door Mat 24\" x 36\" Non-Slip Washable, Blue | Doormats Welcome Mat, Trap Dirt and Absorbent Entryway Rugs, Low Profile Floor Mats for Front Back Door, Entrance, Wet Shoe",
+          "role": "Worth a look",
+          "brand": "BEQHAUSE",
+          "affiliate_link": "https://pboost.me/d5SPgvaok?uid=fromsll",
+          "track_status": "ok",
+          "price": "$21.59",
+          "image": null
+        }
+      ]
+    },
+    {
+      "n": 4,
+      "path": "/noise-cancelling-headphones/best-noise-cancelling-headphones-for-work/",
+      "type": "07-best-of",
+      "parent": "/noise-cancelling-headphones/",
+      "published": false,
+      "robots": "noindex,follow",
+      "density": 10,
+      "density_target": 10,
+      "density_expected": 10,
+      "stub": false,
+      "fill_status": "filled",
+      "cta_status": "pb_fromsll",
+      "cta_rule": "PB fromsll only when a verified track exists; never invent hops; do not rebind to YP",
+      "reviews": "none — Top pick + Upgrade articles do not exist for this scene",
+      "ban_groups": [
+        "nc_siblings"
+      ],
+      "soft_hub_groups": [
+        "nc_hub"
+      ],
+      "cross_ban_scenes": [],
+      "picks": [
+        {
+          "asin": "B0D1QR8NL8",
+          "title": "Soundcore Anker Life Q20 Hybrid Active Noise Cancelling Headphones, Wireless Over Ear Bluetooth Headphones, 60H Playtime, Hi-Res Audio, Deep Bass, Foam Ear Cups, Travel, Office, USB-C Chargi",
+          "role": "Top pick",
+          "brand": "Nebula",
+          "affiliate_link": "https://pboost.me/F5QN2U6mz?uid=fromsll",
+          "track_status": "ok",
+          "price": "$39.99",
+          "image": null
+        },
+        {
+          "asin": "B0DCZ4JSNK",
+          "title": "Edifier W800BT Pro Hybrid Active Noise Cancelling Headphones - Hi-Res Audio - AI Call Noise Cancellation - 45H Playtime - Fast Charging - Foldable - Wireless Over-Ear Bluetooth 5.4 Headphone",
+          "role": "Upgrade",
+          "brand": "EDIFIER",
+          "affiliate_link": "https://pboost.me/O5UO5gV9?uid=fromsll",
+          "track_status": "ok",
+          "price": "$49.99",
+          "image": null
+        },
+        {
+          "asin": "B0F2HF8FHG",
+          "title": "Edifier W80 Over Ear Headphones with -49dB Active Noise Cancelling, Ivory",
+          "role": "Best value",
+          "brand": "EDIFIER",
+          "affiliate_link": "https://pboost.me/Z5yRz9g28?uid=fromsll",
+          "track_status": "ok",
+          "price": "$49.99",
+          "image": null
+        },
+        {
+          "asin": "B0DR7NJMWV",
+          "title": "Edifier W80 Over Ear Headphones with -49dB Active Noise Cancelling, Ivory",
+          "role": "Premium",
+          "brand": "EDIFIER",
+          "affiliate_link": "https://pboost.me/c5UOp7Vk?uid=fromsll",
+          "track_status": "ok",
+          "price": "$49.99",
+          "image": null
+        },
+        {
+          "asin": "B0DKW75VC5",
+          "title": "Soundcore by Anker Q30 Hybrid Active Noise Cancelling Headphones, White",
+          "role": "Alternative",
+          "brand": "Nebula",
+          "affiliate_link": "https://pboost.me/N5QktqdKt?uid=fromsll",
+          "track_status": "ok",
+          "price": "$71.99",
+          "image": null
+        },
+        {
+          "asin": "B08Q8C3LHT",
+          "title": "soundcore Life Q30 by Anker, Hybrid Active Noise Cancelling Headphones with Multiple Modes, Hi-Res Sound, Custom EQ via App, 50H Playtime, Comfortable Fit, Bluetooth, Multipoint Connection",
+          "role": "Also consider",
+          "brand": "Nebula",
+          "affiliate_link": "https://pboost.me/r5Qkdo0KT?uid=fromsll",
+          "track_status": "ok",
+          "price": "$71.99",
+          "image": null
+        },
+        {
+          "asin": "B0D41KBMFY",
+          "title": "Edifier W800BT Pro Hybrid Active Noise Cancelling Over Ear Headphone, Gray",
+          "role": "Editor pick",
+          "brand": "EDIFIER",
+          "affiliate_link": "https://pboost.me/i5QkydK4?uid=fromsll",
+          "track_status": "ok",
+          "price": "$49.99",
+          "image": null
+        },
+        {
+          "asin": "B0D41KDQ7J",
+          "title": "Edifier W800BT Pro Hybrid Active Noise Cancelling Over Ear Headphone, Ivory",
+          "role": "Budget",
+          "brand": "EDIFIER",
+          "affiliate_link": "https://pboost.me/V5QkZGzKd?uid=fromsll",
+          "track_status": "ok",
+          "price": "$49.99",
+          "image": null
+        },
+        {
+          "asin": "B0F9DR3ZPG",
+          "title": "Edifier WH950NB Gen 2 8-Level Active Noise Cancelling Headphones, Black",
+          "role": "Runner-up",
+          "brand": "EDIFIER",
+          "affiliate_link": "https://pboost.me/V5Qk6pkKt?uid=fromsll",
+          "track_status": "ok",
+          "price": "$149.99",
+          "image": null
+        },
+        {
+          "asin": "B08Q89DN6V",
+          "title": "Soundcore by Anker Q30 Hybrid Active Noise Cancelling Headphones, Blue",
+          "role": "Worth a look",
+          "brand": "Nebula",
+          "affiliate_link": "https://pboost.me/N5QkCDdKC?uid=fromsll",
+          "track_status": "ok",
+          "price": "$71.99",
+          "image": null
+        }
+      ]
+    },
+    {
+      "n": 5,
+      "path": "/bluetooth-speakers/best-bluetooth-speakers-for-shower/",
+      "type": "07-best-of",
+      "parent": "/bluetooth-speakers/",
+      "published": false,
+      "robots": "noindex,follow",
+      "density": 10,
+      "density_target": 10,
+      "density_expected": 10,
+      "stub": false,
+      "fill_status": "filled",
+      "cta_status": "pb_fromsll",
+      "cta_rule": "PB fromsll only when a verified track exists; never invent hops; do not rebind to YP",
+      "reviews": "none — Top pick + Upgrade articles do not exist for this scene",
+      "ban_groups": [
+        "bt_siblings"
+      ],
+      "soft_hub_groups": [
+        "bt_hub"
+      ],
+      "cross_ban_scenes": [],
+      "picks": [
+        {
+          "asin": "B07XDJVJKY",
+          "title": "INSMY C12 IP67 Waterproof Shower Bluetooth Speakers Portable Small Speaker",
+          "role": "Top pick",
+          "brand": "INSMY",
+          "affiliate_link": "https://pboost.me/r5WT2q4N6?uid=fromsll",
+          "track_status": "ok",
+          "price": "$27.99",
+          "image": null
+        },
+        {
+          "asin": "B07KRK3FZ9",
+          "title": "INSMY C12 IP67 Waterproof Shower Bluetooth Speakers Portable Small Speaker",
+          "role": "Upgrade",
+          "brand": "INSMY",
+          "affiliate_link": "https://pboost.me/c5QNBdOv?uid=fromsll",
+          "track_status": "ok",
+          "price": "$26.99",
+          "image": null
+        },
+        {
+          "asin": "B08BYPGVY6",
+          "title": "INSMY C12 IP67 Waterproof Shower Bluetooth Speakers Portable Small Speaker",
+          "role": "Best value",
+          "brand": "INSMY",
+          "affiliate_link": "https://pboost.me/z5WTwyZN8?uid=fromsll",
+          "track_status": "ok",
+          "price": "$26.99",
+          "image": null
+        },
+        {
+          "asin": "B08L7XK2FL",
+          "title": "comiso Portable Bluetooth Speaker, Small Shower Speaker with IPX5 Waterproof, 360° HD Loud Sound, Wireless Stereo Pairing, Mini Speakers Support TF Card, Built-in Mic, Pocket Size for Travel",
+          "role": "Premium",
+          "brand": "COMISO",
+          "affiliate_link": "https://pboost.me/y5WTKaNt?uid=fromsll",
+          "track_status": "ok",
+          "price": "$16.97",
+          "image": null
+        },
+        {
+          "asin": "B0C2YB62ZQ",
+          "title": "comiso Shower Bluetooth Speaker, IPX7 Waterproof Speaker with LED Light",
+          "role": "Alternative",
+          "brand": "COMISO",
+          "affiliate_link": "https://pboost.me/j5WTvNTNz?uid=fromsll",
+          "track_status": "ok",
+          "price": "$21.99",
+          "image": null
+        },
+        {
+          "asin": "B0C2XYD3PS",
+          "title": "comiso Shower Bluetooth Speaker, IPX7 Waterproof Speaker with LED Light",
+          "role": "Also consider",
+          "brand": "COMISO",
+          "affiliate_link": "https://pboost.me/z5WTgFwNz?uid=fromsll",
+          "track_status": "ok",
+          "price": "$21.99",
+          "image": null
+        },
+        {
+          "asin": "B0BXCHDSTF",
+          "title": "Edifier MP100 Plus Portable Bluetooth Speaker, Lightweight Travel Speaker with IPX7 Waterproof, Bluetooth 5.3, Clear Microphone, USB-C, Wireless Speaker for Outdoor Party Beach Camping - For",
+          "role": "Editor pick",
+          "brand": "EDIFIER",
+          "affiliate_link": "https://pboost.me/p5UOgqcVv?uid=fromsll",
+          "track_status": "ok",
+          "price": "$49.99",
+          "image": null
+        },
+        {
+          "asin": "B0HJSW1G3J",
+          "title": "BassBloom ROAR 3 Portable Bluetooth Speaker,IPX6 Waterproof,20W",
+          "role": "Budget",
+          "brand": "BassBloom",
+          "affiliate_link": "https://pboost.me/j5QN5IaZg?uid=fromsll",
+          "track_status": "ok",
+          "price": "$17.99",
+          "image": null
+        },
+        {
+          "asin": "B0DHFZW4CV",
+          "title": "Soundcore Select 4 Go Bluetooth Shower Speaker by Anker, IP67",
+          "role": "Runner-up",
+          "brand": "Nebula",
+          "affiliate_link": "https://pboost.me/x5QODcCta?uid=fromsll",
+          "track_status": "ok",
+          "price": "$25.99",
+          "image": null
+        },
+        {
+          "asin": "B0DB1B7WG6",
+          "title": "Soundcore Select 4 Go Bluetooth Shower Speaker by Anker, IP67",
+          "role": "Worth a look",
+          "brand": "Nebula",
+          "affiliate_link": "https://pboost.me/E5QOBg17?uid=fromsll",
+          "track_status": "ok",
+          "price": "$23.99",
+          "image": null
+        }
+      ]
+    },
+    {
+      "n": 6,
+      "path": "/office-chairs/best-office-chairs-under-200/",
+      "type": "07-best-of",
+      "parent": "/office-chairs/",
+      "published": false,
+      "robots": "noindex,follow",
+      "density": 10,
+      "density_target": 10,
+      "density_expected": 10,
+      "stub": false,
+      "fill_status": "filled",
+      "cta_status": "pb_fromsll",
+      "cta_rule": "PB fromsll only when a verified track exists; never invent hops; do not rebind to YP",
+      "reviews": "none — Top pick + Upgrade articles do not exist for this scene",
+      "ban_groups": [
+        "chair_siblings"
+      ],
+      "soft_hub_groups": [
+        "chair_hub"
+      ],
+      "cross_ban_scenes": [],
+      "picks": [
+        {
+          "asin": "B0H5QT1HC5",
+          "title": "FelixKing Office Chair, Ergonomic Desk Chair Breathable Mesh Chairs Adjustable High Back Lumbar Support Flip-up Armrests, Executive Rolling Swivel Comfy Computer Chairs Home Office Yellow",
+          "role": "Top pick",
+          "brand": "FelixKing",
+          "affiliate_link": "https://pboost.me/x5UfZxEj3?uid=fromsll",
+          "track_status": "ok",
+          "price": "$149.99",
+          "image": null
+        },
+        {
+          "asin": "B0G4VSV2TF",
+          "title": "FelixKing Office Chair, Ergonomic Desk Chair Breathable Mesh Chairs Adjustable High Back Lumbar Support Flip-up Armrests, Executive Rolling Swivel Comfy Computer Chairs Home Office Blue",
+          "role": "Upgrade",
+          "brand": "FelixKing",
+          "affiliate_link": "https://pboost.me/r5UP19502?uid=fromsll",
+          "track_status": "ok",
+          "price": "$149.99",
+          "image": null
+        },
+        {
+          "asin": "B0GD7J3P3C",
+          "title": "FelixKing Office Chair, Desk Chair with Adjustable Lumbar Support, Ergonomic Computer Chair with High Back and Armrest, Adjustable Height Gaming Chair Home Office Swivel Chair, Pack of 2, Bl",
+          "role": "Best value",
+          "brand": "FelixKing",
+          "affiliate_link": "https://pboost.me/V5UP80E08?uid=fromsll",
+          "track_status": "ok",
+          "price": "$188.99",
+          "image": null
+        },
+        {
+          "asin": "B0B41TGY8P",
+          "title": "Office Chair Ergonomic Desk Chair with Flip up Armrests Swivel Breathable Desk Mesh Computer Chair with Adjustable Lumbar Support and Height for Conference Room (Dark Gray)",
+          "role": "Premium",
+          "brand": "Primy",
+          "affiliate_link": "https://pboost.me/Y5UPK9v5?uid=fromsll",
+          "track_status": "ok",
+          "price": "$106.00",
+          "image": null
+        },
+        {
+          "asin": "B0B41TVP2Z",
+          "title": "Office Chair Ergonomic Desk Chair with Flip up Armrests Swivel Breathable Desk Mesh Computer Chair with Adjustable Lumbar Support and Height for Conference Room (Pink)",
+          "role": "Alternative",
+          "brand": "Primy",
+          "affiliate_link": "https://pboost.me/s5UPA3vg?uid=fromsll",
+          "track_status": "ok",
+          "price": "$106.00",
+          "image": null
+        },
+        {
+          "asin": "B0B41W3455",
+          "title": "Office Chair Ergonomic Desk Chair with Flip up Armrests Swivel Breathable Desk Mesh Computer Chair with Adjustable Lumbar Support and Height for Conference Room (Black)",
+          "role": "Also consider",
+          "brand": "Primy",
+          "affiliate_link": "https://pboost.me/L5QOt2d33?uid=fromsll",
+          "track_status": "ok",
+          "price": "$106.00",
+          "image": null
+        },
+        {
+          "asin": "B0H142B4XM",
+          "title": "Leather Office Chair with Flip Up Arms, 360° Swivel Ergonomic Desk Chair with Rocking Function, Adjustable Height Computer Chair with Padded Seat for Home Office, Study Room, Brown",
+          "role": "Editor pick",
+          "brand": "Brick Attic",
+          "affiliate_link": "https://pboost.me/j5UTcW56z?uid=fromsll",
+          "track_status": "ok",
+          "price": "$119.99",
+          "image": null
+        },
+        {
+          "asin": "B0H13XHXCH",
+          "title": "Leather Office Chair with Flip Up Arms, 360° Swivel Ergonomic Desk Chair with Rocking Function, Adjustable Height Computer Chair with Padded Seat for Home Office, Study Room, Gray",
+          "role": "Budget",
+          "brand": "Brick Attic",
+          "affiliate_link": "https://pboost.me/z5UTvxc60?uid=fromsll",
+          "track_status": "ok",
+          "price": "$119.99",
+          "image": null
+        },
+        {
+          "asin": "B0H13TVRS5",
+          "title": "Leather Office Chair with Flip Up Arms, 360° Swivel Ergonomic Desk Chair with Rocking Function, Adjustable Height Computer Chair with Padded Seat for Home Office, Study Room, Black",
+          "role": "Runner-up",
+          "brand": "Brick Attic",
+          "affiliate_link": "https://pboost.me/v5UTcBv72?uid=fromsll",
+          "track_status": "ok",
+          "price": "$119.99",
+          "image": null
+        },
+        {
+          "asin": "B0F91VGV23",
+          "title": "amseatec Mesh Office Chair, Ergonomic Home Office Chair with Flip-Up Arms",
+          "role": "Worth a look",
+          "brand": "AMSEATEC",
+          "affiliate_link": "https://pboost.me/d5UTcIZ9T?uid=fromsll",
+          "track_status": "ok",
+          "price": "$62.99",
+          "image": null
+        }
+      ]
+    }
+  ],
+  "notes": [
+    "No invented ASINs, prices, was/%, gallery, or Check price hops.",
+    "Parent hubs already exist. Not recreated. Soft densify = hub ASINs allowed; sibling bans hold.",
+    "published=false / noindex until a later 部署上线 order.",
+    "Independent of Shortlist Lab.",
+    "Litter large-cats skipped (SHORTFALL n=1).",
+    "Did not flip #58 P6a or #60 P6b published=true.",
+    "Did not flip day-add published=true.",
+    "OUT: tinnitus · mattress hang · red-light masks · robot-mop · TV blocked.",
+    "JSEI doormat brand_gate risk reported, not hard-fail.",
+    "Comparison / reviews stubs already exist. Stamps not rolled back."
+  ]
+}

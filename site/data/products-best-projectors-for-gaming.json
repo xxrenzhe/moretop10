@@ -1,0 +1,63 @@
+{
+  "path": "/projectors/best-projectors-for-gaming/",
+  "published": false,
+  "fill_status": "filled",
+  "waiting_for_部署上线": true,
+  "stub": false,
+  "products": [
+    {
+      "asin": "B0HFQPY1FW",
+      "title": "HAPPRUN 2000 ANSI Outdoor 4K Decoding Full HD Smart Projector with Whale TV",
+      "role": "Top pick",
+      "brand": "HAPPRUN",
+      "track_url": "https://pboost.me/E5URda39?uid=fromsll",
+      "price": "299.97",
+      "price_str": "$299.97"
+    },
+    {
+      "asin": "B0FDGLZKKM",
+      "title": "Aurzen Roku TV D1R Cube 1080P FHD Smart Projector, Sealed Optical Engine",
+      "role": "Upgrade",
+      "brand": "Aurzen",
+      "track_url": "https://pboost.me/l5QN4W2Jz?uid=fromsll",
+      "price": "169.98",
+      "price_str": "$169.98"
+    },
+    {
+      "asin": "B0G91DDGWR",
+      "title": "Aurzen EAZZE D1 air Smart Portable Projector, USB-C Powered, Native 1080P",
+      "role": "Best value",
+      "brand": "Aurzen",
+      "track_url": "https://pboost.me/u5QNlEEc?uid=fromsll",
+      "price": "129.99",
+      "price_str": "$129.99"
+    },
+    {
+      "asin": "B0FDQFZ6HM",
+      "title": "HAPPRUN 1500 ANSI Official Licensed Google TV Outdoor 4K Full HD Projector",
+      "role": "Premium",
+      "brand": "HAPPRUN",
+      "track_url": "https://pboost.me/e5QNHdLC?uid=fromsll",
+      "price": "250.7",
+      "price_str": "$250.70"
+    },
+    {
+      "asin": "B0F7XFRHC2",
+      "title": "HAPPRUN 3000 ANSI Official Licensed Google TV Outdoor 4K Full HD Projector",
+      "role": "Alternative",
+      "brand": "HAPPRUN",
+      "track_url": "https://pboost.me/B5URcc93Z?uid=fromsll",
+      "price": "199.96",
+      "price_str": "$199.96"
+    },
+    {
+      "asin": "B0FDQFD1R7",
+      "title": "HAPPRUN 1500 ANSI Smart Outdoor Projector, Built-in Apps, 30W Dolby Audio",
+      "role": "Also consider",
+      "brand": "HAPPRUN",
+      "track_url": "https://pboost.me/y5QOKEoT?uid=fromsll",
+      "price": "159.96",
+      "price_str": "$159.96"
+    }
+  ]
+}
