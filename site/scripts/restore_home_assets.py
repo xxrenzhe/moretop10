@@ -342,6 +342,9 @@ def write_company_page(rel: str, title: str, desc: str, body: str, extra_class: 
 
 
 def restore_company_pages() -> None:
+    from stamp_guard import catalog_page_floor
+
+    floor = catalog_page_floor()
     disclosure = (
         "<p>MoreTop10 is an affiliate comparison site. When you click Check price and buy, "
         "we may earn a commission at no extra cost to you. We are not the seller. "
@@ -350,7 +353,7 @@ def restore_company_pages() -> None:
     write_company_page(
         "privacy-policy",
         "Privacy Policy",
-        "Last updated 2026-10-23. How MoreTop10 handles visitor data on this comparison site.",
+        f"Last updated {floor}. How MoreTop10 handles visitor data on this comparison site.",
         f"""
 <p>This page restates the privacy practices already disclosed on <a href="../about-us/">About Us</a> and in the site footer. It is not a ConsumerVoice.org policy.</p>
 <h2>Who we are</h2>
@@ -379,9 +382,9 @@ def restore_company_pages() -> None:
     write_company_page(
         "terms-of-use",
         "Terms of Use",
-        "Last updated 2026-10-23. Ground rules for using MoreTop10 comparison pages.",
+        f"Last updated {floor}. Ground rules for using MoreTop10 comparison pages.",
         f"""
-<p>These terms restate how the site already works. We are an independent comparison brand — not affiliated with Top10.com or Natural Intelligence Ltd.</p>
+<p>These terms restate how the site already works. We are an independent comparison brand.</p>
 <h2>The service</h2>
 <p>MoreTop10 publishes ranked shortlists and reviews. We do not sell the products. Prices are publish-time snapshots. Always confirm tax, shipping, stock, and returns on the retailer page.</p>
 <h2>Affiliate links</h2>
@@ -405,17 +408,17 @@ def restore_company_pages() -> None:
 <p>See also the <a href="../privacy-policy/">Privacy Policy</a>.</p>
 {disclosure}
 """
-    write_company_page("cookie", "Cookie Policy", "Last updated 2026-10-23. Cookies used on moretop10.com.", cookie_body)
+    write_company_page("cookie", "Cookie Policy", f"Last updated {floor}. Cookies used on moretop10.com.", cookie_body)
     write_company_page(
         "cookie-policy",
         "Cookie Policy",
-        "Last updated 2026-10-23. Cookies used on moretop10.com.",
+        f"Last updated {floor}. Cookies used on moretop10.com.",
         cookie_body,
     )
     write_company_page(
         "contact",
         "Contact",
-        "Last updated 2026-10-23. How to reach the MoreTop10 editors.",
+        f"Last updated {floor}. How to reach the MoreTop10 editors.",
         """
 <p>Use these addresses from <a href="../about-us/">About Us</a>. We do not take product orders.</p>
 <ul>
@@ -431,7 +434,7 @@ def restore_company_pages() -> None:
     write_company_page(
         "partner-with-us",
         "Partner With Us",
-        "Last updated 2026-10-23. Talk to MoreTop10 about category coverage or affiliate placements.",
+        f"Last updated {floor}. Talk to MoreTop10 about category coverage or affiliate placements.",
         """
 <div class="partner-props">
   <div class="partner-prop">

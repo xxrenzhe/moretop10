@@ -28,7 +28,9 @@ if str(SCRIPTS) not in sys.path:
 from seo_geo import apply_hub_page, dumps_ld  # noqa: E402
 from site_config import load_site_config  # noqa: E402
 
-DATE = "2026-10-23"
+from stamp_guard import bake_stamp_date  # noqa: E402
+
+DATE = bake_stamp_date("2026-10-23")
 DRAFT_COMMENT = (
     "<!-- waiting_for_部署上线: yes. P1a deep reviews draft only. "
     "Do not merge. Do not Cloudflare Live deploy. -->"
@@ -927,6 +929,8 @@ def patch_head(html: str, review: dict[str, Any]) -> str:
     html = _UPDATED_RE.sub(rf"\g<1>{DATE}\2", html, count=1)
     html = html.replace(f'"dateModified":"2026-10-20"', f'"dateModified":"{DATE}"')
     html = html.replace(f'"dateModified":"2026-10-18"', f'"dateModified":"{DATE}"')
+    html = html.replace("checked 2026-10-20", f"checked {DATE}")
+    html = html.replace("checked 2026-10-18", f"checked {DATE}")
     faq_script = f'<script type="application/ld+json">{faq_ld(review["faqs"])}</script>'
     if _FAQ_LD_RE.search(html):
         html = _FAQ_LD_RE.sub(faq_script, html, count=1)

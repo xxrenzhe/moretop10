@@ -109,7 +109,7 @@ Until that file exists, treat this document as the review checklist.
 | | |
 | --- | --- |
 | **Role** | Orient a first-time visitor. Answer “what is this site / who is it for / where do I start” without affiliate or ranking jargon. |
-| **Include** | What MoreTop10 is (comparison + reviews, not a store). Which kinds of home products we cover. How to start (pick a category → landing or comparison). Brand identity: we are not Top10.com / Natural Intelligence. |
+| **Include** | What MoreTop10 is (comparison + reviews, not a store). Which kinds of home products we cover. How to start (pick a category → landing or comparison). Brand identity: we are an independent comparison brand. |
 | **Exclude** | How we rank, score formula, how many products, commission, “are prices live?”, completeness / publishable language. |
 | **Count band** | 3–5 |
 | **Optional / omit** | Required. Current Live home FAQ is mostly forbidden ops copy and must be rewritten to this role. |
@@ -118,7 +118,6 @@ Example themes (not required verbatim):
 
 - “Do you sell the products on MoreTop10?” → No; Check price opens a retailer. (No commission paragraph.)
 - “Which categories can I compare here?”
-- “Are you related to Top10.com?”
 
 ---
 

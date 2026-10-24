@@ -18,6 +18,8 @@ from typing import Iterable
 
 ISO_DATE_RE = re.compile(r"^\d{4}-\d{2}-\d{2}$")
 ISO_DATE = r"(\d{4}-\d{2}-\d{2})"
+FLEET_FLOOR_NAME = "comparison-stamp-floors.json"
+ROBOT_FLOOR_NAME = "robot-vacuums-comparison-stamp-floor.json"
 CARD_RE = re.compile(
     r'<article class="product-card"[^>]*data-asin="([^"]+)"[^>]*>.*?</article>',
     re.S,
@@ -40,11 +42,33 @@ PAGE_STAMP_RES: tuple[tuple[str, re.Pattern[str]], ...] = (
 PAGE_REWRITE_RES: tuple[re.Pattern[str], ...] = (
     re.compile(r"(Last Updated:\s*)(\d{4}-\d{2}-\d{2})", re.I),
     re.compile(r"(Last updated\s+)(\d{4}-\d{2}-\d{2})"),
-    re.compile(r"(As of\s+)(\d{4}-\d{2}-\d{2})"),
+    re.compile(r"(As of\s+)(\d{4}-\d{2}-\d{2})", re.I),
     re.compile(r'("dateModified":\s*")(\d{4}-\d{2}-\d{2})(")'),
     re.compile(r"(last checked\s+)(\d{4}-\d{2}-\d{2})"),
     re.compile(r"(checked as of\s+)(\d{4}-\d{2}-\d{2})"),
     re.compile(r"(publish-time snapshot\s*\()(\d{4}-\d{2}-\d{2})(\))"),
+)
+
+# Sitewide visitor stamps, including comparison cards and hub extras.
+# Anti-rollback: later_iso_date never writes a day earlier than current.
+VISITOR_STAMP_REWRITE_RES: tuple[re.Pattern[str], ...] = PAGE_REWRITE_RES + (
+    re.compile(r"(Last Updated\s+)(\d{4}-\d{2}-\d{2})"),
+    re.compile(r"(Last verified\s+)(\d{4}-\d{2}-\d{2})", re.I),
+    re.compile(r"(<lastmod>)(\d{4}-\d{2}-\d{2})(</lastmod>)"),
+    re.compile(r"(<lastmod>)(\d{4}-\d{2}-\d{2})(T[^<]*</lastmod>)"),
+    re.compile(r"(Checked\s+)(\d{4}-\d{2}-\d{2})"),
+    re.compile(r"(· checked\s+)(\d{4}-\d{2}-\d{2})", re.I),
+    re.compile(r"(price checked\s+)(\d{4}-\d{2}-\d{2})", re.I),
+    re.compile(r"(?<![A-Za-z])(checked\s+)(\d{4}-\d{2}-\d{2})", re.I),
+    re.compile(r'(<span class="ed-pick-date">)(\d{4}-\d{2}-\d{2})(</span>)'),
+)
+
+VISITOR_STAMP_FIND_RE = re.compile(
+    r'(?:Last Updated:?|Last updated:?|As of|last checked|checked as of|'
+    r'Checked|· checked|Last verified|dateModified"|<lastmod>|'
+    r'publish-time snapshot\s*\(|ed-pick-date">)'
+    r"\s*:?\s*(\d{4}-\d{2}-\d{2})",
+    re.I,
 )
 
 
@@ -83,6 +107,42 @@ def extract_card_checked(html: str) -> dict[str, str]:
         kept = later_iso_date(out.get(asin), cm.group(2))
         if kept:
             out[asin] = kept
+    return out
+
+
+def catalog_page_floor(data_dir=None) -> str:
+    """Catalog SoT page_floor from comparison-stamp-floors.json."""
+    data_dir = Path(data_dir) if data_dir else Path(__file__).resolve().parents[1] / "data"
+    path = data_dir / FLEET_FLOOR_NAME
+    if path.is_file():
+        fleet = json.loads(path.read_text(encoding="utf-8"))
+        floor = fleet.get("page_floor")
+        if floor and ISO_DATE_RE.fullmatch(floor):
+            return floor
+    return "2026-10-24"
+
+
+def bake_stamp_date(default: str | None = None) -> str:
+    """Day-update / bake date: max(script default, catalog page_floor)."""
+    return later_iso_date(default, catalog_page_floor()) or catalog_page_floor()
+
+
+def apply_visitor_stamp_floor(text: str, floor: str) -> str:
+    """Raise labeled visitor calendar stamps to floor. Never invent prices."""
+    if not floor or not ISO_DATE_RE.fullmatch(floor):
+        return text
+
+    def repl(m: re.Match[str]) -> str:
+        groups = m.groups()
+        prefix = groups[0]
+        current = groups[1]
+        suffix = groups[2] if len(groups) > 2 else ""
+        kept = later_iso_date(current, floor) or current
+        return f"{prefix}{kept}{suffix}"
+
+    out = text
+    for rx in VISITOR_STAMP_REWRITE_RES:
+        out = rx.sub(repl, out)
     return out
 
 
@@ -236,10 +296,6 @@ def iter_comparison_html(site_root, slugs: Iterable[str] | None = None):
     for path in paths:
         if path.is_file():
             yield path.relative_to(root).as_posix(), path.read_text(encoding="utf-8")
-
-
-FLEET_FLOOR_NAME = "comparison-stamp-floors.json"
-ROBOT_FLOOR_NAME = "robot-vacuums-comparison-stamp-floor.json"
 
 
 def load_comparison_floors(data_dir) -> dict[str, dict]:
