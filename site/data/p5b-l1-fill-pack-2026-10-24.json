@@ -1,0 +1,800 @@
+{
+  "generated_at": "2026-10-24T01:09:13.287575+08:00",
+  "timezone": "Asia/Shanghai",
+  "batch": "P5b",
+  "lock": "lock-p5b-rec",
+  "waiting_for_\u90e8\u7f72\u4e0a\u7ebf": true,
+  "merged": false,
+  "deployed": false,
+  "baked": false,
+  "published": false,
+  "scope": "L1 affiliate discovery only \u2014 fill pack for CloudAgent apply; do not merge / do not Cloudflare Live. Do not open PR from this executor.",
+  "tip_reference": "bf966921",
+  "tip_note": "Occupied ASINs from moretop10 tip worktree @ bf966921 (#53 live) + scenario-p5b-asin-pools + tip sleep/office shortlists. Soft parent densify (mattresses/pillows/office) is prefer-not-block.",
+  "cta_rules": {
+    "PB": "https://pboost.me/<code>?uid=fromsll",
+    "YP": "track_link as-is (no uid append)",
+    "retrieval": "PB \u222a YP"
+  },
+  "pb_token_env": "PARTNERBOOST_API_TOKEN",
+  "yp_token_env": "YP_TOKEN_MT10LAB",
+  "yp_sites_probed": [
+    "11767"
+  ],
+  "yp_note": "Probed YP site 11767 (YP_TOKEN_MT10LAB). Keyword calls timed out (read timeout) on firm mattress / hybrid / ergonomic office chair; 0 usable rows. Pack is honest PB-only (same stance as P5a). Live CTA remains PB ?uid=fromsll \u2014 do not rebind to YP.",
+  "collision_asins_checked": 326,
+  "occupied_asins_path": "/workspace/shared/mt10-p5b-occupied-asins-2026-10-24.json",
+  "lab_independent": true,
+  "out_of_scope": [
+    "best-pillows-for-back-sleepers",
+    "best-mattresses-for-heavy-people"
+  ],
+  "fake_asin_rejected": 0,
+  "accessories_policy": "mains only \u2014 reject toppers/protectors/lumbar pillows/seat cushions/filter-only/mounts",
+  "rejected_counts": {
+    "accessory": 257,
+    "collision": 76,
+    "fake_asin": 0,
+    "unhealthy": 73,
+    "price": 25,
+    "no_match": 5296,
+    "title_ban": 17,
+    "extra_ban": 0,
+    "require": 37,
+    "brand_gate": 10
+  },
+  "reject_samples": [
+    {
+      "reason": "accessory",
+      "asin": "B08YYVRXLM",
+      "slug": "best-pillows-for-stomach-sleepers",
+      "title": "Momcozy Pregnancy Pillow for Sleeping - U Shaped Full Body Maternity Pillow"
+    },
+    {
+      "reason": "accessory",
+      "asin": "B0D3D5LKG9",
+      "slug": "best-mattresses-for-back-pain",
+      "title": "BEDLORE Queen Mattress Topper, Thick Soft Pillow Top Bed Topper"
+    },
+    {
+      "reason": "accessory",
+      "asin": "B0C1NNYJGB",
+      "slug": "best-mattresses-for-back-pain",
+      "title": "BEDLORE Waterproof Mattress Protector, Queen Size Mattress Pad Noiseless"
+    },
+    {
+      "reason": "accessory",
+      "asin": "B0CYT5CHFT",
+      "slug": "best-mattresses-for-back-pain",
+      "title": "Momcozy S9/S12 Pro Replacement Accessories, Double-Sealed Flange 24mm, 1 PC"
+    },
+    {
+      "reason": "accessory",
+      "asin": "B0CYT5CHFT",
+      "slug": "best-office-chairs-for-long-hours",
+      "title": "Momcozy S9/S12 Pro Replacement Accessories, Double-Sealed Flange 24mm, 1 PC"
+    },
+    {
+      "reason": "accessory",
+      "asin": "B0CYT5CHFT",
+      "slug": "best-pillows-for-stomach-sleepers",
+      "title": "Momcozy S9/S12 Pro Replacement Accessories, Double-Sealed Flange 24mm, 1 PC"
+    },
+    {
+      "reason": "accessory",
+      "asin": "B0CYT5CHFT",
+      "slug": "best-tower-fans-for-bedroom",
+      "title": "Momcozy S9/S12 Pro Replacement Accessories, Double-Sealed Flange 24mm, 1 PC"
+    },
+    {
+      "reason": "accessory",
+      "asin": "B0CYT3N33C",
+      "slug": "best-mattresses-for-back-pain",
+      "title": "Momcozy S9/S12 Pro Replacement Accessories, Single-Sealed Flange 24mm, 1 PC"
+    },
+    {
+      "reason": "accessory",
+      "asin": "B0CYT3N33C",
+      "slug": "best-office-chairs-for-long-hours",
+      "title": "Momcozy S9/S12 Pro Replacement Accessories, Single-Sealed Flange 24mm, 1 PC"
+    },
+    {
+      "reason": "accessory",
+      "asin": "B0CYT3N33C",
+      "slug": "best-pillows-for-stomach-sleepers",
+      "title": "Momcozy S9/S12 Pro Replacement Accessories, Single-Sealed Flange 24mm, 1 PC"
+    },
+    {
+      "reason": "accessory",
+      "asin": "B0CYT3N33C",
+      "slug": "best-tower-fans-for-bedroom",
+      "title": "Momcozy S9/S12 Pro Replacement Accessories, Single-Sealed Flange 24mm, 1 PC"
+    },
+    {
+      "reason": "accessory",
+      "asin": "B0G13JTY5P",
+      "slug": "best-mattresses-for-back-pain",
+      "title": "Momcozy S9/S12 Pro Replacement, Duckbill Valves & Silicone Diaphragm, 1-PC"
+    },
+    {
+      "reason": "accessory",
+      "asin": "B0G13JTY5P",
+      "slug": "best-office-chairs-for-long-hours",
+      "title": "Momcozy S9/S12 Pro Replacement, Duckbill Valves & Silicone Diaphragm, 1-PC"
+    },
+    {
+      "reason": "accessory",
+      "asin": "B0G13JTY5P",
+      "slug": "best-pillows-for-stomach-sleepers",
+      "title": "Momcozy S9/S12 Pro Replacement, Duckbill Valves & Silicone Diaphragm, 1-PC"
+    },
+    {
+      "reason": "accessory",
+      "asin": "B0G13JTY5P",
+      "slug": "best-tower-fans-for-bedroom",
+      "title": "Momcozy S9/S12 Pro Replacement, Duckbill Valves & Silicone Diaphragm, 1-PC"
+    },
+    {
+      "reason": "accessory",
+      "asin": "B0CYT5FJ9Z",
+      "slug": "best-mattresses-for-back-pain",
+      "title": "Momcozy S9/S12 Pro Replacement Accessories, D-Full Set Collector 24mm, 1 PC"
+    },
+    {
+      "reason": "accessory",
+      "asin": "B0CYT5FJ9Z",
+      "slug": "best-office-chairs-for-long-hours",
+      "title": "Momcozy S9/S12 Pro Replacement Accessories, D-Full Set Collector 24mm, 1 PC"
+    },
+    {
+      "reason": "accessory",
+      "asin": "B0CYT5FJ9Z",
+      "slug": "best-pillows-for-stomach-sleepers",
+      "title": "Momcozy S9/S12 Pro Replacement Accessories, D-Full Set Collector 24mm, 1 PC"
+    },
+    {
+      "reason": "accessory",
+      "asin": "B0CYT5FJ9Z",
+      "slug": "best-tower-fans-for-bedroom",
+      "title": "Momcozy S9/S12 Pro Replacement Accessories, D-Full Set Collector 24mm, 1 PC"
+    },
+    {
+      "reason": "accessory",
+      "asin": "B0FDQRQXPX",
+      "slug": "best-mattresses-for-back-pain",
+      "title": "Momcozy M5 Original Replacement Accessories, Double-Sealed Flange 27mm 1PC"
+    },
+    {
+      "reason": "accessory",
+      "asin": "B0FDQRQXPX",
+      "slug": "best-office-chairs-for-long-hours",
+      "title": "Momcozy M5 Original Replacement Accessories, Double-Sealed Flange 27mm 1PC"
+    },
+    {
+      "reason": "accessory",
+      "asin": "B0FDQRQXPX",
+      "slug": "best-pillows-for-stomach-sleepers",
+      "title": "Momcozy M5 Original Replacement Accessories, Double-Sealed Flange 27mm 1PC"
+    },
+    {
+      "reason": "accessory",
+      "asin": "B0FDQRQXPX",
+      "slug": "best-tower-fans-for-bedroom",
+      "title": "Momcozy M5 Original Replacement Accessories, Double-Sealed Flange 27mm 1PC"
+    },
+    {
+      "reason": "accessory",
+      "asin": "B0D7PFWMR5",
+      "slug": "best-mattresses-for-back-pain",
+      "title": "Momcozy Baby Nail File Electric & Baby Nail Trimmer Replacement Pads"
+    },
+    {
+      "reason": "accessory",
+      "asin": "B0D7PFWMR5",
+      "slug": "best-office-chairs-for-long-hours",
+      "title": "Momcozy Baby Nail File Electric & Baby Nail Trimmer Replacement Pads"
+    },
+    {
+      "reason": "accessory",
+      "asin": "B0D7PFWMR5",
+      "slug": "best-pillows-for-stomach-sleepers",
+      "title": "Momcozy Baby Nail File Electric & Baby Nail Trimmer Replacement Pads"
+    },
+    {
+      "reason": "accessory",
+      "asin": "B0D7PFWMR5",
+      "slug": "best-tower-fans-for-bedroom",
+      "title": "Momcozy Baby Nail File Electric & Baby Nail Trimmer Replacement Pads"
+    },
+    {
+      "reason": "accessory",
+      "asin": "B0GFVG4NYD",
+      "slug": "best-mattresses-for-back-pain",
+      "title": "Momcozy Nursery Air Purifier & Official Air Purifier Replacement Filter"
+    },
+    {
+      "reason": "accessory",
+      "asin": "B0GFVG4NYD",
+      "slug": "best-office-chairs-for-long-hours",
+      "title": "Momcozy Nursery Air Purifier & Official Air Purifier Replacement Filter"
+    },
+    {
+      "reason": "accessory",
+      "asin": "B0GFVG4NYD",
+      "slug": "best-pillows-for-stomach-sleepers",
+      "title": "Momcozy Nursery Air Purifier & Official Air Purifier Replacement Filter"
+    },
+    {
+      "reason": "accessory",
+      "asin": "B0GFVG4NYD",
+      "slug": "best-tower-fans-for-bedroom",
+      "title": "Momcozy Nursery Air Purifier & Official Air Purifier Replacement Filter"
+    },
+    {
+      "reason": "accessory",
+      "asin": "B0H9Y2PSTM",
+      "slug": "best-mattresses-for-back-pain",
+      "title": "Momcozy M6 Original Replacement Accessories Milk Collector & 27mm Flange"
+    },
+    {
+      "reason": "accessory",
+      "asin": "B0H9Y2PSTM",
+      "slug": "best-office-chairs-for-long-hours",
+      "title": "Momcozy M6 Original Replacement Accessories Milk Collector & 27mm Flange"
+    },
+    {
+      "reason": "accessory",
+      "asin": "B0H9Y2PSTM",
+      "slug": "best-pillows-for-stomach-sleepers",
+      "title": "Momcozy M6 Original Replacement Accessories Milk Collector & 27mm Flange"
+    },
+    {
+      "reason": "accessory",
+      "asin": "B0H9Y2PSTM",
+      "slug": "best-tower-fans-for-bedroom",
+      "title": "Momcozy M6 Original Replacement Accessories Milk Collector & 27mm Flange"
+    },
+    {
+      "reason": "accessory",
+      "asin": "B0FCXYWSPG",
+      "slug": "best-mattresses-for-back-pain",
+      "title": "Momcozy M5| M6| M9 Original Replacement Accessories, Inserts 15mm, 4 Pack"
+    },
+    {
+      "reason": "accessory",
+      "asin": "B0FCXYWSPG",
+      "slug": "best-office-chairs-for-long-hours",
+      "title": "Momcozy M5| M6| M9 Original Replacement Accessories, Inserts 15mm, 4 Pack"
+    },
+    {
+      "reason": "accessory",
+      "asin": "B0FCXYWSPG",
+      "slug": "best-pillows-for-stomach-sleepers",
+      "title": "Momcozy M5| M6| M9 Original Replacement Accessories, Inserts 15mm, 4 Pack"
+    },
+    {
+      "reason": "accessory",
+      "asin": "B0FCXYWSPG",
+      "slug": "best-tower-fans-for-bedroom",
+      "title": "Momcozy M5| M6| M9 Original Replacement Accessories, Inserts 15mm, 4 Pack"
+    },
+    {
+      "reason": "accessory",
+      "asin": "B0H3V6XPPX",
+      "slug": "best-mattresses-for-back-pain",
+      "title": "Momcozy M6 Breast Pump Replacement Accessories Diaphragm-2pcs"
+    }
+  ],
+  "brand_gate_notes": {
+    "best-mattresses-for-back-pain": {
+      "fail": true,
+      "brands": [
+        "sweetnight"
+      ],
+      "would_have_picked": 10,
+      "reason": "Sweetnight-only / single-brand after honest PB\u222aYP \u2014 reject shortlist; do not pad fake brands"
+    }
+  },
+  "scenes": {
+    "best-mattresses-for-back-pain": {
+      "main": "mattresses",
+      "scene_slug": "best-mattresses-for-back-pain",
+      "path": "/mattresses/best-mattresses-for-back-pain/",
+      "keyword_intent": "best mattress for back pain",
+      "count": 0,
+      "density_reachable": false,
+      "density_target": 10,
+      "products": [],
+      "hub_exists": true,
+      "need_create_hub": false,
+      "pool_size": 33,
+      "pool_after_unique": 33,
+      "shortfall": true,
+      "brand_gate": {
+        "fail": true,
+        "brands": [
+          "sweetnight"
+        ],
+        "would_have_picked": 10,
+        "reason": "Sweetnight-only / single-brand after honest PB\u222aYP \u2014 reject shortlist; do not pad fake brands"
+      },
+      "published": false
+    },
+    "best-office-chairs-for-long-hours": {
+      "main": "office-chairs",
+      "scene_slug": "best-office-chairs-for-long-hours",
+      "path": "/office-chairs/best-office-chairs-for-long-hours/",
+      "keyword_intent": "best office chair for long hours",
+      "count": 10,
+      "density_reachable": true,
+      "density_target": 10,
+      "products": [
+        {
+          "asin": "B0FPWSRW2P",
+          "title": "FelixKing Office Desk Chairs, Ergonomic PC Desk Chair with Wheels, Adjustable Lumbar Support and Height, Swivel Computer Chair with Flip-up Armrests, Ergo Mesh Backrest for Working (Black, P",
+          "brand": "FelixKing",
+          "brand_id": "100211",
+          "track_url": "https://pboost.me/G5UOCaZw?uid=fromsll",
+          "network": "PB",
+          "price": 499.99,
+          "price_str": "$499.99",
+          "list_price": 569.99,
+          "availability": "IN_STOCK",
+          "role": "Top pick",
+          "tier": "2",
+          "notes": "score=27 src=brand_dig tier=2 brand=felixking",
+          "cta_uid": "fromsll",
+          "tag": "best office chair for long hours",
+          "scenario_score": 27,
+          "source": "brand_dig"
+        },
+        {
+          "asin": "B0FPWZ7DNG",
+          "title": "FelixKing Office Desk Chairs, Ergonomic PC Desk Chair with Wheels, Adjustable Lumbar Support and Height, Swivel Computer Chair with Flip-up Armrests, Ergo Mesh Backrest for Working (Black, P",
+          "brand": "FelixKing",
+          "brand_id": "100211",
+          "track_url": "https://pboost.me/T5UPE7z01?uid=fromsll",
+          "network": "PB",
+          "price": 314.99,
+          "price_str": "$314.99",
+          "list_price": 389.99,
+          "availability": "IN_STOCK",
+          "role": "Upgrade",
+          "tier": "2",
+          "notes": "score=27 src=brand_dig tier=2 brand=felixking",
+          "cta_uid": "fromsll",
+          "tag": "best office chair for long hours",
+          "scenario_score": 27,
+          "source": "brand_dig"
+        },
+        {
+          "asin": "B0FPWP2WXG",
+          "title": "FelixKing Office Desk Chairs, Ergonomic PC Desk Chair with Wheels, Adjustable Lumbar Support and Height, Swivel Computer Chair with Flip-up Armrests, Ergo Mesh Backrest for Working (Black, P",
+          "brand": "FelixKing",
+          "brand_id": "100211",
+          "track_url": "https://pboost.me/G5UOltZ1?uid=fromsll",
+          "network": "PB",
+          "price": 170.99,
+          "price_str": "$170.99",
+          "list_price": 189.99,
+          "availability": "IN_STOCK",
+          "role": "Best value",
+          "tier": "2",
+          "notes": "score=27 src=brand_dig tier=2 brand=felixking",
+          "cta_uid": "fromsll",
+          "tag": "best office chair for long hours",
+          "scenario_score": 27,
+          "source": "brand_dig"
+        },
+        {
+          "asin": "B0FZBQHXZP",
+          "title": "2-Pack Office Chair Ergonomic Desk Chair with Flip up Armrests Swivel Breathable Desk Mesh Computer Chair with Adjustable Lumbar Support and Height for Conference Room (Black)",
+          "brand": "Primy",
+          "brand_id": "103177",
+          "track_url": "https://pboost.me/Q5UPvDva?uid=fromsll",
+          "network": "PB",
+          "price": 179.99,
+          "price_str": "$179.99",
+          "list_price": 189.99,
+          "availability": "IN_STOCK",
+          "role": "Premium",
+          "tier": "2",
+          "notes": "score=26 src=brand_dig tier=2 brand=primy",
+          "cta_uid": "fromsll",
+          "tag": "best office chair for long hours",
+          "scenario_score": 26,
+          "source": "brand_dig"
+        },
+        {
+          "asin": "B0B41WB554",
+          "title": "Office Chair Ergonomic Desk Chair with Flip up Armrests Swivel Breathable Desk Mesh Computer Chair with Adjustable Lumbar Support and Height for Conference Room (Gray)",
+          "brand": "Primy",
+          "brand_id": "103177",
+          "track_url": "https://pboost.me/r5UPdtcv6?uid=fromsll",
+          "network": "PB",
+          "price": 129.99,
+          "price_str": "$129.99",
+          "list_price": 129.99,
+          "availability": "IN_STOCK",
+          "role": "Alternative",
+          "tier": "2",
+          "notes": "score=26 src=brand_dig tier=2 brand=primy",
+          "cta_uid": "fromsll",
+          "tag": "best office chair for long hours",
+          "scenario_score": 26,
+          "source": "brand_dig"
+        },
+        {
+          "asin": "B0F4D8ZN7C",
+          "title": "Office Chair Ergonomic Desk Chair with Flip up Armrests Swivel Breathable Desk Mesh Computer Chair with Adjustable Lumbar Support and Height for Conference Room (Navy)",
+          "brand": "Primy",
+          "brand_id": "103177",
+          "track_url": "https://pboost.me/q5UPNgv3?uid=fromsll",
+          "network": "PB",
+          "price": 106.0,
+          "price_str": "$106.00",
+          "list_price": 106.0,
+          "availability": "IN_STOCK",
+          "role": "Also consider",
+          "tier": "2",
+          "notes": "score=26 src=brand_dig tier=2 brand=primy",
+          "cta_uid": "fromsll",
+          "tag": "best office chair for long hours",
+          "scenario_score": 26,
+          "source": "brand_dig"
+        },
+        {
+          "asin": "B0GRVN1QXK",
+          "title": "Ergonomic Office Chair, High Back Desk Chair with Flip-up Arms, 300 LBS Mesh Computer Chair with Adjustable Headrest & Lumbar Support, Comfy Gaming Chair for Adults, Home Office Desk Chairs ",
+          "brand": "HeroSet",
+          "brand_id": "103178",
+          "track_url": "https://pboost.me/g5SPicS6?uid=fromsll",
+          "network": "PB",
+          "price": 69.98,
+          "price_str": "$69.98",
+          "list_price": 79.99,
+          "availability": "IN_STOCK",
+          "role": "Editor pick",
+          "tier": "2",
+          "notes": "score=24 src=brand_dig tier=2 brand=heroset",
+          "cta_uid": "fromsll",
+          "tag": "best office chair for long hours",
+          "scenario_score": 24,
+          "source": "brand_dig"
+        },
+        {
+          "asin": "B0DM1JR73Q",
+          "title": "Office Chair, Ergonomic Big and Tall Computer Desk Chair with Retractable Adjustable Headrest, Executive Breathable Leather Chair, Lumbar Support Swivel Flip-up Armrests Rocking Function,Mat",
+          "brand": "HeroSet",
+          "brand_id": "103178",
+          "track_url": "https://pboost.me/p5SP7l4S8?uid=fromsll",
+          "network": "PB",
+          "price": 129.99,
+          "price_str": "$129.99",
+          "list_price": 129.99,
+          "availability": "IN_STOCK",
+          "role": "Budget",
+          "tier": "2",
+          "notes": "score=19 src=brand_dig tier=2 brand=heroset",
+          "cta_uid": "fromsll",
+          "tag": "best office chair for long hours",
+          "scenario_score": 19,
+          "source": "brand_dig"
+        },
+        {
+          "asin": "B0HGYCK7Q1",
+          "title": "Office Chair, Ergonomic Big and Tall Computer Desk Chairs, Executive Breathable Leather Chair with Adjustable Flip-up Armrests, Lumbar Support Swivel PC Chair with Rocking Function,Brown",
+          "brand": "HeroSet",
+          "brand_id": "103178",
+          "track_url": "https://pboost.me/F5UfEIvjD?uid=fromsll",
+          "network": "PB",
+          "price": 139.99,
+          "price_str": "$139.99",
+          "list_price": 139.99,
+          "availability": "IN_STOCK",
+          "role": "Runner-up",
+          "tier": "2",
+          "notes": "score=17 src=brand_dig tier=2 brand=heroset",
+          "cta_uid": "fromsll",
+          "tag": "best office chair for long hours",
+          "scenario_score": 17,
+          "source": "brand_dig"
+        },
+        {
+          "asin": "B0GXW2DTNR",
+          "title": "Dowinx Big and Tall Office Chair, Ergonomic Desk Chair with Thick Cushion, Wide Seat & Armrests Computer Gaming Chair,High Back Reclining Teddy Fleece Criss Cross Chair with Foot Rest, Pink",
+          "brand": "Dowinx",
+          "brand_id": "139212",
+          "track_url": "https://pboost.me/c5UTc3ec?uid=fromsll",
+          "network": "PB",
+          "price": 179.99,
+          "price_str": "$179.99",
+          "list_price": 239.99,
+          "availability": "IN_STOCK",
+          "role": "Worth a look",
+          "tier": "2",
+          "notes": "score=16 src=brand_dig tier=2 brand=dowinx",
+          "cta_uid": "fromsll",
+          "tag": "best office chair for long hours",
+          "scenario_score": 16,
+          "source": "brand_dig"
+        }
+      ],
+      "hub_exists": true,
+      "need_create_hub": false,
+      "pool_size": 243,
+      "pool_after_unique": 243,
+      "shortfall": false,
+      "brand_gate": {},
+      "published": false
+    },
+    "best-pillows-for-stomach-sleepers": {
+      "main": "pillows",
+      "scene_slug": "best-pillows-for-stomach-sleepers",
+      "path": "/pillows/best-pillows-for-stomach-sleepers/",
+      "keyword_intent": "best pillow for stomach sleepers",
+      "count": 10,
+      "density_reachable": true,
+      "density_target": 10,
+      "products": [
+        {
+          "asin": "B0FNCJKZ6J",
+          "title": "Sweetnight Pillows Queen Size Set of 2, Bed Hotel Pillows, Almohadas para Dormir, Side Back Stomach Sleeper, Relief Neck, Head, Shoulder",
+          "brand": "Sweetnight",
+          "brand_id": "139824",
+          "track_url": "https://pboost.me/K5UTvDaw?uid=fromsll",
+          "network": "PB",
+          "price": 47.76,
+          "price_str": "$47.76",
+          "list_price": 47.76,
+          "availability": "IN_STOCK",
+          "role": "Top pick",
+          "tier": "2",
+          "notes": "score=15 src=brand_dig tier=2 brand=sweetnight",
+          "cta_uid": "fromsll",
+          "tag": "best pillow for stomach sleepers",
+          "scenario_score": 15,
+          "source": "brand_dig"
+        },
+        {
+          "asin": "B0DT97KHGT",
+          "title": "Sweetnight Cooling Pillows Queen Size Set of 2, Shredded Memory Foam Pillows 2 Pack for Hot Sleepers, Cold Bed Pillows for Sleeping, Washable with Removable Cover, Cool Night",
+          "brand": "Sweetnight",
+          "brand_id": "139824",
+          "track_url": "https://pboost.me/x5UTzdzb1?uid=fromsll",
+          "network": "PB",
+          "price": 81.31,
+          "price_str": "$81.31",
+          "list_price": 81.31,
+          "availability": "IN_STOCK",
+          "role": "Upgrade",
+          "tier": "2",
+          "notes": "score=1 src=brand_dig tier=2 brand=sweetnight",
+          "cta_uid": "fromsll",
+          "tag": "best pillow for stomach sleepers",
+          "scenario_score": 1,
+          "source": "brand_dig"
+        },
+        {
+          "asin": "B0HFJMX34K",
+          "title": "Sweetnight CoolNest Gel Memory Foam Pillows, Queen Size Cooling Bed Pillows",
+          "brand": "Sweetnight",
+          "brand_id": "139824",
+          "track_url": "https://pboost.me/H5UTcREb9?uid=fromsll",
+          "network": "PB",
+          "price": 79.99,
+          "price_str": "$79.99",
+          "list_price": 79.99,
+          "availability": "IN_STOCK",
+          "role": "Best value",
+          "tier": "2",
+          "notes": "score=1 src=brand_dig tier=2 brand=sweetnight",
+          "cta_uid": "fromsll",
+          "tag": "best pillow for stomach sleepers",
+          "scenario_score": 1,
+          "source": "brand_dig"
+        },
+        {
+          "asin": "B0H5VQC5F6",
+          "title": "Sweetnight Cooling Pillows King Size Set of 2, Shredded Memory Foam Pillows",
+          "brand": "Sweetnight",
+          "brand_id": "139824",
+          "track_url": "https://pboost.me/N5UTdwZag?uid=fromsll",
+          "network": "PB",
+          "price": 63.99,
+          "price_str": "$63.99",
+          "list_price": 63.99,
+          "availability": "IN_STOCK",
+          "role": "Premium",
+          "tier": "2",
+          "notes": "score=1 src=brand_dig tier=2 brand=sweetnight",
+          "cta_uid": "fromsll",
+          "tag": "best pillow for stomach sleepers",
+          "scenario_score": 1,
+          "source": "brand_dig"
+        },
+        {
+          "asin": "B0FMJXJXGB",
+          "title": "Sweetnight Cooling Pillows Queen Size Set of 2, CertiPUR-US Pillows",
+          "brand": "Sweetnight",
+          "brand_id": "139824",
+          "track_url": "https://pboost.me/K5UTVvav?uid=fromsll",
+          "network": "PB",
+          "price": 43.1,
+          "price_str": "$43.10",
+          "list_price": 43.1,
+          "availability": "IN_STOCK",
+          "role": "Alternative",
+          "tier": "2",
+          "notes": "score=1 src=brand_dig tier=2 brand=sweetnight",
+          "cta_uid": "fromsll",
+          "tag": "best pillow for stomach sleepers",
+          "scenario_score": 1,
+          "source": "brand_dig"
+        },
+        {
+          "asin": "B0H5WGBQWR",
+          "title": "Sweetnight Cooling Pillows Queen Size Set of 2, Shredded Memory Foam Pillow",
+          "brand": "Sweetnight",
+          "brand_id": "139824",
+          "track_url": "https://pboost.me/a5UTSTac?uid=fromsll",
+          "network": "PB",
+          "price": 41.7,
+          "price_str": "$41.70",
+          "list_price": 48.99,
+          "availability": "IN_STOCK",
+          "role": "Also consider",
+          "tier": "2",
+          "notes": "score=1 src=brand_dig tier=2 brand=sweetnight",
+          "cta_uid": "fromsll",
+          "tag": "best pillow for stomach sleepers",
+          "scenario_score": 1,
+          "source": "brand_dig"
+        },
+        {
+          "asin": "B0H5VXT4PQ",
+          "title": "Sweetnight Cooling Pillows Queen Size Set of 2, Shredded Memory Foam Pillow",
+          "brand": "Sweetnight",
+          "brand_id": "139824",
+          "track_url": "https://pboost.me/n5UT0taa0?uid=fromsll",
+          "network": "PB",
+          "price": 41.7,
+          "price_str": "$41.70",
+          "list_price": 48.99,
+          "availability": "IN_STOCK",
+          "role": "Editor pick",
+          "tier": "2",
+          "notes": "score=1 src=brand_dig tier=2 brand=sweetnight",
+          "cta_uid": "fromsll",
+          "tag": "best pillow for stomach sleepers",
+          "scenario_score": 1,
+          "source": "brand_dig"
+        },
+        {
+          "asin": "B0HKSGBMN7",
+          "title": "Sweetnight Gusseted Pillows King Size Set of 2,Fluffy Luxury Hotel Pillows",
+          "brand": "Sweetnight",
+          "brand_id": "139824",
+          "track_url": "https://pboost.me/G5UTNaa6?uid=fromsll",
+          "network": "PB",
+          "price": 35.49,
+          "price_str": "$35.49",
+          "list_price": 35.49,
+          "availability": "IN_STOCK",
+          "role": "Budget",
+          "tier": "2",
+          "notes": "score=1 src=brand_dig tier=2 brand=sweetnight",
+          "cta_uid": "fromsll",
+          "tag": "best pillow for stomach sleepers",
+          "scenario_score": 1,
+          "source": "brand_dig"
+        },
+        {
+          "asin": "B0HN1YQYY6",
+          "title": "Sweetnight Gusseted Pillows Standard Size Set of 2, Luxury Hotel Pillows",
+          "brand": "Sweetnight",
+          "brand_id": "139824",
+          "track_url": "https://pboost.me/K5UTeCbC?uid=fromsll",
+          "network": "PB",
+          "price": 31.99,
+          "price_str": "$31.99",
+          "list_price": 31.99,
+          "availability": "IN_STOCK",
+          "role": "Runner-up",
+          "tier": "2",
+          "notes": "score=1 src=brand_dig tier=2 brand=sweetnight",
+          "cta_uid": "fromsll",
+          "tag": "best pillow for stomach sleepers",
+          "scenario_score": 1,
+          "source": "brand_dig"
+        },
+        {
+          "asin": "B0HMWQDHMZ",
+          "title": "Sweetnight Gusseted Pillows Standard Size Set of 2, Luxury Hotel Pillows",
+          "brand": "Sweetnight",
+          "brand_id": "139824",
+          "track_url": "https://pboost.me/g5UTH7bT?uid=fromsll",
+          "network": "PB",
+          "price": 31.99,
+          "price_str": "$31.99",
+          "list_price": 31.99,
+          "availability": "IN_STOCK",
+          "role": "Worth a look",
+          "tier": "2",
+          "notes": "score=1 src=brand_dig tier=2 brand=sweetnight",
+          "cta_uid": "fromsll",
+          "tag": "best pillow for stomach sleepers",
+          "scenario_score": 1,
+          "source": "brand_dig"
+        }
+      ],
+      "hub_exists": true,
+      "need_create_hub": false,
+      "pool_size": 10,
+      "pool_after_unique": 10,
+      "shortfall": false,
+      "brand_gate": {},
+      "published": false
+    },
+    "best-tower-fans-for-bedroom": {
+      "main": "tower-fans",
+      "scene_slug": "best-tower-fans-for-bedroom",
+      "path": "/tower-fans/best-tower-fans-for-bedroom/",
+      "keyword_intent": "best tower fan for bedroom",
+      "count": 2,
+      "density_reachable": false,
+      "density_target": 10,
+      "products": [
+        {
+          "asin": "B0BVZFQ4DF",
+          "title": "Levoit Tower Fan for Bedroom, 28ft/s Fans that Blow Cold Air, 28dB Quiet",
+          "brand": "LEVOIT",
+          "brand_id": "136934",
+          "track_url": "https://pboost.me/m5QMG3Iv?uid=fromsll",
+          "network": "PB",
+          "price": 54.91,
+          "price_str": "$54.91",
+          "list_price": 74.99,
+          "availability": "IN_STOCK",
+          "role": "Top pick",
+          "tier": "1",
+          "notes": "score=22 src=seaker tier=1 brand=levoit",
+          "cta_uid": "fromsll",
+          "tag": "best tower fan for bedroom",
+          "scenario_score": 22,
+          "source": "seaker"
+        },
+        {
+          "asin": "B0GGHX7HCY",
+          "title": "dreame Bladeless Tower Fan MF10 for Bedroom with 270\u00b0 Spatial Airflow",
+          "brand": "Dreame",
+          "brand_id": "136748",
+          "track_url": "https://pboost.me/S5QOck33?uid=fromsll",
+          "network": "PB",
+          "price": 169.99,
+          "price_str": "$169.99",
+          "list_price": 239.99,
+          "availability": "IN_STOCK",
+          "role": "Upgrade",
+          "tier": "2",
+          "notes": "score=21 src=brand_dig tier=2 brand=dreame",
+          "cta_uid": "fromsll",
+          "tag": "best tower fan for bedroom",
+          "scenario_score": 21,
+          "source": "brand_dig"
+        }
+      ],
+      "hub_exists": true,
+      "need_create_hub": false,
+      "pool_size": 2,
+      "pool_after_unique": 2,
+      "shortfall": true,
+      "brand_gate": {},
+      "published": false
+    }
+  },
+  "total_picked": 22,
+  "soft_parent_densify": "mattresses 8\u219210 / pillows 6\u219210 / office 8\u219210 soft prefer, not hard block",
+  "yp_probe_detail": "first-pass timeouts on 3 keywords then streak-skip; refine pass reused brand cache with P5B_SKIP_YP=1",
+  "refined_at": "2026-10-24T01:09:38.090503+08:00"
+}

@@ -104,6 +104,19 @@ def main() -> int:
     if 'href="index.html"' in html:
         errors.append("homepage still has index.html href")
 
+    head = html.split("<main", 1)[0]
+    if "nav-home-simple" in head or "site-header-home" in head:
+        errors.append("homepage still uses nav-home-simple / site-header-home")
+    for label in ("Categories", "Compare", "Reviews"):
+        if f'class="nav-trigger">{label}</button>' not in head:
+            errors.append(f"homepage header missing {label} mega")
+    if 'href="blog/">Articles</a>' not in head:
+        errors.append("homepage header missing Articles → /blog/")
+    if 'class="nav-link" href="about-us/"' in head or 'class="nav-link" href="partner-with-us/"' in head:
+        errors.append("homepage header still has About/Partner (footer SoT)")
+    if 'id="landing-hub-nav"' not in head:
+        errors.append("homepage missing shared landing-hub-nav CSS")
+
     if "<circle cx=\"24\" cy=\"24\" r=\"10\"/>" in html and "Kids Bikes" in html:
         # empty circle icon must not remain on the Kids Bikes tile
         tile = html.split("Kids Bikes", 1)[0][-800:]
