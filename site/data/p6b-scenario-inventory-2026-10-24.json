@@ -1,0 +1,764 @@
+{
+  "date": "2026-10-24",
+  "batch": "P6b",
+  "lock": "lock-p6b-rec",
+  "tip_reference": "68a6d60e",
+  "waiting_for_部署上线": true,
+  "published": false,
+  "live": false,
+  "merged": false,
+  "independent_of_shortlist_lab": true,
+  "do_not_touch": [
+    "Lab",
+    "RR",
+    "OL",
+    "#54 home nav",
+    "#55 stamp",
+    "#58 P6a published flip",
+    "parent hub cards"
+  ],
+  "parent_hubs": "exist_not_recreated",
+  "soft_parent_densify": "hub ASINs may appear on scene; sibling bans still hold; hub ASINs computer-speakers=10 litter-boxes=10 light-therapy=8 office-chairs=8 dehumidifiers=10; L1 pack soft_parent B0DG6KP942 on light-therapy-for-face",
+  "skipped": [
+    {
+      "path": "best-pillows-for-snoring",
+      "url": "/pillows/best-pillows-for-snoring/",
+      "reason": "SHORTFALL n=0 < density 4 — skip scaffold"
+    },
+    {
+      "path": "best-ceramic-space-heaters-for-bedroom",
+      "url": "/ceramic-space-heaters/best-ceramic-space-heaters-for-bedroom/",
+      "reason": "SHORTFALL n=3 < density 4 — skip scaffold"
+    }
+  ],
+  "out_of_scope": [
+    "best-pillows-for-snoring",
+    "best-ceramic-space-heaters-for-bedroom",
+    "best-hearing-aids-for-tinnitus",
+    "best-mattresses-for-hanging",
+    "best-red-light-therapy-masks",
+    "best-robot-mops"
+  ],
+  "fill_pack": "/workspace/site/data/p6b-l1-fill-pack-2026-10-24.json",
+  "fill_status": "filled",
+  "need_fill": [],
+  "counts": {
+    "best-computer-speakers-for-gaming": 10,
+    "best-litter-boxes-for-multiple-cats": 4,
+    "best-light-therapy-for-face": 7,
+    "best-office-chairs-for-gaming": 10,
+    "best-dehumidifiers-for-crawl-space": 10
+  },
+  "sources": {
+    "1_pb": {
+      "live_query": "skipped_no_token",
+      "note": "No affiliate API tokens in this VM environment. Do not invent Check price hops."
+    },
+    "2_yp": {
+      "live_query": "skipped_yp_timeout_or_500",
+      "note": "YP unused. Pack is PB-only. Live CTA stays PB ?uid=fromsll."
+    },
+    "l1_fill_pack": "p6b-l1-fill-pack-2026-10-24.json"
+  },
+  "occupied_groups": {
+    "pillow_siblings": [
+      "B0D3LM3FH3",
+      "B0D7Q997YS",
+      "B0D7Q9FRHF",
+      "B0D7Q9H63S",
+      "B0DT67CS22",
+      "B0DT97KHGT",
+      "B0DT9MGL6H",
+      "B0F6LR3CYP",
+      "B0FFGLQ5YR",
+      "B0FMJWRVM8",
+      "B0FMJXJXGB",
+      "B0FNCJKZ6J",
+      "B0GSFGD75J",
+      "B0GWK7Q33H",
+      "B0H5VQC5F6",
+      "B0H5VXT4PQ",
+      "B0H5WGBQWR",
+      "B0HFJKJZ8M",
+      "B0HFJMX34K",
+      "B0HKJ5NW57",
+      "B0HKJCJZ1N",
+      "B0HKMHRNV5",
+      "B0HKR8LX5N",
+      "B0HKSGBMN7",
+      "B0HMWQDHMZ",
+      "B0HN1YQYY6"
+    ],
+    "speakers_siblings": [
+      "B07ZVP9XBG",
+      "B0F5B73RGT",
+      "B0FCFYSZSY",
+      "B0FGNS3KFC",
+      "B0FY63RTRQ",
+      "B0FY63RTRR",
+      "B0G7H9GX68",
+      "B0H3ZZ6ZY7",
+      "B0H3ZZCNJF",
+      "B0H4118PJZ"
+    ],
+    "litter_siblings": [
+      "B0CSKBWBF6",
+      "B0DFYF2D7D",
+      "B0DFYJ29XG",
+      "B0DFYKK25Y",
+      "B0DFYLFFG1",
+      "B0DGXV26TL",
+      "B0DK6RSFG2",
+      "B0DM83CLW3",
+      "B0DW41V1LN",
+      "B0F1YMM29X",
+      "B0F5499CSD",
+      "B0FJL8KQT1",
+      "B0GD69KW7J",
+      "B0GL74MB73",
+      "B0GL7G2SXC",
+      "B0GL7Q6YXZ",
+      "B0H26KDLRR",
+      "B0HC6Y2MS3",
+      "B0HMX593WK",
+      "B0HNT18TPZ"
+    ],
+    "heater_siblings": [
+      "B095PP1GZR",
+      "B097RG67QB",
+      "B0C6FCKQML",
+      "B0C6FFK1GV"
+    ],
+    "chair_siblings": [
+      "B0B41WB554",
+      "B0BG1H99FB",
+      "B0CQ2PCK6S",
+      "B0CQX84Y3W",
+      "B0DM1JR73Q",
+      "B0DPKB5JPL",
+      "B0DZC58HPL",
+      "B0F4D8ZN7C",
+      "B0FGQ7PBK1",
+      "B0FPWP2WXG",
+      "B0FPWSRW2P",
+      "B0FPWZ7DNG",
+      "B0FZBQHXZP",
+      "B0GRVN1QXK",
+      "B0GXW2DTNR",
+      "B0HGYCK7Q1",
+      "B0HJ86Z5DX",
+      "B0HNP7G1VB"
+    ],
+    "dehumid_siblings": [
+      "B081RG8JYR",
+      "B0B5V6MBMR",
+      "B0C9THG48W",
+      "B0D1C6HWFF",
+      "B0DR7TZGV8",
+      "B0FCDZM4JL",
+      "B0FPD7Y2CQ",
+      "B0FRQVWSS4",
+      "B0FWB57KYQ",
+      "B0G1TCQPZQ",
+      "B0G1WK1LX5",
+      "B0GSFWHGCW",
+      "B0GVS2RDLB",
+      "B0GXYD5JBY",
+      "B0H26KMQHT",
+      "B0H41K4PQN",
+      "B0HFHG2C6Y"
+    ],
+    "speakers_hub": [
+      "B0CPS6NQBL",
+      "B0D95QG8W4",
+      "B0DTHW6KN3",
+      "B0F8HFXXVZ",
+      "B0F8Q3QB4T",
+      "B0F8QSQR7V",
+      "B0FH1RFP91",
+      "B0G7H5D2NC",
+      "B0G8DLJ1PM",
+      "B0H2VQ581Y"
+    ],
+    "litter_hub": [],
+    "light_hub": [
+      "B0CPXZ33M8",
+      "B0DG6KP942",
+      "B0F66WMM61",
+      "B0F6C7XQHJ",
+      "B0G1YGQQJT",
+      "B0GF84HMBY",
+      "B0H8F4D92Z",
+      "B0HHFC3HH5"
+    ],
+    "chair_hub": [
+      "B0BG1H99FB",
+      "B0CQ2PCK6S",
+      "B0CQX84Y3W",
+      "B0DPKB5JPL",
+      "B0DZC58HPL",
+      "B0FGQ7PBK1",
+      "B0HJ86Z5DX",
+      "B0HNP7G1VB"
+    ],
+    "dehumid_hub": [
+      "B081RG8JYR",
+      "B0B5V6MBMR",
+      "B0C9THG48W",
+      "B0D1C6HWFF",
+      "B0FCDZM4JL",
+      "B0FRQVWSS4",
+      "B0FWB57KYQ",
+      "B0GXYD5JBY",
+      "B0H26KMQHT",
+      "B0H41K4PQN"
+    ]
+  },
+  "occupied_global_n": 918,
+  "pages": [
+    {
+      "n": 1,
+      "path": "/computer-speakers/best-computer-speakers-for-gaming/",
+      "type": "07-best-of",
+      "parent": "/computer-speakers/",
+      "published": false,
+      "robots": "noindex,follow",
+      "density": 10,
+      "density_target": 10,
+      "density_expected": 10,
+      "stub": false,
+      "fill_status": "filled",
+      "cta_status": "pb_fromsll",
+      "cta_rule": "PB fromsll only when a verified track exists; never invent hops; do not rebind to YP",
+      "reviews": "none — Top pick + Upgrade articles do not exist for this scene",
+      "ban_groups": [
+        "speakers_siblings"
+      ],
+      "soft_hub_groups": [
+        "speakers_hub"
+      ],
+      "cross_ban_scenes": [],
+      "picks": [
+        {
+          "asin": "B09Y55P59D",
+          "title": "Edifier Computer Speakers with Bluetooth 5.3 for Desktop / Laptop / Mac / Monitor, 2.0 USB Powered PC Speaker System, Deep Bass, Balanced Stereo, 3.5mm Aux-In Plug and Play",
+          "role": "Top pick",
+          "brand": "EDIFIER",
+          "affiliate_link": "https://pboost.me/K5UOswVZ?uid=fromsll",
+          "track_status": "ok",
+          "price": "$69.99",
+          "image": null
+        },
+        {
+          "asin": "B00UAFSN5O",
+          "title": "Edifier G2000 32W PC Gaming Computer Speakers for Laptop Mac Desktop Computer Woofer Speakers Bluetooth USB 3.5mm AUX Inputs RGB Lights Multimedia Speakers Black",
+          "role": "Upgrade",
+          "brand": "EDIFIER",
+          "affiliate_link": "https://pboost.me/N5QNgZaU7?uid=fromsll",
+          "track_status": "ok",
+          "price": "$89.99",
+          "image": null
+        },
+        {
+          "asin": "B09TZVVLCW",
+          "title": "Edifier G2000 32W PC Computer Speakers for Gaming Desktop PC Laptop Mac Computer Woofer Speakers Bluetooth USB 3.5mm AUX Inputs RGB Lights Multimedia Speakers Red",
+          "role": "Best value",
+          "brand": "EDIFIER",
+          "affiliate_link": "https://pboost.me/F5UOdtaVd?uid=fromsll",
+          "track_status": "ok",
+          "price": "$89.99",
+          "image": null
+        },
+        {
+          "asin": "B0DGXRC7MP",
+          "title": "Edifier MR3 Powered Studio Monitor Speakers, Hi-Res Audio Certified Bluetooth V5.4 Active Bookshelf Loudspeakers, 2.0 Computer Speaker with Headphone Output RCA AUX Balanced TRS Input (White",
+          "role": "Premium",
+          "brand": "EDIFIER US VTM",
+          "affiliate_link": "https://pboost.me/j5VwCOE20?uid=fromsll",
+          "track_status": "ok",
+          "price": "$109.99",
+          "image": null
+        },
+        {
+          "asin": "B08GK9LCRW",
+          "title": "Redragon GS520 Wired 2.0 Channel Stereo Sound Desktop RGB Computer Speakers",
+          "role": "Alternative",
+          "brand": "Redragon",
+          "affiliate_link": "https://pboost.me/J5WR4K7g7?uid=fromsll",
+          "track_status": "ok",
+          "price": "$29.99",
+          "image": null
+        },
+        {
+          "asin": "B0C2YK59VQ",
+          "title": "Redragon GS520 Wired 2.0 Channel Stereo Sound Desktop RGB Computer Speakers",
+          "role": "Also consider",
+          "brand": "Redragon",
+          "affiliate_link": "https://pboost.me/Y5WRfCka?uid=fromsll",
+          "track_status": "ok",
+          "price": "$29.99",
+          "image": null
+        },
+        {
+          "asin": "B0C2YQ9BJ1",
+          "title": "Redragon GS520 Wired 2.0 Channel Stereo Sound Desktop RGB Computer Speakers",
+          "role": "Editor pick",
+          "brand": "Redragon",
+          "affiliate_link": "https://pboost.me/y5WRqck4?uid=fromsll",
+          "track_status": "ok",
+          "price": "$29.99",
+          "image": null
+        },
+        {
+          "asin": "B0CDPR2376",
+          "title": "Edifier D12 Integrated Desktop Computer Speakers with Bluetooth 5.0, Wireless Stereo Tabletop Speaker 70 Watts RMS with Subwoofer Line Out, RCA, Aux Input for PC Monitor Laptop (White)",
+          "role": "Budget",
+          "brand": "EDIFIER US VTM",
+          "affiliate_link": "https://pboost.me/W5VwGk26?uid=fromsll",
+          "track_status": "ok",
+          "price": "$179.99",
+          "image": null
+        },
+        {
+          "asin": "B09NKTX1ZK",
+          "title": "Edifier D12 Integrated Desktop Computer Speakers with Bluetooth 5.0, Wireless Stereo Tabletop Speaker 70 Watts RMS with Subwoofer Line Out, RCA, Aux Input for PC Monitor Laptop -Black",
+          "role": "Runner-up",
+          "brand": "EDIFIER US VTM",
+          "affiliate_link": "https://pboost.me/S5VwKa24?uid=fromsll",
+          "track_status": "ok",
+          "price": "$179.99",
+          "image": null
+        },
+        {
+          "asin": "B0BWJD2XJ2",
+          "title": "Saiyin Bluetooth Bookshelf Speakers for Record Player, Powered Studio Monitor Speaker with 5.2 Inch Woofer, Horn Tweeter and Optical RCA Inputs, Subwoofer Line Out for Turnable.",
+          "role": "Worth a look",
+          "brand": "Saiyin",
+          "affiliate_link": "https://pboost.me/o5URK347?uid=fromsll",
+          "track_status": "ok",
+          "price": "$79.99",
+          "image": null
+        }
+      ]
+    },
+    {
+      "n": 2,
+      "path": "/litter-boxes/best-litter-boxes-for-multiple-cats/",
+      "type": "07-best-of",
+      "parent": "/litter-boxes/",
+      "published": false,
+      "robots": "noindex,follow",
+      "density": 4,
+      "density_target": 10,
+      "density_expected": 4,
+      "stub": false,
+      "fill_status": "filled",
+      "cta_status": "pb_fromsll",
+      "cta_rule": "PB fromsll only when a verified track exists; never invent hops; do not rebind to YP",
+      "reviews": "none — Top pick + Upgrade articles do not exist for this scene",
+      "ban_groups": [
+        "litter_siblings"
+      ],
+      "soft_hub_groups": [
+        "litter_hub"
+      ],
+      "cross_ban_scenes": [],
+      "picks": [
+        {
+          "asin": "B0GL7DLPZ4",
+          "title": "PetPivot Open Top Self Cleaning Cat Litter Box, Automatic Litter Box with 7 Pairs of Safety Sensors, Anti-Pinch Protection and Easy Access Step for Senior Cats, White Grey",
+          "role": "Top pick",
+          "brand": "PetPivot",
+          "affiliate_link": "https://pboost.me/A5QNzthD?uid=fromsll",
+          "track_status": "ok",
+          "price": "$159.99",
+          "image": null
+        },
+        {
+          "asin": "B0HFM3ZC3Q",
+          "title": "Neakasa M9 Automatic Cat Litter Box with 2-Year Protection Plan",
+          "role": "Upgrade",
+          "brand": "Neakasa",
+          "affiliate_link": "https://pboost.me/Y5SRy3v3?uid=fromsll",
+          "track_status": "ok",
+          "price": "$459.99",
+          "image": null
+        },
+        {
+          "asin": "B0DCFY8SB4",
+          "title": "Neakasa M1 Plus Open-Top Self Cleaning Cat Litter Box with Cat Step",
+          "role": "Best value",
+          "brand": "Neakasa",
+          "affiliate_link": "https://pboost.me/n5SRaHTvC?uid=fromsll",
+          "track_status": "ok",
+          "price": "$436.98",
+          "image": null
+        },
+        {
+          "asin": "B0DWFF7Z4N",
+          "title": "Neakasa M1 Open-Top Self Cleaning Cat Litter Box with P1 Pro Pet Grooming Kit",
+          "role": "Premium",
+          "brand": "Neakasa",
+          "affiliate_link": "https://pboost.me/f5SRd3gwd?uid=fromsll",
+          "track_status": "ok",
+          "price": "$421.93",
+          "image": null
+        }
+      ]
+    },
+    {
+      "n": 3,
+      "path": "/light-therapy/best-light-therapy-for-face/",
+      "type": "07-best-of",
+      "parent": "/light-therapy/",
+      "published": false,
+      "robots": "noindex,follow",
+      "density": 7,
+      "density_target": 10,
+      "density_expected": 7,
+      "stub": false,
+      "fill_status": "filled",
+      "cta_status": "pb_fromsll",
+      "cta_rule": "PB fromsll only when a verified track exists; never invent hops; do not rebind to YP",
+      "reviews": "none — Top pick + Upgrade articles do not exist for this scene",
+      "ban_groups": [],
+      "soft_hub_groups": [
+        "light_hub"
+      ],
+      "cross_ban_scenes": [],
+      "picks": [
+        {
+          "asin": "B0DG6KP942",
+          "title": "Infrared Light Therapy Panel with Stand, 660nm Red Light and 850nm Near Infrared LED Red Light Therapy Device at Home",
+          "role": "Top pick",
+          "brand": "SWIRISE",
+          "affiliate_link": "https://pboost.me/K5SNpvp8?uid=fromsll",
+          "track_status": "ok",
+          "price": "$232.00",
+          "image": null
+        },
+        {
+          "asin": "B0F66VL976",
+          "title": "Red Light Therapy with 660nm&850nm High Power Panel",
+          "role": "Upgrade",
+          "brand": "SWIRISE",
+          "affiliate_link": "https://pboost.me/B5SNaXapa?uid=fromsll",
+          "track_status": "ok",
+          "price": "$259.00",
+          "image": null
+        },
+        {
+          "asin": "B0F66VVRVH",
+          "title": "Red Light Therapy with 660nm&850nm High Power Panel",
+          "role": "Best value",
+          "brand": "SWIRISE",
+          "affiliate_link": "https://pboost.me/U5SNJ2pk?uid=fromsll",
+          "track_status": "ok",
+          "price": "$259.00",
+          "image": null
+        },
+        {
+          "asin": "B0CQJVJVZW",
+          "title": "Megelin 8 in 1 Colors LED Light Therapy Machine",
+          "role": "Premium",
+          "brand": "MEGELIN",
+          "affiliate_link": "https://pboost.me/q5SN2duk?uid=fromsll",
+          "track_status": "ok",
+          "price": "$151.99",
+          "image": null
+        },
+        {
+          "asin": "B0FJRRTVHF",
+          "title": "Red Light Panel Device at Home",
+          "role": "Alternative",
+          "brand": "SWIRISE",
+          "affiliate_link": "https://pboost.me/T5SN8t0pw?uid=fromsll",
+          "track_status": "ok",
+          "price": "$438.00",
+          "image": null
+        },
+        {
+          "asin": "B0F66SBPP8",
+          "title": "Red Light Panel(Elite 600)",
+          "role": "Also consider",
+          "brand": "SWIRISE",
+          "affiliate_link": "https://pboost.me/b5SNaoDp0?uid=fromsll",
+          "track_status": "ok",
+          "price": "$399.00",
+          "image": null
+        },
+        {
+          "asin": "B0F66XT7K2",
+          "title": "Red Light Panel(Elite 500)",
+          "role": "Editor pick",
+          "brand": "SWIRISE",
+          "affiliate_link": "https://pboost.me/t5SN7xwp9?uid=fromsll",
+          "track_status": "ok",
+          "price": "$299.00",
+          "image": null
+        }
+      ]
+    },
+    {
+      "n": 4,
+      "path": "/office-chairs/best-office-chairs-for-gaming/",
+      "type": "07-best-of",
+      "parent": "/office-chairs/",
+      "published": false,
+      "robots": "noindex,follow",
+      "density": 10,
+      "density_target": 10,
+      "density_expected": 10,
+      "stub": false,
+      "fill_status": "filled",
+      "cta_status": "pb_fromsll",
+      "cta_rule": "PB fromsll only when a verified track exists; never invent hops; do not rebind to YP",
+      "reviews": "none — Top pick + Upgrade articles do not exist for this scene",
+      "ban_groups": [
+        "chair_siblings"
+      ],
+      "soft_hub_groups": [
+        "chair_hub"
+      ],
+      "cross_ban_scenes": [],
+      "picks": [
+        {
+          "asin": "B0FZHXRQ82",
+          "title": "FelixKing Big and Tall Office Chair 500lbs - Ergonomic Desk Chair with Footrest, Scratch-Resistant PU Leather Computer Chair, 4D Lumbar Support Gaming Chair, Comfy Reclining Swivel Work Chai",
+          "role": "Top pick",
+          "brand": "FelixKing",
+          "affiliate_link": "https://pboost.me/L5UOwu8Zw?uid=fromsll",
+          "track_status": "ok",
+          "price": "$169.99",
+          "image": null
+        },
+        {
+          "asin": "B0FZJG3YFV",
+          "title": "FelixKing Big and Tall Office Chair 500lbs - Ergonomic Desk Chair with Footrest, Scratch-Resistant PU Leather Computer Chair, 4D Lumbar Support Gaming Chair, Comfy Reclining Swivel Work Chai",
+          "role": "Upgrade",
+          "brand": "FelixKing",
+          "affiliate_link": "https://pboost.me/f5UO0BcZ7?uid=fromsll",
+          "track_status": "ok",
+          "price": "$169.99",
+          "image": null
+        },
+        {
+          "asin": "B0GD7F854P",
+          "title": "FelixKing Office Chair, Desk Chair with Adjustable Lumbar Support, Ergonomic Computer Chair with High Back and Armrest, Adjustable Height Gaming Chair Home Office Swivel Chair, Pack of 5, Bl",
+          "role": "Best value",
+          "brand": "FelixKing",
+          "affiliate_link": "https://pboost.me/I5UOJkZ8?uid=fromsll",
+          "track_status": "ok",
+          "price": "$434.99",
+          "image": null
+        },
+        {
+          "asin": "B08CB2PSH6",
+          "title": "Dowinx Gaming Chair Big and Tall, Ergonomic Computer Chair with Footrest and Massage Lumbar Support, High Back Comfortable Gamer Chair for Adults 350Lbs PU Leather for Office Game, Ivory",
+          "role": "Premium",
+          "brand": "Dowinx",
+          "affiliate_link": "https://pboost.me/s5UTW1gT?uid=fromsll",
+          "track_status": "ok",
+          "price": "$249.99",
+          "image": null
+        },
+        {
+          "asin": "B0CDBR4CLF",
+          "title": "Dowinx Gaming Chair Breathable PU Leather Gamer Chair with Footrest Massage Lumbar Support, Big and Tall Ergonomic Reclining Computer Chair with Pocket Spring Cushion for Adults Teens (Grey)",
+          "role": "Alternative",
+          "brand": "Dowinx",
+          "affiliate_link": "https://pboost.me/p5UTdY6gv?uid=fromsll",
+          "track_status": "ok",
+          "price": "$143.99",
+          "image": null
+        },
+        {
+          "asin": "B0BYYM8PWH",
+          "title": "Dowinx Gaming Chair Breathable PU Leather Gamer Chair with Footrest Massage Lumbar Support, Big and Tall Ergonomic Reclining Computer Chair with Pocket Spring Cushion for Adults Teens (Black",
+          "role": "Also consider",
+          "brand": "Dowinx",
+          "affiliate_link": "https://pboost.me/T5UT0Ocga?uid=fromsll",
+          "track_status": "ok",
+          "price": "$134.99",
+          "image": null
+        },
+        {
+          "asin": "B0FWJD2W2C",
+          "title": "Leather Office Chair, PU Home Computer Desk Chairs with Ergonomic Back Support, 360°Swivel Free，Small Gaming Chair with Wheels and Adjustable Armrests, for Short People Use",
+          "role": "Editor pick",
+          "brand": "Brick Attic",
+          "affiliate_link": "https://pboost.me/a5UTQa6Z?uid=fromsll",
+          "track_status": "ok",
+          "price": "$422.99",
+          "image": null
+        },
+        {
+          "asin": "B0FWJ6NL2T",
+          "title": "Leather Office Chair, PU Home Computer Desk Chairs with Ergonomic Back Support, 360°Swivel Free，Small Gaming Chair with Wheels and Adjustable Armrests, for Short People Use",
+          "role": "Budget",
+          "brand": "Brick Attic",
+          "affiliate_link": "https://pboost.me/o5UTgg7w?uid=fromsll",
+          "track_status": "ok",
+          "price": "$176.39",
+          "image": null
+        },
+        {
+          "asin": "B0DZB5DZ47",
+          "title": "Leather Office Chair, PU Home Computer Desk Chairs with Ergonomic Back Support, 360°Swivel Free，Small Gaming Chair with Wheels and Adjustable Armrests, for Short People Use",
+          "role": "Runner-up",
+          "brand": "Brick Attic",
+          "affiliate_link": "https://pboost.me/R5UTTs667?uid=fromsll",
+          "track_status": "ok",
+          "price": "$139.99",
+          "image": null
+        },
+        {
+          "asin": "B0HJ7RP87H",
+          "title": "SEDETA Ergonomic Gaming Chair with Lumbar Support, 6D Armrest for Adults",
+          "role": "Worth a look",
+          "brand": "SEDETA",
+          "affiliate_link": "https://pboost.me/a5SPzdEg?uid=fromsll",
+          "track_status": "ok",
+          "price": "$149.99",
+          "image": null
+        }
+      ]
+    },
+    {
+      "n": 5,
+      "path": "/dehumidifiers/best-dehumidifiers-for-crawl-space/",
+      "type": "07-best-of",
+      "parent": "/dehumidifiers/",
+      "published": false,
+      "robots": "noindex,follow",
+      "density": 10,
+      "density_target": 10,
+      "density_expected": 10,
+      "stub": false,
+      "fill_status": "filled",
+      "cta_status": "pb_fromsll",
+      "cta_rule": "PB fromsll only when a verified track exists; never invent hops; do not rebind to YP",
+      "reviews": "none — Top pick + Upgrade articles do not exist for this scene",
+      "ban_groups": [
+        "dehumid_siblings"
+      ],
+      "soft_hub_groups": [
+        "dehumid_hub"
+      ],
+      "cross_ban_scenes": [],
+      "picks": [
+        {
+          "asin": "B0F2YVHY6K",
+          "title": "Waykar 125 Pints Crawl Space Dehumidifier with Pump and Drain Hoses for Basement, Commercial & Water Damage, 24-Hr Time & Auto Defrost, 5-Year Quality Coverage",
+          "role": "Top pick",
+          "brand": "Waykar",
+          "affiliate_link": "https://pboost.me/k5UI8dmg?uid=fromsll",
+          "track_status": "ok",
+          "price": "$449.99",
+          "image": null
+        },
+        {
+          "asin": "B0HCSYD9QM",
+          "title": "Waykar 125 Pints Crawl Space Dehumidifier with Remote Control and Pump, Dual Duct HVAC Commercial Whole-House Dehumidifier for Basement, Industrial Water Damage Unit - 5-Year Quality Coverag",
+          "role": "Upgrade",
+          "brand": "Waykar",
+          "affiliate_link": "https://pboost.me/K5UIicl9?uid=fromsll",
+          "track_status": "ok",
+          "price": "$599.99",
+          "image": null
+        },
+        {
+          "asin": "B0GT4H6PRL",
+          "title": "Waykar 125 Pints Crawl Space Dehumidifier with Remote Control and Pump, Dual Duct HVAC Commercial Whole-House Dehumidifier for Basement, Industrial Water Damage Unit - 5-Year Quality Coverag",
+          "role": "Best value",
+          "brand": "Waykar",
+          "affiliate_link": "https://pboost.me/S5UIkgmE?uid=fromsll",
+          "track_status": "ok",
+          "price": "$599.99",
+          "image": null
+        },
+        {
+          "asin": "B0HCNQYR6K",
+          "title": "Kesnos 155 Pints Commercial Dehumidifier with Pump & Drain Hose for Up to 7,500 Sq. Ft. – Industrial Dehumidifier for Basement, Job Site and Large Spaces, 24-Hour Timer, 5 Year Coverage",
+          "role": "Premium",
+          "brand": "Kesnos",
+          "affiliate_link": "https://pboost.me/E5UQX8kd?uid=fromsll",
+          "track_status": "ok",
+          "price": "$489.99",
+          "image": null
+        },
+        {
+          "asin": "B0H5B4G5K4",
+          "title": "Kesnos 155 Pints Commercial Dehumidifier with Pump & Drain Hose for Up to 7,500 Sq. Ft. – Industrial Dehumidifier for Basement, Job Site and Large Spaces, 24-Hour Timer, 5 Year Coverage",
+          "role": "Alternative",
+          "brand": "Kesnos",
+          "affiliate_link": "https://pboost.me/Y5UQZak5?uid=fromsll",
+          "track_status": "ok",
+          "price": "$489.99",
+          "image": null
+        },
+        {
+          "asin": "B0CN6VW442",
+          "title": "Kesnos 216 Pints Commercial Dehumidifier with Pump & 24-Hour Timer",
+          "role": "Also consider",
+          "brand": "Kesnos",
+          "affiliate_link": "https://pboost.me/u5UQ27l3?uid=fromsll",
+          "track_status": "ok",
+          "price": "$599.99",
+          "image": null
+        },
+        {
+          "asin": "B0GN26KP3D",
+          "title": "KNKA Energy Star 5500 Sq.Ft Dehumidifier for Basement, Max 80 Pint/Day",
+          "role": "Editor pick",
+          "brand": "KNKA-US",
+          "affiliate_link": "https://pboost.me/M5SRAEn1?uid=fromsll",
+          "track_status": "ok",
+          "price": "$179.99",
+          "image": null
+        },
+        {
+          "asin": "B0H8DBW6YH",
+          "title": "KNKA Energy Star 5000 Sq.Ft Dehumidifier for Basement, Max 74 Pint/Day",
+          "role": "Budget",
+          "brand": "KNKA-US",
+          "affiliate_link": "https://pboost.me/m5SRy9n3?uid=fromsll",
+          "track_status": "ok",
+          "price": "$179.99",
+          "image": null
+        },
+        {
+          "asin": "B0G1T9PPPW",
+          "title": "AEOCKY Dehumidifier with Pump Up to 16.5ft Energy Star Most Efficient 2025",
+          "role": "Runner-up",
+          "brand": "AEOCKY",
+          "affiliate_link": "https://pboost.me/C5UIjkk6?uid=fromsll",
+          "track_status": "ok",
+          "price": "$449.99",
+          "image": null
+        },
+        {
+          "asin": "B0G1TP95GL",
+          "title": "AEOCKY Dehumidifier with Pump Up to 16.5ft Energy Star Most Efficient 2025",
+          "role": "Worth a look",
+          "brand": "AEOCKY",
+          "affiliate_link": "https://pboost.me/k5UIh2kT?uid=fromsll",
+          "track_status": "ok",
+          "price": "$341.99",
+          "image": null
+        }
+      ]
+    }
+  ],
+  "notes": [
+    "No invented ASINs, prices, was/%, gallery, or Check price hops.",
+    "Parent hubs already exist. Not recreated. Soft densify = hub ASINs allowed; sibling bans hold.",
+    "published=false / noindex until a later 部署上线 order.",
+    "Independent of Shortlist Lab.",
+    "Pillows snoring skipped (SHORTFALL n=0).",
+    "Ceramic bedroom heaters skipped (SHORTFALL n=3).",
+    "Did not flip #58 P6a published=true.",
+    "OUT: tinnitus · mattress hang · red-light masks · robot-mop.",
+    "Comparison / reviews stubs already exist. Stamps not rolled back."
+  ]
+}
