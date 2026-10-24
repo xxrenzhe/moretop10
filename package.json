@@ -35,6 +35,7 @@
     "test:p1c-reviews": "python3 tests/p1c_reviews_assert.py && python3 tests/p1c_ceramic_assert.py",
     "test:tv-cluster": "python3 tests/affiliate_uid_assert.py && python3 tests/tv_models_parse_unit.py && python3 tests/tv_cluster_assert.py",
     "test:related-cluster": "python3 tests/hub_reciprocity_unit.py && python3 tests/related_cluster_assert.py && python3 tests/tv_cluster_assert.py",
+    "test:stamp-guard": "python3 tests/stamp_guard_unit.py && python3 tests/robot_stamp_assert.py && python3 tests/comparison_stamp_assert.py",
     "bake": "python3 site/scripts/build.py",
     "bake:tv": "python3 site/scripts/bake_tv.py",
     "refresh:tv-models": "python3 site/scripts/fetch_tv_models.py && python3 site/scripts/bake_tv.py"
