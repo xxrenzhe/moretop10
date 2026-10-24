@@ -1,0 +1,90 @@
+{
+  "path": "/espresso-machines/best-espresso-machines-under-500/",
+  "published": false,
+  "fill_status": "filled",
+  "waiting_for_部署上线": true,
+  "stub": false,
+  "products": [
+    {
+      "asin": "B0HJR993B9",
+      "title": "AMZCHEF Espresso Machine 7205-7",
+      "role": "Top pick",
+      "brand": "AMZCHEF",
+      "track_url": "https://pboost.me/l5Vewdkza?uid=fromsll",
+      "price": "299.99",
+      "price_str": "$299.99"
+    },
+    {
+      "asin": "B0HJR7GVHZ",
+      "title": "AMZCHEF Espresso Machine",
+      "role": "Upgrade",
+      "brand": "AMZCHEF",
+      "track_url": "https://pboost.me/l5VekRvy4?uid=fromsll",
+      "price": "299.99",
+      "price_str": "$299.99"
+    },
+    {
+      "asin": "B0HJR4D8PM",
+      "title": "AMZCHEF Espresso Machine 7205-5",
+      "role": "Best value",
+      "brand": "AMZCHEF",
+      "track_url": "https://pboost.me/u5VeoZyd?uid=fromsll",
+      "price": "299.99",
+      "price_str": "$299.99"
+    },
+    {
+      "asin": "B0HHD19QF7",
+      "title": "Gevi 20 Bar Professional Espresso Machines for Latte/Cappuccino,White",
+      "role": "Premium",
+      "brand": "Gevi",
+      "track_url": "https://pboost.me/D5Ve0t6mc?uid=fromsll",
+      "price": "299.98",
+      "price_str": "$299.98"
+    },
+    {
+      "asin": "B0GWQ69YXZ",
+      "title": "CASABREWS CM5418Pro Espresso Machine with Tornado Eletric Conical Burr Coffee Grinder",
+      "role": "Alternative",
+      "brand": "Casabrews",
+      "track_url": "https://pboost.me/I5UQscKD?uid=fromsll",
+      "price": "296.98",
+      "price_str": "$296.98"
+    },
+    {
+      "asin": "B0GWPXC2V9",
+      "title": "CASABREWS Ultra Espresso Machine with Tornado Electric Conical Burr Coffee Grinder",
+      "role": "Also consider",
+      "brand": "Casabrews",
+      "track_url": "https://pboost.me/d5UQwcaKd?uid=fromsll",
+      "price": "292.38",
+      "price_str": "$292.38"
+    },
+    {
+      "asin": "B0HG4FK6X6",
+      "title": "CASABREWS Ultra PRO Espresso Machine with 12oz Titanium Mug Set",
+      "role": "Editor pick",
+      "brand": "Casabrews",
+      "track_url": "https://pboost.me/k5UQZaKd?uid=fromsll",
+      "price": "285.28",
+      "price_str": "$285.28"
+    },
+    {
+      "asin": "B0FXM6YCMQ",
+      "title": "Gevi 20 Bar Espresso Machine, 58mm Portafilter, 3 Temps, Latte Maker",
+      "role": "Budget",
+      "brand": "Gevi",
+      "track_url": "https://pboost.me/n5Ve3p8m9?uid=fromsll",
+      "price": "284.96",
+      "price_str": "$284.96"
+    },
+    {
+      "asin": "B0GX1FZL6Z",
+      "title": "Gevi 20 Bar Espresso Machine with Conical Burr Anti-Static Coffee Grinder",
+      "role": "Runner-up",
+      "brand": "Gevi",
+      "track_url": "https://pboost.me/x5Ve5wDm4?uid=fromsll",
+      "price": "249.99",
+      "price_str": "$249.99"
+    }
+  ]
+}

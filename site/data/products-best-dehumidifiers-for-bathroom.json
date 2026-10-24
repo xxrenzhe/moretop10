@@ -1,0 +1,72 @@
+{
+  "path": "/dehumidifiers/best-dehumidifiers-for-bathroom/",
+  "published": false,
+  "fill_status": "filled",
+  "waiting_for_部署上线": true,
+  "stub": false,
+  "products": [
+    {
+      "asin": "B0GVS2RDLB",
+      "title": "Waykar 23 Pint Energy Star Home Dehumidifier, Ultra Quiet 35 dB",
+      "role": "Top pick",
+      "brand": "Waykar",
+      "track_url": "https://pboost.me/j5UID62mZ?uid=fromsll",
+      "price": "139.99",
+      "price_str": "$139.99"
+    },
+    {
+      "asin": "B0HFHG2C6Y",
+      "title": "Waykar 34 Pints Energy Star Dehumidifier for Spaces up to 2,000 Sq. Ft at Home, in Basements and Large Rooms with Drain Hose and 0.66 Gallons Water Tank",
+      "role": "Upgrade",
+      "brand": "Waykar",
+      "track_url": "https://pboost.me/d5UIC00l0?uid=fromsll",
+      "price": "190.84",
+      "price_str": "$190.84"
+    },
+    {
+      "asin": "B0FPD7Y2CQ",
+      "title": "Waykar 34 Pints Energy Star Dehumidifier for Spaces up to 2,000 Sq. Ft at Home, in Basements and Large Rooms with Drain Hose and 0.66 Gallons Water Tank",
+      "role": "Best value",
+      "brand": "Waykar",
+      "track_url": "https://pboost.me/m5UICDlC?uid=fromsll",
+      "price": "190.84",
+      "price_str": "$190.84"
+    },
+    {
+      "asin": "B0GSFWHGCW",
+      "title": "KNKA 2500 Ft² Max 34 Pints Dehumidifier for Basement with Drain Hose, Black",
+      "role": "Premium",
+      "brand": "KNKA-US",
+      "track_url": "https://pboost.me/w5SRxgnc?uid=fromsll",
+      "price": "139.98",
+      "price_str": "$139.98"
+    },
+    {
+      "asin": "B0DR7TZGV8",
+      "title": "KNKA 2500 Ft² Max 34 Pints Dehumidifier for Basement with Drain Hose, White",
+      "role": "Alternative",
+      "brand": "KNKA-US",
+      "track_url": "https://pboost.me/U5QOyww3?uid=fromsll",
+      "price": "129.99",
+      "price_str": "$129.99"
+    },
+    {
+      "asin": "B0G1TCQPZQ",
+      "title": "AEOCKY Dehumidifier with Pump Up to 16.5ft Energy Star Most Efficient 2024",
+      "role": "Also consider",
+      "brand": "AEOCKY",
+      "track_url": "https://pboost.me/O5QONa0v?uid=fromsll",
+      "price": "260.99",
+      "price_str": "$260.99"
+    },
+    {
+      "asin": "B0G1WK1LX5",
+      "title": "AEOCKY Dehumidifier with Pump Up to 16.5ft Energy Star Most Efficient 2025",
+      "role": "Editor pick",
+      "brand": "AEOCKY",
+      "track_url": "https://pboost.me/C5QNmciZ?uid=fromsll",
+      "price": "242.96",
+      "price_str": "$242.96"
+    }
+  ]
+}

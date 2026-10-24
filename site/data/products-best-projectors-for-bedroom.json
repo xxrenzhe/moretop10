@@ -1,0 +1,63 @@
+{
+  "path": "/projectors/best-projectors-for-bedroom/",
+  "published": false,
+  "fill_status": "filled",
+  "waiting_for_部署上线": true,
+  "stub": false,
+  "products": [
+    {
+      "asin": "B0H3KTBXRQ",
+      "title": "Aurzen ZIP Tri-Fold DLP Pocket Mini Projector, 1.5-Hour Playtime, Grey",
+      "role": "Top pick",
+      "brand": "Aurzen",
+      "track_url": "https://pboost.me/w5UPtgWT?uid=fromsll",
+      "price": "399.99",
+      "price_str": "$399.99"
+    },
+    {
+      "asin": "B0HGXXZPWF",
+      "title": "Aurzen ZIP Tri-Fold DLP Pocket Mini Projector with USB-C, Bluetooth, White",
+      "role": "Upgrade",
+      "brand": "Aurzen",
+      "track_url": "https://pboost.me/P5UPCu8WC?uid=fromsll",
+      "price": "279.99",
+      "price_str": "$279.99"
+    },
+    {
+      "asin": "B0GV3YZ5XH",
+      "title": "Aurzen ZIP Tri-Fold DLP Pocket Mini Projector with USB-C, Bluetooth,Gold",
+      "role": "Best value",
+      "brand": "Aurzen",
+      "track_url": "https://pboost.me/P5UPdywWa?uid=fromsll",
+      "price": "279.99",
+      "price_str": "$279.99"
+    },
+    {
+      "asin": "B0DDT9FQCQ",
+      "title": "HAPPRUN 2000 ANSI 4K Decoding Projector with WiFi and Bluetooth, Auto Focus",
+      "role": "Premium",
+      "brand": "HAPPRUN",
+      "track_url": "https://pboost.me/a5QNytlv?uid=fromsll",
+      "price": "268.94",
+      "price_str": "$268.94"
+    },
+    {
+      "asin": "B0G2RM3ZBZ",
+      "title": "HAPPRUN 4K Decoding Daytime Smart Projector with WiFi and Bluetooth",
+      "role": "Alternative",
+      "brand": "HAPPRUN",
+      "track_url": "https://pboost.me/Y5UR763d?uid=fromsll",
+      "price": "199.98",
+      "price_str": "$199.98"
+    },
+    {
+      "asin": "B0B28G5Y4R",
+      "title": "HAPPRUN Native 1080P Bluetooth Projector - Standard",
+      "role": "Also consider",
+      "brand": "HAPPRUN",
+      "track_url": "https://pboost.me/k5URf83a?uid=fromsll",
+      "price": "59.99",
+      "price_str": "$59.99"
+    }
+  ]
+}
