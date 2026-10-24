@@ -1,18 +1,20 @@
 {
   "page": "robot-vacuums/comparison/",
-  "page_floor": "2026-10-23",
-  "source": "mt10-daily-388 Live tree 2026-10-23 (asin-checked-from-daily388.json)",
-  "waiting_for_部署上线": "yes",
+  "page_floor": "2026-10-24",
+  "as_of": "2026-10-24",
+  "last_updated": "2026-10-24",
+  "date_modified": "2026-10-24",
   "checked": {
-    "B0GCDZBK9Q": "2026-10-20",
-    "B0FK2HPNCB": "2026-10-20",
-    "B0DHCJ571Z": "2026-10-20",
-    "B0DX1DQKMD": "2026-10-18",
-    "B0GGRTD2ZY": "2026-10-23",
-    "B0DWXBCQVP": "2026-10-21",
-    "B0DWX69JVG": "2026-10-18",
-    "B0F3337BV7": "2026-10-18",
-    "B0GTLY9Z1K": "2026-10-18",
-    "B0CQ7JCN6Z": "2026-10-23"
-  }
+    "B0GVYTYNP7": "2026-10-24",
+    "B0FK2HPNCB": "2026-10-24",
+    "B0DHCJ571Z": "2026-10-24",
+    "B0DX1DQKMD": "2026-10-24",
+    "B0GGRTD2ZY": "2026-10-24",
+    "B0DS5WV7V6": "2026-10-24",
+    "B0DWXBCQVP": "2026-10-24",
+    "B0DWX69JVG": "2026-10-24",
+    "B0F3337BV7": "2026-10-24",
+    "B0GTLY9Z1K": "2026-10-24"
+  },
+  "source": "live-floor-2026-10-24 daily e1841465"
 }
