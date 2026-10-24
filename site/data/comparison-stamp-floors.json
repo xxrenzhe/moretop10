@@ -1,0 +1,344 @@
+{
+  "page_floor": "2026-10-23",
+  "count": 21,
+  "source": "mt10-stamp-sot-all-cmp-2026-10-24 daily-388 Live tree 2026-10-23",
+  "waiting_for_部署上线": "yes",
+  "pages": {
+    "air-fryers": {
+      "page": "air-fryers/comparison/",
+      "page_floor": "2026-10-23",
+      "checked": {
+        "B0G4RPVRFJ": "2026-10-18",
+        "B0G4RV4MVD": "2026-10-23",
+        "B0GLX9TGJV": "2026-10-20",
+        "B0C33CHG99": "2026-10-20",
+        "B0FJYK886N": "2026-10-23",
+        "B0936FGLQS": "2026-10-18",
+        "B0CCS2TH8Q": "2026-10-23",
+        "B0DD3QTMV5": "2026-10-20",
+        "B0F836S79D": "2026-10-23",
+        "B0H7WRRKX8": "2026-10-23"
+      }
+    },
+    "air-purifiers": {
+      "page": "air-purifiers/comparison/",
+      "page_floor": "2026-10-23",
+      "checked": {
+        "B0FK53C7B9": "2026-10-23",
+        "B0GXKSC38S": "2026-10-20",
+        "B07X25BNBR": "2026-10-23",
+        "B08BR1CR78": "2026-10-23",
+        "B09LMF648R": "2026-10-23",
+        "B0CXJ97TV1": "2026-10-20",
+        "B0H4SVJ2RF": "2026-10-23",
+        "B0FS68R44C": "2026-10-20",
+        "B0F2G5DPJN": "2026-10-21",
+        "B0F32TGRMR": "2026-10-20"
+      }
+    },
+    "bluetooth-speakers": {
+      "page": "bluetooth-speakers/comparison/",
+      "page_floor": "2026-10-23",
+      "checked": {
+        "B0CQ53RVTW": "2026-10-23",
+        "B0BWXM3RRK": "2026-10-23",
+        "B0DB19LTCS": "2026-10-18",
+        "B0F634Q73V": "2026-10-23",
+        "B0GFN72RL1": "2026-10-18",
+        "B0DCJV2PVW": "2026-10-21",
+        "B0DTHMKKGR": "2026-10-18",
+        "B08BCHKY52": "2026-10-23",
+        "B0CZ7DY692": "2026-10-23",
+        "B0DTHTXTR6": "2026-10-23"
+      }
+    },
+    "computer-speakers": {
+      "page": "computer-speakers/comparison/",
+      "page_floor": "2026-10-23",
+      "checked": {
+        "B0H2VQ581Y": "2026-10-23",
+        "B0D95QG8W4": "2026-10-23",
+        "B0CPS6NQBL": "2026-10-18",
+        "B0G7H5D2NC": "2026-10-21",
+        "B0G8DLJ1PM": "2026-10-21",
+        "B0F8QSQR7V": "2026-10-23",
+        "B0F8Q3QB4T": "2026-10-21",
+        "B0F8HFXXVZ": "2026-10-23",
+        "B0DTHW6KN3": "2026-10-18",
+        "B0FH1RFP91": "2026-10-21"
+      }
+    },
+    "cordless-vacuums": {
+      "page": "cordless-vacuums/comparison/",
+      "page_floor": "2026-10-23",
+      "checked": {
+        "B0HJC1TZKG": "2026-10-20",
+        "B0FK4SJMS6": "2026-10-20",
+        "B0GX948D7R": "2026-10-23",
+        "B0DLWJLN2W": "2026-10-23",
+        "B0GQLYSYRZ": "2026-10-23",
+        "B0HJCFDJ1J": "2026-10-23",
+        "B0DFWB16HW": "2026-10-18",
+        "B0GZMZSTZK": "2026-10-23",
+        "B0GXJW827L": "2026-10-18",
+        "B0HJCZTX21": "2026-10-18"
+      }
+    },
+    "dash-cams": {
+      "page": "dash-cams/comparison/",
+      "page_floor": "2026-10-23",
+      "checked": {
+        "B0CSPBJ2HM": "2026-10-23",
+        "B0FXX2693Y": "2026-10-23",
+        "B0C1Z4MQF8": "2026-10-23",
+        "B0D9GRRXH5": "2026-10-18",
+        "B0BGGGG4VW": "2026-10-23",
+        "B0F1TSXJ3Y": "2026-10-18",
+        "B0CL4FQBQV": "2026-10-23",
+        "B0F8NJMBYY": "2026-10-18",
+        "B098WVKF19": "2026-10-23",
+        "B0F8BWJHW4": "2026-10-18"
+      }
+    },
+    "dehumidifiers": {
+      "page": "dehumidifiers/comparison/",
+      "page_floor": "2026-10-23",
+      "checked": {
+        "B0H26KMQHT": "2026-10-23",
+        "B0D1C6HWFF": "2026-10-23",
+        "B0FWB57KYQ": "2026-10-23",
+        "B0C9THG48W": "2026-10-23",
+        "B0FRQVWSS4": "2026-10-23",
+        "B081RG8JYR": "2026-10-21",
+        "B0B5V6MBMR": "2026-10-18",
+        "B0GXYD5JBY": "2026-10-18",
+        "B0FCDZM4JL": "2026-10-18",
+        "B0H41K4PQN": "2026-10-18"
+      }
+    },
+    "espresso-machines": {
+      "page": "espresso-machines/comparison/",
+      "page_floor": "2026-10-23",
+      "checked": {
+        "B0FD2VBCKN": "2026-10-20",
+        "B0D53126XJ": "2026-10-20",
+        "B09X3WGJ3R": "2026-10-20",
+        "B0C6556G9T": "2026-10-18",
+        "B0F4DBXT8X": "2026-10-20",
+        "B0BRSP8YT6": "2026-10-18",
+        "B0DHJ9SZ81": "2026-10-23",
+        "B0F3CNFX5G": "2026-10-18",
+        "B0D41M2TPX": "2026-10-23",
+        "B0H13YHRYW": "2026-10-18"
+      }
+    },
+    "hair-dryers": {
+      "page": "hair-dryers/comparison/",
+      "page_floor": "2026-10-23",
+      "checked": {
+        "B0GX9MB6MG": "2026-10-21",
+        "B0G5X7TR5R": "2026-10-23",
+        "B0GGH1C9M8": "2026-10-18",
+        "B0FMYTB273": "2026-10-23",
+        "B0GW3JLJWW": "2026-10-21",
+        "B0GWHF4SHD": "2026-10-18",
+        "B0F4KQ3D34": "2026-10-21",
+        "B0F8QHMVGC": "2026-10-18",
+        "B0D45MLSGS": "2026-10-23",
+        "B0D5H9M72G": "2026-10-23"
+      }
+    },
+    "humidifiers": {
+      "page": "humidifiers/comparison/",
+      "page_floor": "2026-10-23",
+      "checked": {
+        "B0B1DQ8KV3": "2026-10-23",
+        "B0C4GHYH2M": "2026-10-21",
+        "B0DF567NW8": "2026-10-23",
+        "B0BLV8BM5J": "2026-10-23",
+        "B0GSR397Z7": "2026-10-21",
+        "B09C24TYGQ": "2026-10-23",
+        "B0C2GKJ9RT": "2026-10-23",
+        "B095KGXPW5": "2026-10-23",
+        "B0C369CCDY": "2026-10-23",
+        "B0DSP78FG4": "2026-10-18"
+      }
+    },
+    "kids-bikes": {
+      "page": "kids-bikes/comparison/",
+      "page_floor": "2026-10-23",
+      "checked": {
+        "B0HCNHCJGD": "2026-10-23",
+        "B0FXWZY3K6": "2026-10-23",
+        "B0BCQ1VJDP": "2026-10-23",
+        "B0HNJZDPWQ": "2026-10-23",
+        "B00D3F9H2G": "2026-10-23",
+        "B0D1Q49LN7": "2026-10-23",
+        "B07TKMVM6L": "2026-10-23",
+        "B0CPDZ7R5P": "2026-10-23",
+        "B0D7ZVQZ6G": "2026-10-23",
+        "B0HNJL5ZY2": "2026-10-23"
+      }
+    },
+    "litter-boxes": {
+      "page": "litter-boxes/comparison/",
+      "page_floor": "2026-10-23",
+      "checked": {
+        "B0DFYLFFG1": "2026-10-23",
+        "B0HC6Y2MS3": "2026-10-21",
+        "B0DK6RSFG2": "2026-10-18",
+        "B0DFYF2D7D": "2026-10-21",
+        "B0GL7Q6YXZ": "2026-10-23",
+        "B0DFYJ29XG": "2026-10-23",
+        "B0DFYKK25Y": "2026-10-21",
+        "B0DM83CLW3": "2026-10-18",
+        "B0CSKBWBF6": "2026-10-23",
+        "B0GL74MB73": "2026-10-18"
+      }
+    },
+    "massage-guns": {
+      "page": "massage-guns/comparison/",
+      "page_floor": "2026-10-23",
+      "checked": {
+        "B0D16W8531": "2026-10-18",
+        "B0GY45CWMD": "2026-10-18",
+        "B0FKN73JY7": "2026-10-18",
+        "B0FMWRPR2D": "2026-10-20",
+        "B08CKWVYMF": "2026-10-18",
+        "B0CHWFJWNN": "2026-10-18",
+        "B0D96CSSSF": "2026-10-20",
+        "B0BG56G526": "2026-10-20",
+        "B0983GZJHZ": "2026-10-20",
+        "B0D8TQM7SR": "2026-10-18"
+      }
+    },
+    "noise-cancelling-headphones": {
+      "page": "noise-cancelling-headphones/comparison/",
+      "page_floor": "2026-10-23",
+      "checked": {
+        "B0D41JQTF8": "2026-10-18",
+        "B0GR4GR5QH": "2026-10-20",
+        "B0CZ8G716J": "2026-10-20",
+        "B0H9RLZFPR": "2026-10-20",
+        "B0GWLKRWH7": "2026-10-23",
+        "B0CRTPF7CZ": "2026-10-18",
+        "B0F9D8HMK6": "2026-10-18",
+        "B08HMWZBXC": "2026-10-18",
+        "B0F4884LN3": "2026-10-18",
+        "B0F6LTFTW9": "2026-10-18"
+      }
+    },
+    "projectors": {
+      "page": "projectors/comparison/",
+      "page_floor": "2026-10-23",
+      "checked": {
+        "B0FQL6HLQ3": "2026-10-18",
+        "B0G4W44Z8Y": "2026-10-18",
+        "B0CHW11C8H": "2026-10-20",
+        "B0DBQ7XP2H": "2026-10-20",
+        "B0DYV2CGTK": "2026-10-20",
+        "B0DJXRGJ66": "2026-10-20",
+        "B0H1C4XMRJ": "2026-10-18",
+        "B0BCWNQPQ7": "2026-10-18",
+        "B0C1S95YZQ": "2026-10-18",
+        "B0FQKGS5JF": "2026-10-18"
+      }
+    },
+    "robot-vacuums": {
+      "page": "robot-vacuums/comparison/",
+      "page_floor": "2026-10-23",
+      "checked": {
+        "B0GCDZBK9Q": "2026-10-20",
+        "B0FK2HPNCB": "2026-10-20",
+        "B0DX1DQKMD": "2026-10-18",
+        "B0GGRTD2ZY": "2026-10-23",
+        "B0DWXBCQVP": "2026-10-21",
+        "B0DHCJ571Z": "2026-10-20",
+        "B0DWX69JVG": "2026-10-18",
+        "B0F3337BV7": "2026-10-18",
+        "B0GTLY9Z1K": "2026-10-18",
+        "B0CQ7JCN6Z": "2026-10-23"
+      }
+    },
+    "security-cameras": {
+      "page": "security-cameras/comparison/",
+      "page_floor": "2026-10-23",
+      "checked": {
+        "B0FF426P7D": "2026-10-21",
+        "B0BZ55JZ4S": "2026-10-20",
+        "B0CGLKYFG2": "2026-10-22",
+        "B07X81M2D2": "2026-10-20",
+        "B0D2R4979K": "2026-10-18",
+        "B0B9MXWLYG": "2026-10-18",
+        "B0CLJCZLJN": "2026-10-18",
+        "B0GLHKVY36": "2026-10-23",
+        "B0CCYP6KFM": "2026-10-23",
+        "B0BVFQ7Y4V": "2026-10-21"
+      }
+    },
+    "standing-desks": {
+      "page": "standing-desks/comparison/",
+      "page_floor": "2026-10-23",
+      "checked": {
+        "B0GWKCG1SS": "2026-10-23",
+        "B0GWKF4M1T": "2026-10-23",
+        "B0GD75Y6SC": "2026-10-23",
+        "B0B68QSN6Y": "2026-10-20",
+        "B0F8MHPVPH": "2026-10-20",
+        "B0GCNPGWPL": "2026-10-23",
+        "B0FJXWQ3Y7": "2026-10-23",
+        "B0H4LCLJXL": "2026-10-23",
+        "B0GCNG1PK8": "2026-10-23",
+        "B0CJ313Q9P": "2026-10-23"
+      }
+    },
+    "tower-fans": {
+      "page": "tower-fans/comparison/",
+      "page_floor": "2026-10-23",
+      "checked": {
+        "B0BSH7YKHT": "2026-10-23",
+        "B0CKQNHK1H": "2026-10-23",
+        "B0CJRN8CWZ": "2026-10-23",
+        "B0GLP9WRBP": "2026-10-18",
+        "B0GVDBKMVN": "2026-10-21",
+        "B0GH1B2YD2": "2026-10-23",
+        "B0FFGJLNLN": "2026-10-23",
+        "B0GVD6D2KL": "2026-10-18",
+        "B0GH7X9FGS": "2026-10-18",
+        "B0GGJ7334B": "2026-10-23"
+      }
+    },
+    "video-doorbells": {
+      "page": "video-doorbells/comparison/",
+      "page_floor": "2026-10-23",
+      "checked": {
+        "B0GDTGZZ6N": "2026-10-21",
+        "B0FX3LNLLQ": "2026-10-21",
+        "B0CD7NT4Y9": "2026-10-20",
+        "B0F5914CT1": "2026-10-20",
+        "B0DYJ6X6RR": "2026-10-18",
+        "B0D4Z7SX71": "2026-10-20",
+        "B09H2T18WD": "2026-10-18",
+        "B09SFQ5V16": "2026-10-18",
+        "B0B7S3JSG7": "2026-10-23",
+        "B0GHPW7SVQ": "2026-10-23"
+      }
+    },
+    "wet-dry-vacuums": {
+      "page": "wet-dry-vacuums/comparison/",
+      "page_floor": "2026-10-23",
+      "checked": {
+        "B0DHTTNJ2Y": "2026-10-20",
+        "B0DHTW17RR": "2026-10-20",
+        "B0DHTZNGXQ": "2026-10-18",
+        "B0GT4MFVFQ": "2026-10-18",
+        "B0FHHRXJ56": "2026-10-20",
+        "B0H8SGSDW9": "2026-10-23",
+        "B0DQ7HD168": "2026-10-20",
+        "B0FX51N39V": "2026-10-18",
+        "B0FMXSYCS3": "2026-10-18",
+        "B0DHV29N1N": "2026-10-18"
+      }
+    }
+  }
+}
