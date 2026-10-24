@@ -1,0 +1,223 @@
+{
+  "generated": "2026-10-24",
+  "slug": "docking-stations",
+  "name": "Docking Stations",
+  "amazon_category": "Electronics",
+  "density": 8,
+  "density_target": 10,
+  "density_shortfall": true,
+  "status": "unpublished_scaffold",
+  "waiting_for_部署上线": "yes",
+  "inventory": "l1_fill",
+  "baked": true,
+  "live": false,
+  "publishable": false,
+  "published": false,
+  "cta_label": "Check price",
+  "cta_rule": "PB pboost.me keeps uid=fromsll when a verified track exists; no invented hops; no YP rebind",
+  "l2": {
+    "status": "l1_api",
+    "method": "l1_pb_fromsll_pack",
+    "ok_count": 8,
+    "blocked": []
+  },
+  "notes": [
+    "MT10 day-add L1 fill docking-stations 2026-10-24. waiting_for_部署上线=yes. No Live.",
+    "Healthy PB fromsll only. Density is honest — not padded to 10.",
+    "Prices are L1 API snapshots from the fill pack. No invented listings, photos, or was/%. list_price omitted.",
+    "Lifestyle cover is a gradient placeholder. Product photos wait for a later listing check.",
+    "No accessories invented as heroes. Lab independent. No YP CTA rebind.",
+    "Honest shortfall 8/10 — do not invent listings to pad."
+  ],
+  "dropped_accessory_asins": [],
+  "picks": [
+    {
+      "asin": "B0FWC9NS9V",
+      "title": "AV Access 8K KVM Switch 3 Monitors 2 Computers, KVM Docking Station",
+      "title_source": "l1_pack",
+      "brand": "v AV Access-US",
+      "role": "Top pick",
+      "affiliate_network": "pb",
+      "affiliate_link": "https://pboost.me/R5QNZ6dz6?uid=fromsll",
+      "track_status": "ok",
+      "l2_status": "l1_api",
+      "price": "299.99",
+      "price_raw": "$299.99",
+      "price_displayed": "$299.99",
+      "image": null,
+      "availability": "IN_STOCK",
+      "feature_bullets": [],
+      "l2": {
+        "ok": false,
+        "method": "l1_pb_api",
+        "status": "pending_listing_check"
+      }
+    },
+    {
+      "asin": "B0GWL5R69W",
+      "title": "WAVLINK Laptop Docking Station 3 Monitors, 11-in-1 USB C Docking Station with 125W PD3.1 Pass-Through & Power Adapter, 2*HDMI + DP, Max Resolution: Single 8K or Triple 4K, for MacBook M1–M4",
+      "title_source": "l1_pack",
+      "brand": "WAVLINK",
+      "role": "Upgrade",
+      "affiliate_network": "pb",
+      "affiliate_link": "https://pboost.me/T5SSwod15?uid=fromsll",
+      "track_status": "ok",
+      "l2_status": "l1_api",
+      "price": "119.99",
+      "price_raw": "$119.99",
+      "price_displayed": "$119.99",
+      "image": null,
+      "availability": "IN_STOCK",
+      "feature_bullets": [],
+      "l2": {
+        "ok": false,
+        "method": "l1_pb_api",
+        "status": "pending_listing_check"
+      }
+    },
+    {
+      "asin": "B0H6J7JSSM",
+      "title": "AV Access iDock X20 Dual USB C KVM Docking Station 2 Laptops Switch",
+      "title_source": "l1_pack",
+      "brand": "v AV Access-US",
+      "role": "Best value",
+      "affiliate_network": "pb",
+      "affiliate_link": "https://pboost.me/B5SOax562?uid=fromsll",
+      "track_status": "ok",
+      "l2_status": "l1_api",
+      "price": "269.99",
+      "price_raw": "$269.99",
+      "price_displayed": "$269.99",
+      "image": null,
+      "availability": "IN_STOCK",
+      "feature_bullets": [],
+      "l2": {
+        "ok": false,
+        "method": "l1_pb_api",
+        "status": "pending_listing_check"
+      }
+    },
+    {
+      "asin": "B0GWL479JX",
+      "title": "WAVLINK Laptop Docking Station 3 Monitors, 11-in-1 USB C Docking Station with 125W PD3.1 Pass-Through & Power Adapter, HDMI + 2* DP, Max Resolution: Single 8K or Triple 4K, for MacBook M1–M4",
+      "title_source": "l1_pack",
+      "brand": "WAVLINK",
+      "role": "Premium",
+      "affiliate_network": "pb",
+      "affiliate_link": "https://pboost.me/x5SScKk1a?uid=fromsll",
+      "track_status": "ok",
+      "l2_status": "l1_api",
+      "price": "119.99",
+      "price_raw": "$119.99",
+      "price_displayed": "$119.99",
+      "image": null,
+      "availability": "IN_STOCK",
+      "feature_bullets": [],
+      "l2": {
+        "ok": false,
+        "method": "l1_pb_api",
+        "status": "pending_listing_check"
+      }
+    },
+    {
+      "asin": "B0F6MTC9LR",
+      "title": "AV Access KVM Switch 2 Monitors 2 Computers, 8K KVM Docking Station",
+      "title_source": "l1_pack",
+      "brand": "v AV Access-US",
+      "role": "Alternative",
+      "affiliate_network": "pb",
+      "affiliate_link": "https://pboost.me/R5QND71h6?uid=fromsll",
+      "track_status": "ok",
+      "l2_status": "l1_api",
+      "price": "251.99",
+      "price_raw": "$251.99",
+      "price_displayed": "$251.99",
+      "image": null,
+      "availability": "IN_STOCK",
+      "feature_bullets": [],
+      "l2": {
+        "ok": false,
+        "method": "l1_pb_api",
+        "status": "pending_listing_check"
+      }
+    },
+    {
+      "asin": "B0C58H1CDL",
+      "title": "WAVLINK DisplayLink Laptop Docking Station Quad Monitor 4K@60Hz for MacBook",
+      "title_source": "l1_pack",
+      "brand": "WAVLINK",
+      "role": "Also consider",
+      "affiliate_network": "pb",
+      "affiliate_link": "https://pboost.me/j5SSaFz11?uid=fromsll",
+      "track_status": "ok",
+      "l2_status": "l1_api",
+      "price": "299.99",
+      "price_raw": "$299.99",
+      "price_displayed": "$299.99",
+      "image": null,
+      "availability": "IN_STOCK",
+      "feature_bullets": [],
+      "l2": {
+        "ok": false,
+        "method": "l1_pb_api",
+        "status": "pending_listing_check"
+      }
+    },
+    {
+      "asin": "B0H6HVFLHQ",
+      "title": "AV Access Dual Monitor KVM Docking Station for 2 Computers, 2.5Gb Ethernet",
+      "title_source": "l1_pack",
+      "brand": "v AV Access-US",
+      "role": "Editor pick",
+      "affiliate_network": "pb",
+      "affiliate_link": "https://pboost.me/L5SOa0Z7a?uid=fromsll",
+      "track_status": "ok",
+      "l2_status": "l1_api",
+      "price": "235.99",
+      "price_raw": "$235.99",
+      "price_displayed": "$235.99",
+      "image": null,
+      "availability": "IN_STOCK",
+      "feature_bullets": [],
+      "l2": {
+        "ok": false,
+        "method": "l1_pb_api",
+        "status": "pending_listing_check"
+      }
+    },
+    {
+      "asin": "B09FT8BXZR",
+      "title": "WAVLINK DisplayLink Laptop Docking Station Quad Monitor 4K@60Hz for MacBook",
+      "title_source": "l1_pack",
+      "brand": "WAVLINK",
+      "role": "Budget",
+      "affiliate_network": "pb",
+      "affiliate_link": "https://pboost.me/O5SSJ01g?uid=fromsll",
+      "track_status": "ok",
+      "l2_status": "l1_api",
+      "price": "257.2",
+      "price_raw": "$257.20",
+      "price_displayed": "$257.20",
+      "image": null,
+      "availability": "IN_STOCK",
+      "feature_bullets": [],
+      "l2": {
+        "ok": false,
+        "method": "l1_pb_api",
+        "status": "pending_listing_check"
+      }
+    }
+  ],
+  "l2_ok_asins": [
+    "B0FWC9NS9V",
+    "B0GWL5R69W",
+    "B0H6J7JSSM",
+    "B0GWL479JX",
+    "B0F6MTC9LR",
+    "B0C58H1CDL",
+    "B0H6HVFLHQ",
+    "B09FT8BXZR"
+  ],
+  "l2_pending_asins": [],
+  "track_pending_asins": []
+}

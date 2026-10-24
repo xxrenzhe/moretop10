@@ -1,0 +1,201 @@
+{
+  "date": "2026-10-24",
+  "batch": "MT10-day-add",
+  "waiting_for_部署上线": true,
+  "published": false,
+  "live": false,
+  "merged": false,
+  "independent_of_shortlist_lab": true,
+  "do_not_touch": [
+    "Lab",
+    "RR",
+    "OL",
+    "#54 home nav",
+    "#55 stamp"
+  ],
+  "skipped": [
+    {
+      "path": "/3d-printing-filament/",
+      "reason": "brand_gate FAIL · R QIDI Technology-only — do not scaffold until multi-brand"
+    },
+    {
+      "path": "/floor-lamps/",
+      "reason": "brand_gate FAIL · Honeywell-only — do not scaffold until multi-brand"
+    },
+    {
+      "path": "/chef-s-knives/",
+      "reason": "brand_gate FAIL · Paudin-only — do not scaffold until multi-brand"
+    }
+  ],
+  "fill_pack": "site/data/mt10-day-add-l1-fill-pack-2026-10-24.json",
+  "occupied": "site/data/mt10-day-add-occupied-2026-10-24.json",
+  "counts": {
+    "pool-heat-pumps": 10,
+    "kitchen-rugs": 10,
+    "light-therapy": 8,
+    "bike-racks": 10,
+    "nightstands": 9,
+    "robotic-pool-cleaners": 8,
+    "barstools": 10,
+    "docking-stations": 8,
+    "bookcases": 10
+  },
+  "total_admitted": 83,
+  "pages": [
+    {
+      "path": "/pool-heat-pumps/",
+      "best_of": "/pool-heat-pumps/best-pool-heat-pumps/",
+      "density": 10,
+      "order_asins": [
+        "B0FDK69645",
+        "B0G4BRGJJ8",
+        "B0HK7LGG4Q",
+        "B0HC29WFFN",
+        "B0G4BQTMJJ",
+        "B0HJYSG5TF",
+        "B0DX26RFPR",
+        "B0G48LGBZM",
+        "B0FQMSHRMC",
+        "B0G48YMM9R"
+      ],
+      "published": false
+    },
+    {
+      "path": "/kitchen-rugs/",
+      "best_of": "/kitchen-rugs/best-kitchen-rugs/",
+      "density": 10,
+      "order_asins": [
+        "B0GYQTJ7KQ",
+        "B0FY17MZ3R",
+        "B0HNW942BJ",
+        "B0GYQLGR7G",
+        "B0FY19LY15",
+        "B0HNVR8PR8",
+        "B0FYBVPN1K",
+        "B0FY1DWKP3",
+        "B0HNW3R91L",
+        "B0FYC54CF4"
+      ],
+      "published": false
+    },
+    {
+      "path": "/light-therapy/",
+      "best_of": "/light-therapy/best-light-therapy/",
+      "density": 8,
+      "order_asins": [
+        "B0GF84HMBY",
+        "B0HHFC3HH5",
+        "B0F6C7XQHJ",
+        "B0H8F4D92Z",
+        "B0DG6KP942",
+        "B0CPXZ33M8",
+        "B0F66WMM61",
+        "B0G1YGQQJT"
+      ],
+      "published": false
+    },
+    {
+      "path": "/bike-racks/",
+      "best_of": "/bike-racks/best-bike-racks/",
+      "density": 10,
+      "order_asins": [
+        "B0HF52DJCY",
+        "B0GX673PXJ",
+        "B0HK8C3D98",
+        "B0FRS89LL3",
+        "B0HN3RCQBB",
+        "B0HMC8BZJ5",
+        "B0HHRDW1D1",
+        "B0HC3J2S1Q",
+        "B0FMR57Q8N",
+        "B0H83DH228"
+      ],
+      "published": false
+    },
+    {
+      "path": "/nightstands/",
+      "best_of": "/nightstands/best-nightstands/",
+      "density": 9,
+      "order_asins": [
+        "B0FYFWBRW6",
+        "B0C6LSM7MS",
+        "B0HNVJPTJL",
+        "B0FYFVWY29",
+        "B0C4F5X6LT",
+        "B0D8DVSQBN",
+        "B0C6LS2ZKF",
+        "B0D8DT1NQS",
+        "B0C6LQ9GBC"
+      ],
+      "published": false
+    },
+    {
+      "path": "/robotic-pool-cleaners/",
+      "best_of": "/robotic-pool-cleaners/best-robotic-pool-cleaners/",
+      "density": 8,
+      "order_asins": [
+        "B0HD764RKJ",
+        "B0GYWX2HWK",
+        "B0D38X6SLW",
+        "B0GYWHXXYG",
+        "B0HBB2ZJPQ",
+        "B0GYWJMNWK",
+        "B0DMN6NV6H",
+        "B0GYWSJMPH"
+      ],
+      "published": false
+    },
+    {
+      "path": "/barstools/",
+      "best_of": "/barstools/best-barstools/",
+      "density": 10,
+      "order_asins": [
+        "B0H6P4T4MQ",
+        "B073R117SK",
+        "B0H6P53T8W",
+        "B0BB29VGBP",
+        "B0H6NWMY4T",
+        "B0H6NYCF7L",
+        "B0HB4W7LDJ",
+        "B0GLDY7QTB",
+        "B0GLFFPP4R",
+        "B0H6P1JD93"
+      ],
+      "published": false
+    },
+    {
+      "path": "/docking-stations/",
+      "best_of": "/docking-stations/best-docking-stations/",
+      "density": 8,
+      "order_asins": [
+        "B0FWC9NS9V",
+        "B0GWL5R69W",
+        "B0H6J7JSSM",
+        "B0GWL479JX",
+        "B0F6MTC9LR",
+        "B0C58H1CDL",
+        "B0H6HVFLHQ",
+        "B09FT8BXZR"
+      ],
+      "published": false
+    },
+    {
+      "path": "/bookcases/",
+      "best_of": "/bookcases/best-bookcases/",
+      "density": 10,
+      "order_asins": [
+        "B0GV3NYVKX",
+        "B0HMRVYTT3",
+        "B0FYQ5PGBM",
+        "B0GTDYW8DP",
+        "B0HMRVTJXP",
+        "B0FYQ5PGBL",
+        "B0GT4YT3GG",
+        "B0HMRTY85T",
+        "B0GK1B4NN4",
+        "B0GTLLT4NQ"
+      ],
+      "published": false
+    }
+  ]
+}

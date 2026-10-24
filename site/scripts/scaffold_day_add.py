@@ -55,6 +55,16 @@ CONFIRM = {
     "mattresses": "Confirm size, firmness, and trial window on the retailer page.",
     "office-chairs": "Confirm lumbar support, weight rating, and seat depth on the retailer page.",
     "water-flossers": "Confirm tank size, pressure settings, and tip count on the retailer page.",
+    "pool-heat-pumps": "Confirm BTU, voltage, and pool gallon rating on the retailer page.",
+    "kitchen-rugs": "Confirm size, wash method, and non-slip backing on the retailer page.",
+    "light-therapy": "Confirm wavelength, session notes, and return window on the retailer page.",
+    "bike-racks": "Confirm hitch class, bike count, and weight rating on the retailer page.",
+    "nightstands": "Confirm dimensions, drawer count, and assembly notes on the retailer page.",
+    "3d-printing-filament": "Confirm material type, diameter, and spool weight on the retailer page.",
+    "robotic-pool-cleaners": "Confirm pool type, cordless runtime, and coverage notes on the retailer page.",
+    "barstools": "Confirm seat height, set count, and weight rating on the retailer page.",
+    "docking-stations": "Confirm monitor count, ports, and laptop compatibility on the retailer page.",
+    "bookcases": "Confirm height, shelf rating, and assembly notes on the retailer page.",
 }
 
 LEDE = {
@@ -74,6 +84,16 @@ LEDE = {
     "mattresses": "Mattresses by size and feel — not toppers, sheets, or foundations.",
     "office-chairs": "Task and executive office chairs — not mats, casters, or lumbar pillows alone.",
     "water-flossers": "Countertop and cordless water flossers — not replacement tips alone.",
+    "pool-heat-pumps": "Inverter pool heat pumps for above-ground and inground pools — not pool covers or solar blankets.",
+    "kitchen-rugs": "Washable kitchen rugs and runners — not bath mats sold as kitchen décor alone.",
+    "light-therapy": "Red and near-infrared light therapy mats, panels, and masks — not generic desk lamps.",
+    "bike-racks": "Hitch-mount and garage bike racks — not spare straps or hitch balls alone.",
+    "nightstands": "Bedside nightstands — not mattress toppers or lamp-only accessories.",
+    "3d-printing-filament": "3D printer filament spools — not printers, nozzles, or spare parts alone.",
+    "robotic-pool-cleaners": "Cordless robotic pool vacuums — not hoses, bags, or skimmer accessories alone.",
+    "barstools": "Counter-height and bar-height stools — not table-only or cushion-only accessories.",
+    "docking-stations": "USB-C and KVM laptop docking stations — not spare cables or dongles alone.",
+    "bookcases": "Tall bookcases and display storage cabinets — not floating shelves or bookends alone.",
 }
 
 COVER_COLORS = {
@@ -93,6 +113,16 @@ COVER_COLORS = {
     "mattresses": ((160, 150, 145), (70, 65, 60)),
     "office-chairs": ((90, 95, 105), (40, 42, 50)),
     "water-flossers": ((80, 150, 165), (30, 70, 80)),
+    "pool-heat-pumps": ((40, 120, 150), (15, 50, 70)),
+    "kitchen-rugs": ((170, 90, 70), (80, 40, 30)),
+    "light-therapy": ((160, 50, 70), (70, 20, 40)),
+    "bike-racks": ((70, 80, 90), (30, 35, 42)),
+    "nightstands": ((140, 120, 100), (70, 55, 45)),
+    "3d-printing-filament": ((80, 90, 140), (30, 35, 70)),
+    "robotic-pool-cleaners": ((30, 110, 140), (10, 45, 65)),
+    "barstools": ((120, 80, 55), (55, 35, 25)),
+    "docking-stations": ((60, 70, 85), (25, 30, 40)),
+    "bookcases": ((130, 105, 80), (60, 45, 35)),
 }
 
 ASIN_RE = re.compile(r"\b(B0[0-9A-Z]{8,10})\b")

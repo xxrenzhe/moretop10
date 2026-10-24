@@ -1,0 +1,223 @@
+{
+  "generated": "2026-10-24",
+  "slug": "light-therapy",
+  "name": "Light Therapy",
+  "amazon_category": "Health & Household",
+  "density": 8,
+  "density_target": 10,
+  "density_shortfall": true,
+  "status": "unpublished_scaffold",
+  "waiting_for_部署上线": "yes",
+  "inventory": "l1_fill",
+  "baked": true,
+  "live": false,
+  "publishable": false,
+  "published": false,
+  "cta_label": "Check price",
+  "cta_rule": "PB pboost.me keeps uid=fromsll when a verified track exists; no invented hops; no YP rebind",
+  "l2": {
+    "status": "l1_api",
+    "method": "l1_pb_fromsll_pack",
+    "ok_count": 8,
+    "blocked": []
+  },
+  "notes": [
+    "MT10 day-add L1 fill light-therapy 2026-10-24. waiting_for_部署上线=yes. No Live.",
+    "Healthy PB fromsll only. Density is honest — not padded to 10.",
+    "Prices are L1 API snapshots from the fill pack. No invented listings, photos, or was/%. list_price omitted.",
+    "Lifestyle cover is a gradient placeholder. Product photos wait for a later listing check.",
+    "No accessories invented as heroes. Lab independent. No YP CTA rebind.",
+    "Honest shortfall 8/10 — do not invent listings to pad."
+  ],
+  "dropped_accessory_asins": [],
+  "picks": [
+    {
+      "asin": "B0GF84HMBY",
+      "title": "Red and Near-Infrared Light Therapy Mat Pro",
+      "title_source": "l1_pack",
+      "brand": "SWIRISE",
+      "role": "Top pick",
+      "affiliate_network": "pb",
+      "affiliate_link": "https://pboost.me/R5SNdHgp9?uid=fromsll",
+      "track_status": "ok",
+      "l2_status": "l1_api",
+      "price": "799.0",
+      "price_raw": "$799.00",
+      "price_displayed": "$799.00",
+      "image": null,
+      "availability": "IN_STOCK",
+      "feature_bullets": [],
+      "l2": {
+        "ok": false,
+        "method": "l1_pb_api",
+        "status": "pending_listing_check"
+      }
+    },
+    {
+      "asin": "B0HHFC3HH5",
+      "title": "Megelin Red and Near Infrared Light Therapy Vest (SD001)",
+      "title_source": "l1_pack",
+      "brand": "MEGELIN",
+      "role": "Upgrade",
+      "affiliate_network": "pb",
+      "affiliate_link": "https://pboost.me/j5SNZiCu4?uid=fromsll",
+      "track_status": "ok",
+      "l2_status": "l1_api",
+      "price": "368.0",
+      "price_raw": "$368.00",
+      "price_displayed": "$368.00",
+      "image": null,
+      "availability": "IN_STOCK",
+      "feature_bullets": [],
+      "l2": {
+        "ok": false,
+        "method": "l1_pb_api",
+        "status": "pending_listing_check"
+      }
+    },
+    {
+      "asin": "B0F6C7XQHJ",
+      "title": "Red Light Therapy Mat for Whole Body - 1280 LEDs with 660nm & 850nm Spectrum, Near-Infrared Light Therapy Mat with Portable 71\"x32\" Design",
+      "title_source": "l1_pack",
+      "brand": "SWIRISE",
+      "role": "Best value",
+      "affiliate_network": "pb",
+      "affiliate_link": "https://pboost.me/w5SNzEpd?uid=fromsll",
+      "track_status": "ok",
+      "l2_status": "l1_api",
+      "price": "728.0",
+      "price_raw": "$728.00",
+      "price_displayed": "$728.00",
+      "image": null,
+      "availability": "IN_STOCK",
+      "feature_bullets": [],
+      "l2": {
+        "ok": false,
+        "method": "l1_pb_api",
+        "status": "pending_listing_check"
+      }
+    },
+    {
+      "asin": "B0H8F4D92Z",
+      "title": "Megelin Red Light Therapy Mat (JML3)",
+      "title_source": "l1_pack",
+      "brand": "MEGELIN",
+      "role": "Premium",
+      "affiliate_network": "pb",
+      "affiliate_link": "https://pboost.me/W5SNACtD?uid=fromsll",
+      "track_status": "ok",
+      "l2_status": "l1_api",
+      "price": "939.0",
+      "price_raw": "$939.00",
+      "price_displayed": "$939.00",
+      "image": null,
+      "availability": "IN_STOCK",
+      "feature_bullets": [],
+      "l2": {
+        "ok": false,
+        "method": "l1_pb_api",
+        "status": "pending_listing_check"
+      }
+    },
+    {
+      "asin": "B0DG6KP942",
+      "title": "Infrared Light Therapy Panel with Stand, 660nm Red Light and 850nm Near Infrared LED Red Light Therapy Device at Home",
+      "title_source": "l1_pack",
+      "brand": "SWIRISE",
+      "role": "Alternative",
+      "affiliate_network": "pb",
+      "affiliate_link": "https://pboost.me/K5SNpvp8?uid=fromsll",
+      "track_status": "ok",
+      "l2_status": "l1_api",
+      "price": "232.0",
+      "price_raw": "$232.00",
+      "price_displayed": "$232.00",
+      "image": null,
+      "availability": "IN_STOCK",
+      "feature_bullets": [],
+      "l2": {
+        "ok": false,
+        "method": "l1_pb_api",
+        "status": "pending_listing_check"
+      }
+    },
+    {
+      "asin": "B0CPXZ33M8",
+      "title": "MEGELIN Led Red Light Therapy Face & Neck Mask",
+      "title_source": "l1_pack",
+      "brand": "MEGELIN",
+      "role": "Also consider",
+      "affiliate_network": "pb",
+      "affiliate_link": "https://pboost.me/N5SN61Tu6?uid=fromsll",
+      "track_status": "ok",
+      "l2_status": "l1_api",
+      "price": "362.7",
+      "price_raw": "$362.70",
+      "price_displayed": "$362.70",
+      "image": null,
+      "availability": "IN_STOCK",
+      "feature_bullets": [],
+      "l2": {
+        "ok": false,
+        "method": "l1_pb_api",
+        "status": "pending_listing_check"
+      }
+    },
+    {
+      "asin": "B0F66WMM61",
+      "title": "Red Light Therapy with 660nm&850nm High Power Panel(Elite 1500)",
+      "title_source": "l1_pack",
+      "brand": "SWIRISE",
+      "role": "Editor pick",
+      "affiliate_network": "pb",
+      "affiliate_link": "https://pboost.me/l5SN3B3pC?uid=fromsll",
+      "track_status": "ok",
+      "l2_status": "l1_api",
+      "price": "899.0",
+      "price_raw": "$899.00",
+      "price_displayed": "$899.00",
+      "image": null,
+      "availability": "IN_STOCK",
+      "feature_bullets": [],
+      "l2": {
+        "ok": false,
+        "method": "l1_pb_api",
+        "status": "pending_listing_check"
+      }
+    },
+    {
+      "asin": "B0G1YGQQJT",
+      "title": "MEGELIN Led Red Light Therapy Face & Neck Mask, 7 Colors Led Light Therapy Facial Mask, Infrared Red Light Therapy Mask, Infrared Light Skin Rejuvenation(White)",
+      "title_source": "l1_pack",
+      "brand": "MEGELIN",
+      "role": "Budget",
+      "affiliate_network": "pb",
+      "affiliate_link": "https://pboost.me/t5SNwgvt3?uid=fromsll",
+      "track_status": "ok",
+      "l2_status": "l1_api",
+      "price": "74.0",
+      "price_raw": "$74.00",
+      "price_displayed": "$74.00",
+      "image": null,
+      "availability": "IN_STOCK",
+      "feature_bullets": [],
+      "l2": {
+        "ok": false,
+        "method": "l1_pb_api",
+        "status": "pending_listing_check"
+      }
+    }
+  ],
+  "l2_ok_asins": [
+    "B0GF84HMBY",
+    "B0HHFC3HH5",
+    "B0F6C7XQHJ",
+    "B0H8F4D92Z",
+    "B0DG6KP942",
+    "B0CPXZ33M8",
+    "B0F66WMM61",
+    "B0G1YGQQJT"
+  ],
+  "l2_pending_asins": [],
+  "track_pending_asins": []
+}

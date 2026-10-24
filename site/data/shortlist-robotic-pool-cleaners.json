@@ -1,0 +1,223 @@
+{
+  "generated": "2026-10-24",
+  "slug": "robotic-pool-cleaners",
+  "name": "Robotic Pool Cleaners",
+  "amazon_category": "Patio, Lawn & Garden",
+  "density": 8,
+  "density_target": 10,
+  "density_shortfall": true,
+  "status": "unpublished_scaffold",
+  "waiting_for_部署上线": "yes",
+  "inventory": "l1_fill",
+  "baked": true,
+  "live": false,
+  "publishable": false,
+  "published": false,
+  "cta_label": "Check price",
+  "cta_rule": "PB pboost.me keeps uid=fromsll when a verified track exists; no invented hops; no YP rebind",
+  "l2": {
+    "status": "l1_api",
+    "method": "l1_pb_fromsll_pack",
+    "ok_count": 8,
+    "blocked": []
+  },
+  "notes": [
+    "MT10 day-add L1 fill robotic-pool-cleaners 2026-10-24. waiting_for_部署上线=yes. No Live.",
+    "Healthy PB fromsll only. Density is honest — not padded to 10.",
+    "Prices are L1 API snapshots from the fill pack. No invented listings, photos, or was/%. list_price omitted.",
+    "Lifestyle cover is a gradient placeholder. Product photos wait for a later listing check.",
+    "No accessories invented as heroes. Lab independent. No YP CTA rebind.",
+    "Honest shortfall 8/10 — do not invent listings to pad."
+  ],
+  "dropped_accessory_asins": [],
+  "picks": [
+    {
+      "asin": "B0HD764RKJ",
+      "title": "(2026 Upgrade) Beatbot AquaSense 2 Ultra Robotic Pool Cleaner, Cordless Pool Vacuum with AI Vision Mapping, 5-in-1 Cleaning, Surface Skimmer, Water Purification for Large & Complex Pools, De",
+      "title_source": "l1_pack",
+      "brand": "Beatbot Amazon",
+      "role": "Top pick",
+      "affiliate_network": "pb",
+      "affiliate_link": "https://pboost.me/m5SReZS9?uid=fromsll",
+      "track_status": "ok",
+      "l2_status": "l1_api",
+      "price": "2299.0",
+      "price_raw": "$2299.00",
+      "price_displayed": "$2299.00",
+      "image": null,
+      "availability": "IN_STOCK",
+      "feature_bullets": [],
+      "l2": {
+        "ok": false,
+        "method": "l1_pb_api",
+        "status": "pending_listing_check"
+      }
+    },
+    {
+      "asin": "B0GYWX2HWK",
+      "title": "Cordless Pool Vacuum for Inground Pools, Pool Cleaner Robot",
+      "title_source": "l1_pack",
+      "brand": "WYBOT",
+      "role": "Upgrade",
+      "affiliate_network": "pb",
+      "affiliate_link": "https://pboost.me/Z5QNcP5W2?uid=fromsll",
+      "track_status": "ok",
+      "l2_status": "l1_api",
+      "price": "626.41",
+      "price_raw": "$626.41",
+      "price_displayed": "$626.41",
+      "image": null,
+      "availability": "IN_STOCK",
+      "feature_bullets": [],
+      "l2": {
+        "ok": false,
+        "method": "l1_pb_api",
+        "status": "pending_listing_check"
+      }
+    },
+    {
+      "asin": "B0D38X6SLW",
+      "title": "Beatbot AquaSense Pro Pool Robot, Cordless Pool Vacuum for Inground Pools, Clarifies Water, Skims Water Surface, Surface Parking, Intelligent Path Optimization, Up to 3,299 Sq.ft - Navy Blue",
+      "title_source": "l1_pack",
+      "brand": "Beatbot Amazon",
+      "role": "Best value",
+      "affiliate_network": "pb",
+      "affiliate_link": "https://pboost.me/f5QN0mtOE?uid=fromsll",
+      "track_status": "ok",
+      "l2_status": "l1_api",
+      "price": "1499.0",
+      "price_raw": "$1499.00",
+      "price_displayed": "$1499.00",
+      "image": null,
+      "availability": "IN_STOCK",
+      "feature_bullets": [],
+      "l2": {
+        "ok": false,
+        "method": "l1_pb_api",
+        "status": "pending_listing_check"
+      }
+    },
+    {
+      "asin": "B0GYWHXXYG",
+      "title": "WYBOT Cordless Robotic Pool Vacuum for Inground Pools",
+      "title_source": "l1_pack",
+      "brand": "WYBOT",
+      "role": "Premium",
+      "affiliate_network": "pb",
+      "affiliate_link": "https://pboost.me/d5QOvY361?uid=fromsll",
+      "track_status": "ok",
+      "l2_status": "l1_api",
+      "price": "399.99",
+      "price_raw": "$399.99",
+      "price_displayed": "$399.99",
+      "image": null,
+      "availability": "IN_STOCK",
+      "feature_bullets": [],
+      "l2": {
+        "ok": false,
+        "method": "l1_pb_api",
+        "status": "pending_listing_check"
+      }
+    },
+    {
+      "asin": "B0HBB2ZJPQ",
+      "title": "(2026 Upgrade) Beatbot AquaSense 2 Cordless Pool Vacuum Robot - Intelligent Path Optimization, Cleans Floor, Walls & Waterline, for Above & In-Ground Pools up to 3,230 sq.ft, Smart Parking,",
+      "title_source": "l1_pack",
+      "brand": "Beatbot Amazon",
+      "role": "Alternative",
+      "affiliate_network": "pb",
+      "affiliate_link": "https://pboost.me/Q5SRlgST?uid=fromsll",
+      "track_status": "ok",
+      "l2_status": "l1_api",
+      "price": "1298.0",
+      "price_raw": "$1298.00",
+      "price_displayed": "$1298.00",
+      "image": null,
+      "availability": "IN_STOCK",
+      "feature_bullets": [],
+      "l2": {
+        "ok": false,
+        "method": "l1_pb_api",
+        "status": "pending_listing_check"
+      }
+    },
+    {
+      "asin": "B0GYWJMNWK",
+      "title": "WYBOT C1 Cordless Robotic Pool Vacuum for Inground Pools, Professional",
+      "title_source": "l1_pack",
+      "brand": "WYBOT",
+      "role": "Also consider",
+      "affiliate_network": "pb",
+      "affiliate_link": "https://pboost.me/u5QM44Tk?uid=fromsll",
+      "track_status": "ok",
+      "l2_status": "l1_api",
+      "price": "399.99",
+      "price_raw": "$399.99",
+      "price_displayed": "$399.99",
+      "image": null,
+      "availability": "IN_STOCK",
+      "feature_bullets": [],
+      "l2": {
+        "ok": false,
+        "method": "l1_pb_api",
+        "status": "pending_listing_check"
+      }
+    },
+    {
+      "asin": "B0DMN6NV6H",
+      "title": "(2025) Beatbot Cordless Robotic Pool Cleaner for Complex Pools",
+      "title_source": "l1_pack",
+      "brand": "Beatbot Amazon",
+      "role": "Editor pick",
+      "affiliate_network": "pb",
+      "affiliate_link": "https://pboost.me/h5SREf3S3?uid=fromsll",
+      "track_status": "ok",
+      "l2_status": "l1_api",
+      "price": "1143.5",
+      "price_raw": "$1143.50",
+      "price_displayed": "$1143.50",
+      "image": null,
+      "availability": "IN_STOCK",
+      "feature_bullets": [],
+      "l2": {
+        "ok": false,
+        "method": "l1_pb_api",
+        "status": "pending_listing_check"
+      }
+    },
+    {
+      "asin": "B0GYWSJMPH",
+      "title": "WYBOT Cordless Robotic Pool Vacuum for Inground Pools",
+      "title_source": "l1_pack",
+      "brand": "WYBOT",
+      "role": "Budget",
+      "affiliate_network": "pb",
+      "affiliate_link": "https://pboost.me/O5SRRgV3?uid=fromsll",
+      "track_status": "ok",
+      "l2_status": "l1_api",
+      "price": "334.99",
+      "price_raw": "$334.99",
+      "price_displayed": "$334.99",
+      "image": null,
+      "availability": "IN_STOCK",
+      "feature_bullets": [],
+      "l2": {
+        "ok": false,
+        "method": "l1_pb_api",
+        "status": "pending_listing_check"
+      }
+    }
+  ],
+  "l2_ok_asins": [
+    "B0HD764RKJ",
+    "B0GYWX2HWK",
+    "B0D38X6SLW",
+    "B0GYWHXXYG",
+    "B0HBB2ZJPQ",
+    "B0GYWJMNWK",
+    "B0DMN6NV6H",
+    "B0GYWSJMPH"
+  ],
+  "l2_pending_asins": [],
+  "track_pending_asins": []
+}

@@ -46,6 +46,16 @@ categories:
     - {slug: mattresses, name: Mattresses, short_name: Mattresses, tier: extended, status: draft}
     - {slug: office-chairs, name: Office Chairs, short_name: Office Chairs, tier: extended, status: draft}
     - {slug: water-flossers, name: Water Flossers, short_name: Water Flossers, tier: extended, status: draft}
+    # 2026-10-24 day-add local drafts — unpublished, no Live, waiting_for_部署上线.
+    - {slug: pool-heat-pumps, name: Pool Heat Pumps, short_name: Pool Heat Pumps, tier: extended, status: draft}
+    - {slug: kitchen-rugs, name: Kitchen Rugs, short_name: Kitchen Rugs, tier: extended, status: draft}
+    - {slug: light-therapy, name: Light Therapy, short_name: Light Therapy, tier: extended, status: draft}
+    - {slug: bike-racks, name: Bike Racks, short_name: Bike Racks, tier: extended, status: draft}
+    - {slug: nightstands, name: Nightstands, short_name: Nightstands, tier: extended, status: draft}
+    - {slug: robotic-pool-cleaners, name: Robotic Pool Cleaners, short_name: Pool Cleaners, tier: extended, status: draft}
+    - {slug: barstools, name: Barstools, short_name: Barstools, tier: extended, status: draft}
+    - {slug: docking-stations, name: Docking Stations, short_name: Docking Stations, tier: extended, status: draft}
+    - {slug: bookcases, name: Bookcases, short_name: Bookcases, tier: extended, status: draft}
 
 # Editorial /tv/ cluster is NOT registered here. Density-10 shortlist rules
 # do not apply. G-IL lives in site_config.EDITORIAL_CLUSTERS (footer + home tile).

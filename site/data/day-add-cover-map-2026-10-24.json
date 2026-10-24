@@ -1,0 +1,64 @@
+{
+  "generated": "2026-10-24",
+  "notes": [
+    "Cover slots only. Gradient placeholders, not product photos.",
+    "waiting_for_部署上线=yes. No Live.",
+    "3d-printing-filament, floor-lamps, and chef-s-knives skipped (brand_gate FAIL)."
+  ],
+  "covers": {
+    "pool-heat-pumps": {
+      "status": "placeholder",
+      "lifestyle": "assets/img/lifestyle/cmp-hero-pool-heat-pumps.jpg",
+      "product_photos": "none — do not invent packshots",
+      "todo": "Replace gradient placeholder with a real lifestyle cover after deploy. Do not invent product photos."
+    },
+    "kitchen-rugs": {
+      "status": "placeholder",
+      "lifestyle": "assets/img/lifestyle/cmp-hero-kitchen-rugs.jpg",
+      "product_photos": "none — do not invent packshots",
+      "todo": "Replace gradient placeholder with a real lifestyle cover after deploy. Do not invent product photos."
+    },
+    "light-therapy": {
+      "status": "placeholder",
+      "lifestyle": "assets/img/lifestyle/cmp-hero-light-therapy.jpg",
+      "product_photos": "none — do not invent packshots",
+      "todo": "Replace gradient placeholder with a real lifestyle cover after deploy. Do not invent product photos."
+    },
+    "bike-racks": {
+      "status": "placeholder",
+      "lifestyle": "assets/img/lifestyle/cmp-hero-bike-racks.jpg",
+      "product_photos": "none — do not invent packshots",
+      "todo": "Replace gradient placeholder with a real lifestyle cover after deploy. Do not invent product photos."
+    },
+    "nightstands": {
+      "status": "placeholder",
+      "lifestyle": "assets/img/lifestyle/cmp-hero-nightstands.jpg",
+      "product_photos": "none — do not invent packshots",
+      "todo": "Replace gradient placeholder with a real lifestyle cover after deploy. Do not invent product photos."
+    },
+    "robotic-pool-cleaners": {
+      "status": "placeholder",
+      "lifestyle": "assets/img/lifestyle/cmp-hero-robotic-pool-cleaners.jpg",
+      "product_photos": "none — do not invent packshots",
+      "todo": "Replace gradient placeholder with a real lifestyle cover after deploy. Do not invent product photos."
+    },
+    "barstools": {
+      "status": "placeholder",
+      "lifestyle": "assets/img/lifestyle/cmp-hero-barstools.jpg",
+      "product_photos": "none — do not invent packshots",
+      "todo": "Replace gradient placeholder with a real lifestyle cover after deploy. Do not invent product photos."
+    },
+    "docking-stations": {
+      "status": "placeholder",
+      "lifestyle": "assets/img/lifestyle/cmp-hero-docking-stations.jpg",
+      "product_photos": "none — do not invent packshots",
+      "todo": "Replace gradient placeholder with a real lifestyle cover after deploy. Do not invent product photos."
+    },
+    "bookcases": {
+      "status": "placeholder",
+      "lifestyle": "assets/img/lifestyle/cmp-hero-bookcases.jpg",
+      "product_photos": "none — do not invent packshots",
+      "todo": "Replace gradient placeholder with a real lifestyle cover after deploy. Do not invent product photos."
+    }
+  }
+}
