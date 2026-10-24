@@ -5,7 +5,8 @@ This repo clone does not ship the full inventory generator. `build.py`:
 
   1. Shared header mega + mobile (home and hubs): Categories / Compare /
      Reviews / Articles. Overview → /{slug}/ plus Compare / Reviews megas.
-  2. Footer Categories column: every ALL_CATS (MVP + NON_MVP) landing
+  2. Footer Categories column: every ALL_CATS (MVP + NON_MVP) landing.
+     Blog + Sitemap live under Company (after Contact), not Categories.
   3. Home grid: pin tier=extended / newly published cats, is-more when i >= 8
   4. comparison/ + reviews/ hubs: Related jump back to the landing
   5. Category hubs: honest CollectionPage + ItemList + Product/Offer JSON-LD
@@ -32,6 +33,7 @@ Usage:
     python3 site/scripts/build.py
     python3 site/scripts/build.py --best-widget-only
     python3 site/scripts/build.py --blog-only
+    python3 site/scripts/build.py --footer-only
 """
 
 from __future__ import annotations
@@ -270,6 +272,27 @@ def bake_editorial_copy_pages(cfg: dict) -> list[Path]:
         dest.write_text(html, encoding="utf-8")
         wrote.append(dest)
         print(f"  wrote {dest.relative_to(ROOT)}")
+    return wrote
+
+
+def rebake_footer_pages(site: Path | None = None) -> list[Path]:
+    """Rewrite existing baked HTML footer columns — no Live refetch."""
+    site = site or SITE
+    cfg = load_site_config()
+    cats = cfg["ALL_CATS"]
+    wrote: list[Path] = []
+    for path in sorted(site.rglob("*.html")):
+        rel_parts = set(path.relative_to(site).parts)
+        if rel_parts & SKIP_DISCLOSURE_DIRS:
+            continue
+        text = path.read_text(encoding="utf-8")
+        if "footer-col" not in text and "site-footer" not in text:
+            continue
+        prefix = rel_prefix(path.relative_to(site).as_posix())
+        new = rewrite_footer(text, cats, prefix)
+        if new != text:
+            path.write_text(new, encoding="utf-8")
+            wrote.append(path)
     return wrote
 
 
@@ -977,6 +1000,8 @@ def main() -> None:
     bake_tv_main()
     blog_n = write_blog_hub(SITE)
     print(f"  wrote site/blog/index.html ({blog_n} articles)")
+    foot = rebake_footer_pages(SITE)
+    print(f"  footer chrome {len(foot)} pages")
     disc = rebake_disclosure_pages(SITE)
     print(f"  disclosure chrome {len(disc)} pages")
     hero = rebake_landing_hero_css(SITE)
@@ -1009,6 +1034,14 @@ def blog_only() -> None:
     verify(cfg)
 
 
+def footer_only() -> None:
+    """Rewrite footer Categories + Company columns. Bake ≠ deploy."""
+    wrote = rebake_footer_pages(SITE)
+    print(f"footer chrome rewrote {len(wrote)} pages")
+    cfg = load_site_config()
+    verify(cfg)
+
+
 def disclosure_only() -> None:
     wrote = rebake_disclosure_pages(SITE)
     print(f"disclosure chrome rewrote {len(wrote)} pages")
@@ -1029,7 +1062,9 @@ def visitor_copy_only() -> None:
 
 
 if __name__ == "__main__":
-    if "--disclosure-only" in sys.argv:
+    if "--footer-only" in sys.argv:
+        footer_only()
+    elif "--disclosure-only" in sys.argv:
         disclosure_only()
     elif "--visitor-copy-only" in sys.argv:
         visitor_copy_only()
