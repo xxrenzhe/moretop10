@@ -1,0 +1,1204 @@
+{
+  "date": "2026-10-24",
+  "batch": "P6d",
+  "lock": "lock-p6d-rec",
+  "tip_reference": "b594ea30af37d7471540e048fd1d64caa7ffe9c1",
+  "waiting_for_部署上线": true,
+  "published": false,
+  "live": false,
+  "merged": false,
+  "independent_of_shortlist_lab": true,
+  "do_not_touch": [
+    "Lab",
+    "RR",
+    "OL",
+    "#54 home nav",
+    "#55 stamp",
+    "#58 P6a published flip",
+    "#60 P6b published flip",
+    "#61 P6c published flip",
+    "day-add published flip",
+    "parent hub cards"
+  ],
+  "parent_hubs": "exist_not_recreated",
+  "soft_parent_densify": "hub ASINs may appear on scene; sibling bans still hold; hub ASINs hair-dryers=10 office-chairs=8 barstools=10 bike-racks=10 bookcases=10 docking-stations=8 massage-guns=10",
+  "skipped": [],
+  "out_of_scope": [
+    "best-hearing-aids-for-tinnitus",
+    "best-hearing-aids-for-seniors",
+    "best-mattresses-for-hanging",
+    "best-robot-mops",
+    "best-litter-boxes-for-kittens",
+    "best-litter-boxes-for-large-cats"
+  ],
+  "brand_notes": {
+    "best-hair-dryers-for-frizzy-hair": "Laifen titles may ride Wavytalk PB brand_id; display from title. Slopehill + Wavytalk + Laifen-US-AMZ.",
+    "best-office-chairs-for-tall-people": "tall / big-and-tall soft densify; sibling gaming/back/long/under-200 banned",
+    "best-docking-stations-for-macbook": "WAVLINK Mac M1–M5 + Anker TB5/USB-C + Baseus USB-C; Windows-lean titles kept only when they are real multi-port docks",
+    "best-massage-guns-for-athletes": "Bob-and-Brad lean 3/10 — honest, not a hard-fail; 5 brands total",
+    "best-bookcases-for-small-spaces": "2× Lerliuo kids sling bookshelves kept as soft small-space densify"
+  },
+  "fill_pack": "/workspace/site/data/p6d-l1-fill-pack-2026-10-24.json",
+  "fill_status": "filled",
+  "need_fill": [],
+  "counts": {
+    "best-hair-dryers-for-frizzy-hair": 10,
+    "best-office-chairs-for-tall-people": 10,
+    "best-barstools-for-kitchen-island": 10,
+    "best-bike-racks-for-suv": 10,
+    "best-bookcases-for-small-spaces": 10,
+    "best-docking-stations-for-macbook": 10,
+    "best-massage-guns-for-athletes": 10
+  },
+  "sources": {
+    "1_pb": {
+      "live_query": "skipped_no_token",
+      "note": "No affiliate API tokens in this VM environment. Do not invent Check price hops."
+    },
+    "2_yp": {
+      "live_query": "skipped_yp_timeout_or_500",
+      "note": "YP unused. Pack is PB-only. Live CTA stays PB ?uid=fromsll."
+    },
+    "l1_fill_pack": "p6d-l1-fill-pack-2026-10-24.json",
+    "products_sot": [
+      "products-best-hair-dryers-for-frizzy-hair.json",
+      "products-best-office-chairs-for-tall-people.json",
+      "products-best-barstools-for-kitchen-island.json",
+      "products-best-bike-racks-for-suv.json",
+      "products-best-bookcases-for-small-spaces.json",
+      "products-best-docking-stations-for-macbook.json",
+      "products-best-massage-guns-for-athletes.json"
+    ]
+  },
+  "occupied_groups": {
+    "hair_siblings": [
+      "B0C3M9WBQF",
+      "B0CSFRQWH4",
+      "B0CSFTC3GT",
+      "B0CXPQZZPZ",
+      "B0CY4QMMBH",
+      "B0CY8DS8B1",
+      "B0CYLVK9JJ",
+      "B0CYZCJNYZ",
+      "B0D2XV7Z4Z",
+      "B0D45MLSGS",
+      "B0D5H8LGGJ",
+      "B0D5H9M72G",
+      "B0DFWR9WZ5",
+      "B0DRF7M6H5",
+      "B0DZ2NG3XT",
+      "B0DZ2SBRYY",
+      "B0DZNMWN1Y",
+      "B0F4KQ3D34",
+      "B0F8QH8XHV",
+      "B0F8QHMVGC",
+      "B0F8QJRX4F",
+      "B0FG2N9M9N",
+      "B0FK5H24WY",
+      "B0FK5MBDJZ",
+      "B0FL1R84WL",
+      "B0FMYTB273",
+      "B0FRLBG7V4",
+      "B0G5X7TR5R",
+      "B0GGH1C9M8",
+      "B0GW3JLJWW",
+      "B0GWHF4SHD",
+      "B0GWHGTBDY",
+      "B0GX9MB6MG",
+      "B0H2YTC8VF",
+      "B0H2YXNQYB",
+      "B0H417NKW7",
+      "B0H4TX26ZD",
+      "B0H4V41SCF",
+      "B0H6Z8N9ZB",
+      "B0H82SY69V",
+      "B0H82ZR122",
+      "B0H8D51V8S",
+      "B0H8DBJD5J",
+      "B0H8SRP5M2",
+      "B0H8TB6G9F",
+      "B0H9SD3RTV",
+      "B0HC9NKFHG",
+      "B0HCNXCRJY",
+      "B0HCP51LFH",
+      "B0HH9F1X3F"
+    ],
+    "hair_hub": [
+      "B0D45MLSGS",
+      "B0D5H9M72G",
+      "B0F4KQ3D34",
+      "B0F8QHMVGC",
+      "B0FMYTB273",
+      "B0G5X7TR5R",
+      "B0GGH1C9M8",
+      "B0GW3JLJWW",
+      "B0GWHF4SHD",
+      "B0GX9MB6MG"
+    ],
+    "chair_siblings": [
+      "B08CB2PSH6",
+      "B0B41TGY8P",
+      "B0B41TVP2Z",
+      "B0B41W3455",
+      "B0B41WB554",
+      "B0BG1H99FB",
+      "B0BYYM8PWH",
+      "B0CDBR4CLF",
+      "B0CQ2PCK6S",
+      "B0CQX84Y3W",
+      "B0DM1JR73Q",
+      "B0DPKB5JPL",
+      "B0DZB5DZ47",
+      "B0DZC58HPL",
+      "B0F4D8ZN7C",
+      "B0F91VGV23",
+      "B0FGQ7PBK1",
+      "B0FPWP2WXG",
+      "B0FPWSRW2P",
+      "B0FPWZ7DNG",
+      "B0FWJ6NL2T",
+      "B0FWJD2W2C",
+      "B0FZBQHXZP",
+      "B0FZHXRQ82",
+      "B0FZJG3YFV",
+      "B0G4VSV2TF",
+      "B0GD7F854P",
+      "B0GD7J3P3C",
+      "B0GRVN1QXK",
+      "B0GXW2DTNR",
+      "B0H13TVRS5",
+      "B0H13XHXCH",
+      "B0H142B4XM",
+      "B0H5QT1HC5",
+      "B0HGYCK7Q1",
+      "B0HJ7RP87H",
+      "B0HJ86Z5DX",
+      "B0HNP7G1VB"
+    ],
+    "chair_hub": [
+      "B0BG1H99FB",
+      "B0CQ2PCK6S",
+      "B0CQX84Y3W",
+      "B0DPKB5JPL",
+      "B0DZC58HPL",
+      "B0FGQ7PBK1",
+      "B0HJ86Z5DX",
+      "B0HNP7G1VB"
+    ],
+    "bar_siblings": [
+      "B073R117SK",
+      "B0BB29VGBP",
+      "B0GLDY7QTB",
+      "B0GLFFPP4R",
+      "B0H6NWMY4T",
+      "B0H6NYCF7L",
+      "B0H6P1JD93",
+      "B0H6P4T4MQ",
+      "B0H6P53T8W",
+      "B0HB4W7LDJ"
+    ],
+    "bar_hub": [
+      "B073R117SK",
+      "B0BB29VGBP",
+      "B0GLDY7QTB",
+      "B0GLFFPP4R",
+      "B0H6NWMY4T",
+      "B0H6NYCF7L",
+      "B0H6P1JD93",
+      "B0H6P4T4MQ",
+      "B0H6P53T8W",
+      "B0HB4W7LDJ"
+    ],
+    "bike_siblings": [
+      "B09MHB7939",
+      "B0D13H18W7",
+      "B0DJXHZ4PR",
+      "B0F13KDGZ2",
+      "B0FHGZ9Q1X",
+      "B0FMR57Q8N",
+      "B0FRS89LL3",
+      "B0G46J5Z9N",
+      "B0G46JDKJS",
+      "B0GX673PXJ",
+      "B0H83DH228",
+      "B0H9W85RFZ",
+      "B0HC3J2S1Q",
+      "B0HF52DJCY",
+      "B0HHRDW1D1",
+      "B0HHS5VMH9",
+      "B0HK8C3D98",
+      "B0HMC8BZJ5",
+      "B0HN3RCQBB"
+    ],
+    "bike_hub": [
+      "B0FMR57Q8N",
+      "B0FRS89LL3",
+      "B0GX673PXJ",
+      "B0H83DH228",
+      "B0HC3J2S1Q",
+      "B0HF52DJCY",
+      "B0HHRDW1D1",
+      "B0HK8C3D98",
+      "B0HMC8BZJ5",
+      "B0HN3RCQBB"
+    ],
+    "book_siblings": [
+      "B0FYQ5PGBL",
+      "B0FYQ5PGBM",
+      "B0GK1B4NN4",
+      "B0GT4YT3GG",
+      "B0GTDYW8DP",
+      "B0GTLLT4NQ",
+      "B0GV3NYVKX",
+      "B0HMRTY85T",
+      "B0HMRVTJXP",
+      "B0HMRVYTT3"
+    ],
+    "book_hub": [
+      "B0FYQ5PGBL",
+      "B0FYQ5PGBM",
+      "B0GK1B4NN4",
+      "B0GT4YT3GG",
+      "B0GTDYW8DP",
+      "B0GTLLT4NQ",
+      "B0GV3NYVKX",
+      "B0HMRTY85T",
+      "B0HMRVTJXP",
+      "B0HMRVYTT3"
+    ],
+    "dock_siblings": [
+      "B09FT8BXZR",
+      "B0C58H1CDL",
+      "B0F6MTC9LR",
+      "B0FWC9NS9V",
+      "B0GWL479JX",
+      "B0GWL5R69W",
+      "B0H6HVFLHQ",
+      "B0H6J7JSSM"
+    ],
+    "dock_hub": [
+      "B09FT8BXZR",
+      "B0C58H1CDL",
+      "B0F6MTC9LR",
+      "B0FWC9NS9V",
+      "B0GWL479JX",
+      "B0GWL5R69W",
+      "B0H6HVFLHQ",
+      "B0H6J7JSSM"
+    ],
+    "massage_siblings": [
+      "B08CKWVYMF",
+      "B0983GZJHZ",
+      "B0BG56G526",
+      "B0CHWFJWNN",
+      "B0D16W8531",
+      "B0D8TQM7SR",
+      "B0D96CSSSF",
+      "B0FKN73JY7",
+      "B0FMWRPR2D",
+      "B0GY45CWMD"
+    ],
+    "massage_hub": [
+      "B08CKWVYMF",
+      "B0983GZJHZ",
+      "B0BG56G526",
+      "B0CHWFJWNN",
+      "B0D16W8531",
+      "B0D8TQM7SR",
+      "B0D96CSSSF",
+      "B0FKN73JY7",
+      "B0FMWRPR2D",
+      "B0GY45CWMD"
+    ]
+  },
+  "occupied_global_n": 1068,
+  "pages": [
+    {
+      "n": 1,
+      "path": "/hair-dryers/best-hair-dryers-for-frizzy-hair/",
+      "type": "07-best-of",
+      "parent": "/hair-dryers/",
+      "published": false,
+      "robots": "noindex,follow",
+      "density": 10,
+      "density_target": 10,
+      "density_expected": 10,
+      "stub": false,
+      "fill_status": "filled",
+      "cta_status": "pb_fromsll",
+      "cta_rule": "PB fromsll only when a verified track exists; never invent hops; do not rebind to YP",
+      "reviews": "none — Top pick + Upgrade articles do not exist for this scene",
+      "ban_groups": [
+        "hair_siblings"
+      ],
+      "soft_hub_groups": [
+        "hair_hub"
+      ],
+      "cross_ban_scenes": [],
+      "picks": [
+        {
+          "asin": "B0HGF14RFX",
+          "title": "Laifen Air Hair Dryer with Diffuser, High-Speed Ionic Blow Dryers for Curly Hair, Compact Design for Home and Travel, Mini Hairdryer for Women, Frizz Control & No Heat Demage, Halloween, Mil",
+          "role": "Top pick",
+          "brand": "wavytalk",
+          "affiliate_link": "https://pboost.me/W5SNagvw?uid=fromsll",
+          "track_status": "ok",
+          "price": "$74.99",
+          "image": null
+        },
+        {
+          "asin": "B0H79SCDJ5",
+          "title": "Laifen Air Pro High Speed Ionic Hair Dryer with Diffuser, Seashell White",
+          "role": "Upgrade",
+          "brand": "wavytalk",
+          "affiliate_link": "https://pboost.me/R5SNEAaug?uid=fromsll",
+          "track_status": "ok",
+          "price": "$89.99",
+          "image": null
+        },
+        {
+          "asin": "B0H7993WVK",
+          "title": "Laifen Air Pro High Speed Ionic Hair Dryer with Diffuser, Midnight Black",
+          "role": "Best value",
+          "brand": "wavytalk",
+          "affiliate_link": "https://pboost.me/r5SN4M4ua?uid=fromsll",
+          "track_status": "ok",
+          "price": "$89.99",
+          "image": null
+        },
+        {
+          "asin": "B0CLZSF4MQ",
+          "title": "Slopehill Professional Ionic Hair Dryer, Powerful 1800W Fast Drying Low Noise Blow Dryer with 2 Concentrator Nozzle 1 Diffuser Attachments for Home Salon Travel (Matte Blue)",
+          "role": "Premium",
+          "brand": "slopehill (Beauty)",
+          "affiliate_link": "https://pboost.me/P5UQzQw73?uid=fromsll",
+          "track_status": "ok",
+          "price": "$39.99",
+          "image": null
+        },
+        {
+          "asin": "B086SR1KML",
+          "title": "slopehill Professional Ionic Hair Dryer, Powerful 1800W Fast Drying Low Noise Blow Dryer with 2 Concentrator Nozzle 1 Diffuser Attachments for Home Salon Travel",
+          "role": "Alternative",
+          "brand": "slopehill (Beauty)",
+          "affiliate_link": "https://pboost.me/u5UQV67v?uid=fromsll",
+          "track_status": "ok",
+          "price": "$39.99",
+          "image": null
+        },
+        {
+          "asin": "B0C37BT16J",
+          "title": "slopehill Professional Ionic Hair Dryer, Powerful 1800W Fast Drying Low Noise Blow Dryer with 2 Concentrator Nozzle 1 Diffuser Attachments for Home Salon Travel (Pink)",
+          "role": "Also consider",
+          "brand": "slopehill (Beauty)",
+          "affiliate_link": "https://pboost.me/x5UQ36z8g?uid=fromsll",
+          "track_status": "ok",
+          "price": "$32.99",
+          "image": null
+        },
+        {
+          "asin": "B0FMYTMKR6",
+          "title": "Laifen SE 2 Diffuser Hair Dryer for Women, 21.5m/s Air Speed, Purple",
+          "role": "Editor pick",
+          "brand": "Laifen-US-AMZ",
+          "affiliate_link": "https://pboost.me/F5QOwadpz?uid=fromsll",
+          "track_status": "ok",
+          "price": "$112.49",
+          "image": null
+        },
+        {
+          "asin": "B0HDZ4B8MT",
+          "title": "Laifen Air Diffuser Hair Dryer, 15 × High-Speed Ionic Hairdryer, Milktea",
+          "role": "Budget",
+          "brand": "wavytalk",
+          "affiliate_link": "https://pboost.me/a5SNttu0?uid=fromsll",
+          "track_status": "ok",
+          "price": "$135.99",
+          "image": null
+        },
+        {
+          "asin": "B0GWHX7275",
+          "title": "Laifen Air Diffuser Hair Dryer, 15 × High-Speed Ionic Hairdryer, Purple",
+          "role": "Runner-up",
+          "brand": "wavytalk",
+          "affiliate_link": "https://pboost.me/q5QNHDz2?uid=fromsll",
+          "track_status": "ok",
+          "price": "$74.99",
+          "image": null
+        },
+        {
+          "asin": "B0GWHGDG86",
+          "title": "Laifen Air Diffuser Hair Dryer, 15 × High-Speed Ionic Hairdryer, Pink",
+          "role": "Worth a look",
+          "brand": "wavytalk",
+          "affiliate_link": "https://pboost.me/r5QN2w4Kt?uid=fromsll",
+          "track_status": "ok",
+          "price": "$74.99",
+          "image": null
+        }
+      ]
+    },
+    {
+      "n": 2,
+      "path": "/office-chairs/best-office-chairs-for-tall-people/",
+      "type": "07-best-of",
+      "parent": "/office-chairs/",
+      "published": false,
+      "robots": "noindex,follow",
+      "density": 10,
+      "density_target": 10,
+      "density_expected": 10,
+      "stub": false,
+      "fill_status": "filled",
+      "cta_status": "pb_fromsll",
+      "cta_rule": "PB fromsll only when a verified track exists; never invent hops; do not rebind to YP",
+      "reviews": "none — Top pick + Upgrade articles do not exist for this scene",
+      "ban_groups": [
+        "chair_siblings"
+      ],
+      "soft_hub_groups": [
+        "chair_hub"
+      ],
+      "cross_ban_scenes": [],
+      "picks": [
+        {
+          "asin": "B0F4Y4XJKK",
+          "title": "Dowinx Big and Tall Office Chair with Pocket Spring Cushion,High Back Computer Gaming Chairs with Adjustable Armrests,Executive Desk Chairs with Lumbar Support and Footrest,PU -White",
+          "role": "Top pick",
+          "brand": "Dowinx",
+          "affiliate_link": "https://pboost.me/Q5UT3afa?uid=fromsll",
+          "track_status": "ok",
+          "price": "$179.99",
+          "image": null
+        },
+        {
+          "asin": "B0GXVYXX1C",
+          "title": "Dowinx Big and Tall Office Chair, Ergonomic Desk Chair with Thick Cushion, Wide Seat & Armrests Computer Gaming Chair,High Back Reclining Teddy Fleece Criss Cross Chair with Foot Rest, Gray",
+          "role": "Upgrade",
+          "brand": "Dowinx",
+          "affiliate_link": "https://pboost.me/w5UTu7e9?uid=fromsll",
+          "track_status": "ok",
+          "price": "$179.99",
+          "image": null
+        },
+        {
+          "asin": "B0GXVWD9J8",
+          "title": "Dowinx Big and Tall Office Chair, Ergonomic Desk Chair with Thick Cushion, Wide Seat & Armrests Computer Gaming Chair,High Back Reclining Teddy Fleece Criss Cross Chair with Foot Rest, White",
+          "role": "Best value",
+          "brand": "Dowinx",
+          "affiliate_link": "https://pboost.me/o5UTq7e8?uid=fromsll",
+          "track_status": "ok",
+          "price": "$179.99",
+          "image": null
+        },
+        {
+          "asin": "B0DFWPRZ85",
+          "title": "Office Chair, Ergonomic Big and Tall Computer Desk Chairs, Executive Breathable Leather Chair with Adjustable Flip-up Armrests, Lumbar Support Swivel PC Chair with Rocking Function,Khaki",
+          "role": "Premium",
+          "brand": "HeroSet",
+          "affiliate_link": "https://pboost.me/D5SP6g4Sz?uid=fromsll",
+          "track_status": "ok",
+          "price": "$139.99",
+          "image": null
+        },
+        {
+          "asin": "B0FKGZ2N11",
+          "title": "Office Chair, Ergonomic Big and Tall Computer Desk Chairs, Executive Breathable Leather Chair with Adjustable Flip-up Armrests, Lumbar Support Swivel PC Chair with Rocking Function,Matte Gra",
+          "role": "Alternative",
+          "brand": "HeroSet",
+          "affiliate_link": "https://pboost.me/d5SP6jvS9?uid=fromsll",
+          "track_status": "ok",
+          "price": "$139.99",
+          "image": null
+        },
+        {
+          "asin": "B0GK142GW8",
+          "title": "HOMRELEXA Criss Cross Office Chair with Armrests & Wheels, Comfy Big and Tall Chair, Ergonomic Executive Gaming Computer Chairs with Foot Rest, PU Leather Wide Seat Reclining Desk Chair, Bla",
+          "role": "Also consider",
+          "brand": "HOMRELEXA",
+          "affiliate_link": "https://pboost.me/U5UQQ68w?uid=fromsll",
+          "track_status": "ok",
+          "price": "$199.99",
+          "image": null
+        },
+        {
+          "asin": "B0BG1NBFFT",
+          "title": "FelixKing Office Chair, Desk Chair with Adjustable Lumbar Support, Ergonomic Computer Chair with High Back and Armrest, Adjustable Height Gaming Chair Home Office Swivel Chair(Black)",
+          "role": "Editor pick",
+          "brand": "FelixKing",
+          "affiliate_link": "https://pboost.me/H5UP7230D?uid=fromsll",
+          "track_status": "ok",
+          "price": "$119.99",
+          "image": null
+        },
+        {
+          "asin": "B0HJW9HYF4",
+          "title": "FelixKing Ergonomic Office Chair, Headrest Desk Chair Office Chair with Adjustable Lumbar Support, Home Office Swivel Task Chair with High Back and Armrest, Adjustable Height Gaming Chair(Da",
+          "role": "Budget",
+          "brand": "FelixKing",
+          "affiliate_link": "https://pboost.me/X5UOaAcZd?uid=fromsll",
+          "track_status": "ok",
+          "price": "$109.99",
+          "image": null
+        },
+        {
+          "asin": "B0D78V9S63",
+          "title": "FelixKing Office Chair, Desk Chair with Adjustable Lumbar Support, Ergonomic Computer Chair with High Back and Armrest, Adjustable Height Gaming Chair Home Office Swivel Chair(Khaki)",
+          "role": "Runner-up",
+          "brand": "FelixKing",
+          "affiliate_link": "https://pboost.me/T5UO4QtZc?uid=fromsll",
+          "track_status": "ok",
+          "price": "$109.99",
+          "image": null
+        },
+        {
+          "asin": "B0CRTM67Q8",
+          "title": "amseatec Big and Tall Office Chair with Footrest, Lumbar Support, Brown",
+          "role": "Worth a look",
+          "brand": "AMSEATEC",
+          "affiliate_link": "https://pboost.me/O5USK6Vz?uid=fromsll",
+          "track_status": "ok",
+          "price": "$134.99",
+          "image": null
+        }
+      ]
+    },
+    {
+      "n": 3,
+      "path": "/barstools/best-barstools-for-kitchen-island/",
+      "type": "07-best-of",
+      "parent": "/barstools/",
+      "published": false,
+      "robots": "noindex,follow",
+      "density": 10,
+      "density_target": 10,
+      "density_expected": 10,
+      "stub": false,
+      "fill_status": "filled",
+      "cta_status": "pb_fromsll",
+      "cta_rule": "PB fromsll only when a verified track exists; never invent hops; do not rebind to YP",
+      "reviews": "none — Top pick + Upgrade articles do not exist for this scene",
+      "ban_groups": [
+        "bar_siblings"
+      ],
+      "soft_hub_groups": [
+        "bar_hub"
+      ],
+      "cross_ban_scenes": [],
+      "picks": [
+        {
+          "asin": "B0CNK4W4QK",
+          "title": "VASAGLE Bar Stools Set of 2, Counter Height Bar Stools with Back, Ergonomic Backrest, Synthetic Leather, Metal Legs, 24.8-Inch Tall Barstools for Kitchen Island Home Bar, Easy Assembly, Fore",
+          "role": "Top pick",
+          "brand": "Songmics Home",
+          "affiliate_link": "https://pboost.me/k5WUpvl4?uid=fromsll",
+          "track_status": "ok",
+          "price": "$89.99",
+          "image": null
+        },
+        {
+          "asin": "B0BTBV6233",
+          "title": "HOOBRO Bar Stools, Set of 2 Bar Chairs, Counter Height Stools, Saddle Barstools with Curved Surface, 24.8 Inches, 2.4\" Thick Upholstery, for Kitchen, Dining Room, Cafe Black BB10BY01",
+          "role": "Upgrade",
+          "brand": "HOOBRO",
+          "affiliate_link": "https://pboost.me/b5WUaidl5?uid=fromsll",
+          "track_status": "ok",
+          "price": "$50.99",
+          "image": null
+        },
+        {
+          "asin": "B0D3PS6NVF",
+          "title": "HOOBRO Bar Stools,25.4\" Saddle Stools with PU Upholstery, Counter Height Stools with Footrest, Kitchen Breakfast Chairs, for Dining Room, Cafe, Bar, Black BB23BY01",
+          "role": "Best value",
+          "brand": "HOOBRO",
+          "affiliate_link": "https://pboost.me/N5WUdSDC3?uid=fromsll",
+          "track_status": "ok",
+          "price": "$59.99",
+          "image": null
+        },
+        {
+          "asin": "B0F4X9DFQX",
+          "title": "HOOBRO Barstools,25.4\" Saddle Stools with PU Upholstery, Counter Height Stools with Footrest, Kitchen Breakfast Chairs, for Dining Room, Cafe, Bar, Gray and Black BGZ23BY01",
+          "role": "Premium",
+          "brand": "HOOBRO",
+          "affiliate_link": "https://pboost.me/Y5WUQcCv?uid=fromsll",
+          "track_status": "ok",
+          "price": "$49.99",
+          "image": null
+        },
+        {
+          "asin": "B0CNK2QKY7",
+          "title": "VASAGLE Bar Stools Set of 2, Bar Height, with Back, 28.5-Inch",
+          "role": "Alternative",
+          "brand": "Songmics Home",
+          "affiliate_link": "https://pboost.me/X5WUgptm0?uid=fromsll",
+          "track_status": "ok",
+          "price": "$98.57",
+          "image": null
+        },
+        {
+          "asin": "B0F3841R33",
+          "title": "HOOBRO Bar Stools,25.4\" Saddle Stools with PU Upholstery, Counter Height Stools with Footrest, Kitchen Breakfast Chairs, for Dining Room, Cafe, Bar, Brown and Black CB23BY01",
+          "role": "Also consider",
+          "brand": "HOOBRO",
+          "affiliate_link": "https://pboost.me/S5WUO9Cv?uid=fromsll",
+          "track_status": "ok",
+          "price": "$46.01",
+          "image": null
+        },
+        {
+          "asin": "B0CFGTDMJ7",
+          "title": "HOOBRO Bar Stools, Set of 2 Chairs, 23.6 Inch Saddle Kitchen Counter Stools With Footrests, Industrial for Dining Room, Kitchen, Counter, Bar, Greige and Black BG02MD01",
+          "role": "Editor pick",
+          "brand": "HOOBRO",
+          "affiliate_link": "https://pboost.me/G5WUkvz9?uid=fromsll",
+          "track_status": "ok",
+          "price": "$53.99",
+          "image": null
+        },
+        {
+          "asin": "B0BVYR5CTJ",
+          "title": "HOOBRO Bar Stools, Set of 2 Bar Chairs, 23.6 Inch Saddle Stools, Kitchen Counter Stools with Footrests, Industrial for Dining Room, Kitchen, Counter, Black BB02MD01",
+          "role": "Budget",
+          "brand": "HOOBRO",
+          "affiliate_link": "https://pboost.me/x5WU5Payg?uid=fromsll",
+          "track_status": "ok",
+          "price": "$53.99",
+          "image": null
+        },
+        {
+          "asin": "B0GWYZ9YLX",
+          "title": "HOOBRO 360° Swivel Bar Stools Set of 2, 25.6\" Counter Height Bar Stools",
+          "role": "Runner-up",
+          "brand": "HOOBRO",
+          "affiliate_link": "https://pboost.me/U5WU60D4?uid=fromsll",
+          "track_status": "ok",
+          "price": "$72.99",
+          "image": null
+        },
+        {
+          "asin": "B0D2W6Q35J",
+          "title": "HOOBRO Bar Stools, Set of 2 Bar Chairs, 23.6 Inch Saddle Stools, Kitchen Counter Seat with Footrests, Industrial Barstools for Dining Room, Kitchen, Counter, Bar, White WW02MD01",
+          "role": "Worth a look",
+          "brand": "HOOBRO",
+          "affiliate_link": "https://pboost.me/d5WUgXEzc?uid=fromsll",
+          "track_status": "ok",
+          "price": "$53.99",
+          "image": null
+        }
+      ]
+    },
+    {
+      "n": 4,
+      "path": "/bike-racks/best-bike-racks-for-suv/",
+      "type": "07-best-of",
+      "parent": "/bike-racks/",
+      "published": false,
+      "robots": "noindex,follow",
+      "density": 10,
+      "density_target": 10,
+      "density_expected": 10,
+      "stub": false,
+      "fill_status": "filled",
+      "cta_status": "pb_fromsll",
+      "cta_rule": "PB fromsll only when a verified track exists; never invent hops; do not rebind to YP",
+      "reviews": "none — Top pick + Upgrade articles do not exist for this scene",
+      "ban_groups": [
+        "bike_siblings"
+      ],
+      "soft_hub_groups": [
+        "bike_hub"
+      ],
+      "cross_ban_scenes": [],
+      "picks": [
+        {
+          "asin": "B0FCFS8B9G",
+          "title": "Young Hitch Bike Rack for 2 E-Bikes, Heavy Duty Platform Carrier, 200lbs Capacity, Foldable, Fat Tire, Electric Bike, Hitch Mount, SUV, Truck, RV, Car, 2\" Receiver, Anti-Wobble, Camo",
+          "role": "Top pick",
+          "brand": "Young Electric",
+          "affiliate_link": "https://pboost.me/b5SR3LCHz?uid=fromsll",
+          "track_status": "ok",
+          "price": "$349.99",
+          "image": null
+        },
+        {
+          "asin": "B0FGCW46C5",
+          "title": "Young Bike Rack Hitch Mount for 2 E-Bikes, Fat Tire, Electric Bike Rack, Car, SUV, Truck, RV, Platform Carrier, 200lbs Capacity, Foldable, Anti-Wobble, Bike Holder, Cargo Rack, 2\" Receiver,",
+          "role": "Upgrade",
+          "brand": "Young Electric",
+          "affiliate_link": "https://pboost.me/w5SRSCH1?uid=fromsll",
+          "track_status": "ok",
+          "price": "$314.99",
+          "image": null
+        },
+        {
+          "asin": "B0B4MYP24M",
+          "title": "Young 4-Bike Rack Hitch Mount Platform Style Carrier for Cars Trucks SUVs Minivans with 2\" Hitch Receiver, 4 Bikes X 40 lbs (160 lbs Total) Load Capacity",
+          "role": "Best value",
+          "brand": "Young Electric",
+          "affiliate_link": "https://pboost.me/C5SRvzHv?uid=fromsll",
+          "track_status": "ok",
+          "price": "$229.99",
+          "image": null
+        },
+        {
+          "asin": "B0G46FC51T",
+          "title": "monTEK Premier Locking Quick Release 4-Bike Rack for Cars, Trucks, SUVs",
+          "role": "Premium",
+          "brand": "monTEK - US",
+          "affiliate_link": "https://pboost.me/Z5SOCV3U0?uid=fromsll",
+          "track_status": "ok",
+          "price": "$199.99",
+          "image": null
+        },
+        {
+          "asin": "B0G46H9391",
+          "title": "monTEK Premier Locking Quick Release 3-Bike Rack for Cars, Trucks, SUVs",
+          "role": "Alternative",
+          "brand": "monTEK - US",
+          "affiliate_link": "https://pboost.me/k5SO4cUd?uid=fromsll",
+          "track_status": "ok",
+          "price": "$171.46",
+          "image": null
+        },
+        {
+          "asin": "B0HN6PH9WV",
+          "title": "monTEK Premier Locking Quick Release 2-Bike Rack for Cars, Trucks, SUVs",
+          "role": "Also consider",
+          "brand": "monTEK - US",
+          "affiliate_link": "https://pboost.me/Y5SOG1S2?uid=fromsll",
+          "track_status": "ok",
+          "price": "$159.99",
+          "image": null
+        },
+        {
+          "asin": "B0FHKBKG5N",
+          "title": "Young 4-Bike Rack Hitch Mount Platform Style Carrier for Cars Trucks SUVs Minivans with 2\" Hitch Receiver, 4 Bikes X 40 lbs (160 lbs Total) Load Capacity for 2\" Receiver",
+          "role": "Editor pick",
+          "brand": "Young Electric",
+          "affiliate_link": "https://pboost.me/i5SR1aI1?uid=fromsll",
+          "track_status": "ok",
+          "price": "$205.99",
+          "image": null
+        },
+        {
+          "asin": "B0GT94B9VB",
+          "title": "Young 2 Bike Rack Hitch Mount Foldable Platform Style, Bicycle Carrier for Cars SUVs Trucks Vans, 80 lbs. Capacity",
+          "role": "Budget",
+          "brand": "Young Electric",
+          "affiliate_link": "https://pboost.me/L5SRgRZH0?uid=fromsll",
+          "track_status": "ok",
+          "price": "$99.99",
+          "image": null
+        },
+        {
+          "asin": "B0D95YCD5H",
+          "title": "Young 2 Bike Rack Hitch Mount Foldable Platform Style, Bicycle Carrier for Cars SUVs Trucks Vans, 80 lbs. Capacity",
+          "role": "Runner-up",
+          "brand": "Young Electric",
+          "affiliate_link": "https://pboost.me/O5SR2gI6?uid=fromsll",
+          "track_status": "ok",
+          "price": "$99.99",
+          "image": null
+        },
+        {
+          "asin": "B0FWBSC9YK",
+          "title": "Young Bike Rack Hitch Mount - Ebike Racks for Car SUV Truck RV, 200lbs Capacity Bicycle Carrier for 5\" Fat Tire 2 E-Bikes, Foldable Bike Hitch Rack Anti-Wobble, 2\" Receiver,",
+          "role": "Worth a look",
+          "brand": "Young Electric",
+          "affiliate_link": "https://pboost.me/F5SRdraH5?uid=fromsll",
+          "track_status": "ok",
+          "price": "$314.48",
+          "image": null
+        }
+      ]
+    },
+    {
+      "n": 5,
+      "path": "/bookcases/best-bookcases-for-small-spaces/",
+      "type": "07-best-of",
+      "parent": "/bookcases/",
+      "published": false,
+      "robots": "noindex,follow",
+      "density": 10,
+      "density_target": 10,
+      "density_expected": 10,
+      "stub": false,
+      "fill_status": "filled",
+      "cta_status": "pb_fromsll",
+      "cta_rule": "PB fromsll only when a verified track exists; never invent hops; do not rebind to YP",
+      "reviews": "none — Top pick + Upgrade articles do not exist for this scene",
+      "ban_groups": [
+        "book_siblings"
+      ],
+      "soft_hub_groups": [
+        "book_hub"
+      ],
+      "cross_ban_scenes": [],
+      "picks": [
+        {
+          "asin": "B0F6LH5SJ6",
+          "title": "HOOBRO 5-Tier Corner Shelf Stand, Corner Shelf with LED Light, 56.3\" Tall Corner Bookshelf, Display Rack Storage Organizer with Table, for Small Spaces, Living Room, Entryway, Black BB69DCJ0",
+          "role": "Top pick",
+          "brand": "HOOBRO",
+          "affiliate_link": "https://pboost.me/a5WUG1z2?uid=fromsll",
+          "track_status": "ok",
+          "price": "$64.99",
+          "image": null
+        },
+        {
+          "asin": "B0F6LH71B5",
+          "title": "HOOBRO 5-Tier Corner Shelf Stand, Corner Shelf with LED Light, 56.3\" Tall Corner Bookshelf, Display Rack Storage Organizer with Table, for Small Spaces, Living Room, Entryway, Rustic Brown B",
+          "role": "Upgrade",
+          "brand": "HOOBRO",
+          "affiliate_link": "https://pboost.me/S5WUHTy6?uid=fromsll",
+          "track_status": "ok",
+          "price": "$54.99",
+          "image": null
+        },
+        {
+          "asin": "B0FJWHFDVQ",
+          "title": "HOOBRO Narrow Corner Shelf Stand, 5-Tier Corner Shelf, 63” Tall Multipurpose Corner Bookshelf, Standing Display Shelf Plant Stand, for Living Room, Study, Kitchen, White WW100CJ01",
+          "role": "Best value",
+          "brand": "HOOBRO",
+          "affiliate_link": "https://pboost.me/s5WUvgAc?uid=fromsll",
+          "track_status": "ok",
+          "price": "$39.99",
+          "image": null
+        },
+        {
+          "asin": "B0DPGHCC35",
+          "title": "Lerliuo 5 Tier Kids Bookshelf, White Children Sling Book Shelf with 2 Drawers, Baby Toddler Wooden Bookcase and Book Rack, Display Shelves Storage Organizer for Classroom, Playroom, Bedroom,",
+          "role": "Premium",
+          "brand": "LEYAOYAO",
+          "affiliate_link": "https://pboost.me/R5WUgFvu3?uid=fromsll",
+          "track_status": "ok",
+          "price": "$32.99",
+          "image": null
+        },
+        {
+          "asin": "B0DP9CHLQP",
+          "title": "Lerliuo 5 Tier Kids Bookshelf, White Children Sling Book Shelf with 2 Drawers, Baby Toddler Wooden Bookcase and Book Rack, Display Shelves Storage Organizer for Classroom, Playroom, Bedroom,",
+          "role": "Alternative",
+          "brand": "LEYAOYAO",
+          "affiliate_link": "https://pboost.me/o5WUUvtg?uid=fromsll",
+          "track_status": "ok",
+          "price": "$32.99",
+          "image": null
+        },
+        {
+          "asin": "B0F9KVD896",
+          "title": "No Assembly Folding Bookshelf for Living Room,Collapsible Book Shelf for Home Office, Portable Bookcase Storage Organizer Rack Shelves",
+          "role": "Also consider",
+          "brand": "BHG",
+          "affiliate_link": "https://pboost.me/Y5UP9cbt?uid=fromsll",
+          "track_status": "ok",
+          "price": "$189.99",
+          "image": null
+        },
+        {
+          "asin": "B0F9KV48WX",
+          "title": "No Assembly Folding Bookshelf for Living Room,Collapsible Book Shelf for Home Office, Portable Bookcase Storage Organizer Rack Shelves",
+          "role": "Editor pick",
+          "brand": "BHG",
+          "affiliate_link": "https://pboost.me/k5UP1Db7?uid=fromsll",
+          "track_status": "ok",
+          "price": "$189.99",
+          "image": null
+        },
+        {
+          "asin": "B0DNS1B7VC",
+          "title": "No Assembly Folding Bookshelf for Living Room, 5 Tier Gold Collapsible Book Shelf for Home Office, Portable Bookcase Storage Organizer",
+          "role": "Budget",
+          "brand": "BHG",
+          "affiliate_link": "https://pboost.me/n5UPg6wbT?uid=fromsll",
+          "track_status": "ok",
+          "price": "$149.99",
+          "image": null
+        },
+        {
+          "asin": "B0CN6J4VVM",
+          "title": "VASAGLE 5-Tier Corner Shelf Stand, Boho Bookshelf with Polyrattan Sides",
+          "role": "Runner-up",
+          "brand": "Songmics Home",
+          "affiliate_link": "https://pboost.me/F5WU6Pwla?uid=fromsll",
+          "track_status": "ok",
+          "price": "$39.99",
+          "image": null
+        },
+        {
+          "asin": "B08M8Z2NZS",
+          "title": "VASAGLE Corner Shelf Wall Mount, 5-Tier Floating Corner Bookshelf",
+          "role": "Worth a look",
+          "brand": "Songmics Home",
+          "affiliate_link": "https://pboost.me/s5WUG3ov?uid=fromsll",
+          "track_status": "ok",
+          "price": "$27.99",
+          "image": null
+        }
+      ]
+    },
+    {
+      "n": 6,
+      "path": "/docking-stations/best-docking-stations-for-macbook/",
+      "type": "07-best-of",
+      "parent": "/docking-stations/",
+      "published": false,
+      "robots": "noindex,follow",
+      "density": 10,
+      "density_target": 10,
+      "density_expected": 10,
+      "stub": false,
+      "fill_status": "filled",
+      "cta_status": "pb_fromsll",
+      "cta_rule": "PB fromsll only when a verified track exists; never invent hops; do not rebind to YP",
+      "reviews": "none — Top pick + Upgrade articles do not exist for this scene",
+      "ban_groups": [
+        "dock_siblings"
+      ],
+      "soft_hub_groups": [
+        "dock_hub"
+      ],
+      "cross_ban_scenes": [],
+      "picks": [
+        {
+          "asin": "B019XOJ874",
+          "title": "WAVLINK USB Laptop Docking Station Dual Monitors, DisplayLink Laptop Dock for M1-M5 Mac/MacBook Neo, Windows, ChromeOS(HDMI & HDMI/DVI, 6xUSB Ports, LAN, Audio)",
+          "role": "Top pick",
+          "brand": "WAVLINK SO",
+          "affiliate_link": "https://pboost.me/C5UPAtbg?uid=fromsll",
+          "track_status": "ok",
+          "price": "$78.86",
+          "image": null
+        },
+        {
+          "asin": "B0BNNCXR6J",
+          "title": "WAVLINK USB C Docking Station 4K@60Hz 3 Monitor for Mac(M1-M5,Neo),Windows",
+          "role": "Upgrade",
+          "brand": "WAVLINK SO",
+          "affiliate_link": "https://pboost.me/A5UPDCbZ?uid=fromsll",
+          "track_status": "ok",
+          "price": "$159.87",
+          "image": null
+        },
+        {
+          "asin": "B0GZ3VXCCS",
+          "title": "Baseus Spacemate Docking Station, 11-in-1 USB-C Dock for Windows Laptop,Baseus Laptop Docking Station Dual Monitor 9 in 1 USB C Hub up to 4K@120Hz with 2 HDMI",
+          "role": "Best value",
+          "brand": "Baseus US BBS",
+          "affiliate_link": "https://pboost.me/V5SNdV5l3?uid=fromsll",
+          "track_status": "ok",
+          "price": "$119.68",
+          "image": null
+        },
+        {
+          "asin": "B0GZVFL899",
+          "title": "Baseus Spacemate Laptop Docking Station, 11-in-1 USB-C Docking Station for Windows and Laptop Docking Station Dual Monitor 9 in 1 USB C Hub",
+          "role": "Premium",
+          "brand": "Baseus US BBS",
+          "affiliate_link": "https://pboost.me/t5SNZFdmc?uid=fromsll",
+          "track_status": "ok",
+          "price": "$168.98",
+          "image": null
+        },
+        {
+          "asin": "B0H1CP7XKK",
+          "title": "Baseus Spacemate Docking Station, 11-in-1 USB-C Dock for Windows Laptop,Baseus Dual Monitor,10Gbps 10 in 1 Docking Station with 2 HDMI",
+          "role": "Alternative",
+          "brand": "Baseus US BBS",
+          "affiliate_link": "https://pboost.me/G5SNP7l6?uid=fromsll",
+          "track_status": "ok",
+          "price": "$128.78",
+          "image": null
+        },
+        {
+          "asin": "B088F7SY6S",
+          "title": "Anker Laptop Docking Station, 13-in-1 USB C Docking Station, Triple Display",
+          "role": "Also consider",
+          "brand": "Anker",
+          "affiliate_link": "https://pboost.me/B5QN2od4C?uid=fromsll",
+          "track_status": "ok",
+          "price": "$139.99",
+          "image": null
+        },
+        {
+          "asin": "B07JHZX4GH",
+          "title": "WAVLINK USB Docking Station Dual Monitor 4K 60Hz for Mac M1-M5,Neo,Windows",
+          "role": "Editor pick",
+          "brand": "WAVLINK SO",
+          "affiliate_link": "https://pboost.me/B5UPkFTbw?uid=fromsll",
+          "track_status": "ok",
+          "price": "$151.99",
+          "image": null
+        },
+        {
+          "asin": "B0DSVVJXK5",
+          "title": "Anker Prime TB5 Docking Station, 14-in-1 Thunderbolt 5 Dock for Laptops",
+          "role": "Budget",
+          "brand": "Anker",
+          "affiliate_link": "https://pboost.me/Z5QN9Rdqv?uid=fromsll",
+          "track_status": "ok",
+          "price": "$339.99",
+          "image": null
+        },
+        {
+          "asin": "B0874M3KW4",
+          "title": "Anker Laptop Docking Station Dual Monitor, 8-in-1 USB C Hub with 4K HDMI",
+          "role": "Runner-up",
+          "brand": "Anker",
+          "affiliate_link": "https://pboost.me/G5Qvl6a0?uid=fromsll",
+          "track_status": "ok",
+          "price": "$39.99",
+          "image": null
+        },
+        {
+          "asin": "B0HF84T4YC",
+          "title": "Baseus Docking Station, Quadruple Display 8K@30Hz DisplayPort & 4k HDMI, VGA, USB A 3.0 Ports, USB C 20W Output, 100W PD, USB C Docking Station Compatible for Dell/HP/Mac/Microsoft/ASUS and",
+          "role": "Worth a look",
+          "brand": "Baseus US BBS",
+          "affiliate_link": "https://pboost.me/v5SN7lgk6?uid=fromsll",
+          "track_status": "ok",
+          "price": "$41.39",
+          "image": null
+        }
+      ]
+    },
+    {
+      "n": 7,
+      "path": "/massage-guns/best-massage-guns-for-athletes/",
+      "type": "07-best-of",
+      "parent": "/massage-guns/",
+      "published": false,
+      "robots": "noindex,follow",
+      "density": 10,
+      "density_target": 10,
+      "density_expected": 10,
+      "stub": false,
+      "fill_status": "filled",
+      "cta_status": "pb_fromsll",
+      "cta_rule": "PB fromsll only when a verified track exists; never invent hops; do not rebind to YP",
+      "reviews": "none — Top pick + Upgrade articles do not exist for this scene",
+      "ban_groups": [
+        "massage_siblings"
+      ],
+      "soft_hub_groups": [
+        "massage_hub"
+      ],
+      "cross_ban_scenes": [],
+      "picks": [
+        {
+          "asin": "B0DWSPM68F",
+          "title": "BOB AND BRAD D5 Pro Plus Handheld Massage Gun with Heat, FSA-HSA Eligible Deep Tissue Percussion Massage Gun, Powerful Muscle Massager for Athletes Fitness Workout & Daily Recovery, Birthday",
+          "role": "Top pick",
+          "brand": "Bob and Brad(Loypa)",
+          "affiliate_link": "https://pboost.me/z5QNaYdYZ?uid=fromsll",
+          "track_status": "ok",
+          "price": "$149.98",
+          "image": null
+        },
+        {
+          "asin": "B0FKN7XPQW",
+          "title": "BOB AND BRAD D6 Ultra Massage Gun with Infrared Light, Deep Tissue Percussion with 16mm Amplitude, Professional Muscle Massager for Athletes, Electric Handheld Massager",
+          "role": "Upgrade",
+          "brand": "Bob and Brad(Loypa)",
+          "affiliate_link": "https://pboost.me/a5QOPw3a?uid=fromsll",
+          "track_status": "ok",
+          "price": "$249.98",
+          "image": null
+        },
+        {
+          "asin": "B0DFLPJ29F",
+          "title": "BOB AND BRAD D6 Pro Plus Massage Gun with Heat, Deep Tissue Percussion with 16mm Amplitude, Professional Muscle Massager Gun for Athletes, Quiet Electric Handheld Massager",
+          "role": "Best value",
+          "brand": "Bob and Brad(Loypa)",
+          "affiliate_link": "https://pboost.me/L5QNak16z?uid=fromsll",
+          "track_status": "ok",
+          "price": "$205.98",
+          "image": null
+        },
+        {
+          "asin": "B0CST2LDS5",
+          "title": "HEYCHY Mini Massage Gun Deep Tissue with Heat, FSA Eligible Massager Gun for Back Neck Relief, Portable Percussion Muscle Massager with 4 Massage Heads for Athletes, Men Women, HSA Eligible",
+          "role": "Premium",
+          "brand": "HEYCHY",
+          "affiliate_link": "https://pboost.me/B5WUEZdDa?uid=fromsll",
+          "track_status": "ok",
+          "price": "$54.99",
+          "image": null
+        },
+        {
+          "asin": "B0CKVG5VR1",
+          "title": "HEYCHY Super Mini Massage Gun, Percussion Deep Tissues Muscle Massager, Compact Sports Travel Massage Gun, Portable Handheld Massager for Home, Gym, Office, Outdoors",
+          "role": "Alternative",
+          "brand": "HEYCHY",
+          "affiliate_link": "https://pboost.me/z5WUwrwl6?uid=fromsll",
+          "track_status": "ok",
+          "price": "$52.99",
+          "image": null
+        },
+        {
+          "asin": "B0FW4W967X",
+          "title": "HEYCHY Massage Gun Deep Tissue with Heat Therapy, 12mm Amplitude Muscle Massager for Athletes, 5 Speeds & 4 Modes Massager Gun for Neck Back Shoulder Leg Pain Relief - Perfect for Men, Black",
+          "role": "Also consider",
+          "brand": "HEYCHY",
+          "affiliate_link": "https://pboost.me/A5WU8dEa?uid=fromsll",
+          "track_status": "ok",
+          "price": "$139.99",
+          "image": null
+        },
+        {
+          "asin": "B0F28LGSQV",
+          "title": "SKG Mini Massage Gun Deep Tissue for Women Men, FSA and HSA Eligible Birthday Gift for Women Men, 10mm Portable Percussion Massage Gun with Carry Bag, Handheld Muscle Massager for Pain Relie",
+          "role": "Editor pick",
+          "brand": "skgamz",
+          "affiliate_link": "https://pboost.me/c5SQbZ5a?uid=fromsll",
+          "track_status": "ok",
+          "price": "$59.99",
+          "image": null
+        },
+        {
+          "asin": "B089Y1L5DW",
+          "title": "RENPHO Active Massage Gun, Percussion Deep Tissue Back Massager Ergonomic Design with 5 Speeds for Muscle Therapy, Travel Massage Gun with Carry Case, Portable",
+          "role": "Budget",
+          "brand": "Renpho Wellness - US",
+          "affiliate_link": "https://pboost.me/Z5UP7S9eg?uid=fromsll",
+          "track_status": "ok",
+          "price": "$76.46",
+          "image": null
+        },
+        {
+          "asin": "B0DKSYFK5Z",
+          "title": "RENPHO Active Evo Massage Gun, Gifts for Men Women Deep Tissue Back Handheld Massage with 8-12mm Amplitude Heavy-Duty, FSA Approved Percussion Professional Muscle Massager Gun for Athtetes H",
+          "role": "Runner-up",
+          "brand": "Renpho Wellness - US",
+          "affiliate_link": "https://pboost.me/j5VSge1Tt?uid=fromsll",
+          "track_status": "ok",
+          "price": "$59.99",
+          "image": null
+        },
+        {
+          "asin": "B0CRKN2VJ6",
+          "title": "arboleaf Mini Massage Gun Deep Tissue, Portable Percussion Muscle Massager",
+          "role": "Worth a look",
+          "brand": "Arboleaf",
+          "affiliate_link": "https://pboost.me/j5UP3pEh4?uid=fromsll",
+          "track_status": "ok",
+          "price": "$58.49",
+          "image": null
+        }
+      ]
+    }
+  ],
+  "notes": [
+    "No invented ASINs, prices, was/%, gallery, or Check price hops.",
+    "Parent hubs already exist. Not recreated. Soft densify = hub ASINs allowed; sibling bans hold.",
+    "published=false / noindex until a later 部署上线 order.",
+    "Independent of Shortlist Lab.",
+    "Did not flip #58 P6a, #60 P6b, or #61 P6c published=true.",
+    "Did not flip day-add published=true.",
+    "OUT: tinnitus · seniors · mattress hang · robot-mop · TV · litter kittens.",
+    "Massage Bob-and-Brad lean 3/10 reported, not hard-fail.",
+    "YP site 11767 returned 0 usable rows — honest PB-only. Live CTA stays PB ?uid=fromsll.",
+    "Comparison / reviews stubs already exist. Stamps not rolled back."
+  ]
+}
