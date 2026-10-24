@@ -737,6 +737,216 @@ CATEGORY_FAQS: dict[str, list[tuple[str, str]]] = {
             "Confirm tank size, pressure settings, and tip count on the retailer page.",
         ),
     ],
+    "pool-heat-pumps": [
+        (
+            "Above-ground or inground pool heat pump?",
+            "This shortlist is inverter pool heat pumps — not pool covers or solar blankets. "
+            "Confirm BTU, voltage, and the listed gallon rating on the retailer page.",
+        ),
+        (
+            "Do I need 120V or 220V?",
+            "Voltage and circuit needs are listing-specific. We do not invent a padded "
+            "Top 10 when a verified retail track is missing. Confirm voltage on the listing.",
+        ),
+        (
+            "What BTU rating should I look for?",
+            "BTU and gallon coverage vary by model. Confirm BTU, voltage, and pool gallon "
+            "rating on the retailer page before you buy.",
+        ),
+        (
+            "What should I confirm on the listing?",
+            "Confirm BTU, voltage, and pool gallon rating on the retailer page.",
+        ),
+    ],
+    "kitchen-rugs": [
+        (
+            "Washable kitchen rug or a runner?",
+            "This shortlist is kitchen rugs and runners — not bath mats sold as kitchen "
+            "décor alone. Confirm size, wash method, and non-slip backing on the listing.",
+        ),
+        (
+            "What size kitchen rug do I need?",
+            "Size is listing-specific. We do not invent a padded Top 10 when a verified "
+            "retail track is missing. Confirm width and length on the retailer page.",
+        ),
+        (
+            "Can I machine-wash these kitchen rugs?",
+            "Wash method varies by model. Confirm size, wash method, and non-slip backing "
+            "on the retailer page before you buy.",
+        ),
+        (
+            "What should I confirm on the listing?",
+            "Confirm size, wash method, and non-slip backing on the retailer page.",
+        ),
+    ],
+    "light-therapy": [
+        (
+            "Red light mat or a panel?",
+            "This shortlist is red and near-infrared light therapy mats, panels, and masks "
+            "— not generic desk lamps. Confirm wavelength and session notes on the listing.",
+        ),
+        (
+            "Do I need 660nm and 850nm together?",
+            "Wavelengths are listing-specific. We do not invent a padded Top 10 when a "
+            "verified retail track is missing. Confirm the listed wavelengths before you buy.",
+        ),
+        (
+            "Is a face mask enough, or do I need a full-body mat?",
+            "Coverage varies by form factor. Confirm wavelength, session notes, and return "
+            "window on the retailer page.",
+        ),
+        (
+            "What should I confirm on the listing?",
+            "Confirm wavelength, session notes, and return window on the retailer page.",
+        ),
+    ],
+    "bike-racks": [
+        (
+            "Hitch-mount bike rack or a garage stand?",
+            "This shortlist is hitch-mount and garage bike racks — not spare straps or "
+            "hitch balls alone. Confirm hitch class, bike count, and weight rating.",
+        ),
+        (
+            "How many bikes will the rack hold?",
+            "Bike count and tire width are listing-specific. We do not invent a padded "
+            "Top 10 when a verified retail track is missing. Confirm those notes on the listing.",
+        ),
+        (
+            "Will it fit an e-bike?",
+            "Weight ratings vary. Confirm hitch class, bike count, and weight rating on "
+            "the retailer page before you buy.",
+        ),
+        (
+            "What should I confirm on the listing?",
+            "Confirm hitch class, bike count, and weight rating on the retailer page.",
+        ),
+    ],
+    "nightstands": [
+        (
+            "Set of two nightstands or a single?",
+            "This shortlist is bedside nightstands — not mattress toppers or lamp-only "
+            "accessories. Confirm dimensions, drawer count, and whether the offer is a pair.",
+        ),
+        (
+            "Do I need charging ports or LED lighting?",
+            "Extras are listing-specific. We do not invent a padded Top 10 when a verified "
+            "retail track is missing. Confirm those features on the retailer page.",
+        ),
+        (
+            "What height should a nightstand be?",
+            "Height and drawer count vary by model. Confirm dimensions, drawer count, and "
+            "assembly notes on the retailer page.",
+        ),
+        (
+            "What should I confirm on the listing?",
+            "Confirm dimensions, drawer count, and assembly notes on the retailer page.",
+        ),
+    ],
+    "3d-printing-filament": [
+        (
+            "PLA, ABS, or carbon-fiber nylon?",
+            "This shortlist is 3D printer filament spools — not printers, nozzles, or spare "
+            "parts alone. Confirm material type, diameter, and spool weight on the listing.",
+        ),
+        (
+            "Is 1.75mm the right diameter?",
+            "Diameter and material are listing-specific. We do not invent a padded Top 10 "
+            "when a verified retail track is missing. Confirm both on the retailer page.",
+        ),
+        (
+            "What spool weight should I buy?",
+            "Spool weight varies by offer. Confirm material type, diameter, and spool "
+            "weight on the retailer page before you buy.",
+        ),
+        (
+            "What should I confirm on the listing?",
+            "Confirm material type, diameter, and spool weight on the retailer page.",
+        ),
+    ],
+    "robotic-pool-cleaners": [
+        (
+            "Cordless robotic pool cleaner or a corded vac?",
+            "This shortlist is cordless robotic pool vacuums — not hoses, bags, or skimmer "
+            "accessories alone. Confirm pool type and runtime on the retailer page.",
+        ),
+        (
+            "Will it clean walls and the waterline?",
+            "Coverage notes are listing-specific. We do not invent a padded Top 10 when a "
+            "verified retail track is missing. Confirm floor, wall, and waterline claims.",
+        ),
+        (
+            "Inground or above-ground pool?",
+            "Pool type and runtime vary by model. Confirm pool type, cordless runtime, and "
+            "coverage notes on the retailer page.",
+        ),
+        (
+            "What should I confirm on the listing?",
+            "Confirm pool type, cordless runtime, and coverage notes on the retailer page.",
+        ),
+    ],
+    "barstools": [
+        (
+            "Counter-height or bar-height stools?",
+            "This shortlist is counter-height and bar-height stools — not table-only or "
+            "cushion-only accessories. Confirm seat height and set count on the listing.",
+        ),
+        (
+            "Do I need a set of two or four?",
+            "Set count is listing-specific. We do not invent a padded Top 10 when a "
+            "verified retail track is missing. Confirm how many stools ship in the box.",
+        ),
+        (
+            "Swivel seat or a fixed stool?",
+            "Swivel and weight ratings vary. Confirm seat height, set count, and weight "
+            "rating on the retailer page before you buy.",
+        ),
+        (
+            "What should I confirm on the listing?",
+            "Confirm seat height, set count, and weight rating on the retailer page.",
+        ),
+    ],
+    "docking-stations": [
+        (
+            "USB-C dock or a KVM switch?",
+            "This shortlist is USB-C and KVM laptop docking stations — not spare cables or "
+            "dongles alone. Confirm monitor count and ports on the retailer page.",
+        ),
+        (
+            "How many monitors can I run?",
+            "Monitor count and resolution are listing-specific. We do not invent a padded "
+            "Top 10 when a verified retail track is missing. Confirm those notes on the listing.",
+        ),
+        (
+            "Will it charge my laptop?",
+            "Power delivery and ports vary. Confirm monitor count, ports, and laptop "
+            "compatibility on the retailer page before you buy.",
+        ),
+        (
+            "What should I confirm on the listing?",
+            "Confirm monitor count, ports, and laptop compatibility on the retailer page.",
+        ),
+    ],
+    "bookcases": [
+        (
+            "Open shelves or glass-door storage?",
+            "This shortlist is tall bookcases and display storage cabinets — not floating "
+            "shelves or bookends alone. Confirm height and shelf rating on the listing.",
+        ),
+        (
+            "Do I need adjustable shelves?",
+            "Shelf style is listing-specific. We do not invent a padded Top 10 when a "
+            "verified retail track is missing. Confirm height and shelf notes on the listing.",
+        ),
+        (
+            "What height bookcase fits my room?",
+            "Height and assembly vary by model. Confirm height, shelf rating, and assembly "
+            "notes on the retailer page before you buy.",
+        ),
+        (
+            "What should I confirm on the listing?",
+            "Confirm height, shelf rating, and assembly notes on the retailer page.",
+        ),
+    ],
 }
 
 LANDING_FAQ_BLOCK = re.compile(
