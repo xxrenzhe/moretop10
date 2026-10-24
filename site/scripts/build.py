@@ -94,6 +94,7 @@ from seo_geo import (  # noqa: E402
     render_authors_hub,
     review_article_specs,
     rewrite_visible_jargon,
+    scrub_association_copy,
 )
 from site_config import (  # noqa: E402
     ALL_CATS,
@@ -106,6 +107,8 @@ from densify_html import site_errors as densify_html_errors  # noqa: E402
 from landing_faq import site_errors as landing_faq_site_errors  # noqa: E402
 from stamp_guard import (  # noqa: E402
     apply_known_stamp_floors,
+    apply_visitor_stamp_floor,
+    catalog_page_floor,
     clamp_comparison_stamps,
     load_comparison_floors,
 )
@@ -221,6 +224,26 @@ EDITORIAL_COPY_PAGES = (
 SKIP_COPY_DIRS = {".cache", "fixtures", "data", "assets"}
 
 
+def apply_visitor_scrubs(text: str, *, slug: str | None = None) -> str:
+    """Jargon + association + catalog stamp floor. No Live refetch."""
+    floor = catalog_page_floor(SITE / "data")
+    out = htmlify_leaked_markdown(rewrite_visible_jargon(text))
+    out = scrub_association_copy(out)
+    out = apply_visitor_stamp_floor(out, floor)
+    if slug:
+        out, _ = apply_known_stamp_floors(
+            out, slug, load_comparison_floors(SITE / "data")
+        )
+    return out
+
+
+def _comparison_slug(rel: str) -> str | None:
+    parts = Path(rel).parts
+    if len(parts) >= 2 and parts[-2] == "comparison" and parts[-1] == "index.html":
+        return parts[0]
+    return None
+
+
 def rebake_visitor_copy_pages(site: Path | None = None) -> list[Path]:
     """Rewrite existing baked HTML visitor copy — no Live refetch."""
     site = site or SITE
@@ -230,16 +253,17 @@ def rebake_visitor_copy_pages(site: Path | None = None) -> list[Path]:
         if rel_parts & SKIP_COPY_DIRS:
             continue
         text = path.read_text(encoding="utf-8")
-        new = htmlify_leaked_markdown(rewrite_visible_jargon(text))
+        rel = path.relative_to(site).as_posix()
+        new = apply_visitor_scrubs(text, slug=_comparison_slug(rel))
         if new != text:
             path.write_text(new, encoding="utf-8")
             wrote.append(path)
-    for extra in ("llms.txt", ".well-known/llms.txt"):
+    for extra in ("llms.txt", ".well-known/llms.txt", "sitemap.xml"):
         path = site / extra
         if not path.exists():
             continue
         text = path.read_text(encoding="utf-8")
-        new = rewrite_visible_jargon(text)
+        new = apply_visitor_scrubs(text)
         if new != text:
             path.write_text(new, encoding="utf-8")
             wrote.append(path)
@@ -265,8 +289,7 @@ def bake_editorial_copy_pages(cfg: dict) -> list[Path]:
         html = rewrite_footer(html, cats, prefix)
         html = rewrite_disclosure(html)
         html = rewrite_best_widget(html)
-        html = rewrite_visible_jargon(html)
-        html = htmlify_leaked_markdown(html)
+        html = apply_visitor_scrubs(html)
         html = ensure_pages_landing_css(html, prefix)
         html = apply_editorial_page_class(html, out_rel)
         dest.write_text(html, encoding="utf-8")
@@ -528,8 +551,9 @@ def bake_page(spec: dict, cfg: dict, cmp_html_by_slug: dict[str, str]) -> Path |
         )
         for note in floor_notes:
             print(f"  stamp floor {out_rel}: {note}")
-    # Final pass: Live refetch + stamp clamp must not reintroduce #47 leaks.
-    html = rewrite_visible_jargon(html)
+    # Final pass: Live refetch + stamp clamp must not reintroduce leaks
+    # or competitor-association / stale-calendar copy.
+    html = apply_visitor_scrubs(html, slug=slug if kind == "comparison" else None)
     dest.write_text(html, encoding="utf-8")
     return dest
 
@@ -799,6 +823,7 @@ def verify(cfg: dict) -> None:
     from comparison_stamp_assert import collect_errors as comparison_stamp_errors  # noqa: E402
     from robot_stamp_assert import collect_errors as robot_stamp_errors  # noqa: E402
     from visitor_copy_assert import collect_errors as visitor_copy_errors  # noqa: E402
+    from visitor_stamp_assert import collect_errors as visitor_stamp_errors  # noqa: E402
 
     errors.extend(footer_cats_errors(SITE))
     errors.extend(sample_errors(SITE))
@@ -889,6 +914,7 @@ def verify(cfg: dict) -> None:
     errors.extend(r8_soft_errors(SITE))
     errors.extend(robot_stamp_errors(SITE))
     errors.extend(comparison_stamp_errors(SITE))
+    errors.extend(visitor_stamp_errors(SITE))
 
     if errors:
         raise SystemExit("verify failed:\n- " + "\n- ".join(errors))

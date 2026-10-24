@@ -53,7 +53,9 @@ from seo_geo import LIVE, ROBOTS_NOINDEX, dumps_ld, rewrite_visible_jargon, set_
 from site_config import load_site_config  # noqa: E402
 
 TEMPLATE = SITE / "humidifiers" / "best-humidifiers-for-bedrooms" / "index.html"
-DATE = "2026-10-23"
+from stamp_guard import bake_stamp_date  # noqa: E402
+
+DATE = bake_stamp_date("2026-10-23")
 DRAFT_COMMENT = (
     "<!-- waiting_for_部署上线: yes. P4 scenario best-of draft only. "
     "Do not merge. Do not Cloudflare Live deploy. published=false. -->"

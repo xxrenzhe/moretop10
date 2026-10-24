@@ -55,7 +55,9 @@ from bake_p4_scenario import (  # noqa: E402
 )
 from seo_geo import LIVE, ROBOTS_NOINDEX, rewrite_visible_jargon, set_robots_meta  # noqa: E402
 
-DATE = "2026-10-23"
+from stamp_guard import bake_stamp_date  # noqa: E402
+
+DATE = bake_stamp_date("2026-10-23")
 DRAFT_COMMENT = (
     "<!-- waiting_for_部署上线: yes. P5a scenario best-of draft only. "
     "Do not merge. Do not Cloudflare Live deploy. published=false. -->"

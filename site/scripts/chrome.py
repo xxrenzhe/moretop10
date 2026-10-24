@@ -485,6 +485,33 @@ def rewrite_non_home_nav(page: str, cats: list[dict[str, Any]], prefix: str) -> 
     return rewrite_nav(page, cats, prefix)
 
 
+# Visitor footer copyright — independent brand facts only. Never name
+# Top10.com / Natural Intelligence (including in a denial).
+FOOTER_COPYRIGHT = "© 2026 MoreTop10. Independent comparison brand."
+_OLD_FOOTER_COPYRIGHT = (
+    "© 2026 MoreTop10. Independent brand — not affiliated with "
+    "Top10.com or Natural Intelligence Ltd."
+)
+_FOOTER_COPYRIGHT_RE = re.compile(
+    r"(<div class=\"container footer-legal\">\s*(?:<p>.*?</p>\s*)*<p>)"
+    r"©\s*20\d{2}\s*MoreTop10\.[^<]*(</p>)",
+    re.S,
+)
+
+
+def rewrite_footer_copyright(page: str) -> str:
+    """Replace association-denial copyright with the chrome SoT line."""
+    if _OLD_FOOTER_COPYRIGHT in page:
+        page = page.replace(_OLD_FOOTER_COPYRIGHT, FOOTER_COPYRIGHT)
+    if "footer-legal" in page and FOOTER_COPYRIGHT not in page:
+
+        def _repl(match: re.Match[str]) -> str:
+            return f"{match.group(1)}{FOOTER_COPYRIGHT}{match.group(2)}"
+
+        page = _FOOTER_COPYRIGHT_RE.sub(_repl, page, count=1)
+    return page
+
+
 def rewrite_footer(page: str, cats: list[dict[str, Any]], prefix: str) -> str:
     from site_config import EDITORIAL_CLUSTERS
 
@@ -494,7 +521,7 @@ def rewrite_footer(page: str, cats: list[dict[str, Any]], prefix: str) -> str:
     company_col = render_footer_company(prefix)
     if _COMPANY_COL_RE.search(page):
         page = _COMPANY_COL_RE.sub(company_col, page, count=1)
-    return page
+    return rewrite_footer_copyright(page)
 
 
 TV_HOME_TILE = (

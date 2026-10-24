@@ -35,8 +35,10 @@ ROOT = Path(__file__).resolve().parents[2]
 SITE = ROOT / "site"
 SHORTLIST = SITE / "data" / "shortlist-tv.json"
 MODELS_SNAPSHOT = SITE / "data" / "tv-supported-models.json"
-UPDATED = "2026-10-22"
-L1_UPDATED = "2026-10-23"
+from stamp_guard import bake_stamp_date  # noqa: E402
+
+UPDATED = bake_stamp_date("2026-10-22")
+L1_UPDATED = bake_stamp_date("2026-10-23")
 LIVE = "https://moretop10.com"
 CTA_LABEL = "Check price"
 # Live Google TV hero (ASIN B0F1DRNWP7 Hisense 55" U8). Same Amazon CDN

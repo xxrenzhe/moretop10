@@ -50,7 +50,9 @@ from seo_geo import (  # noqa: E402
 )
 from site_config import load_site_config  # noqa: E402
 
-DATE = "2026-10-23"
+from stamp_guard import bake_stamp_date  # noqa: E402
+
+DATE = bake_stamp_date("2026-10-23")
 TEMPLATE = SITE / "humidifiers" / "best-humidifiers-for-bedrooms" / "index.html"
 DRAFT_COMMENT = (
     "<!-- waiting_for_部署上线: yes. P1b draft only. Do not merge. "

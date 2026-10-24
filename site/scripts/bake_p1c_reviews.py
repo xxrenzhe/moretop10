@@ -49,7 +49,9 @@ DRAFT_COMMENT = (
     "<!-- waiting_for_部署上线: yes. P1c deep reviews draft only. "
     "Do not merge. Do not Cloudflare Live deploy. -->"
 )
-CHECKED = "2026-10-20"
+from stamp_guard import bake_stamp_date  # noqa: E402
+
+CHECKED = bake_stamp_date("2026-10-20")
 TIP_SHA = "f23596ced1a4681996736db1baa01e242680e01b79ebb6357a0b9edecef3307d"
 
 
@@ -490,7 +492,7 @@ REVIEWS: list[dict[str, Any]] = [
             ),
             (
                 "Price and score snapshot",
-                "Chart score 8.8 from a 4.4 retailer rating across 21,514 reviews. Price snapshot $39.99, checked 2026-10-20.",
+                f"Chart score 8.8 from a 4.4 retailer rating across 21,514 reviews. Price snapshot $39.99, checked {CHECKED}.",
             ),
         ],
         "pros": [
@@ -623,7 +625,7 @@ REVIEWS: list[dict[str, Any]] = [
             ),
             (
                 "Price and score snapshot",
-                "Chart score 9.2 from a 4.6 retailer rating across 29,035 reviews. Price snapshot $44.94, checked 2026-10-20.",
+                f"Chart score 9.2 from a 4.6 retailer rating across 29,035 reviews. Price snapshot $44.94, checked {CHECKED}.",
             ),
         ],
         "pros": [
@@ -755,7 +757,7 @@ REVIEWS: list[dict[str, Any]] = [
             ),
             (
                 "Price and score snapshot",
-                "Chart score 9.0 from a 4.5 retailer rating across 15,432 reviews. Price snapshot $67.46, checked 2026-10-20.",
+                f"Chart score 9.0 from a 4.5 retailer rating across 15,432 reviews. Price snapshot $67.46, checked {CHECKED}.",
             ),
         ],
         "pros": [

@@ -28,14 +28,19 @@ import re
 import struct
 import zlib
 from pathlib import Path
+import sys
 
 ROOT = Path(__file__).resolve().parents[2]
 SITE = ROOT / "site"
 SCRIPTS = Path(__file__).resolve().parent
 DATA = SITE / "data"
+if str(SCRIPTS) not in sys.path:
+    sys.path.insert(0, str(SCRIPTS))
 DEFAULT_BATCH = DATA / "day-add-open-batch-2026-10-23.json"
 DENSITY = 10
-DATE = "2026-10-23"
+from stamp_guard import bake_stamp_date  # noqa: E402
+
+DATE = bake_stamp_date("2026-10-23")
 
 # Visitor-safe confirm lines (also in watchouts.CATEGORY_CONFIRM).
 CONFIRM = {

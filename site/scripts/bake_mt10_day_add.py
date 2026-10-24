@@ -66,7 +66,9 @@ from seo_geo import (  # noqa: E402
 )
 from site_config import load_site_config  # noqa: E402
 
-DATE = "2026-10-24"
+from stamp_guard import bake_stamp_date  # noqa: E402
+
+DATE = bake_stamp_date("2026-10-24")
 DRAFT_COMMENT = (
     "<!-- waiting_for_部署上线: yes. MT10 day-add draft only. "
     "Do not merge. Do not Cloudflare Live deploy. published=false. -->"

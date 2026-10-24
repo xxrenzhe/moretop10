@@ -13,6 +13,9 @@ from stamp_guard import (  # noqa: E402
     apply_card_checked_floors,
     apply_known_stamp_floors,
     apply_page_stamp_floor,
+    apply_visitor_stamp_floor,
+    bake_stamp_date,
+    catalog_page_floor,
     clamp_comparison_stamps,
     extract_card_checked,
     extract_page_stamps,
@@ -142,6 +145,41 @@ def main() -> int:
     skipped, skip_notes = apply_known_stamp_floors(fry, "unknown-hub", {"air-fryers": {}})
     if skipped != fry or skip_notes:
         errors.append("apply_known_stamp_floors must no-op unknown slugs")
+
+    floor = catalog_page_floor()
+    if floor != "2026-10-24":
+        errors.append(f"catalog_page_floor expected 2026-10-24 got {floor}")
+    if bake_stamp_date("2026-10-20") != floor:
+        errors.append("bake_stamp_date must raise a hardcoded default to catalog floor")
+    if bake_stamp_date("2026-10-25") != "2026-10-25":
+        errors.append("bake_stamp_date must keep a later day-update")
+
+    mixed = (
+        '<p>Prices are publish-time snapshots (Last Updated 2026-10-20)—always check.</p>'
+        '<p>The $89.95 figure is a publish-time snapshot (price checked 2026-10-18).</p>'
+        f'<span class="pc-price-checked">Checked 2026-10-18</span>'
+        f'<span class="ed-pick-date">2026-10-20</span>'
+        "<lastmod>2026-10-22</lastmod>"
+        "<lastmod>2026-10-22T23:25:47+00:00</lastmod>"
+        "<p>Prices as of 2026-10-22.</p>"
+        f'<aside>(last checked 2026-10-23)</aside>'
+        f'<span class="badge">Last Updated: 2026-10-24</span>'
+    )
+    raised = apply_visitor_stamp_floor(mixed, floor)
+    if "Last Updated 2026-10-20" in raised or "Checked 2026-10-18" in raised:
+        errors.append("apply_visitor_stamp_floor must raise FAQ/card dates")
+    if "price checked 2026-10-18" in raised:
+        errors.append("apply_visitor_stamp_floor must raise price-checked FAQ dates")
+    if "<lastmod>2026-10-22</lastmod>" in raised:
+        errors.append("apply_visitor_stamp_floor must raise sitemap lastmod")
+    if "<lastmod>2026-10-22T23:25:47+00:00</lastmod>" in raised:
+        errors.append("apply_visitor_stamp_floor must raise lastmod datetimes")
+    if "Prices as of 2026-10-22" in raised:
+        errors.append("apply_visitor_stamp_floor must raise lowercase as-of prices")
+    if f"Last Updated: {floor}" not in raised:
+        errors.append("apply_visitor_stamp_floor must keep dates already on the floor")
+    if apply_visitor_stamp_floor(raised, "2026-10-20") != raised:
+        errors.append("apply_visitor_stamp_floor must never roll a date backward")
 
     if errors:
         print("stamp_guard_unit failed:")

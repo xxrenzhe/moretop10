@@ -11,13 +11,16 @@ sys.path.insert(0, str(ROOT / "site" / "scripts"))
 
 from seo_geo import (  # noqa: E402
     AMAZON_DISCLAIMER,
+    ASSOCIATION_RE,
     EDITORIAL_ONLY,
+    HOME_FAQ_SNAPSHOT_PHRASE,
     PUBLISH_RULE,
     RETAILER_CONFIRM,
     UNPUBLISHED_UNTIL_TEN,
     VISITOR_LEAK_RE,
     html_without_ld_json,
     rewrite_visible_jargon,
+    scrub_association_copy,
     scrub_jargon,
 )
 
@@ -247,6 +250,43 @@ def main() -> int:
         errors.append("body still has visible ASIN prose")
     if PUBLISH_RULE not in ld_out:
         errors.append("rewrote approved #35 price snapshot phrase")
+
+    assoc_html = (
+        '<p>© 2026 MoreTop10. Independent brand — not affiliated with '
+        "Top10.com or Natural Intelligence Ltd.</p>"
+        "<details><summary>Are you related to Top10.com?</summary>"
+        "<p>No. MoreTop10 is an independent brand. We are not affiliated "
+        "with Natural Intelligence Ltd. or Top10.com.</p></details>"
+        '<script type="application/ld+json">'
+        '{"@type":"FAQPage","mainEntity":['
+        '{"@type":"Question","name":"Do you sell products?",'
+        '"acceptedAnswer":{"@type":"Answer","text":"No. MoreTop10 is a comparison and review site."}},'
+        '{"@type":"Question","name":"Are you related to Top10.com?",'
+        '"acceptedAnswer":{"@type":"Answer","text":"No. We are not affiliated with Top10.com."}}'
+        "]}</script>"
+        "<p>Prices are publish-time snapshots (Last Updated 2026-10-20)—always Always "
+        "double-check price and stock on Amazon before you buy.</p>"
+        '{"text":"Prices are publish-time snapshots (Last Updated 2026-10-20)—always '
+        'confirm on the retailer page."}'
+        "<p>Contact hello@moretop10.com or visit https://moretop10.com/about-us/.</p>"
+    )
+    assoc_out = scrub_association_copy(assoc_html)
+    if ASSOCIATION_RE.search(assoc_out):
+        errors.append("association scrub left Top10.com / Natural Intelligence")
+    if "Are you related" in assoc_out:
+        errors.append("association scrub left the related-to FAQ")
+    if HOME_FAQ_SNAPSHOT_PHRASE not in assoc_out:
+        errors.append("association scrub missed frozen home FAQ date")
+    if "Last Updated 2026-10-20" in assoc_out or "Last Updated 2026-10-24" in assoc_out:
+        errors.append("association scrub left a frozen home FAQ calendar day")
+    if "moretop10.com" not in assoc_out or "hello@moretop10.com" not in assoc_out:
+        errors.append("association scrub rewrote moretop10.com host/email")
+    if "Independent comparison brand." not in assoc_out:
+        errors.append("footer copyright SoT missing after association scrub")
+    if ASSOCIATION_RE.search("https://moretop10.com/about-us/"):
+        errors.append("ASSOCIATION_RE flagged moretop10.com")
+    if not ASSOCIATION_RE.search("Top10.com"):
+        errors.append("ASSOCIATION_RE missed Top10.com")
 
     if errors:
         print("visitor_copy_unit failed:")

@@ -10,7 +10,7 @@ ROOT = Path(__file__).resolve().parents[1]
 SITE = ROOT / "site"
 sys.path.insert(0, str(ROOT / "site" / "scripts"))
 
-from seo_geo import VISITOR_LEAK_RE, html_without_ld_json  # noqa: E402
+from seo_geo import ASSOCIATION_RE, VISITOR_LEAK_RE, html_without_ld_json  # noqa: E402
 
 SKIP = {".cache", "fixtures", "data", "assets"}
 
@@ -26,12 +26,16 @@ def collect_errors(site: Path | None = None) -> list[str]:
             continue
         if path.suffix not in {".html", ".txt"}:
             continue
-        text = path.read_text(encoding="utf-8")
-        if path.suffix == ".html":
-            text = html_without_ld_json(text)
+        raw = path.read_text(encoding="utf-8")
+        text = html_without_ld_json(raw) if path.suffix == ".html" else raw
         hit = VISITOR_LEAK_RE.search(text)
         if hit:
             errors.append(f"{path.relative_to(site)} still has {hit.group(0)!r}")
+        assoc = ASSOCIATION_RE.search(raw)
+        if assoc:
+            errors.append(
+                f"{path.relative_to(site)} still names {assoc.group(0)!r}"
+            )
     return errors
 
 
