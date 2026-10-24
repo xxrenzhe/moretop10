@@ -161,11 +161,28 @@ def render_footer_cats(
         slug = cluster["slug"]
         label = _esc(cluster.get("short_name") or cluster["name"])
         items.append(f'<li><a href="{overview_href(prefix, slug)}">{label}</a></li>')
-    items.append(f'<li><a href="{prefix}blog/">Blog</a></li>')
-    items.append(f'<li><a href="{prefix}sitemap/">Sitemap</a></li>')
     return (
         '<div class="footer-col footer-col-cats">\n'
         "      <h2>Categories</h2>\n"
+        "      <ul>\n        "
+        + "\n        ".join(items)
+        + "\n      </ul>\n    </div>"
+    )
+
+
+def render_footer_company(prefix: str) -> str:
+    """Company column: existing About/Editors/Partner/Contact, then Blog + Sitemap."""
+    items = [
+        f'<li><a href="{prefix}about-us/">About Us</a></li>',
+        f'<li><a href="{prefix}authors/">Editors</a></li>',
+        f'<li><a href="{prefix}partner-with-us/">Partner With Us</a></li>',
+        f'<li><a href="{prefix}contact/">Contact</a></li>',
+        f'<li><a href="{prefix}blog/">Blog</a></li>',
+        f'<li><a href="{prefix}sitemap/">Sitemap</a></li>',
+    ]
+    return (
+        '<div class="footer-col">\n'
+        "      <h2>Company</h2>\n"
         "      <ul>\n        "
         + "\n        ".join(items)
         + "\n      </ul>\n    </div>"
@@ -272,6 +289,10 @@ _MOBILE_NAV_RE = re.compile(
 _HEADER_CLASS_RE = re.compile(r'<header class="site-header(?: site-header-home)?"')
 _EXPLORE_COL_RE = re.compile(
     r'<div class="footer-col(?: footer-col-cats| footer-col-categories)?">\s*<h2>(?:Explore|Categories)</h2>\s*<ul>.*?</ul>\s*</div>',
+    re.S,
+)
+_COMPANY_COL_RE = re.compile(
+    r'<div class="footer-col(?: footer-col-company)?">\s*<h2>Company</h2>\s*<ul>.*?</ul>\s*</div>',
     re.S,
 )
 _COMPARE_CTA_RE = re.compile(
@@ -467,9 +488,12 @@ def rewrite_non_home_nav(page: str, cats: list[dict[str, Any]], prefix: str) -> 
 def rewrite_footer(page: str, cats: list[dict[str, Any]], prefix: str) -> str:
     from site_config import EDITORIAL_CLUSTERS
 
-    col = render_footer_cats(cats, prefix, editorial=EDITORIAL_CLUSTERS)
+    cats_col = render_footer_cats(cats, prefix, editorial=EDITORIAL_CLUSTERS)
     if _EXPLORE_COL_RE.search(page):
-        return _EXPLORE_COL_RE.sub(col, page, count=1)
+        page = _EXPLORE_COL_RE.sub(cats_col, page, count=1)
+    company_col = render_footer_company(prefix)
+    if _COMPANY_COL_RE.search(page):
+        page = _COMPANY_COL_RE.sub(company_col, page, count=1)
     return page
 
 

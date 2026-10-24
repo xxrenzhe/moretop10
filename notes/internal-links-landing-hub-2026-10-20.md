@@ -27,7 +27,7 @@ Product cards / ASINs are copied from Live snapshots. Nothing is invented here.
 ## Rules
 
 1. **Desktop mega (non-home):** Under Compare, every `ALL_CATS` row is `{name} overview` → `/{slug}/` plus Compare → `/{slug}/comparison/`. Reviews mega still lists review hubs. Same pairing in mobile Compare `<details>`.
-2. **Footer:** Explore/Categories column lists **all** `ALL_CATS` landings (plus Home / Blog / Sitemap). No curated short list.
+2. **Footer:** Explore/Categories column lists **all** `ALL_CATS` landings (plus Home). Blog and Sitemap live under **Company** (after Contact). No curated short list.
 3. **Home grid:** tiles with `tier: extended` or `published` are pinned to the front; `is-more` still applies when `i >= home_visible_tiles` (8). `kids-bikes` is `tier: extended`, so it is tile 0 — not slot 11 behind Show more.
 4. **Hub reciprocity:** `comparison/` and `reviews/` get a Related cluster (`Category overview` / `Full guide` → `../`). Reviews breadcrumb + foot also point at the landing.
 
