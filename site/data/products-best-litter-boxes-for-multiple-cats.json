@@ -1,0 +1,45 @@
+{
+  "path": "/litter-boxes/best-litter-boxes-for-multiple-cats/",
+  "published": false,
+  "fill_status": "filled",
+  "waiting_for_部署上线": true,
+  "stub": false,
+  "products": [
+    {
+      "asin": "B0GL7DLPZ4",
+      "title": "PetPivot Open Top Self Cleaning Cat Litter Box, Automatic Litter Box with 7 Pairs of Safety Sensors, Anti-Pinch Protection and Easy Access Step for Senior Cats, White Grey",
+      "role": "Top pick",
+      "brand": "PetPivot",
+      "track_url": "https://pboost.me/A5QNzthD?uid=fromsll",
+      "price": "159.99",
+      "price_str": "$159.99"
+    },
+    {
+      "asin": "B0HFM3ZC3Q",
+      "title": "Neakasa M9 Automatic Cat Litter Box with 2-Year Protection Plan",
+      "role": "Upgrade",
+      "brand": "Neakasa",
+      "track_url": "https://pboost.me/Y5SRy3v3?uid=fromsll",
+      "price": "459.99",
+      "price_str": "$459.99"
+    },
+    {
+      "asin": "B0DCFY8SB4",
+      "title": "Neakasa M1 Plus Open-Top Self Cleaning Cat Litter Box with Cat Step",
+      "role": "Best value",
+      "brand": "Neakasa",
+      "track_url": "https://pboost.me/n5SRaHTvC?uid=fromsll",
+      "price": "436.98",
+      "price_str": "$436.98"
+    },
+    {
+      "asin": "B0DWFF7Z4N",
+      "title": "Neakasa M1 Open-Top Self Cleaning Cat Litter Box with P1 Pro Pet Grooming Kit",
+      "role": "Premium",
+      "brand": "Neakasa",
+      "track_url": "https://pboost.me/f5SRd3gwd?uid=fromsll",
+      "price": "421.93",
+      "price_str": "$421.93"
+    }
+  ]
+}
